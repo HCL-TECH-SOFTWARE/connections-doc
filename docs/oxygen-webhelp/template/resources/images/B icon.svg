@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="405px" height="406px" viewBox="0 0 405 406" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>B icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BigFix_logo" fill-rule="nonzero">
+            <g id="B-icon">
+                <ellipse id="Oval" fill="#FFFFFF" cx="202.5" cy="203" rx="202.5" ry="203"></ellipse>
+                <path d="M202.5,0 C187.372174,0 175.432462,1.33037155 161.251592,4.47446606 L161.251592,95.329208 C177.108398,90.2324219 185.810547,88 202.5,88 C275.239645,88 322.302152,150.817097 317.897658,210.964213 C313.493164,271.111328 265.1875,318.79286 202.5,318.79286 C139.8125,318.79286 92.1738281,270.801758 87.0434783,210.964213 L88.0434783,35.7730718 C34.8886957,72.3417918 0,133.639874 0,203.123578 C0,315.166247 90.6573913,406 202.5,406 C314.342609,406 405,315.166247 405,203.123578 C405,91.0730681 314.342609,0 202.5,0 Z" id="Path" fill="#6F99BD"></path>
+                <circle id="Oval" fill="#ABC450" cx="203" cy="203" r="53"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

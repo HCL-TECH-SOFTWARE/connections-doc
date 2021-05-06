@@ -1,0 +1,25 @@
+<html><head><title>multi-clusters- make sure set-  Trusted authentication realms - outbound</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" ><STYLE type="text/css">TABLE { border-collapse: collapse; border-top: 1px; border-left: 1px; border-style: solid; margin: 4px; }TD, TH { border-bottom: 1px; border-right: 1px; border-style: solid; padding: 4px; }TH { background-color: #D8D8D8; }</STYLE></head><body><div sandbox="allow-same-origin allow-scripts allow-popups"><p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">make sure set&nbsp;<a href="https://mtdemo1.cnx.cwp.pnp-hcl.com:9043/ibm/console/com.ibm.ws.console.security.forwardCmd.do?csrfid=1660057540&amp;forwardName=AdminSecurity.config.view">Global security</a> &gt; <a href="https://mtdemo1.cnx.cwp.pnp-hcl.com:9043/ibm/console/com.ibm.ws.console.security.forwardCmd.do?csrfid=1660057540&amp;forwardName=CSIOutbound.config.view&amp;resourceUri=security.xml&amp;parentRefId=Security_1&amp;contextId=cells%3Amtdemo1Cell01&amp;perspective=tab.configuration&amp;lastPage=AdminSecurity.config.view">CSIv2 outbound communications</a> &gt; Trusted authentication realms - outbound to "Trust realms as indicated below" and include the realm you defined in keycloak mapper, see screenshot below.</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr"><img id="1587500586370_0" src="https://apps.na.collabserv.com/wikis/basic/api/wiki/68d8a7de-b173-4838-b5c9-a252a8fee125/page/918cbdac-9af2-478a-b70b-89c7899b10be/attachment/2f1035fe-84fc-43ce-aa29-4f42f0b83052/media/editor_image_b53fe2c5-6e45-41a5-8686-7ffbe0d4e350.png"></img></p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">Note:</p>
+
+<h1 dir="ltr" id="title-bread-crumb"><a href="https://mtdemo1.cnx.cwp.pnp-hcl.com:9043/ibm/console/com.ibm.ws.console.security.forwardCmd.do?csrfid=1660057540&amp;forwardName=AdminSecurity.config.view">Global security</a> &gt; <a href="https://mtdemo1.cnx.cwp.pnp-hcl.com:9043/ibm/console/com.ibm.ws.console.security.forwardCmd.do?csrfid=1660057540&amp;forwardName=CSIInbound.config.view&amp;resourceUri=security.xml&amp;parentRefId=Security_1&amp;contextId=cells%3Amtdemo1Cell01&amp;perspective=tab.configuration&amp;lastPage=AdminSecurity.config.view">CSIv2 inbound communications</a> &gt; Trusted authentication realms - inbound</h1>
+
+<p dir="ltr">has already set and should be the same as when you set it from globe Security.</p>
+
+<p dir="ltr"><img id="1587500824796_0" src="https://apps.na.collabserv.com/wikis/basic/api/wiki/68d8a7de-b173-4838-b5c9-a252a8fee125/page/918cbdac-9af2-478a-b70b-89c7899b10be/attachment/a5f11ddb-adc3-40f2-9413-66229a71afc6/media/editor_image_a2c6baaa-68e4-4af5-8be4-86e3a8e2a2f7.png"></img></p>
+
+<p dir="ltr">&nbsp;</p></div></body></html>

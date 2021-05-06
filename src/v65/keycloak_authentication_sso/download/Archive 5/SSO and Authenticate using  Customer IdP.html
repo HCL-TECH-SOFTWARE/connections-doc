@@ -1,0 +1,35 @@
+<html><head><title>SSO and Authenticate using  Customer IdP</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" ><STYLE type="text/css">TABLE { border-collapse: collapse; border-top: 1px; border-left: 1px; border-style: solid; margin: 4px; }TD, TH { border-bottom: 1px; border-right: 1px; border-style: solid; padding: 4px; }TH { background-color: #D8D8D8; }</STYLE></head><body><div sandbox="allow-same-origin allow-scripts allow-popups"><p dir="ltr">In MT, most of customers have their own IdP to authenticate users so Connections can SSO to customers own applications that use the same IdP.</p>
+
+<p dir="ltr">We can use Keycloak to connect to customer Idp either via SAML or OIDC.</p>
+
+<p dir="ltr"><img lconnwikiparamattachmentname="Idps.png" lconnwikimacro="image" lconnresourcetype="attachment" src="https://apps.na.collabserv.com/wikis/basic/api/wiki/68d8a7de-b173-4838-b5c9-a252a8fee125/page/ccdb31c6-ad30-46e2-9464-508be29be19f/attachment/952bdea0-3b4d-4916-a79c-eb30634c1791/media/Idps.png" lconnwikiparamwikipage="SSO and Authenticate using  Customer IdP" lconnattachedresourcetype="page"></img></p>
+
+<p dir="ltr">By default, user would have to pick which login to use. However we can remove this page by redirect the user to their org's IdP.&nbsp;</p>
+
+<p dir="ltr">This can be done by using <strong sandbox="allow-same-origin allow-scripts allow-popups"><tt sandbox="allow-same-origin allow-scripts allow-popups">kc_idp_hint</tt></strong>. see <a href="https://www.keycloak.org/docs/latest/server_admin/#_client_suggested_idp" rel="nofollow">https://www.keycloak.org/docs/latest/server_admin/#_client_suggested_idp</a></p>
+
+<p dir="ltr">Because redirect URL contains org url, so we can create rewrite rule to map between org to their own IdP.</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr"><a href="https://" rel="nofollow">https://\</a></p>
+
+<p dir="ltr">{KK}/realms/{RM}/protocol/openid-connect/auth?xxxxx&amp;redirect_uri=https%3A%2F%2Fmtdemo1-orgc.cnx.cwp.pnp-hcl.com%3A443%2Foidcclient_apps%2Fkeycloak&amp;yyyyy<br sandbox="allow-same-origin allow-scripts allow-popups" />
+<br sandbox="allow-same-origin allow-scripts allow-popups" />
+to&nbsp;<br sandbox="allow-same-origin allow-scripts allow-popups" />
+<br sandbox="allow-same-origin allow-scripts allow-popups" />
+<a href="https://" rel="nofollow">https://\</a>{KK}</p>
+
+<p dir="ltr">/realms/{RM}/protocol/openid-connect/auth?xxxxx&amp;redirect_uri=https%3A%2F%2Fmtdemo1-orgc.cnx.cwp.pnp-hcl.com%3A443%2Foidcclient_apps%2Fkeycloak&amp;yyyyy&amp;kc_idp_hint=mtdemo1-orgc</p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">Here is an example implementation:</p>
+
+<p dir="ltr">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if ($arg_redirect_uri ~ ^(https.*connmt-orge.*)){<br sandbox="allow-same-origin allow-scripts allow-popups" />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;rewrite ^(/auth/.*)/Azure-OIDC/(\w+\.?.*$) $1/Azure-OIDC/$2?kc_idp_hint=google break;<br sandbox="allow-same-origin allow-scripts allow-popups" />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}</p>
+
+<p dir="ltr">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;if ($arg_redirect_uri ~ ^(https.*connmt-orgf.*)){<br sandbox="allow-same-origin allow-scripts allow-popups" />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;rewrite ^(/auth/.*)/Azure-OIDC/(\w+\.?.*$) $1/Azure-OIDC/$2?kc_idp_hint=connmt-orgf break;<br sandbox="allow-same-origin allow-scripts allow-popups" />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p></div></body></html>

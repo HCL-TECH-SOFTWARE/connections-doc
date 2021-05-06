@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Setting HCL Connections server preferences" />
+<meta name="abstract" content="You can provide your HCL Connections password or specify the address of the server in the Connections preferences page." />
+<meta name="Description" content="You can provide your HCL Connections password or specify the address of the server in the Connections preferences page." />
+<meta name="DC.Relation" scheme="URI" content="r_oa_t_setting_activities_preferences.html" />
+<meta name="DC.Relation" scheme="URI" content="r_oa_t_setting_security_preferences.html" />
+<meta name="DC.Relation" scheme="URI" content="r_oa_t_setting_activities_display_preferences.html" />
+<meta name="DC.Relation" scheme="URI" content="r_oa_t_specifying_how_activity_items_open.html" />
+<meta name="DC.Relation" scheme="URI" content="r_oa_t_setting_sync_preferences.html" />
+<meta name="copyright" content="© Copyright HCL Technologies Limited 2006, 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright HCL Technologies Limited 2006, 2020" />
+<meta name="copyright" content="© Copyright HCL Technologies Limited 2007, 2020" />
+<meta name="DC.Rights.Owner" content="© Copyright HCL Technologies Limited 2007, 2020" />
+<meta name="DC.Date" scheme="iso8601" content="2012-12-07" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="r_oa_t_setting_activities_preferences" />
+<meta name="DC.Language" content="en-us" />
+<meta name="HCL.Country" content="ZZ" />
+<!-- Licensed Materials Property of HCL -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with HCL Technologies Limited -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="./swg_info_domino.css" />
+<link rel="Start" href="r_oa_t_setting_activities_preferences.html" />
+<title>Setting HCL Connections server preferences</title>
+</head>
+<body role="main" id="r_oa_t_setting_activities_preferences">
+<hr />
+<h1 class="title topictitle1">Setting HCL Connections
+server preferences</h1>
+<div class="body taskbody"><p class="shortdesc">You can provide your HCL® Connections
+password or specify the address of the server in the <span class="ph uicontrol">Connections</span> preferences
+page.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>The <span class="ph uicontrol">Connections Server Settings</span> section
+of the preference page contains the information required to log in
+to the Activities panel of the sidebar. To set the server preferences,
+complete the following actions:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Notes® menu,
+select <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Preferences</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Connections</span>. </span></li>
+<li class="li step stepexpand" id="r_oa_t_setting_activities_preferences__act_serv_prefs_step"><span class="ph cmd">Fill in the following fields in
+the Connections Server Settings section:</span> <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d53041e61" class="stentry">Field</th>
+<th valign="bottom" align="left" id="d53041e63" class="stentry">Description</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d53041e61" class="stentry"><span class="ph uicontrol">Server URL</span></td>
+<td valign="top" headers="d53041e63" class="stentry">Type the Web address of the HCL Connections
+server, beginning with either <kbd class="ph userinput">https:// </kbd> or <kbd class="ph userinput">http://</kbd><p class="p">For
+example: <kbd class="ph userinput">https://enterprise.example.com</kbd> </p>
+<p class="p">If
+you know that the server requires a secure, encrypted connection,
+begin the address with <kbd class="ph userinput">https://</kbd></p>
+<p class="p">Some
+administrators change the context roots that are used to access HCL Connections features. If the
+web address that you normally use to access the Activities feature
+has a value other than &lt;server_name&gt;/activities, specify the server
+URL using a syntax similar to this: <kbd class="ph userinput">http://enterprise.example.com/activities</kbd></p>
+<div class="note note"><span class="notetitle">Note:</span> Your
+administrator might have already provided a value for this field using
+an administrative policy. If so, do not change the value.</div>
+</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d53041e61" class="stentry"><span class="ph uicontrol">User name</span></td>
+<td valign="top" headers="d53041e63" class="stentry">Type your user name for logging in to the HCL Connections server.</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d53041e61" class="stentry"><span class="ph uicontrol">User password</span></td>
+<td valign="top" headers="d53041e63" class="stentry">Type the associated password.</td>
+</tr>
+</table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Only required if you are instructed to perform this step by your administrator: If your HCL Connections server is a multi-tenant environment, leave the user name and user password fields empty. Click <span class="ph uicontrol">Advanced</span>, and then select the OAuth option. Make sure the <span class="ph uicontrol">Enforce SSL</span> checkbox is checked, and click <span class="ph uicontrol">OK</span>.  You will see a login dialog popup that is similar to your web login. Use your browser credentials to login here.</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save your changes,
+and then click <span class="ph uicontrol">OK</span> to close the Preferences
+window.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The next time that you use Notes,
+the new settings are used to log you in to HCL Connections automatically.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="r_oa_t_setting_activities_preferences.html" title="You can set preferences to configure the login to the HCL Connections server and to control the default display of the Activities sidebar panel.">Connections preferences</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="r_oa_t_setting_security_preferences.html" title="Use the Advanced Server Settings window to specify the authentication type to use when communicating with the HCL Connections server.">Setting the authentication type</a></div>
+<div><a class="link" href="r_oa_t_setting_activities_display_preferences.html" title="Use the Preferences window to control the following Activities panel behavior: the default view for listing activity entries; the use of a preview pane that displays summary information about items clicked in the Activities panel; and the display of search results.">Setting Activities preferences</a></div>
+<div><a class="link" href="r_oa_t_specifying_how_activity_items_open.html" title="You can set theme preferences to control whether Activities opens items in windows or in tabs.">Setting activity entries to open as tabs or windows</a></div>
+<div><a class="link" href="r_oa_t_setting_sync_preferences.html" title="Set preferences to specify which activities you want to bring offline.">Setting Activities synchronization preferences</a></div>
+</div>
+</div><div class="runningfooter">
+<br clear="none" />
+<hr />
+<a href="https://help.hcltechsw.com/domino/domino_welcome.html" target="_blank" shape="rect">Library</a> |
+<a href="https://support.hcltechsw.com/csm" target="_blank" shape="rect">Support</a> |
+<a href="https://www.hcltechsw.com/wps/portal/resources/master-agreements" target="_blank" shape="rect">Terms of use</a> |
+<!-- ## In the following JavaScript section, please translate both occurrences of the words 'Submit Feedback'. -->
+<script language="Javascript" type="text/javascript" xml:space="preserve">
+<!--
+var docContext=document.anchors[0].name;
+var docTitle=document.title;
+var fblinkText1 = "Submit Feedback";
+var fblinkText2 = "Submit Feedback";
+// START NON-TRANSLATABLE
+var fblink="<a title=\"" + fblinkText1 + "\" target=\"_blank\" href=\"http://www.lotus.com/ldd/doc/cct/nextgen.nsf/feedback_choice?OpenForm&Context=" + docContext + "+notes_std+" + docTitle + "+9.0\" class=\"help\">" + fblinkText2 + "<\/a>";
+// END NON-TRANSLATABLE
+
+document.write(fblink);
+//-->
+</script>
+<br clear="none" />
+<br clear="none" />
+<span>(C) Copyright HCL Technologies Limited 1987, 2020.
+<br clear="none" />
+This help is built on Eclipse. (http://www.eclipse.org) </span>
+</div>
+</body>
+</html>

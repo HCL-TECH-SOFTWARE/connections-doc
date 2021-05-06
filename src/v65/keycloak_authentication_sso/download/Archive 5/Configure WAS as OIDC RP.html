@@ -1,0 +1,28 @@
+<html><head><title>Configure WAS as OIDC RP</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" ><STYLE type="text/css">TABLE { border-collapse: collapse; border-top: 1px; border-left: 1px; border-style: solid; margin: 4px; }TD, TH { border-bottom: 1px; border-right: 1px; border-style: solid; padding: 4px; }TH { background-color: #D8D8D8; }</STYLE></head><body><div sandbox="allow-same-origin allow-scripts allow-popups"><ul dir="ltr">
+	<li sandbox="allow-same-origin allow-scripts allow-popups">Install OIDC RP via WAS admin command follow websphere documentation</li>
+	<li sandbox="allow-same-origin allow-scripts allow-popups">configure OIDC TAI properties:</li>
+</ul>
+
+<p dir="ltr"><span style="font-size:14px;"><strong sandbox="allow-same-origin allow-scripts allow-popups">excludedpathFilter: </strong></span><s sandbox="allow-same-origin allow-scripts allow-popups">/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/wdp/*</s></p>
+
+<p dir="ltr">&nbsp;</p>
+
+<p dir="ltr">/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver</p>
+
+<p dir="ltr">note, the services path may not be the same per deployment.</p>
+
+<p dir="ltr">To support JWT as access token for oauth&nbsp; add the following:</p>
+
+<p dir="ltr"><strong sandbox="allow-same-origin allow-scripts allow-popups">&nbsp;provider_1.verifyIssuerInIat=true</strong></p>
+
+<p dir="ltr"><strong sandbox="allow-same-origin allow-scripts allow-popups">&nbsp;provider_1.audiences="connections_social_mobile","account","connmt"</strong></p>
+
+<p dir="ltr">connmt is the client id for Connections web.</p>
+
+<p dir="ltr">onnections_social_mobile is the client id for Connections Mobile</p>
+
+<p dir="ltr"><span style="display: none;">&nbsp;</span>To support Mobile/oauth2 client also be able to use session cookie, added:</p>
+
+<p dir="ltr"><strong sandbox="allow-same-origin allow-scripts allow-popups">provider_1.setLtpaCookie=true</strong></p>
+
+<p dir="ltr"><img id="1582041618695_0" src="https://apps.na.collabserv.com/wikis/basic/api/wiki/68d8a7de-b173-4838-b5c9-a252a8fee125/page/9d96581c-94ec-4a50-972e-35ffd2c6acaa/attachment/f8610ac9-5ba4-4f12-9862-e7a87c7fdfc8/media/editor_image_a314a3ab-c1f6-421f-8c9f-253c50b59adb.png?preventCache=1586204538399"></img></p></div></body></html>
