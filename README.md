@@ -1,9 +1,9 @@
-<p align="center"><strong><a href="https://opensource.hcltechsw.com/volt-mx-docs/">HCL Connections Multi-Tenant documentation</a></strong></p>
+<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/docs/">HCL Connections Multi-Tenant documentation</a></strong></p>
 </p>
 
 ## Usage
 
-[View the documentation](https://opensource.hcltechsw.com/volt-mx-docs/) for product features and usage information.
+[View the documentation](https://opensource.hcltechsw.com/connections-doc/docs/) for product features and usage information.
 
 ## Contributing
 
@@ -13,7 +13,7 @@ Updates may be performed only to markdown files under **connections-doc/src**.
 
 ### Updating the documentation and validating changes
 
-- Clone [Connections MT documentation repository](https://github.com/HCL-TECH-SOFTWARE/connections-doc) and create a working branch.
+- Clone the [Connections MT documentation repository](https://github.com/HCL-TECH-SOFTWARE/connections-doc) and create a working branch.
 - Edit the markdown in **connections-doc/src** as needed.
 - Install a markdown to HTML build utility and perform the build, or use an online build tool.
 - NEED STEP ABOUT USING A SERVER TO OPEN INDEX.HTML TO INSPECT THE DOC.
