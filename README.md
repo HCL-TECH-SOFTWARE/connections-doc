@@ -15,15 +15,10 @@ Updates may be performed only to markdown files under **connections-doc/src**.
 
 - Clone the [Connections MT documentation repository](https://github.com/HCL-TECH-SOFTWARE/connections-doc) and create a working branch.
 - Edit the markdown in **connections-doc/src** as needed.
-- Install a markdown to HTML build utility and perform the build, or use an online build tool.
-- NEED STEP ABOUT USING A SERVER TO OPEN INDEX.HTML TO INSPECT THE DOC.
+- If you want to check the appearance of your changes in HTML, use the DITA Open Toolkit to build it.
 
 ### Submitting documentation changes
 
 - Open a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/connections-doc/pulls)
 - Respond to review comments as needed.
-- After your changes have been merged, check the documentation to make sure your edits appear. HOW LONG WILL  THE CHANGES TAKE TO APPEAR?
-
-## License
-
-The documentation is available as open source under the terms of the [Apache License 2.0](http://www.apache.org/licenses/).
+- After your changes have been merged, you will be notified via pull request when they have been published.
