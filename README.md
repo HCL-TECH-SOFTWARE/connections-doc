@@ -22,7 +22,3 @@ Updates may be performed only to markdown files under **connections-doc/src**.
 - Open a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/connections-doc/pulls)
 - Respond to review comments as needed.
 - After your changes have been merged, you will be notified via pull request when they have been published.
-
-## License
-
-The documentation is available as open source under the terms of the [Apache License 2.0](http://www.apache.org/licenses/).
