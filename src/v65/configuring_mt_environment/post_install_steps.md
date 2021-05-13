@@ -11,20 +11,7 @@ To use Connections notification_v2 templates, the default templates for email no
 
 **1.** Enable all mail channels in notification-config.xml, as documented in [Enabling email notifications](https://help.hcltechsw.com/connections/v65/admin/admin/t_admin_common_enable_mail.html) on the Connections product documentation site.
 
-**2.** Locate LotusConnections-config.xml in the deployment manager, add the following two properties in the <properties> section
-
-```
-<genericProperty name="mt_internalhostname">mtdemo1.cnx.cwp.pnp- hcl.com</genericProperty> 
-<genericProperty name="mt_externalhostname">{org}.cnx.cwp.pnp- hcl.com</genericProperty>
-```
-
-where:
-
-property: mt_internalhostname is the hostname from the URLs of the *sloc:static* attribute for any Connections service in the same file
-
-property: mt_externalhostname is the hostname from the URLs of the *sloc:pattern* attribute for any Connections service, which should have the {org}.xxx.com pattern in it
-
-**3.** Sync the nodes, and restart allservers.
+**2.** Sync the nodes, and restart allservers.
 
 ## Configuring session management for the Blogs server
 

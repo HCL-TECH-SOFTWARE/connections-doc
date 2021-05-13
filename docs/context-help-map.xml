@@ -8,10 +8,8 @@
                path="v7/overview/feature_diff_mt_and_cnx.html"/>
    <appContext helpID="system-requirements" path="v7/overview/sys_reqs.html"/>
    <appContext helpID="known-issues" path="v7/overview/known_issues.html"/>
-   <appContext helpID=""
+   <appContext helpID="updating-hcl-connections-70-with-the-latest-interim-fix"
                path="v7/downloading/HCL%20MT%20CH-MSP%20Downloading%20HCL%20Connections%20Multi-Tenant%20packages%20and%20Monthly%20releases.html"/>
-   <appContext helpID="2021-monthly-updates"
-               path="v7/downloading/2021_monthly_updates.html"/>
    <appContext helpID="upgrading-mt-via-side-by-side-migration"
                path="v7/migrating/mt_side_by_side_upgrade.html"/>
    <appContext helpID="component-pack" path="v7/migrating/comp_pack.html"/>
@@ -24,6 +22,14 @@
                path="v7/updating_config_files_via_autodeploy/updating_config_files_via_autodeploy.html"/>
    <appContext helpID="providing-ldap-group-support-for-the-org-admin-role-in-mt"
                path="v7/ldap_group/providing_ldap_group_support.html"/>
+   <appContext helpID="provisioning-apis-for-v70"
+               path="v7/provisioing_apis_7/provisioning_apis_7.html"/>
+   <appContext helpID="managing-external-user-access"
+               path="v7/managing_external_users/man_ext_users_overview.html"/>
+   <appContext helpID="provisioning-external-users"
+               path="v7/managing_external_users/prov_ext_users.html"/>
+   <appContext helpID="what-external-users-can-and-cant-do"
+               path="v7/managing_external_users/ext_user_can_cannot.html"/>
    <appContext helpID="configuring-mt-v70-features"
                path="v7/configuringv7features/config_v7_features.html"/>
    <appContext helpID="configuring-touchpoint-for-mt"
@@ -38,6 +44,8 @@
                path="v7/configuringv7features/TouchpointMt/tracing_instrux__touchpoint_MT.html"/>
    <appContext helpID="integrating-chat-chatidentity"
                path="v7/configuringv7features/chatIintegration/chat_integ.html"/>
+   <appContext helpID="integrating-meetings-meetingidentity"
+               path="v7/configuringv7features/meetingintegration/meet_integ.html"/>
    <appContext helpID="enabling-round-trip-editing-for-files"
                path="v7/configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.html"/>
    <appContext helpID="kc_welcome" path="v65/welcome_65/welcome_admin.html"/>
@@ -101,6 +109,12 @@
                path="v65/importing_data/txt_config_reclone_parms.html"/>
    <appContext helpID="how-to-set-an-org-to-read-only"
                path="v65/importing_data/setting_org_read_only.html"/>
+   <appContext helpID="managing-external-user-access"
+               path="v65/managing_external_users/man_ext_users_overview.html"/>
+   <appContext helpID="provisioning-external-users"
+               path="v65/managing_external_users/prov_ext_users.html"/>
+   <appContext helpID="what-external-users-can-and-cant-do"
+               path="v65/managing_external_users/ext_user_can_cannot.html"/>
    <appContext helpID="provisioning-apis"
                path="v65/provisioing_apis/provisioning_apis.html"/>
 </map>

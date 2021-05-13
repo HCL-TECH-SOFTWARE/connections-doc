@@ -18,6 +18,19 @@ curl -v --insecure -u username:password -d @nameofxmlfile -H "Content-Type:appli
 curl -v --insecure -u Ajones1:jones1 -d @profiledemo.xml -H "Content-Type:application/atom+xml" -X PUT -v https:// lcauto21.cnx.cwp.pnp-hcl.com /profiles/admin/atom/profileEntry.do?email=ajones180@janet.iris.com
 ```
 
+**`chatIdentity` value**
+
+```
+<entry>
+   <key>com.ibm.snx_profiles.ext.chatIdentity</key>
+   <value>
+    <type>text</type>
+    <data>*1234567890*</data>
+    </value>
+</entry>
+```
+
+
 **profiledemo.xml**
 ```
 <entry
@@ -38,6 +51,7 @@ curl -v --insecure -u Ajones1:jones1 -d @profiledemo.xml -H "Content-Type:applic
     </content>
 </entry>
 ```
+
 
 **profiledemoWithEmptydata.xml**
 

@@ -36,32 +36,5 @@
         ```
         kubectl edit configmap/connections-env -n connections
         ```  
-   
-   
-3. Add the pattern configuration to LotusConnections-config.xml for the OrientMe service
-   - Edit the *LotusConnections-config.xml* from your WebSphere DMgr path. For
-     example, */opt/IBM/WebSphere/AppServer/profiles/Dmgr01/config/cells/mtdemo1Cell01/LotusConnections- config/LotusConnections-config.xml*  
 
-   - Search for the section where *serviceName="orient"*
-
-   - Within the **sloc:href** block, add the following line, but replace *connections_domain.com* with your actual domain.
-
-     ```
-     <sloc:pattern href="http://{org}.connections_domain.com" ssl_href="https://{org}.connections_domain.com"/>
-     ```
-
-   - This section should now look similar to the following.
-
-     ```
-        <sloc:serviceReference bootstrapHost="admin_replace" bootstrapPort="admin_replace" clusterName="" enabled="true" serviceName="orient" ssl_enabled="true">
-          <sloc:href>
-             <sloc:hrefPathPrefix>/social</sloc:hrefPathPrefix>
-             <sloc:static href="http://cnxserver.connections_domain.com" ssl_href="https://cnxserver.connections_domain.com"/>
-             <sloc:pattern href="http://{org}.connections_domain.com" ssl_href="https://{org}.connections_domain.com"/>
-             <sloc:interService href="https://cnxserver.connections_domain.com"/>
-          </sloc:href>
-        </sloc:serviceReference>
-     ```
-
-    Save the file, do a full synchronization of Nodes using WebSphere administration and restart the server.
 <?tm 1541016643182 1 HCL Connections ?>

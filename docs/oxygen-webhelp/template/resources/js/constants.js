@@ -33,8 +33,8 @@ export const LANG_LIST = {
     "tr": "Turkish / Türkçe",
 }
 export const VERSION_LIST = {
-    "v7": "Version 7"
-    }
+    "v7": "Version 7",
+	}
 
 //Change the list base on your product languages availability.
 export const PROD_LANG_LIST = ["en"]

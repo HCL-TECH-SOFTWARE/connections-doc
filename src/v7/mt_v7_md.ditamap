@@ -24,7 +24,7 @@
   <topicref
    href="downloading/HCL%20MT%20CH-MSP%20Downloading%20HCL%20Connections%20Multi-Tenant%20packages%20and%20Monthly%20releases.md"
    format="markdown">
-   <topicref href="downloading/2021_monthly_updates.md" format="markdown"/>
+   <!--<topicref href="downloading/2021_monthly_updates.md" format="markdown"/>-->
   </topicref>
   <topicref href="migrating/mt_side_by_side_upgrade.md" format="markdown">
    <topicref href="migrating/comp_pack.md" format="markdown"/>
@@ -35,6 +35,11 @@
   <topicref href="updating_config_files_via_autodeploy/updating_config_files_via_autodeploy.md"
    format="markdown"/>
   <topicref href="ldap_group/providing_ldap_group_support.md" format="markdown"/>
+  <topicref href="provisioing_apis_7/provisioning_apis_7.md" format="markdown"/>
+  <topicref href="managing_external_users/man_ext_users_overview.md" format="markdown">
+   <topicref href="managing_external_users/prov_ext_users.md" format="markdown"/>
+   <topicref href="managing_external_users/ext_user_can_cannot.md" format="markdown"/>
+  </topicref>
   <topicref href="configuringv7features/config_v7_features.md" format="markdown">
    <topicref href="configuringv7features/TouchpointMt/configuring_touchpoint_mt_overview.md"
     format="markdown">
@@ -48,6 +53,7 @@
      format="markdown"/>
    </topicref>
    <topicref href="configuringv7features/chatIintegration/chat_integ.md" format="markdown"/>
+   <topicref href="configuringv7features/meetingintegration/meet_integ.md" format="markdown"/>
    <topicref href="configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.md"
     format="markdown"/>
   </topicref>

@@ -5,7 +5,7 @@
 
 1. Import 6.5 PVs (/pv-connections) onto new system at the same level as your source.
 
-2. Install Component Pack v7 services on new system following this procedure, [Upgrading Component Pack to the latest version](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html)
+2. Install Component Pack v7.0.0.2 services on new system following this procedure, [Upgrading Component Pack to the latest version](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html)
    - Deploy orientme service with Elasticsearch7 (orient-indexing-service.indexing.elasticsearch7: true). Refer to the documentation.
  
 3. To prepare migration for ES5 data to ES7, re-deploy elasticsearch7 with an enhanced set of Elasticsearch5 chart options (elasticsearch5.migrate=true, elasticsearch5.host=<hostname>, elasticsearch5.port=30099). 

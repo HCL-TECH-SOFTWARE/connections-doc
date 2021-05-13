@@ -93,7 +93,7 @@ connections-mt-update-7.0.0.zip  deployment-units  install  META-INF  version.tx
 ```
 > cd install/
 > ls
-autodeploy-install-cli.sh  config.properties  connections-mt-init-entitlements-cli.sh  connections-mt-update-cli.sh  connections-mt-webserver-update-cli.sh  resources
+autodeploy-install-cli.sh -s -f config.properties  connections-mt-init-entitlements-cli.sh  connections-mt-update-cli.sh  connections-mt-webserver-update-cli.sh  resources
 > vim config.properties
 ```
 
@@ -145,7 +145,7 @@ The installation routine takes advantage of HCL AutoDeploy (https://help.hcltech
 
 To install AutoDeploy, please leverage the provided script `autodeploy-install-cli.sh`
 ```
-> ./autodeploy-install-cli.sh config.properties 2>&1 | tee autodeploy_install.log
+> ./autodeploy-install-cli.sh -s -f config.properties 2>&1 | tee autodeploy_install.log
 ```
 - **Note**: If you have a previous version of AutoDeploy installed, please install at a different location or back up your installation, as this will overwrite your existing configuration
 
@@ -157,7 +157,7 @@ To ensure AutoDeploy will be working, run the command `[PATH_TO_AD_INSTALLATION]
 
 Run the updater via provided script `connections-mt-update-cli.sh`.  It is recommended to pipe all of the output to a log file for review.
 ```
-> ./connections-mt-update-cli.sh config.properties 2>&1 | tee mtupdate.log
+> ./connections-mt-update-cli.sh -s -f config.properties 2>&1 | tee mtupdate.log
 ```
 
 This script will run through various update tasks and will take the configuration file as guidance on where to find or how to update properties and files. Make sure the values reflect your environment.
@@ -201,7 +201,7 @@ This step must be run prior to provisioning users.
 A sample script has been provided to provision an initial set of users that have been populated in LDAP under `provision.mt.saasOrganizationsLdapDN`.  Running the following script will add these users to Connections and entitle them for Connections services.
 
 ```
-> ./connections-mt-init-entitlements-cli.sh config.properties 2>&1 | tee mtupdate_entitlements.log
+> ./connections-mt-init-entitlements-cli.sh -s -f config.properties 2>&1 | tee mtupdate_entitlements.log
 ```
 
 ## Configuration properties

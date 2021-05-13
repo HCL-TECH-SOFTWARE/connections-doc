@@ -1,0 +1,17 @@
+<entry
+	xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <person
+		xmlns="http://ns.opensocial.org/2008/opensocial">
+            <com.ibm.snx_profiles.attrib>
+                <entry>
+                    <key>com.ibm.snx_profiles.ext.meetingdentity</key>
+                    <value>
+                        <type>text</type>
+                        <data></data>
+                    </value>
+                </entry>
+            </com.ibm.snx_profiles.attrib>
+        </person>
+    </content>
+</entry>

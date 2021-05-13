@@ -7,7 +7,7 @@ Refer to the
 
 ## Overview
 
-When calling the provisioning APIs, use the credential for users with the &#39;bss-provisioning-admin&#39; role defined in each Connections app. All provisioning APIs have two phases to call:
+When calling the provisioning APIs, use the credential for users with the `<bss-provisioning-admin>` role defined in each Connections app. All provisioning APIs have two phases to call:
 
 **prepare** : A prepare phase to check with the application whether it is ok to make the API call. No data are updated in the applications.
 
@@ -31,7 +31,7 @@ The API allows admin users to create, and update organizations that are already 
 | **Header name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content- type | application/json | Content-type header can only be set to application/json |
-| x-message- id | Prepare phase: 5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningprepare  Execute phase: 5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server. The general format of the message ID is: **UUID** profiles/wdp/provisioning/profilesendpointmtprovisioning **phase** where: **UUID** is a randomly generate ID; and **phase** is either prepare or execute |
+| x-message- id | ***Prepare phase:** 5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningprepare  **Execute phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningexecute| This is an optional header to carry a message-id to the server. The general format of the message ID is: `UUID` profiles/wdp/provisioning/profilesendpointmtprovisioning `phase` where: `UUID` is a randomly generate ID; and `phase` is either prepare or execute | This is an optional header to carry a message-id to the server. The general format of the message ID is: **UUID** profiles/wdp/provisioning/profilesendpointmtprovisioning `phase` where: `UUID` is a randomly generate ID; and `phase` is either prepare or execute | 
 |
 
 ### 1. Sample payloads
@@ -39,28 +39,30 @@ The API allows admin users to create, and update organizations that are already 
 **a.** Sample JSON input: prepare and add an organization:
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddOrganization&quot;,
-&quot;ReqId&quot;: &quot;ff97bd83-c23b-43af-a8ae-769496686bda&quot;, &quot;Payload&quot;: {
-&quot;OrganizationId&quot;: &quot;4000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+  "Phase": "prepare",
+  "Version": "1",
+  "OperationId&quot": "AddOrganization",
+  "ReqId": "ff97bd83-c23b-43af-a8ae-769496686bda", 
+  "Payload&quot": {
+    "OrganizationId": "4000000004&quot"
+  },
+  "RequestedBy": "",
+  "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
 **b.** Sample JSON input for adding organization in prepare phase:
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddOrganization&quot;,
-&quot;ReqId&quot;: &quot;ff97bd83-c23b-43af-a8ae-769496686bda&quot;, &quot;Payload&quot;: {
-&quot;OrganizationId&quot;: &quot;4000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+  "Phase&quot": "execute",
+  "Version": "1",
+  "OperationId": "AddOrganization",
+  "ReqId": "ff97bd83-c23b-43af-a8ae-769496686bda&quot", 
+  "Payload": {
+    "OrganizationId": "4000000004";
+  },
+  "RequestedBy": "",
+  "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
@@ -68,30 +70,31 @@ The API allows admin users to create, and update organizations that are already 
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddOrganization&quot;,
-&quot;ReqId&quot;: &quot;ff97bd83-c23b-43af-a8ae-769496686bda&quot;, &quot;Payload&quot;: {
-&quot;OrganizationId&quot;: &quot;4000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+  "Phase: "prepare&quot",
+  "Version&quot": "1",
+  "OperationId": "AddOrganization",
+  "ReqId": "ff97bd83-c23b-43af-a8ae-769496686bda&quot", 
+  "Payload&quot": {
+  "OrganizationId": "4000000004"
+  },
+  "RequestedBy": "",
+  "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
 **d.** Sample JSON input for updating organization in execute phase:
 
-
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateOrganization&quot;,
-&quot;ReqId&quot;: &quot;ff97bd83-c23b-43af-a8ae-769496686bda&quot;, &quot;Payload&quot;: {
-&quot;OrganizationId&quot;: &quot;4000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+  "Phase": "execute&quot",
+  "Version&quot": "1&quot",
+  "OperationId": "UpdateOrganization",
+  "ReqId": "ff97bd83-c23b-43af-a8ae-769496686bda&quot", 
+  "Payload&quot": {
+    "OrganizationId": "4000000004"
+  },
+  "RequestedBy": "",
+  "ServiceId&quot": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
@@ -99,8 +102,12 @@ The API allows admin users to create, and update organizations that are already 
 
 | **Field Name** | **Required** | **Description** |
 | --- | --- | --- |
-| Phase | Yes | Two choices: For prepare phase - set the value to: prepare. For execute phase - set the value to: execute |
-| OperationId | Yes | Two choices: For adding a new organization, set OperationId to: AddOrganization For updating an organization, set OperationId to: UpdateOrganization |
+| Phase | Yes | Two choices: 
+|       |     |  For prepare phase - set the value to: prepare. 
+|       |     |  For execute phase - set the value to: execute |
+| OperationId | Yes | Two choices: 
+|             |     | For adding a new organization, set OperationId to: AddOrganization 
+|             |     | For updating an organization, set OperationId to: UpdateOrganization |
 | ReqId | No | Optional. But the ReqId can be used to link the prepare phase call and the execute call (described later). It is typically a randomly generated UUID. |
 | Payload | Yes | Only one field is required: OrganizationId. This is the ID that is defined in LDAP for the organization you are trying to provision. |
 | RequestedBy | No | Optional. You can set it to the user who is performing the API call, or leave it blank. |
@@ -113,9 +120,13 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_org\_execute.json -H &quot;Con
 [https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/profilesendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/profilesendpointmtprovisioning)
 
 ## Manage Users
-Users need to be managed in each Connections application individually, using an API endpoint in each application. So to add/update/revoke a user, all endpoints to the following applications need to be called: Profiles, Files, Communities, News, Wikis, Activities, Blogs. Note that &#39;Bookmark/Dogear&#39; is not supported for multi-tenant.
-__Note:__ The API calls are all very similar in each application, except the API endpoints.
-For all input JSON for managing users, there is an &#39;OperationId&#39; field, set the value in the payload JSON accordingly:
+Users need to be managed in each Connections application individually, using an API endpoint in each application. So to add/update/revoke a user, all endpoints to the following applications need to be called: Profiles, Files, Communities, News, Wikis, Activities, Blogs. 
+
+**Notes:** 
+ - The Bookmark/Dogear feature is not supported for multi-tenant.
+ - The API calls are all very similar in each application, except the API endpoints.
+
+For all input JSON for managing users, there is an OperationId; field, set the value in the payload JSON accordingly:
 
 | **OperationId** | **Description** |
 | --- | --- |
@@ -136,38 +147,43 @@ RevokeSubscriber | Revoke a user in a Connections application. **Note:** When a 
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message-id | Prepare phase:5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningprepare Execute phase:5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: **UUID**, profiles/wdp/provisioning/profilesendpointmtprovisioning\ **phase** -- where: **UUID**, is a randomly generate ID **phase**, is either prepare or execute |
-|
-__Note:__ The API endpoint to mange users in Profiles is exactly the same as the API endpoint to manage Organizations. That is because organizations are only managed and used in Profiles, not other Connections applications.
+| x-message-id | Prepare phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningprepare Execute phase:   5773004f-8f7b-40d5-8b1c-831abcc81d4eprofiles/wdp/provisioning/profilesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: `UUID`, profiles/wdp/provisioning/profilesendpointmtprovisioning\ `phase` -- where: `UUID`, is a randomly generate ID `phase`, is either prepare or execute |
+|                       
+
+**Note:** The API endpoint to mange users in Profiles is exactly the same as the API endpoint to manage Organizations. That is because organizations are only managed and used in Profiles, not other Connections applications.
 
 **a.** Add a user to Profiles
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 execute phasebody:
 
 ```
 {
-&quot;Phase&quot;:&quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase":"execute",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
@@ -175,29 +191,29 @@ execute phasebody:
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;RevokeSubscriber&quot;,
-&quot;ReqId&quot;: &quot;0780b166-28e5-4e8e-96b7-8a0d5f04d7d2&quot;,
-&quot;Payload&quot;: {
-&quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "RevokeSubscriber",
+ "ReqId": "0780b166-28e5-4e8e-96b7-8a0d5f04d7d2",
+ "Payload": {
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;RevokeSubscriber&quot;,
-&quot;ReqId&quot;: &quot;0780b166-28e5-4e8e-96b7-8a0d5f04d7d2&quot;,
-&quot;Payload&quot;: {
-&quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "RevokeSubscriber",
+ "ReqId": "0780b166-28e5-4e8e-96b7-8a0d5f04d7d2",
+ "Payload": {
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
@@ -205,63 +221,73 @@ execute phasebody:
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006"
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
-**d.** Update a user in Profiles with SubscriverState property: valid values are: SUSPENDED - mark the user inactive; ACTIVE - mark the user active
-
-```
-{
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
-}
-```
+**d.** Update a user in Profiles with *SubscriverState* property: valid values are: `SUSPENDED` - mark the user inactive; `ACTIVE` - mark the user active
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;87d80a71-13a6-4846-942f-e36ee24fda38&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000006&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006", 
+  "Profile": {
+  "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;profiles/wdp/provisioning/profilesendpointmtprovisioning&quot;
+```
+
+```
+{
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "87d80a71-13a6-4846-942f-e36ee24fda38",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000006", 
+  "Profile": {
+ "SubscriberState": "SUSPENDED"
+ }
+ },
+ "RequestedBy": "",
+ "ServiceId": "profiles/wdp/provisioning/profilesendpointmtprovisioning"
 }
 ```
 
@@ -284,80 +310,92 @@ curl --insecure -u wasadmin:xxxxxx -d @entitle\_user\_profiles.json -H &quot;Con
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message-id | Prepare phase:  95ac8887-6c38-4044-87c7-b416dd850e47files/wdp/provisioning/filesendpointmtprovisioningprepare Execute phase:  95ac8887-6c38-4044-87c7-b416dd850e47files/wdp/provisioning/filesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The generalformat of the message ID is: **UUID**, \&gt;profiles/wdp/provisioning/filesendpointmtprovisioning\  **phaase**, where **UUID**, is a randomly generate ID  **phase**, is either prepare or execute |
+| x-message-id | Prepare phase:  95ac8887-6c38-4044-87c7-b416dd850e47files/wdp/provisioning/filesendpointmtprovisioningprepare Execute phase:  95ac8887-6c38-4044-87c7-b416dd850e47files/wdp/provisioning/filesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The generalformat of the message ID is: `UUID`, \&gt;profiles/wdp/provisioning/filesendpointmtprovisioning\  `phaase`, where `UUID`, is a randomly generate ID  `phase`, is either prepare or execute |
 |
 
 **a.** Add a user to Files
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: { &quot;FilesService&quot;: {
-&quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
-}
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": { 
+   "FilesService": {
+    "files\_allow\_quota\_overage": "true",  
+    "files\_quota": "524288000"
+   },
+   "ShareService": { 
+    "share\_allow\_quota\_overage": "true", 
+    "share\_quota": "524288000"
+   }
+ },
+ "SubscriberId": "1000000029"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
+ }
 ```
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: { &quot;FilesService&quot;: {
-&quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": { 
+   "FilesService": {
+    "files\_allow\_quota\_overage": "true", 
+    "files\_quota": "524288000"
+   },
+   "ShareService": { 
+    "share\_allow\_quota\_overage": "true", 
+    "share\_quota": "524288000"
+   }
+  },
+  "SubscriberId": "1000000029"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
-**Note:** Both *_files_quota* and *share_quota* attributes are quota limits for the entire organization, in MB. Please set them to the same value for all users in the same organization.
+**Note:** Both *files_quota* and *share_quota* attributes are quota limits for the entire organization, in MB. Please set them to the same value for all users in the same organization.
 
 **b.** Revoke a user in Files
 
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;RevokeSubscriber&quot;,
-&quot;ReqId&quot;: &quot;45e77448-3055-4457-b9f8-dd46b0a8681d&quot;,
-&quot;Payload&quot;: {
-&quot;SubscriberId&quot;: &quot;1000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "RevokeSubscriber",
+ "ReqId": "45e77448-3055-4457-b9f8-dd46b0a8681d",
+ "Payload": {
+  "SubscriberId": "1000000004"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;RevokeSubscriber&quot;,
-&quot;ReqId&quot;: &quot;45e77448-3055-4457-b9f8-dd46b0a8681d&quot;,
-&quot;Payload&quot;: {
-&quot;SubscriberId&quot;: &quot;1000000004&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "RevokeSubscriber",
+ "ReqId": "45e77448-3055-4457-b9f8-dd46b0a8681d",
+ "Payload": {
+  "SubscriberId": "1000000004"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
@@ -367,91 +405,109 @@ curl --insecure -u wasadmin:xxxxxx -d @entitle\_user\_profiles.json -H &quot;Con
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: { &quot;FilesService&quot;: {
-&quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": { 
+   "FilesService": {
+    "files\_allow\_quota\_overage": "true", 
+    "files\_quota": "524288000"
+   },
+   "ShareService": { 
+    "share\_allow\_quota\_overage": "true", 
+    "share\_quota": "524288000"
+   }
+  },
+  "SubscriberId": "1000000029"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: {
-&quot;FilesService&quot;: { &quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": {
+   "FilesService": { 
+    "files\_allow\_quota\_overage": "true", 
+    "files\_quota": "524288000"
+   },
+   "ShareService": { "share\_allow\_quota\_overage": "true", "share\_quota": "524288000"
+   }
+  },
+  "SubscriberId": "1000000029"
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
 **Note:** Both *files_quota* and *share_quota* attributes are quota limits for the entire organization, in MB. Please set them to the same value for all users in the same organization.
 
-**d.** Update a user in Files with SubscriberState: valid values are: SUSPENDED - mark the user inactive; ACTIVE - mark the user active
+**d.** Update a user in Files with *SubscriberState*: valid values are: `SUSPENDED` - mark the user inactive; `ACTIVE` - mark the user active
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: { &quot;FilesService&quot;: {
-&quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": { 
+   "FilesService": {
+    "files\_allow\_quota\_overage": "true", 
+    "files\_quota": "524288000"
+   },
+   "ShareService": { "share\_allow\_quota\_overage": "true", "share\_quota": "524288000"
+   }
+  },
+  "SubscriberId": "1000000029", "Profile": {
+  "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;5ca4b324-bb32-4dd6-b09d-0f7741034cb4&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: { &quot;FilesService&quot;: {
-&quot;files\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;files\_quota&quot;: &quot;524288000&quot;
-},
-&quot;ShareService&quot;: { &quot;share\_allow\_quota\_overage&quot;: &quot;true&quot;, &quot;share\_quota&quot;: &quot;524288000&quot;
-}
-},
-&quot;SubscriberId&quot;: &quot;1000000029&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;files/wdp/provisioning/filesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "5ca4b324-bb32-4dd6-b09d-0f7741034cb4", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": { 
+   "FilesService": {
+    "files\_allow\_quota\_overage": "true", 
+    "files\_quota": "524288000"
+   },
+   "ShareService": { "share\_allow\_quota\_overage": "true", "share\_quota": "524288000"
+   }
+  },
+  "SubscriberId": "1000000029", "Profile": {
+  "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "files/wdp/provisioning/filesendpointmtprovisioning"
 }
 ```
 
 **e.** Sample cURL command
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_files.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_files.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/files/wdp/provisioning /filesendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/files/wdp/provisioning /filesendpointmtprovisioning)
 
 ### Manage users in Communities 
@@ -468,47 +524,50 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_files.json -H &quot;Cont
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message- id | Prepare phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4ecommunities/wdp/provisioning/communitiesendpointmtprovisioningprepare  Execute phase:5773004f-8f7b-40d5-8b1c-831abcc81d4ecommunities/wdp/provisioning/communitiesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: **UUID** communities/wdp/provisioning/communitiesendpointmtprovisioning\&lt;  **phase**  where: **UUID** is a randomly generate ID   **phase** is either prepare or execute |
+| x-message- id | **Prepare phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4ecommunities/wdp/provisioning/communitiesendpointmtprovisioningprepare  **Execute phase:** 5773004f-8f7b-40d5-8b1c-831abcc81d4ecommunities/wdp/provisioning/communitiesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: `UUID` communities/wdp/provisioning/communitiesendpointmtprovisioning\&lt;  `phase`  where: `UUID` is a randomly generate ID   `phase` is either prepare or execute |
 |
 
 **a.** Sample payload
 
 ```
 {
-&quot;Phase&quot;: &quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;3d186157-e03c-4406-b7ca-521e6c159541&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000001&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;communities/wdp/provisioning/communitiesendpointmtprovisioning&quot;
+ "Phase": "prepare",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "3d186157-e03c-4406-b7ca-521e6c159541",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000001"
+ },
+ "RequestedBy": "",
+ "ServiceId": "communities/wdp/provisioning/communitiesendpointmtprovisioning"
 }
 ```
-**b.** Sample payload with SubscriberState: valid values are: SUSPENDED-mark the user inactive;  ACTIVE-mark the user active.  
+**b.** Sample payload with *SubscriberState*: valid values are: `SUSPENDED-mark` the user inactive;  `ACTIVE-mark` the user active.  
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;3d186157-e03c-4406-b7ca-521e6c159541&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000574&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;communities/wdp/provisioning/communitiesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "3d186157-e03c-4406-b7ca-521e6c159541",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, "SubscriberId": "1000000574", "Profile": {
+  "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "communities/wdp/provisioning/communitiesendpointmtprovisioning"
 }
 ```
 
-For other phase and operations, set the fields &#39;Phase&#39; and &#39;OperationId&#39; accordingly.
+For other phase and operations, set the fields `Phase` and `OperationId` accordingly.
 
 **c.** Sample cURLcommand
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_communities.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_communities.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/communities/wdp/provisioning/communitiesendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/communities/wdp/provisioning/communitiesendpointmtprovisioning)
 
 ### Manage users in News
@@ -525,32 +584,34 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_communities.json -H &quo
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-|x-message-id | Prepare phase:  6aa858bd-fbcc-4351-a6e6-0efeb6ac7151news/wdp/provisioning/newsendpointmtprovisioningexecute   Execute phase:  6aa858bd-fbcc-4351-a6e6-0efeb6ac7151news/wdp/provisioning/newsendpointmtprovisioningexecute| This is an optional header to carry a message-id to the server.  The general format of the message ID is: **UUID** news/wdp/provisioning/newsendpointmtprovisioning\ **phase**  where: **UUID; is a randomly generate ID; **phase** is either prepare or execute |
+|x-message-id |**Prepare phase:**  6aa858bd-fbcc-4351-a6e6-0efeb6ac7151news/wdp/provisioning/newsendpointmtprovisioningexecute   **Execute phase:**  6aa858bd-fbcc-4351-a6e6-0efeb6ac7151news/wdp/provisioning/newsendpointmtprovisioningexecute| This is an optional header to carry a message-id to the server.  The general format of the message ID is: `UUID` news/wdp/provisioning/newsendpointmtprovisioning\ `phase`  where: `UUID` is a randomly generate ID; `phase` is either prepare or execute |
 |
 
 **a.** Sample payload
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;cd075459-8e82-44fc-a690-0b4f08704f2f&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000001&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;news/wdp/provisioning/newsendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "cd075459-8e82-44fc-a690-0b4f08704f2f",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000001"
+ },
+ "RequestedBy": "",
+ "ServiceId": "news/wdp/provisioning/newsendpointmtprovisioning"
 }
 ```
 
-For other phase and operations, set the fields &#39;Phase&#39; and &#39;OperationId&#39; accordingly.
+For other phase and operations, set the fields `Phase` and `OperationId` accordingly.
 
-**Note:** SubscriberState attribute in JSON payload is ignored by News provisioning API. It has no effect.
+**Note:** *SubscriberState* attribute in JSON payload is ignored by News provisioning API. It has no effect.
 
 **b.** Sample cURL command
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_profiles.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_profiles.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/profilesendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/profiles/wdp/provisioning/profilesendpointmtprovisioning) 
 
 ### Manage users in Wikis
@@ -567,48 +628,54 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_profiles.json -H &quot;C
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message-id | Prepare phase: 5773004f-8f7b-40d5-8b1c-831abcc81d4ewikis/wdp/provisioning/wikisendpointmtprovisioningprepare  Execute phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4ewikis/wdp/provisioning/wikisendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server. The general format of the message ID is: **UUID** wikis/wdp/provisioning/wikisendpointmtprovisioning\  **phase**   where, **UUID**; is a randomly generate ID;   **phase**; is either prepare or execute |
+| x-message-id | **Prepare phase:** 5773004f-8f7b-40d5-8b1c-831abcc81d4ewikis/wdp/provisioning/wikisendpointmtprovisioningprepare  **Execute phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4ewikis/wdp/provisioning/wikisendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server. The general format of the message ID is: `UUID` wikis/wdp/provisioning/wikisendpointmtprovisioning\  `phase`   where, `UUID` is a randomly generate ID;  `phase` is either prepare or execute |
 |
 
 **a.** Sample payload
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;11b04405-18ac-47d0-9b48-3736b918501e&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000001&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;wikis/wdp/provisioning/wikisendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "11b04405-18ac-47d0-9b48-3736b918501e",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000001"
+ },
+ "RequestedBy": "",
+ "ServiceId": "wikis/wdp/provisioning/wikisendpointmtprovisioning"
 }
 ```
 
-**b.** Sample payload with SubscriberState: valid values are:  SUSPENDED-mark the user inactive;  ACTIVE-mark the user active.
+**b.** Sample payload with SubscriberState: valid values are: `SUSPENDED-mark` the user inactive; `ACTIVE-mark` the user active.
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;11b04405-18ac-47d0-9b48-3736b918501e&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000574&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;wikis/wdp/provisioning/wikisendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "11b04405-18ac-47d0-9b48-3736b918501e",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000574", 
+   "Profile": 
+   {
+   "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "wikis/wdp/provisioning/wikisendpointmtprovisioning"
 }
 ```
 
-For other phase and operations, set the fields &#39;Phase&#39; and &#39;OperationId&#39; accordingly.
+For other phase and operations, set the fields <Phase> and <OperationId> accordingly.
 
 **c.** Sample cURLcommand
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/wikis/wdp/provisioning/wikisendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/wikis/wdp/provisioning/wikisendpointmtprovisioning)
 
 ### Manage users in Activities
@@ -625,40 +692,43 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H &quot
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message-id | Prepare phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4eactivities/wdp/provisioning/activitiesendpointmtprovisioningprepare  Execute phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4eactivities/wdp/provisioning/activitiesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: **UUID**; activities/wdp/provisioning/activitiesendpointmtprovisioning\ **phase**; where: **UUID** is a randomly generate ID; **phase** is either prepare or execute |
+| x-message-id | **Prepare phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4eactivities/wdp/provisioning/activitiesendpointmtprovisioningprepare  **Execute phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4eactivities/wdp/provisioning/activitiesendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: `UUID` activities/wdp/provisioning/activitiesendpointmtprovisioning\ `phase` where: `UUID` is a randomly generate ID; `phase` is either prepare or execute |
 |
 
 **a.** Sample payload
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;2e2da18a-3535-4d07-8347-f464b5093b21&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000001&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;activities/wdp/provisioning/activitiesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "2e2da18a-3535-4d07-8347-f464b5093b21",
+ "Payload": { 
+  "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000001"
+ },
+ "RequestedBy": "",
+ "ServiceId": "activities/wdp/provisioning/activitiesendpointmtprovisioning"
 }
 ```
 
-**b.** Sample payload with SubscriberState:  valid values are: SUSPENDED-mark the user inactive;  ACTIVE-mark the user active.
+**b.** Sample payload with SubscriberState:  valid values are: `SUSPENDED-mark` the user inactive;  `ACTIVE-mark` the user active.
 
 ```
 {
-&quot;Phase&quot;: &quot;execute&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;UpdateSubscriber&quot;,
-&quot;ReqId&quot;: &quot;3d186157-e03c-4406-b7ca-521e6c159541&quot;,
-&quot;Payload&quot;: { &quot;Locale&quot;: &quot;en\_US&quot;,
-&quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000574&quot;, &quot;Profile&quot;: {
-&quot;SubscriberState&quot;: &quot;SUSPENDED&quot;
-}
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;activities/wdp/provisioning/activitiesendpointmtprovisioning&quot;
+ "Phase": "execute",
+ "Version": "1",
+ "OperationId": "UpdateSubscriber",
+ "ReqId": "3d186157-e03c-4406-b7ca-521e6c159541",
+ "Payload": { 
+ "Locale": "en\_US",
+  "ServiceOfferingAttributeValues": {}, "SubscriberId": "1000000574", "Profile": {
+  "SubscriberState": "SUSPENDED"
+  }
+ },
+ "RequestedBy": "",
+ "ServiceId": "activities/wdp/provisioning/activitiesendpointmtprovisioning"
 }
 ```
 
@@ -666,7 +736,7 @@ For other phase and operations, set the fields &#39;Phase&#39; and &#39;Operatio
 
 **c.** Sample cURLcommand
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/activities/wdp/provisioning/activitiesendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/activities/wdp/provisioning/activitiesendpointmtprovisioning)
 
 ### Manage users in Blogs 
@@ -683,31 +753,34 @@ curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_activities.json -H &quot
 | **Header Name** | **Value** | **Description** |
 | --- | --- | --- |
 | Content-type | application/json |
-| x-message-id | Prepare phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4eblogs/wdp/provisioning/blogsendpointmtprovisioningprepare  Execute phase:  5773004f-8f7b-40d5-8b1c-831abcc81d4eblogs/wdp/provisioning/blogsendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: **UUID** blogs/wdp/provisioning/blogsendpointmtprovisioning\ **phase**; where:  **UUID** is a randomly generate ID;  **phase** is either prepare or execute |
+| x-message-id | **Prepare phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4eblogs/wdp/provisioning/blogsendpointmtprovisioningprepare  **Execute phase:**  5773004f-8f7b-40d5-8b1c-831abcc81d4eblogs/wdp/provisioning/blogsendpointmtprovisioningexecute | This is an optional header to carry a message-id to the server.  The general format of the message ID is: `UUID` blogs/wdp/provisioning/blogsendpointmtprovisioning\ `phase` where: `UUID` is a randomly generate ID;  `phase` is either prepare or execute |
 |
 
 **a.** Sample payload
 
 ```
 {
-&quot;Phase&quot;:&quot;prepare&quot;,
-&quot;Version&quot;: &quot;1&quot;,
-&quot;OperationId&quot;: &quot;AddSubscriber&quot;,
-&quot;ReqId&quot;: &quot;476978dd-37ad-4eb8-89b7-bfdd6841292c&quot;, &quot;Payload&quot;: {
-&quot;Locale&quot;: &quot;en\_US&quot;, &quot;ServiceOfferingAttributeValues&quot;: {}, &quot;SubscriberId&quot;: &quot;1000000002&quot;
-},
-&quot;RequestedBy&quot;: &quot;&quot;,
-&quot;ServiceId&quot;: &quot;blogs/wdp/provisioning/blogsendpointmtprovisioning&quot;
+ "Phase":"prepare",
+ "Version": "1",
+ "OperationId": "AddSubscriber",
+ "ReqId": "476978dd-37ad-4eb8-89b7-bfdd6841292c", 
+ "Payload": {
+  "Locale": "en\_US", 
+  "ServiceOfferingAttributeValues": {}, 
+  "SubscriberId": "1000000002"
+ },
+ "RequestedBy": "",
+ "ServiceId": "blogs/wdp/provisioning/blogsendpointmtprovisioning"
 }
 ```
 
-For other phase and operations, set the fields &#39;Phase&#39; and &#39;OperationId&#39; accordingly.
+For other phase and operations, set the fields <Phase> and <OperationId> accordingly.
 
 **Note:** SubscriberState attribute in JSON payload is ignored by Blogs provisioning API. It has no effect. 
 
 **b.** Sample cURL command
 
-curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_blogss.json -H &quot;Content-Type:application/json&quot; -X POST -v 
+curl --insecure -u wasadmin:xbhyimln -d @entitle\_user\_blogss.json -H "Content-Type:application/json" -X POST -v 
 [https://lcauto4.cnx.cwp.pnp-hcl.com/blogs/wdp/provisioning/blogsendpointmtprovisioning](https://lcauto4.cnx.cwp.pnp-hcl.com/blogs/wdp/provisioning/blogsendpointmtprovisioning)
 
 <?tm 1541016643182 1 HCL Connections ?>

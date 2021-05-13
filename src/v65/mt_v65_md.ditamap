@@ -67,9 +67,10 @@
   <topicref
    href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Importing+Databases+-+Post+Import+Steps+-+Populating+OM.pdf"
    scope="external" format="pdf" navtitle="Importing Databases - Post Import Steps - Populating OM"/>
-  <topicref
-   href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Managing+External+Users.pdf"
-   scope="external" format="pdf" navtitle="Managing External Users"/>
+  <topicref href="managing_external_users/man_ext_users_overview.md" format="markdown">
+   <topicref href="managing_external_users/prov_ext_users.md" format="markdown"/>
+   <topicref href="managing_external_users/ext_user_can_cannot.md" format="markdown"/>
+  </topicref>
   <topicref href="provisioing_apis/provisioning_apis.md" format="markdown"/>
   <topicref
    href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Additional+Information.pdf"
