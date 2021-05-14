@@ -19,6 +19,6 @@ Updates may be performed only to markdown files under **connections-doc/src**.
 
 ### Submitting documentation changes
 
-- Open a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/connections-doc/pulls)
+- Open a [Pull Request](https://github.com/HCL-TECH-SOFTWARE/connections-doc/pulls).
 - Respond to review comments as needed.
-- After your changes have been merged, you will be notified via pull request when they have been published.
+- You will be notified when your changes have been merged. They will appear on the public site the next time the documentation is built.
