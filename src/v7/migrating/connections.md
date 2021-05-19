@@ -8,7 +8,15 @@
 
    **Note:** The HCL Connections V7.0 Update Wizard (2104) is required to install the MT Update  
 
-3. Backup 6.5 databases and then restore on new server.
+3. ![attention.jpg](attention.jpg)Remove wasadmin from all org-admin roles in all services
+    
+    The WebSphere Administrator is a non-org user and should never be defined as the org-admin for HCL Connection components in a multi-tenant deployment. The Connections install program currently sets the WebSphere Administrator as the org-admin in: Applications > Application Types > Enterprise Applications > [component name] > Security role to user/group mapping
+
+    The WebSphere Admin needs to be manually removed from all HCL Connections components otherwise there will be instability within the components. 
+
+    After installing Connections v7.0, remove wasadmin from all org-admin roles in all services, or if you are enabling MT configuration changes then remove all wasadmin type user from orgadmin roles.
+
+4. Backup 6.5 databases and then restore on new server.
 4. Upgrade the Homepage database to V7.0 schema by running the following script
 
    ```
