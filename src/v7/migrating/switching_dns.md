@@ -32,7 +32,7 @@ Before giving access the new system to users and want to test locally with few u
 helm upgrade orientme /opt/hcl-cnx-component-pack/microservices\_connections/hybridcloud/helmbuilds/orientme-0.1.0-20210414-144208.tgz -i -f /*your_directory*/generated\_charts/orientme.yml --namespace connections
 10. After testing is completed, register your ip&#39;s into DNS which switches to new environment.
 
-**Note:**  After you install the MT v7.0 (7.0.0.0-MT-Common-Fix), refer to [Updating HCL Connections 7.0 with the latest interim fix](https://opensource.hcltechsw.com/connections-doc/v7/downloading/HCL%20MT%20CH-MSP%20Downloading%20HCL%20Connections%20Multi-Tenant%20packages%20and%20Monthly%20releases.html)  to download and install the latest iFix (7.0.0.0-MT-News-CNXSERV9731) 
+**Note:**  After you install the MT v7.0 (7.0.0.0-MT-Common-Fix), refer to [Updating HCL Connections 7.0 with the latest interim fix](https://opensource.hcltechsw.com/connections-doc/v7/downloading/HCL%20MT%20CH-MSP%20Downloading%20HCL%20Connections%20Multi-Tenant%20packages%20and%20Monthly%20releases.html) to check for any additional updates. 
 
 
 <?tm 1541016643182 1 HCL Connections ?>
