@@ -34,7 +34,7 @@ export const LANG_LIST = {
 }
 export const VERSION_LIST = {
     "v7": "Version 7",
-	  }
+	    }
 
 //Change the list base on your product languages availability.
 export const PROD_LANG_LIST = ["en"]

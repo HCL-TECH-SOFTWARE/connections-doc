@@ -24,8 +24,6 @@
                path="v7/ldap_group/providing_ldap_group_support.html"/>
    <appContext helpID="provisioning-apis-for-v70"
                path="v7/provisioing_apis_7/provisioning_apis_7.html"/>
-   <appContext helpID="keycloak-authentication-and-sso"
-               path="v7/keycloak_authentication_sso/keycloak_auth_sso.html"/>
    <appContext helpID="managing-external-user-access"
                path="v7/managing_external_users/man_ext_users_overview.html"/>
    <appContext helpID="provisioning-external-users"
@@ -50,7 +48,6 @@
                path="v7/configuringv7features/meetingintegration/meet_integ.html"/>
    <appContext helpID="enabling-round-trip-editing-for-files"
                path="v7/configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.html"/>
-   <appContext helpID="troubleshooting" path="v7/troubleshooting/troubleshooting.html"/>
    <appContext helpID="kc_welcome" path="v65/welcome_65/welcome_admin.html"/>
    <appContext helpID="" path="v65/overview/welcome.html"/>
    <appContext helpID="feature-differences-between-hcl-connections-mt-and-ibm-connections"
