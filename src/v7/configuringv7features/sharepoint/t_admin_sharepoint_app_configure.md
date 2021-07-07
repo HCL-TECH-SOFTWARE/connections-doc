@@ -5,7 +5,7 @@ After enabling this application, the Sharepoint Library widget will be available
 ## Before you begin
 Make sure you have completed all the steps in [Configuring the Sharepoint app in Microsoft Azure AD](https://opensource.hcltechsw.com/connections-doc/v7/configuringv7features/sharepoint/t_admin_sharepoint_app_enabling.html)
 
-To enable Sharepoint Library Widget for Connections Community, add the following json as a new application definition in connections app registry *https://<org-host-name>/appreg/apps*
+To enable Sharepoint Library Widget for Connections Community, add the following json as a new application definition in connections app registry *https://connections.host.name/appreg/apps*
 
 ## Procedure
 
