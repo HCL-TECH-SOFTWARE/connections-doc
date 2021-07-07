@@ -48,8 +48,12 @@
                path="v7/configuringv7features/meetingintegration/meet_integ.html"/>
    <appContext helpID="enabling-round-trip-editing-for-files"
                path="v7/configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.html"/>
+   <appContext helpID="configuring-the-connections-community-app-for-microsoft-sharepoint"
+               path="v7/configuringv7features/sharepoint/c_admin_sharepoint_app_container.html"/>
    <appContext helpID="configuring-the-sharepoint-app-in-microsoft-azure-ad"
                path="v7/configuringv7features/sharepoint/t_admin_sharepoint_app_enabling.html"/>
+   <appContext helpID="configuring-the-sharepoint-app-in-connections"
+               path="v7/configuringv7features/sharepoint/t_admin_sharepoint_app_configure.html"/>
    <appContext helpID="kc_welcome" path="v65/welcome_65/welcome_admin.html"/>
    <appContext helpID="" path="v65/overview/welcome.html"/>
    <appContext helpID="feature-differences-between-hcl-connections-mt-and-ibm-connections"

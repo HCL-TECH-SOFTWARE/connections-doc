@@ -41,4 +41,4 @@ Linked references in the following procedure are to provide additional explanati
     b. Change the attribute *oauth2AllowImplicitFlow* to *true*.
     
     c. Click **Save**.
-8. From your app's **Overview** page, copy the value for **Application (client) ID** to the clipboard for use in the next task. 
+8. From your app's **Overview** page, copy the value for **Application (client) ID** to the clipboard for use in the next task, Configure the SharePoint app in Connections. 

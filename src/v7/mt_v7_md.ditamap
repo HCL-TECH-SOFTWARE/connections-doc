@@ -56,8 +56,13 @@
    <topicref href="configuringv7features/meetingintegration/meet_integ.md" format="markdown"/>
    <topicref href="configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.md"
     format="markdown"/>
-   <topicref href="configuringv7features/sharepoint/t_admin_sharepoint_app_enabling.md"
-    format="markdown"/>
+   <topicref href="configuringv7features/sharepoint/c_admin_sharepoint_app_container.md"
+    format="markdown">
+    <topicref href="configuringv7features/sharepoint/t_admin_sharepoint_app_enabling.md"
+     format="markdown"/>
+    <topicref href="configuringv7features/sharepoint/t_admin_sharepoint_app_configure.md"
+     format="markdown"/>
+   </topicref>
   </topicref>
  </topicref>
 </map>
