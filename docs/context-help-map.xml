@@ -22,6 +22,8 @@
                path="v7/updating_config_files_via_autodeploy/updating_config_files_via_autodeploy.html"/>
    <appContext helpID="providing-ldap-group-support-for-the-org-admin-role-in-mt"
                path="v7/ldap_group/providing_ldap_group_support.html"/>
+   <appContext helpID="keycloak-authentication-and-sso"
+               path="v7/keycloak_authentication_sso/keycloak_auth_sso.html"/>
    <appContext helpID="provisioning-apis-for-v70"
                path="v7/provisioing_apis_7/provisioning_apis_7.html"/>
    <appContext helpID="managing-external-user-access"

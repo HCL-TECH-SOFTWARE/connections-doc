@@ -35,6 +35,7 @@
   <topicref href="updating_config_files_via_autodeploy/updating_config_files_via_autodeploy.md"
    format="markdown"/>
   <topicref href="ldap_group/providing_ldap_group_support.md" format="markdown"/>
+  <topicref href="keycloak_authentication_sso/keycloak_auth_sso.md" format="markdown"/>
   <topicref href="provisioing_apis_7/provisioning_apis_7.md" format="markdown"/>
   <topicref href="managing_external_users/man_ext_users_overview.md" format="markdown">
    <topicref href="managing_external_users/prov_ext_users.md" format="markdown"/>
