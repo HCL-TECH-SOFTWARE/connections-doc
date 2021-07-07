@@ -64,23 +64,23 @@
    <topicref href="importing_data/txt_config_reclone_parms.md" format="markdown"/>
    <topicref href="importing_data/setting_org_read_only.md" format="markdown"/>
   </topicref>
-  <topicref
-   href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Importing+Databases+-+Post+Import+Steps+-+Populating+OM.pdf"
-   scope="external" format="pdf" navtitle="Importing Databases - Post Import Steps - Populating OM"/>
+   <topicref
+    href="https://help.hcltechsw.com/connectionscloud/_07_Importing+Databases+-+Post+Import+-+Populating+OM/Importing+Databases+-+Post+Import+Steps+-+Populating+OM.pdf"
+    scope="external" format="pdf" navtitle="Importing Databases - Post Import Steps - Populating OM"/>
   <topicref href="managing_external_users/man_ext_users_overview.md" format="markdown">
    <topicref href="managing_external_users/prov_ext_users.md" format="markdown"/>
    <topicref href="managing_external_users/ext_user_can_cannot.md" format="markdown"/>
   </topicref>
   <topicref href="provisioing_apis/provisioning_apis.md" format="markdown"/>
-  <topicref
-   href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Additional+Information.pdf"
-   scope="external" format="pdf" navtitle="Additional Information"/>
-  <topicref
-   href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Troubleshooting.pdf"
-   scope="external" format="pdf" navtitle="Troubleshooting"/>
-  <topicref
-   href="https://help.hcltechsw.com/connectionscloud/HCL+MT+CH-MSP+Product+Documentation/Keycloak+Authentication+and+SSO.pdf"
-   scope="external" format="pdf" navtitle="Keycloak Authentication and SSO"/>
+   <topicref
+    href="https://help.hcltechsw.com/connectionscloud/_10_Additional+Information/Additional+Information.pdf"
+    scope="external" format="pdf" navtitle="Additional Information"/>
+   <topicref
+    href="https://help.hcltechsw.com/connectionscloud/_11_Troubleshooting/Troubleshooting.pdf"
+    scope="external" format="pdf" navtitle="Troubleshooting"/>
+   <topicref
+    href="https://help.hcltechsw.com/connectionscloud/_012_Keycloak+Authentication+and+SSO/download/Keycloak+Authentication+and+SSO.pdf"
+    scope="external" format="pdf" navtitle="Keycloak Authentication and SSO"/>
  </topicref>
 </map>
 <?Pub *0000006814?>
