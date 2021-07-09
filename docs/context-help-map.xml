@@ -36,8 +36,6 @@
                path="v7/configuringv7features/config_v7_features.html"/>
    <appContext helpID="configuring-touchpoint-for-mt"
                path="v7/configuringv7features/TouchpointMt/configuring_touchpoint_mt_overview.html"/>
-   <appContext helpID="setting-up-touchpoint-mt-for-an-org-touchpont-configxml"
-               path="v7/configuringv7features/TouchpointMt/setting_up_touchpoint_MT_org.html"/>
    <appContext helpID="base-default-and-individual-settings"
                path="v7/configuringv7features/TouchpointMt/base_default_indiv_setting_touchpoint_MT.html"/>
    <appContext helpID="protected-keys"

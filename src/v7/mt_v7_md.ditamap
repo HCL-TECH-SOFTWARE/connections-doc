@@ -44,8 +44,6 @@
   <topicref href="configuringv7features/config_v7_features.md" format="markdown">
    <topicref href="configuringv7features/TouchpointMt/configuring_touchpoint_mt_overview.md"
     format="markdown">
-    <topicref href="configuringv7features/TouchpointMt/setting_up_touchpoint_MT_org.md"
-     format="markdown"/>
     <topicref href="configuringv7features/TouchpointMt/base_default_indiv_setting_touchpoint_MT.md"
      format="markdown"/>
     <topicref href="configuringv7features/TouchpointMt/protected_keys_touchpoint_MT.md"
