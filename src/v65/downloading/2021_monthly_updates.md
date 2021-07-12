@@ -74,5 +74,23 @@ The following table contains the Fix List for the Connections 6.5 MT April 2021 
 
 
 **Note:** The MT monthly updates are not cumulative, and the previous monthly updates are required to be installed before installing the latest update.
+
+## June 2021 Update
+
+Download the following HCL Connections 6.5 MT June 2021 Monthly Update package from the HCL License &amp; Delivery Portal.
+
+| **File ID** | **File Name** | **File Description** |
+| --- | --- | --- |
+| HCL_Connections_MT_June_21_Update | LO100099-IC6.5.0.0_CR1a-Common-Fix.jar | HCL Connections 6.5 MT June 2021 Monthly Update |
+|
+The following table contains the Fix List for the Connections 6.5 MT June 2021 Monthly Update
+
+| **Problem Description** |
+| --- |
+| Corrects issue where users were unable to browse through multiple pages of forums. |
+|
+
+
+**Note:** The MT monthly updates are not cumulative, and the previous monthly updates are required to be installed before installing the latest update.
 <?tm 1541016643182 1 HCL Connections ?>
 
