@@ -2,7 +2,7 @@
 <!DOCTYPE html
   SYSTEM "about:legacy-compat">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:whc="http://www.oxygenxml.com/webhelp/components" whc:version="22.0" lang="en-US" dir="ltr">
-    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="wh-path2root" content="" /><title>HCL Connections Product Documentation  </title>
+    <head><link rel="shortcut icon" href="favicon.png"><!----></link><link rel="icon" href="favicon.png"><!----></link><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="wh-path2root" content="" /><title>HCL Connections Product Documentation  </title>
         
         
                 
@@ -28,18 +28,21 @@
         
         
     <!-- Global site tag (gtag.js) - Google Analytics start-->
-    <script src="https://www.googletagmanager.com/gtag/js?id=UA-169645537-2" class="optanon-category-C0002-C0003-C0004-C0005"></script>
-    <script type="text/plain" class="optanon-category-C0002">
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-169645537-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        gtag('config', 'UA-169645537-2');
-    </script>
+  gtag('config', 'UA-169645537-2');
+</script>
+
     <!-- Global site tag (gtag.js) - Google Analytics end-->
 
     <script type="module" src="./oxygen-webhelp/template/resources/js/custom-hcl.js"></script>
     <script type="module" src="./oxygen-webhelp/template/resources/js/constants.js"></script>
+    <script type="module" src="./oxygen-webhelp/template/resources/js/lang.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="${oxygen-webhelp-template-dir}/resources/css/custom-hcl.css" /> -->
 
     <!-- OneTrust Cookies Consent Notice start -->
@@ -61,13 +64,19 @@
         </a>
         
         
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- 
+Release Version: v.Q32021  
+--><nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="https://www.hcltechsw.com/wps/portal/hclsw-home" style="vertical-align: unset;">
         <img width="150" height="50" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank" />
     </a>
     <a href="https://help.hcltechsw.com/">
         <span id="brandName" class="title" style="vertical-align: middle; font-size: 16px; color:#ffffff;">Product Documentation</span>
     </a>
+
+    <div id="learningAcademyLink" style="margin-left: 20px;"> 
+        <a id="learningAcademy" class="nav-link" style="color:#ffffff;padding-right: 20px;" href="https://academy.hcltechsw.com">Learning Academy</a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -130,7 +139,9 @@
             
             
             
-        </div><div xmlns="http://www.w3.org/1999/xhtml" class="after-search">
+        </div><!-- 
+Release Version: v.Q32021  
+--><div xmlns="http://www.w3.org/1999/xhtml" class="after-search">
     <div class="version-container">
         <select id="versions" class="custom-select custom-select-md lang-selector" data-toggle="tooltip" title="Select a version">
         </select>
@@ -161,19 +172,34 @@
         
         <footer class="navbar navbar-default wh_footer" whc:version="23.1">
   <div class=" footer-container mx-auto ">
-    <div>
-    <div class="footer">
-        <ul class="nav justify-content-center">
+    <!-- 
+Release Version: v.Q32021  
+--><div class="footer">
+	<div class="footer-left">
+		<ul class="nav share-content">
+			<li class="nav-item">
+                <a id="footerMailLink" class="nav-link footer-mail" style="color:white;" target="_blank" href="#" onclick="gtag('event', 'EmailShare', {'event_category': 'share', 'event_label':'labelemail'});" title="Share by Email">Share: Email</a>
+			</li>
+            <li>
+                <a id="footerTwitterLink" class="nav-link footer-twitter" href="https://twitter.com/intent/tweet" style="color:white;" onclick="gtag('event', 'TwitterShare', {'event_category': 'share', 'event_label':'labeltweet'});" title="Share by Twitter">Twitter</a>
+            </li>
+		</ul>
+	</div>
+    <div class="footer-right">
+        <ul class="nav legal-content">
             <li class="nav-item">
-                <a class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/disclaimer">Disclaimer</a>
+                <a id="disclaimerLabel" class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/disclaimer">Disclaimer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/privacy">Privacy</a>
+                <a id="privacyLabel" class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/privacy">Privacy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/terms-use">Terms of use</a>
+                <a id="termsLabel" class="nav-link footer-launch" style="color:white;" target="_blank" href="https://www.hcltechsw.com/wps/portal/legal/terms-use">Terms of use</a>
             </li>
-         </ul>
+            <li class="nav-item">
+                <a id="cookieLabel" class="nav-link footer-launch ot-sdk-show-settings" style="color:white;" href="#">Cookie Preferences</a>
+            </li>
+        </ul>
     </div>
 </div>
   </div>

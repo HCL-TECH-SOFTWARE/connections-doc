@@ -1,7 +1,5 @@
-# Integrating Meetings (meetingIdentity)
-
-Connections 7.0 includes support for Meetings integration. The Meeting URL is managed via a profile extension attribute `meetingIdentity` and will be set up via an administrator.
-
+# Integrating Meetings
+Connections 7.0 includes support for integrating web meetings to the navigation header.  This is supported to meeting platforms that use a static meeting URL for users, and is accomplished using a Connections customizer extension.  The [webMeeting extension](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/webMeeting) and associated files are available on the HCL Tech Software github site under the connections-samples repository. The Meeting URL can use a LINKROLL attribute or another profile extension attribute such as  meetingIdentity.  Extended attributes like meetingIdentity can be set up by an administrator using the profiles Administration API.
 
 **Note:** The following is one way to supply information via an API call among other options and is provided as an example.  
 
@@ -15,10 +13,10 @@ curl -v --insecure -u username:password -d @nameofxmlfile -H "Content-Type:appli
 
 1. Provide an Admin username and password after *-u*.
 2. The API url: **profiles/admin/atom/profileEntry.do**, query parameter.  Specify either a key or an email address of the profile to be updated in the url.
-   - For example, the following is the curl command to update the profile extension attribute (chatIdentity) for user Ajones180 with an email address, `ajones180@janet.iris.com`
+   - For example, the following is the curl command to update the profile extension attribute (chatIdentity) for user Ajones180 with an email address, `ajones180@example.com`
 
 ```
-curl -v --insecure -u Ajones1:jones1 -d @profiledemo.xml -H "Content-Type:application/atom+xml" -X PUT -v https:// lcauto21.cnx.cwp.pnp-hcl.com /profiles/admin/atom/profileEntry.do?email=ajones180@janet.iris.com
+curl -v --insecure -u Ajones1:jones1 -d @profiledemo.xml -H "Content-Type:application/atom+xml" -X PUT -v https:// lcauto21.cnx.cwp.pnp-hcl.com /profiles/admin/atom/profileEntry.do?email=ajones180@example.com
 ```
 
 **URL for `meetingIdentity`**
@@ -78,5 +76,3 @@ To remove the value of current `meetingdentity` from an existing record, provide
     </content>
 </entry>
 ```
-
-

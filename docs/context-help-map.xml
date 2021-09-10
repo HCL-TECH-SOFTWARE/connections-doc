@@ -42,9 +42,9 @@
                path="v7/configuringv7features/TouchpointMt/protected_keys_touchpoint_MT.html"/>
    <appContext helpID="tracing-instructions"
                path="v7/configuringv7features/TouchpointMt/tracing_instrux__touchpoint_MT.html"/>
-   <appContext helpID="integrating-chat-chatidentity"
+   <appContext helpID="integrating-chat"
                path="v7/configuringv7features/chatIintegration/chat_integ.html"/>
-   <appContext helpID="integrating-meetings-meetingidentity"
+   <appContext helpID="integrating-meetings"
                path="v7/configuringv7features/meetingintegration/meet_integ.html"/>
    <appContext helpID="enabling-round-trip-editing-for-files"
                path="v7/configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.html"/>

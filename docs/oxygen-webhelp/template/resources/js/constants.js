@@ -1,3 +1,18 @@
+/*
+ ********************************************************************
+ * Licensed Materials - Property of HCL                             *
+ *                                                                  *
+ * Copyright HCL Software 2020. All Rights Reserved.                *
+ *                                                                  *
+ * Note to US Government Users Restricted Rights:                   *
+ *                                                                  *
+ * Use, duplication or disclosure restricted by GSA ADP Schedule    *
+ *                                                                  *
+ * Author: Emmanuel Palogan                                         *
+ * Release Version: v.Q32021                                         *
+ ********************************************************************
+ */
+
 export const LANG_LIST = {
     "en": "English",
     "fr": "French / Français",
@@ -32,9 +47,3 @@ export const LANG_LIST = {
     "th": "Thai / ภาษาไทย",
     "tr": "Turkish / Türkçe",
 }
-export const VERSION_LIST = {
-    "v7": "Version 7",
-	    }
-
-//Change the list base on your product languages availability.
-export const PROD_LANG_LIST = ["en"]
