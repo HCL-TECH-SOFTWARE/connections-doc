@@ -10,6 +10,8 @@
    <appContext helpID="known-issues" path="v7/overview/known_issues.html"/>
    <appContext helpID="updating-hcl-connections-70-with-the-latest-interim-fix"
                path="v7/downloading/HCL%20MT%20CH-MSP%20Downloading%20HCL%20Connections%20Multi-Tenant%20packages%20and%20Monthly%20releases.html"/>
+   <appContext helpID="enhancement-of-supported-languages-in-hcl-connections-70-cumulative-fix-cfix702110"
+               path="v7/downloading/CFix_70_2110.html"/>
    <appContext helpID="upgrading-mt-via-side-by-side-migration"
                path="v7/migrating/mt_side_by_side_upgrade.html"/>
    <appContext helpID="component-pack" path="v7/migrating/comp_pack.html"/>
