@@ -26,7 +26,13 @@ export const VERSION_LIST = {
     "0" : "Connections MT",
     "v7": "Version 7",
     "v65": "Version 6.5 CR1"
-	}
+}
+
+export const VERSION_LIST_URL = {
+    // "v6": "https://help.hcltechsw.com/connections/v6/index.html",
+    // "v55": "https://help.hcltechsw.com/connections/v55/index.html",
+}
+
 //Change the list base on your product languages availability.
 export const PROD_LANG_LIST = ["en"]
 // export const PROD_LANG_LIST = ["en", "ar", "bg", "ca", "zh_CN", "zh_TW", "hr", "cs", "da", "nl", "fi", "fr", "de", "iw", "it", "hu", "ja", "kk", "ko", "no", "pl", "pt_BR", "pt", "ro", "ru", "sk", "sl", "es", "sv", "th", "tr"]
