@@ -24,7 +24,7 @@
                path="v7/updating_config_files_via_autodeploy/updating_config_files_via_autodeploy.html"/>
    <appContext helpID="providing-ldap-group-support-for-the-org-admin-role-in-mt"
                path="v7/ldap_group/providing_ldap_group_support.html"/>
-   <appContext helpID="keycloak-authentication-and-sso"
+   <appContext helpID="enabling-single-sign-on-sso-using-keycloak-authentication"
                path="v7/keycloak_authentication_sso/keycloak_auth_sso.html"/>
    <appContext helpID="provisioning-apis-for-v70"
                path="v7/provisioing_apis_7/provisioning_apis_7.html"/>
@@ -48,6 +48,8 @@
                path="v7/configuringv7features/chatIintegration/chat_integ.html"/>
    <appContext helpID="integrating-meetings"
                path="v7/configuringv7features/meetingintegration/meet_integ.html"/>
+   <appContext helpID="installing-and-configuring-connections-add-in-for-microsoft-outlook-in-an-mt-environment"
+               path="v7/configuringv7features/outlook_addin/instal_cnx_addin_outlook.html"/>
    <appContext helpID="enabling-round-trip-editing-for-files"
                path="v7/configuringv7features/round_trip_editing/t_admin_enabling_roundtrip_edit.html"/>
    <appContext helpID="configuring-the-connections-community-app-for-microsoft-sharepoint"
