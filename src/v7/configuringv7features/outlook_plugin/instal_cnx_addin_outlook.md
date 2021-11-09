@@ -2,14 +2,14 @@
 
 With the Connections Add-in for Microsoft Outlook, users can work with Connections content from within their Outlook inbox.
 
-Refer to the [Installing via Component pack or Standard Install](https://help.hcltechsw.com/connections/v7/connectors/admin/c_outlook_addin_installing.html) topic and decide which install you prefer, Component Pack or a Standard Install.  Them follow the sections in this topic for changes you need to make in your MT envrionment.
+Refer to the [Installing via Component pack or Standard Install](https://help.hcltechsw.com/connections/v7/connectors/admin/c_outlook_addin_installing.html) topic and decide which install you prefer, Component Pack or a Standard Install.  Follow the instructions there but note the changes below which are specific to MT environments.
 
 ## First Steps
 
-In addition to [Registering the Connections Add-in for Outlook OAuth application provider](https://help.hcltechsw.com/connections/v7/admin/install/cp_3p_outlook_addin_oauth.html), you will need to [Enable single sign-on (SSO) using Keycloak Authentication](https://opensource.hcltechsw.com/connections-doc/v7/keycloak_authentication_sso/keycloak_auth_sso.html).  
+In addition to [Registering the Connections Add-in for Outlook OAuth application provider](https://help.hcltechsw.com/connections/v7/admin/install/cp_3p_outlook_addin_oauth.html), you will need to [Enable single sign-on (SSO) using Keycloak Authentication](https://opensource.hcltechsw.com/connections-doc/v7/keycloak_authentication_sso/keycloak_auth_sso.html).  Follow the instructions for the Outlook Add-in.
 
 ## Using Ansible Scripts
-The content in this section supplements the content in the Using Ansible Scripts topic - refer to [Ansible automation option provided by HCL](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_upgrade_container.html#cp_install_upgrade_container__section_lly_2sn_tnb) for additional information. 
+The content in this section supplements the content in the Using Ansible Scripts topic - refer to [Ansible automation option provided by HCL](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_upgrade_container.html#cp_install_upgrade_container__section_lly_2sn_tnb) for additional information. This section applies if you're planning to use the ansible scripts.
 
 The ansible scripts will need to be updated with MT-specific values for MT environments.
 
@@ -19,7 +19,7 @@ The ansible scripts will need to be updated with MT-specific values for MT envir
   - *outlook_mt_auth_url* - Path (relative to AUTH_DOMAIN) used by the addin to obtain OIDC auth configuration and endpoints. By default this should be the Mobile security configuration endpoint.  Do NOT start with `/`.   For example, `outlook_mt_auth_url: mobile/homepage/SecurityConfiguration?debug=true`
 
 
-- Update helm variables for the Outlook Add-in in YAML file (located in `ansible/roles/hcl/component-pack/templates/helmvars/outlook-addin.yml.j2`). Refer to the Updating the Connections Add-In for Outlook Environment Variables section.
+- Update helm variables for the Outlook Add-in in YAML file (located in `ansible/roles/hcl/component-pack/templates/helmvars/outlook-addin.yml.j2`). Refer to the Updating the Connections Add-In for Outlook Environment Variables section in this document for details on the environment variables.
 
 ## Updating the Connections Add-In for Outlook Docker Environment Variables
 
@@ -43,6 +43,7 @@ The Connections Add-in for Outlook relies on environment variables for configura
 - **CONTEXT_ROOT** - The path to where the Connections Add-in for Outlook is being served, relative to the CONNECTIONS_URL. Do NOT start or end with `/`. Default: **outlook-addin**
 - **SUPPORT_URL** - A URL that an end user can go to for information. Refer to the [Using the HCL Connections Add-in for Microsoft Outlook](https://help.hcltechsw.com/connections/v7/connectors/enduser/c_ms_plugins_add_in_outlook.html).
 - **CONNECTIONS_NAME** – A custom display name for the add-in. (Default: 'HCL Connections')
+- **EWS_HOSTNAME** – The hostname for Exchange Web Services. Default: 'outlook.office365.com' A custom display name for the add-in. (Default: 'HCL Connections')
 
 **Note:**  Take care about ingresses listed there. You should point to both frontend domain and internal domains if both are used. Otherwise, only point to the one that is used in your case. 
 
