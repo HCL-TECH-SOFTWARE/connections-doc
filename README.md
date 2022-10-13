@@ -3,10 +3,6 @@
 <p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/mt/index.html/">HCL Connections Multi-Tenant product documentation</a></strong></p>
 </p>
 
-## Usage
-
-[View the documentation](https://opensource.hcltechsw.com/connections-doc/ for product features and usage information.
-
 ## Contributing
 
 Bug reports on **product documentation** and pull requests are welcome on GitHub at https://github.com/HCL-TECH-SOFTWARE/connections-doc. This is the Connections 8 on-premises and Connections MT product documentation site, not a product support platform. All bug reports and pull requests must pertain to product documentation. 
