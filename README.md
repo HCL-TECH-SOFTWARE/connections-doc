@@ -1,6 +1,6 @@
-<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/v8/index.html/">HCL Connections 8 for on-premises product documentation</a></strong></p>
+<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/v8/"> HCL Connections 8 for on-premises product documentation</a></strong></p>
 </p>
-<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/mt/index.html/">HCL Connections Multi-Tenant product documentation</a></strong></p>
+<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/mt/"> HCL Connections Multi-Tenant product documentation</a></strong></p>
 </p>
 
 ## Contributing
