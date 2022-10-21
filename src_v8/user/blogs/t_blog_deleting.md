@@ -1,4 +1,4 @@
-# Deleting a blog 
+# Deleting a blog {#concept_elc_qhp_my .concept}
 
 Deleting a blog permanently removes the blog and all its entries. If you are a blog owner, you can delete a blog.
 
@@ -7,5 +7,5 @@ Deleting a blog permanently removes the blog and all its entries. If you are a b
 3.  Select the checkbox for **I understand that this action cannot be undone** to confirm deletion of your blog.
 4.  Click **Delete**.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

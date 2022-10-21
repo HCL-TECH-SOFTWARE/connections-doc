@@ -14,8 +14,8 @@ DB2 uses a user account called `lcuser`. If you are creating a DB2 database with
 
 **Notes:**
 
--   If you are using Linux on IBM® System z® with the DASD driver, the SQL scripts are located in the connections.s390.sql/application\_subdirectory directory of the HCL Connections setup directory or installation media.
--   If you are using Linux on IBM System z with the SCSI driver, back up the connections.s390.sql directory and rename the connections.sql directory to connections.s390.sql.
+-   If you are using DASD driver, the SQL scripts are located in the connections.s390.sql/application\_subdirectory directory of the HCL Connections setup directory or installation media.
+-   If you are using SCSI driver, back up the connections.s390.sql directory and rename the connections.sql directory to connections.s390.sql.
 -   \(AIX only\) Download and install the following packages from the [AIX Toolbox for Linux Applications](http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html) webpage:
 
     gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32, and libtiff-3.8.2
@@ -76,8 +76,6 @@ To create databases with the wizard, complete the following steps:
 
 8.  Review the Post Configuration Task Summary panel and, if necessary, click **View Log** to open the log file. Click **Finish** to exit the wizard.
 
-
-\(DB2 for Linux on System z only.\) To improve database performance, enable the NO FILE SYSTEM CACHING option. For more information, see the [Enabling NO FILE SYSTEM CACHING for DB2 on System z](t_enable_no-file-system-caching.md#) topic.
 
 **Parent topic:**[Creating DB2 databases](../install/c_inst_create_database_db2.md)
 

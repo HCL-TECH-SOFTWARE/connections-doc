@@ -18,8 +18,6 @@ The procedure to customize HCL Connections is the same for each application. You
 The content of the notifications sent by HCL Connections is defined in templates that are processed by the FreeMarker engine.
 -   **[Adding new ways to share content](../customize/t_customize_sharebox_gadgets.md)**  
 Create your own gadgets and add them to the Share dialog.
--   **[Customizing a blog theme](../customize/c_blogs_custom_overview.md)**  
-Customize a blog theme to change the look of a blog. Or create a new theme and make it available to your blog users.
 -   **[Customizing Profiles](../customize/c_admin_profiles_customizing.md)**  
 Customize the Profiles application to define the core data model for people within your deployment and tailor the presentation of profile content to meet your organization’s requirements.
 -   **[Using Profiles and Communities business cards](../customize/c_admin_profiles_biz_cards.md)**  

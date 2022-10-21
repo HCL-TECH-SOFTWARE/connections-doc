@@ -1,4 +1,4 @@
-# What can you do with Bookmarks? 
+# What can you do with Bookmarks? {#whatisdogear .concept}
 
 Bookmarks is a set of social bookmarking tools that you can use to save, organize, and share links to web pages.
 
@@ -10,5 +10,5 @@ You can share some or all of your bookmarks with others, and see other collectio
 -   Authentication with an enterprise directory to provide boundaries to the social network
 -   Contact information provided about bookmark owners so that you can locate and connect with them
 
-**Parent topic:**[Getting started](../../user/bookmarks/c_getting_started.md)
+**Parent topic:**[Getting started](../bookmarks/c_getting_started.md)
 

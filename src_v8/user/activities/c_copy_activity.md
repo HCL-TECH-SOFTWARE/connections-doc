@@ -1,4 +1,4 @@
-# Copying an activity 
+# Copying an activity {#concept_rlr_znl_5x .concept}
 
 Have an activity that you want to reuse, but not often enough to warrant a template? Copy it, and you'll be added as the new owner of an exact replica.
 
@@ -7,5 +7,5 @@ Have an activity that you want to reuse, but not often enough to warrant a templ
 3.  Keep, change, or delete the content.
 4.  Click **Save**.
 
-**Parent topic:**[Going further](../../user/activities/c_get_further.md)
+**Parent topic:**[Going further](../activities/c_get_further.md)
 

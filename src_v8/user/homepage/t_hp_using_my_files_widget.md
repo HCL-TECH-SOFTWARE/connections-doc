@@ -1,4 +1,4 @@
-# Using the My Files app 
+# Using the My Files app {#t_hp_using_my_files_widget .task}
 
 Use the My Files app to see a list of the files that you have added or updated most recently in Files. You can also use the app to upload new files to the Files app.
 

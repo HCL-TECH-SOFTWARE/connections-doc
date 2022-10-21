@@ -1,4 +1,4 @@
-# Creating a wiki page 
+# Creating a wiki page {#t_com_create_wiki_page .concept}
 
 With Editor access, you can create a wiki page and add content to it so you can share information with community members.
 
@@ -14,14 +14,14 @@ With Editor access, you can create a wiki page and add content to it so you can 
     Learn more about other content that you can add [using the rich text editor](eucommon_ckeditor.md).
 
 
-## What to do next 
+## What to do next {#section_dxj_22v_h5b .section}
 
 Want to get notified about updates to a community wiki or wiki page? Open the wiki or wiki page and, in the Following Actions area, click **Follow this Wiki** and **Follow this Page**.
 
-**Parent topic:**[Creating information in a community wiki](../../user/communities/community_wiki_frame.md)
+**Parent topic:**[Creating information in a community wiki](../communities/community_wiki_frame.md)
 
 **Related information**  
 
 
-[Working with wiki pages](../../user/communities/t_com_wiki_pages.md)
+[Working with wiki pages](../communities/t_com_wiki_pages.md)
 

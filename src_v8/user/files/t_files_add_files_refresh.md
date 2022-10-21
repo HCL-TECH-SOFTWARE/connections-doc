@@ -1,4 +1,4 @@
-# Uploading a file 
+# Uploading a file {#howdoiaddfiles .concept}
 
 Upload files from your device to share them with people or communities or store them for your own use.
 
@@ -22,14 +22,14 @@ Upload files from your device to share them with people or communities or store 
     If you want, you can also [share files in a status update](../profiles/t_pers_update_status.md).
 
 
-## Limitations for uploading files 
+## Limitations for uploading files { .section}
 
 -   Your administrator limits the size of files you can upload and the amount of space that you have for storing files. The maximum file size applies to everyone in your organization, but the limit for your own storage might differ from others, depending on how it is set by your administrator.
 -   Your file storage space is affected by the files that you upload and all versions of those files. If you have exceeded your storage limit, you can delete old file versions to create more storage space.
 
-## What to do next 
+## What to do next { .section}
 
 After you upload a file, you can always change how it is shared, as long as you have Owner access. For more information, see [Sharing files and folders](t_files_share_files_refresh.md).
 
-**Parent topic:**[Getting started](../../user/files/getting_started.md)
+**Parent topic:**[Getting started](../files/getting_started.md)
 

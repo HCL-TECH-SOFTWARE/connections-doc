@@ -1,8 +1,8 @@
-# Product accessibility 
+# Product accessibility {#c_eucommon_accessibility_over .concept}
 
 Accessibility features help users who have a physical disability, such as restricted mobility or limited vision, to use information technology products successfully.
 
-## Keyboard navigation 
+## Keyboard navigation { .section}
 
 |Action|Keyboard shortcut|
 |------|-----------------|
@@ -28,16 +28,16 @@ Tag collection
 
 If the application user interface contains a **View Demo** link, you can download the target video in accessible MP4 format by clicking **View Demo** and then clicking **Download the video in accessible format**.
 
-## IBM and accessibility 
+## IBM and accessibility { .section}
 
 For more information about the commitment that IBM® has to accessibility, go to the IBM Accessibility Center at [http://www.ibm.com/able](http://www.ibm.com/able).
 
--   **[Rich text editor keyboard shortcuts](../../user/eucommon/r_eucommon_access_ckeditor.md)**  
+-   **[Rich text editor keyboard shortcuts](../eucommon/r_eucommon_access_ckeditor.md)**  
 The rich text editor that is used by the HCL Connections applications contains keyboard shortcuts that you can use to manipulate the editor without using a mouse.
--   **[Home page accessibility features](../../user/eucommon/r_eucommon_access_homepage.md)**  
+-   **[Home page accessibility features](../eucommon/r_eucommon_access_homepage.md)**  
 Use the keyboard shortcuts available for the Home page to navigate the activity stream views and the My Page view.
--   **[Search accessibility features](../../user/eucommon/r_eucommon_access_search.md)**  
+-   **[Search accessibility features](../eucommon/r_eucommon_access_search.md)**  
 Use the keyboard shortcuts available for search to navigate the Advanced Search and the Search Results pages.
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 

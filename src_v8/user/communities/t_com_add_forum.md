@@ -1,4 +1,4 @@
-# Adding forums to get the discussion going 
+# Adding forums to get the discussion going {#t_com_add_forum .task}
 
 You can add more forums to your community to organize discussions around different focus areas. You cannot add existing, stand-alone forums to a community.
 
@@ -28,10 +28,10 @@ Manage forums directly from the **Forums** area on the community's Highlights pa
 -   Click a topic title to open it. This app lists the five most recent topic updates.
 -   Access a full list of forum topics for the community by clicking **View All**.
 
-**Parent topic:**[Keeping your apps contemporary](../../user/communities/apps_frame.md)
+**Parent topic:**[Keeping your apps contemporary](../communities/apps_frame.md)
 
 **Related information**  
 
 
-[Adding apps to increase capabilities](../../user/communities/c_com_add_widgets.md)
+[Adding apps to increase capabilities](../communities/c_com_add_widgets.md)
 

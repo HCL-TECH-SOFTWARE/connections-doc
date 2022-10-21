@@ -1,14 +1,14 @@
-# Adding an image 
+# Adding an image {#concept_t1p_1ts_sy .concept}
 
 Add an image to an entry in an HCL Connections™ application.
 
-## Supported image files 
+## Supported image files {#section_tfs_2ts_sy .section}
 
 You can add any image file format that is supported by your browser. The most widely supported image formats are BMP, GIF, JPG, JPEG, PNG, and RAW
 
 **Note:** This function differs across applications. In most applications, for example, it is not possible to upload an image from your computer, paste an image, nor use an attached image that you already uploaded. Those abilities are supported in Blogs, Forums, and Wikis only. Moreover, pasting an image is supported in the Chrome, Firefox, and Safari browsers only; it is not supported in Internet Explorer.
 
-## Insert an image 
+## Insert an image {#section_unp_4ts_sy .section}
 
 1.  Create or edit a blog entry or a wiki page.
 2.  In the **Entry** field, place the cursor where you want the image to be displayed.
@@ -52,7 +52,7 @@ You can add any image file format that is supported by your browser. The most wi
 
 6.  Click **OK** to add the image to the entry.
 
-## Paste an image 
+## Paste an image {#section_zbn_fzs_sy .section}
 
 1.  Create or edit a blog entry or a wiki page.
 2.  In the **Entry** field, place the cursor where you want the image to be displayed.
@@ -61,5 +61,5 @@ You can add any image file format that is supported by your browser. The most wi
     -   Drag an image file from your local file system or drag an image from a webpage.
 4.  Save the entry.
 
-**Parent topic:**[Adding forum topics](../../user/forums/t_forums_add_topic.md)
+**Parent topic:**[Adding forum topics](../forums/t_forums_add_topic.md)
 

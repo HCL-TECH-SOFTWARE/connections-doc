@@ -1,4 +1,4 @@
-# Creating a wiki 
+# Creating a wiki {#concept_w45_fz3_my .concept}
 
 Create a wiki so your team can create and collaborate on content. Assign roles and permissions for your team so the right people can create and edit wiki pages.
 
@@ -24,7 +24,7 @@ To create a wiki:
 
 **Note:** Access to a community wiki is managed by community owners. Community owners can grant either an Editor or Reader role to community members. For further details, see [Assigning app roles for community members](../communities/managing_roles_for_community_members.md).
 
-## Creating a page 
+## Creating a page { .section}
 
 1.  From the navigation bar, click **Wikis** and select the wiki you want to work on.
 2.  If there are existing pages in the wiki, select a page, then do either of the following:
@@ -35,11 +35,11 @@ To create a wiki:
 
 3.  If the wiki is empty, just click **New Page**.
 
-## How much space do I have? 
+## How much space do I have? { .section}
 
 Wiki owners and editors can check the wiki's size limit and usage by clicking the **Index** tab. The size limit is set by the administrator.
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

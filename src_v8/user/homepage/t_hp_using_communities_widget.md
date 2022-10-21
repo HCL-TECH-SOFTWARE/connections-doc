@@ -1,4 +1,4 @@
-# Using the Communities app 
+# Using the Communities app {#t_hp_using_communities_widget .task}
 
 Use the Communities app to access the latest updates to communities.
 

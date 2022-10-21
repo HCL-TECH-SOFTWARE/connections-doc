@@ -1,12 +1,12 @@
 # Ways to upgrade to Connections 8.0 {#c_3_ways_to_upgrade .concept}
 
-You can upgrade to HCL Connections 7 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
+You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
 
 ## First, the terminology {#section_kqd_jgb_sqb .section}
 
-In a *side-by-side* upgrade, you start with a fresh install of Connections 7.0 in a new environment, and then do the needed migrations from the existing environment.
+In a *side-by-side* upgrade, you start with a fresh install of Connections 8.0 in a new environment, and then do the needed migrations from the existing environment.
 
-In both an *in-place* and a *hybrid* approach, you upgrade your 6.5 CR1 environment by using the Update function in the installation program. The difference between these approaches is that the in-place upgrade takes place in your production environment, while the hybrid upgrade is done in a new environment that you have set up to be identical to your 6.5 CR1 production environment.
+In both an *in-place* and a *hybrid* approach, you upgrade your 7.0 environment by using the Update function in the installation program. The difference between these approaches is that the in-place upgrade takes place in your production environment, while the hybrid upgrade is done in a new environment that you have set up to be identical to your 7.0 production environment.
 
 The term *upgrading* is used as an umbrella term for getting to the newer Connections version, regardless of the approach, and *updating* is used for applying periodic fixes to that new version.
 
@@ -21,21 +21,13 @@ Side-by-side upgrades
 
 :   Migrating configuration changes and other customizations is entirely manual with this approach, so it requires careful record keeping and a thorough understanding of the processes involved in applying the changes to the new setup.
 
-:   A tutorial \(whitepaper\) by a technical advisor that steps you though this approach can be found here: [Upgrading from Connections 6.5 to 7: Side by Side](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0093267).
-
 In-place upgrades
-:   For smaller environments, the in-place upgrade is the easiest option with the lowest risk, as long as known, working backups/snapshots are available should you encounter an issue. Running the Installation Manager update function preserves some of the configuration and changes that you made in 6.5 CR1. These changes – file-related settings such as round-trip editing, quotas, proxy configuration, and so on – are stored in XML and other data formats and kept or extended during upgrade.
-
-:   If you plan to continue with Cognos Metrics in Connections 7, an in-place upgrade is your only option, as you cannot install Cognos in Connections 6.5 or 7. With the in-place approach, your Metrics configurations are not affected by the Update function in the installation program.
+:   For smaller environments, the in-place upgrade is the easiest option with the lowest risk, as long as known, working backups/snapshots are available should you encounter an issue. Running the Installation Manager update function preserves some of the configuration and changes that you made in 8.0. These changes – file-related settings such as round-trip editing, quotas, proxy configuration, and so on – are stored in XML and other data formats and kept or extended during upgrade.
 
 Hybrid upgrades
 :   The hybrid upgrade uses the same process as the in-place, except that in a new environment identical to that in production. As with the side-by-side, you gain the benefit of migrating remaining customizations and testing them before switching it to production.
 
 :   This "mirrored" type of set up was the approach used by the Connections team in their internal environment. For more information, see [Considerations for an in-place or hybrid upgrade](c_inplace_upgrade_considerations.md).
-
-A tutorial \(whitepaper\) by a technical advisor that applies to both in-place and hybrid upgrades can be found here: [Upgrading from Connections 6.5 to 7](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0090051).
-
-**Note:** For the in-place and hybrid approaches, upgrading from a version earlier than 6.5 CR1 requires additional tasks beyond the scope of this documentation. For these situations, see the Knowledge Article [Road map for Upgrading Connections to 7.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0076286).
 
 ## Comparing the approaches {#section_ors_bvv_pqb .section}
 
@@ -49,17 +41,10 @@ The following table is provided to aid you in planning your upgrade.
 |Lessens downtime|X| |X|
 |Preserves most configuration settings| |X|X|
 |Fastest when upgrading from versions earlier than 6.5 CR1|X| | |
-|Allows continued use of Cognos| |X| |
-|Success validated by these HCL Software groups|Digital Solutions Technical Advisors\*Digital Solutions Services
-
-|Digital Solutions Technical Advisors\*Connections Development
-
-|Connections Development|
 |**Cons**|
 |Requires more hardware resources|X| |X|
 |Increases risk of problems, rollback| |X| |
 |Requires most knowledge/records of existing deployment configurations|X| | |
-|\*See the whitepapers previously referenced on this page. Both whitepapers are especially useful if you have or are adding Component Pack in your deployment.|
 
 **Parent topic:**[Upgrading and updating](../migrate/c_upgrade_migrate_overview.md)
 

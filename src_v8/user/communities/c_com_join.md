@@ -1,4 +1,4 @@
-# Joining a community to contribute your expertise 
+# Joining a community to contribute your expertise {#c_com_join .concept}
 
 Share what you know and inspire others by joining a community that interests you.
 
@@ -10,7 +10,7 @@ Share what you know and inspire others by joining a community that interests you
 
 **Note:** Want to keep tabs on a community? Consider following the community to get notified of updates. For more information, see [Viewing updates in your community](c_com_view_status_updates.md).
 
-## What happens next? 
+## What happens next? { .section}
 
 That depends:
 
@@ -18,10 +18,10 @@ That depends:
 -   When you join a public community, you can see it in the **I’m a Member** view. For more information on filtering views, see [Searching for and browsing in communities](t_com_search.md).
 -   When you request to join a moderated community, it displays in the **I’m a Member** view only after your membership is approved.
 
-**Parent topic:**[Getting started](../../user/communities/community_getstart.md)
+**Parent topic:**[Getting started](../communities/community_getstart.md)
 
 **Related information**  
 
 
-[Searching for and browsing in communities](../../user/communities/t_com_search.md)
+[Searching for and browsing in communities](../communities/t_com_search.md)
 

@@ -1,8 +1,8 @@
-# Organizing content 
+# Organizing content {#concept_cl5_fss_sx .concept}
 
 Sections and entries chunk content into manageable portions, and they're good at it. Try grouping by name, due date, or content type.
 
-## Group by name 
+## Group by name { .section}
 
 Split the work by assigning multiple to-dos to a single person.
 
@@ -13,7 +13,7 @@ Split the work by assigning multiple to-dos to a single person.
 5.  Within your new entry, click **Add To-Do Item**.
 6.  Add as many as you need.
 
-## Group by due date 
+## Group by due date { .section}
 
 Track all your project's moving parts by giving each deliverable its own due date.
 
@@ -21,7 +21,7 @@ Track all your project's moving parts by giving each deliverable its own due dat
 2.  Within each new entry, click **Add Custom Field** \> **Date Field**.
 3.  Replace the **Date** field titles with Due Date.
 
-## Group by content type 
+## Group by content type { .section}
 
 Create a resources section to collect all of your team's files and bookmarks in one place.
 
@@ -31,9 +31,9 @@ Create a resources section to collect all of your team's files and bookmarks in 
 4.  Add as many as you need.
 5.  Click **Save**.
 
-## Next steps 
+## Next steps { .section}
 
 Now, isn't that a good looking activity? It'd be a shame not to share it. Let's [notify your team](c_notify_members.md) next.
 
-**Parent topic:**[Getting started](../../user/activities/c_get_started.md)
+**Parent topic:**[Getting started](../activities/c_get_started.md)
 

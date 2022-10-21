@@ -1,10 +1,10 @@
-# Latest Updates: Keeping up with your network 
+# Latest Updates: Keeping up with your network {#concept_qrq_w4x_rsb .concept}
 
 View updates from people and communities that you follow, with the most recent updates first.
 
 With the **Latest Updates** tab of your HCL Connections home page, you can keep up with the actions and status updates of people you're connected to or follow, and who are in communities you're a member of or follow.
 
-## Changing your focus 
+## Changing your focus {#section_txk_szk_5sb .section}
 
 You might want to see different kinds of updates at different times. Here are some ways to manage your update stream:
 
@@ -23,7 +23,7 @@ You might want to see different kinds of updates at different times. Here are so
 -   Make use of the To Do List, Events, and Recommendations apps next to the stream. Learn how by clicking the **Actions** icon ![](images/hamburger_icon.png) next to each app and select **Help**. If you remove one of these apps and want to add it back, click **Customize**.
 -   Within an update, click any linked text or graphics to go to its source in Connections.
 
-**Tip:** If your organization deployed Component Pack for Connections, the **Important to Me** bar is displayed at the edge of the screen. Hover over a person's avatar to see action items, or click an avatar to go to a person's profile or a community's landing page.
+**Tip:** If your organization deployed Component Pack for Connections, the **Important to Me** bar is displayed at the edge of the screen. Hover over a person's avatar to see action items and their business card, or click an avatar to go to a community's landing page.
 
 **Related information**  
 

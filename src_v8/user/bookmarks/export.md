@@ -1,4 +1,4 @@
-# Exporting bookmarks to a file 
+# Exporting bookmarks to a file {#export .task}
 
 Export bookmarks to a file that can then be imported into a browser or shared with someone who does not use Bookmarks.
 
@@ -11,5 +11,5 @@ To export your bookmarks, use the following steps.
 3.  Click **Export**.
 
 
-**Parent topic:**[Going further](../../user/bookmarks/c_advanced_bookmarks.md)
+**Parent topic:**[Going further](../bookmarks/c_advanced_bookmarks.md)
 

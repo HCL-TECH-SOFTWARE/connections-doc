@@ -1,4 +1,4 @@
-# Responding to forum topics 
+# Responding to forum topics {#t_forums_topic_respond .task}
 
 Join in a discussion by responding to forum topics that interest you.
 
@@ -25,5 +25,5 @@ When you respond to a topic by email, consider the following points:
     2.  Ensure that **Receive notifications from other people by email** and **Allow me to reply to notifications by email** are selected.
     3.  In the **Content that I am following** section, ensure that **Forums** is set to **Individual Emails**.
 
-**Parent topic:**[Finding and participating in forums](../../user/forums/t_forums_view_topics.md)
+**Parent topic:**[Finding and participating in forums](../forums/t_forums_view_topics.md)
 

@@ -1,10 +1,10 @@
-# Enabling Opensearch Metrics to connect to a Component Pack server {#cp_config_es_connect_to_cp_server .task}
+# Enabling OpenSearch Metrics to connect to a Component Pack server {#cp_config_es_connect_to_cp_server .task}
 
-For the Opensearch Metrics component to work with HCL Connections Component Pack, you must run a script on the Component Pack system to set the Opensearch server base URL in Highway. Also, WebSphere Application Server, which hosts the Metrics component, must run Java 8 and use an SSL client certificate when sending HTTPS requests to Opensearch on the Component Pack system.
+For the OpenSearch Metrics component to work with HCL Connections Component Pack, you must run a script on the Component Pack system to set the OpenSearch server base URL in Highway. Also, WebSphere Application Server, which hosts the Metrics component, must run Java 8 and use an SSL client certificate when sending HTTPS requests to OpenSearch on the Component Pack system.
 
 Make sure that secure connections are established in your deployment, as explained in [Forcing traffic to use TLS 1.2](../secure/t_admin_common_forcing_tls.md).
 
-**Important:** Elasticsearch Metrics requires that the WebSphere Application Server is running Java 8. If you have a new Filenet deployment and you temporarily switched to Java 6 to update FileNet components after applying Connections 6.0 CR1, make sure that you switch back to Java 8 before you start the following procedure.
+**Important:** OpenSearch Metrics requires that the WebSphere Application Server is running Java 8. If you have a new FileNet deployment and you temporarily switched to Java 6 to update FileNet components after applying Connections 6.0 CR1, make sure that you switch back to Java 8 before you start the following procedure.
 
 1.  If your single sign-on solution includes IBM Security Access Manager, SiteMinder, or SPNEGO with SiteMinder, update the URLs that require basic authentication to include /metricssc/configsetter by referring to the appropriate topic:
 
@@ -88,7 +88,7 @@ Make sure that secure connections are established in your deployment, as explain
     5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [Setting up certificates for type-ahead search](inst_tasearch_no_metrics.md).
 
 
-Deploy Elasticsearch-based metrics for Connections as explained in [Deploying Elasticsearch Metrics](cp_config_es_metrics_no_cognos.md).
+Deploy Elasticsearch-based metrics for Connections as explained in [Deploying Opensearch Metrics](cp_config_os_metrics_no_cognos.md).
 
 **Parent topic:**[Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
 

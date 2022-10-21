@@ -1,8 +1,8 @@
-# Home page apps 
+# Home page apps {#reference_ahk_ngj_my .reference}
 
 The apps in the homepage catalog can help you get organized and stay up-to-date.
 
-## Available apps 
+## Available apps { .section}
 
 The following apps are available to add to the homepage.
 

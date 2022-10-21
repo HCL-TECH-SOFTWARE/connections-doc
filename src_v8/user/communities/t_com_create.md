@@ -1,4 +1,4 @@
-# Creating a community to encourage collaboration 
+# Creating a community to encourage collaboration {#t_com_create .task}
 
 Create a community so that people have a shared hub where they can work on common goals. With communities, you provide a way for users to stay in touch, share files, and exchange ideas.
 
@@ -41,14 +41,14 @@ With the Create Community wizard, you can start a community very quickly. It hel
 
 Now give members the tools they need to be productive by [adding apps](c_com_add_widgets.md) to your community.
 
-**Parent topic:**[Getting started](../../user/communities/community_getstart.md)
+**Parent topic:**[Getting started](../communities/community_getstart.md)
 
 **Related information**  
 
 
-[Changing your community's access level](../../user/communities/t_com_edit.md)
+[Changing your community's access level](../communities/t_com_edit.md)
 
-[Adding members to grow your community](../../user/communities/c_com_add_members.md)
+[Adding members to grow your community](../communities/c_com_add_members.md)
 
-[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

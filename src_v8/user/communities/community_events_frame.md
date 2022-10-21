@@ -1,8 +1,8 @@
-# Scheduling events 
+# Scheduling events {#community_events_frame .reference}
 
 Use the Events app to share information about important events and dates relating to your community.
 
-## Creating events 
+## Creating events { .section}
 
 Depending on your access level, you can create events to flag upcoming meetings, all-day events, or events that run for a number of days.
 
@@ -12,7 +12,7 @@ Depending on your access level, you can create events to flag upcoming meetings,
 4.  To notify community members about the new event, select the **Notify community members** checkbox and then the members you want to notify.
 5.  Click **Save**.
 
-## Viewing events 
+## Viewing events { .section}
 
 1.  From the navigation bar, click **Communities** and select the community you want to check on.
 2.  In the community menu, click **Events**.
@@ -20,7 +20,7 @@ Depending on your access level, you can create events to flag upcoming meetings,
 4.  To view event details, click the event title.
 5.  To view the events in a calendar, click **Calendar View**.
 
-## Managing events 
+## Managing events {#manageevents .section}
 
 There are many ways to keep abreast of community events:
 
@@ -34,5 +34,5 @@ There are many ways to keep abreast of community events:
     -   To export the event and open it in your local calendar, click **Export To Calendar \(.lcs\)**.
     -   To invite community members to the event, click **More Actions** and select **Notify Other People**. Select the members you'd like to notify about the event, then click **Notify**.
 
-**Parent topic:**[Enhancing collaboration](../../user/communities/enhancing_collaboration.md)
+**Parent topic:**[Enhancing collaboration](../communities/enhancing_collaboration.md)
 

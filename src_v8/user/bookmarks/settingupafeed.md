@@ -1,4 +1,4 @@
-# Creating a feed from a Bookmarks view 
+# Creating a feed from a Bookmarks view {#settingupafeed .task}
 
 You can subscribe to a feed to make a collection of bookmarks available to you in a feed client of your choosing so that you can access bookmarks without having to use the Bookmarks site. You can also use the feeds to integrate Bookmarks content into other web sites or applications.
 
@@ -15,5 +15,5 @@ To set up a feed, follow these steps.
 
 The latest updates now appear directly in your feed reader.
 
-**Parent topic:**[Going further](../../user/bookmarks/c_advanced_bookmarks.md)
+**Parent topic:**[Going further](../bookmarks/c_advanced_bookmarks.md)
 

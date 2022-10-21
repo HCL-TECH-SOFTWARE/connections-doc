@@ -1,4 +1,4 @@
-# Adding files to a library 
+# Adding files to a library {#howdoiaddnewdocuments .task}
 
 Add files to your library or create new files to share them with community members.
 
@@ -38,9 +38,9 @@ If you saved your file as a draft, you must submit the file for review before it
 **Related information**  
 
 
-[Editing file properties](../../user/communities/t_com_library_edit_docs.md)
+[Editing file properties](../communities/t_com_library_edit_docs.md)
 
-[Submitting files for review](../../user/communities/t_com_library_submit_file_for_review.md)
+[Submitting files for review](../communities/t_com_library_submit_file_for_review.md)
 
-[Managing a community library](../../user/communities/t_com_library_manage.md)
+[Managing a community library](../communities/t_com_library_manage.md)
 

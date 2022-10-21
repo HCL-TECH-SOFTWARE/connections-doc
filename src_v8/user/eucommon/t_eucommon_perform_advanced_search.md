@@ -1,8 +1,8 @@
-# Performing an advanced search 
+# Performing an advanced search {#concept_em3_prb_ty .concept}
 
 Looking for something specific? Perform an advanced search to narrow down your results.
 
-## Advanced searching 
+## Advanced searching {#section_zbh_5rb_ty .section}
 
 **Note:** This procedure applies only to a standard Connections deployment \(without Component Pack\).
 

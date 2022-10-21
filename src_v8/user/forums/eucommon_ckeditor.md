@@ -1,4 +1,4 @@
-# Using the rich text editor 
+# Using the rich text editor {#eucommon_ckeditor .concept}
 
 Use the rich text editor to create visually interesting blog posts, wiki articles, forum topics, and activity entries. The rich text editor is also used in Communities, Events, and Profiles.
 
@@ -118,5 +118,5 @@ In the editor, hover your mouse cursor over an icon for a label that describes t
 
 |
 
-**Parent topic:**[Adding forum topics](../../user/forums/t_forums_add_topic.md)
+**Parent topic:**[Adding forum topics](../forums/t_forums_add_topic.md)
 

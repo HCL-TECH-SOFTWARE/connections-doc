@@ -1,4 +1,4 @@
-# How do I find wikis? 
+# How do I find wikis? {#howdoifindwikis .task}
 
 You can find wikis by browsing wiki lists, or using search and tags.
 
@@ -33,7 +33,7 @@ You can find wikis by browsing wiki lists, or using search and tags.
 |
 
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

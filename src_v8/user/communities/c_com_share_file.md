@@ -1,8 +1,8 @@
-# Sharing community files and folders 
+# Sharing community files and folders {#c_com_share_file .concept}
 
 Sharing files is a great way to collaborate in a community. By encouraging members to upload files, you can work together on shared documents and build up a repository of community information.
 
-## Uploading a file to a community 
+## Uploading a file to a community { .section}
 
 With Editor access, you can upload a new file directly from the community. For more information about access types for community files, see [Assigning app roles for community members](managing_roles_for_community_members.md).
 
@@ -24,7 +24,7 @@ With Editor access, you can upload a new file directly from the community. For m
 -   Access the file from **My Files** or **Pinned Files** pages on the Files app
 -   Find the file by tags
 
-## Sharing files and folders 
+## Sharing files and folders { .section}
 
 Share an existing file or folder from your Files app repository with the community. Only public files and folders can be shared.
 
@@ -34,7 +34,7 @@ Share an existing file or folder from your Files app repository with the communi
 4.  Select one or more files or folders that you want to share. For folders, specify if you want community members to have Reader, Editor, or Owner access. For more information on access levels, see [Working with files](../files/t_files_others_files_refresh.md) and [Working with folders](../files/t_files_others_folders.md).
 5.  Click **Share Files** or **Share Folders**.
 
-## Editing a file 
+## Editing a file {#section_ww2_qqy_b5b .section}
 
 If HCL Docs is deployed and the file type is supported by the HCL Docs editor, you can edit directly in your browser by selecting the file, clicking the **More Actions** icon ![More Actions icon](../files/images/ellipsis_icon.png) then selecting **Edit in Docs**.
 

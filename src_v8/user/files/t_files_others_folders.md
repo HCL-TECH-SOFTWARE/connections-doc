@@ -1,10 +1,12 @@
-# Working with folders 
+# Working with folders {#t_files_others_folders .concept}
 
 What you can do with folders that you do not own depends on the access level that you have.
 
 
 
-## Folder permissions 
+
+
+## Folder permissions { .section}
 
 There are three primary levels of access for any folder: Owner, Editor, and Reader. Folder owners can choose to allow other people to share files. See [Working with files](t_files_others_files_refresh.md) for the access levels available for files.
 
@@ -24,7 +26,7 @@ To see what access you have for a folder, open the folder page and click the **S
 |**Move a folder**|❌|✔|✔|
 |**Follow a folder**|✔|✔|✔|
 
-**Parent topic:**[Collaborating on files and folders](../../user/files/t_files_why_file_sharing_refresh.md)
+**Parent topic:**[Collaborating on files and folders](../files/t_files_why_file_sharing_refresh.md)
 
 **Related information**  
 

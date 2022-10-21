@@ -1,12 +1,12 @@
-# Creating subcommunities to reflect organizational change 
+# Creating subcommunities to reflect organizational change {#concept_trn_ch5_1y .concept}
 
 Create a subcommunity to bring together a subset of members within an existing community for a specific purpose.
 
-## What can members do in a subcommunity? 
+## What can members do in a subcommunity? { .section}
 
 When you create a subcommunity, you and any other community owners automatically become owners of that subcommunity.
 
-## Creating a subcommunity 
+## Creating a subcommunity { .section}
 
 1.  From the navigation bar, click **Communities** and select the community to which you want to add a subcommunity.
 2.  Click **Community Actions** and select **Create Subcommunity** from the list.
@@ -16,13 +16,13 @@ When you create a subcommunity, you and any other community owners automatically
     -   When the parent community is **Restricted**, the subcommunity must also be restricted.
 4.  Click **Create**.
 
-## Some tips 
+## Some tips { .section}
 
 A subcommunity cannot be more visible than its parent. Therefore, if a parent community does not have **Let anyone in my organization see the community's logo, name, description, tags, and owners** selected in the parent community's profile setting, the subcommunity cannot have this set either.
 
 You cannot change the **External access** setting for a new subcommunity as well. All subcommunities have the same setting for external access as the parent community.
 
-## Accessing subcommunities 
+## Accessing subcommunities { .section}
 
 You can easily access subcommunities in the following ways:
 
@@ -33,10 +33,10 @@ You can easily access subcommunities in the following ways:
     ![Screenshot of the drop-down list for subcommunities within a community](images/subcommunity%20list.png)
 
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 
 **Related information**  
 
 
-[Adding apps to increase capabilities](../../user/communities/c_com_add_widgets.md)
+[Adding apps to increase capabilities](../communities/c_com_add_widgets.md)
 

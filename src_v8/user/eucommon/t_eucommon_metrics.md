@@ -1,12 +1,12 @@
-# Viewing metrics 
+# Viewing metrics {#concept_gmj_qtt_gy .concept}
 
 Use metrics to view a table or chart that shows how people are using HCL Connections.
 
-## What metrics can you view? 
+## What metrics can you view? { .section}
 
 Connections collects metrics on global and community levels. Global metrics report on overall usage, while community metrics only report on a specific community. Administrators assign access levels to users based on their role within the organization. Community owners can only view community reports, while business owners can view community reports and global reports if given access. Administrators can view both types of reports.
 
-## Viewing a metrics report as a community owner 
+## Viewing a metrics report as a community owner { .section}
 
 1.  Log in to a community and click **Metrics** in the navigation pane.
 2.  Choose a report type by clicking one of the following options in the navigation pane:
@@ -18,7 +18,7 @@ Connections collects metrics on global and community levels. Global metrics repo
 5.  You can further filter the view by selecting an option under **Group by:**
 6.  You may also click on **View all Metrics** to view the list of all metrics available for each application.
 
-## Viewing a metrics report as an administrator 
+## Viewing a metrics report as an administrator { .section}
 
 1.  Choose the level of metrics you want to view:
     -   Community: Log in to a community and click **Metrics** in the navigation pane.
@@ -40,5 +40,5 @@ Connections collects metrics on global and community levels. Global metrics repo
     -   Click on a report name within the current display to open it.
 7.  Right-click anywhere on the chart or table and select **Download** to save the report as a PNG image file.
 
-**Parent topic:**[Shared features](../../user/eucommon/c_eucommon_shared_components.md)
+**Parent topic:**[Shared features](../eucommon/c_eucommon_shared_components.md)
 

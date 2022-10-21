@@ -1,4 +1,4 @@
-# Managing deleted files 
+# Managing deleted files {#t_com_working_with_deleted_files .task}
 
 When trash functionality is enabled for Communities, community owners can manage deleted community files by restoring them to the community or by permanently deleting them from the system.
 
@@ -21,5 +21,5 @@ To manage deleted files:
     -   To restore a file to the community, click the arrow next to the file and select **Restore**.
     -   To delete a file from the trash, click the arrow next to the file and select **Delete**. To delete all the files in the trash, click **Empty Trash**. When you select either option, the file or files are permanently removed and the option to restore it to the community is no longer available.
 
-**Parent topic:**[Organizing content in community files](../../user/communities/community_files_manage_frame.md)
+**Parent topic:**[Organizing content in community files](../communities/community_files_manage_frame.md)
 

@@ -1,8 +1,8 @@
-# Updating membership 
+# Updating membership {#concept_v4r_ypl_5x .concept}
 
 Teams change, and your organization must reflect those changes. Whether you're shifting roles or changing membership, Activities has you covered.
 
-## Member roles 
+## Member roles { .section}
 
 Every member needs a role. Decide who can and cannot edit when you add them to your team.
 
@@ -10,7 +10,7 @@ Every member needs a role. Decide who can and cannot edit when you add them to y
 -   An **Author** can view and contribute content.
 -   An **Owner** can view, contribute, and administer content.
 
-## Add a member 
+## Add a member { .section}
 
 1.  Open your activity.
 2.  In the navigation, click **Members**.
@@ -18,7 +18,7 @@ Every member needs a role. Decide who can and cannot edit when you add them to y
 4.  Choose a role.
 5.  Click **Save**.
 
-## Delete a member 
+## Delete a member { .section}
 
 1.  Open your activity.
 2.  In the navigation, click **Members**.
@@ -26,7 +26,7 @@ Every member needs a role. Decide who can and cannot edit when you add them to y
 4.  Click **Remove**.
 5.  Click **OK**.
 
-## Change a role 
+## Change a role { .section}
 
 Only the owner can change a member's role.
 
@@ -37,5 +37,5 @@ Only the owner can change a member's role.
 5.  Select the role.
 6.  Click **OK**.
 
-**Parent topic:**[Going further](../../user/activities/c_get_further.md)
+**Parent topic:**[Going further](../activities/c_get_further.md)
 

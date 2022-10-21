@@ -1,4 +1,4 @@
-# Discover: What's happening beyond your network? 
+# Discover: What's happening beyond your network? {#discover_beyond_your_network .concept}
 
 With the **Discover** tab of your HCL Connections home page, view updates from people and communities in your organization that aren't in your network.
 
@@ -13,5 +13,5 @@ Here are some ways to manage and enhance your exploration:
 -   Make use of the To Do List, Events, and Recommendations apps next to the stream. Learn how by clicking the **Actions** icon ![](images/hamburger_icon.png) next to each app and select **Help**. If you remove one of these apps and want to add it back, click **Customize**.
 -   Within an update, click any linked text or graphics to go to its source in Connections.
 
-**Tip:** If your organization deployed Component Pack for Connections, the **Important to Me** bar is displayed at the edge of the screen. Hover over a person's avatar to see action items, or click an avatar to go to a person's profile or a community's landing page.
+**Tip:** If your organization deployed Component Pack for Connections, the **Important to Me** bar is displayed at the edge of the screen. Hover over a person's avatar to see action items and their business card, or click an avatar to go to a community's landing page.
 

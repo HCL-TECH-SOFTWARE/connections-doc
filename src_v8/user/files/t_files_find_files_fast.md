@@ -1,4 +1,4 @@
-# Finding files fast 
+# Finding files fast {#t_files_find_files_fast .task}
 
 Quickly find files using search, filtering options, and views in Files.
 
@@ -15,5 +15,5 @@ Locating your file is as easy as [performing a search](../eucommon/t_eucommon_se
 4.  To find a file owned by a particular person, type the person's name in the box. When results are displayed under Files belonging to, click the person's name to see a list of their files.
 
 
-**Parent topic:**[Managing files and folders](../../user/files/managing_files_folders.md)
+**Parent topic:**[Managing files and folders](../files/managing_files_folders.md)
 

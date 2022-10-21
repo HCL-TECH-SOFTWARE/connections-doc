@@ -1,8 +1,8 @@
-# Activities 
+# Activities {#aframe .reference}
 
 Use activities to keep a team informed, collect and share project resources, or to assign and track tasks.
 
-## Getting acquainted 
+## Getting acquainted { .section}
 
 Walk through some examples you can use to bring a team together:
 
@@ -10,7 +10,7 @@ Walk through some examples you can use to bring a team together:
 -   [Coordinating a project](c_coordinate_proect.md)
 -   [Planning an event](c_plan_event.md)
 
-## Getting started 
+## Getting started { .section}
 
 Not sure where to start? Check out these activity basics:
 
@@ -20,7 +20,7 @@ Not sure where to start? Check out these activity basics:
 -   [Organizing content](c_organize_sections.md)
 -   [Notifying your members](c_notify_members.md)
 
-## Going further 
+## Going further { .section}
 
 Covered the essentials? Build up your existing activities with these advanced tips:
 

@@ -1,4 +1,4 @@
-# Submitting files for review 
+# Submitting files for review {#t_com_library_submit_file_for_review .task}
 
 When draft review is enabled, you must submit new or updated files for review before you can publish them to the library.
 
@@ -29,7 +29,7 @@ If you need to continue editing the file while the review is still pending, you 
 **Related information**  
 
 
-[Adding files to a library](../../user/communities/t_com_library_add_docs.md)
+[Adding files to a library](../communities/t_com_library_add_docs.md)
 
-[Reviewing draft files](../../user/communities/t_com_library_review_drafts.md)
+[Reviewing draft files](../communities/t_com_library_review_drafts.md)
 

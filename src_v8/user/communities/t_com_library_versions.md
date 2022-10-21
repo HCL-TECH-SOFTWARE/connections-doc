@@ -1,4 +1,4 @@
-# Managing file versions 
+# Managing file versions {#howdoiworkwithversions .task}
 
 From the file summary, you can restore and download versions of a file and view the change summary of a version \(with some Enterprise Content Manager repositories\). You can also upload a new version of a file.
 
@@ -22,5 +22,5 @@ From the file summary, you can restore and download versions of a file and view 
 **Related information**  
 
 
-[Managing attachments](../../user/communities/t_com_library_attachments.md)
+[Managing attachments](../communities/t_com_library_attachments.md)
 

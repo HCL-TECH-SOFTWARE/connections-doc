@@ -147,7 +147,7 @@ To set up SSO using SiteMinder, complete the following steps:
 
     1.  Using the Agent Object and Forms Authentication Scheme that you created in [Step 3.a](t_secure_with_siteminder.md#SubstepConfigureTheWebAgentForIBM.) and [Step 4](t_secure_with_siteminder.md#StepSpecifyYourSiteMinderAuthent...), create SiteMinder realms that are protected by forms authentication.
 
-        See the [Realms that require forms authentication](t_secure_with_siteminder.md#RealmsThatRequireFormsAuthe...) table for a list of URLs that are protected by forms authentication.
+        See the [Realms that require forms authentication](Realms that require forms authenticationt_secure_with_siteminder.dita#t_secure_with_siteminder/RealmsThatRequireFormsAuthe...) table for a list of URLs that are protected by forms authentication.
 
         |Application|Protected URL resource|
         |-----------|----------------------|

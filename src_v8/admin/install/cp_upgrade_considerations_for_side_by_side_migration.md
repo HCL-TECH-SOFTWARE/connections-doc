@@ -19,7 +19,7 @@ On the Connections side, all communication with Component Pack is configured exc
 
 To enable pods to authenticate to the Docker Registry, the credential with the name myregkey needs to exist inside the namespace in which you are going to install Component Pack. This credential will be used by all pods to authenticate to the Docker Registry \(or any alternative that you are using\) to download the images.
 
-By installing the bootstrap pod, you are creating certificates for MongoDB and Elasticsearch \(and a couple other things\). This ensures that each installation has a unique set of certificates, and eases the process of recreating certificates.
+By installing the bootstrap pod, you are creating certificates for MongoDB and OpenSearch \(and a couple other things\). This ensures that each installation has a unique set of certificates, and eases the process of recreating certificates.
 
 ## Data Persistence {#section_pfr_lcs_lpb .section}
 
@@ -63,7 +63,7 @@ Understanding how PV\(C\)s are configured
 Moving data between PVs
 :   There are two types of data that you eventually want to migrate: MongoDB and Elasticsearch.
 
-:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](https://betterprogramming.pub/how-to-migrate-your-local-mongodb-database-between-computers-debe57092ab5) \(for Elasticsearch, do the same with something like [elasticsearch-dump](https://github.com/elasticsearch-dump/elasticsearch-dump)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
+:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](migrating_data_mongodb_v3_v5.dita); for Elasticsearch, do the same with something like [elasticsearch-dump](cp_migrate_data_from_es7_to_opensearch.dita)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
 
 ## Completing the migration {#section_fvq_p2s_lpb .section}
 

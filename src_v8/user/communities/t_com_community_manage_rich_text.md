@@ -1,8 +1,8 @@
-# Managing rich content pages 
+# Managing rich content pages {#t_com_community_manage_wik .concept}
 
 After adding a rich content page to your community, you can make it more useful to members by adding content, such as text and images, or removing it when no longer relevant to your community.
 
-## Editing a rich content page 
+## Editing a rich content page {#section_ylp_vxt_h5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community that contains the rich content you'd like to edit.
 2.  In the community **Highlights** page, in the **Rich Content** area, click the **Menu** icon ![Menu icon](images/iconactions_new.jpg) and select **Edit**.
@@ -12,10 +12,10 @@ After adding a rich content page to your community, you can make it more useful 
     -   To insert links to community files content, click **Insert Link** ![Insert Link icon](images/insert-link.jpg) and select **Link to Connections Files**.
 4.  When you have finished adding content, click **Save**.
 
-## Removing a rich content page 
+## Removing a rich content page {#section_qzs_wxt_h5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community that contains the rich content you'd like to remove.
 2.  In the community **Highlights** page, in the **Rich Content** area, click the **Menu** icon ![Menu icon](images/iconactions_new.jpg) and select **Remove Widget**.
 
-**Parent topic:**[Working with rich content](../../user/communities/community_rich_content_frame.md)
+**Parent topic:**[Working with rich content](../communities/community_rich_content_frame.md)
 

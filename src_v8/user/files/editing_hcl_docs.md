@@ -1,4 +1,4 @@
-# Editing a Connections file in HCL Docs 
+# Editing a Connections file in HCL Docs {#editing_hcl_docs .concept}
 
 If your organization uses HCL Connections Docs and you have Editor access to a file, you can work on it directly from your browser.
 
@@ -17,5 +17,5 @@ To edit a file in HCL Docs:
 
 To get the most out of HCL Docs, see [Connections Docs](https://help.hcltechsw.com/connections/welcome/index.html).
 
-**Parent topic:**[Files](../../user/files/fframe.md)
+**Parent topic:**[Files](../files/fframe.md)
 

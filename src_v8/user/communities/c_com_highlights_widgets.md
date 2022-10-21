@@ -1,4 +1,4 @@
-# Adding apps and widgets to the Highlights page 
+# Adding apps and widgets to the Highlights page {#c_com_highlights_widgets .concept}
 
 Community owners can design a Highlights page that includes standard Connections apps as well as widgets that aggregate content for community members.
 
@@ -22,17 +22,17 @@ To add a standard community app or widget:
 -   **Hidden Apps** or **Hidden Widgets** is where any apps or widgets that you remove are stored. For Highlights widgets that you store, any changes that you made to settings are preserved so that the customized widget can be added again later.
 -   If you want to reorder the apps and widgets featured on the Highlights page, click **Customize** and simply drag and drop content around.
 
-## Working with widgets 
+## Working with widgets {#section_ykp_1k1_f5b .section}
 
 The following table lists the widgets you can add to the Highlights page. For details on configuring each type of widget after it's been added, click the widget name to view documentation for that widget.
 
 **Attention:** Some of the widgets include options to configure them for personalization, so that the logged-in user will see content relating specifically to them. The personalization options are not currently supported for the Highlights widgets. Additionally, mobile users of the News widgets in the Highlights app cannot create content in the widgets. These include the News, News - Channel, News - List, News - Overview, and News - Slider widgets.
 
 |**Widget name**|**Description**|
-|[Activity Stream](../../connectors/icec/cec-activity-stream.md)|Include activity stream content from a specified source. **Note:** If the activity stream is configured to use a Sharebox, users will not be able to enter @mentions in a post.
+|[../../connectors/icec/cec-activity-stream.dita](../../connectors/icec/cec-activity-stream.dita)|Include activity stream content from a specified source. **Note:** If the activity stream is configured to use a Sharebox, users will not be able to enter @mentions in a post.
 
 |
-|[ATOM/RSS feed](../../connectors/icec/cec-atom_rss.md)|Display RSS or ATOM feeds from external sites within that widget.|
+|[../../connectors/icec/cec-atom\_rss.dita](../../connectors/icec/cec-atom_rss.dita)|Display RSS or ATOM feeds from external sites within that widget.|
 |[Bookmark Links](../../connectors/icec/cec-links.dita)|Include links to resources.|
 |[Bookmark Links - Important](../../connectors/icec/cec-important_links.dita)|Display links marked as important in the specified Links app.|
 |[Clipping](../../connectors/icec/cec-clipping.dita)|Display content from other sites, such as the news section from an external website.|
@@ -70,7 +70,7 @@ The following table lists the widgets you can add to the Highlights page. For de
 |[Tag Cloud](../../connectors/icec/cec-tag-cloud.dita)|Include a tag cloud for one or more specified communities.|
 |[Teaser](../../connectors/icec/cec-teaser-widget.dita)|Display an image from another site, optionally with a caption.|
 
-For more information, see [Overview](../../connectors/icec/cec-introduction_top.md) on the widgets documentation.
+For more information, see [../../connectors/icec/cec-introduction\_top.dita](../../connectors/icec/cec-introduction_top.dita) on the widgets documentation.
 
-**Parent topic:**[Customizing the Highlights page](../../user/communities/c_com_customizing_highlights.md)
+**Parent topic:**[Customizing the Highlights page](../communities/c_com_customizing_highlights.md)
 

@@ -1,4 +1,4 @@
-# Searching for bookmarks 
+# Searching for bookmarks {#searchbookmarks .task}
 
 Use search to quickly locate a bookmark according to various criteria.
 

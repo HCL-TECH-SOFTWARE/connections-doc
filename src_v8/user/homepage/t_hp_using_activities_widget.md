@@ -1,4 +1,4 @@
-# Using the Activities app 
+# Using the Activities app {#t_hp_using_activities_widget .task}
 
 Use the Activities app to access a snapshot view of the latest Activities updates.
 

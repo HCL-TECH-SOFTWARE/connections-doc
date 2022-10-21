@@ -1,4 +1,4 @@
-# Using the Files Shared with Me app 
+# Using the Files Shared with Me app {#t_hp_using_shared_files_widget .task}
 
 Use the Files Shared with Me app to display a list of the latest files that people have shared with you. You can also use the app to upload new files to the Files app.
 

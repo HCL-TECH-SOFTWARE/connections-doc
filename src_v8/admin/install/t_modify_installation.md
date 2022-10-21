@@ -92,7 +92,7 @@ To modify your installation, complete the following steps:
     2.  Select a **Database type** from one of the following options:
 
         -   IBM DB2 Universal Database™
-        -   Oracle 12c Enterprise
+        -   Oracle 19c Enterprise
         -   Microsoft SQL Server Enterprise Edition
     3.  Enter the **Database server host name**. For example: appserver.enterprise.example.com
 

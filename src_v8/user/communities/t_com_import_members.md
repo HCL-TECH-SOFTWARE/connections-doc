@@ -1,4 +1,4 @@
-# Importing multiple members 
+# Importing multiple members {#t_com_import_members .concept}
 
 Add or invite multiple people to join your community using a series or spreadsheet file containing their email addresses.
 
@@ -14,10 +14,10 @@ Add or invite multiple people to join your community using a series or spreadshe
 
 **Note:** If the community is external and you enter an email address for a person who is outside of your organization, or your file contains an email address for a person who is outside of your organization, you are prompted to send that person a guest invitation after you click **Import**. Guest members must first accept the invitation to join as a guest user before they can access the communities to which they have been imported as members.
 
-**Parent topic:**[Adding members to grow your community](../../user/communities/c_com_add_members.md)
+**Parent topic:**[Adding members to grow your community](../communities/c_com_add_members.md)
 
 **Related information**  
 
 
-[Exporting community membership](../../user/communities/t_com_community_export_membership.md)
+[Exporting community membership](../communities/t_com_community_export_membership.md)
 

@@ -1,4 +1,4 @@
-# Adding the SharePoint app to a community 
+# Adding the SharePoint app to a community {#task_oqp_ft4_gnb .task}
 
 In organizations where the HCL Connections for Microsoft SharePoint app is enabled, community owners can add the app to their community so that members can access SharePoint files from there.
 
@@ -25,5 +25,5 @@ Community members can access the documents from the **SharePoint Library** tab.
 
 **Note:** If members are using incognito mode in Google Chrome, they must update cookie settings to allow all cookies to enable the SharePoint app in incognito mode.
 
-**Parent topic:**[Adding apps to increase capabilities](../../user/communities/c_com_add_widgets.md)
+**Parent topic:**[Adding apps to increase capabilities](../communities/c_com_add_widgets.md)
 

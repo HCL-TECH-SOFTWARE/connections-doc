@@ -1,4 +1,4 @@
-# Importing bookmarks from a web browser 
+# Importing bookmarks from a web browser {#importbrowserbookmarks .task}
 
 Import bookmarks that you saved in your web browser from the **My Bookmarks** page with the import tool.
 
@@ -27,5 +27,5 @@ To import bookmarks from a web browser, follow these steps.
     3.  Change the Encoding on the file from ANSI to UTF-8.
     4.  Save and close the text file.
 
-**Parent topic:**[Going further](../../user/bookmarks/c_advanced_bookmarks.md)
+**Parent topic:**[Going further](../bookmarks/c_advanced_bookmarks.md)
 

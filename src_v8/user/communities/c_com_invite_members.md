@@ -1,4 +1,4 @@
-# Inviting people to join 
+# Inviting people to join {#concept_e3d_yvl_cy .concept}
 
 Reach out to people who you think might be interested in your community by inviting them to become members. The invitees receive an email that invites them to join.
 
@@ -10,5 +10,5 @@ Reach out to people who you think might be interested in your community by invit
 
 4.  Click **Send Invitations**.
 
-**Parent topic:**[Adding members to grow your community](../../user/communities/c_com_add_members.md)
+**Parent topic:**[Adding members to grow your community](../communities/c_com_add_members.md)
 

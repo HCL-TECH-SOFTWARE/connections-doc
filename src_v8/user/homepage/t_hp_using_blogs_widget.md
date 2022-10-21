@@ -1,4 +1,4 @@
-# Using the Blogs app 
+# Using the Blogs app {#t_hp_using_blogs_widget .task}
 
 Use the Blogs app to view the latest updates to blog entries.
 

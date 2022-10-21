@@ -46,5 +46,5 @@ Grant permissions to a new non-root user who wants to install a fix pack for an 
 
 4.  Advise the new non-root user to log in and then download and install the latest fixes for Connections.
 
-**Parent topic:**[Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

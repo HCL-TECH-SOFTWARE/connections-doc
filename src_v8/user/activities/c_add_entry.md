@@ -1,8 +1,8 @@
-# Doing more with an entry 
+# Doing more with an entry {#concept_cxd_sp3_yx .concept}
 
 Entries are the most flexible components of an activity. They can be made to fit any situation by using custom fields.
 
-## Assign an entry 
+## Assign an entry { .section}
 
 Entries do not have a preset assignment field. You can create one yourself by adding a custom field.
 
@@ -11,7 +11,7 @@ Entries do not have a preset assignment field. You can create one yourself by ad
 3.  Assign a member of your team.
 4.  Click **Save**.
 
-## Add a due date to an entry 
+## Add a due date to an entry { .section}
 
 Entries do not have a preset due date field. You can create one yourself by adding a custom field.
 
@@ -21,7 +21,7 @@ Entries do not have a preset due date field. You can create one yourself by addi
 4.  Replace the **Date** field title with Due Date.
 5.  Click **Save**.
 
-## Notify people of an entry 
+## Notify people of an entry { .section}
 
 Notifications are not sent to members automatically. You must manually select an option after each edit.
 
@@ -30,9 +30,9 @@ Notifications are not sent to members automatically. You must manually select an
 3.  Select people to notify.
 4.  Click **Save**.
 
-## Next steps 
+## Next steps { .section}
 
 Looks like your content could use some structure. Let's try [organizing it into sections](c_organize_sections.md) next.
 
-**Parent topic:**[Getting started](../../user/activities/c_get_started.md)
+**Parent topic:**[Getting started](../activities/c_get_started.md)
 

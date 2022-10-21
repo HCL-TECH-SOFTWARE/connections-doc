@@ -1,4 +1,4 @@
-# Downloading folders 
+# Downloading folders {#concept_pkx_xnd_qtb .concept}
 
 You can download a compressed copy of a folder’s contents to a specified location. Downloading folders is disabled by default. If you need this function, contact your administrator.
 
@@ -12,5 +12,5 @@ You can download a compressed copy of a folder’s contents to a specified locat
 
 If any of the file names you are downloading to the compressed file contain non-English characters, you can use the **Global \(default\)** setting. This setting informs the compression program to use UTF-8 characters so that all file name characters can be properly processed during compression. If the file names inside the compressed file are not displayed correctly after you choose the **Global \(default\)** setting, click **Global \(default\)**, specify a language value when prompted, and reprocess the download.
 
-**Parent topic:**[Managing files and folders](../../user/files/managing_files_folders.md)
+**Parent topic:**[Managing files and folders](../files/managing_files_folders.md)
 

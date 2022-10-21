@@ -1,4 +1,4 @@
-# Adding a table of contents 
+# Adding a table of contents {#wikis_insert_table-of-contents .task}
 
 Make it easy for readers to browse and find content by adding a table of contents to the page.
 

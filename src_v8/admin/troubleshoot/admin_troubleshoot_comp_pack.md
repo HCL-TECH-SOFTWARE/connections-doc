@@ -11,13 +11,10 @@ Checking the status of the running pods
     kubectl  get pods -o wide -n <namespace>
     ```
 
-Solr pods regularly restarting
-:   There is a known issue in kernel version 3.10.x that occurs when using Kubernetes 1.8 and higher, which causes the Solr pods to restart \(approximately once per day\). Since there are three Solr pods, and only one Solr pod seems to restart at a time, there is no impact to the end user here. You will simply see the restart number increase each day for the Solr pods. The fix for this issue requires a new kernel version, which at the time of releasing Component Pack, was not yet available. For more information, see the Red Hat ticket tracking the issue: https://bugzilla.redhat.com/show\_bug.cgi?id=1507149
-
 Pods are in "Unknown" state after worker node goes down
 :   This is expected behavior if a worker nodes has gone down. To verify that one of your worker nodes has gone down, run the command kubectl get nodes. In this scenario, the expected behavior of the pods depend on weather the pod is part of stateful set or stateless set:
 
-    -   For stateful set pods \(Mongo, Redis, Solr, Zookeeper, and Elasticsearch\), the pod that was running on the node that is down will remain in an "Unknown" state. This is because the master does not know whether it was a deliberate shutdown or a network partition. Since the pod might still be running somewhere on the cluster, the master will not recreate the pod on an available worker \(to avoid violating the guarantee of stateful sets only having one pod\). You can bring back the node that is down and let the pod recover, or you can force-delete the pod and let it recreate on an available worker by running the following command:
+    -   For stateful set pods \(Mongo, Redis, and OpenSearch\), the pod that was running on the node that is down will remain in an "Unknown" state. This is because the master does not know whether it was a deliberate shutdown or a network partition. Since the pod might still be running somewhere on the cluster, the master will not recreate the pod on an available worker \(to avoid violating the guarantee of stateful sets only having one pod\). You can bring back the node that is down and let the pod recover, or you can force-delete the pod and let it recreate on an available worker by running the following command:
 
         ```
         kubectl delete pod pod\_name -n connections --grace-period=0 --force
@@ -30,146 +27,116 @@ Pods are in "Unknown" state after worker node goes down
         ```
 
 
-Solr pod fails to connect to Zookeeper service when restarting
-:   If a Solr pod was deleted manually or restarted by Kubernetes automatically, there is a possibility that Solr will not be able to re-connect to Zookeeper service during restart. See this [article](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0021363) for details.
-
 Component Pack microservices fail to connect to Mongo
 :   On startup, Component Pack microservices fail to connect to Mongo with error 'MongoError: no primary found in replicaset'. See this [article](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0021362) for details.
 
-Other problems with the Mongo or Zookeeper pods
+Other problems with the Mongo pods
 :   Review the steps you used to configure the persistent volumes for these components.
 
     To check whether MongoDB Replica Set is healthy, run the following command \(default namespace name is connections\):
 
-    kubectl exec -it mongo-0 -c mongo -n connections -- mongo --ssl --sslPEMKeyFile /etc/mongodb/x509/user\_admin.pem --sslCAFile /etc/mongodb/x509/mongo-CA-cert.crt --host mongo-1.mongo.connections.svc.cluster.local --authenticationMechanism=MONGODB-X509 --authenticationDatabase '$external' -u C=IE,ST=Ireland,L=Dublin,O=IBM,OU=Connections-Middleware-Clients,CN=admin,emailAddress=admin@mongodb --eval "rs.status\(\)"
+    ``` {#codeblock_vzc_fqp_fvb}
+    kubectl exec -it mongo5-0 -c mongo5 -n connections -- mongo --tls --tlsCertificateKeyFile /etc/mongodb/x509/user_admin.pem --tlsCAFile /etc/mongodb/x509/mongo-CA-cert.crt --host mongo5-1.mongo5.connections.svc.cluster.local --authenticationMechanism=MONGODB-X509 --authenticationDatabase '$external' -u C=IE,ST=Ireland,L=Dublin,O=IBM,OU=Connections-Middleware-Clients,CN=admin,emailAddress=admin@mongodb --eval "rs.status()"
+    ```
 
     The command should return as "ok" : 1
 
-Top Updates not working correctly on the Orient Me home page
-:   If you are experiencing issues with Top Updates on the Orient Me home page, you might have problems with Solr. Run the commands in the following steps to debug Solr:
+Top Updates not working correctly on the home page
+:   If you are experiencing issues with Top Updates on the home page, you might have problems with OpenSearch. Run the commands in the following steps to debug OpenSearch:
 
-    1.  Ensure all Solr pod logs are in a "Running" state:
-
-        ```
-        kubectl get pods -n connections | grep solr
-        ```
-
-    2.  Check all Solr pod logs:
+    1.  Ensure all OpenSearch pods are in "Running" state:
 
         ```
-        kubectl logs solr-0 -n connections
-        kubectl logs solr-1 -n connections
-        kubectl logs solr-2 -n connections
+        kubectl get pods -n connections | grep opensearch
         ```
 
-    3.  If the Solr pods are being restarted, you can check the previous Solr pod logs:
+    2.  If some of the pods are not running, fetch details about the pod:
 
-        ```
-        kubectl logs -n connections solr-0 --previous
-        kubectl logs -n connections solr-1 --previous
-        kubectl logs -n connections solr-2 --previous
+        ``` {#codeblock_kbf_ym5_fvb}
+        kubectl -n connections describe pod <pod>
         ```
 
-    4.  Ensure there are no heapdumps or javacore files in the Solr persistent volumes:
+        For example, if the opensearch-cluster-client-0 pod is not running, run:
+
+        ``` {#codeblock_mjg_1n5_fvb}
+        kubectl -n connections describe pod opensearch-cluster-client-0
+        ```
+
+    3.  If the issue relates to an unhealthy cluster, restart the opensearch-cluster-master pods:
 
         ```
-        ls -la /pv-connections/solr-data-solr-0/server /pv-connections/solr-data-solr-1/server /pv-connections/solr-data-solr-2/server
+        kubectl -n connections delete pod $(kubectl get pods -n connections | grep opensearch-cluster-master | awk '{print $1}')
         ```
 
-        If there are any found, move them out of the persistent volume directory and send to HCL Support for analysis.
+    4.  If restarting did not resolve the issue, check logs for the opensearch-cluster-master pod for error messages that might result in an unhealthy cluster:
 
-    5.  The deletion manager will remove all Solr documents that are older than 30 days. In the unlikely event that the deletion manager is failing, you can check and clean up older documents to get Top Updates working again.
+        ```
+        kubectl -n connections logs -f opensearch-cluster-master-0
+        ```
 
-        To avoid any slowing down your system, you should only delete approximately 5000 documents at a time. You can roughly figure this out by using the following formula:
+        For example, it might be running out of disk space:
 
-        5000 / \(Num\_of\_docs\_older\_than\_30\_days / 30\)
+        ``` {#codeblock_stn_pn5_fvb}
+        [2022-10-18T16:35:58,457][WARN ][o.o.c.r.a.DiskThresholdMonitor] [opensearch-cluster-master-0] high disk watermark [90%] exceeded on [E1Sp8R0bQHGN9YYCplz_BQ][opensearch-cluster-data-0][/usr/share/opensearch/data/nodes/0] free: 9.9gb[9.9%], shards will be relocated away from this node; currently relocating away shards totalling [0] bytes; the node is expected to continue to exceed the high disk watermark when these relocations are complete
+        ```
 
-        For example, if you had 30,000 documents older than 30 days, you should delete 5 days of data at a time. Below is a sample set of steps that can be used to delete documents older than 30th June 2018:
+    5.  You can also check the status of the cluster via the /\_cluster/health API:
+        1.  Get a shell of the master pod:
 
-        1.  `SSH` to solr-0:
-
-            ```
-            kubectl -n connections exec -it solr-0 bash
-            ```
-
-        2.  Check the size of index files:
-
-            ```
-            du -h /home/solr/data/server/solr/orient-me-collection_shard*/data/index*
+            ``` {#codeblock_hqd_vn5_fvb}
+            kubectl -n connections exec -it opensearch-cluster-master-0 -- sh
             ```
 
-            Note down the size information.
+        2.  Run the cluster health API:
 
-        3.  Check the size of solr documents:
-
-            ```
-            date;hostname;curl -k $CURL_EXTRA_ARGS "https://127.0.0.1:8984/solr/orient-me-collection/select?indent=on&q=*:*" | grep numFound
+            ``` {#codeblock_ifb_wn5_fvb}
+            /usr/share/opensearch/probe/sendRequest.sh GET '/_cluster/health?pretty'
             ```
 
-            Note down the size information.
+    6.  If the master pods have been running for a while \(say, 10 minutes\) and the health check still indicates that the status is red and there are unassigned shards, you may delete those shards through the following API:
+        1.  Get a shell of the master pod:
 
-        4.  Check the size of solr documents older than 30-Jun-2018 to be deleted:
-
-            ```
-            curl -g -k $CURL_EXTRA_ARGS "https://127.0.0.1:8984/solr/orient-me-collection/select?fq=date:[*%20TO%202018-06-30T00:00:00Z]&indent=on&q=*:*&wt=json" | grep numFound
-            
+            ``` {#codeblock_ers_145_fvb}
+            kubectl -n connections exec -it opensearch-cluster-master-0 -- sh
             ```
 
-            Note down the size information.
+        2.  Delete the unassigned shards:
 
-        5.  Delete the documents older than 5-June-2018:
-
-            ```
-            curl -k $CURL_EXTRA_ARGS "https://127.0.0.1:8984/solr/orient-me-collection/update?commit=true" -H "Content-Type: text/xml" --data-binary "<delete><query>date:[* TO 2017-06-05T00\:09\:05.276Z]</query></delete>"
-            
+            ``` {#codeblock_iwc_c45_fvb}
+            /usr/share/opensearch/probe/sendRequest.sh GET '/_cat/shards' | grep UNASSIGNED | awk {'print $1'} | xargs -i /usr/share/opensearch/probe/sendRequest.sh DELETE '/{}'
             ```
 
-            You should only remove roughly 5000 documents at a time, so repeat this step \(changing the date range\) as needed to remove all documents older than 30 days. Remember to use the following formula to determine the date range to use in your environment:
+    7.  Check the cluster status again to confirm that all unassigned shards have been deleted and the status is no longer red:
+        1.  Get a shell of the master pod:
 
-            5000 / \(Num\_of\_docs\_older\_than\_30\_days / 30\)
-
-        6.  Check the size of solr documents. The result should be smaller than it was in step c.
-
-            ```
-            date;hostname;curl -k $CURL_EXTRA_ARGS "https://127.0.0.1:8984/solr/orient-me-collection/select?indent=on&q=*:*" | grep numFound
-            
+            ``` {#codeblock_irj_f45_fvb}
+            kubectl -n connections exec -it opensearch-cluster-master-0 -- sh
             ```
 
-        7.  Check the size of index files. This should be smaller than it was in step b.
+        2.  Run the cluster health API:
 
+            ``` {#codeblock_xpj_g45_fvb}
+            /usr/share/opensearch/probe/sendRequest.sh GET '/_cluster/health?pretty'
             ```
-            du -h /home/solr/data/server/solr/orient-me-collection_shard*/data/index.2*
-            ```
 
+    8.  Check the status of all OpenSearch pods again:
 
-Sanity pods regularly restarting \(Unknown code: -1226830854\)
-:   There is a known issue \(https://github.com/alexguan/node-zookeeper-client/issues/70\) that causes the sanity pods to restart regularly. These restarts can be ignored as sanity restarts straight away and generally causes no problems accessing the sanity dashboard.
+        ``` {#codeblock_ojw_h45_fvb}
+        kubectl get pods -n connections | grep opensearch
+        ```
 
-    You can confirm sanity is restarting due to this issue by verifying the following error is seen in the sanity pod logs:
+    9.  When all the OpenSearch pods are in "Running" state, restart the indexingservice pod:
 
-    ```
-    /home/ibm/app/node_modules/node-zookeeper-client/lib/Exception.js:51
-            throw new Error('Unknown code: ' + code);
-            ^
-    Error: Unknown code: -1226830854
-        at validateCode (/home/ibm/app/node_modules/node-zookeeper-client/lib/Exception.js:51:15)
-        at Function.create (/home/ibm/app/node_modules/node-zookeeper-client/lib/Exception.js:140:5)
-        at ConnectionManager.onSocketData (/home/ibm/app/node_modules/node-zookeeper-client/lib/ConnectionManager.js:570:35)
-        at emitOne (events.js:116:13)
-        at Socket.emit (events.js:211:7)
-        at addChunk (_stream_readable.js:263:12)
-        at readableAddChunk (_stream_readable.js:250:11)
-        at Socket.Readable.push (_stream_readable.js:208:10)
-        at TCP.onread (net.js:607:20)
-    npm info lifecycle sanity@1.0.0~start: Failed to exec start script
-    npm ERR! code ELIFECYCLE
-    npm ERR! errno 1
-    npm ERR! sanity@1.0.0 start: `node ./bin/www`
-    npm ERR! Exit status 1
-    npm ERR!
-    npm ERR! Failed at the sanity@1.0.0 start script.
-    npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-    ```
+        ``` {#codeblock_s2m_j45_fvb}
+        kubectl -n connections delete pod $(kubectl get pods -n connections | grep indexingservice | awk '{print $1}')
+        ```
+
+        And the retrievalservice pod:
+
+        ``` {#codeblock_pnv_l45_fvb}
+        kubectl -n connections delete pod $(kubectl get pods -n connections | grep retrievalservice | awk '{print $1}')
+        ```
+
 
 **Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 

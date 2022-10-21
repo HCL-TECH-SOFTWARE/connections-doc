@@ -1,4 +1,4 @@
-# Using the Public Activities app 
+# Using the Public Activities app {#t_hp_using_public_activities_widget .task}
 
 Use the Public Activities app to view the latest updates from public activities.
 

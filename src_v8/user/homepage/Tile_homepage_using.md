@@ -1,12 +1,12 @@
-# Top Updates: Keeping up with what's most relevant to you 
+# Top Updates: Keeping up with what's most relevant to you {#concept_nh3_cdr_gy .concept}
 
 If your organization has deployed Component Pack, you can see your updates in a view where content from people and communities you interact with the most is shown first. Posts from the same person are grouped so you can flip through them.
 
 Updates from people and communities that you add to the "Important to Me" bar are given higher priority, followed by that from people in your personal network \(those that you've invited to connect, or that invited you\), or people or communities you follow.
 
-## Ways to make the most of Top Updates 
+## Ways to make the most of Top Updates {#section_njm_v3q_rsb .section}
 
--   Make your stream more relevant by populating your **Important to Me** bar with the people and communities most relative to you. \(It's the vertical bar you see at the edge of the screen\). Just click the plus \(+\) icon to add a person or community.
+-   Make your stream more relevant by populating your **Important to Me** bar with the people and communities most relevant to you. \(It's the vertical bar you see at the edge of the screen\). Just click the plus \(+\) icon to add a person or community.
 -   Switch the type of updates that you see. Click the down arrow next to the filtering option \(**All Updates** by default\) and select a view from the list of filters:
 
     ![Options for filtering by Responses or Mentions](images/all_updates_list.png)
@@ -24,9 +24,9 @@ Updates from people and communities that you add to the "Important to Me" bar ar
 
 From Top Updates, you can also like, comment, and act on updates from people in your personal network, or click any linked text or graphics to go to the source of the content. When applicable in your deployment, click the ![Icon to link to app](om_open_app_icon.png) icon in an update to open an app from a source other than Connections.
 
-**Note:** The **Important to Me** bar's filtering action is available only on the **Top Updates** tab. When you are on other home page tabs, you can use **Important to Me** for easy access to a person's contact details and profile, or a community.
+**Note:** The **Important to Me** bar's filtering action is available only on the **Top Updates** tab. When you are on other home page tabs, you can use **Important to Me** for easy access to a person's contact details, or a community.
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

@@ -1,4 +1,4 @@
-# How do I manage wiki members and access? 
+# How do I manage wiki members and access? {#howdoicontrolaccesstomypages .task}
 
 When you create a wiki, you are the wiki owner. As an Owner, you can control who can read, edit, and manage the wiki.
 
@@ -24,7 +24,7 @@ When you create a wiki, you are the wiki owner. As an Owner, you can control who
         3.  Start typing a name, and then select the group when it is displayed.
     4.  Click **OK**.
 
-To learn more about groups, see [Groups](../../admin/admin/c_admin_common_groups.md) in Administering Connections.
+To learn more about groups, see [../../admin/admin/c\_admin\_common\_groups.dita](../../admin/admin/c_admin_common_groups.dita) in Administering Connections.
 
 |
     |**To remove members**|    1.  Select the checkbox for each member that you want to remove.
@@ -40,5 +40,5 @@ To learn more about groups, see [Groups](../../admin/admin/c_admin_common_groups
 |
 
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 

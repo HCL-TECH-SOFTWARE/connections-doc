@@ -1,4 +1,4 @@
-# Using the My Communities app 
+# Using the My Communities app {#t_hp_using_my_communities_widget .task}
 
 Use the My Communities app to retrieve the latest updates for the communities of which you are a member.
 

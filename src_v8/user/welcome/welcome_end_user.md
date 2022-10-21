@@ -1,17 +1,17 @@
-# Using Connections 8.0 
+# Using Connections 8.0 {#kc_welcome .kc_welcome_header}
 
 Welcome to the HCL Connections documentation site, where you can find information about Connections. Connections is social networking software designed for the workplace. Its features help you to establish dynamic networks that connect you to the people and information you need to achieve your business goals.
 
 **Getting started**  
 
 
-[Accessibility features for Connections](../common/ic_r_accessibility_features.md)
-
-[Notices](../notices/notices.md)
-
 [What's new in Connections?](../eucommon/r_eucommon_whats_new.md)
 
 [Which app do you use?](../eucommon/c_eucommon_which_app.md)
+
+[Accessibility features for Connections](../common/ic_r_accessibility_features.md)
+
+[Notices](../notices/notices.md)
 
 **Common tasks**  
 
@@ -37,7 +37,7 @@ Welcome to the HCL Connections documentation site, where you can find informatio
 **Troubleshooting and support**  
 
 
-[Troubleshooting](https://help.hcltechsw.com/connections/v7/admin/troubleshoot/ts_c_welcome.html)
+[Troubleshooting](https://opensource.hcltechsw.com/connections-doc/v8/admin/troubleshoot/ts_c_welcome.html)
 
 [HCL Articles](https://support.hcltechsw.com/)
 

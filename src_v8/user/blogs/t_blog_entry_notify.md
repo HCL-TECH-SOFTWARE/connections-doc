@@ -1,4 +1,4 @@
-# Notifying a user about a blog entry 
+# Notifying a user about a blog entry {#concept_czp_qd3_my .concept}
 
 Notify other blog users about an entry that you think might be of interest.
 
@@ -8,5 +8,5 @@ Notify other blog users about an entry that you think might be of interest.
 4.  Add an optional message about why you are sending the notification.
 5.  Click **Send**.
 
-**Parent topic:**[Connecting with other blogs](../../user/blogs/c_blog_connecting_others.md)
+**Parent topic:**[Connecting with other blogs](../blogs/c_blog_connecting_others.md)
 

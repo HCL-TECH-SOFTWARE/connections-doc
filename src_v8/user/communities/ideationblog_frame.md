@@ -1,8 +1,8 @@
-# Sharing ideas in an ideation blog 
+# Sharing ideas in an ideation blog {#ideationblog_frame .reference}
 
 An ideation blog is a space where you can contribute and vote on ideas related to the community's area of focus.
 
-## Posting an idea 
+## Posting an idea { .section}
 
 You need Author or Draft permissions to contribute an idea. To change member roles, you must ask a community owner to update the community ideation blog settings. For more information, see [Getting ideas flowing with an ideation blog](t_com_manage_ideationblog.md).
 
@@ -12,7 +12,7 @@ You need Author or Draft permissions to contribute an idea. To change member rol
 4.  To enable other settings, such as scheduling the posting of the entry and managing the commenting feature, click **Advanced Settings**.
 5.  Click **Post** to publish your entry. With Draft permission, your options are **Submit for Review** and **Save as Draft**.
 
-## Contributing to other members' ideas 
+## Contributing to other members' ideas { .section}
 
 1.  From the navigation bar, click **Communities** and select the community that you want to contribute to.
 2.  In community **Highlights** page, in the **Ideation Blog** area, click **View All**. Alternatively, select **Ideation Blog** in the community menu.
@@ -27,14 +27,16 @@ You need Author or Draft permissions to contribute an idea. To change member rol
     -   To mark the idea as a duplicate, click **More Actions** and select **Mark as Duplicate**. You must search for the duplicate idea so the votes can be merged. The duplicate idea is marked as a duplicate and no further votes are allowed.
     -   To remove the idea from the ideation blog, click **More Actions** and select **Delete Idea**.
 
-**Parent topic:**[Blogging your point of view](../../user/communities/c_com_blog.md)
+**Parent topic:**[Blogging your point of view](../communities/c_com_blog.md)
 
 **Related information**  
 
 
-[Working with activities](../../user/communities/community_activity_frame.md)
+[Communities](../communities/cframe.md)
 
-[Using an Ideation Blog](../../user/blogs/c_blogs_ideablog.md)
+[Working with activities](../communities/community_activity_frame.md)
 
-[Adding apps to increase capabilities](../../user/communities/c_com_add_widgets.md)
+[Using an Ideation Blog](../blogs/c_blogs_ideablog.md)
+
+[Adding apps to increase capabilities](../communities/c_com_add_widgets.md)
 

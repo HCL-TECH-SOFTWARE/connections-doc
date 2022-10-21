@@ -1,4 +1,4 @@
-# Performing a search 
+# Performing a search {#concept_ygr_2l1_ty .concept}
 
 Use one centralized search box to search for anything in HCL Connections.
 
@@ -26,5 +26,5 @@ To perform a search:
 
 **Note:** The full features mentioned require that your organization has deployed Component Pack for Connections. If your organization doesn't have Component Pack and you still don't see the results you want, click **Advanced Search**. For information on the advanced search page, see [Performing an advanced search](t_eucommon_perform_advanced_search.md).
 
-**Parent topic:**[Searching Connections](../../user/eucommon/c_eucommon_search.md)
+**Parent topic:**[Searching Connections](../eucommon/c_eucommon_search.md)
 

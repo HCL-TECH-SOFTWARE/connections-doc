@@ -1,4 +1,4 @@
-# Adding rich content pages to a community 
+# Adding rich content pages to a community {#t_com_create_wiki .task}
 
 Add rich content pages to your community so that you can share content, such as images, with community members.
 
@@ -21,5 +21,5 @@ From the community's Highlights page, you can do the following:
 -   Change the position of the rich content page by dragging it to a new location.
 -   Edit the rich content page. For more information, see [Managing rich content pages](t_com_community_manage_rich_text.md).
 
-**Parent topic:**[Working with rich content](../../user/communities/community_rich_content_frame.md)
+**Parent topic:**[Working with rich content](../communities/community_rich_content_frame.md)
 

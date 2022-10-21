@@ -1,4 +1,4 @@
-# Notices 
+# Notices {#booknotices .concept}
 
 This information was developed for products and services offered in the US.
 
@@ -52,27 +52,27 @@ COPYRIGHT LICENSE:
 
 This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to HCL, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. HCL, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs. The sample programs are provided "AS IS," without warranty of any kind. HCL shall not be liable for any damages arising out of your use of the sample programs.
 
-## Trademarks 
+## Trademarks {#trademarks}
 
 HCL Technologies Ltd. and HCL Technologies Ltd. logo, and hcl.com are trademarks or registered trademarks of HCL Technologies Ltd., registered in many jurisdictions worldwide. Other product and service names might be trademarks of HCL or other companies.
 
-## Terms and conditions for product documentation 
+## Terms and conditions for product documentation {#termsandconditions}
 
 Permissions for the use of these publications are granted subject to the following terms and conditions.
 
-### Applicability 
+### Applicability { .section}
 
 These terms and conditions are in addition to any terms of use for the HCL website.
 
-### Personal use 
+### Personal use { .section}
 
 You may reproduce these publications for your personal, noncommercial use provided that all proprietary notices are preserved. You may not distribute, display or make derivative work of these publications, or any portion thereof, without the express consent of HCL.
 
-### Commercial use 
+### Commercial use { .section}
 
 You may reproduce, distribute and display these publications solely within your enterprise provided that all proprietary notices are preserved. You may not make derivative works of these publications, or reproduce, distribute or display these publications or any portion thereof outside your enterprise, without the express consent of HCL.
 
-### Rights 
+### Rights { .section}
 
 Except as expressly granted in this permission, no other permissions, licenses or rights are granted, either express or implied, to the publications or any information, data, software or other intellectual property contained therein.
 

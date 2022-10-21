@@ -1,4 +1,4 @@
-# Deleting unwanted communities 
+# Deleting unwanted communities {#t_com_delete .concept}
 
 If a community no longer has a purpose or is inactive, you might want to delete it.
 
@@ -11,11 +11,11 @@ Ensure that the community is not in use. When you delete a community, all data t
 3.  Enter the community name in the **Confirm community name** field, and your name in the **Sign with your name** field. Make sure that you enter the correct case of the characters to match both names.
 4.  Click **OK**.
 
-## Change your mind? 
+## Change your mind? {#section_wd3_k2y_35b .section}
 
 Provided it is not purged from the trash later, you can restore the community. Go to **My Communities** then select **Trash** from the viewing filter options. Click **Restore** for the community you want to revive.
 
 ![Dropdown list to filter the My Communities view](images/trash.png)
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

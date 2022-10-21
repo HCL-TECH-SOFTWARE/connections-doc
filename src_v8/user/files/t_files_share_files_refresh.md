@@ -1,14 +1,16 @@
-# Sharing files and folders 
+# Sharing files and folders {#howdoisharefiles .concept}
 
 As a file or folder owner you can keep your files private, or make them readable or editable by people and communities you select, visible to everyone in your orgniztion, or shared only within a community. Sharing files or folders with communities is not available to HCL Connections Files subscribers.
 
-## Before you begin 
+## Before you begin { .section}
 
 Files that you upload from the Files app are stored in your repository, hence you can manage how they are shared. If you plan on sharing a file exclusively with a community, consider uploading it from the community or giving a copy of the file to a community. When you do either of these, the file is stored in the community's repository, which creates certain limitations. For more info see [Sharing community files and folders](../communities/c_com_share_file.md) in the Communities Help.
 
 To see how a file is shared, open the file page and click the **Sharing** tab.
 
-## Sharing a file 
+**Note:** If you have a subscription to HCL Connections Docs Cloud, you also can collaborate on an uploaded document, spreadsheet, or presentation file by using a **Share** option. This enables you to send an invitation to named contacts and request that they view or edit a particular file with you. Sharing in that context is described in the following topic: *Editing a file by using HCL Docs*.
+
+## Sharing a file { .section}
 
 1.  From the navigation bar, click **Files**, then locate the file you want to share.
 2.  Select the file by clicking the checkbox beside the thumbnail.
@@ -23,7 +25,7 @@ You can also create a shareable link so those who are logged in and belong to yo
 3.  In the Share by Link area, click **Create a Link**. A link will automatically be generated for you.
 4.  Click **Copy Link**.
 
-## Sharing a folder 
+## Sharing a folder { .section}
 
 Using folders allows you to share a group of files in a folder rather than each file individually. Sharing a folder allows people or communities to view the files in the folder. To provide Editor-level access to specific files in the folder, you would share those files with others individually.
 
@@ -40,7 +42,7 @@ To share a folder:
 
 5.  Click **Share**.
 
-**Parent topic:**[Collaborating on files and folders](../../user/files/t_files_why_file_sharing_refresh.md)
+**Parent topic:**[Collaborating on files and folders](../files/t_files_why_file_sharing_refresh.md)
 
 **Related links**  
 

@@ -1,4 +1,4 @@
-# Connecting with external users 
+# Connecting with external users {#whatcanidoasanexternaluser .concept}
 
 Learn what an external user can do in HCL Connections, and how you can invite them to register.
 
@@ -8,7 +8,7 @@ External users, indicated by the ![External user icon](ext_user.jpg) icon, can u
 -   Someone in an organization invites them to join a Connections community and they accept the invitation.
 -   Someone in an organization shares a file with them.
 
-## Inviting a guest 
+## Inviting a guest { .section}
 
 Once your administrator assigns you to the appropriate role, you can collaborate with people who are not members of Connections by inviting them to register as guests. Guest accounts are free; no extra fees are charged to your organization or to the guests.
 
@@ -30,7 +30,7 @@ To invite one or more guests using the mobile app:
 3.  Click **Send Invitation**. The person receives an email invitation that directs them to the registration web page, and then to the Connections login screen.
 4.  If you want to continue inviting guests, click **Invite Another** until you are finished.
 
-## What external users can do 
+## What external users can do { .section}
 
 If you are an external user, you can do the following:
 
@@ -45,6 +45,9 @@ If you are an external user, you can do the following:
 -   See who updates a file and when from the Files app.
 -   Use the Connections mobile app.
 -   Chat with people in the organization.
+-   Network with people in the organization you are visiting.
+-   Access Mail, Calendar, and Contacts, when you visit an organization.
+-   Switch between organizations that you can visit \(if you can visit multiple organizations\).
 -   Receive email notifications for the following updates:
     -   You are @mentioned in a message.
     -   A file is shared with you.
@@ -53,7 +56,7 @@ If you are an external user, you can do the following:
     **Note:** In general, which email notifications you receive and when you receive them depends on your notification settings. You can set up individual emails or daily or weekly digests. For more information, see [Getting browser and email notifications](../profiles/c_pers_getting_notifications.md).
 
 
-## What external users cannot do 
+## What external users cannot do {#section_npm_5pp_blb .section}
 
 As an external user, you cannot see the following Connections items or perform the following tasks:
 
@@ -78,10 +81,12 @@ As an external user, you cannot see the following Connections items or perform t
 -   Access other user profiles.
 -   See community metrics.
 -   Use the Connections desktop plugins.
+-   Use the Important to Me bar.
+-   View the Top Updates page on the home page.
 
-## Identifying external users and what they can work with 
+## Identifying external users and what they can work with {#section_mpb_xpp_blb .section}
 
 If you are an external user, content that you create or have access to is identified by an icon ![External user icon](ext_user.jpg). The icon is applied to restricted communities that you are a member of, and files or content that is created by you or shared with you.
 
-**Parent topic:**[Start collaborating](../../user/eucommon/c_eucommon_connecting_people.md)
+**Parent topic:**[Start collaborating](../eucommon/c_eucommon_connecting_people.md)
 

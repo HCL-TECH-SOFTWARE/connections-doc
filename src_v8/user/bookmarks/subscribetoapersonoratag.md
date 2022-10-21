@@ -1,4 +1,4 @@
-# Adding bookmarks to your watchlist 
+# Adding bookmarks to your watchlist {#subscribetoapersonoratag .task}
 
 The watchlist maintains a list of the most recent bookmarks that match criteria you specify. You can add bookmarks to your watchlist that are associated with a person, with a tag, or both.
 
@@ -12,5 +12,5 @@ Click the **My Updates** tab to view an up-to-date collection of these bookmarks
     **Note:** The **My Updates** view shows bookmarks from a certain period of time, such as the last two weeks. The time period can be configured by the administrator. If your watchlist does not include any recent bookmarks for a person or tag you specified, it is possible that there are not any new bookmarks for that time period.
 
 
-**Parent topic:**[Bookmark basics](../../user/bookmarks/c_bookmark_basics.md)
+**Parent topic:**[Bookmark basics](../bookmarks/c_bookmark_basics.md)
 

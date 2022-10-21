@@ -1,4 +1,4 @@
-# Posting a comment 
+# Posting a comment {#concept_xsy_jyh_my .concept}
 
 Get involved in the discussion and comment on a blog post or respond to a comment on your own.
 
@@ -12,5 +12,5 @@ Get involved in the discussion and comment on a blog post or respond to a commen
 
 **Note:** If the blog's comments are moderated, the comment does not display immediately. Someone must approve the comment before it is displayed.
 
-**Parent topic:**[Connecting with other blogs](../../user/blogs/c_blog_connecting_others.md)
+**Parent topic:**[Connecting with other blogs](../blogs/c_blog_connecting_others.md)
 

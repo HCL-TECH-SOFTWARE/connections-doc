@@ -49,5 +49,5 @@ To download fixes, complete the following steps.
     **Note:** If a fixes subdirectory does not already exist in the update directory, create it. You need to specify this directory when you install fixes.
 
 
-**Parent topic:**[Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

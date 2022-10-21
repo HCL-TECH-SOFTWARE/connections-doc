@@ -1,4 +1,4 @@
-# Transferring a file to a new owner 
+# Transferring a file to a new owner {#t_transfer_file_to_new_owner .task}
 
 You can transfer one or more files that you own to a different owner, provided that the files aren't community files.
 
@@ -25,5 +25,5 @@ Transferring file ownership gives the new owner the appropriate access. For more
 
 **Note:** If you prefer not to transfer the files yourself, you can ask your administrator to reassign ownership in bulk. For more information, see [Transferring ownership of user files](https://help.hcltechsw.com/connections/v7/admin/admin/t_transfer_ownership_of_user_files.html) in the Administering Connections Help.
 
-**Parent topic:**[Managing files and folders](../../user/files/managing_files_folders.md)
+**Parent topic:**[Managing files and folders](../files/managing_files_folders.md)
 

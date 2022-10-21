@@ -1,4 +1,4 @@
-# Working with draft files 
+# Working with draft files {#t_com_library_review_files .concept}
 
 Community owners can edit library settings to require that all new and updated files must be reviewed and approved by specific users or groups. When new or updated files are approved, they can be published to the library.
 
@@ -11,5 +11,5 @@ File reviewers are notified when draft files are submitted for review. If they a
 **Related information**  
 
 
-[Managing a community library](../../user/communities/t_com_library_manage.md)
+[Managing a community library](../communities/t_com_library_manage.md)
 

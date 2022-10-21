@@ -1,4 +1,4 @@
-# Highlighting content in galleries 
+# Highlighting content in galleries {#gallery_frame .reference}
 
 The Gallery app highlights the community files or the contents of a community folder on the community Highlights page. The app displays thumbnails or file type icons for the files in the folder.
 
@@ -28,10 +28,10 @@ The following document, photo, and video file formats are supported.
 
 |
 
--   **[Organizing gallery files](../../user/communities/t_com_migrate_media_com_gallery.md)**  
+-   **[Organizing gallery files](../communities/t_com_migrate_media_com_gallery.md)**  
 You can put gallery files in community folders and showcase files in the Gallery app.
--   **[Configuring a gallery to display files and folders](../../user/communities/t_com_config_gallery.md)**  
+-   **[Configuring a gallery to display files and folders](../communities/t_com_config_gallery.md)**  
 The Gallery app allows you to showcase files of any type, such as photos, videos, and office files, on the community Highlights page. When configured, the Gallery is renamed with the folder or community name and displays thumbnail images for the files. You can have multiple galleries in a community.
 
-**Parent topic:**[Keeping your apps contemporary](../../user/communities/apps_frame.md)
+**Parent topic:**[Keeping your apps contemporary](../communities/apps_frame.md)
 

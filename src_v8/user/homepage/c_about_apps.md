@@ -1,10 +1,10 @@
-# About apps 
+# About apps {#concept_vty_gyd_ny .concept}
 
 The **My Page** view is entirely devoted to apps. Move them around, customize their displays, and choose what's important to you.
 
 Click an app to learn more about it.
 
-**Note:** You might see fewer apps depending on how your administrator has configured the homepage.
+**Note:** You might see fewer apps depending on how your administrator has configured the home page.
 
 -   [App overview](r_hp_widgets.md)
 -   [Using the Recommendations app on the home page](t_hp_using_recommended_items_widget.md)

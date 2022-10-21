@@ -1,4 +1,4 @@
-# Using the My Watchlist app 
+# Using the My Watchlist app {#t_hp_using_my_watchlist_widget .task}
 
 Use the My Watchlist app to monitor the most recent bookmarks added to your watchlist. You can edit your own links from this view and copy bookmarks to your personal bookmarks list.
 

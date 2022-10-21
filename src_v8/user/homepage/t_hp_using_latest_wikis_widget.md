@@ -1,4 +1,4 @@
-# Using the Latest Wikis app 
+# Using the Latest Wikis app {#t_hp_using_my_wikis_widget .task}
 
 Use the Latest Wikis app to display a list of wikis that have been updated recently.
 

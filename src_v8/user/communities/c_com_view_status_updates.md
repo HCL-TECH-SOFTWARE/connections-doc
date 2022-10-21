@@ -1,15 +1,15 @@
-# Viewing updates in your community 
+# Viewing updates in your community {#c_com_view_updates .concept}
 
 Keep up-to-date with what's happening by following a community or its content, or by viewing updates on the Recent Updates and Status Updates pages.
 
-## Viewing recent updates 
+## Viewing recent updates { .section}
 
 The Recent Updates page displays a summary of recent community activity. To view:
 
 1.  From the navigation bar, click **Communities** and select the community you'd like to check on.
 2.  In the community menu, click **Recent Updates**. To go directly to the updated content, click its name. To access more options for working with an update, hover over the update and click it. The options you see depend on the type of update you're looking at. For example, you can stop following files, or navigate to to-do items.
 
-## Viewing status updates 
+## Viewing status updates { .section}
 
 The Status Updates page displays the latest status updates that members have posted to the community. To view:
 
@@ -19,7 +19,7 @@ The Status Updates page displays the latest status updates that members have pos
     -   To comment on a status update, click **Comment** and enter your response. Then, click **Post**.
     -   To repost a comment for your followers to see, click **Repost**.
 
-## Following a community or specific content 
+## Following a community or specific content { .section}
 
 Follow a community when you want to be notified about the latest updates to, for example, activities or blogs. If you don't want to follow an entire community, you can follow specific content. For example, you can follow the community wiki or a specific wiki page.
 
@@ -36,7 +36,7 @@ Follow a community when you want to be notified about the latest updates to, for
     **Tip:** If you have the community open, you can just click **Follow this Community** from the community menu.
 
 
-## Sharing status updates 
+## Sharing status updates { .section}
 
 1.  From the navigation bar, click **Communities** and select the community you'd like to contribute to.
 2.  In the community menu, click **Status Updates** then do one or more of the following tasks:
@@ -47,5 +47,5 @@ Follow a community when you want to be notified about the latest updates to, for
     -   To add a file, click **Add a File**.
 3.  Click **Post**.
 
-**Parent topic:**[Finding out what’s going on](../../user/communities/whatsgoingon.md)
+**Parent topic:**[Finding out what’s going on](../communities/whatsgoingon.md)
 

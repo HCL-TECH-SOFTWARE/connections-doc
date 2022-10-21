@@ -1,4 +1,4 @@
-# Sharing library files and folders 
+# Sharing library files and folders {#t_com_library_sharing .task}
 
 Update sharing settings for library files and folders to control how community members access them. To view the current sharing status, click the **Sharing** tab on the summary page for the file or folder.
 
@@ -16,6 +16,9 @@ To set the default sharing settings for a library ask your administrator to enab
 4.  To update sharing settings for:
 
     -   Specific individuals, ensure that **a Member** is selected from the **Share with** list, and then enter one or more names in the text field provided.
+
+        **Note:** If groups are enabled for your organization, you cannot add an individual user to a role that is below, or the same role as group they are included in.
+
     -   A group, select **a Group** from the **Share with** list, and then enter the name of the group in the field provided.
     -   All community members, select **Community Members** from the **Share with** list, select the access level that you want members to have, and click **Add**.
     -   Everyone, including non-community members, select **Everyone \(public\)** from the **Share with** list, ensure that the appropriate access level is showing, and click **Add**.
@@ -32,7 +35,7 @@ To set the default sharing settings for a library ask your administrator to enab
 **Related information**  
 
 
-[Managing a community library](../../user/communities/t_com_library_manage.md)
+[Managing a community library](../communities/t_com_library_manage.md)
 
-[Library roles and permissions](../../user/communities/c_com_library_roles.md)
+[Library roles and permissions](../communities/c_com_library_roles.md)
 

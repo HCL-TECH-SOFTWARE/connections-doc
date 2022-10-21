@@ -17,50 +17,133 @@ Before starting the steps, ensure you have the following:
 
 -   Access to the [Harbor repository](https://hclcr.io/harbor/projects/15/repositories).
 
+**\[From v7\]** **Before we start with the sample steps, let's make a few assumptions about the environment.**
+
+**We are installing an environment which will be available behind web1.cnx-dev.net. However, this is just a public domain, and entry point to the Connections \(and dynamicHost of Connections\).**
+
+**All the nodes are available using their FQDNs and are in a different domain:**
+
+-   **Connections, with WebSphere and IHS is on connections1.internal.cnx-dev.net**
+-   **DB2 is on db1.internal.cnx-dev.net**
+-   **Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net**
+-   **NFS master is collocated with cp1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/**
+
 Note the following configurations:
 
-**Network configuration:** All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
+Network configuration
+:   All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
 
--   connections.example.com::
-    -   443 from nginx.example.com
-    -   443 from cpmaster.example.com
--   cpmaster.example.com:
-    -   30301 from connections.example.com \(Customizer\)
-    -   30301 from nginx.example.com \(Customizer\)
-    -   30098 from connections.example.com \(Elasticsearch 7 – Connections 7 only\)
-    -   30099 from connections.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
-    -   32080 from connections.example.com \(Ingress Controller\)
-    -   31810 from connections.example.com \(Microsoft Outlook add-in – Connections 7 only\)
--   nginx.example.com:
-    -   443 from everywhere
-    -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
+    -   connections.example.com:
+        -   443 from nginx.example.com
+        -   443 from cpmaster.example.com
+    -   cpmaster.example.com:
+        -   30301 from connections.example.com \(Customizer\)
+        -   30301 from nginx.example.com \(Customizer\)
+        -   30098 from connections.example.com \(Elasticsearch 7 – Connections 7 only\)
+        -   30099 from connections.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
+        -   32080 from connections.example.com \(Ingress Controller\)
+        -   31810 from connections.example.com \(Microsoft Outlook add-in – Connections 7 only\)
+    -   nginx.example.com:
+        -   443 from everywhere
+        -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
 
-**Storage configuration:** Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains configuration of a NFSv4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.
+Storage configuration
+:   Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.
 
 ## Installation vs. upgrade steps {#section_v5r_1dj_dvb .section}
+
+**\[From v7\] This document uses the preceding assumptions to walk you through the following steps, in a logical order, to get your Component Pack deployment up and running.**
 
 The complete steps to deploy Component Pack 8 below are in chronological order, but note that there are differences between the installation and upgrade procedures. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
-We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS is on cp1.internal.cnx-dev.net, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
+**\[From v7\]** **We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections1.internal.cnx-dev.net, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.**
 
--   Create /pv-connections folder on cp1.internal.cnx-dev.net
--   Inside that folder, create this set of subfolders:
-    -   /pv-connections/customizations with permissions 0005
-    -   /pv-connections/esbackup-7 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esdata-7-0 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esdata-7-1 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esdata-7-2 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esmaster-7-0 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esmaster-7-1 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/esmaster-7-2 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade \)
-    -   /pv-connections/kudos-boards-minio with permissions 0700
-    -   /pv-connections/mongo-node-0 with permissions 0700
-    -   /pv-connections/mongo-node-1 with permissions 0700
-    -   /pv-connections/mongo-node-2 with permissions 0700
+Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.
 
-Ensure that all of the preceding folders are exported and mountable from your Kubernetes workers before you proceed.
+Requirements for persistent volumes
+:   These guidelines and sample files describe how to set up all of the persistent volumes required for a full installation of Component Pack. In a high availability configuration, the best practice is to maintain persistent storage away from the Kubernetes masters and worker nodes themselves, on a separate machine that all masters and workers can access.
+
+    **Note:** The machine storing the persistent volumes in an HA configuration will not have Docker or Kubernetes installed.
+
+Exporting the persistent volumes
+:   1.  Perform these steps on NFS master:
+    1.  Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700
+    2.  Inside that folder, create this set of subfolders:
+        -   /pv-connections/customizations with permissions 0005
+        -   /pv-connections/opensearchbackup with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchmaster-0 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchmaster-1 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchmaster-2 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchdata-0 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchdata-1 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchdata-2 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchclient-0 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchclient-1 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/opensearchclient-2 with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
+        -   /pv-connections/kudos-boards-minio with permissions 0700
+        -   /pv-connections/mongo5-node-0/data/db with permissions 0700
+        -   /pv-connections/mongo5-node-1/data/db with permissions 0700
+        -   /pv-connections/mongo5-node-2/data/db with permissions 0700
+    3.  Download [nfsSetup.sh](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) and volumes.txt to a directory of your choice \(for example, /tmp\) from the Git repository.
+    4.  Check if firewalld is already installed using the following rpm command:
+
+        ``` {#codeblock_onx_n2w_fvb}
+        - $rpm -qa firewalld
+        ```
+
+        If the command does not return anything, install firewalld on your operating system. For example, on Linux/CentOS, run:
+
+        ``` {#codeblock_pnx_n2w_fvb}
+        $sudo yum install firewalld
+        ```
+
+        Then start the firewalld service:
+
+        ``` {#codeblock_qnx_n2w_fvb}
+        $sudo systemctl start firewalld
+        ```
+
+    5.  Provide execution permission to nfsSetup.sh and run it in order for NFS to be configured:
+
+        ``` {#codeblock_uhg_42w_fvb}
+        sudo chmod +x nfsSetup.sh
+        sudo bash nfsSetup.sh
+        ```
+
+    6.  **\(Optional\)** Export file systems:
+
+        ``` {#codeblock_ttw_42w_fvb}
+        exportfs -ra
+        ```
+
+    7.  Enable and start nfs-server:
+
+        ``` {#codeblock_nhg_p2w_fvb}
+        systemctl restart nfs-server
+        ```
+
+2.  Configure NFS clients by enabling and starting the nfs-server on all Kubernetes master and worker nodes:
+
+    ``` {#codeblock_gml_s2w_fvb}
+    systemctl restart nfs-server
+    ```
+
+3.  Add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
+
+    ``` {#codeblock_f55_s3w_fvb}
+    # jsonapi
+    ProxyPass "/jsonapi" "http://master_node_host_name:32080/jsonapi"
+    ProxyPassReverse "/jsonapi" "http://master_node_host_name:32080/jsonapi"
+    ```
+
+
+Ensure that all of the persistent volumes are exported and mountable from Kubernetes masters and workers nodes before you proceed to the next steps.
+
+## Download and set up the package {#section_pvh_tgp_fvb .section}
+
+**\[From v7\]** **On the server which has Helm v3 and kubectl configured for your non-root user, download and unpack the Component Pack archive to /opt/microservices\_connections.**
 
 ## Create the namespace {#section_ln3_qp3_dvb .section}
 
@@ -68,6 +151,30 @@ On the server which has Helm v3 and kubectl configured for your non-root user, c
 
 ``` {#codeblock_ajc_sp3_dvb}
 kubectl create namespace connections
+```
+
+## Push the images to the Docker Registry or Amazon ECR {#section_mgn_g3p_fvb .section}
+
+**\[From v7\]** **Inside your Component Pack package, you got basically a bunch of Docker prebuild images and Helm charts. We need to push those images now to some Docker Registry, which in this example lives on cp1.internal.cnx-dev.net on port 5000, has SSL enabled, and you can login to it using username admin and password password \(or whatever you set, hopefully not this\):**
+
+-   **Go to component\_pack\_installation\_folder/hybridcloud/support**
+-   **Run this command: `./setupImages.sh -dr cp1.internal.cnx-dev.net:5000 -u admin –p password`**
+
+**Once this finishes, you should be good to go. The same script is compatible with Amazon ECR.**
+
+**Note:** **For upgrades, just repeat this step. It will add only the new packages, and Helm charts know which version they need.**
+
+## Create Docker Registry credentials {#section_jyn_43p_fvb .section}
+
+**\[From v7\]** **In this step you need to map your credentials for Docker Registry or Amazon ECR with some secret inside the Kubernetes cluster, so that Kubernetes workers can use it to authenticate to your registry when pulling the images.**
+
+**In all the Helm charts, hardcoded name for this is myregkey and you cannot change it if you don't manually edit each and every Helm chart to do it \(which we definitely don't advise\).**
+
+**To create this credential, run:**
+
+``` {#codeblock_htj_s3p_fvb}
+**kubectl create secret docker-registry myregkey –n connections --docker-server=cp1.internal.cnx--
+dev.net:5000 --docker-username=admin --docker-password=password**
 ```
 
 ## Back up MongoDB 3 data {#backup_mongo3 .section}
@@ -321,6 +428,24 @@ Then upgrade:
 helm upgrade k8s-psp v-connections-helm/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
 ```
 
+**\[From v7\]****There is no change in pod security policy setup since Component Pack 6.5.0.1. To install, run this command:**
+
+``` {#codeblock_y1k_jmv_fvb}
+**helm upgrade k8s-psp component\_pack\_installation\_folder/hybridcloud/helmbuilds/k8s-psp-\*.tgz -i**
+```
+
+## Use –f instead of –set with Helm charts {#section_g5b_z3p_fvb .section}
+
+**\[From v7\]** **Our examples folder is following the naming convention we are using throughout this topic. Feel free to check the examples for what we are rewriting for each chart.**
+
+**This change makes it much cleaner, and is also the way our [HCL-provided Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md) works. If you want to review or customize the examples, here's how:**
+
+-   **Go to the [Component Pack installation files for Helm chart configuration](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085591) Knowledge Article on the HCL Software Support site, and download and unzip the folder cnx7-CP-examples.zip.**
+-   **Copy the files to component\_pack\_installation\_folder/hybridcloud/examples.**
+-   **In the examples folder, open the subfolder that applies to your environment \(either single or multiple domains\).**
+-   **Review the examples, or customize them by changing the values to the ones for your environment.**
+-   **Continue with the steps that follow in this topic.**
+
 ## Set up persistent volumes and persistent volume claims on NFS {#pv_pvc .section}
 
 Make sure that the network configuration of your NFS environment is correct before configuring the Connections PVs:
@@ -372,7 +497,7 @@ Make sure that the network configuration of your NFS environment is correct befo
     Then, run installation:
 
     ``` {#codeblock_qx1_vkr_bvb}
-    helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 -f connections-volumes.yml --wait
+    helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
     ```
 
     **Note:** Use your destination **nfs.server** and **persistentVolumePath** as parameters in connections-volumes.yml.
@@ -383,6 +508,15 @@ Make sure that the network configuration of your NFS environment is correct befo
     kubectl get pvc -n connections
     ```
 
+
+**\[From v7\]** **This command sets up both PVs and PVCs:**
+
+``` {#codeblock_s5v_qmv_fvb}
+**helm upgrade connections-volumes component\_pack\_installation\_folder/hybridcloud/helmbuilds/connections-persistent-storage-nfs-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/connections-volumes.yml**
+```
+
+**For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pack guide](https://help.hcltechsw.com/connections/v7/pdfs/troubleshooting_cnx_cp.pdf) on the HCL software product documentation site.**
 
 ## Set up bootstrap charts {#bootstrap .section}
 
@@ -414,6 +548,12 @@ helm upgrade bootstrap v-connections-helm/bootstrap -i --version 0.1.0-20220411-
 
 ## Set up connections-env chart {#cnx_env .section}
 
+**\[From v7\]****This chart by default installs connections-env configmap.**
+
+**Note:** **If you will be deploying Microsoft Teams integration, you can choose to enable it during initial connections-env setup or modify connections-env later. The value integrations.msteams.enabled=true is used to indicate that an additional integrations-msteams-env configmap and ms-teams-secret secret should be created, which are necessary for Teams integration to work. If you choose to set integrations.msteams.enabled=true at this time, see [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) before going further for an example upgrade command and list of additional values that must be provided to successfully complete the connections-env upgrade.**
+
+**The configmap for connections-env contains all the variables needed for the Customizer and Orient Me to function properly. Note that Customizer always points to the IBM HTTP Server directly, whereas Orient Me requests point to the front door proxy.**
+
 To install the connections-env chart, run:
 
 ``` {#codeblock_ftt_lrq_bvb}
@@ -439,48 +579,19 @@ Perform the steps in [Installing MongoDB 5 for Component Pack 8](installing_mong
 
 ## Set up infrastructure charts {#infra_chart .section}
 
-1.  Make sure that the Mongo5 NFS folders on the NFS master node are empty:
+The infrastructure charts are installed during MongoDB 5 installation \(see previous step\).
 
-    ``` {#codeblock_mjl_tsr_bvb}
-    ls -la mongo5-node-0/data/db/
-    ls -la mongo5-node-1/data/db/
-    ls -la mongo5-node-2/data/db/
-    ```
+**\[From v7\]****This will install the infrastructure for Orient Me and other apps, the most prominent being MongoDB and appreg services.**
 
-2.  Delete the infrastructure charts using the following commands:
-
-    ``` {#codeblock_njl_tsr_bvb}
-    helm delete infrastructure -n connections
-    ```
-
-    ``` {#codeblock_ojl_tsr_bvb}
-    helm search repo v-connections-helm --devel | grep infrastructure | awk {'print $2'}
-    ```
-
-    ``` {#codeblock_pjl_tsr_bvb}
-    o/p: 0.1.0-20220617-050009
-    ```
-
-3.  Install the infrastructure charts:
-
-    ``` {#codeblock_qjl_tsr_bvb}
-    helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20220617-050009 --namespace connections -f infrastructure.yml --wait
-    ```
-
-    Then, run this command to wait for the infrastructure to show:
-
-    ``` {#codeblock_rjl_tsr_bvb}
-    kubectl wait --namespace connections --for=condition=ready pod --selector=app=mongo --timeout=300s
-    ```
-
-4.  Check if infrastructure pods are up and running:
-
-    ``` {#codeblock_sjl_tsr_bvb}
-    kubectl -n connections get po | grep -iE "mongo|appregistry-client|appregistry-service|haproxy|redis-sentinel|redis-server"
-    ```
-
+**If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the [Troubleshooting Component Pack](https://help.hcltechsw.com/connections/v7/pdfs/troubleshooting_cnx_cp.pdf) document.**
 
 ## Set up Customizer {#section_n3c_xhj_dvb .section}
+
+Customizer needs to be installed, customizations copied into its PV \(living on your NFS:/pv-connections/customizations\), and then enabled on Nginx:
+
+-   Mount NFS:/pv-connections/customizations to the server where you have your Component Pack unpacked and from which you are managing installations
+-   Copy all the files from component\_pack\_installations\_folder/hybridcloud/support/customizations/\* to NFS:/pv-connections/customizations
+-   Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder to NFS:/pv-connections/customizations
 
 Delete existing Customizer chart:
 
@@ -501,6 +612,28 @@ Install chart:
 helm upgrade mw-proxy v-connections-helm/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
 ```
 
+**\[From v7\]****To install or upgrade it, run:**
+
+``` {#codeblock_awh_nkp_fvb}
+**helm upgrade mw-proxy 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/mw-proxy-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/customizer.yml**
+```
+
+**Setup your reverse proxy to forward some traffic to the customizer by sending it to KUBERNETES:30301. For Nginx, it would look like this:**
+
+``` {#codeblock_bwh_nkp_fvb}
+**location ~      ^/\(files/customizer\|files/app\|communities/service/html\|forums/html\|search/web\|homepage/web\|social/home\|mycontacts\|wikis/home\|blogs\|news\|activities/service/html\|profiles/html\|viewer\)  \{ 
+
+            proxy\_pass http://cp1.internal.cnx-dev.net:30301; 
+
+\}**
+```
+
+**Customizer will not start serving any traffic until you start sending some, from whatever fronted reverse proxy you are using.**
+
+Learn more about configuring Customizer in [Configuring the Customizer component](cp_config_customizer_intro.md).
+
 ## Migrate MongoDB data {#migrate_mongo3 .section}
 
 Perform the steps in [Migrating data from MongoDB 3 to 5](migrating_data_mongodb_v3_v5.md).
@@ -509,7 +642,11 @@ Perform the steps in [Migrating data from MongoDB 3 to 5](migrating_data_mongodb
 
 With Connections 8, OpenSearch replaces Elasticsearch 7 as the default backend for Metrics, OrientMe, and Search.
 
+**\[From v7\]****Solr and Zookeeper are not used anymore, so feel free to clean them up if you didn't already.**
+
 Installing the OpenSearch chart creates an additional secret – use the default secret from the bootstrap installation instead. See [Set up bootstrap charts](#bootstrap).
+
+**Note:** **\[From v7\]** **OpenSearch, because of the way it is set up starting with version 8, will not work if bootstrap didn't create its secrets and certificates beforehand.**
 
 1.  Get chart and version:
 
@@ -553,11 +690,18 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 Perform the steps in [Migrating data from Elasticsearch 7 to OpenSearch](cp_migrate_data_from_es7_to_opensearch.md).
 
-## Set up Orient Me for Opensearch {#orientme_os .section}
+## Set up Orient Me for OpenSearch {#orientme_os .section}
 
 With Connections 8, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.
 
-The orientme.yml file is a prerequisite for configuring Orient Me to use OpenSearch.
+**\[From v7\]** **The prerequisites to set up and run Orient Me are:**
+
+-   **Infrastructure charts need to be already installed and all pods scheduled.**
+-   **connections-env configmap needs to be already present.**
+-   **OpenSearch needs to be installed and running.**
+-   **After you install Orient Me, you need to run Profiles migration. In this step, we are migrating users from PeopleDB to MongoDB, which is used by Orient Me.**
+-   **You need to set rewrite rules in httpd.conf on your IBM HTTP Server to enable sending requests to it from Connections.**
+-   **Have the orientme.yml file ready.**
 
 1.  In the orientme.yml file, update these settings:
     -   `orient-indexing-service.indexing.opensearch=true and orient-indexing-service.indexing.elasticsearch=false`
@@ -606,87 +750,232 @@ The orientme.yml file is a prerequisite for configuring Orient Me to use OpenSea
         ```
 
 
+**\[From v7\]****To install or start the upgrade for Orient Me, run:**
+
+``` {#codeblock_gbq_vmp_fvb}
+**helm upgrade orientme 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/orientme-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/orientme.yml**
+```
+
+**To migrate profiles, run this:**
+
+``` {#codeblock_hbq_vmp_fvb}
+**kubectl exec -n connections -it $\(kubectl get pods -n connections \| grep people-migrate \| awk '\{print $1\}'\) -- sh -c "npm run start migrate"**
+```
+
+**If you followed examples and the order of installation, this should work out of the box. If you want to do some customizations, or if you are later changing the database, you can SSSH into people-migrate pod and see the configuration that was precreated for you during the installation/upgrade of Component Pack in /usr/src/app/migrationConfig.**
+
+**And finally, add the rewrites to your httpd.conf on the IBM HTTP Server, and then restart the service:**
+
+``` {#codeblock_ibq_vmp_fvb}
+**\# OrientMe Config 
+ProxyPreserveHost On 
+ProxyPass "/social" "http://cp1.internal.cnx-dev.net:32080/social" 
+ProxyPassReverse "/social" "http://cp1.internal.cnx-dev.net:32080/social" 
+ProxyPass "/itm" "http://cp1.internal.cnx-dev.net:32080/itm" 
+ProxyPassReverse "/itm" "http://cp1.internal.cnx-dev.net:32080/itm" 
+ProxyPass "/community\_suggestions/api/recommend/communities" "http://cp1.internal.cnx-dev.net:32080/community\_suggestions/api/recommend/communities" 
+ProxyPassReverse "/community\_suggestions/api/recommend/communities" "http://cp1.internal.cnx-dev.net:32080/community\_suggestions/api/recommend/communities" 
+ProxyPass "/appreg" "http://cp1.internal.cnx-dev.net:32080/appreg/" 
+ProxyPassReverse "/appreg" "http://cp1.internal.cnx-dev.net:32080/appreg/" 
+ProxyPass "/appregistry" "http://cp1.internal.cnx-dev.net:32080/appregistry" 
+ProxyPassReverse "/appregistry" "http://cp1.internal.cnx-dev.net:32080/appregistry"**
+```
+
 Learn more about configuring Orient Me in [Configuring the Orient Me component](cp_config_om_intro.dita).
 
-## Set up Metrics for Opensearch {#metrics_os .section}
+## Set up Metrics for OpenSearch {#metrics_os .section}
 
 With Connections 8, the only backend for Metrics is OpenSearch. So, if you are performing an upgrade, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8.
 
 Before configuring Metrics, make sure that your WebSphere Application servers are up and running.
 
-1.  Download the [config\_blue\_metrics.py file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
-
-2.  Run this script on connections.example.com. We need to update it because the service name and port changed from Elasticsearch 7 to OpenSearch:
-
-    ``` {#codeblock_bjv_xhw_bvb}
-    /usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost cpmaster.example.com --namespace {{ __default_namespace }}
-    ```
-
-    ``` {#codeblock_isl_yhw_bvb}
-    o/p- Updating Metrics settings on: https://web.example.com/metrics/configsetter
-    b'{"c2.export.elasticsearch.baseurl7" : "https://pinkhost cpmaster.example.com:30099"}'
-    ```
-
-3.  Now, you need to reconfigure Metrics to accept the updated SSL certificate from OpenSearch. First, export the new Elasticsearch7 keys from your Component Pack 7 installation:
+1.  To ensure a secure connection, retrieve the PKCS12 and CA Signer certificates by running the following commands on the Component Pack master node:
 
     ``` {#codeblock_ljj_b3w_bvb}
-    kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['chain-ca\.pem']}" | base64 -d > opensearch-chain-ca.pem
+    mkdir -p /tmp/es_certs
     ```
 
     ``` {#codeblock_uwr_c3w_bvb}
-    kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['opensearch-metrics\.p12']}" | base64 -d > opensearch-metrics.p12
+    kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['chain-ca\.pem']}" | base64 -d > "/tmp/es_certs"/chain-ca.pem
     ```
 
-4.  Remove previous SSL settings from Elasticsearch Metrics.
-
-    1.  From WebSphere Integrated Solutions Console, navigate to **Security** \> **SSL certificate and key management** and click on the **Dynamic outbound endpoint SSL configurations**link.
-    2.  Select and delete any endpoints starting with **SSLToES and SearchToES**.
-    3.  Navigate to **Security** \> **SSL configurations**, and delete the **ESCloudSSLSettings**and **ESSearchSSLSettings** configuration.
-    4.  Navigate to **Security** \> **Key stores and certificates** and note down the **Path** definition for that keystore, for example, in this scenario, it is /opt/IBM/certs/es\_certs/elasticsearch-metrics.p12
-    5.  Delete **ESCloudKeyStore**and **ESSearchKeyStore**.
-5.  Copy the certificate files to the Deployment Manager to the location in step 4d.
-6.  On **connections.example.com**, find the OpenSearch secrets you copied from the Component Pack machine \(cpmaster.example.com\). Recall the **Path** definition from the keystore in step 5d.
-
-7.  Back up the following existing files from /opt/IBM/certs/es\_certs:
-
-    -   Elasticsearch7-metrics.p12
-    -   chain-ca.pem
-    Then replace them with the two newly created opensearch keystore files.
-
-8.  Copy the updated Elasticsearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
-
-9.  On connections.example.com, download the [merge-opensearch-certificates-to-keystore.j2 file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/merge-opensearch-certificates-to-keystore.j2) and rename it to **merge-opensearch-certificates-to-keystore**. This file is needed to run wsadmin.sh in the next steps. It also updates the type-ahead search.
-
-    Replace variables in curly brackets with the appropriate values, for example:
-
-    ``` {#codeblock_nqt_rzw_bvb}
-    enableSslForMetrics('/opt/IBM/certs/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/certs/es_certs/opensearch-chain-ca.pem', '30099')
+    ``` {#codeblock_kxg_f2g_fvb}
+    kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['opensearch-metrics\.p12']}" | base64 -d > "/tmp/es_certs"/opensearch-metrics.p12
     ```
 
-10. Open a command line and navigate to your Deployment Manager’s profile directory \(in our case it’s /opt/IBM/WebSphere/AppServer/profiles/Dmgr01\).
+2.  Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.
 
-    From the **bin**subdirectory, open a **wsadmin** prompt and run:
+    1.  Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.
+    2.  Click **Security** \> **SSL certificate and key management** \> ******Dynamic outbound endpoint SSL configurations** and, for each cluster member, delete any endpoints starting with **SSLToES and SearchToES**.
+    3.  Click **Security** \> **SSL certificate and key management** \> **SSL configurations**, and delete the **ESCloudSSLSettings**and **ESSearchSSLSettings** configuration.
+    4.  Click **Security** \> **SSL certificate and key management** \> **Key stores and certificates** and delete the **ESCloudKeyStore** and **ESSearchKeyStore** configuration.
+3.  Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.
 
-    ``` {#codeblock_ash_yzw_bvb}
-    ./wsadmin.sh -lang jython -port <dmgr_soap_port> -username <WebSphereAdmin> -password <password> -f merge-opensearch-certificates-to-keystore
+    For example, copy the two certificate files created in step 1 \(that is, **/tmp/es\_certs/chain-ca.pem** and **/tmp/es\_certs/elasticsearch-metrics.p12**\) to the following directory: **/opt/IBM/es\_certs** on the WebSphere Deployment Manager.
+
+    If this directory path does not yet exist, create it.
+
+4.  Configure OpenSearch metrics within Connections:
+    1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
+
+        ``` {#codeblock_pyp_xkg_fvb}
+        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
+        ```
+
+    2.  Merge the Signer certificate into the opensearch-metrics.p12 keystore:
+
+        ``` {#codeblock_hp4_xlg_fvb}
+        execfile('esSecurityAdmin.py')    
+        enableSslForMetrics('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
+        ```
+
+        Where:
+
+        -   `KEYSTORE_FULL_PATH`: See the following example.
+        -   `SIGNER_CA_FULL_PATH`: See the following example.
+        -   `OpenSearch_CA_PASSWORD`: The password that was set while [setting up bootstrap charts](#bootstrap).
+        -   `OpenSearch_HTTPS_PORT`: Find the port by running following command on the Component Pack System:
+
+            ``` {#codeblock_jp4_xlg_fvb}
+            kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
+            ```
+
+        For example:
+
+        ``` {#codeblock_kp4_xlg_fvb}
+        execfile('esSecurityAdmin.py')
+        enableSslForMetrics('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')
+        ```
+
+        Disconnect from the wsadmin environment with **quit**.
+
+    3.  Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
+    4.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
+    5.  Enable or switch to OpenSearch Metrics. The following script causes the RDBMS-based app to stop capturing data, and the OpenSearch component to start capturing it.
+        1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
+
+            ``` {#codeblock_jhv_b1p_fvb}
+            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+            sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
+            ```
+
+        2.  Switch users to the OpenSearch Metrics component:
+
+            ``` {#codeblock_khv_b1p_fvb}
+            execfile('metricsEventCapture.py')
+            switchMetricsToElasticSearch()
+            ```
+
+5.  Manage the Elasticsearch index for Connections type-ahead search. The type-ahead search feature uses an index named “quickresults” within the OpenSearch search engine.
+
+    1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
+
+        ``` {#codeblock_nlm_lmg_fvb}
+        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
+        ```
+
+    2.  Merge the Signer certificate into the opensearch-metrics.p12 keystore:
+
+        ``` {#codeblock_krg_nmg_fvb}
+        execfile('esSecurityAdmin.py')    
+        enableSslForESSearch('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
+        ```
+
+        Where:
+
+        -   `KEYSTORE_FULL_PATH`: See the following example.
+        -   `SIGNER_CA_FULL_PATH`: See the following example.
+        -   `OpenSearch_CA_PASSWORD`: The password that was set while [setting up bootstrap charts](#bootstrap).
+        -   `OpenSearch_HTTPS_PORT`: Find the port by running following command on the Component Pack System:
+
+            ``` {#codeblock_mrg_nmg_fvb}
+            kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
+            ```
+
+        For example:
+
+        ``` {#codeblock_nrg_nmg_fvb}
+        execfile('esSearchAdmin.py')
+        enableSslForESSearch('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')
+        ```
+
+        Disconnect from the wsadmin environment with **quit**.
+
+    3.  Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
+    4.  Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.
+
+        Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:
+
+        ``` {#codeblock_d3h_fvw_fvb}
+        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        ./wsadmin.sh -lang jython -user User_name -password Password
+        execfile('searchAdmin.py')
+        ```
+
+        ``` {#codeblock_a1b_gvw_fvb}
+        SearchService.createES7QuickResultsIndex()
+        ```
+
+        For information on running SearchService commands, see [SearchService commands](../admin/r_admin_searchservice_commands.md).
+
+    5.  Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder:
+
+        Add the following statement to the `<properties>` section of the file:
+
+        ``` {#pre_mtz_ydp_fvb}
+        `<genericProperty name="quickResultsEnabled">true</genericProperty>`
+        ```
+
+    6.  Update the search-config.xml file in the Deployment Manager profile configuration folder.
+
+        Add the following statements to the `<propertySettings>`:
+
+        ``` {#codeblock_apx_g2p_fvb}
+        <property name="quickResults">
+             <propertyField name="quick.results.elasticsearch.indexing.enabled" value="true"/>
+             <propertyField name="quick.results.solr.indexing.enabled" value="false"/>
+             <propertyField name="quick.results.use.solr.for.queries'\" value="false"/>
+             <propertyField name="quick.results.elasticsearch7.writing.enabled" value="true"/>
+             <propertyField name="quick.results.elasticsearch7.reading.enabled" value="true"/>
+        </property>
+        ```
+
+    7.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
+6.  To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the **/metrics** URL.
+7.  Download the [config\_blue\_metrics.py file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
+
+8.  Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Metrics using OpenSearch.
+
+    ``` {#codeblock_cmj_11p_fvb}
+    /usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost <<hostname>> --namespace connections
     ```
 
-11. Copy the updated [enable-es-for-metrics.j2 file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/enable-es-for-metrics.j2) from the Deployment Manager to the same location on the WebSphere Application Server nodes.
+    Where you must:
 
-12. Open a command line and navigate to your Deployment Manager’s profile directory \(in our case it’s /opt/IBM/WebSphere/AppServer/profiles/Dmgr01\).
+    -   `--skipSslCertCheck` \(set to true\): Use on systems that use self-signed SSL certificates.
+    -   `--pinkhost`: Set to the fully qualified domain name \(FQDN\) of the Kubernetes master. This would be the fronting Kubernetes master load balancer or virtual IP in a HA environment.
+    -   `--namespace`: Set to `connections`.
 
-    From the **bin**subdirectory, open a **wsadmin** prompt and run:
+For optional procedures to configure Metrics, see [Configuring the OpenSearch Metrics component](cp_config_os_intro.md).
 
-    ``` {#codeblock_hlf_d1x_bvb}
-    ./wsadmin.sh -lang jython -port <dmgr_soap_port> -username <WebSphereAdmin> -password <password> -f enable_es_for_metrics
-    ```
+**\[From v7\]****Component Pack for HCL Connections 8 comes with OpenSearch enabled by default.**
 
-    Disconnect from the wsadmin environment with **quit**.
+**If you are doing clean install, do all the tasks under [Configuring the OpenSearch Metrics component](cp_config_os_intro.md).**
 
-13. Run a full sync and restart the whole WebSphere cell including servers, node agent or agents and Deployment Manager.
-14. To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the **/metrics** URL.
+**If you are on HCL Connections 6.5.0.1 or earlier, and using ElasticSearch 5, there are two options:**
+
+-   **If you don't need to migrate data, you can use the preceding links to configure the Metrics component to use the newly installed OpenSearch.**
+-   **To continue using ElasticSearch 5 until you've migrated your data to OpenSearch, see [Sample steps to upgrade and migrate data from Component Pack 6.5 to 7](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks_helm2.html) in the 7.0 documentation.**
 
 ## Set up community ingress {#comm_ingress .section}
+
+**\[From v7\]****Starting with Connections 7, only the [community Nginx Ingress controller](https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx) is supported.**
+
+**With community ingress, besides its being more flexibility with AWS and OpenShift, you also get out-of-the-box Prometheus exporters, which can come in handy if you decide to also set up monitoring.**
 
 1.  If not already added, add the community Helm repository:
 
@@ -712,12 +1001,10 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     kubectl delete configmaps ingress-controller-leader ingress-controller-leader-nginx -n connections
     ```
 
-5.  Download the [cnx-ingress values .yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/cnx-ingress-values.yml) – you will use this to install the cnx-ingress chart. Modify the file according to your environment.
-
-6.  Install ingress-nginx:
+5.  Install ingress-nginx:
 
     ``` {#codeblock_ech_hjx_bvb}
-    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace connections -f **cnx-ingress-values.ym**l --wait
+    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace connections --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --wait
     ```
 
 
@@ -736,6 +1023,74 @@ Then, install chart:
 helm upgrade teams v-connections-helm/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
 ```
 
+**\[From v7\]****The Microsoft Teams integration microservices rely on a configmap \(integrations-msteams-env\) and secret \(ms-teams-secret\) that are part of the overall connections-env deployment. They are not installed by the connections-env chart by default; the expectation is that they are enabled as needed by customers who use Microsoft Teams and wish to enable the use cases that these micro-services support.**
+
+**To upgrade the connections-env deployment to enable the correct settings for Microsoft Teams, three specific pieces of information are required which should have been created and noted while performing the steps in [Configuring an Azure app to support the Microsoft Teams app](../../connectors/admin/t_ms_teams_config_azure_app.md).**
+
+**The items of information needed for this setup are:**
+
+-   **Teams tenant ID**
+-   **Bot \(app\) ID**
+-   **Bot \(app\) password \(secret\)**
+
+**With this information, to upgrade the connections-env and create the configmap and secret, run:**
+
+``` {#codeblock_uqj_hlp_fvb}
+**helm upgrade connections-env component\_pack\_installation\_folder/hybridcloud/helmbuilds/connections-env-\*.tgz --reuse-values --set integrations.msteams.enabled=true,integrations.msteams.tenant.id="your\_tenant\_id",integrations.msteams.client.id="your\_bot\_id",integrations.msteams.client.secret="your\_bot\_secret",integrations.msteams.auth.schema="3",integrations.msgraph.client.id="not\_used",integrations.msgraph.client.secret="not\_used",integrations.msgraph.redirect.uri="not\_used",integrations.msteams.share.ui.files.api="/files/basic/api",integrations.msteams.redirect.uri="not\_used",integrations.msgraph.secret.name="not\_used",integrations.msgraph.auth.endpoint="not\_used",integrations.msgraph.meta.endpoint="not\_used",integrations.msgraph.authorize.endpoint="not\_used",integrations.msgraph.token.endpoint="not\_used",integrations.msteams.share.service.endpoint="my.connections.server.com",imagePullSecretName="myregkey"**
+```
+
+**Once the configmap and secret are created, continue to install the microservices that rely on them for configuration.**
+
+**Run the following command:**
+
+``` {#codeblock_vqj_hlp_fvb}
+**helm upgrade teams 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/teams-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/teams.yml**
+```
+
+**Once the microservices are installed and running, add the following rules to your httpd.conf on your IBM HTTP Server and restart the server.**
+
+``` {#codeblock_wqj_hlp_fvb}
+**\# teams-tab-ui
+ProxyPass "/teams-tab" "http://master\_node\_host\_name:32080/teams-tab" 
+ProxyPassReverse "/teams-tab" "http://master\_node\_host\_name:32080/teams-tab"    
+\# teams-tab-api 
+ProxyPass "/teams-tab/api" "http://master\_node\_host\_name:32080/teams-tab/api" 
+ProxyPassReverse "/teams-tab/api" "http://master\_node\_host\_name:32080/teams-tab/api"
+\# teams-share-service 
+ProxyPass "/teams-share-service" "http://master\_node\_host\_name:32080/teams-share-service" 
+ProxyPassReverse "/teams-share-service" "http://master\_node\_host\_name:32080/teams-share-service"
+\# teams-share-ui 
+ProxyPass "/teams-share-ui" "http://master\_node\_host\_name:32080/teams-share-ui" 
+ProxyPassReverse "/teams-share-ui" "http://master\_node\_host\_name:32080/teams-share-ui"**
+```
+
+``` {#codeblock_xqj_hlp_fvb}
+**\# Teams SameSite Fix
+\# Add SameSite property to all server-side set-cookie response headers
+Header edit Set-Cookie ^\(.\*\)$ "$1; SameSite=None;Secure"**
+```
+
+``` {#codeblock_yqj_hlp_fvb}
+**\# Fix for Embedded Experiences content loading in Teams Tab iframe
+<Location /connections/opensocial/gadgets/ifr\>
+Header unset Content-Security-Policy
+Header always set Content-Security-Policy "frame-ancestors 'self' teams.microsoft.com \*.teams.microsoft.com"
+</Location\>**
+```
+
+**The proxy pass statements map URI to the ingress controller service to route requests to the appropriate Microsoft Teams-related micro-services. Given tightening security of more recent versions of browser, especially Chrome \(or Chromium-based browsers\) and the use of embedded iFrames by Microsoft Teams, passing cookies correctly between the environments requires the SameSite=None and Secure property.**
+
+**For more information about the SameSite property, please see:**
+
+-   **[Browser changes to SameSite cookie handling and WebSphere Application Server](https://www.ibm.com/support/pages/browser-changes-samesite-cookie-handling-and-websphere-application-server)**
+-   **[Cookies: HTTP State Management Mechanism \(RFC6265-bis\)](https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-03#section-4.1.2.7)**
+
+**Lastly, and again for security reasons, you must change the x-frame-options header to support the way that Microsoft Teams uses an iFrame to embed application content in the tabbed pages. Since Connections also uses an iFrame to display embedded experiences content, this becomes an iFrame within an iFrame. The embedded experiences content cannot be displayed if SAMEORIGIN is used because the Teams UI and Embedded Experiences content do not share a common origin host. Using ALLOW-FROM permits the header to tell the browser that it is allowed to render content in the iFrame when processing the /connections/opensocial/gadgets/ifr request from an alternative host.**
+
+**To enable Microsoft Teams integration, see [Setting up the Connections app for the Microsoft Teams client](../../connectors/admin/t_ms_teams_set_up_conn_app_for_ms.md) in the Integrating with Other Products section of this documentation.**
+
 ## Set up Tailored Experience features for communities {#comm_tailored .section}
 
 Get chart and version:
@@ -751,13 +1106,86 @@ Then, install chart:
 helm upgrade tailored-exp v-connections-helm/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
 ```
 
+**\[From v7\]** **A [replacement strategy](cp_install_upgrade_container.md) is being used to install or upgrade the [Tailored Experience features](cp_install_offerings.md); therefore it's important to note that you must add `--force` to the end of the command.**
+
+**To install or upgrade Tailored Experience, run:**
+
+``` {#codeblock_xtd_xlp_fvb}
+**helm upgrade tailored-exp 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/tailored-exp-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/tailoredexperience.yml --force**
+```
+
+**Once this is all set, add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:**
+
+``` {#codeblock_ytd_xlp_fvb}
+**\# proxy rules for admin-portal
+ProxyPass "/cnxadmin" "http://cp1.internal.cnx-dev.net:32080/cnxadmin"  
+ProxyPassReverse "/cnxadmin" "http://cp1.internal.cnx-dev.net:32080/cnxadmin"
+\# proxy rules for community-template-service
+ProxyPass "/comm-template" "http://cp1.internal.cnx-dev.net:32080/comm-template/templates" 
+ProxyPassReverse "/comm-template" "http://cp1.internal.cnx-dev.net:32080/comm-template/templates"
+\# proxy rules for te-creation-wizard
+ProxyPass "/te-creation-wizard/" "http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/" 
+ProxyPassReverse "/te-creation-wizard/" "http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/"**
+```
+
 For post-installation tasks required to deploy the community creation wizard and templates, see [Configuring the community creation wizard](t_configure_community_wizard.md) and [Assigning administrators to template management roles](../admin/t_admin_comm_templates_assign_admins.md).
 
 ## Set up Activities Plus {#activities_plus .section}
 
 See [Installing Activities Plus services](cp_3p_install_ap_services.md) for details.
 
+**\[From v7\]** **Prerequisites for installing Activities Plus are:**
+
+-   **Get a free license from store.huddo.com**
+-   **Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.md) in the Integrating Activities Plus section.**
+
+**To install or upgrade it, run:**
+
+``` {#codeblock_rbn_1np_fvb}
+**helm upgrade kudos-boards-cp 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/kudos-boards-cp-2.\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/kudosboards.yml**
+```
+
+**Once this is all set, add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:**
+
+``` {#codeblock_sbn_1np_fvb}
+**\# proxy rules for activities plus 
+RewriteRule ^/activities/service/html/\(.\*\)$ /boards/activities/service/html/$1 \[R\] 
+ProxyPass "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
+ProxyPassReverse "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
+ProxyPass "/api-boards" "http://cp1.internal.cnx-dev.net:32080/api-boards" 
+ProxyPassReverse "/api-boards" http://cp1.internal.cnx-dev.net:32080/api-boards"**
+```
+
+**Starting with version 7, be sure that you have websockets enabled on your front proxy server.**
+
+**If you are using Nginx, the configuration would look like this:**
+
+``` {#codeblock_tbn_1np_fvb}
+**location /api-boards/ \{ 
+
+                    proxy\_pass https://connections1.internal.cnx-dev.net; 
+
+                    proxy\_http\_version 1.1; 
+
+                    proxy\_set\_header Upgrade $http\_upgrade; 
+
+                    proxy\_set\_header Connection "upgrade"; 
+
+                \}**
+```
+
+Find more about Activities Plus in [Integrating with Activities Plus](cp_3p_integrate_intro.md).
+
 ## Set up Connections add-in for Microsoft Outlook {#ms_outlook_addin .section}
+
+**\[From v7\]****Prerequisites for installing HCL Connections add-in for Microsoft Outlook are:**
+
+-   **Verify that [Connections Outlook Add-in system requirements](../../connectors/admin/c_outlook_connector_addin_sys_req.md) are met.**
+-   **[Register the Outlook Add-in OAuth application provider with Connections](cp_3p_outlook_addin_oauth.md).**
 
 Delete the existing connections-outlook-desktop chart:
 
@@ -777,6 +1205,40 @@ Install chart:
 ``` {#codeblock_pp3_p1r_bvb}
 helm upgrade connections-outlook-desktop v-connections-helm/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
 ```
+
+**\[From v7\]****To install or upgrade the Connections Outlook add-in, run:**
+
+``` {#codeblock_l5k_nnp_fvb}
+**helm upgrade connections-outlook-desktop 
+component\_pack\_installation\_folder/hybridcloud/helmbuilds/connections-outlook-desktop-\*.tgz -i -f 
+component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/outlook-addin.yml**
+```
+
+**Once this is all set, add the following rules to httpd.conf for your IBM HTTP servers and restart the service:**
+
+``` {#codeblock_m5k_nnp_fvb}
+**\# proxy rules for outlook add-in
+Redirect "/outlook-addin" "/outlook-addin/" 
+ProxyPass "/outlook-addin/" "http://cp1.internal.cnx-dev.net:31810/" 
+ProxyPassReverse "/outlook-addin/" "http://cp1.internal.cnx-dev.net:31810/"**
+```
+
+**Finally, update the add-in docker environment variables.**
+
+**These are located in the outlook-addin.yaml file. These are passed into the Outlook add-in docker instance on startup:**
+
+-   **What must be overriden:**
+    -   **CONNECTIONS\_URL - URL of your Connections environment without a trailing slash \(eg https://my.connections.server.com\). The same URL has to be used when generating secret in the first step.**
+    -   **CONNECTIONS\_CLIENT\_SECRET - Client secret generated by Connections when registering OAuth provider in the first step.**
+    -   **CONNECTIONS\_CLIENT\_ID - Client ID \(aka. app ID\) used when registering OAuth provider in Connections in the first step \(default: hcl-cnx-office-addin\)**
+-   **What may be overriden:**
+    -   **CONTEXT\_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS\_URL. Do NOT start or end with \`/. \(default: outlook-addin\)**
+    -   **SUPPORT\_URL - URL that a user can go to for support \(help\). \(default: https://help.hcltechsw.com/connections/v7/connectors/enduser/c\_ms\_plugins\_add\_in\_outlook.html\)**
+    -   **CONNECTIONS\_NAME – A custom name for the add-in..\(default: 'HCL Connections'\)**
+    -   **EWS\_HOSTNAME – The hostname for Exchange Web Services. Default: 'outlook.office365.com'**
+-   **Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.**
+
+**To enable the Connections add-in for Microsoft Outlook, see [Making the Connections Add-in for Outlook available to users](cp_3p_outlook_make_available_to_users.md).**
 
 -   **[Installing MongoDB 5 for Component Pack 8](../install/installing_mongodb_5_for_component_pack_8.md)**  
 Install MongoDB 5 for Component Pack 8.

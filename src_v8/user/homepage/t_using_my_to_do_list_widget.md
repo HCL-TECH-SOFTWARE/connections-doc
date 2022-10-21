@@ -1,4 +1,4 @@
-# Using the To Do List app 
+# Using the To Do List app {#t_using_my_to_do_list_widget .task}
 
 Use the To Do List app to find out which of your task deadlines are approaching. The app displays in the activity stream views by default.
 

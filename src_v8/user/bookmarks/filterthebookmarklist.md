@@ -1,4 +1,4 @@
-# Refining the bookmarks list 
+# Refining the bookmarks list {#filterthebookmarklist .task}
 
 Filter the list of bookmarks to view all the public bookmarks created by another person, or to view all bookmarks associated with a specific tag. Choose a sort criteria.
 

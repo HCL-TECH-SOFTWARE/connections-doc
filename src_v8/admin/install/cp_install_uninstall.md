@@ -7,21 +7,21 @@ Use these steps to remove the Component Pack from your Connections deployment.
 1.  On your Kubernetes master node, run the following command to determine what services are currently installed:
 
     ```
-    helm list
+    helm -n connections list
     ```
 
 2.  To uninstall a Component Pack service, run the following command:
 
-    ```
-    helm delete release --purge
+    ``` {#pre_nz5_1wn_fvb}
+    helm -n connections uninstall *release*
     ```
 
     where release corresponds to the release name displayed in the output of the `helm list` command.
 
-    For example, to delete all Component Pack services:
+    For example, to uninstall the Tailored Experience:
 
-    ```
-    helm delete bootstrap connections-env elasticsearch elasticstack infrastructure mw-proxy orientme sanity sanity-watcher k8s-psp cnx-ingress --purge
+    ``` {#codeblock_cyd_fwn_fvb}
+    helm -n connections uninstall tailored-exp  
     ```
 
     CAUTION:

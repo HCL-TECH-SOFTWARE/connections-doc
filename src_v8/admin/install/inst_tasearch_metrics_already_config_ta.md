@@ -1,12 +1,12 @@
 # Enabling type-ahead search {#inst_tasearch_metrics_already_config_ta .task}
 
-Enable the type-ahead search feature using Elasticsearch in an HCL Connections™ deployment.
+Enable the type-ahead search feature using OpenSearch in an HCL Connections™ deployment.
 
-Review the topic, [Managing the Elasticsearch index for Connections type-ahead search](inst_managing_es_index_cnx_typeahead_search.md) to determine if you want to change the default number of shards or replicas. These values should be changed prior to creating the index.
+Review the topic, [Managing the OpenSearch index for Connections type-ahead search](inst_managing_os_index_cnx_typeahead_search.md) to determine if you want to change the default number of shards or replicas. These values should be changed prior to creating the index.
 
-Verify that the server can connect to the Elasticsearch server and that SSL is configured.
+Verify that the server can connect to the OpenSearch server and that SSL is configured.
 
-You can configure type-ahead search using the Elasticsearch component of the Component Pack for Connections.
+You can configure type-ahead search using the OpenSearch component of the Component Pack for Connections.
 
 1.  Run the following SearchService administration command:
 
@@ -44,7 +44,5 @@ You can configure type-ahead search using the Elasticsearch component of the Com
 4.  Synchronize the nodes and then restart the servers or clusters that are running the Search and Common applications.
 
 
-**Parent topic:**[Configuring type-ahead search with Elasticsearch](../install/inst_tas_with_es_intro.md)
-
-**Previous topic:**[Setting up certificates for type-ahead search](../install/inst_tasearch_no_metrics.md)
+**Parent topic:**[Setting up type-ahead search](../install/inst_tasearch_intro.md)
 

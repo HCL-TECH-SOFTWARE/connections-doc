@@ -1,6 +1,6 @@
 # Setting up persistent volumes for a standard installation \(non-HA\) {#r_Orient_Me_setup_pers_vols .reference}
 
-Use these guidelines to help you set up persistent volumes for middleware infrastructure such as Solr/Zookeeper, MongoDB, Customizer, and Elasticsearch.
+Use these guidelines to help you set up persistent volumes for middleware infrastructure such as Zookeeper, MongoDB, Customizer, and OpenSearch.
 
 ## Using persistent volumes { .section}
 
@@ -20,7 +20,6 @@ On the master node \(refer to the [Component Pack overview](c_Orient_Me_architec
     sudo mkdir -p /pv-connections/esbackup
     sudo mkdir -p /pv-connections/customizations
     sudo chmod -R 777 /pv-connections
-    
     ```
 
 2.  Change directory:

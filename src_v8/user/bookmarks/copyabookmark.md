@@ -1,4 +1,4 @@
-# Copying a bookmark 
+# Copying a bookmark {#copyabookmark .task}
 
 You can copy another person's bookmark into your bookmark list without navigating to the actual web page.
 
@@ -11,5 +11,5 @@ Follow these steps to copy a bookmark.
 3.  Click **Add to My Bookmarks**.
 
 
-**Parent topic:**[Bookmark basics](../../user/bookmarks/c_bookmark_basics.md)
+**Parent topic:**[Bookmark basics](../bookmarks/c_bookmark_basics.md)
 

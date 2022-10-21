@@ -1,4 +1,4 @@
-# Managing versions of a wiki page 
+# Managing versions of a wiki page {#whathappenstotheoriginalcontentwhenapageisedited .concept}
 
 When you create a page, an initial version is created. Then each time a wiki member edits the page, a new version is created. With these versions you can restore your previous work, see what's changed from one version to another, or delete a version.
 
@@ -9,7 +9,7 @@ To see the versions of a wiki page, open the page and click the **Versions** tab
 -   **Restore a version**. If you own a page, or have Editor or Owner access to it, you can restore an older version by clicking **Restore**. The restored version becomes the current one that others can update.
 -   **Delete a version**. If you own a page, you can also delete versions. In the **Delete all versions prior to version** section, select the scope of the deletion then click **Delete**.
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

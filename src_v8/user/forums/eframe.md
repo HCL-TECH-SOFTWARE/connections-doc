@@ -1,8 +1,8 @@
-# Forums 
+# Forums {#eframe .reference}
 
 Share information, brainstorm ideas, ask and answer questions, and discuss topics of mutual interest in a forum.
 
-## Finding and participating in forums 
+## Finding and participating in forums { .section}
 
 If you are new to Forums, use the Public Forums page as your entry point to participating in forums.
 
@@ -11,7 +11,7 @@ If you are new to Forums, use the Public Forums page as your entry point to part
 -   Get answers from the experts by [posting questions](c_forums_post_q_and_as.md) to a relevant forum.
 -   Share your interest and expertise by [responding to topics](t_forums_topic_respond.md).
 
-## Creating and managing forums 
+## Creating and managing forums { .section}
 
 If you cannot find an ongoing discussion about your focus area, you might want to start your own forum.
 

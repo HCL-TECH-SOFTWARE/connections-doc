@@ -1,4 +1,4 @@
-# Downloading a file 
+# Downloading a file {#t_files_download_file .task}
 
 You can download a local copy of a file to a specified location so that you can view or edit it offline.
 
@@ -15,5 +15,5 @@ You can download a local copy of a file to a specified location so that you can 
     -   Select the file by clicking the checkbox beside the thumbnail. Then, click **Download** in the action bar.
     -   Hover over the thumbnail, and then click the Download icon ![Download icon](images/download_icon.png).
 
-**Parent topic:**[Getting started](../../user/files/getting_started.md)
+**Parent topic:**[Getting started](../files/getting_started.md)
 

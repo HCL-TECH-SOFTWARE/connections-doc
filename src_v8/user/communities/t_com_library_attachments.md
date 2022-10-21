@@ -1,4 +1,4 @@
-# Managing attachments 
+# Managing attachments {#howdoiaddattachmentstoadocument .task}
 
 Add, replace, delete and download attachments from the file summary.
 
@@ -15,5 +15,5 @@ Add, replace, delete and download attachments from the file summary.
 **Related information**  
 
 
-[Managing file versions](../../user/communities/t_com_library_versions.md)
+[Managing file versions](../communities/t_com_library_versions.md)
 

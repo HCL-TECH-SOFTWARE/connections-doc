@@ -1,4 +1,4 @@
-# Using the rich text editor 
+# Using the rich text editor {#eucommon_ckeditor .concept}
 
 Use the rich text editor to create visually interesting blog posts, wiki articles, forum topics, and activity entries. The rich text editor is also used in Communities, Events, and Profiles.
 

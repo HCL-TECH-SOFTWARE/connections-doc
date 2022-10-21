@@ -30,7 +30,7 @@ The following table identifies the purpose of each JSON file.
 
 **Note:**
 
-Making updates to app registry extension definitions can only be done by someone with the administrator role. The extensionRegistry property must be set to true to allow Connections to check the app registry for relevant extensions. See [Enable Connections to use the app registry service](t_ms_teams_enable_conn_use_appreg.md).
+Making updates to app registry extension definitions can only be done by someone with the administrator role. The extensionRegistry property must be set to true to allow Connections to check the app registry for relevant extensions. See [Enable Connections to use the app registry service](t_ms_teams_enable_reg_ext.md).
 
 1.  Once logged into Connections as an administrator, navigate to https://yourConnectionsUrl.com/appreg/apps
 

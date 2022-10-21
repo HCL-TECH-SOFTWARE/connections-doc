@@ -1,4 +1,4 @@
-# Flagging a bookmark as broken 
+# Flagging a bookmark as broken {#t_bookmarks_adding2applications .task}
 
 If you encounter a bookmark that leads to a broken link, you can notify the bookmark owner so that they can repair or remove the bookmark.
 
@@ -13,5 +13,5 @@ If you encounter a bookmark that leads to a broken link, you can notify the book
 5.  Click **Send Notice**.
 
 
-**Parent topic:**[Bookmark basics](../../user/bookmarks/c_bookmark_basics.md)
+**Parent topic:**[Bookmark basics](../bookmarks/c_bookmark_basics.md)
 

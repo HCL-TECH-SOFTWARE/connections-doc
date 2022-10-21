@@ -1,4 +1,4 @@
-# Embedding videos in a blog 
+# Embedding videos in a blog {#t_com_add_video_to_wiki .task}
 
 To emphasize your point of view, embed Flash videos or YouTube videos in your community blog.
 
@@ -18,7 +18,7 @@ To emphasize your point of view, embed Flash videos or YouTube videos in your co
         2.  In the Connections blog entry, click the **HTML Source** tab and place the cursor where you want to embed the video.
         3.  Paste the code that you previously copied between opening and closing <p\> tags. For example:
 
-            ``` 
+            ``` {#codeblock_u3z_j1c_b5b}
             <p>
             <iframe width="560" height="315" src="http://www.youtube.com/embed/QbEPPnZWJOw" frameborder="0" allowfullscreen></iframe>
             </p>

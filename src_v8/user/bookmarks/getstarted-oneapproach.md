@@ -1,4 +1,4 @@
-# Installing the bookmark button 
+# Installing the bookmark button {#getstarted-oneapproach .task}
 
 You can bookmark web pages outside of Connections with the browser toolbar button. Then you can easily add a bookmark to a web page you want to share or revisit.
 
@@ -9,5 +9,5 @@ You can bookmark web pages outside of Connections with the browser toolbar butto
 
 The next time you want to bookmark a web page, click the **Add Bookmark** button in the toolbar, fill in the form and click **Save**.
 
-**Parent topic:**[Getting started](../../user/bookmarks/c_getting_started.md)
+**Parent topic:**[Getting started](../bookmarks/c_getting_started.md)
 

@@ -1,4 +1,4 @@
-# Who can see my blog? Creating public and restricted blogs 
+# Who can see my blog? Creating public and restricted blogs {#c_blogs_pub_priv_mod .concept}
 
 Where your blog displays and how users interact with it depends on whether it is public or restricted. Restricted blogs are created from the Communities application. To create a community blog, you must have the Communities application deployed for IBM® Connections.
 

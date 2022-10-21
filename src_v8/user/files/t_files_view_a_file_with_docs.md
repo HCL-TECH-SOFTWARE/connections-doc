@@ -1,4 +1,4 @@
-# Viewing a file 
+# Viewing a file {#t_files_view_a_file_docs .concept}
 
 View an uploaded document, spreadsheet, presentation, or PDF file while you are working in Files without downloading the file.
 
@@ -21,5 +21,5 @@ To view a file from the Files app, simply click on the file name. From there, yo
 |Video files|.mov, .mp4|
 |Others|.txt, .rtf|
 
-**Parent topic:**[Getting started](../../user/files/getting_started.md)
+**Parent topic:**[Getting started](../files/getting_started.md)
 

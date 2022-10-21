@@ -1,4 +1,4 @@
-# Pinning forum topics 
+# Pinning forum topics {#t_forums_pin_topic .task}
 
 Highlight or prioritize important topics by pinning them. When you pin a topic, it stays at the beginning of that forum's topic listing to ensure that it receives attention from forum users.
 
@@ -16,5 +16,5 @@ Pinning a topic makes that the topic easy to find in a large forum. For example,
 
 Select **Unpin this Topic** to restore it to its regular place in the sequence of topics.
 
-**Parent topic:**[Creating and managing forums](../../user/forums/c_forums_manage_forums.md)
+**Parent topic:**[Creating and managing forums](../forums/c_forums_manage_forums.md)
 

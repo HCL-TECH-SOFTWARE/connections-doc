@@ -1,4 +1,4 @@
-# Using tags 
+# Using tags {#usethetagcloud .task}
 
 Tags let you assign keywords to your bookmarks that are meaningful to you. Tags provide a useful way to categorize your bookmarks and search for bookmarks that are of interest to you. Use the tag cloud to view all tags assigned to bookmarks in the list, to determine the popularity of a tag, and to access bookmarks associated with a tag.
 

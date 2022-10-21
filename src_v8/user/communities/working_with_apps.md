@@ -1,4 +1,4 @@
-# Managing apps and widgets on the Highlights page 
+# Managing apps and widgets on the Highlights page {#working_with_apps .concept}
 
 Modify and manage the apps that you added to your community Highlights page.
 
@@ -15,5 +15,5 @@ From the community Highlights page, beside the name of the app that you want to 
     3.  Select the app you want that you want to add back.
 -   To remove an app from the **Highlights** page, select **Remove Widget**. The configuration of the widget is saved and will apply the next time you use the widget.
 
-**Parent topic:**[Customizing the Highlights page](../../user/communities/c_com_customizing_highlights.md)
+**Parent topic:**[Customizing the Highlights page](../communities/c_com_customizing_highlights.md)
 

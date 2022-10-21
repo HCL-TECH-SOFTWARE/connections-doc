@@ -1,14 +1,14 @@
-# Moving communities 
+# Moving communities {#c_com_move_community .concept}
 
 Move communities around for better and more relevant organization.
 
-## Limitations to moving communities 
+## Limitations to moving communities { .section}
 
 -   You must have Owner access both to the community that you intend to move and to the community you intend to move it into.
 -   If a community has subcommunities, you cannot move it. However, you can move the subcommunities.
 -   You can move a community or subcommunity to a new parent of the same type only \(that is, an internal or external community\). That means you can move an *internal* community or subcommunity only to a new parent that is also *internal*.
 
-## What changes when I move a community? 
+## What changes when I move a community? { .section}
 
 When you move a community, the following changes may happen depending on the membership and access level of the moved community and the one moved into:
 
@@ -36,7 +36,7 @@ When you move a community, the following changes may happen depending on the mem
 -   Members and owners in the moved community are added to the new parent, if they're not there already.
 -   Owners in the new parent are added to the moved subcommunity.
 
-## What happens to community invitees? 
+## What happens to community invitees? { .section}
 
 When you move a community, any users that are invited to join the community but have not yet joined are removed. It helps to record any invited users before you move the community:
 
@@ -46,17 +46,17 @@ When you move a community, any users that are invited to join the community but 
 
 When the move is complete, you can re-invite any users that were removed from the invitation list. For more information, see [Inviting people to join](c_com_invite_members.md).
 
--   **[Moving a community to become a subcommunity of another community](../../user/communities/t_com_move_community_sub.md)**  
+-   **[Moving a community to become a subcommunity of another community](../communities/t_com_move_community_sub.md)**  
 Integrate diverse communities by moving a community to become a subcommunity of another community.
--   **[Moving a subcommunity to become a top-level community](../../user/communities/t_com_move_community_reparent.md)**  
+-   **[Moving a subcommunity to become a top-level community](../communities/t_com_move_community_reparent.md)**  
 Keep your communities relevant by moving a subcommunity to become a separate top-level community.
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 
 **Related information**  
 
 
-[Creating a community to encourage collaboration](../../user/communities/t_com_create.md)
+[Creating a community to encourage collaboration](../communities/t_com_create.md)
 
-[Inviting people to join](../../user/communities/c_com_invite_members.md)
+[Inviting people to join](../communities/c_com_invite_members.md)
 

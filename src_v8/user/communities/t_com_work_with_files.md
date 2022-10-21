@@ -1,8 +1,8 @@
-# Managing community files 
+# Managing community files {#t_com_work_with_files .concept}
 
 Use the Files app to work with the files that members upload and share with your community. You must have Editor or Owner access.
 
-## Managing versions of a file 
+## Managing versions of a file { .section}
 
 You can restore and download versions of a file and view the change summary of a version. You can also upload a new version of a file.
 
@@ -20,7 +20,7 @@ You can restore and download versions of a file and view the change summary of a
 
     -   **Delete a version:** Hover your cursor over the version you want to delete, then click the delete icon ![Delete file version icon](images/delete_file_version.png).
 
-## Editing file properties 
+## Editing file properties { .section}
 
 Update the name, extension, or description of a file.
 
@@ -30,7 +30,7 @@ Update the name, extension, or description of a file.
 4.  Click **More Actions** and select **Edit Properties** from the list.
 5.  Edit the available properties as needed, and then click **Save**.
 
-## Following a file 
+## Following a file { .section}
 
 Get notifications for when the file changes.
 
@@ -39,7 +39,7 @@ Get notifications for when the file changes.
 3.  Select the list view ![List view icon](images/list_view.png), and then **More** next to the file.
 4.  Click **More Actions** and select **Follow** from the list.
 
-## Deleting a file 
+## Deleting a file { .section}
 
 Deleting a file only moves it to the trash and makes it unavailable to people with whom it is shared. It is not immediately deleted. The file remains in the trash view until a community owner either restores it or permanently deletes it.
 
@@ -56,7 +56,7 @@ Deleting a file only moves it to the trash and makes it unavailable to people wi
             **Note:** If you permanently delete a file, you cannot undo the action.
 
 
-## Locking a file 
+## Locking a file { .section}
 
 Prevent others from editing a file.
 
@@ -65,7 +65,7 @@ Prevent others from editing a file.
 3.  Select the list view ![List view icon](images/list_view.png), and click **More** next to the file that you want to lock.
 4.  Click **More Actions** and select **Lock File** from the list. If the file is already locked and you want it unlocked, click **Unlock File**.
 
-## Moving a file from one folder to another 
+## Moving a file from one folder to another {#section_fqd_yts_j5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community containing the file you want to move.
 2.  In the community menu, click **Files** and then **All Community Files** in the side panel.
@@ -76,5 +76,5 @@ Prevent others from editing a file.
     **Tip:** Want an easier way to move files? Just select one or multiple files or folders and drag them to another folder in the side panel. As long as you have Editor or Owner access, you can drag and drop personal or community files and folders.
 
 
-**Parent topic:**[Enhancing collaboration](../../user/communities/enhancing_collaboration.md)
+**Parent topic:**[Enhancing collaboration](../communities/enhancing_collaboration.md)
 

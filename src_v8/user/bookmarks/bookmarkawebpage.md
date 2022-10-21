@@ -1,4 +1,4 @@
-# Creating a bookmark 
+# Creating a bookmark {#bookmarkawebpage .task}
 
 You can save a web page URL as a bookmark that you and others can use to access a web page.
 
@@ -13,5 +13,5 @@ If you don't have the [bookmark button installed](getstarted-oneapproach.md) for
     **Note:** You can choose to save a bookmark to other HCL Connections applications such as Communities, Blogs, and Activities. For example, you can add a bookmark to a community and post a message for discussion.
 
 
-**Parent topic:**[Getting started](../../user/bookmarks/c_getting_started.md)
+**Parent topic:**[Getting started](../bookmarks/c_getting_started.md)
 

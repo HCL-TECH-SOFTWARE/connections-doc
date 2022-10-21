@@ -8,7 +8,7 @@ After running the wizards to install applications and create databases, check wh
 
 Some post-installation tasks are mandatory while others are optional and depend on your deployment choices. Unless *optional* is indicated, any listed post-installation task should be considered mandatory.
 
-**Important:** Once you complete the mandatory tasks, update the deployment with the latest fixes. For more information, see the [Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md) topic in the *Migrating and updating* section of this guide.
+**Important:** Once you complete the mandatory tasks, update the deployment with the latest fixes. For more information, see the [Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md) topic in the *Migrating and updating* section of this guide.
 
 Each post-installation task is described in a separate topic.
 

@@ -1,4 +1,4 @@
-# Managing a community library 
+# Managing a community library {#t_com_library_manage .task}
 
 Control the level of access that members have to your community library using roles. You can also enable draft review functionality so that selected members must approve files before they are published to the library.
 
@@ -27,9 +27,9 @@ In addition to specifying access levels and enabling a document review cycle, co
 **Related information**  
 
 
-[Sharing library files and folders](../../user/communities/t_com_library_sharing.md)
+[Sharing library files and folders](../communities/t_com_library_sharing.md)
 
-[Reviewing draft files](../../user/communities/t_com_library_review_drafts.md)
+[Reviewing draft files](../communities/t_com_library_review_drafts.md)
 
-[Working with draft files](../../user/communities/t_com_library_review_files.md)
+[Working with draft files](../communities/t_com_library_review_files.md)
 

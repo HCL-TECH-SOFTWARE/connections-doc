@@ -1,4 +1,4 @@
-# Editing or deleting an entry 
+# Editing or deleting an entry {#concept_dkf_rc3_my .concept}
 
 Changed your mind about an entry? If you have Owner or Author permission, you can edit an entry or delete it from the blog.
 
@@ -13,9 +13,9 @@ With Owner permission, you can manage all blog entries, regardless of whether yo
 
 **Note:** As you create or edit an entry, your work is automatically saved every 15 minutes, unless the site administrator changes the interval. If you leave an entry in an unsaved state when you log out of Blogs, you are notified the next time you log in. From that notification message, you can click **Edit** to open the entry and resume work on it, or **Discard** to delete the entry.
 
-## Next steps 
+## Next steps {#section_jfn_fzz_ny .section}
 
 Enhance your entry with [files and links](t_blog_file_upload.md).
 
-**Parent topic:**[Contributing to a blog](../../user/blogs/c_welcome_blogs.md)
+**Parent topic:**[Contributing to a blog](../blogs/c_welcome_blogs.md)
 

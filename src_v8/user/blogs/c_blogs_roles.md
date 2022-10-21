@@ -1,8 +1,8 @@
-# Managing roles and permissions 
+# Managing roles and permissions {#c_blogs_roles .concept}
 
 What you can do with blog settings or content depends on your role. Community owners can expand or restrict members' permissions, and add or remove members.
 
-## Owner permissions 
+## Owner permissions {#section_hsr_gjp_my .section}
 
 Blog owners can:
 
@@ -12,7 +12,7 @@ Blog owners can:
 -   Upload files and create directories and view or delete any uploaded file or directory.
 -   View and edit settings for the blog, such as General and Authors settings.
 
-## Author permissions 
+## Author permissions {#section_lb5_hjp_my .section}
 
 Blog authors can:
 
@@ -20,7 +20,7 @@ Blog authors can:
 -   View, create, edit, or delete links.
 -   Upload files and create directories and view or delete any uploaded file or directory they added to the blog.
 
-## Draft permissions 
+## Draft permissions {#section_qmq_jjp_my .section}
 
 Draft authors can:
 
@@ -28,7 +28,7 @@ Draft authors can:
 -   Edit others' entries when the setting **Allow authors and drafters to edit each other's entries in this blog** is selected for the blog. For more information, see [Editing general blog settings](t_blog_editing_settings.md).
 -   Upload files and create directories. Draft authors cannot delete files or directories.
 
-## Managing roles and permissions 
+## Managing roles and permissions {#section_qcz_zcr_g5b .section}
 
 To add or remove members, and update permissions for the blog:
 
@@ -42,5 +42,5 @@ To add or remove members, and update permissions for the blog:
     -   To remove a member, select the **Remove** box for the member that you want to remove, then **Save**.
     -   To change a member's role, select the **Owner**, **Author**, or **Draft** box for the member that you want to promote or demote.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

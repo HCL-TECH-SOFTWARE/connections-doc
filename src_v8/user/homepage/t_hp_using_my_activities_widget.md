@@ -1,4 +1,4 @@
-# Using the My Activities app 
+# Using the My Activities app {#t_hp_using_my_activities_widget .task}
 
 Use the My Activities app to view the latest updates from your activities.
 

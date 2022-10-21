@@ -1,4 +1,4 @@
-# Using the Profiles app 
+# Using the Profiles app {#t_hp_using_profiles_widget .task}
 
 Use the Profiles app to view the latest updates for the people in your network. You can also access and edit your profile directly from the app.
 

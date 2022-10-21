@@ -1,10 +1,10 @@
-# Seeing who's in a community and communicating with them 
+# Seeing who's in a community and communicating with them {#t_com_membership_view .concept}
 
 Find out who's in a community, follow that community, and email fellow members.
 
 Restricted communities can include users that are external to your organization. External users' picture have the following icon superimposed on them ![External user](images/ext_user.jpg).
 
-## Viewing community members 
+## Viewing community members { .section}
 
 To view the members of a community, click **Communities** from the navigation bar and select the community that you'd like to check on. Then perform one of the following steps:
 
@@ -14,7 +14,7 @@ To view the members of a community, click **Communities** from the navigation ba
 -   To sort the display order, use the **Sort by** options.
 -   To find someone, click the **Find a Member** field and enter a name.
 
-## Emailing a community 
+## Emailing a community { .section}
 
 Email community members and owners to give them the news. You must be a member of the community to do this.
 
@@ -24,5 +24,5 @@ Email community members and owners to give them the news. You must be a member o
     1.  To send the notification by using your default email client, click **Click to compose using your default email client**.
     2.  Use the email form provided to send the email.
 
-**Parent topic:**[Finding out what’s going on](../../user/communities/whatsgoingon.md)
+**Parent topic:**[Finding out what’s going on](../communities/whatsgoingon.md)
 

@@ -1,4 +1,4 @@
-# Enabling your community's PDF export access 
+# Enabling your community's PDF export access {#task_yzz_vs2_2nb .task}
 
 As a community owner, if you want to your members to be able to download and print community app content generated as .pdf files, you must enable export access for all members. Owners can generate and access PDFs regardless of whether the access is enabled.
 
@@ -15,7 +15,7 @@ Owners can generate and access PDFs regardless of whether this access is enabled
 4.  Click **Save and Close**.
 
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 
 **Related information**  
 

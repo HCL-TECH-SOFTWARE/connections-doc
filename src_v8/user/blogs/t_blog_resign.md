@@ -1,4 +1,4 @@
-# Resigning from a blog 
+# Resigning from a blog {#concept_xqx_sjp_my .concept}
 
 If you no longer want to participate in a blog, you can resign from it. You cannot resign if you are the only blog owner.
 
@@ -8,5 +8,5 @@ If you no longer want to participate in a blog, you can resign from it. You cann
 
 **Note:** You can only resign from a public blog. You cannot resign as the owner of a community blog.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

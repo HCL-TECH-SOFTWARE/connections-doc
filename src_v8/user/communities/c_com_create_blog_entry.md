@@ -1,8 +1,8 @@
-# Contributing to a community blog 
+# Contributing to a community blog {#concept_trn_ch5_1y .concept}
 
 Contribute your ideas in community blog or comment on the ideas of others.
 
-## Creating a blog entry 
+## Creating a blog entry { .section}
 
 You need Author or Draft permissions to create a blog entry. To change member roles, you must ask a community owner to update the community blog settings.
 
@@ -14,7 +14,7 @@ You need Author or Draft permissions to create a blog entry. To change member ro
     -   To enable other settings, such as scheduling the posting of the entry and managing the commenting feature, click **Advanced Settings**.
 4.  Click **Post** to publish your entry. With Draft permission, your options are **Submit for Review** and **Save as Draft**.
 
-## Commenting on blog entries 
+## Commenting on blog entries { .section}
 
 See a blog entry that you like? If the blog is set up to accept comments, you can respond to an entry with your own thoughts.
 
@@ -26,9 +26,9 @@ See a blog entry that you like? If the blog is set up to accept comments, you ca
 
 **Tip:** If the blog's comments are moderated, someone must approve the comment before it is displayed.
 
-## Editing a blog entry 
+## Editing a blog entry {#section_kk3_v11_35b .section}
 
 You can add images, tables, and links in your entry. You can even embed Flash or YouTube videos. For more details on using the editing features, see [Using the rich text editor](../eucommon/eucommon_ckeditor.md).
 
-**Parent topic:**[Blogging your point of view](../../user/communities/c_com_blog.md)
+**Parent topic:**[Blogging your point of view](../communities/c_com_blog.md)
 

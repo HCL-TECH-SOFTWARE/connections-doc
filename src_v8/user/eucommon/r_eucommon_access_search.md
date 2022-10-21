@@ -1,8 +1,8 @@
-# Search accessibility features 
+# Search accessibility features {#r_eucommon_access_search .reference}
 
 Use the keyboard shortcuts available for search to navigate the Advanced Search and the Search Results pages.
 
-## Keyboard navigation for Search 
+## Keyboard navigation for Search { .section}
 
 In Microsoft® Internet Explorer and Mozilla Firefox, press Alt+Shift to activate the access key. For example, pressing Alt+Shift+A skips the focus to the **Activities** tab when you are on the Search Results page.
 
@@ -39,5 +39,5 @@ To navigate the tag collection:
 -   When it is displayed as a cloud, pressing the Tab key gives focus to the first tag in the cloud. Use the arrow keys to move directly to the tag that you want to select, and then press Enter.
 -   When it is displayed as a list, pressing the Tab key gives focus to the first tag in the list. Use the arrow keys to move down the list to the tag that you want to select, and then press Enter.
 
-**Parent topic:**[Product accessibility](../../user/eucommon/c_eucommon_accessibility_over.md)
+**Parent topic:**[Product accessibility](../eucommon/c_eucommon_accessibility_over.md)
 

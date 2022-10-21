@@ -6,7 +6,7 @@ If your decision is to go with a single-node environment \(so called all-in-one\
 
 -   At least 16 CPUs
 -   At least 64G of RAM
--   At least 50G of disk space used for persistent volumes for Elasticsearch, Customizer, and MongoDB.
+-   At least 50G of disk space used for persistent volumes for OpenSearch, Customizer, and MongoDB.
 
 If you are using AWS, we advise using the **m5a.4xlarge** type of instance.
 

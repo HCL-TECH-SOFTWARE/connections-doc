@@ -1,4 +1,4 @@
-# Adding links to your profile 
+# Adding links to your profile {#concept_opp_cp5_2y .task}
 
 Share links to social media pages, helpful industry websites, and other external resources directly from your profile.
 
@@ -15,5 +15,5 @@ Share links to social media pages, helpful industry websites, and other external
 
 You can also share specific roles, your skills, or interests on your profile or another person's profile [by adding one or multiple tags](t_pers_tag_profiles.md).
 
-**Parent topic:**[Sharing your expertise](../../user/profiles/c_pers_sharing_expertise.md)
+**Parent topic:**[Sharing your expertise](../profiles/c_pers_sharing_expertise.md)
 

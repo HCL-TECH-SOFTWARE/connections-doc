@@ -1,8 +1,8 @@
-# Working with wiki pages 
+# Working with wiki pages {#t_com_wiki_pages .concept}
 
 After you create some wiki pages, you can work with them in many ways.
 
-## Editing a wiki page 
+## Editing a wiki page {#section_k4q_c4v_h5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community that you want to contribute to.
 2.  In the community **Highlights** page, in the **Wiki** area, select the page that you want to work with. Alternatively, click **Wiki** in the community menu.
@@ -16,7 +16,7 @@ After you create some wiki pages, you can work with them in many ways.
         **Tip:** If you step away and return to your draft to find that another person is editing the page, it means that the person asked the community or wiki owner to unlock the page for them. Your unsaved draft is intact. However, if the person saved a new version, use version history to decide whether to resolve conflicts by continuing with your draft or by starting again with the new version.
 
 
-## Managing a wiki page 
+## Managing a wiki page {#section_nmz_d4v_h5b .section}
 
 You can work with pages in lots of other ways:
 
@@ -29,10 +29,10 @@ You can work with pages in lots of other ways:
 
 If you deleted a page and you change your mind, you can restore the page provided that the trash is not emptied. In the sidebar, select **Trash** and then the page you deleted, then click **Restore**.
 
-**Parent topic:**[Creating information in a community wiki](../../user/communities/community_wiki_frame.md)
+**Parent topic:**[Creating information in a community wiki](../communities/community_wiki_frame.md)
 
 **Related information**  
 
 
-[Creating a wiki page](../../user/communities/t_com_create_wiki_page.md)
+[Creating a wiki page](../communities/t_com_create_wiki_page.md)
 

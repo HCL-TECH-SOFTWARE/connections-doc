@@ -1,4 +1,4 @@
-# Bookmarking important places 
+# Bookmarking important places {#community_bookmarks_frame .reference}
 
 Have you seen something on the web that you'd like to share? Bookmark the site to make it available to community members.
 
@@ -9,10 +9,12 @@ Have you seen something on the web that you'd like to share? Bookmark the site t
 
 **Tip:** URLs may change over time causing your bookmarks to break. If this happens, edit the bookmark or delete it and add the revised bookmark. To edit or delete a bookmark,click **More** next to the bookmark that you want to manage, then **Edit** or **Delete**.
 
-**Parent topic:**[Enhancing collaboration](../../user/communities/enhancing_collaboration.md)
+**Parent topic:**[Enhancing collaboration](../communities/enhancing_collaboration.md)
 
 **Related information**  
 
 
-[Bookmarks](../../user/bookmarks/dframe.md)
+[Communities](../communities/cframe.md)
+
+[Bookmarks](../bookmarks/dframe.md)
 

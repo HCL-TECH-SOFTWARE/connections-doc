@@ -1,8 +1,8 @@
-# Library roles and permissions 
+# Library roles and permissions {#c_com_library_roles .reference}
 
 The actions that you can take with library folders and files depend on the role that you are assigned.
 
-## Overview 
+## Overview { .section}
 
 **Note:** The following roles apply to community libraries only. Permissions for linked libraries are set on the Enterprise Content Management \(ECM\) server.
 

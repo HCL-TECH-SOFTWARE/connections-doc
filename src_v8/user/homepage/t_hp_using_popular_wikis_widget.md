@@ -1,4 +1,4 @@
-# Using the Popular Wikis app 
+# Using the Popular Wikis app {#t_hp_using_popular_wikis_widget .task}
 
 Use the Popular Wikis app to see a list of popular wikis that have been updated recently.
 

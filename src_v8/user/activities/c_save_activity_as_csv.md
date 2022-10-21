@@ -1,4 +1,4 @@
-# Saving an activity as a spreadsheet 
+# Saving an activity as a spreadsheet {#concept_xfn_qml_5x .concept}
 
 Need your activity as a spreadsheet? No problem. You can move your content into a spreadsheet by saving the activity as a Comma Separated Values \(CSV\) file.
 
@@ -8,5 +8,5 @@ Need your activity as a spreadsheet? No problem. You can move your content into 
 4.  Click **Export**.
 5.  Select **Save File**.
 
-**Parent topic:**[Going further](../../user/activities/c_get_further.md)
+**Parent topic:**[Going further](../activities/c_get_further.md)
 

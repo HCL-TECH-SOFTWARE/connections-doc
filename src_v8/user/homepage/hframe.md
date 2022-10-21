@@ -1,4 +1,4 @@
-# Home page 
+# Home page {#hframe .reference .welcomePage}
 
 Use the home page as a command center to scan and manage items that need your attention. You can view updates for projects and people you work with, discover what's trending in your organization at large, and review your action items all from one place.
 

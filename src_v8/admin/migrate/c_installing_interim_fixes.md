@@ -43,5 +43,5 @@ Install fixes with the update wizard in silent mode.
 -   **[updateSilent command](../migrate/r_updatelc_command.md)**  
 Use the updateSilent command to run the update wizard in silent mode.
 
-**Parent topic:**[Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

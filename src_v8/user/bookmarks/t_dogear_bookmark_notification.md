@@ -1,4 +1,4 @@
-# Notifying other users about a bookmark 
+# Notifying other users about a bookmark {#t_dogear_bookmark_notification .task}
 
 Notify one or more colleagues about bookmarks of interest with an email message.
 
@@ -13,5 +13,5 @@ To send an email with a link to a bookmark, follow these steps.
 4.  Click **Notify** to send an email. The email also includes a link to the online help page for Connections Bookmarks in case the recipient is not familiar with the service.
 
 
-**Parent topic:**[Bookmark basics](../../user/bookmarks/c_bookmark_basics.md)
+**Parent topic:**[Bookmark basics](../bookmarks/c_bookmark_basics.md)
 

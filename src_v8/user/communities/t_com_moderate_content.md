@@ -1,4 +1,4 @@
-# Moderating community content 
+# Moderating community content {#t_com_moderate_content .task}
 
 Review and manage blog, file, and forum content in your community. By monitoring updates regularly, you can control what content is added by members and remove anything inappropriate.
 
@@ -45,5 +45,5 @@ Review and manage blog, file, and forum content in your community. By monitoring
     3.  Click a title to review the content and then either **Restore** or **Delete** it.
 
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

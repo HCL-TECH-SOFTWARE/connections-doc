@@ -1,4 +1,4 @@
-# Creating an entry 
+# Creating an entry {#concept_fw2_crh_my .concept}
 
 Have a big announcement or idea? Create a blog entry to tell others about it. You can contribute to any blog for which you have Owner, Author, or Draft permission.
 
@@ -17,9 +17,9 @@ Have a big announcement or idea? Create a blog entry to tell others about it. Yo
     **Note:** If you have Owner or Author permissions, your entry is published and visible in the blog. If you have Draft permission, your entry is submitted for review. Your post is not visible in the blog until a moderator approves it. For more information on roles and permissions, see [Managing roles and permissions](c_blogs_roles.md).
 
 
-## Next steps 
+## Next steps {#section_sz4_cth_my .section}
 
 Change your mind? Learn how to [edit or delete an entry](t_blog_entry_edit.md).
 
-**Parent topic:**[Contributing to a blog](../../user/blogs/c_welcome_blogs.md)
+**Parent topic:**[Contributing to a blog](../blogs/c_welcome_blogs.md)
 

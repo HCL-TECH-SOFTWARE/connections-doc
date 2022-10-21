@@ -1,12 +1,12 @@
 # Setting up certificates for type-ahead search {#inst_tasearch_no_metrics .task}
 
-If you deployed Elasticsearch in your HCL Connections™ deployment , use these instructions to set up certificates before you configure type-ahead search.
+If you deployed OpenSearch in your HCL Connections™ deployment, use these instructions to set up certificates before you configure type-ahead search.
 
-Verify that the server where type-ahead search is hosted can connect to the Elasticsearch server.
+Verify that the server where type-ahead search is hosted can connect to the OpenSearch server.
 
-You can configure type-ahead search using either the stand-alone Elasticsearch server or the Elasticsearch component of the Component Pack for Connections. Both metrics and type-ahead search use Elasticsearch, they share the destination server URL and some certificate information. Check the following steps to determine if they are required to be run type-ahead search servers, if Elasticsearch has already been enabled.
+You can configure type-ahead search using either the stand-alone OpenSearch server or the OpenSearch component of the Component Pack for Connections. Both metrics and type-ahead search use OpenSearch, they share the destination server URL and some certificate information. Check the following steps to determine if they are required to be run type-ahead search servers, if OpenSearch has already been enabled.
 
-1.  If metrics is not already enabled, then enable the type-ahead search service by completing the following steps to provide the Elasticsearch URL and port:
+1.  If metrics is not already enabled, then enable the type-ahead search service by completing the following steps to provide the OpenSearch URL and port:
 
     If you enabled metrics, then this information was configured at that time.
 
@@ -20,7 +20,7 @@ You can configure type-ahead search using either the stand-alone Elasticsearch s
         execfile('searchAdmin.py')
         ```
 
-    2.  On the server where type-ahead search is hosted, run the following SearchService administration command, which sets the URL that type-ahead search should use to connect to the Elasticsearch instance:
+    2.  On the server where type-ahead search is hosted, run the following SearchService administration command, which sets the URL that type-ahead search should use to connect to the OpenSearch instance:
 
         ```
         SearchService.setES7QuickResultsBaseUrl(url)
@@ -29,8 +29,6 @@ You can configure type-ahead search using either the stand-alone Elasticsearch s
         For example:
 
         ```
-        
-        
         SearchService.setES7QuickResultsBaseUrl("https://example.org:30098")
         ```
 
@@ -40,9 +38,9 @@ You can configure type-ahead search using either the stand-alone Elasticsearch s
 
     If metrics is enabled and is hosted in the same WebSphere cluster as search, skip this step and proceed to the next topic.
 
-    1.  To ensure a secure connection to Elasticsearch, retrieve the PKCS12 and CA Signer certificates from the Elasticsearch server.
+    1.  To ensure a secure connection to OpenSearch, retrieve the PKCS12 and CA Signer certificates from the OpenSearch server.
 
-        If you are using the Component Pack Elasticsearch, run the following commands on the primary Kubernetes master to retrieve the files:
+        If you are using the Component Pack OpenSearch, run the following commands on the primary Kubernetes master to retrieve the files:
 
         ```
         kubectl get secret elasticsearch-7-secret -n connections -o=jsonpath="{.data['chain-ca\.pem']}" | base64 -d > chain-ca.pem
@@ -72,9 +70,5 @@ You can configure type-ahead search using either the stand-alone Elasticsearch s
     5.  Copy the updated elasticsearch\_metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
 
 
-**Parent topic:**[Configuring type-ahead search with Elasticsearch](../install/inst_tas_with_es_intro.md)
-
-**Previous topic:**[Managing the Elasticsearch index for Connections type-ahead search](../install/inst_managing_es_index_cnx_typeahead_search.md)
-
-**Next topic:**[Enabling type-ahead search](../install/inst_tasearch_metrics_already_config_ta.md)
+**Parent topic:**[Setting up type-ahead search](../install/inst_tasearch_intro.md)
 

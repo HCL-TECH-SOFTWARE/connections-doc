@@ -1,4 +1,4 @@
-# Inviting a person to your network 
+# Inviting a person to your network {#concept_zx5_bdg_2y .task}
 
 Ready to start collaborating? Invite someone to join your network. Once they accept, they'll be added to your Network Contacts and you can view each other's status updates.
 
@@ -15,7 +15,7 @@ To invite a person to your network:
 
 After the person accepts your invitation, they are added to your network. From there, you can [share a status or file](t_pers_update_status.md) with them.
 
-**Parent topic:**[Getting started](../../user/profiles/c_people_getting_started.md)
+**Parent topic:**[Getting started](../profiles/c_people_getting_started.md)
 
 **Related information**  
 

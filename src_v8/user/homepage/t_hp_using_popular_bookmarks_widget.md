@@ -1,4 +1,4 @@
-# Using the Popular Bookmarks app 
+# Using the Popular Bookmarks app {#t_hp_using_popular_bookmarks_widget .task}
 
 Use the Popular Bookmarks app to display a list of all the public bookmarks shared in the Bookmarks app, in order of popularity. You can edit your own links from this view and copy bookmarks to your personal bookmarks list.
 

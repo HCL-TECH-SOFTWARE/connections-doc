@@ -1,4 +1,4 @@
-# Reviewing draft files 
+# Reviewing draft files {#t_com_library_review_drafts .task}
 
 When you are selected as a reviewer for library files, you must approve new or updated files before they are published to the library.
 
@@ -20,7 +20,7 @@ By default, all designated reviewers must approve file drafts before they are pu
 **Related information**  
 
 
-[Managing a community library](../../user/communities/t_com_library_manage.md)
+[Managing a community library](../communities/t_com_library_manage.md)
 
-[Submitting files for review](../../user/communities/t_com_library_submit_file_for_review.md)
+[Submitting files for review](../communities/t_com_library_submit_file_for_review.md)
 

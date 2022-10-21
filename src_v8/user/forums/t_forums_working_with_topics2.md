@@ -1,4 +1,4 @@
-# Editing, moving, or deleting forum content 
+# Editing, moving, or deleting forum content {#t_forums_working_with_topics .task}
 
 Edit, move, or delete forum topics, and mark topic content as inappropriate.
 
@@ -13,5 +13,5 @@ Only forum owners and topic authors can edit, move, and delete forum topics. The
 -   To move a forum topic, either to a forum in the same community or between two stand-alone forums you own, click **Move** and choose the forum where you want it moved.
 
 
-**Parent topic:**[Finding and participating in forums](../../user/forums/t_forums_view_topics.md)
+**Parent topic:**[Finding and participating in forums](../forums/t_forums_view_topics.md)
 

@@ -1,4 +1,4 @@
-# Using the My Organization Communities app 
+# Using the My Organization Communities app {#t_hp_using_public_communities_widget .task}
 
 Use the My Organization Communities app to view a list of the most recently updated communities.
 

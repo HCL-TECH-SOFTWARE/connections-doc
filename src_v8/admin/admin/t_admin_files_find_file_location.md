@@ -44,7 +44,7 @@ This command can be useful when restoring backup versions of data. See the topic
 **Related information**  
 
 
-[Installing HCL Connections 7.0](../install/t_install_cluster.md)
+[Installing HCL Connections 8.0](../install/t_install_cluster.md)
 
 [Backing up Files data](../admin/t_admin_files_backup.md)
 

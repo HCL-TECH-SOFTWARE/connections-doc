@@ -9,7 +9,7 @@ The Component Pack for HCL Connections introduces new connectivity capabilities 
 -   **[Overview of Component Pack architecture](../install/cp_over_intro.md)**  
 Component Pack for HCL Connections™ is both designed and deployed upon a different software stack from Connections. Therefore, it requires a separate hardware infrastructure.
 -   **[Prerequisites for Component Pack](../install/cp_prereqs.md)**  
-On a very high level, to install and successfully run HCL Component Pack, you will need HCL Connections plus additional resources to satisfy the following requirements:
+On a very high level, to install and successfully run HCL Component Pack, you will need HCL Connections plus additional resources to satisfy the following requirements.
 -   **[Installation and upgrade](../install/cp_install_upgrade_container.md)**  
 Experienced customers can download a package to do an automated installation or upgrade of Component Pack for HCL Connections. It is best for new customers to read this introduction and at least initially to do the manual steps in this section to gain a better understanding of Component Pack.
 -   **[Configuring the Component Pack](../install/cp_config_intro.md)**  

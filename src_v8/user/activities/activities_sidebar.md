@@ -1,4 +1,4 @@
-# Accessing Activities in HCL Notes 
+# Accessing Activities in HCL Notes {#task_xkk_dgb_bm .task}
 
 Create and work with activities from within Notes®.
 

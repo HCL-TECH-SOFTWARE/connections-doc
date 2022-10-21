@@ -49,40 +49,7 @@ Ensure you have the following:
     sudo ctr -n=k8s.io image list | grep middleware-mongodb5:{{ **image\_tag** }} 
     ```
 
-7.  With MongoDB 5, you need persistent volumes for all replicas of Mongo5 pod, so:
-    1.  Create additional MongoDB volumes on the NFS master node:
-
-        ``` {#codeblock_ryl_dty_bvb}
-        mkdir -p /pv-connections/mongo5-node-0
-        mkdir -p /pv-connections/mongo5-node-1
-        mkdir -p /pv-connections/mongo5-node-2
-        ```
-
-    2.  Download volumes.txt and the [nfsSetup.sh script](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript). Then, run the script to make the additional volumes available via NFS.
-    3.  1.  Check if firewalld is already installed using the following rpm command:
-
-    ``` {#codeblock_eyc_ky4_dvb}
-    $rpm -qa firewalld
-    ```
-
-    If the command does not return anything, install firewalld on your CentOS system:
-
-    ``` {#codeblock_kly_py4_dvb}
-    $sudo yum install firewalld
-    ```
-
-2.  Start the firewalld service:
-
-    ``` {#codeblock_o13_ry4_dvb}
-    $sudo systemctl start firewalls
-    ```
-
-3.  Run nfsSetup.sh to set up NFS directories on NFS master:
-
-    ``` {#codeblock_iys_5y4_dvb}
-    $sh nfsSetup.sh
-    ```
-
+7.  With MongoDB 5, you need persistent volumes for all replicas of Mongo5 pod and you need to verify that they have been created. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb).
 8.  Install Helm charts. When it comes to Helm charts, this documentation references to YAML files stored in the [HCL Helm repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars) as parameters.
 9.  Before installing Mongo5, set up PV/PVC. Install the connections-volumes Helm chart to set up the persistence layer:
     1.  On your Component Pack node, download [connections-volumes.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars). Then, rename the downloaded file to connections-volumes.yml and open it.

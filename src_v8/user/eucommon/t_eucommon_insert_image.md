@@ -1,14 +1,14 @@
-# Adding an image 
+# Adding an image {#concept_t1p_1ts_sy .concept}
 
 Add an image to an entry in an HCL Connections application.
 
-## Supported image files 
+## Supported image files {#section_tfs_2ts_sy .section}
 
 You can add any image file format that is supported by your browser. The most widely supported image formats are BMP, GIF, JPG, JPEG, PNG, and RAW
 
 **Note:** This function differs across applications. In Blog, Forums, and Wiki, you can upload an image from your computer, insert an image from the web, and paste an image. In Blog and Wiki, you can also use an existing image that you already uploaded.
 
-## Inserting an image 
+## Inserting an image {#section_unp_4ts_sy .section}
 
 1.  Create or edit a blog entry, a wiki page, or a forum topic.
 2.  In the **Entry** field, place the cursor where you want the image to be displayed.
@@ -58,7 +58,7 @@ You can add any image file format that is supported by your browser. The most wi
     :   Specify whether the link opens in a new window, the topmost window, the same window, or the parent window. For more information, go to the [HTML <a\> target Attribute](http://www.w3schools.com/tags/att_a_target.asp) webpage.
 
 
-## Pasting an image 
+## Pasting an image {#section_zbn_fzs_sy .section}
 
 1.  Create or edit a blog entry, a wiki page, or a forum topic.
 2.  In the **Entry** field, place the cursor where you want the image to be displayed.
@@ -67,5 +67,5 @@ You can add any image file format that is supported by your browser. The most wi
     -   Drag an image file from your local file system or drag an image from a web page.
 4.  Save the entry.
 
-**Parent topic:**[Using the rich text editor](../../user/eucommon/eucommon_ckeditor.md)
+**Parent topic:**[Using the rich text editor](../eucommon/eucommon_ckeditor.md)
 

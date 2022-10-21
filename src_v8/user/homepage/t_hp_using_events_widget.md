@@ -1,4 +1,4 @@
-# Using the Events app 
+# Using the Events app {#t_hp_using_events_widget .task}
 
 Use the Events app to keep track of upcoming community events from your home page. The app displays in the activity stream views by default.
 

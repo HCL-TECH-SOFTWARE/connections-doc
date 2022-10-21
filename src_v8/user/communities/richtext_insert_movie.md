@@ -1,4 +1,4 @@
-# Adding a video to your wiki page or blog post 
+# Adding a video to your wiki page or blog post {#richtext_insert_movie .task}
 
 Embed an Adobe™ Flash movie or a video from a website such as YouTube or Vimeo.
 

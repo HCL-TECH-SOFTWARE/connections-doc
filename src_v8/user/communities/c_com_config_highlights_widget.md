@@ -1,4 +1,4 @@
-# Configuring a Highlights widget 
+# Configuring a Highlights widget {#c_com_config_highlights_widget .concept}
 
 Community owners can configure the widgets on the Highlights page to include content from multiple sources.
 
@@ -21,5 +21,5 @@ For example, to configure a Files widget to include files from another community
 
 For details on configuring widgets, see the [Widgets](https://help.hcltechsw.com/connections/v7/connectors/icec/cec-widgets.html) topic in the widgets documentation.
 
-**Parent topic:**[Customizing the Highlights page](../../user/communities/c_com_customizing_highlights.md)
+**Parent topic:**[Customizing the Highlights page](../communities/c_com_customizing_highlights.md)
 

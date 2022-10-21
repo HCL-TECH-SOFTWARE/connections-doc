@@ -1,8 +1,8 @@
-# Copying a community structure 
+# Copying a community structure {#concept_trn_ch5_1y .concept}
 
 When you want to create a new community, it might be easier to copy an existing community rather than creating one from scratch.
 
-## What gets copied? 
+## What gets copied? { .section}
 
 Copying a community maintains consistency by creating a community with the same layout and structure as the existing community. The following items are copied into the new community:
 
@@ -17,11 +17,11 @@ Description, name, tags, and access settings are copied.
     **Note:** Except for the Rich Text app, app contents are not copied to the new community.
 
 
-## What isn't copied? 
+## What isn't copied? { .section}
 
 Community members, files, app content \(wikis or blogs content, for example\), and images are not copied to the new community. Settings for apps, such as whether a blog is moderated, are also not copied.
 
-## Copying a community structure 
+## Copying a community structure { .section}
 
 1.  From the navigation bar, click **Communities**.
 2.  Click **Create a New Community** and select **Copy an Existing Community**.
@@ -32,5 +32,5 @@ Community members, files, app content \(wikis or blogs content, for example\), a
 4.  Update the name and description to distinguish your new community from the original. You can also change other details if you want.
 5.  Click **Save**.
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

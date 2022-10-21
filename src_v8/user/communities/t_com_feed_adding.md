@@ -1,4 +1,4 @@
-# Adding a feed to a community 
+# Adding a feed to a community {#t_com_feed_adding .task}
 
 Subscribe to a feed to keep your community informed with up-to-the minute information from a website without leaving the community.
 
@@ -18,5 +18,5 @@ You can only add publicly available feeds to a community. An administrator may m
 
 If you get a 403 error when you try to access the feed, this might be because your administrator has configured your deployment to prevent access to URLs outside this product. Contact the administrator for more information.
 
-**Parent topic:**[Enhancing collaboration](../../user/communities/enhancing_collaboration.md)
+**Parent topic:**[Enhancing collaboration](../communities/enhancing_collaboration.md)
 

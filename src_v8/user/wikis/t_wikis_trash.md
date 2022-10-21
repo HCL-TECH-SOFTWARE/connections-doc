@@ -1,8 +1,8 @@
-# Deleting wikis and pages 
+# Deleting wikis and pages {#howdoestrashworkinwikis .concept}
 
 Depending on your wiki access, you can remove wiki pages by moving them to the trash. Pages can then be deleted from the trash or restored to the wiki.
 
-## Before you begin 
+## Before you begin { .section}
 
 With Owner access, you can delete wikis that you own and remove any page within your wiki, regardless of who created the page. You can also permanently delete pages from the trash or restore them to your wiki.
 
@@ -12,7 +12,7 @@ With Reader access, you can view pages within the wiki and the trash, but cannot
 
 In public wikis, everyone has Reader access to the trash.
 
-## Removing a wiki page 
+## Removing a wiki page { .section}
 
 You must be an Owner or Editor of the wiki. See the preceding information to know the limitations of having Editor access.
 
@@ -20,7 +20,7 @@ You must be an Owner or Editor of the wiki. See the preceding information to kno
 2.  Select the page you want to remove.
 3.  Click **Page Actions** and select **Move to Trash** from the list.
 
-## What can I do with pages in the trash? 
+## What can I do with pages in the trash? { .section}
 
 When pages are moved to the trash, you can restore them to the wiki or permanently delete them. To view removed pages, click **Trash** in the action bar.
 
@@ -32,7 +32,7 @@ When pages are moved to the trash, you can restore them to the wiki or permanent
     **Important:** When you delete a page from the trash, you cannot undo the action or retrieve the deleted page.
 
 
-## Deleting a wiki 
+## Deleting a wiki { .section}
 
 You must be an Owner of the wiki.
 

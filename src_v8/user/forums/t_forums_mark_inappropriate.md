@@ -1,4 +1,4 @@
-# Flagging forum content as inappropriate 
+# Flagging forum content as inappropriate {#t_forums_mark_inappropriate .task}
 
 If a forum contains content that might be considered inappropriate, flag the content to alert the forum moderator. Any Forums user can flag forum content as inappropriate.
 
@@ -22,5 +22,5 @@ The standards that determine whether forum content is inappropriate depend on yo
 
 The Forums administrator, or a designated moderator, is notified that the forum post is flagged so that they can review its content and take appropriate action.
 
-**Parent topic:**[Finding and participating in forums](../../user/forums/t_forums_view_topics.md)
+**Parent topic:**[Finding and participating in forums](../forums/t_forums_view_topics.md)
 

@@ -11,14 +11,33 @@ To deploy IBM Security Directory Integrator \(formerly Tivoli Directory Integrat
 ./applyUpdates.sh -update /install/TDI72/7.2.0-ISS-SDI-FP0006/SDI-7.2-FP0006.zip
     ```
 
-3.  Oracle: Upgrade the JDBC Database Driver to version 7. Refer to [Oracle site to download the ojdbc7.jar driver](https://www.oracle.com/database/technologies/jdbc-drivers-12c-downloads.html).
+3.  Oracle: Upgrade the JDBC Database Drivers. Choose and download either [Oracle 18c](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-183-downloads.html) and [Oracle 19c](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-19-6-c-downloads.htm) .
 4.  Microsoft SQL: Download the [SQL Server JDBC 4.2 driver](https://www.microsoft.com/en-us/download/details.aspx?id=54671) from the Microsoft™ web site and follow the instructions to extract the driver files. HCL Connections uses the sqljdbc41.jar file.
-5.  DB2: For DB2 there is no change required.
+5.  DB2: Download the db2jcc4.jar from [IBM DB2](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads)site.
 6.  If you need to populate the Profiles database with people from your company's LDAP, then you must use the Population Wizard that is packaged with Connections. Refer to [Populating the Profiles database](t_prof_install_profiles_db.md), [Using the Profiles population wizard](t_prof_populate.md), and [Using the Profiles population wizard in silent mode](t_silent_population_wizard.md) for additional information.
 7.  To keep the users in LDAP and the Profiles database in sync you must manually download and install the SDI solution directory tdisol that is packaged with Connections.
 
 Refer to [Manually populating the Profiles database](t_prof_populate_manual.md) for additional information.
 
+
+|
+|If you are installing IBM Java 8.0 JRE for SDI|SDI needs to run with Java 8. the following steps updates the SDI with Java 8 and the IBM Java 8 JRE for SDI 7.2 runtime \(ibm-java-jre-8.0.6.25\) can be download from the HCL Software and Licensing Portal in the Connections 8.0 download package.1.  Install the Java 8 runtime for SDI 7.2. Refer to[https://www.ibm.com/support/pages/node/315385](https://www.ibm.com/support/pages/node/315385) for instructions on upgrading the JRE.
+2.  Install SDI 7.2 Fixpack 8. Refer to [Recommended fixes for IBM Security Directory Integrator \(SDI\)](https://www.ibm.com/support/pages/recommended-fixes-ibm-tivoli-directory-integrator-tdi-ibm-security-directory-integrator-sdi#ver72) for additional information.
+
+**Attention:** Consult the readme file 7.2.0-ISS-SDI FP0008\_README.html for complete instructions and information.
+
+3.  Remove these jar files from the SDI product, as they will conflict with the newer Spring implementations used by Connections. These jars are not required for the HCL Connections TDI pipelines.
+
+    ``` {#codeblock_s5d_dbg_fvb}
+SDI_HOME_DIR/jars/3rdparty/others/ActiveMQ/spring-beans.jar
+SDI_HOME_DIR/jars/3rdparty/others/ActiveMQ/spring-context.jar
+SDI_HOME_DIR/jars/3rdparty/others/ActiveMQ/spring-core.jar
+SDI_HOME_DIR/lwi/runtime/messaging/eclipse/plugins/org.apache.activemq_5.2.0/lib/spring-beans-2.5.6.jar
+SDI_HOME_DIR/lwi/runtime/messaging/eclipse/plugins/org.apache.activemq_5.2.0/lib/spring-core-2.5.6.jar
+SDI_HOME_DIR/lwi/runtime/messaging/eclipse/plugins/org.apache.activemq_5.2.0/lib/spring-context-2.5.6.jar
+    ```
+
+4.  Download and update the DBC driver names
 
 |
 

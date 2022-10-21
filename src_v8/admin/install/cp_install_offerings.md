@@ -8,21 +8,13 @@ HCL Connections Customizer is a proxy service that lets you modify the Connectio
 
 ## Orient Me {#section_bxr_g4w_3mb .section}
 
-The Orient Me \(Top Updates\) page provides your users with a cognitive view of their most essential Connections content. It shows users prioritized updates, with content from the people and communities they interact with the most at the top and grouped by source, or viewed as a single stream based on time. For more information, see [Top Updates: Keeping up with what's most relevant to you](../../user/homepage/Tile_homepage_using.md) on the end-user documentation.
-
-Orient Me uses either OpenSearch as its default storage backend.
+The Orient Me \(Top Updates\) page on the home page provides your users with a cognitive view of their most essential Connections content. It shows users prioritized updates, with content from the people and communities they interact with the most at the top and grouped by source, or viewed as a single stream based on time. For more information, see [Top Updates: Keeping up with what's most relevant to you](../../user/homepage/Tile_homepage_using.md) on the end-user documentation.
 
 ## Opensearch {#section_ljj_34w_3mb .section}
 
-Opensearch gets installed as a step of the Component Pack installation process. This service is used as the storage and retrieval service for the Metrics, Type-ahead Search, Orient Me, and Elastic Stack features.
+Opensearch is installed as a step of the Component Pack installation process. This service is used as the storage and retrieval service for the Metrics, Type-ahead Search, Orient Me, and Elastic Stack features.
 
 Starting with Component Pack 8, Opensearch is the default and only backend for Metrics, Search, and Orient Me.
-
-## OpenSearch {#section_jgv_dpn_1vb .section}
-
-As a step in the Component Pack installation process, ElasticSearch 7 data from your Connections 7 deployment gets migrated to OpenSearch. This service is used as the storage and retrieval service for the Metrics, Type-ahead Search, Orient Me, and Elastic Stack features.
-
-Starting with Component Pack 8, OpenSearch is the default and only backend for Metrics, Search, and Orient Me.
 
 ## Tailored experience for communities {#section_r4z_ytr_snb .section}
 
@@ -38,7 +30,7 @@ The Microsoft Teams integration services allow Connections content to be display
 
 ## Connections Outlook add-in for Microsoft Outlook {#section_ftr_ztr_snb .section}
 
-With the Connections add-in for Microsoft Outlook, users can to work with Connections content from within their Outlook inbox. Users can do the following with the Connections Add-in:
+With the Connections add-in for Microsoft Outlook, users can to work with Connections content from within their Outlook inbox. Users can do the following with the Connections add-in:
 
 -   Upload Outlook emails and attachments to Connections Files, Activities or Wikis, or directly as a status post.
 -   When composing a message, search Connections Profiles for a name and insert it into one of the address fields.

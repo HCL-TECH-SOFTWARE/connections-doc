@@ -1,4 +1,4 @@
-# Creating a forum 
+# Creating a forum {#t_forums_add_forum .task}
 
 Start a new forum when you want to solicit answers to a specific question or to discuss particular topic.
 
@@ -18,5 +18,5 @@ When you create a forum, you automatically become the owner of that forum. If co
 
 Click **Start a Topic** to add topics to your new forum. If you do not want to create topics now, you can access the forum later from the My Forums page.
 
-**Parent topic:**[Creating and managing forums](../../user/forums/c_forums_manage_forums.md)
+**Parent topic:**[Creating and managing forums](../forums/c_forums_manage_forums.md)
 

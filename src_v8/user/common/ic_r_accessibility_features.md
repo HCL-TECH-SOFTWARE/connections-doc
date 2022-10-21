@@ -1,8 +1,8 @@
-# Accessibility features for Connections 
+# Accessibility features for Connections {#accessibility_topic .concept}
 
 Accessibility features assist users who have a disability, such as restricted mobility or limited vision, to use information technology content successfully.
 
-## Accessibility features 
+## Accessibility features { .section}
 
 HCL Connections™ includes the following major accessibility features:
 
@@ -15,7 +15,7 @@ HCL Connections™ includes the following major accessibility features:
 
 HCL Connections uses the latest W3C Standard, [WAI-ARIA 1.0](http://www.w3.org/TR/wai-aria/) \([http://www.w3.org/TR/wai-aria/](http://www.w3.org/TR/wai-aria/)\), to ensure compliance to[US Section 508](http://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-section-508-standards/section-508-standards), and [Web Content Accessibility Guidelines \(WCAG\) 2.0](http://www.w3.org/TR/WCAG20/). To take advantage of accessibility features, use the latest release of your screen reader in combination with the latest web browser that is supported by this product.
 
-## Keyboard navigation 
+## Keyboard navigation { .section}
 
 Most keyboards have a **Menu** key, otherwise known as an **Apps** key, that functions as right-click. JAWS specifies the key combination of NUMPAD STAR for this purpose.
 
@@ -25,7 +25,7 @@ For JAWS users: To activate buttons in the user interface, press the **Enter** k
 
 In the HCL Connections navigation bar, apps and the user image launch dialogs. Use the **Tab** key to navigate through the options.
 
-## Interface information 
+## Interface information { .section}
 
 The HCL Connections user interfaces do not have content that flashes 2 - 55 times per second.
 

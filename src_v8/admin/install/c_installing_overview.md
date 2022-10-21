@@ -20,7 +20,7 @@ Procedures to install HCL Connections:
 
 -   **[Installing as a non-root user](../install/t_non-root_install.md)**  
 Grant permissions to a non-root user to install HCL Connections.
--   **[Installing HCL Connections 7.0](../install/t_install_cluster.md)**  
+-   **[Installing HCL Connections 8.0](../install/t_install_cluster.md)**  
 Install HCL Connections.
 -   **[Installing in console mode](../install/t_install_console-mode.md)**  
 Install HCL Connections in console mode. This method is convenient if you cannot or do not want to use the graphical mode.

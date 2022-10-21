@@ -9,5 +9,5 @@ If the fix that you installed is not working, you can uninstall it using the upd
 -   **[Uninstalling fixes in silent mode](../migrate/t_uninstall_interim-fix_silent-mode.md)**  
 If the fix that you installed is not working, you can uninstall it using the update wizard in silent mode.
 
-**Parent topic:**[Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

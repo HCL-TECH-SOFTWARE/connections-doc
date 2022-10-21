@@ -1,4 +1,4 @@
-# Changing your community's access level 
+# Changing your community's access level {#t_com_edit .task}
 
 Change your community access level to protect any sensitive information contained in it.
 
@@ -20,5 +20,5 @@ You can restrict or extend the community's privacy level so that people can or c
 4.  Click **Save**.
 
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

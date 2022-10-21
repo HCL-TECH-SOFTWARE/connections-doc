@@ -1,4 +1,4 @@
-# Using the My Wikis app 
+# Using the My Wikis app {#t_hp_using_my_wikis_widget .task}
 
 Use the My Wikis app to help you track the latest updates to the wikis of which you are a member.
 

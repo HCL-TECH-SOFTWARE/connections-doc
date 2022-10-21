@@ -1,4 +1,4 @@
-# Adding a blog to your community 
+# Adding a blog to your community {#t_com_creating_community_blog .concept}
 
 Use a blog to share information with your community in an efficient, dynamic style.
 
@@ -12,7 +12,7 @@ Where your community blog displays on the Blogs app and how other users interact
 
 **Note:** If you create a blog for a restricted community, but then change the community to a public community, the blog is displayed on the Public Blogs page and is available for all to read.
 
-## Creating a community blog 
+## Creating a community blog {#section_m25_yhr_g5b .section}
 
 1.  From the navigation bar, click **Communities** then select the community you want to add a blog to.
 2.  In the community menu, click **Blog** then **New Entry**. Or, from the **Highlights** page, click **Create Blog Entry**, or if you're creating the first entry **Create Your First Entry**.
@@ -22,7 +22,7 @@ Where your community blog displays on the Blogs app and how other users interact
 
 4.  Click **Post**. If you did not set a later publishing date, the new entry is immediately published.
 
-## What to do next 
+## What to do next {#section_v33_c13_35b .section}
 
 From the community, you can do the following:
 
@@ -31,12 +31,12 @@ From the community, you can do the following:
 
 **Note:** The community blog that you create also displays on the My Blogs page, which you can access by clicking **Blogs** from the navigation bar. You can edit the settings for the blog from that page as well as from the community.
 
-**Parent topic:**[Sharing information in a community blog](../../user/communities/community_blog_frame.md)
+**Parent topic:**[Sharing information in a community blog](../communities/community_blog_frame.md)
 
 **Related information**  
 
 
-[Managing your community blog](../../user/communities/t_com_community_manage_blog.md)
+[Managing your community blog](../communities/t_com_community_manage_blog.md)
 
-[Who can see my blog? Creating public and restricted blogs](../../user/blogs/c_blogs_pub_priv_mod.md)
+[Who can see my blog? Creating public and restricted blogs](../blogs/c_blogs_pub_priv_mod.md)
 

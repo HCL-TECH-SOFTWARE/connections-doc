@@ -1,8 +1,8 @@
-# Reviewing community blog content 
+# Reviewing community blog content {#t_com_community_manage_blog .concept}
 
 If community members have only Draft permissions, you can review their submissions and approve or reject accordingly. If comment moderation is enabled for your community blog, you can also go through the submitted comments.
 
-## Reviewing entries 
+## Reviewing entries {#section_mbk_3nz_j5b .section}
 
 If you assigned the Draft role to community members, you must approve their entry submissions so they can be published on the community blog.
 
@@ -22,7 +22,7 @@ If you assigned the Draft role to community members, you must approve their entr
 8.  To view published entries, click the **Published** tab.
 9.  To view rejected entries, click the **Rejected** tab.
 
-## Reviewing comments 
+## Reviewing comments {#section_zxp_jnz_j5b .section}
 
 If you enabled comment moderation for the community blog, you can manage the comments.
 
@@ -37,7 +37,7 @@ If you enabled comment moderation for the community blog, you can manage the com
 6.  To view published comments, click the **Published** tab.
 7.  To view rejected comments, click the **Rejected** tab.
 
-**Parent topic:**[Sharing information in a community blog](../../user/communities/community_blog_frame.md)
+**Parent topic:**[Sharing information in a community blog](../communities/community_blog_frame.md)
 
 **Related information**  
 

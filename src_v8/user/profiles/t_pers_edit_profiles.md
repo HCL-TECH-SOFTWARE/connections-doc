@@ -1,8 +1,8 @@
-# Setting up your profile 
+# Setting up your profile {#concept_tcv_5qv_cy .concept}
 
 Make yourself easy to find and simple to connect with. Post a photo, share details about your background, and let others know how to get in touch.
 
-## Edit your profile 
+## Edit your profile { .section}
 
 1.  From the sidebar, click **Profile** and then **Edit Profile**.
 2.  Click **Contact Information** and edit your office location, contact details, job title, and time zone.
@@ -12,9 +12,9 @@ Make yourself easy to find and simple to connect with. Post a photo, share detai
 
 **Tip:** Share your social media pages or websites by [adding links to your profile](t_add_external_links.md). You can also [let others know about your skills, interests, and areas of expertise using tags](t_pers_tag_profiles.md).
 
-## Next steps 
+## Next steps {#section_cm1_hmk_dy .section}
 
 Finished filling out your profile? Let's [search for some people](t_pers_search_directory.md) to add.
 
-**Parent topic:**[Getting started](../../user/profiles/c_pers_getting_started.md)
+**Parent topic:**[Getting started](../profiles/c_pers_getting_started.md)
 

@@ -1,4 +1,4 @@
-# Using the My Bookmarks app 
+# Using the My Bookmarks app {#t_hp_using_my_bookmarks_widget .task}
 
 Use the My Bookmarks app to display the most recent updates you entered in the Bookmarks app. You can also edit your bookmarks from this view.
 

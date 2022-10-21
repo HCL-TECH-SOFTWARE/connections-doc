@@ -1,4 +1,4 @@
-# Creating an announcement 
+# Creating an announcement {#concept_rwv_wgp_my .concept}
 
 An announcement is a great way to get the word out to your whole community of bloggers. If you are a Blogs site administrator, you can post announcements for all users to see.
 
@@ -7,5 +7,5 @@ An announcement is a great way to get the word out to your whole community of bl
 3.  Select the checkbox for **Post as announcement.**
 4.  Post the entry. When published, the announcement appears at the top of the **Public Blogs** page.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

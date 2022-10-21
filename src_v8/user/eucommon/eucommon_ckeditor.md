@@ -1,20 +1,20 @@
-# Using the rich text editor 
+# Using the rich text editor {#eucommon_ckeditor .concept}
 
 Use the rich text editor to create visually interesting blog posts, wiki articles, forum topics, and activity entries. The rich text editor is also used in Communities, Events, and Profiles.
 
-**Note:** This topic describes the default rich text editor in HCL Connections™, but your organization might have implemented Textbox.io, an Ephox editor.
+**Note:** This topic describes the default rich text editor in HCL Connections™, but your organization might have implemented TinyMCE editor.
 
 Use the rich text editor to enter and format text or to insert images and links. Depending on the application that you are using and how it is configured, some features of the editor might not be available. For example, you can insert an Adobe™ Flash movie into a blog entry but this capability is not available in a forum topic.
 
-## Spell-checking 
+## Spell-checking { .section}
 
 In most browsers, you can spell-check words in the editor by selecting the words and then simultaneously pressing **Ctrl** and right-clicking the mouse.
 
-## Embedding external content 
+## Embedding external content { .section}
 
 You can embed content such as a video or an external website by inserting an HTML iframe element into your blog post or wiki page. The external content displays on your page in much the same way as a photo or other graphic, except that it is dynamic and interactive. When the external content changes, so does the display within the iframe. When you insert an iframe, you specify the URL of the web page or video that you want to embed. You can also specify other attributes such as the height and width in pixels. For more information, see [Adding a video to your wiki page or blog post](../communities/richtext_insert_movie.md).
 
-## Partial list of features 
+## Partial list of features { .section}
 
 In the editor, hover your mouse cursor over an icon for a label that describes the feature. The following table describes some of the more advanced features available in the editor.
 
@@ -102,6 +102,12 @@ In both cases, use the keyboard to paste the content into the dialog and then cl
 -   You can link to a file only from within a Community. For example, to insert a file link in a wiki page, the wiki must be owned by a community.
 -   When you link to a file, it is shared with the current community.
 
+ If you have access to Box from a community, you can also insert a link to a Box file or folder in community content. To insert a link to Box content:
+
+-   Select the drop-down in the **Link** icon ![Insert link](../communities/images/link.png)
+-   Select the **Box** icon ![Box](../communities/images/box.jpg)
+-   Navigate to and select the box file or folder you want to link to.
+
 |
 |![Insert a Document Bookmark](../wikis/images/atnDocumentBookmark16.png)
 
@@ -158,12 +164,12 @@ In both cases, use the keyboard to paste the content into the dialog and then cl
 
 |
 
--   **[Adding an image](../../user/eucommon/t_eucommon_insert_image.md)**  
+-   **[Adding an image](../eucommon/t_eucommon_insert_image.md)**  
 Add an image to an entry in an HCL Connections application.
--   **[Inserting an iFrame](../../user/eucommon/t_eucommon_insert_iFrame.md)**  
+-   **[Inserting an iFrame](../eucommon/t_eucommon_insert_iFrame.md)**  
 You can add embedded content, such as webpages or videos, to an iFrame by referencing a URL to the content. An iFrame is an object that is embedded in a frame within a webpage.
--   **[Embedding videos](../../user/eucommon/embed_video.md)**  
+-   **[Embedding videos](../eucommon/embed_video.md)**  
 To emphasize your point of view, embed Flash movies or YouTube videos in your blog or wiki entry.
 
-**Parent topic:**[Shared features](../../user/eucommon/c_eucommon_shared_components.md)
+**Parent topic:**[Shared features](../eucommon/c_eucommon_shared_components.md)
 

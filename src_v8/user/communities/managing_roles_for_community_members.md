@@ -1,8 +1,8 @@
-# Assigning app roles for community members 
+# Assigning app roles for community members {#managing_roles_for_community_members .concept}
 
 Determine what community members can and cannot do for Files, Wikis, Activities, Blogs, and Ideation Blogs by setting the appropriate role or access type.
 
-## Community file roles 
+## Community file roles {#section_wzt_mjc_35b .section}
 
 |Role|Description|
 |----|-----------|
@@ -13,7 +13,7 @@ Determine what community members can and cannot do for Files, Wikis, Activities,
 2.  In the community menu, click **Community Actions** and select **Edit Community**.
 3.  Click the **Files** tab and select the desired role for community members, then **Save**.
 
-## Community wiki roles 
+## Community wiki roles { .section}
 
 |Role|Description|
 |----|-----------|
@@ -24,7 +24,7 @@ Determine what community members can and cannot do for Files, Wikis, Activities,
 2.  In the community menu, click **Community Actions** and select **Edit Community**.
 3.  Click the **Wiki** tab and select the desired role for community members, then **Save**.
 
-## Community activity roles 
+## Community activity roles { .section}
 
 |Role|Description|
 |----|-----------|
@@ -36,7 +36,7 @@ Determine what community members can and cannot do for Files, Wikis, Activities,
 2.  In the community menu, click **Community Actions** and select **Edit Community**.
 3.  Click the **Activities** tab and select the desired role for community members, then **Save**.
 
-## Community blog and ideation blog roles 
+## Community blog and ideation blog roles {#section_rtf_nlc_35b .section}
 
 When you first create a community blog, all members of the community are granted Author access by default. Depending on your community, you might want to change the access level for your members. Community owners can grant permissions to other members. All other community members can have one of the following roles:
 
@@ -61,5 +61,5 @@ For community ideation blogs:
 
 For more information on managing a community ideation blog, see [Getting ideas flowing with an ideation blog](t_com_manage_ideationblog.md).
 
-**Parent topic:**[Managing your community to keep it relevant](../../user/communities/c_com_manage_communities.md)
+**Parent topic:**[Managing your community to keep it relevant](../communities/c_com_manage_communities.md)
 

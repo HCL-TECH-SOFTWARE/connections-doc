@@ -1,4 +1,4 @@
-# Searching for people 
+# Searching for people {#concept_mtq_bqk_dy .task}
 
 Looking for people to add? Either search for a person by name, or based on their location, expertise, or tags.
 
@@ -17,5 +17,5 @@ To search the directory:
 
 Once you've found who you're looking for, go ahead and [invite them to your network](t_pers_invite_network.md).
 
-**Parent topic:**[Getting started](../../user/profiles/c_people_getting_started.md)
+**Parent topic:**[Getting started](../profiles/c_people_getting_started.md)
 

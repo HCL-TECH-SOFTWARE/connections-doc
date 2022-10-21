@@ -1,8 +1,8 @@
-# Working with files 
+# Working with files {#whatcanidowithotherpeoplesfiles .concept}
 
 Depending on the access level you have to files, you can view, like or recommend, or edit them.
 
-## File permissions 
+## File permissions { .section}
 
 There are three primary levels of access for any file: private, shared with specific people or communities with either Reader or Editor access, and public. To see what access you and others have for a file, click on the file to open the file page and click **Sharing**.
 
@@ -43,7 +43,7 @@ File owners can allow other people to share files. When someone shares a file wi
 
 |✔|✔|✔|
 
-**Parent topic:**[Collaborating on files and folders](../../user/files/t_files_why_file_sharing_refresh.md)
+**Parent topic:**[Collaborating on files and folders](../files/t_files_why_file_sharing_refresh.md)
 
 **Related information**  
 

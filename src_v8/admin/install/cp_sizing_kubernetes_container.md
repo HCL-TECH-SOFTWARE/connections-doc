@@ -32,7 +32,7 @@ If you can afford downtime for Component Pack, you can still run everything on o
 
 Perfect high availability would be at least three master nodes \(to ensure quorum\) and at least three infrastructure worker nodes \(three because of the default of three replicas for each pod\).
 
-To understand what your cluster is really doing and how it is utilized, it is best to set up Prometheus and Grafana. \(If you are setting up the cluster using the [HCL-provided Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md), you can get Prometheus and Grafana out of the box; if you are using RedHat OpenShift 4, however, they are provided\). As previously mentioned, scaling specific pods helps a great deal more than adding one or more new servers: starving Customizer is still starving Customizer, even if you have 100 nodes.
+To understand what your cluster is really doing and how it is utilized, it is best to set up Prometheus and Grafana. \(If you are setting up the cluster using the [HCL-provided Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md), you can get Prometheus and Grafana out of the box\). As previously mentioned, scaling specific pods helps a great deal more than adding one or more new servers: starving Customizer is still starving Customizer, even if you have 100 nodes.
 
 ## Guide to suggested topologies {#section_dpf_ftl_tnb .section}
 

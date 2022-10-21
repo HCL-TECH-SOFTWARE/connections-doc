@@ -1,8 +1,8 @@
-# Adding an image or video 
+# Adding an image or video {#concept_mvx_2xk_my .concept}
 
 Visualize your ideas and keep users engaged by adding images or videos to a wiki page.
 
-## Adding an image 
+## Adding an image { .section}
 
 The easiest way to add an image is to paste an image into your wiki page, or drag and drop an image file from your local system to the **Rich Text** editor. Or, you can add an image from your local file system, a webpage, or a file attachment that you already uploaded:
 
@@ -12,7 +12,7 @@ The easiest way to add an image is to paste an image into your wiki page, or dra
 4.  Click the **Insert/Edit Image** icon ![Insert or edit image icon](images/insert_image.png) in the editor toolbar.
 5.  Select an image from your local files, enter the URL of an image file, or add an existing image.
 
-## Adding a video 
+## Adding a video { .section}
 
 If you have the URL of a Flash movie, link directly to it. A Flash movie usually has a \*.swf file extension. Or link to an embedded video, such as a YouTube video, by embedding the video code in your HTML code.
 

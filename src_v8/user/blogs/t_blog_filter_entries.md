@@ -1,8 +1,8 @@
-# Managing entries and comments 
+# Managing entries and comments {#concept_xwz_yz4_my .concept}
 
 As the blog owner, you can view and manage all of the entries and comments in your blog from the Entries page.
 
-## Managing entries 
+## Managing entries {#section_ryh_b1p_my .section}
 
 1.  From the navigation bar, click **Blogs** and then, in the **My Blogs** page, select **Manage Entries** for the blog that you would like to manage.
 2.  To view all entries that are associated with a tag, enter the tag in the **Filter by Tags** section and click the search icon ![Search icon](../communities/images/search.png).
@@ -21,7 +21,7 @@ As the blog owner, you can view and manage all of the entries and comments in yo
     ![Options to manage blog entries](Images/manage_entries.png)
 
 
-## Managing comments 
+## Managing comments {#section_ihg_ybp_my .section}
 
 If comment moderation is enabled for your blog, a blog owner can manage the comments. To know more about enabling comment moderation, see [Editing general blog settings](t_blog_editing_settings.md).
 
@@ -35,5 +35,5 @@ If comment moderation is enabled for your blog, a blog owner can manage the comm
 5.  To view published comments, click the **Published** tab.
 6.  To view rejected comments, click the **Rejected** tab.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

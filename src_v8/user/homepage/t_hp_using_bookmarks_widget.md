@@ -1,4 +1,4 @@
-# Using the Bookmarks app 
+# Using the Bookmarks app {#t_hp_using_bookmarks_widget .task}
 
 Use the Bookmarks app to stay current with the latest bookmarks added to Bookmarks.
 

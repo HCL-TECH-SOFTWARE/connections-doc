@@ -1,8 +1,8 @@
-# Searching for and browsing in communities 
+# Searching for and browsing in communities {#t_com_search .concept}
 
 Search or browse for communities that you're interested in. When you find a community, you can search within it for more detailed information.
 
-## Searching for communities 
+## Searching for communities {#section_qbm_hsy_g5b .section}
 
 You can search for a community from any page in Connections using the search box, or you can open the Communities app and filter communities to find what you need:
 
@@ -20,7 +20,7 @@ You can search for a community from any page in Connections using the search box
     ![Filtering options for communities](images/filter_view.png)
 
 
-## Browsing in a community 
+## Browsing in a community {#section_np4_gqx_35b .section}
 
 -   To open a community, click its name.
 -   You can also search for the following file types in a community:
@@ -30,9 +30,9 @@ You can search for a community from any page in Connections using the search box
     |Other file types|Adobe Acrobat \(.pdf\), Plain text \(.txt\), Rich Text Format \(.rtf\), HTML \(.html, .htm\), XML \(.xml\)|
 
 
-## What to do next 
+## What to do next {#section_ldt_nsy_g5b .section}
 
 Found the community you're looking for? Go ahead and [join the community](c_com_join.md) to start participating.
 
-**Parent topic:**[Getting started](../../user/communities/community_getstart.md)
+**Parent topic:**[Getting started](../communities/community_getstart.md)
 

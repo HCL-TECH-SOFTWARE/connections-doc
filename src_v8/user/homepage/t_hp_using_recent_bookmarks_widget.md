@@ -1,4 +1,4 @@
-# Using the Recent Bookmarks app 
+# Using the Recent Bookmarks app {#t_hp_using_recent_bookmarks_widget .task}
 
 Use the Recent Bookmarks app to display a list of the most recent public bookmarks added in the Bookmarks app. The app also provides links for you to edit your own bookmarks and copy other people's bookmarks to your personal bookmark list.
 

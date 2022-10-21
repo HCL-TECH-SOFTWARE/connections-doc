@@ -1,6 +1,6 @@
-# Updating Connections 7.0 with the latest fixes {#c_updating_interim_fixes .concept}
+# Updating Connections 8.0 with the latest fixes {#c_updating_interim_fixes .concept}
 
-There are two types of fixes for HCL Connections 7.0 - interim fixes \(iFixes\) and cumulative fixes \(CFixes\). iFixes address single issues, while cumulative fixes address groups of issues. Both iFixes and CFixes are installed in the same manner and will be referred to as "fixes" in the installation instructions.
+There are two types of fixes for HCL Connections 8.0 - interim fixes \(iFixes\) and cumulative fixes \(CFixes\). iFixes address single issues, while cumulative fixes address groups of issues. Both iFixes and CFixes are installed in the same manner and will be referred to as "fixes" in the installation instructions.
 
 -   **[Installing fixes as a non-root user](../migrate/t_non-root_install_fixes.md)**  
 Grant permissions to a non-root user to install fixes.

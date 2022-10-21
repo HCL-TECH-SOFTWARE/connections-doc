@@ -1,6 +1,6 @@
 # Installing Component Pack services {#c_OM_install_starter_stacks .concept}
 
-When installing HCL Connections™ Component Pack services, you can choose to install all services, or a to install custom set of services \(a Starter Stack\).
+When installing HCL Connections™ Component Pack services, you can choose to install all services, or to install custom set of services \(a Starter Stack\).
 
 Starter Stack is a new feature available in release 6.0.0.4 and higher. When you run the default installation, all of the available services are deployed. Starter Stack allows you to select only the services you want to deploy. If you choose to deploy using Starter Stack, follow the steps in [Installing individual components with Starter Stack](t_OM_install_Starter_Stack.md). Otherwise, follow the steps in [Installing all service components](t_install_Orient_Me_images.md).
 

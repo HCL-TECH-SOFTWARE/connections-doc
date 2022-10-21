@@ -1,6 +1,6 @@
-# Setting up persistent volumes on a high availability deployment \(NFS\) {#r_Orient_Me_setup_pers_vols .reference}
+# Setting up persistent volumes on a high availability deployment \(NFS\) {#r_Orient_Me_setup_pers_vols_HA .reference}
 
-Use these guidelines to help you set up persistent volumes for middleware infrastructure such as Solr/Zookeeper, MongoDB, Customizer, and Elasticsearch for a high availability deployment.
+Use these guidelines to help you set up persistent volumes for middleware infrastructure such as Zookeeper, MongoDB, Customizer, and OpenSearch for a high availability deployment.
 
 ## Requirements for persistent volumes { .section}
 
@@ -87,7 +87,7 @@ Perform the following steps on the boot node.
     sudo sed -i "s/___NFS_SERVER_IP___/<shareServerIpAddress>/g" fullPVs_NFS.yml
     ```
 
-3.  If you performed step 3.c in the previous section on the storage node, then you must complete that step on the boot node as well:
+3.  If you performed step 3c in the previous section on the storage node, then you must complete that step on the boot node as well:
 
     The yml file sets up the NFS shares for the different folders created in step 1 of the previous section. The script uses the path /pv-connections/mongo-node-0, /pv-connections/mongo-node-1 and so on. If you used something other than /pv-connections/ for your share location, for example, /nfs/IBM/iccontainers/mongo-node-0, you must update the paths from /pv-connections/ to /nfs/IBM/iccontainers/. To do that, run the following command:
 
@@ -149,7 +149,7 @@ Perform the following steps on the boot node.
 
     2.  Open a browser to the IBM Cloud Private dashboard; for example: https://master\_HA\_vip:8443/\#/dashboard.
 
-        The **Shared Storage** shows 102 GiB.
+        The **Shared Storage** shows 102 GB.
 
     3.  Click **Infrastructure** \> **Storage**. You should see the list of NFS shares you created, with a status of Bound
 

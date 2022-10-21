@@ -1,4 +1,4 @@
-# Sharing related communities with other members 
+# Sharing related communities with other members {#t_com_share_related_communities .concept}
 
 If you learn about a community that's of interest, share that information with other members.
 
@@ -8,13 +8,13 @@ To share related communities, a community owner needs to add the Related Communi
 
 **Tip:** Don't share a restricted community as a related community. Only people that are already members can access it.
 
-## Adding a related community 
+## Adding a related community {#section_wwc_k25_h5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community that you'd like to link to another community.
 2.  In the community menu, click **Related Communities** and then **Add a Community**.
 3.  Enter the details of the community, then click **Save**.
 
-## Editing or deleting a related community 
+## Editing or deleting a related community {#section_j2w_k25_h5b .section}
 
 1.  From the navigation bar, click **Communities** and select the community whose related communities you'd like to manage.
 2.  In the community menu, click **Related Communities**.
@@ -23,10 +23,10 @@ To share related communities, a community owner needs to add the Related Communi
     -   To edit, click **Edit**. Make your changes then click **Save**.
     -   To delete, click **Remove this community**.
 
-**Parent topic:**[Finding out what’s going on](../../user/communities/whatsgoingon.md)
+**Parent topic:**[Finding out what’s going on](../communities/whatsgoingon.md)
 
 **Related information**  
 
 
-[Adding apps to increase capabilities](../../user/communities/c_com_add_widgets.md)
+[Adding apps to increase capabilities](../communities/c_com_add_widgets.md)
 

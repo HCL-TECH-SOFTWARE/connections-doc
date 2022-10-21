@@ -1,4 +1,4 @@
-# Editing file properties 
+# Editing file properties {#howdoieditdocuments .task}
 
 Update the name, extension, or description of a file.
 
@@ -16,7 +16,7 @@ Update the name, extension, or description of a file.
 **Related information**  
 
 
-[Adding files to a library](../../user/communities/t_com_library_add_docs.md)
+[Adding files to a library](../communities/t_com_library_add_docs.md)
 
-[Library roles and permissions](../../user/communities/c_com_library_roles.md)
+[Library roles and permissions](../communities/c_com_library_roles.md)
 

@@ -1,8 +1,8 @@
-# Inserting an iFrame 
+# Inserting an iFrame {#concept_hsf_1ys_sy .concept}
 
 You can add embedded content, such as webpages or videos, to an iFrame by referencing a URL to the content. An iFrame is an object that is embedded in a frame within a webpage.
 
-## Insert an iFrame 
+## Insert an iFrame {#section_dmh_cys_sy .section}
 
 1.  Create or edit a blog entry or a wiki page.
 2.  In the **Entry** field, place the cursor where you want the iFrame to be displayed.
@@ -43,5 +43,5 @@ You can add embedded content, such as webpages or videos, to an iFrame by refere
 
 6.  Click **OK** to add the iFrame to the entry.
 
-**Parent topic:**[Adding forum topics](../../user/forums/t_forums_add_topic.md)
+**Parent topic:**[Adding forum topics](../forums/t_forums_add_topic.md)
 

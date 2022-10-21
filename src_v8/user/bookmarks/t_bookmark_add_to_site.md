@@ -1,4 +1,4 @@
-# Adding a bookmark list to a web page 
+# Adding a bookmark list to a web page {#t_bookmark_add_to_site .task}
 
 Embed a Bookmarks page in a web page to make it available to site users.
 
@@ -11,5 +11,5 @@ To embed a view of the current Bookmarks page into a web page, follow these step
 2.  Follow the instructions from the code snippet window for how to add a bookmark list to a web page.
 
 
-**Parent topic:**[Going further](../../user/bookmarks/c_advanced_bookmarks.md)
+**Parent topic:**[Going further](../bookmarks/c_advanced_bookmarks.md)
 

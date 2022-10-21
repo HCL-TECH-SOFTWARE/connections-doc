@@ -1,4 +1,4 @@
-# How do I find wiki pages? 
+# How do I find wiki pages? {#howdoifindpages .concept}
 
 There are several ways to find pages in a wiki. When a wiki page is renamed, the URL changes but you can still open the page by clicking on a page with the original name.
 
@@ -42,13 +42,13 @@ There are several ways to find pages in a wiki. When a wiki page is renamed, the
 |
 
 
-## Finding a page that is renamed 
+## Finding a page that is renamed { .section}
 
 When you change the name of a wiki page, the URL is changed. But when someone clicks on a link with the original name, they are redirected to the new URL. If there are two or more pages that carried the original URL, and you click on the original URL of a renamed page, then two \(or more\) pages will be displayed.
 
 You can open the page or pages with the original name or the new one.
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

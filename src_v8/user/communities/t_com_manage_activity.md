@@ -1,4 +1,4 @@
-# Keeping your community activities up-to-date 
+# Keeping your community activities up-to-date {#t_com_manage_activity .concept}
 
 Edit the details of your community activities to reflect your current goals and tasks.
 
@@ -14,12 +14,12 @@ You can manage activities in many ways, for example assigning a priority, editin
     -   To link the activity to another activity within the community or from your own list, select **Add Related Activity**.
     -   To export the activity as a CSV file, click **Export Activity**. The following fields from each activity are saved: Ordering, Section, Parent entry, Completed, Title, Type, Last updated, Last updater, Tags, Assigned to, Due date, Description, Attachment, Bookmark, Custom text, Custom person, and Custom date.
 
-**Parent topic:**[Keeping your apps contemporary](../../user/communities/apps_frame.md)
+**Parent topic:**[Keeping your apps contemporary](../communities/apps_frame.md)
 
 **Related information**  
 
 
-[Changing your community's access level](../../user/communities/t_com_edit.md)
+[Changing your community's access level](../communities/t_com_edit.md)
 
-[Assigning tasks in a community activity](../../user/communities/t_com_use_activities_widget.md)
+[Assigning tasks in a community activity](../communities/t_com_use_activities_widget.md)
 

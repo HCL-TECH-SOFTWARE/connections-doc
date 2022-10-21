@@ -1,4 +1,4 @@
-# Editing wiki pages 
+# Editing wiki pages {#howdoieditotherpeoplespages .concept}
 
 To edit wiki pages, you must have Owner or Editor access to the wiki. If you have Reader access only, ask the wiki owner or a member with owner access to give you Editor access.
 
@@ -11,11 +11,11 @@ To edit wiki pages, you must have Owner or Editor access to the wiki. If you hav
 
 When you save the edited page, the changes are saved in a new version of the page. To see the different versions, click **Versions** at the foot of the page.
 
-## Good to know 
+## Good to know {#section_ld4_gzs_j5b .section}
 
 Using the rich text editor, you can add a variety of content to keep your post engaging and informative. For example, you can add a table to organize your content, as well as images and videos to visualize your ideas. For more on rich text editing, see [Using the rich text editor](../eucommon/eucommon_ckeditor.md).
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

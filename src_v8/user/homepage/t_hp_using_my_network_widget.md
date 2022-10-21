@@ -1,4 +1,4 @@
-# Using the My Network app 
+# Using the My Network app {#t_hp_using_my_network_widget .task}
 
 Use the My Network app to stay current with your colleagues and add new connections to your network.
 

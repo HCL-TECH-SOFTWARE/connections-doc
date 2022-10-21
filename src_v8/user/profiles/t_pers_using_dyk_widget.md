@@ -1,8 +1,8 @@
-# Getting recommendations 
+# Getting recommendations {#concept_w3l_b4n_2y .concept}
 
 Make new connections and expand your network with the People you may know app. The People you may know app recommends people for you to add to your network based on your existing connections, tags, organizational relationships, and actions.
 
-## Using the People you may know app 
+## Using the People you may know app {#section_s5j_24n_2y .section}
 
 To access the People you may know app, click **People** from the navigation bar, and then click My Network.
 
@@ -16,5 +16,5 @@ Use the People you may know app in the following ways:
     -   To view the person's profile, communities that they belong to, and their content in other apps, click the **More actions** ![](more_actions.png) icon and select which information you'd like to see.
 -   To scroll through the suggested profiles, click the photo on either side of the middle photo.
 
-**Parent topic:**[Growing your network](../../user/profiles/t_pers_add_colleagues.md)
+**Parent topic:**[Growing your network](../profiles/t_pers_add_colleagues.md)
 

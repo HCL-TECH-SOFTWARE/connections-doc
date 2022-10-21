@@ -1,8 +1,8 @@
-# Rich text editor keyboard shortcuts 
+# Rich text editor keyboard shortcuts {#r_eucommon_access_ckeditor .reference}
 
 The rich text editor that is used by the HCL Connections applications contains keyboard shortcuts that you can use to manipulate the editor without using a mouse.
 
-## Keyboard navigation 
+## Keyboard navigation { .section}
 
 To get help with keyboard navigation, press Alt+0, where 0 is a zero, to open the **Accessibility Help** window.
 
@@ -75,5 +75,5 @@ To get help with keyboard navigation, press Alt+0, where 0 is a zero, to open th
 |Access the toolbar|Alt+F10|
 |Escape the toolbar and return focus on the editor|ESC|
 
-**Parent topic:**[Product accessibility](../../user/eucommon/c_eucommon_accessibility_over.md)
+**Parent topic:**[Product accessibility](../eucommon/c_eucommon_accessibility_over.md)
 

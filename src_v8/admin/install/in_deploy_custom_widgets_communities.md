@@ -78,5 +78,3 @@ To quickly check the setup, log in to Connections. Create a community, click **C
 
 **Note:** A user with an admin role is not necessarily an active community member. You must be an owner of a community to work with communities. An admin cannot work as a community member during the integration.
 
-**Parent topic:**[Surveys in HCL Connections communities](../install/conn_work_connections.md)
-

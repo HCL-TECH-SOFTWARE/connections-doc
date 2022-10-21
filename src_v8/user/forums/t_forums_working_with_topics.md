@@ -1,4 +1,4 @@
-# Editing, moving, or deleting forum content 
+# Editing, moving, or deleting forum content {#t_forums_working_with_topics .task}
 
 Edit, move, or delete forum topics, and mark topic content as inappropriate.
 

@@ -1,4 +1,4 @@
-# Editing general blog settings 
+# Editing general blog settings {#concept_mws_dcj_my .concept}
 
 Customize the blog name and description, or change how users can interact with the blog.
 
@@ -16,9 +16,9 @@ Customize the blog name and description, or change how users can interact with t
     -   **Blog Client API**: Use this setting if you want to use a third-party editor to create blog entries.
 4.  When your changes are complete, click **Update Blog Settings** to publish your changes.
 
-## What to do next 
+## What to do next {#section_mct_j2r_g5b .section}
 
 Want to manage your blog membership? [Update member permissions, and add or remove members](c_blogs_roles.md) in the **Authors** page.
 
-**Parent topic:**[Managing a blog](../../user/blogs/c_blog_managing.md)
+**Parent topic:**[Managing a blog](../blogs/c_blog_managing.md)
 

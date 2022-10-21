@@ -1,4 +1,4 @@
-# Keeping up with notifications 
+# Keeping up with notifications {#notifications .task}
 
 No matter where you are in HCL Connections, you can open the Notification Center and scan for important commitments and updates to keep you plugged in and on task.
 

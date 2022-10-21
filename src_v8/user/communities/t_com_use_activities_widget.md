@@ -1,4 +1,4 @@
-# Assigning tasks in a community activity 
+# Assigning tasks in a community activity {#t_com_use_activities_widget .task}
 
 Add activities to your community so you can assign tasks to members and share information and resources. You can grant access to the activity to all community members, or you can restrict access to a subset of members.
 
@@ -31,10 +31,10 @@ Creating an activity is a useful way to share to-do items, post event informatio
 
 After you create an activity, you can add sections, entries, and to-do items. Community members receive an email message to notify them that they are added to the new activity.
 
-**Parent topic:**[Enhancing collaboration](../../user/communities/enhancing_collaboration.md)
+**Parent topic:**[Enhancing collaboration](../communities/enhancing_collaboration.md)
 
 **Related information**  
 
 
-[Keeping your community activities up-to-date](../../user/communities/t_com_manage_activity.md)
+[Keeping your community activities up-to-date](../communities/t_com_manage_activity.md)
 

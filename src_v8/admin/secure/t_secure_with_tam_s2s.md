@@ -86,8 +86,6 @@ To send all traffic through your WebSeal server, including server to server traf
 
     2.  Set the value, in minutes, of the **CookieTimeout** attribute to be equal to or less than the maximum timeout and idle timeout [values that you configured in Security Access Manager](t_secure_with_tam.md#TheValueOfTheCookieTimeoutAttribut).
 
-        **Note:** When your production environment is ready, set the AllowSelfSignedCerts parameter to false.
-
         **Note:** If the parameter does not already exist in the LotusConnections-config.xml file, create it. Open the file in a text editor and add the parameter to the customAuthenticator element.
 
     3.  Save your changes.

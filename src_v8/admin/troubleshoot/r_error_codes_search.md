@@ -670,11 +670,6 @@ For more information, see *Excluding specific users from the social analytics se
 |CLFRW1088E: Error writing to the initial indexing logfile.| |Check file system permissions on the index directory.|
 |CLFRW1037W: An exception occurred during the calculation of the social distance for user \{0\}.| |This is a warning message only. If the problem persists, contact IBM Customer Support.|
 |CLFRW1038E: An error occurred while removing email references from embedded vcard, the vcard will be omitted from the search result for index document \{0\}.| |If the problem persists, contact IBM Customer Support.|
-|CLFRW1091W: Failed to process request : \{0\}?\{1\}. Statistics Service is \{2\}.|SEARCH\_DISABLE\_STATS\_SERVICE is set to true, which disables the service and triggers the error message.|Log in to Connections as a user that is mapped to the Admin role for the Common application. Navigate to the following URL: http:///connections/config/highway.main.gatekeeper.tiles
-
- Set SEARCH\_DISABLE\_STATS\_SERVICE to false to enable the service.
-
-|
 |CLFRW1017E: Attribute user.info.internal.id is not set in the session for user with login ID \{0\}.| |If the problem persists, contact IBM Customer Support.|
 |CLFRW1069I: The concurrent count of recommendations requests is at its configured limit \(\{0\}\); this request will be suppressed.| |If this message occurs frequently and users are complaining about recommendation function, could consider raising the limit. Note this has performance implications.|
 |CLFRW1042I: The following file content indexing task has been successfully added: \{0\}.|Informational message.|This is an informational message only; no action is required.|

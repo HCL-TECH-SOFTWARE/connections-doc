@@ -2,7 +2,7 @@
 
 You can deploy Opensearch Metrics with the existing Metrics events data in your RDBMS. The procedure involves migrating the events data, testing the environment, and then switching users to the Opensearch Metrics component.
 
-**Note:** If you are new to Connections, skip this task and instead use the following instructions to set up Elasticsearch Metrics for your first use: [Deploying Elasticsearch Metrics as your first use of metrics](cp_config_es_metrics_no_cognos.md).
+**Note:** If you are new to Connections, skip this task and instead use the following instructions to set up Elasticsearch Metrics for your first use: [Deploying Elasticsearch Metrics as your first use of metrics](cp_config_os_metrics_no_cognos.md).
 
 Both the RDBMS-based metrics app and the Elasticsearch Metrics component are installed during the Connections 6.0 CR updates. The RDBMS-based metrics app is provided for testing purposes only, and no Cognos® server is needed. Ensure that you have applied both the latest CR and the latest Connections Component Pack ifix, changed the number of shards for the index \(if your environment warrants it\), and enabled the Metrics component to connect to your Elasticsearch server.
 
@@ -65,7 +65,7 @@ Migrating data from your relational database to Elasticsearch storage is an iter
     If Connections users updated content during the data migration and validation periods, that data was stored on the relational database, so repeat step 2 to migrate it. You can repeat step 2 as many times as necessary.
 
 
-When you are ready to back up your new metrics data, see [Backing up and restoring data for Elasticsearch-based components](../admin/cp_config_es_backup_restore_data.md).
+When you are ready to back up your new metrics data, see [Backing up and restoring data for OpenSearch indices](../admin/cp_config_os_backup_restore_data.md).
 
 **Parent topic:**[Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
 

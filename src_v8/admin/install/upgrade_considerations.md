@@ -4,7 +4,7 @@ The upgrade path described in [Steps to install or upgrade to Component Pack 8](
 
 ## Side-by-side vs. in-place {#section_jch_yrx_bvb .section}
 
-The approach in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
+You can upgrade to HCL Connections 8 by doing either a side-by-side or an in-place upgrade. The approach described in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
 
 If your upgrade strategy requires a side-by-side migration on a mirrored set of both WebSphere and Kubernetes machines, you can still use the installation document. The difference between the two approaches is the transfer of data from source to destination system.
 
@@ -26,7 +26,7 @@ To deploy Component Pack, we use HCL Software’s Harbor container registry. Mod
 
 ## Switch container runtime {#section_sqh_ktx_bvb .section}
 
-Ensure containerd is up and running on Kubernetes master and worker nodes. Follow the steps in [migrating from Docker to containerd](http://kruyt.org/migrate-docker-containerd-kubernetes).
+Ensure containerd is up and running on Kubernetes master and worker nodes. Follow the steps in [migrating from Docker to containerd](https://kubernetes.io/docs/tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd/).
 
 Watch out for the --network-plugin flag. You will need to remove it from /var/lib/kubelet/kubeadm-flags.env, otherwise kublet won't start after upgrading to v1.24. For details, view the [GitHub issue](https://github.com/kubernetes/website/issues/33640).
 
@@ -34,7 +34,7 @@ Watch out for the --network-plugin flag. You will need to remove it from /var/li
 
 ## Kubernetes {#section_avm_v5x_bvb .section}
 
-If your Component Pack services run on an older Kubernetes version, we strongly recommend that you upgrade to version 1.24 before moving to Connections 8. As an example, if your Kubernetes version is 1.19, step up to 1.20 via 1.21, 1.22, and so on. See [Prerequisites for Component Pack](cp_prereqs.md).
+If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8. Refer to Supported versions \(TBD\).
 
 ## Kubernetes-based services {#section_ay1_5vx_bvb .section}
 
@@ -42,7 +42,7 @@ During the installation scenario, we will upgrade our Kubernetes stack to the ne
 
 ## Helm {#section_bqv_2vx_bvb .section}
 
-We recommend that you upgrade Helm to version 3.7.2.
+See Supported versions \(TBD\).
 
 ## OpenSearch {#section_wsm_gvx_bvb .section}
 

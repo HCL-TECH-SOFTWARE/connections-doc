@@ -1,8 +1,8 @@
-# Adding files and links 
+# Adding files and links {#concept_n1d_5th_my .concept}
 
 Feel like your blog is missing something? Add files or links to websites, feeds, and images.
 
-## Adding a file 
+## Adding a file {#section_wmq_fvh_my .section}
 
 1.  From the navigation bar, click **Blogs** and then **Manage Entries** for the blog you want to work with.
 2.  In the sidebar, click **File Uploads**.
@@ -10,7 +10,7 @@ Feel like your blog is missing something? Add files or links to websites, feeds,
 4.  To organize files in a folder, enter a **New Directory** name and click **Create**.
 5.  To delete a file from the blog, select the checkbox for the file you want to delete and click **Delete**.
 
-## Adding a link 
+## Adding a link {#section_vbh_gvh_my .section}
 
 1.  From the navigation bar, click **Blogs** and then **Manage Entries** for the blog you want to work with.
 2.  In the sidebar, click **Links**.
@@ -22,9 +22,9 @@ Feel like your blog is missing something? Add files or links to websites, feeds,
 5.  To delete one or more links, select the checkbox next to the links and click **Delete**.
 6.  To edit a link, click **Edit** next to the link.
 
-## Next steps 
+## Next steps {#section_ipx_dxh_my .section}
 
 Now that your own blog is set up, [start connecting with other blogs](c_blog_connecting_others.md).
 
-**Parent topic:**[Contributing to a blog](../../user/blogs/c_welcome_blogs.md)
+**Parent topic:**[Contributing to a blog](../blogs/c_welcome_blogs.md)
 

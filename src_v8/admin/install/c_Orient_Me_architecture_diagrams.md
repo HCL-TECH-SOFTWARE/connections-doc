@@ -53,5 +53,5 @@ The installation package relies on Docker container technology and includes some
 -   MongoDB is an open-source database that uses a document-oriented rather than relational data model.
 -   Redis is an open source \(BSD licensed\), in-memory data structure store, used as a database, cache and message broker.
 -   Solr provides distributed indexing, replication and load-balanced querying, automated failover and recovery, and centralized configuration.
--   Elasticsearch is a search engine based on Lucene. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.
+-   OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data
 

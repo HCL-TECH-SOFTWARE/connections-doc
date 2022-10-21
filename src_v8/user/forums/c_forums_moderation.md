@@ -1,4 +1,4 @@
-# Forum moderation 
+# Forum moderation {#c_forums_moderation .concept}
 
 When moderation is enabled for Forums, any content that users add to forums is not displayed until it is approved by a moderator.
 
@@ -8,5 +8,5 @@ The HCL Connections administrator can specify whether moderation is managed by g
 
 When owner moderation is enabled, community owners can moderate community forum content from the community moderation interface. For more information about moderating community forum content, see [Moderating community content](../communities/t_com_moderate_content.md).
 
-**Parent topic:**[Creating and managing forums](../../user/forums/c_forums_manage_forums.md)
+**Parent topic:**[Creating and managing forums](../forums/c_forums_manage_forums.md)
 

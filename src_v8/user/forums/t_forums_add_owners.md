@@ -1,4 +1,4 @@
-# Adding more owners to a forum 
+# Adding more owners to a forum {#t_forums_add_owners .task}
 
 If you are the Forums administrator or a forum owner, you can add more owners to a forum to share the responsibilities of forum ownership.
 
@@ -16,5 +16,5 @@ If you are the Forums administrator or a forum owner, you can add more owners to
 
 If you want to remove owners from the forum, clicking the ![Remove this member icon](removeOwner.png) icon near their names in the **Owner** area.
 
-**Parent topic:**[Creating and managing forums](../../user/forums/c_forums_manage_forums.md)
+**Parent topic:**[Creating and managing forums](../forums/c_forums_manage_forums.md)
 

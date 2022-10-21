@@ -1,4 +1,4 @@
-# Getting notified when a wiki changes 
+# Getting notified when a wiki changes {#concept_vtj_1dl_my .concept}
 
 Receive updates when a wiki or wiki page changes. Notifications are displayed in your Home page but you can also receive updates by email or keep track using a feed reader.
 
@@ -61,7 +61,7 @@ If you have a feed reader, for example a browser extension type, you can also su
 
 |Your feed reader automatically receives the same updates as a wiki member's feed.|
 
-**Parent topic:**[Using Connections 8.0](../../user/welcome/welcome_end_user.md)
+**Parent topic:**[Using Connections 8.0](../welcome/welcome_end_user.md)
 
 **Related information**  
 

@@ -1,10 +1,10 @@
-# Installing HCL Connections 7.0 {#t_install_cluster .task}
+# Installing HCL Connections 8.0 {#t_install_cluster .task}
 
 Install HCL Connections.
 
 Ensure that you complete all the prerequisite tasks that are relevant for your environment. For more information, see the [Before installing](r_before_installing.md) topic.
 
-**Attention:** The HCL Connections 7.0 database wizard does not create the database for the Community Highlights / Connections Engagement Center \(CEC\) or Feature Foundation \| Export entries to PDF and provides support for Tailored Experience. The Community Highlights database scripts are located in the folder - /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder - /Wizards/connections.sql/ic360. Refer to the procedure in this section to create the databases. You will need to manually run the SQL scripts that are provided with HCL Connections™. See [Creating databases](c_install_db_over.md) for more information.
+**Attention:** The HCL Connections 8.0 database wizard does not create the database for the Community Highlights / Connections Engagement Center \(CEC\) or Feature Foundation \| Export entries to PDF and provides support for Tailored Experience. The Community Highlights database scripts are located in the folder - /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder - /Wizards/connections.sql/ic360. Refer to the procedure in this section to create the databases. You will need to manually run the SQL scripts that are provided with HCL Connections™. See [Creating databases](c_install_db_over.md) for more information.
 
 To install HCL Connections, run the IBM® Installation Manager wizard on the system where the Deployment Manager is installed.
 
@@ -65,7 +65,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
         **Note:** If you install Communities and want users to be able to add the Rich Content app in a community, you must also install Wikis now.
 
     -   Install Metrics now so that your application data is captured from the moment that HCL Connections is deployed. If you install Metrics at a later stage, you will not have any data reports for the period before you installed Metrics.
-        |**HCL Connections 7.0**|Install all HCL Connections applications.|
+        |**HCL Connections 8.0**|Install all HCL Connections applications.|
     |**Activities**|Collaborate with colleagues.|
     |**Blogs**|Write personal perspectives about projects.|
     |**Communities**|Interact with people on shared projects.|
@@ -165,7 +165,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
     2.  Select a **Database type** from one of the following options:
 
         -   IBM DB2 Universal Database™
-        -   Oracle 12c Enterprise
+        -   Oracle 19c Enterprise
         -   Microsoft SQL Server Enterprise Edition
     3.  Enter the **Database server host name**. For example: appserver.enterprise.example.com
 
@@ -423,7 +423,6 @@ If an error occurs during installation, IBM Installation Manager cancels the ins
 
 -   Complete the [Post-installation Tasks](r_post-installation_tasks.md).
 -   Accessing network shares: If you installed WebSphere Application Server on Microsoft Windows and configured it to run as a service, ensure that you can access network shares. For more information, see the *Accessing Windows network shares* topic.
--   [Download the Connections V7.0 Update Wizard from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/DownloadSearchPage.action?search=Connections+V7.0+Update+Wizard&resultType=Files&sortBy=relevance&listButton=Search).
 
 **Parent topic:**[Installing HCL Connections](../install/c_installing_overview.md)
 

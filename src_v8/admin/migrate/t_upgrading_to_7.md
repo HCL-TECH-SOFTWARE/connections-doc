@@ -1,33 +1,24 @@
 # Performing an in-place or hybrid upgrade {#t_upgrading_to_7 .task}
 
-Upgrade to an HCL Connections 7.0 deployment by running the Installation Manager Update function on a Connections 6.5 CR1 deployment. This can be done either in-place \(in your existing production environment\) or using a hybrid approach of installing 6.5 in a new environment identical to production, updating that to 6.5 CR1, and then running the upgrade to 7.
+Upgrade to an HCL Connections 8.0 deployment by running the Installation Manager Update function on a Connections 7.0 deployment. This can be done either in-place \(in your existing production environment\) or using a hybrid approach of installing 7.0 in a new environment identical to production, updating that to 7.0, and then running the upgrade to 7.
 
-Download [Connections 7.0 Server and Component Pack 7.0.0.2 from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/entitledDownloadFile.action?downloadPkgId=HCL_Connections_7.0&orgId=HCL&fromRecentFile=false&fromRecentPkg=false&fromDL=true). Connections Server packages are as follows:
+Download Connections and Component Pack 8.0. Connections Server packages are as follows:
 
--   HCL\_Connections\_7.0 \(download package for Connections 7.0 including system requirements\)
--   HCL\_Connections\_7.0\_Updates \(download package for Connections 7.0 Updates\)
+-   HCL\_Connections\_8.0 \(download package for Connections 8.0 including system requirements\)
+-   HCL\_Connections\_8.0\_Updates \(download package for Connections 8.0 Updates\)
 -   Websphere Application Server 8.5.5 and Select Fix Packs \(download package for IBM WebSphere including FixPacks\)
-
-For future reference, review the resources you'll need to apply the latest updates to Connections 7.0 after you upgrade:
-
--   **Enhanced HCL Connections 7.0 Update Wizard -2104** \(Available in the HCL Connections 7.0 download link above\)
-
-    **Note:** The Update Wizard for Connections has been extended to support “Feature Foundation” and the “Sharepoint Library widget.” The HCL Connections 7.0 Update Wizard \(2104\) is required to install the “HCL Connections v7.0 Cumulative Fix \(CFix\).”
-
--   [**Update Strategy for HCL Connections 7.0**](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0086997), which includes links to the latest fix lists for Connections and Component Pack.
 
 **Attention:**
 
--   The HCL Connections 7.0 database wizard does not create the database for the Community Highlights / Connections Engagement Center \(CEC\) or Feature Foundation \(enables PDF Export and provides support for Tailored Experience\). The Community Highlights database scripts are located in the folder /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder/Wizards/connections.sql/ic360. See [Creating databases](../install/c_install_db_over.md) for more information.
 -   On the system where the Deployment Manager is installed, prepare the supporting software for the update:
-    -   [Download Connections 7.0 from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/entitledDownloadFile.action?downloadPkgId=HCL_Connections_7.0&orgId=HCL&fromRecentFile=false&fromRecentPkg=false&fromDL=true). Decompress the 7.0 package into a temp directory.
+    -   Download Connections 8.0 from the HCL License & Delivery Portal. Decompress the 8.0 package into a temp directory.
     -   Verify that you have upgraded to the latest [WebSphere Application Server and supplemental software from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/entitledDownloadFile.action?downloadPkgId=Websphere+Application+Server+8.5.5+and+Select+Fix+Packs&orgId=HCL&fromRecentFile=false&fromRecentPkg=false&fromDL=false), and have updated HTTP Server 8.5 and Web Server Plug-ins for IBM® WebSphere® Application Server 8.5.
-    -   Verify that you are running Installation Manager 1.8.5 64-bit.
+    -   Verify that you are running Installation Manager 1.9.1 654-bit.
     -   In the soap.client.props file, change the SOAP Request Timeout to com.ibm.SOAP.requestTimeout=0 to ensure that no requests time out during the installation. Restart the Deployment Manager and start the HTTP services: HTTP Administration for WebSphere Application Server V8.5 and HTTP Server V8.5.
 
-**Important:** If you have previously installed ICXT, deselect the **Feature Foundation** check box when upgrading to Connections 7.0 and contact HCL Support to acquire the new ICXT upgrade package. After downloading the ICXT package follow the [ICXT installation guidelines](https://help.hcltechsw.com/connections/api/icxt/install-guide-scripted.html).
+**Important:** If you have previously installed ICXT, deselect the **Feature Foundation** check box when upgrading to Connections 8.0 and contact HCL Support to acquire the new ICXT upgrade package. After downloading the ICXT package follow the [ICXT installation guidelines](https://help.hcltechsw.com/connections/api/icxt/install-guide-scripted.html).
 
-**Note:** In an in-place upgrade, previous configurations for IBM FileNet and Metrics deployments will be retained in Connections 7.0 going forward.
+**Note:** In an in-place upgrade, previous configurations for IBM FileNet and Metrics deployments will be retained in Connections 8.0 going forward.
 
 1.  Stop all clusters and node agents in your deployment but leave the Deployment Manager running.
 
@@ -49,7 +40,7 @@ For future reference, review the resources you'll need to apply the latest updat
 
 8.  Select **HCL Connections** and click **Next**.
 
-9.  From the Update Packages screen select Version 7.0.0.0 and click **Next**.
+9.  From the Update Packages screen select Version 8.0.0.0 and click **Next**.
 
 10. Review and accept the license agreement by clicking **I accept terms in the license agreements** and then click **Next**.
 
@@ -90,9 +81,9 @@ For future reference, review the resources you'll need to apply the latest updat
 22. Start the Connections server.
 
 
--   **Required database update to Homepage:** Deployments that upgrade from Connections 6.5 CR1 are required to manually run the Homepage database schema. See [Updating databases](t_update_databases-manual.md).
--   A Connections 7.0 upgrade deployment updates a number of web services and other artifacts that require an end user to clear the browser cache to get the updates.
--   Alternatively, you can allow user's browsers to load new web services and artifacts by updating the <versionStamp value="\#\#\#\#"/\> in the LotusConnections-config.xml so users will see the changes the next time they log in, without having to clear their web browser cache. See [Post-customization step](../customize/t_admin_common_customize_postreq.md) after a Connections 7.0 upgrade is deployed so users will receive changes the next time they log in without having to clear their web browser cache. If the browser cache is not updated problems such as the Community Catalog not displaying correctly may occur.
+-   **Required database update to Homepage:** Deployments that upgrade from Connections 7.0 are required to manually run the Homepage database schema. See [Updating databases](t_update_databases-manual.md).
+-   A Connections 8.0 upgrade deployment updates a number of web services and other artifacts that require an end user to clear the browser cache to get the updates.
+-   Alternatively, you can allow user's browsers to load new web services and artifacts by updating the <versionStamp value="\#\#\#\#"/\> in the LotusConnections-config.xml so users will see the changes the next time they log in, without having to clear their web browser cache. See [Post-customization step](../customize/t_admin_common_customize_postreq.md) after a Connections 8.0 upgrade is deployed so users will receive changes the next time they log in without having to clear their web browser cache. If the browser cache is not updated problems such as the Community Catalog not displaying correctly may occur.
 
 **Parent topic:**[In-place and hybrid upgrades](../migrate/c_inplace_upgrade.md)
 

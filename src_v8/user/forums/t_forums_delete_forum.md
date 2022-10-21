@@ -1,4 +1,4 @@
-# Deleting forums 
+# Deleting forums {#t_forums_delete_forum .task}
 
 Delete forums when they are no longer being used.
 
@@ -16,5 +16,5 @@ When you want to prevent users from updating a forum but still allow them to vie
 4.  Click **Delete** to confirm that you want to delete the forum.
 
 
-**Parent topic:**[Creating and managing forums](../../user/forums/c_forums_manage_forums.md)
+**Parent topic:**[Creating and managing forums](../forums/c_forums_manage_forums.md)
 

@@ -1,4 +1,4 @@
-# Following forums and forum topics 
+# Following forums and forum topics {#t_forums_follow_forum .task}
 
 Follow a forum when you want to receive notifications about the latest updates to the forum. If you are interested in a particular forum thread, you can also follow forum content at topic level.
 
@@ -29,5 +29,5 @@ To track the forums and forum topics that you are following, click **I'm Followi
 
 If you no longer want to receive notifications about updates to a forum or forum topic, you can stop following it. To stop following a forum, open the forum and click **Follow** \> **Stop Following this Forum**. To stop following a forum topic, open the topic and click **Follow** \> **Stop Following this Topic**.
 
-**Parent topic:**[Finding and participating in forums](../../user/forums/t_forums_view_topics.md)
+**Parent topic:**[Finding and participating in forums](../forums/t_forums_view_topics.md)
 

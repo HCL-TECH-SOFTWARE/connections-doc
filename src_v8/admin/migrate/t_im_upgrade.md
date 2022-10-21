@@ -18,5 +18,5 @@ A CFix requires that we replace the updateInstaller with a new version downloade
 5.  Move existing fixes from connections\_root/updateInstaller\_backup/fixes to connections\_root/updateInstaller/fixes.
 
 
-**Parent topic:**[Updating Connections 7.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

@@ -1,4 +1,4 @@
-# Liking an entry 
+# Liking an entry {#concept_ey5_bc3_my .concept}
 
 Let the author know that you liked a particular blog entry and recommend it to others. Liking an entry gives that entry more relative importance when the entries are sorted by using the **Likes/Votes** option on the **Public Blogs** page.
 
@@ -7,5 +7,5 @@ Let the author know that you liked a particular blog entry and recommend it to o
 
 To view all entries that you've liked, click the **Public Blogs** tab then **My Likes/Votes** in the side panel.
 
-**Parent topic:**[Connecting with other blogs](../../user/blogs/c_blog_connecting_others.md)
+**Parent topic:**[Connecting with other blogs](../blogs/c_blog_connecting_others.md)
 

@@ -1,4 +1,4 @@
-# Using the Recommendations app on the home page 
+# Using the Recommendations app on the home page {#t_com_using_recommended_comms_widget .task}
 
 Use the Recommendations app to find content from the different apps that might interest you. The app displays in the side column of the activity stream views.
 

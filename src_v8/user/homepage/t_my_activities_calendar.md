@@ -1,4 +1,4 @@
-# Using the calendar in the My Activities app 
+# Using the calendar in the My Activities app {#t_my_activities_calendar .task}
 
 Use the calendar in the My Activities app to find out which of your task deadlines are approaching.
 

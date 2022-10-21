@@ -1,4 +1,4 @@
-# Adding or removing members 
+# Adding or removing members {#t_com_membership_add .concept}
 
 Extend your community by adding new members. You can add people as either Members or Owners.
 
@@ -25,7 +25,7 @@ Extend your community by adding new members. You can add people as either Member
     -   To change the access role for a member, click **Edit** and choose the person's new role.
     -   To delete a member from a community, click **Remove** next to the member name.
 
-**Parent topic:**[Adding members to grow your community](../../user/communities/c_com_add_members.md)
+**Parent topic:**[Adding members to grow your community](../communities/c_com_add_members.md)
 
 **Related information**  
 

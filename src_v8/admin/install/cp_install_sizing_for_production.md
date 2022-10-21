@@ -33,7 +33,7 @@ Persistent volumes are a firm requirement for Component Pack, but even without i
 
 For normal system operation, it is best for each master to have at least 100G of dedicated disk space, and for each worker at least 150G of dedicated disk space.
 
-For persistent volume storage \(used for ElasticSearch, Customizer, and MongoDB\), at least 200G of storage is suggested.
+For persistent volume storage \(used for OpenSearch, Customizer, and MongoDB\), at least 200G of storage is suggested.
 
 **Parent topic:**[Sizing the Kubernetes cluster](../install/cp_sizing_kubernetes_container.md)
 

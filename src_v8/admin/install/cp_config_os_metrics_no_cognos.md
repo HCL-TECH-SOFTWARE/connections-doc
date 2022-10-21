@@ -2,17 +2,17 @@
 
 Deploying Opensearch-based metrics for HCL Connections™ involves testing the environment and then switching users to the Opensearch Metrics component.
 
-Before proceeding, make sure that you have changed the number of shards for the index \(if your environment warrants it\), and enabled the Metrics component to connect to your Elasticsearch server.
+Before proceeding, make sure that you have changed the number of shards for the index \(if your environment warrants it\), and enabled the Metrics component to connect to your OpenSearch server.
 
-Complete the following steps to set up Elasticsearch Metrics:
+Complete the following steps to set up OpenSearch Metrics:
 
-1.  Validate that the Elasticsearch user experience is functioning well by confirming the test context root URL is working:
+1.  Validate that the OpenSearch user experience is functioning well by confirming the test context root URL is working:
 
     Log in to the following URL as the admin user: https://Connections\_server/metricssc
 
-2.  When validation is complete, run the following Python script to switch users to the Elasticsearch Metrics component.
+2.  When validation is complete, run the following Python script to switch users to the OpenSearch Metrics component.
 
-    This script causes the RDBMS-based app to stop capturing data, and the Elasticsearch component to start capturing it.
+    This script causes the RDBMS-based app to stop capturing data, and the OpenSearch component to start capturing it.
 
     1.  On the WebSphere deployment manager server, start the wsadmin client as described in [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md).
 
@@ -84,7 +84,7 @@ Complete the following steps to set up Elasticsearch Metrics:
 4.  Confirm that the URL for metrics is working: https://Connections\_server/metrics.
 
 
-When you are ready to back up your metrics data, see [Backing up and restoring data for Elasticsearch-based components](../admin/cp_config_es_backup_restore_data.md).
+When you are ready to back up your metrics data, see [Backing up and restoring data for OpenSearch indices](../admin/cp_config_os_backup_restore_data.md).
 
 **Parent topic:**[Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
 
