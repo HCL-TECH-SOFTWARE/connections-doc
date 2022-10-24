@@ -78,10 +78,11 @@ plugins:
 nav:
 # HCL Connections Documentation
       - Introducing Connections: index.md
+# What's New
+      - What&apos;s new in Connections&quest;: admin/overview/i_ovr_r_whats_new.md    
 # Administering
       - Administering Connections 8: 
         - admin/welcome/welcome_admin.md
-        - What&apos;s new in Connections&quest;: admin/overview/i_ovr_r_whats_new.md
         - Product Overview:
           - admin/overview/c_lc4_product_overview.md
           - What is HCL Connections: admin/overview/c_what_is_lc.md
@@ -1449,33 +1450,27 @@ nav:
           - Start collaborating:
             - user/eucommon/c_eucommon_connecting_people.md
             - Which app do you use&quest;: user/eucommon/c_eucommon_which_app.md
-            - Connecting with external users:
-              - user/eucommon/c_eucommon_ext_user.md
-              - Shared features: 
-                - user/eucommon/c_eucommon_shared_components.md
-                - Searching Connections: 
-                  - user/eucommon/c_eucommon_search.md
-                  - Performing a search: user/eucommon/t_eucommon_searching_lc.md
-                  - Filtering search results: user/eucommon/t_eucommon_view_search_results.md
-                  - Advanced search terms: user/eucommon/c_eucommon_search_adv_search_options.md
-                - Sharing in Connections: user/eucommon/c_eucommon_share.md
-                - Exporting app content as a PDF: user/eucommon/t_eucommon_export_as_pdf.md
-                - Using the rich text editor: 
-                  - user/eucommon/eucommon_ckeditor.md
-                  - Adding an image: user/eucommon/t_eucommon_insert_image.md
-                  - Inserting an iFrame: user/eucommon/t_eucommon_insert_iFrame.md
-                  - Embedding videos: user/eucommon/embed_video.md
-                - What are &commat;mentions and &num;hashtags&quest;: user/eucommon/r_common_mention_hashtag.md
-                - Tagging content: user/eucommon/c_eucommon_tagging_content.md
-                - Moderating content: user/eucommon/c_eucommon_global_moderation.md
-                - Subscribing to feeds: user/eucommon/t_eucommon_subscribe_to_feed.md
-                - Viewing metrics: user/eucommon/t_eucommon_metrics.md
-              - Product accessibility: 
-                - user/eucommon/c_eucommon_accessibility_over.md
-                - Rich text editor keyboard shortcuts: user/eucommon/r_eucommon_access_ckeditor.md
-                - Home page accessibility features: user/eucommon/r_eucommon_access_homepage.md
-                - Search accessibility features: user/eucommon/r_eucommon_access_search.md
-              - Notices: user/notices/notices.md
+            - Connecting with external users: user/eucommon/c_eucommon_ext_user.md
+          - Shared features: 
+            - user/eucommon/c_eucommon_shared_components.md
+            - Searching Connections: 
+              - user/eucommon/c_eucommon_search.md
+              - Performing a search: user/eucommon/t_eucommon_searching_lc.md
+              - Filtering search results: user/eucommon/t_eucommon_view_search_results.md
+              - Advanced search terms: user/eucommon/c_eucommon_search_adv_search_options.md
+            - Sharing in Connections: user/eucommon/c_eucommon_share.md
+            - Exporting app content as a PDF: user/eucommon/t_eucommon_export_as_pdf.md
+            - Using the rich text editor: 
+              - user/eucommon/eucommon_ckeditor.md
+              - Adding an image: user/eucommon/t_eucommon_insert_image.md
+              - Inserting an iFrame: user/eucommon/t_eucommon_insert_iFrame.md
+              - Embedding videos: user/eucommon/embed_video.md
+            - What are &commat;mentions and &num;hashtags&quest;: user/eucommon/r_common_mention_hashtag.md
+            - Tagging content: user/eucommon/c_eucommon_tagging_content.md
+            - Moderating content: user/eucommon/c_eucommon_global_moderation.md
+            - Subscribing to feeds: user/eucommon/t_eucommon_subscribe_to_feed.md
+            - Viewing metrics: user/eucommon/t_eucommon_metrics.md
+          - Notices: user/notices/notices.md
         - Home page: 
           - user/homepage/hframe.md
           - Top Updates&colon; Keeping up with what's most relevant to you: user/homepage/Tile_homepage_using.md
@@ -2002,5 +1997,5 @@ nav:
         - guide_me/guide_me.md
         - How to guides:
           - guide_me/how_to_guides/how_to_guides.md
-          - HCL Connections 8 Sizing Guide: guide_me/how_to_guides/connections8_sizing_guide.pdf
-          - Troubleshooting Component Pack: guide_me/how_to_guides/troubleshooting_cnx_cp.pdf
+          - Connections 8 Sizing Guide: guide_me/how_to_guides/connections8_sizing_guide.pdf
+          - Connections 8 Troubleshooting Component Pack: guide_me/how_to_guides/troubleshooting_cnx_cp.pdf
