@@ -1,4 +1,4 @@
-# Granting access to global Opensearch Metrics {#cp_config_es_grant_access .task}
+# Granting access to global OpenSearch Metrics {#cp_config_es_grant_access .task}
 
 Configure the `metrics-report-run` security role to grant users the authority to view and interact with global metrics.
 

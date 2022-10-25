@@ -2,7 +2,7 @@
 
 Upgrading side-by-side from Connections 7.0 to 8.0 consists of installing Connections 8.0 and its supporting software on new systems, and then and migrating data and customizations to the new environment.
 
-**Note:** This documentation provides these guidelines to aid successful upgrades using the side-by-side approach. While this approach was not the primary focus of upgrade testing, it is often used on customer sites in cooperation with HCL Digital Solutions Services, and has particular advantages when upgrading from Connections versions earlier than 7.0.
+**Note:** This documentation provides these guidelines to aid successful upgrades using the side-by-side approach. While this approach was not the primary focus of upgrade testing, it is often used on customer sites in cooperation with HCL Digital Solutions Services, and has particular advantages when upgrading from Connections versions earlier than 7.
 
 ## WebSphere security {#section_pwn_kbv_pqb .section}
 

@@ -88,7 +88,7 @@ Make sure that secure connections are established in your deployment, as explain
     5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [Setting up certificates for type-ahead search](inst_tasearch_no_metrics.md).
 
 
-Deploy Elasticsearch-based metrics for Connections as explained in [Deploying Opensearch Metrics](cp_config_os_metrics_no_cognos.md).
+Deploy Elasticsearch-based metrics for Connections as explained in [Deploying OpenSearch Metrics](cp_config_os_metrics_no_cognos.md).
 
 **Parent topic:**[Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
 

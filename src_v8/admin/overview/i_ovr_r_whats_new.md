@@ -2,9 +2,9 @@
 
 Find out about features that are new or updated in this release of HCL Connections.
 
--   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0086997) **\(TBD\)** on the HCL Support site to obtain the latest updates for both Connections Server and Component Pack, including required critical updates.
+-   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates for both Connections Server and Component Pack, including required critical updates.
 
--   Download Connections 8.0 from the HCL Software License & Download portal, and Component Pack 8 from Harbor.
+-   Download Connections 8.0 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
 **Attention:** Connections customers are given a transition period to upgrade their customization for the Connections 7.0 UI to the new Connections 8.0 UI. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
 
@@ -14,28 +14,25 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   **System requirements**
     -   Refer to the [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
-        -   Connections 8 requires Java 8, so you need to upgrade Security Directory Integrator 7.2 and Install Manager from 1.8.x to 1.9.x. For more information, see [Deploying Security Directory Integrator into a new install of Connections](../install/t_prof_tdi_new_deploy.md) and Upgrading Install Manager **\(TBD\)**, respectively.
-    -   For Component Pack 8, see [Prerequisites for Component Pack](../install/cp_prereqs.dita).
+        -   Connections 8 requires Java 8, so you need to upgrade Security Directory Integrator 7.2. For more information, see [Deploying Security Directory Integrator into a new install of Connections](../install/t_prof_tdi_new_deploy.md).
+    -   For Component Pack 8, see [Prerequisites for Component Pack](../install/cp_prereqs.md).
 -   **Connections and Component Pack - automating your install and sizing your deployment**
     -   HCL's open-source GitHub documents provide details on setting up end-to-end automation to install Connections and Component Pack. The respective Git locations are:
         -   [Quickstart for setting up HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md)
         -   [HCL Connections and Component Pack automation scripts](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md)
     -   [HCL Connections 8.0 Sizing Guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf): Provides sizing and deployment recommendations for both Connections and Component Pack, based on HCL performance tests and best practices learned and confirmed by multiple customers through time.
--   **Component Pack now supports \(TBD\):**
-    -   Kubernetes 1.24
-    -   Official support for Helm v3
-    -   Amazon EFS for your automatic volume claims
-    -   Amazon EKS for Component Pack deployments. Use native Amazon ECR as your image registry, Amazon EKS as your Kubernetes cluster, Amazon EFS for your automatic volume claims, seamlessly integrate with Amazon ELB by using native Nginx ingress controller, and much more
-    -   Using provided automation, Component Pack was never easier to deploy, upgrade, and monitor using Prometheus and Grafana, end to end, either in cloud or on your own server or servers.
-    -   Easy integration of Prometheus JMX exporter with your Connections 8 stack and monitoring by Prometheus and Grafana running on your Kubernetes platform.
--   **Roadmap to Connections 8.0 and Component Pack 8**
-    -   For installation, see [Installing Connections](../install/c_installing.md).
-    -   For upgrade, see [Upgrading and updating](../migrate/c_upgrade_migrate_overview.md).
-    -   Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to [Installing and upgrading Component Pack for Connections](../install/cp_install_config_intro.md).
+-   **Component Pack**
+    -   For supported versions of components, for example Kubernetes and Helm, refer to the table in the [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
+    -   Component Pack is now installed from Harbor instead of a local Docker registry.
+
+-   **Roadmap to Connections and Component Pack**
+    -   **Connections 8.0**: See [Installing Connections](../install/c_installing.md) or [Upgrading and updating](../migrate/c_upgrade_migrate_overview.md).
+    -   **Component Pack 8**: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to [Installing and upgrading Component Pack for Connections](../install/cp_install_config_intro.md).
+    -   Check which new features are supported for a Component Pack and non-Component Pack deployment in [Supported features for Connections 8.0 deployments](../plan/supported_features.md).
 
 **Community surveys are no longer supported in Connections 8.0.**
 
-Leap will replace community surveys in an upcoming release.
+LEAP will replace community surveys in an upcoming release.
 
 **TinyMCE editor is only supported in the Connections 7 UI.**
 

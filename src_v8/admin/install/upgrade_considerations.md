@@ -22,7 +22,7 @@ For more information, see [Upgrade considerations for side-by-side migration of 
 
 ## Docker {#section_qcg_btx_bvb .section}
 
-To deploy Component Pack, we use HCL Software’s Harbor container registry. Modify the reference according to your environment. When provisioning Component Pack 8, you can empty your local Docker repository or manually delete the Connections 7 parts before starting the upgrade to version 8.
+To deploy Component Pack, we use the Harbor container registry. Modify the reference according to your environment. When provisioning Component Pack 8, you can empty your local Docker repository or manually delete the Connections 7 parts before starting the upgrade to version 8.
 
 ## Switch container runtime {#section_sqh_ktx_bvb .section}
 
@@ -34,7 +34,7 @@ Watch out for the --network-plugin flag. You will need to remove it from /var/li
 
 ## Kubernetes {#section_avm_v5x_bvb .section}
 
-If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8. Refer to Supported versions \(TBD\).
+If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8. Refer to [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 ## Kubernetes-based services {#section_ay1_5vx_bvb .section}
 
@@ -42,7 +42,7 @@ During the installation scenario, we will upgrade our Kubernetes stack to the ne
 
 ## Helm {#section_bqv_2vx_bvb .section}
 
-See Supported versions \(TBD\).
+See [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 ## OpenSearch {#section_wsm_gvx_bvb .section}
 

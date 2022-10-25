@@ -19,7 +19,7 @@ If Component Pack for HCL Connections™ is installed in your deployment, you ca
 -   **[Integrating with other apps](../install/cp_3p_integrate_with_other_products.md)**  
 With Component Pack for HCL Connections, you can deploy microservices for apps that create points of integration between Connections and other products.
 -   **[Troubleshooting Component Pack installation or upgrade](../install/cp_install_troubleshoot_intro.md)**  
-If you encounter issues when installing or deploying the Component Pack images, see the [Troubleshooting Component Pack guide](https://help.hcltechsw.com/connections/v7/pdfs/troubleshooting_cnx_cp.pdf) on the HCL Software product documentation site, or consult [HCL Support Services](https://support.hcltechsw.com/) for recent tech articles on Component Pack.
+If you encounter issues when installing or deploying the Component Pack images, see the [Troubleshooting Component Pack guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) on the HCL Software product documentation site, or consult [HCL Support Services](https://support.hcltechsw.com/) for recent tech articles on Component Pack.
 -   **[Uninstalling Component Pack](../install/cp_install_uninstall.md)**  
 Follow these steps to remove the Component Pack services from your Connections deployment.
 

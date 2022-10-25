@@ -1,6 +1,8 @@
 # Configuring the Orient Me component {#cp_config_om_intro. .concept}
 
-Additional configuration is required for the Orient Me component to populate it with Connections data and to enable the notification center and a menu option for managing home pages. Orient Me is only supported in the Connections 7.0 interface.
+Additional configuration is required for the Orient Me component to populate it with Connections data and to enable the notification center and a menu option for managing home pages.
+
+**Note:** Orient Me is only supported in the Connections 7.0 user interface.
 
 Follow these steps to configure the Orient Me component to share content with HCL Connections™.
 

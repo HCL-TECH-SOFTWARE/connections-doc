@@ -36,7 +36,7 @@ To understand what your cluster is really doing and how it is utilized, it is be
 
 ## Guide to suggested topologies {#section_dpf_ftl_tnb .section}
 
-To plan your Connections with Component Pack deployment, you can find detailed information in the [HCL Connections Sizing Guide](https://help.hcltechsw.com/connections/v7/pdfs/connections7_sizing_guide.pdf) on the HCL Software product documentation site.
+To plan your Connections with Component Pack deployment, you can find detailed information in the [HCL Connections Sizing Guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf) on the HCL Software product documentation site.
 
 Meanwhile, the following topics here provide some general information on single-node versus production-grade options.
 

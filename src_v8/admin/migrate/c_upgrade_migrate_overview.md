@@ -8,7 +8,7 @@ The following sections provide background and instructions on the different appr
 
 -   **[Getting ready for upgrading or updating](../migrate/t_prepare_migrate_upgrade.md)**  
 Take steps to inform users and protect data before starting an HCL Connections upgrade or update.
--   **[Ways to upgrade to Connections 8.0](../migrate/c_3_ways_to_upgrade.md)**  
+-   **[Ways to upgrade to Connections 8](../migrate/c_3_ways_to_upgrade.md)**  
 You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
 -   **[Side-by-side upgrades](../migrate/c_sbs_upgrade_container.md)**  
 You can upgrade to Connections 7.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.

@@ -23,12 +23,6 @@ Find out [what features](r_eucommon_whats_new.md) have been added since the last
 -   [Subscribing to feeds](t_eucommon_subscribe_to_feed.md)
 -   [Viewing metrics](t_eucommon_metrics.md)
 
-## Product accessibility { .section}
-
--   [Rich text editor keyboard shortcuts](r_eucommon_access_ckeditor.md)
--   [Home page accessibility features](r_eucommon_access_homepage.md)
--   [Search accessibility features](r_eucommon_access_search.md)
-
 ## Notices { .section}
 
 -   [Notices](../notices/notices.md)

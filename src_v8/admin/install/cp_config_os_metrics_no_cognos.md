@@ -1,6 +1,6 @@
-# Deploying Opensearch Metrics {#cp_config_es_metrics_no_cognos .task}
+# Deploying OpenSearch Metrics {#cp_config_es_metrics_no_cognos .task}
 
-Deploying Opensearch-based metrics for HCL Connections™ involves testing the environment and then switching users to the Opensearch Metrics component.
+Deploying OpenSearch-based metrics for HCL Connections™ involves testing the environment and then switching users to the OpenSearch Metrics component.
 
 Before proceeding, make sure that you have changed the number of shards for the index \(if your environment warrants it\), and enabled the Metrics component to connect to your OpenSearch server.
 

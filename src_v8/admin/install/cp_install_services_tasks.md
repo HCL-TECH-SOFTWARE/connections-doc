@@ -130,14 +130,6 @@ Exporting the persistent volumes
     systemctl restart nfs-server
     ```
 
-3.  Add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
-
-    ``` {#codeblock_f55_s3w_fvb}
-    # jsonapi
-    ProxyPass "/jsonapi" "http://master_node_host_name:32080/jsonapi"
-    ProxyPassReverse "/jsonapi" "http://master_node_host_name:32080/jsonapi"
-    ```
-
 
 Ensure that all of the persistent volumes are exported and mountable from Kubernetes masters and workers nodes before you proceed to the next steps.
 
@@ -516,7 +508,7 @@ Make sure that the network configuration of your NFS environment is correct befo
 component\_pack\_installation\_folder/hybridcloud/examples/multi\_domain\_environment/connections-volumes.yml**
 ```
 
-**For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pack guide](https://help.hcltechsw.com/connections/v7/pdfs/troubleshooting_cnx_cp.pdf) on the HCL software product documentation site.**
+**For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pack guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) on the HCL software product documentation site.**
 
 ## Set up bootstrap charts {#bootstrap .section}
 
@@ -583,7 +575,15 @@ The infrastructure charts are installed during MongoDB 5 installation \(see prev
 
 **\[From v7\]****This will install the infrastructure for Orient Me and other apps, the most prominent being MongoDB and appreg services.**
 
-**If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the [Troubleshooting Component Pack](https://help.hcltechsw.com/connections/v7/pdfs/troubleshooting_cnx_cp.pdf) document.**
+**If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the [Troubleshooting Component Pack](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) document.**
+
+Add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
+
+``` {#codeblock_jzt_5wk_gvb}
+# jsonapi
+ProxyPass "/jsonapi" "http://master_node_host_name:32080/jsonapi"
+ProxyPassReverse "/jsonapi" "http://master_node_host_name:32080/jsonapi"
+```
 
 ## Set up Customizer {#section_n3c_xhj_dvb .section}
 

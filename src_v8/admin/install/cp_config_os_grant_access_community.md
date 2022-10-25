@@ -1,4 +1,4 @@
-# Granting access to Opensearch Metrics for communities {#cp_config_es_grant_access_community .task}
+# Granting access to OpenSearch Metrics for communities {#cp_config_es_grant_access_community .task}
 
 Configure the `community-metrics-run` security role to grant users the authority to view community metrics using static reports.
 

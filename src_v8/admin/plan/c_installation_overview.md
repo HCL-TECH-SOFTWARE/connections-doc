@@ -8,6 +8,8 @@ This Installation Guide assumes that you have prior experience with products tha
 Directory variables are abbreviations for the default installation paths for IBM® AIX®, Linux™, and Microsoft™ Windows™. This topic defines the directory variable and its matching default installation directory for each supported operating system.
 -   **[Deployment options](../plan/c_planning_the_installation.md)**  
 Install HCL Connections in one of three deployment topologies to achieve optimum scaling, load balancing, and failover.
+-   **[Supported features for Connections 8.0 deployments](../plan/supported_features.md)**  
+Learn which new features and functionalities are supported in your Connections 8.0 deployment, depending on whether or not you install Component Pack.
 -   **[HCL Connections system requirements](../plan/r_install_prerqs.md)**  
 A variety of hardware and software is required to run HCL Connections.
 -   **[HCL Connections support statement](../plan/r_install_support_statements.md)**  

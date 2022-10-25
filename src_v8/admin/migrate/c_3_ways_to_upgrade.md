@@ -1,10 +1,10 @@
-# Ways to upgrade to Connections 8.0 {#c_3_ways_to_upgrade .concept}
+# Ways to upgrade to Connections 8 {#c_3_ways_to_upgrade .concept}
 
 You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
 
 ## First, the terminology {#section_kqd_jgb_sqb .section}
 
-In a *side-by-side* upgrade, you start with a fresh install of Connections 8.0 in a new environment, and then do the needed migrations from the existing environment.
+In a *side-by-side* upgrade, you start with a fresh install of Connections 8 in a new environment, and then do the needed migrations from the existing environment.
 
 In both an *in-place* and a *hybrid* approach, you upgrade your 7.0 environment by using the Update function in the installation program. The difference between these approaches is that the in-place upgrade takes place in your production environment, while the hybrid upgrade is done in a new environment that you have set up to be identical to your 7.0 production environment.
 

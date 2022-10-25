@@ -27,57 +27,57 @@ Perform the following steps chronologically, in the order that they appear in th
 |Installing Component Pack 8|Upgrading Component Pack 7 to 8|
 |---------------------------|-------------------------------|
 |1.  Install or upgrade HCL Connections
-2.  Set up NFS
-3.  Create the Connections namespace
-4.  Add Harbor Helm repository
-5.  Set up Helm charts
-6.  Set up pod security policy
-7.  Set up persistent volumes and persistent volume claims on NFS
-8.  Run bootstrap
-9.  Set up connections-env chart
-10. Build MongoDB 5 image
-11. Install infrastructure charts
-12. Set up Customizer
-13. Install OpenSearch
-14. Set up community ingress
-15. Set up Orient Me for OpenSearch
-16. Set up Metrics for OpenSearch
-17. Set up Microsoft Teams integration
-18. Install community creation wizard and templates \(Tailored Experience\) charts
-19. Set up Activities Plus
-20. Set up Connections add-in for Microsoft Outlook
+2.  [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb)
+3.  [Create the Connections namespace](cp_install_services_tasks.md#section_ln3_qp3_dvb)
+4.  [Add Harbor Helm repository](cp_install_services_tasks.md#harbor_repo)
+5.  [Set up Helm charts](cp_install_services_tasks.md#setup_helm)
+6.  [Set up pod security policy](cp_install_services_tasks.md#pod_sec)
+7.  [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc)
+8.  [Run bootstrap](cp_install_services_tasks.md#bootstrap)
+9.  [Set up connections-env chart](cp_install_services_tasks.md#cnx_env)
+10. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5)
+11. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart)
+12. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb)
+13. [Install OpenSearch](cp_install_services_tasks.md#os_chart)
+14. [Set up community ingress](cp_install_services_tasks.md#comm_ingress)
+15. [Set up Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os)
+16. [Set up Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os)
+17. [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ)
+18. [Install community creation wizard and templates \(Tailored Experience\) charts](cp_install_services_tasks.md#comm_tailored)
+19. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus)
+20. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin)
 
 |1.  Install or upgrade HCL Connections
 2.  Ensure that you have:
     -   NFS up and running
     -   A proper set of NFS folders with specific permissions, which are exported and mountable from all Kubernetes nodes
-3.  Back up MongoDB data
-4.  Back up Elasticsearch 7 data
-5.  Set up OpenSearch and MongoDB volumes on NFS
-6.  Add Harbor Helm repository
-7.  Set up Helm charts
-8.  Set up pod security policy
-9.  Set up persistent volumes and persistent volume claims on NFS
-10. Run bootstrap
-11. Set up connections-env chart
-12. Delete ingresses
-13. Build MongoDB 5 image
-14. Install infrastructure charts
-15. Migrate MongoDB data
-16. Set up Customizer
-17. Install OpenSearch
-18. Migrate ElasticSearch 7 data
-19. Reconfigure Orient Me for OpenSearch
-20. Reconfigure Metrics for OpenSearch
-21. Set up community ingress
-22. Set up Microsoft Teams integration
-23. Install community creation wizard and templates \(Tailored Experience\) charts
-24. Set up Activities Plus
-25. Set up Connections add-in for Microsoft Outlook
+3.  [Back up MongoDB data](cp_install_services_tasks.md#backup_mongo3)
+4.  [Back up Elasticsearch 7 data](cp_install_services_tasks.md#backup_es7)
+5.  [Set up OpenSearch and MongoDB volumes on NFS](cp_install_services_tasks.md#setup_nfs)
+6.  [Add Harbor Helm repository](cp_install_services_tasks.md#harbor_repo)
+7.  [Set up Helm charts](cp_install_services_tasks.md#setup_helm)
+8.  [Set up pod security policy](cp_install_services_tasks.md#pod_sec)
+9.  [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc)
+10. [Run bootstrap](cp_install_services_tasks.md#bootstrap)
+11. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env)
+12. [Delete ingresses](cp_install_services_tasks.md#del_ingress)
+13. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5)
+14. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart)
+15. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo3)
+16. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb)
+17. [Install OpenSearch](cp_install_services_tasks.md#os_chart)
+18. [Migrate ElasticSearch 7 data](cp_install_services_tasks.md#migrate_mongo3)
+19. [Reconfigure Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os)
+20. [Reconfigure Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os)
+21. [Set up community ingress](cp_install_services_tasks.md#comm_ingress)
+22. [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ)
+23. [Install community creation wizard and templates \(Tailored Experience\) charts](cp_install_services_tasks.md#comm_tailored)
+24. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus)
+25. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin)
 
 |
 
-For more information on each step, see [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md).
+For more information, see [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md).
 
 -   **[Upgrade considerations for Component Pack 8](../install/upgrade_considerations.md)**  
 

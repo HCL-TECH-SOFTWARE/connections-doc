@@ -18,8 +18,6 @@ Remove databases with the database wizard in silent mode.
 After uninstalling an HCL Connections application, you can drop any related databases by using the database wizard or by following this manual procedure.
 -   **[Reverting Common, Connections-proxy, and WidgetContainer applications for Uninstallation](../install/t_install_revert_commonwidg_for_uninstall.md)**  
 The HCL Connections Installation Manager program requires that you revert the Common and WidgetContainer applications the News cluster for uninstallation if you previously separated those applications to their own clusters.
--   **[Uninstalling Cognos Business Intelligence server](../install/t_inst_uninstall_cognos_bi_server.md)**  
-You uninstall Cognos® by uninstalling the Cognos® Business Intelligence server and Cognos® Transformer and removing the powercube refresh scheduler .
 
 **Parent topic:**[Administering Connections 8.0](../welcome/welcome_admin.md)
 

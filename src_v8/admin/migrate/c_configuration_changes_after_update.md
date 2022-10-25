@@ -20,7 +20,7 @@ You must manually migrate the files that are referenced in the **Migrate manuall
 |Template configurationManual post-migration steps might be required, see the [Post-migration steps for profile types and profile policies](c_migration_profiles_updates.md) topic.
 
 |Partially|See the post-migration steps.|
-|Header, Footer, and other JSPs copied from the Common appAny customized artifacts are preserved in the customization directory, which is not migrated. You must update your customized artifacts to match the new layout and functionality of Connections 7.0.
+|Header, Footer, and other JSPs copied from the Common appAny customized artifacts are preserved in the customization directory, which is not migrated. You must update your customized artifacts to match the new layout and functionality of Connections 8.0.
 
 |No|Yes|
 |Email notification templates

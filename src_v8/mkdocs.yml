@@ -93,6 +93,7 @@ nav:
           - Audience: admin/plan/c_audience.md
           - Directory path conventions: admin/plan/i_ovr_r_directory_conventions.md
           - Deployment options: admin/plan/c_planning_the_installation.md
+          - Supported features for Connections 8 deployments: admin/plan/supported_features.md
           - HCL Connections system requirements: admin/plan/r_install_prerqs.md
           - HCL Connections support statement: admin/plan/r_install_support_statements.md
           - Worksheet for installing HCL Connections: admin/plan/r_worksheet_installation.md
@@ -469,7 +470,6 @@ nav:
           - Uninstalling databases in silent mode: admin/install/t_uninstall_database_wizard_silent.md
           - Uninstalling&colon; Manually drop databases: admin/install/t_uninstall_drop-databases.md
           - Reverting Common, Connections-proxy, and WidgetContainer applications for Uninstallation: admin/install/t_install_revert_commonwidg_for_uninstall.md
-          - Uninstalling Cognos Business Intelligence server: admin/install/t_inst_uninstall_cognos_bi_server.md
         - Upgrading and updating: 
           - admin/migrate/c_upgrade_migrate_overview.md
           - Getting ready for upgrading or updating: 
@@ -571,6 +571,10 @@ nav:
                     - Moderating published content that is flagged: admin/admin/t_admin_common_moderation_post-modui.md
                     - Managing moderation when email is disabled: admin/admin/c_common_admin_moderation_no_email.md
                     - Configuring moderation for communities: admin/admin/t_admin_moderation_comms.md
+            - Administering the display of a site-wide banner:
+              - admin/admin/admin_banner_onprem.md
+              - Administering the banner using app registry: admin/admin/admin_banner_appreg.md
+              - Administering the banner using Feature Foundation: admin/admin/admin_banner_icxt.md
             - Administering the Widget container:
               - admin/admin/t_admin_common_widget_container.md
               - Administering gadgets for HCL Connections and widgets for Home page: 
@@ -630,7 +634,6 @@ nav:
                   - admin/admin/c_common_manage_personal_data_for_gdpr.md
                   - Managing user requests to erase PI: admin/admin/t_common_manage_user_requests_to_erase_pd.md
                   - Deleting or correcting user PI: admin/admin/t_common_erase_or_correct_data_in_body_text.md
-                  - Pseudonymising user PI contained in Surveys: admin/admin/t_common_pseudonymise_user_pi_in_surveys.md
                 - Using the LDAP directory as the user directory: 
                   - admin/admin/t_admin_common_disabling_directory_services.md
                   - Using the Profiles database as the user directory: admin/admin/t_enabling_directory_services.md

@@ -6,7 +6,7 @@ You can populate the Profiles database manually, as described here, or with the 
 
 **Note:** Additional and related information about configuration and mapping properties may be available in the [Using the Profiles population wizard](t_prof_populate.md) topic.
 
-**Important:** If your database uses a database driver that requires Java 8, or you otherwise require Java 8 when running the IBM Security Directory Integrator, see this article for instructions: [Using IBM Security Directory Integrator with Java 8 and HCL Connections 6.5 or 7.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0094191). Note that you must use the manual population method when using Java 8, not the population wizards.
+**Important:** If your database uses a database driver that requires Java 8, or you otherwise require Java 8 when running the IBM Security Directory Integrator, see this article for instructions: [Using IBM Security Directory Integrator with Java 8 and HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0094191). Note that you must use the manual population method when using Java 8, not the population wizards.
 
 Before starting this task,
 

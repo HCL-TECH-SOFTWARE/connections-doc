@@ -1,6 +1,6 @@
-# Changing the number of shards for the Opensearch Metrics index {#cp_config_es_number_shards .task}
+# Changing the number of shards for the OpenSearch Metrics index {#cp_config_es_number_shards .task}
 
-If your environment requires, you can change the default number of shards that will be assigned to the Opensearch Metrics index when it is created.
+If your environment requires, you can change the default number of shards that will be assigned to the OpenSearch Metrics index when it is created.
 
 If you migrate data from an old metrics database or when you deploy the Elasticsearch Metrics component to users, events in Connections will trigger the creation of an Elasticsearch index for Metrics. The default number of shards for this index is five. If you want to change this default, you should do so before the index is created, as the new value applies only to future indices. Changing the number of shards after the Metrics component is already deployed requires that the index be recreated.
 

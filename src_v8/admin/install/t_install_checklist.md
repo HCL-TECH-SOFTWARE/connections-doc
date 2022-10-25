@@ -6,7 +6,7 @@ Installing HCL Connections in a production environment involves several procedur
 
 1.  Review the software and hardware requirements for the systems that hosts HCL Connections.
 
-    For more information, see the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) topic.
+    For more information, refer to the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) topic.
 
 2.  Install the required software, choosing a supported product in each case:
 

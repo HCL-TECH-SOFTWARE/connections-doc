@@ -14,7 +14,7 @@ Before you attempt to configure Security Directory Integrator, complete the foll
 
     **Note:** The internal name of the Profiles database is PEOPLEDB.
 
-3.  If your database uses a database driver that requires Java 8, or you otherwise require Java 8 when running the IBM Security Directory Integrator, see this article for instructions: [Using IBM Security Directory Integrator with Java 8 and HCL Connections 6.5 or 7.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0094191). Perform the following task, and then complete the rest of the tasks in [Populating the Profiles database](t_prof_install_profiles_db.md). Note that you must use the manual population method when using Java 8, not the population wizards.
+3.  If your database uses a database driver that requires Java 8, or you otherwise require Java 8 when running the IBM Security Directory Integrator, see this article for instructions: [Using IBM Security Directory Integrator with Java 8 and HCL Connections 6.5 or 7.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0094191). Perform the following task, and then complete the rest of the tasks in [Populating the Profiles database](t_prof_install_profiles_db.md). Note that you must use the manual population method when using Java 8, not the population wizard.
 
 Use Security Directory Integrator to populate the Profiles database repository from an LDAP directory. It is assumed you are using the profiles population wizard, as some of the following information pertains specifically to that method.
 

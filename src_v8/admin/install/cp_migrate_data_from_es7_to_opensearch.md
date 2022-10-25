@@ -53,11 +53,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
         ```
 
         ``` {#codeblock_xmz_pqx_z5b}
-        /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/**$\{REPONAME\}**
-        Migrating Elasticsearch7 data from Component Pack for Connections t... https://stage.cnx.cwp.pnp-hcl.com/wikis/home?lang=en-us
-        3 of 13 27/09/2022, 11:13 PM
-        -H 'Content-Type: application/json' -d '{"type": "fs","settings":
-        {"compress": true, "location": **"$\{BACKUPPATH\}"**}}'
+        /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/**$\{REPONAME\}** -H 'Content-Type: application/json' -d '{"type": "fs","settings": {"compress": true, "location": **"$\{BACKUPPATH\}"**}}'
         ```
 
         This command returns the following output:

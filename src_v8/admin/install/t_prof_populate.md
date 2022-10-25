@@ -26,7 +26,7 @@ To populate the Profiles database, complete the following steps:
     xhost +
     ```
 
-    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.
+    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your AIX or Linux administrator guide.
 
     ```
     echo $DISPLAY

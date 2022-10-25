@@ -205,5 +205,3 @@ This task applies to the metrics, type-ahead search, Orient Me, and Elastic stac
 
 If you need more information, see [Snapshot and Restore](https://www.elastic.co/guide/en/elasticsearch/reference/5.5/modules-snapshots.html) in the Elasticsearch documentation.
 
-**Parent topic:**[Administering Component Pack for Connections](../admin/c_admin_component_pack_intro.md)
-

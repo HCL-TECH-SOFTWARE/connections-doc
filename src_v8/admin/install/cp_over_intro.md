@@ -21,7 +21,7 @@ The installation package relies on container technology and includes HCL proprie
 -   HAProxy is an open-source load-balancing and proxying solution for TCP-based and HTTP-based applications.
 -   NGINX Ingress Controller is built around the Kubernetes Ingress resource, using a ConfigMap to store the NGINX configuration. Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. You can use as fully supported the official community NGINX ingress controller with all the extras that it gives you.
 
-All the helm charts provided with Component Pack are built with Helm v2. See the Supported versions \(TBD\).
+All the helm charts provided with Component Pack are built with Helm v2. For the supported Helm version, see [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 **Parent topic:**[Installing or upgrading Component Pack for Connections](../install/cp_install_config_intro.md)
 
