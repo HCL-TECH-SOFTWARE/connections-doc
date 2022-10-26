@@ -1,4 +1,4 @@
-/* General Styles */
+/* General CNX Styles */
 /* General flexbox styles */
 
 .section-flexbox-row {
@@ -97,7 +97,7 @@
 /* Hero section styles */
 .dx-hero-container {
     padding-top: 0rem;
-    background: url(../images/dx-doc-hero-banner.png) no-repeat;
+    background: url(../images/CNX_hero.jpg) no-repeat;
     background-position: left bottom;
     background-size: cover;
     height: 20rem;
@@ -131,7 +131,7 @@
 
 .section-designedforyou {
     color: black;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../images/dx-teams-abstract-dots.jpeg);
+    background: url(../images/CNX_overview_bkgd.jpg);
     background-position: left bottom;
     background-size: cover;
     height: auto;
@@ -218,7 +218,8 @@
     width: 200px;
     height: 200px;
 
-    background: url(../images/francesca.jpeg);
+    background: url(../images/CNX_search_02.jpg);
+
     background-size: 200px;
     border-radius: 100px;
 
@@ -232,7 +233,8 @@
     width: 200px;
     height: 200px;
 
-    background: url(../images/camille.jpeg);
+    background: url(../images/CNX_usability_01.jpg);
+
     background-size: 200px;
     border-radius: 100px;
 
@@ -246,7 +248,7 @@
     width: 200px;
     height: 200px;
 
-    background: url(../images/adam.jpeg);
+    background: url(../images/CNX_searchshare_03.jpg);
     background-size: 200px;
     border-radius: 100px;
 
@@ -261,7 +263,7 @@
 .section-academy {
     background-color: black;
     color: white;
-    background: url(../images/dx-teams-abstract-dots-black.jpeg);
+    background: url(../images/CNX_academy_bkgd.jpg);
     background-position: left center;
     background-size: cover;
     height: 422px;

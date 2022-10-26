@@ -10,7 +10,7 @@ site_dir: docs
 # Theme Configuration
 theme:
   name: material
-  logo: assets/logo.png
+  logo: assets/CNX_logo.png
   favicon: assets/favicon.png
   language: en
   features:
@@ -62,7 +62,7 @@ extra:
 
 # Repository
 repo_url: https://github.com/HCL-TECH-SOFTWARE/connections-doc
-repo_name: hcl-software/connections
+repo_name: HCL-TECH-SOFTWARE/connections-doc
 edit_uri: edit/main/docs
 
 
