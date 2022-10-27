@@ -1,6 +1,6 @@
 # Modifying Tiny Editors for HCL Connections {#modify-summary .task}
 
-Modify the Tiny editors TinyMCE and Textbox.io to customize your editing experience.
+Modify the Tiny editors TinyMCE to customize your editing experience.
 
 -   **[../../admin/install/tiny\_editors/t\_configure\_01-select-editor-1.md](../../admin/install/tiny_editors/t_configure_01-select-editor-1.md)**  
 

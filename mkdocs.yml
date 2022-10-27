@@ -93,7 +93,7 @@ nav:
           - Audience: admin/plan/c_audience.md
           - Directory path conventions: admin/plan/i_ovr_r_directory_conventions.md
           - Deployment options: admin/plan/c_planning_the_installation.md
-          - Supported features for Connections 8 deployments: admin/plan/supported_features.md
+          - Deployment requirements for supporting Connections 8 functionality: admin/plan/supported_features.md
           - HCL Connections system requirements: admin/plan/r_install_prerqs.md
           - HCL Connections support statement: admin/plan/r_install_support_statements.md
           - Worksheet for installing HCL Connections: admin/plan/r_worksheet_installation.md
@@ -310,10 +310,10 @@ nav:
                - admin/install/inst_tasearch_intro.md
                - Managing the OpenSearch index for Connections type-ahead search: admin/install/inst_managing_os_index_cnx_typeahead_search.md
                - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
-             - Installing Cutomizer Lite:
-               - admin/install/cp_install_customizer_lite.md
-               - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
-               - Configuring the NGINX proxy server for Customizer Lite HA: admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.md
+#            - Installing Cutomizer Lite:
+#              - admin/install/cp_install_customizer_lite.md
+#              - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
+#              - Configuring the NGINX proxy server for Customizer Lite HA: admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.md
              - Configuring Share Application:
                - admin/install/c_install_share_application.md
                - Setting up share dialog: admin/install/c_install_share_dialog.md

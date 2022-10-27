@@ -3681,21 +3681,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/install/cp_install_customizer_lite.html</loc>
-         <lastmod>2022-10-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/install/cp_install_customizer_lite_config.html</loc>
-         <lastmod>2022-10-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.html</loc>
-         <lastmod>2022-10-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/install/cp_install_offerings.html</loc>
          <lastmod>2022-10-27</lastmod>
          <changefreq>daily</changefreq>

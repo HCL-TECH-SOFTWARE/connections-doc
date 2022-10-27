@@ -1,11 +1,10 @@
 # Performing an in-place or hybrid upgrade {#t_upgrading_to_7 .task}
 
-Upgrade to an HCL Connections 8.0 deployment by running the Installation Manager Update function on a Connections 7.0 deployment. This can be done either in-place \(in your existing production environment\) or using a hybrid approach of installing 7.0 in a new environment identical to production, updating that to 7.0, and then running the upgrade to 7.
+Upgrade to an HCL Connections 8.0 deployment by running the Installation Manager Update function on a Connections 7.0 deployment. This can be done either in-place \(in your existing production environment\) or using a hybrid approach of installing 7.0 in a new environment identical to production then running the upgrade to 7.0.
 
 Download Connections and Component Pack 8.0. Connections Server packages are as follows:
 
 -   HCL\_Connections\_8.0 \(download package for Connections 8.0 including system requirements\)
--   HCL\_Connections\_8.0\_Updates \(download package for Connections 8.0 Updates\)
 -   Websphere Application Server 8.5.5 and Select Fix Packs \(download package for IBM WebSphere including FixPacks\)
 
 **Attention:**
@@ -30,7 +29,7 @@ Download Connections and Component Pack 8.0. Connections Server packages are as 
 
 4.  Click **Repositories** \> **Add Repository**.
 
-5.  Enter the full path to the Connections 7 install package that you downloaded and then click **OK**.
+5.  Enter the full path to the Connections 8.0 install package that you downloaded and then click **OK**.
 
     Verify that Installation Manager can connect to the repository. For example: ..\\HCL\_Connections\_Install\\HCLConnections\\repository.xml.
 
@@ -81,7 +80,7 @@ Download Connections and Component Pack 8.0. Connections Server packages are as 
 22. Start the Connections server.
 
 
--   **Required database update to Homepage:** Deployments that upgrade from Connections 7.0 are required to manually run the Homepage database schema. See [Updating databases](t_update_databases-manual.md).
+-   **Required database update to Profiles:** Deployments that upgrade from Connections 7.0 are required to manually run the Profiles database schema. See [Updating databases](t_update_databases-manual.md).
 -   A Connections 8.0 upgrade deployment updates a number of web services and other artifacts that require an end user to clear the browser cache to get the updates.
 -   Alternatively, you can allow user's browsers to load new web services and artifacts by updating the <versionStamp value="\#\#\#\#"/\> in the LotusConnections-config.xml so users will see the changes the next time they log in, without having to clear their web browser cache. See [Post-customization step](../customize/t_admin_common_customize_postreq.md) after a Connections 8.0 upgrade is deployed so users will receive changes the next time they log in without having to clear their web browser cache. If the browser cache is not updated problems such as the Community Catalog not displaying correctly may occur.
 

@@ -601,7 +601,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Supported features for Connections 8 deployments
+        Deployment requirements for supporting Connections 8 functionality
       </a>
     </li>
   
@@ -4438,8 +4438,6 @@
         
           
         
-          
-        
       
       
         
@@ -4556,7 +4554,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/cp_install_customizer_lite.html">Installing Cutomizer Lite</a>
+          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
           
             <label for="__nav_3_5_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -4564,81 +4562,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Installing Cutomizer Lite" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Installing Cutomizer Lite
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_config.html" class="md-nav__link">
-        Configuring Customizer Lite
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_nginx_proxy_server_config_ha.html" class="md-nav__link">
-        Configuring the NGINX proxy server for Customizer Lite HA
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_5_3" type="checkbox" id="__nav_3_5_5_3" >
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
-          
-            <label for="__nav_3_5_5_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Configuring Share Application" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_3">
+        <label class="md-nav__title" for="__nav_3_5_5_2">
           <span class="md-nav__icon md-icon"></span>
           Configuring Share Application
         </label>
@@ -34850,11 +34775,11 @@
 
 <h1 class="concept" id="configurationchangesafteranupdate">Saving your customizations</h1>
 <p>Before upgrading HCL Connections, back up and make notes of your customizations.</p>
-<p>Only some of the customizations that you made to Connections 6.5 CR1 application files and custom fields are preserved during an upgrade, and only if you are performing an in-place or hybrid upgrade using the Installation Manager's Update function. You'll still need to reapply some customizations after upgrading.</p>
+<p>Only some of the customizations that you made to Connections 7.0 application files and custom fields are preserved during an upgrade, and only if you are performing an in-place or hybrid upgrade using the Installation Manager's Update function. You'll still need to reapply some customizations after upgrading.</p>
 <h2 class="section" id="customized-files-and-themes">Customized files and themes</h2>
 <p>The update process changes several configuration files, including files that you customized. Customized files can include header and footer HTML files, CSS and JSP files, themes, and several other files that are listed in this topic.</p>
 <p>You must manually migrate the files that are referenced in the <strong>Migrate manually</strong> column of the following table.</p>
-<p><strong>Note:</strong> If you are upgrading to version 7 using the side-by-side approach, you must manually migrate ALL of files in the table.</p>
+<p><strong>Note:</strong> If you are upgrading to version 8.0 using the side-by-side approach, you must manually migrate ALL of files in the table.</p>
 <table>
 <thead>
 <tr>
@@ -34865,7 +34790,7 @@
 </thead>
 <tbody>
 <tr>
-<td>User interface (customized CSS, JSP, and HTML; labels and strings).Customized string files are preserved in the customization directory but you might need to rename some string files to match new Java™ and Dojo package names in HCL Connections™ 6.5 CR1</td>
+<td>User interface (customized CSS, JSP, and HTML; labels and strings).Customized string files are preserved in the customization directory but you might need to rename some string files to match new Java™ and Dojo package names in HCL Connections™ 7.0</td>
 <td></td>
 <td></td>
 </tr>
@@ -34878,26 +34803,26 @@
 <p>|No|Yes|
 |Email notification templates</p>
 <p>Email notification templates have been translated from JSP to FreeMarker. For more information, see the <a href="../customize/c_customize_notifications.html">Customizing notifications</a> topic.</p>
-<p>Merge your existing customizations with the new Notification templates in the <a href="../plan/i_ovr_r_directory_conventions.html">profile_root/Dmgr01</a>/config/cells/cell_name/LotusConnections-config/notifications directory. If a global customization exists for all emails, then you only need to customize the shared resources. If JSP templates were customized in the 6.5 CR1 customization folders, then you can remove them.</p>
+<p>Merge your existing customizations with the new Notification templates in the <a href="../plan/i_ovr_r_directory_conventions.html">profile_root/Dmgr01</a>/config/cells/cell_name/LotusConnections-config/notifications directory. If a global customization exists for all emails, then you only need to customize the shared resources. If JSP templates were customized in the 7.0 customization folders, then you can remove them.</p>
 <p>|No|Yes|
 |Blog themes|Partially|Yes|
 |Community themesThe default Communities themes are migrated automatically. However, must redefine any custom theme.</p>
 <p>|Yes|Redefine any custom themes.|
 |Business cardsThe Links and Actions attributes of business cards are migrated when the LotusConnections-config.xml and profiles-config.xml are migrated. Link definitions defined as attributes to each service in the LotusConnections-config.xml file are migrated to the new LotusConnections-config.xml file.</p>
-<p>Manual steps may also be required to migrate profile customizations for business cards from 6.5 CR1 as described in the <a href="c_migration_profiles_updates.html">Post-migration steps for profile types and profile policies</a> topic.</p>
+<p>Manual steps may also be required to migrate profile customizations for business cards from 7.0 as described in the <a href="c_migration_profiles_updates.html">Post-migration steps for profile types and profile policies</a> topic.</p>
 <p>|Yes|Partially|
 |Security role mappingsRedefine your security role mappings. For more information about security role mapping, see the <a href="https://www.ibm.com/support/knowledgecenter/SSEQTP_9.0.0/com.ibm.websphere.base.doc/ae/usec_tselugrad.html">Security role to user or group mapping</a> topic in the WebSphere® Application Server Information Center.</p>
 <p>|No|Yes|
-|service-location.xsdCustomized extended service names are not migrated. Copy any customized XSD elements to the 6.5 CR1 service-location.xsd file.</p>
+|service-location.xsdCustomized extended service names are not migrated. Copy any customized XSD elements to the 7.0 service-location.xsd file.</p>
 <p>|Partially|Yes|
-|profiles-policy.xmlCopy the 6.5 CR1 version of the profiles-policy.xml file to the 7.0 deployment, overwriting the 7.0 version of the file. For more information, see the <a href="c_migration_profiles_updates.html">Post-migration steps for profile types and profile policies</a> topic.</p>
+|profiles-policy.xmlCopy the 7.0 version of the profiles-policy.xml file to the 8.0 deployment, overwriting the 8.0 version of the file. For more information, see the <a href="c_migration_profiles_updates.html">Post-migration steps for profile types and profile policies</a> topic.</p>
 <p>|No|Yes|
 |validation.xmlRedefine customized Profile field validation settings.</p>
 <p>|No|Yes|
 |JavaScript™ The file path and contents of JavaScript string customizations have changed and require manual migration. For more information about the locations of JavaScript files, see the <a href="../customize/t_customize_strings_via_javascript.html">Customizing strings sourced in JavaScript</a> topic.</p>
-<p>The ui-extensions framework is deprecated, so you must manually migrate your 6.5 CR1 JavaScript customizations. For more information, see the <a href="../customize/t_customize_extend_js.html">Extending JavaScript in Connections</a> topic.</p>
+<p>The ui-extensions framework is deprecated, so you must manually migrate your 8.0JavaScript customizations. For more information, see the <a href="../customize/t_customize_extend_js.html">Extending JavaScript in Connections</a> topic.</p>
 <p>|No|Yes|
-|TouchpointIf you modified parts of the Touchpoint application within the installedApps path in 6.5 CR1 (like JSPs or language-related properties), make sure you back up these modifications. After upgrading to Connections 7, modify the default product again based on your requirements.</p>
+|TouchpointIf you modified parts of the Touchpoint application within the installedApps path in 7.0 (like JSPs or language-related properties), make sure you back up these modifications. After upgrading to Connections 8.0, modify the default product again based on your requirements.</p>
 <p><strong>Note:</strong> This kind of customization is not recommended.</p>
 <p>|No|Yes|
 |InviteIf the Invite feature is configured, transfer the settings from the configuration file (selfregistration-config.xml) to the new environment.</p>

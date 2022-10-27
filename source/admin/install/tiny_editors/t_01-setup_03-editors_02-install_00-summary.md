@@ -1,6 +1,6 @@
 # Installing Tiny Editors integration {#setup-editors-install-summary .task}
 
-Installing the Tiny Editors integration, providing TinyMCE or Textbox.io in HCL Connections™.
+Installing the Tiny Editors integration, providing TinyMCE in HCL Connections™.
 
 -   **[Install on Linux, Unix or AIX](../../install/tiny_editors/t_01-setup_03-editors_02-install_01-install-on-linux-unix-or-aix.md)**  
 The installation of Tiny Editors for HCL Connections on Linux, Unix or AIX is automated using a shell script.

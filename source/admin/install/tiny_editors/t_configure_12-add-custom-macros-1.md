@@ -14,7 +14,7 @@ Creating simple macros to provide useful work shortcuts.
     }
     ```
 
-    This function is called for both Textbox.io and TinyMCE, and only accepts one parameter `editor`.
+    This function is called for TinyMCE, and only accepts one parameter `editor`.
 
 3.  Use the runtime API `editor.macros.addSimpleMacro` to add a macro.
 

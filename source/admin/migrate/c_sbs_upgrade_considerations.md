@@ -24,7 +24,7 @@ The process is similar to that for the changes in IBM Security Directory Integra
 
 ## Other Connections customizations {#section_pdr_flt_qqb .section}
 
-You must also redo your created widgets and customizations from7.0 in the new system, most of which should run without modification in Connections 8.0. Regarding customizations, this statement is true for the 7.0 feature set, both for features modified by “legacy” customizations on JSPs and theme elements like CSS, and for those modified “on the fly” by Connections Customizer. With the side-by-side approach, you finish and test the Connections 8.0 installation without any customizations and apply these changes after validating that default system.
+You must also redo your created widgets and customizations from 7.0 in the new system, most of which should run without modification in Connections 8.0. Regarding customizations, this statement is true for the 7.0 feature set, both for features modified by “legacy” customizations on JSPs and theme elements like CSS, and for those modified “on the fly” by Connections Customizer. With the side-by-side approach, you finish and test the Connections 8.0 installation without any customizations and apply these changes after validating that default system.
 
 **Tip:** For a list of customizations \(including configurations\) that you must manually migrate to the new environment in a side-by-side upgrade, see [Saving your customizations](c_configuration_changes_after_update.md).
 

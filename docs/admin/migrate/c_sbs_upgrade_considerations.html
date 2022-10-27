@@ -601,7 +601,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Supported features for Connections 8 deployments
+        Deployment requirements for supporting Connections 8 functionality
       </a>
     </li>
   
@@ -4438,8 +4438,6 @@
         
           
         
-          
-        
       
       
         
@@ -4556,7 +4554,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/cp_install_customizer_lite.html">Installing Cutomizer Lite</a>
+          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
           
             <label for="__nav_3_5_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -4564,81 +4562,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Installing Cutomizer Lite" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Installing Cutomizer Lite
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_config.html" class="md-nav__link">
-        Configuring Customizer Lite
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_nginx_proxy_server_config_ha.html" class="md-nav__link">
-        Configuring the NGINX proxy server for Customizer Lite HA
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_5_3" type="checkbox" id="__nav_3_5_5_3" >
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
-          
-            <label for="__nav_3_5_5_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Configuring Share Application" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_3">
+        <label class="md-nav__title" for="__nav_3_5_5_2">
           <span class="md-nav__icon md-icon"></span>
           Configuring Share Application
         </label>
@@ -34907,7 +34832,7 @@
 <p>Again, there are no tools to assist in migrating the configuration files from your existing 7.0 configuration to the 8.0 platform. This transition requires you to handle configuration changes the same way as other customizations: ideally, by referring to the deployment's change records that documented your modifications.</p>
 <p>The process is similar to that for the changes in IBM Security Directory Integrator assembly lines from release to release, or from Connections CFix to CFix. You either know what you modified and can apply this to the upgraded environment, or you use diff-based tooling to identify and make the changes.</p>
 <h2 class="section" id="section_pdr_flt_qqb">Other Connections customizations</h2>
-<p>You must also redo your created widgets and customizations from7.0 in the new system, most of which should run without modification in Connections 8.0. Regarding customizations, this statement is true for the 7.0 feature set, both for features modified by “legacy” customizations on JSPs and theme elements like CSS, and for those modified “on the fly” by Connections Customizer. With the side-by-side approach, you finish and test the Connections 8.0 installation without any customizations and apply these changes after validating that default system.</p>
+<p>You must also redo your created widgets and customizations from 7.0 in the new system, most of which should run without modification in Connections 8.0. Regarding customizations, this statement is true for the 7.0 feature set, both for features modified by “legacy” customizations on JSPs and theme elements like CSS, and for those modified “on the fly” by Connections Customizer. With the side-by-side approach, you finish and test the Connections 8.0 installation without any customizations and apply these changes after validating that default system.</p>
 <p><strong>Tip:</strong> For a list of customizations (including configurations) that you must manually migrate to the new environment in a side-by-side upgrade, see <a href="c_configuration_changes_after_update.html">Saving your customizations</a>.</p>
 <p>Connections 8.0 comes with additional capabilities and UI elements, like Community Templates (if you also deploy Component Pack 8). These modules need to get aligned with your customizations, so testing and enhancing the customizations according to the deployed Connections 8.0 feature set is highly recommended. New features can be enabled step by step, so there is usually no need for a full and time-critical redesign all at once.</p>
 <h2 class="section" id="section_ztc_xyd_sqb">Related Information</h2>

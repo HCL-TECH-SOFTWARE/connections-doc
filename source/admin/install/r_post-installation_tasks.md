@@ -23,7 +23,7 @@ When you have successfully installed HCL Connections™ to run on WebSphere® Ap
 -   **[Configuring the Home page administrator](../install/t_create_admin.md)**  
 Create an administrator for Home page so that you can make changes to the application such as adding and removing widgets.
 -   **[Configuring additional HCL Connections applications](../install/t_inst_config_addons.md)**  
-You must perform additional tasks to enable type-ahead search, Customizer Lite, and Community Surveys in HCL Connections.
+You must perform additional tasks to enable type-ahead search, and configurin Sharing with MS Teams in HCL Connections.
 
 **Parent topic:**[Administering Connections 8.0](../welcome/welcome_admin.md)
 

@@ -23,7 +23,6 @@ Before you begin: The Tiny Editors Selector service must be started and the edit
 5.  Select the checkbox in the **Select** column for either:
 
     -   **tinymceforconnections.user** to assign the TinyMCE editor.
-    -   **textboxioforconnections.user** to assign the Textbox.io editor.
 6.  Assign the selected editor by:
 
     -   Clicking **Map Users...** to assign the editor to individual users.

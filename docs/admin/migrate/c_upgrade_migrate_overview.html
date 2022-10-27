@@ -601,7 +601,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Supported features for Connections 8 deployments
+        Deployment requirements for supporting Connections 8 functionality
       </a>
     </li>
   
@@ -4438,8 +4438,6 @@
         
           
         
-          
-        
       
       
         
@@ -4556,7 +4554,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/cp_install_customizer_lite.html">Installing Cutomizer Lite</a>
+          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
           
             <label for="__nav_3_5_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -4564,81 +4562,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Installing Cutomizer Lite" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Installing Cutomizer Lite
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_config.html" class="md-nav__link">
-        Configuring Customizer Lite
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/cp_install_customizer_lite_nginx_proxy_server_config_ha.html" class="md-nav__link">
-        Configuring the NGINX proxy server for Customizer Lite HA
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_5_3" type="checkbox" id="__nav_3_5_5_3" >
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../install/c_install_share_application.html">Configuring Share Application</a>
-          
-            <label for="__nav_3_5_5_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Configuring Share Application" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_5_5_3">
+        <label class="md-nav__title" for="__nav_3_5_5_2">
           <span class="md-nav__icon md-icon"></span>
           Configuring Share Application
         </label>
@@ -34792,7 +34717,7 @@
 
 <h1 class="concept" id="c_upgrade_migrate_overview">Upgrading and updating</h1>
 <p>Upgrade HCL Connections and its supporting software to the latest release and then update the installation with the latest interim fixes or cumulative fixes. Refer to the <a href="../overview/i_ovr_r_whats_new.html">What's New in HCL Connections</a> to review the features in the latest release and gather download links or links to the latest fix list and update strategy information.</p>
-<p><strong>Important:</strong> If Feature Foundation is included in your HCL Connections 7.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to <a href="https://help.hcltechsw.com/connections/v7/admin/migrate/t_back-up.html">Backing up HCL Connections</a> for details. You can use this backup to restore your existing deployment if the upgrade or update fails.</p>
+<p><strong>Important:</strong> If Feature Foundation is included in your HCL Connections 7.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to <a href="https://help.hcltechsw.com/connections/v8/admin/migrate/t_back-up.html">Backing up HCL Connections</a> for details. You can use this backup to restore your existing deployment if the upgrade or update fails.</p>
 <p>The following sections provide background and instructions on the different approaches to upgrading Connections, as well as instructions for applying updates to the new version over time.</p>
 <ul>
 <li><strong><a href="t_prepare_migrate_upgrade.html">Getting ready for upgrading or updating</a></strong><br />
@@ -34800,7 +34725,7 @@ Take steps to inform users and protect data before starting an HCL Connections u
 <li><strong><a href="c_3_ways_to_upgrade.html">Ways to upgrade to Connections 8</a></strong><br />
 You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.</li>
 <li><strong><a href="c_sbs_upgrade_container.html">Side-by-side upgrades</a></strong><br />
-You can upgrade to Connections 7.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.</li>
+You can upgrade to Connections 8.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.</li>
 <li><strong><a href="c_inplace_upgrade.html">In-place and hybrid upgrades</a></strong><br />
  With the Update function in IBM Installation Manager, you can upgrade the existing version of Connections to the next version, either in your production environment or in a in a new environment identical to production.</li>
 <li><strong><a href="enabling_cnx8_ux.html">Enabling the Connections 8.0 user experience</a></strong><br />

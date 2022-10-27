@@ -2,7 +2,7 @@
 
 Upgrade HCL Connections and its supporting software to the latest release and then update the installation with the latest interim fixes or cumulative fixes. Refer to the [What's New in HCL Connections](../overview/i_ovr_r_whats_new.md) to review the features in the latest release and gather download links or links to the latest fix list and update strategy information.
 
-**Important:** If Feature Foundation is included in your HCL Connections 7.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](https://help.hcltechsw.com/connections/v7/admin/migrate/t_back-up.html) for details. You can use this backup to restore your existing deployment if the upgrade or update fails.
+**Important:** If Feature Foundation is included in your HCL Connections 7.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](https://help.hcltechsw.com/connections/v8/admin/migrate/t_back-up.html) for details. You can use this backup to restore your existing deployment if the upgrade or update fails.
 
 The following sections provide background and instructions on the different approaches to upgrading Connections, as well as instructions for applying updates to the new version over time.
 
@@ -11,7 +11,7 @@ Take steps to inform users and protect data before starting an HCL Connections u
 -   **[Ways to upgrade to Connections 8](../migrate/c_3_ways_to_upgrade.md)**  
 You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
 -   **[Side-by-side upgrades](../migrate/c_sbs_upgrade_container.md)**  
-You can upgrade to Connections 7.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.
+You can upgrade to Connections 8.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.
 -   **[In-place and hybrid upgrades](../migrate/c_inplace_upgrade.md)**  
  With the Update function in IBM Installation Manager, you can upgrade the existing version of Connections to the next version, either in your production environment or in a in a new environment identical to production.
 -   **[Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md)**  

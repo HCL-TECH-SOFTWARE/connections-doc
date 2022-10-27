@@ -1,6 +1,6 @@
 # Side-by-side upgrades {#c_sbs_upgrade_container .concept}
 
-You can upgrade to Connections 7.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.
+You can upgrade to Connections 8.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.
 
 The following topics provide planning information and upgrade instructions, including a roadmap.
 
