@@ -1,10 +1,10 @@
-# Supported features for Connections 8.0 deployments {#installation_options .concept}
+# Deployment requirements for supporting 8.0 functionality {#installation_options .concept}
 
 Learn which new features and functionalities are supported in your Connections 8.0 deployment, depending on whether or not you install Component Pack.
 
 ## With Component Pack {#section_msg_fmf_hvb .section}
 
-The following new features and functionalities are available in a Connections 8.0 Component Pack deployment. If you do not install Component Pack with Connections 8.0, these are not supported:
+The following new features and functionalities are supported in a Connections 8.0 Component Pack deployment. If you do not install Component Pack with Connections 8.0, these are not available:
 
 -   Top Updates in the home page
 -   Important To Me bar
@@ -34,12 +34,12 @@ If you install Connections 8.0 without Component Pack, the following features an
 
 ## Support for Connections 7.0 user interface \(UI\) {#section_n1w_dzf_hvb .section}
 
-For a Connections 7.0 deployment \(with or without Component Pack installed\), only the new gender-neutral profile avatar images are available – no other Connections 8.0 features are supported.
+For a Connections 8.0 deployment using the 7.0 UI \(with or without Component Pack installed\), the new gender-neutral profile avatar images are used, but no additional 8.0 features are available or supported – there is no way to override this.
 
 **Note:**
 
 -   The Connections 7.0 UI is temporarily supported to aid in the transition to Connections 8.0.
--   The default UI for Connections 8.0 depends on your deployment method. A fresh installation will have the 8.0 UI, while an upgrade will have the 7.0 UI enabled by default. If you want to get the new user experience after upgrading to Connections 8.0, you need to manually switch to the 8.0 interface.
+-   The default UI for Connections 8.0 depends on your deployment method. A fresh installation will have the 8.0 UI, while an upgrade will have the 7.0 UI enabled by default. If you want to get the new user experience after upgrading to Connections 8.0, you need to manually switch to the 8.0 interface. You can also enable the 7.0 UI for fresh installations if necessary.
 
 For more information on both points, see [What's new in HCL Connections](../overview/i_ovr_r_whats_new.md#8.0_transition).
 

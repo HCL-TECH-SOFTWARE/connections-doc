@@ -4,7 +4,7 @@ HCL Connections Share feature allows users to share link to connections content 
 
 The following steps alllow you to enable MS Teams to be used with the Share feature of Connections 8.0
 
-The appregistry extension in this [repository](https://git.cwp.pnp-hcl.com/connections/deploy-services/tree/master/microservices/hybridcloud/doc/samples/share-extensions/ms-teams) enables sharing connections pages to Microsoft Teams through Share iconThe json from ms-teams-share-extension.json can either be imported from file or copied / pasted into the code editor of the appregistry client to create the extension.
+The appregistry extension enables sharing connections pages to Microsoft Teams through Share iconThe json from ms-teams-share-extension.json can either be imported from file or copied / pasted into the code editor of the appregistry client to create the extension.
 
 When MS Teams is enabled within Share, users are given the option **MS Teams Share** upon clicking on the **Share** icon ![](images/c_install_share.png)
 
@@ -15,8 +15,6 @@ To enable MS Teams to work within the Connectios Share feature, perform the foll
 1.  Register the extensions
 
     1.  For the Customizer to insert this customization, place all the files present in this [folder](https://git.cwp.pnp-hcl.com/connections/deploy-services/tree/master/microservices/hybridcloud/doc/samples/share-extensions/ms-teams) in the Connections environment in /pv-connections/customizations/share-extensions/ms-teams directory
-
-        **Note:** The files can be copied and downloaded from [Folder 1](https://git.cwp.pnp‐hcl.com/connections/deploy‐services/blob/master/microservices/hybridcloud/doc/samples/share‐extensions/ms‐teams/connections‐teams‐share‐extension‐8.0.js) and [Folder 2](https://git.cwp.pnp%E2%80%90hcl.com/connections/deploy-services/blob/master/microservices/hybridcloud/doc/samples/share-extensions/ms-teams/ms-teams-share-extension.json) locations.
 
 2.  Setup the Appregistry Extension
 

@@ -6,7 +6,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   **Download** Connections 8.0 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
-**Attention:** Connections customers are given a transition period to upgrade their customization for the Connections 7.0 user interface \(UI\) to the new Connections 8.0 UI. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
+**Attention:** Connections customers are given a transition period to prepare for the new Connections 8.0 user experience. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
 
 ## What's New in HCL Connections 8.0 and Component Pack 8 {#section_hgz_3dy_clb .section}
 
@@ -29,19 +29,17 @@ Find out about features that are new or updated in this release of HCL Connectio
 -   **Roadmap to Connections and Component Pack**
     -   **Connections 8.0**: See [Installing Connections](../install/c_installing.md) or [Upgrading and updating](../migrate/c_upgrade_migrate_overview.md).
     -   **Component Pack 8**: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to [Installing and upgrading Component Pack for Connections](../install/cp_install_config_intro.md).
-    -   Check which new features are supported for a Component Pack and non-Component Pack deployment in [Supported features for Connections 8.0 deployments](../plan/supported_features.md).
+    -   Check which new features are supported for a Component Pack and non-Component Pack deployment in [Deployment requirements for supporting 8.0 functionality](../plan/supported_features.md).
 
-## Feature scope and limitations {#section_usy_ffv_hvb .section}
+**HCL Connections 8.0 will fully support the following in a future CR:**
+
+-   Bi-directional languages – refer to [Supported languages](i_ovr_c_supported_langs.md) for more information
+-   HCL Connections Mail plug-in
+-   The TinyMCE editor in the Connections 8.0 user interface
 
 **Community surveys are no longer supported in Connections 8.0.**
 
 To replace the Polls & Survey app, Connections 8.0 customers will now receive entitlement to HCL LEAP to build apps integrated into Connections.
-
-**For the initial release of Connections 8.0:**
-
--   **TinyMCE editor** is only supported in the Connections 7.0 UI. It will be fully supported in the Connections 8.0 UI in CR1.
--   **The HCL Connections Mail plug-in** will be fully supported in an upcoming CR.
--   **Bi-directional language support** for Connections 8.0 will be added in CR1. Refer to [Supported languages](i_ovr_c_supported_langs.md) for more information.
 
 ## Promote your message using a site-wide banner {#section_us1_5vs_v5b .section}
 

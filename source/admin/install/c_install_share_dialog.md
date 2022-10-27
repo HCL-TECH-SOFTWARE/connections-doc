@@ -40,7 +40,7 @@ Payload is calculated on the client side and passed through to the OpenSocial AP
 
 As mentioned earlier, it is possible to share link to connections content not only within Connections but also with other third-party applications. For example, you can share site with MS Teams or Slack. The configuration is done by the customer using App Registry, so pretty much any third-party application can be configured here. No need to restart after configuration changes, but the user would clear session storage due to caching mechanism we have in place
 
-Once Sharepoint extension is configured you will be presented with the dropdown list of applications you can share connections content with. Refer to the [Samples Repository](https://git.cwp.pnp-hcl.com/connections/deploy-services/tree/master/microservices/hybridcloud/doc/samples) for examples.
+Once Sharepoint extension is configured you will be presented with the dropdown list of applications you can share connections content with. Refer to the Sample Repository for examples.
 
 To configure a third-party application, you need to configure the following properties
 
