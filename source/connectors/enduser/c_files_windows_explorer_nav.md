@@ -11,7 +11,7 @@ To work with plug-in features, you must be connected to a Connections or Connect
 
 |Folder|Description|
 |------|-----------|
-|My Files|A list of all the files you published to Files. **<br />NOTE:** **My Files** initially limits the display to 500 files. To retrieve all files, right-click in the background and then select **Get all**. |
+|My Files|A list of all the files you published to Files. <br /><br /> **Note:** **My Files** initially limits the display to 500 files. To retrieve all files, right-click in the background and then select **Get all**. |
 |Pinned Files|Files that you pinned for easy retrieval.|
 |Shared with Me|Files that were shared with you.|
 |Shared by Me|Files that you shared with people or communities.|
@@ -20,7 +20,7 @@ To work with plug-in features, you must be connected to a Connections or Connect
 |Folders Shared with Me|Folders that other shared with you.|
 |Communities|Communities that you belong to and public communities. This folder does not automatically display all of the communities you can access. Add the communities that you want to access from your desktop. Click the icon for a community to view associated files. To add a community, right-click **Community** in the navigation pane, choose **Add**, then type the name of a community to add.|
 |People|This folder lists files that were shared with you, organized by the person who shared them. The folder does not automatically display all of the people who shared files with you. Add the people who shared files that you want to track from the desktop. Click a profile picture to see the associated files. To add a person to their folder, right-click **People** in the navigation pane, choose **Add**, then type the name of a person.|
-|Trash|Moving a file to the trash hides it from all folders and it no longer appears in searches. When you move a file to trash, all of the file's versions, recommendations, and comments move to trash, and the file is hidden from people with whom you shared it. If a file is restored from the trash, it is added back to the folders it was previously in, and all data is restored. When you restore a file from trash, all versions, recommendations, and comments are restored, and people with whom you shared the file can see it again. **<br />NOTE:** The Trash folder contains subfolders for trash from My Files, each community, and each person. Only subfolders that contain deleted files are displayed. |
+|Trash|Moving a file to the trash hides it from all folders and it no longer appears in searches. When you move a file to trash, all of the file's versions, recommendations, and comments move to trash, and the file is hidden from people with whom you shared it. If a file is restored from the trash, it is added back to the folders it was previously in, and all data is restored. When you restore a file from trash, all versions, recommendations, and comments are restored, and people with whom you shared the file can see it again. <br /><br />**NOTE:** The Trash folder contains subfolders for trash from My Files, each community, and each person. Only subfolders that contain deleted files are displayed. |
 
 **Parent topic:**[Using the HCL Connections desktop plug-ins for Microsoft Windows](../../connectors/enduser/c_ms_plugins_win_explorer.md)
 
