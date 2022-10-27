@@ -51,7 +51,7 @@ extra:
    # property: UA-169645537-2
   consent:
     title: Cookie consent
-    description: >- 
+    description: >-
       We use cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
@@ -63,7 +63,7 @@ extra:
 # Repository
 repo_url: https://github.com/HCL-TECH-SOFTWARE/connections-doc
 repo_name: hcl-software/connections
-edit_uri: edit/main/docs
+edit_uri: edit/main/source
 
 
 # Customization
@@ -73,22 +73,22 @@ extra_css:
 plugins:
   - section-index
   - search
-  
- #Table of contents 
+
+ #Table of contents
 nav:
 # HCL Connections Documentation
       - Introducing Connections: index.md
 # What's New
-      - What&apos;s new in Connections&quest;: admin/overview/i_ovr_r_whats_new.md    
+      - What&apos;s new in Connections&quest;: admin/overview/i_ovr_r_whats_new.md
 # Administering
-      - Administering Connections 8: 
+      - Administering Connections 8:
         - admin/welcome/welcome_admin.md
         - Product Overview:
           - admin/overview/c_lc4_product_overview.md
           - What is HCL Connections: admin/overview/c_what_is_lc.md
           - Supported languages: admin/overview/i_ovr_c_supported_langs.md
           - Accessibility features: admin/overview/ic_r_accessibility_features.md
-        - Planning: 
+        - Planning:
           - admin/plan/c_installation_overview.md
           - Audience: admin/plan/c_audience.md
           - Directory path conventions: admin/plan/i_ovr_r_directory_conventions.md
@@ -103,7 +103,7 @@ nav:
           - Pre-installation tasks:
             - admin/install/c_preinstall_actions.md
             - Verifying disk space and open file limits before installing HCL Connections: admin/install/t_preinstall_sys.md
-            - Preparing to configure the LDAP directory: 
+            - Preparing to configure the LDAP directory:
               - admin/install/t_config_ldap.md
               - LDAP objectclass/attribute pairings for nested groups: admin/install/r_inst_ldap_object_class_attribute_pairings.md
             - Installing IBM WebSphere Application Server and IBM HTTP Server:
@@ -229,11 +229,11 @@ nav:
             - admin/install/cp_install_upgrade_container.md
             - Upgrade considerations for Component Pack 8: admin/install/upgrade_considerations.md
             - Upgrade considerations for side-by-side migration of data: admin/install/cp_upgrade_considerations_for_side_by_side_migration.md
-            - Steps to install or upgrade to Component Pack 8: 
+            - Steps to install or upgrade to Component Pack 8:
               - admin/install/cp_install_services_tasks.md
               - Installing MongoDB 5 for Component Pack 8: admin/install/installing_mongodb_5_for_component_pack_8.md
               - Migrating data from MongoDB 3 to 5: admin/install/migrating_data_mongodb_v3_v5.md
-              - Migrating data from Elasticsearch 7 to OpenSearch: admin/install/cp_migrate_data_from_es7_to_opensearch.md             
+              - Migrating data from Elasticsearch 7 to OpenSearch: admin/install/cp_migrate_data_from_es7_to_opensearch.md
           - Configuring the Component Pack:
             - admin/install/cp_config_intro.md
             - Configuring the HTTP server: admin/install/cp_config_proxy_rules.md
@@ -320,20 +320,20 @@ nav:
                - Enabling MS Teams within Share: admin/install/c_install_enable_ms_teams_share.md
         - Optional&colon; Installing and configuring Tiny Editors for HCL Connections:
           - admin/install/tiny_editors/c_tiny-editors.md
-          - Installing Tiny Editors for HCL Connections: 
+          - Installing Tiny Editors for HCL Connections:
             - admin/install/tiny_editors/t_01-setup_00-summary.md
             - Optional&colon; Installing Tiny Editors Selector:
               - admin/install/tiny_editors/t_01-setup_01-selector_00-summary.md
               - Installing the Tiny Editors Selector: admin/install/tiny_editors/t_01-setup_01-selector_01-install.md
               - Starting the Tiny Editors Selector application: admin/install/tiny_editors/t_01-setup_01-selector_02-start.md
               - Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
-            - Optional&colon; Installing Tiny Editors Services: 
+            - Optional&colon; Installing Tiny Editors Services:
               - admin/install/tiny_editors/t_01-setup_02-services_00-summary.md
-              - Configuring the application.conf for the Tiny Editors Services: 
+              - Configuring the application.conf for the Tiny Editors Services:
                 - admin/install/tiny_editors/t_01-setup_02-services_01-appconf_00-summary.md
                 - Create an application.conf for the Tiny Editors Services: admin/install/tiny_editors/t_01-setup_02-services_01-appconf_01-create-an-application-conf.md
                 - Configure access for the Tiny Editors Services through a HTTP proxy: admin/install/tiny_editors/t_01-setup_02-services_01-appconf_02-configure-proxy.md
-              - Configuring the SSL certificates for the Tiny Editors Services: 
+              - Configuring the SSL certificates for the Tiny Editors Services:
                 - admin/install/tiny_editors/t_01-setup_02-services_02-certificates_00-summary.md
                 - Create a web-aware trust store for the Tiny Editors Services: admin/install/tiny_editors/t_01-setup_02-services_02-certificates_01-create-a-web-aware-truststore.md
                 - Change the default trust store to the Tiny Editors Services trust store: admin/install/tiny_editors/t_01-setup_02-services_02-certificates_02-change-the-default-truststore.md
@@ -342,7 +342,7 @@ nav:
               -   Starting the Tiny Editors Services application: admin/install/tiny_editors/t_01-setup_02-services_04-start.md
               -   Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
           - Installing the Tiny Editors integration:
-            - admin/install/tiny_editors/t_01-setup_03-editors_00-summary.md 
+            - admin/install/tiny_editors/t_01-setup_03-editors_00-summary.md
             - Configuring the Tiny Editors integration:
               - admin/install/tiny_editors/t_01-setup_03-editors_01-configure_00-summary.md
               - Selecting an editor: admin/install/tiny_editors/t_configure_01-select-editor.md
@@ -385,16 +385,16 @@ nav:
             - Add custom macros: admin/install/tiny_editors/t_configure_12-add-custom-macros-1.md
             - Where additional customization is required, custom plugins can be loaded into TinyMCE: admin/install/tiny_editors/t_configure_13-add-external-tinymce-plugins.md
             - Configure additional TinyMCE settings: admin/install/tiny_editors/t_configure_14-additional-tinymce-settings-1.md
-          - Uninstalling Tiny Editors for HCL Connections: 
+          - Uninstalling Tiny Editors for HCL Connections:
             - admin/install/tiny_editors/t_03-uninst_00-summary.md
-            - Uninstalling Tiny Editors Integration: 
+            - Uninstalling Tiny Editors Integration:
               - admin/install/tiny_editors/t_03-uninst_01-editors_00-summary.md
               - Uninstall the Tiny Editors Integration on Linux, Unix or AIX: admin/install/tiny_editors/t_03-uninst_01-editors_01-uninstall-on-linux-unix-or-aix.md
               - Uninstall the Tiny Editors Integration on Windows: admin/install/tiny_editors/t_03-uninst_01-editors_02-uninstall-on-windows.md
               - Uninstall the Tiny Editors Integration manually: admin/install/tiny_editors/t_03-uninst_01-editors_03-uninstall-manually.md
             - Uninstalling the Tiny Editors Services: admin/install/tiny_editors/t_03-uninst_02-services-uninstall.md
             - Uninstalling the Tiny Editors Selector: admin/install/tiny_editors/t_03-uninst_03-selector-uninstall.md
-          - Common tasks, concepts and reference information: 
+          - Common tasks, concepts and reference information:
             - admin/install/tiny_editors/r_appendix.md
             - Determine customization path: admin/install/tiny_editors/t_determine-customization-path.md
             - Restart Common application: admin/install/tiny_editors/t_restart-common-app.md
@@ -437,12 +437,12 @@ nav:
           - Enabling anonymous access for the Rich Content Widget component: admin/install/t_inst_enable_anonymous_access_for_rte.md
           - Customizing browser cookie cleanup on user logout: admin/install/t_inst_customize_cookie_cleanup_on_user_logout.md
           - Configuring an NGINX server for long polling: admin/install/inst_post_nginx.md
-          - Setting up and configuring a WAS proxy server for long poll testing: 
+          - Setting up and configuring a WAS proxy server for long poll testing:
             - admin/secure/t_admin_config_was_proxy.md
             - Setting up a WAS proxy server for long polling: admin/secure/t_admin_setting_up_WASProxy_t.md
             - Setting up a new proxy core group: admin/securetall/t_admin_setting_up_ProxyCoreGroup_t.md
             - Tuning the WAS proxy server for long poll: admin/secure/t_admin_tuning_WASProxy_t.md
-          - Configuring notifications: 
+          - Configuring notifications:
             - admin/admin/t_admin_common_config_notification.md
             - Notification types and events: admin/admin/r_notification_types.md
             - Enabling email notifications: admin/admin/t_admin_common_enable_template.md
@@ -452,7 +452,7 @@ nav:
             - Enabling email notifications (default templates): admin/admin/t_admin_common_enable_mail.hmd
             - Enabling link stripping in email notifications: admin/install/enable_link_stripping_in_notifications.md
             - Setting the default frequency of email digests: admin/admin/t_admin_common_specify_default_notification_frequency.md
-          - Configuring Forums for email notification replies: 
+          - Configuring Forums for email notification replies:
             - admin/admin/c_admin_forums_notification_replies.md
             - Configuring HCL Domino for email notification replies: admin/admin/t_admin_forums_notification_replies_domino.md
             - Configuring Exchange for notification replies: admin/admin/c_admin_forums_notification_replies_exchange.md
@@ -462,7 +462,7 @@ nav:
           - Enabling users to specify email notification preferences: admin/admin/t_admin_common_user_specifies_email.md
           - Disabling embedded applications in notifications: admin/admin/t_admin_notifications_disable_embedded_apps.md
           - Including mobile links in notifications: admin/admin/t_admin_notifications_include_mobile_links.md
-        - Uninstalling: 
+        - Uninstalling:
           - admin/install/t_uninstall_over.md
           - Removing applications: admin/install/t_remove_applications.md
           - Uninstalling a deployment: admin/install/t_uninstall_lotus_conxns_cluster.md
@@ -472,102 +472,102 @@ nav:
           - Uninstalling databases in silent mode: admin/install/t_uninstall_database_wizard_silent.md
           - Uninstalling&colon; Manually drop databases: admin/install/t_uninstall_drop-databases.md
           - Reverting Common, Connections-proxy, and WidgetContainer applications for Uninstallation: admin/install/t_install_revert_commonwidg_for_uninstall.md
-        - Upgrading and updating: 
+        - Upgrading and updating:
           - admin/migrate/c_upgrade_migrate_overview.md
-          - Getting ready for upgrading or updating: 
+          - Getting ready for upgrading or updating:
             - admin/migrate/t_prepare_migrate_upgrade.md
             - Informing users of an upgrade or update: admin/migrate/t_bring_down_4_maintenance.md
             - Backing up Connections: admin/migrate/t_back-up.md
             - Saving your customizations: admin/migrate/c_configuration_changes_after_update.md
           - Ways to upgrade to Connections 8: admin/migrate/c_3_ways_to_upgrade.md
-          - Side-by-side upgrades: 
+          - Side-by-side upgrades:
             - admin/migrate/c_sbs_upgrade_container.md
             - Considerations for a side-by-side upgrade: admin/migrate/c_sbs_upgrade_considerations.md
             - Sample roadmap for a side-by-side upgrade: admin/migrate/c_sbs_upgrade_process.md
             - Migrating data and updating databases: admin/migrate/t_sbs_migrate_data.md
-          - In-place and hybrid upgrades: 
+          - In-place and hybrid upgrades:
             - admin/migrate/c_inplace_upgrade.md
             - Considerations for an in-place or hybrid upgrade: admin/migrate/c_inplace_upgrade_considerations.md
             - Performing an in-place or hybrid upgrade: admin/migrate/t_upgrading_to_7.md
-            - Updating databases: 
+            - Updating databases:
               - admin/migrate/t_update_databases-manual.md
               - Updating Db2 databases: admin/migrate/t_update_3.0.1_DB2_manual.md
               - Updating Oracle databases: admin/migrate/t_update_3.0.1_ORA_manual.md
               - Updating SQL Server databases: admin/migrate/t_update_3.0.1_SQL-Server_manual.md
           - Enabling the Connections 8 user experience: admin/migrate/enabling_cnx8_ux.md
-          - Updating Connections 8 with the latest fixes: 
+          - Updating Connections 8 with the latest fixes:
             - admin/migrate/c_updating_interim_fixes.md
             - Installing fixes as a non-root user: admin/migrate/t_non-root_install_fixes.md
             - Downloading fixes: admin/migrate/t_downloading_fixes.md
             - Downloading the latest version of the Update Wizard and updateInstaller: admin/migrate/t_im_upgrade.md
-            - Installing fixes: 
+            - Installing fixes:
               - admin/migrate/c_installing_interim_fixes.md
               - Installing fixes in interactive mode: admin/migrate/t_install_interim-fix.md
               - Installing fixes in silent mode: admin/migrate/t_install_interim-fix_silent-mode.md
               - updateSilent command: admin/migrate/r_updatelc_command.md
-            - Uninstalling fixes: 
+            - Uninstalling fixes:
               - admin/migrate/c_update_uninstall.md
               - Uninstalling fixes in interactive mode: t_uninstall_interim-fix_interactive-mode.md
               - Uninstalling fixes in silent mode: admin/migrate/t_uninstall_interim-fix_silent-mode.md
-          - Synchronizing nodes: 
+          - Synchronizing nodes:
             - admin/migrate/t_synch_updates.md
             - Enabling and disabling synchronization: admin/migrate/t_enable_synchronization.md
-#ADMINISTERiNG 
-        - Administering: 
+#ADMINISTERiNG
+        - Administering:
           - admin/admin/c_lc_admin_overview.md
-          - Administering common areas: 
+          - Administering common areas:
             - admin/admin/c_admin_act_wsadmin.md
             - Administrator checklist: admin/admin/c_admin_common_admin_checklist.md
-            - Administration tools: 
+            - Administration tools:
               - admin/admin/c_admin_common_tools.md
               - Starting the wsadmin client: admin/admin/t_admin_wsadmin_starting.md
-              - Editing configuration files: 
+              - Editing configuration files:
                 - admin/admin/t_admin_common_checkout_config_file.md
                 - HCL Connections configuration property values: admin/admin/t_admin_common_change_config_value_over.md
                 - HCL Connections configuration files: admin/admin/r_admin_common_config_files.md
                 - Editing the events-config.xml file: admin/admin/t_admin_common_editing_events_config.md
-              - Changing common configuration property values: 
+              - Changing common configuration property values:
                 - admin/admin/t_admin_common_changing_config.md
-                - Common configuration properties: 
+                - Common configuration properties:
                   - admin/admin/r_admin_common_props.md
                   - Properties that you can edit by using the wsadmin client: admin/admin/r_admin_common_props_wsadmin.md
                   - Properties that you can change only by editing the XML file: admin/admin/r_admin_common_props_edit-xml.md
                   - Applying common configuration property changes: admin/admin/t_admin_common_save_changes.md
               - Running administrative commands: admin/admin/t_admin_common_edit_admin_props.md
               - Starting or stopping Connections applications: admin/admin/t_admin_common_startstop_apps.md
-            - System maintenance: 
+            - System maintenance:
               - admin/admin/c_admin_common_maintaining.md
-              - Changing WebSphere Application Server environment variables: 
+              - Changing WebSphere Application Server environment variables:
                 - admin/admin/t_admin_common_change_was_env_variable.md
                 - WebSphere Application Server environment variables: admin/admin/r_admin_common_was_env_variables.md
               - Changing the name of the session cookie ID: admin/admin/t_admin_common_change_jsessionid.md
-              - Scheduling tasks: 
+              - Scheduling tasks:
                 - admin/admin/c_admin_common_was_scheduler.md
                 - Examples of scheduler values: admin/admin/r_admin_common_scheduler_cron_examples.md
                 - Clearing all scheduled tasks: admin/admin/t_admin_common_clear_scheduler_after_ltpa_change.md
-              - Maintaining application databases: 
+              - Maintaining application databases:
                 - admin/admin/t_admin_db_maintain.md
                 - Gathering DB2 database statistics daily: admin/admin/t_admin_db_maintain_stats.md
                 - Improving access performance and defragmenting DB2 database data: admin/admin/t_admin_db_maintain_compact.md
-              - Removing nodes from a cluster: 
+              - Removing nodes from a cluster:
                 - admin/admin/c_admin_common_remove_nodes.md
                 - Removing nodes from a cluster using the Integrated Solutions Console: admin/admin/t_admin_common_remove_node.md
                 - Removing nodes from a cluster with the command line: admin/admin/t_admin_common_remove_node_cmd_line.md
               - Backing up and restoring data: admin/admin/c_admin_common_manage_backups.md
-            - Managing content: 
+            - Managing content:
               - admin/admin/c_admin_common_managing_content.md
               - Administering application content: admin/admin/r_admin_common_superusers.md
               - Administering community content: admin/admin/t_admin_communities_create_superuser.md
-              - Administering Moderation: 
+              - Administering Moderation:
                 - admin/install/c_config_moderation_app.md
-                - Moderation overview: 
+                - Moderation overview:
                   - admin/admin/c_admin_common_moderation_over.md
-                  - Moderation roles: 
+                  - Moderation roles:
                     - admin/admin/c_admin_common_moderation_roles.md
                     - Designating global moderators: admin/install/t_moderation_assigning_roles.md
                     - Assigning community owners J2C aliases for moderating: admin/admin/t_admin_common_moderation_config_proxy_id.md
                   - Moderated content states: admin/admin/c_admin_common_moderated_states.md
-                  - Managing content moderation and flagged content: 
+                  - Managing content moderation and flagged content:
                     - admin/admin/t_admin_blogs_flag_inappropriate.md
                     - Moderating content before it is published: admin/admin/t_admin_common_moderation_pre-modui.md
                     - Moderating published content that is flagged: admin/admin/t_admin_common_moderation_post-modui.md
@@ -579,7 +579,7 @@ nav:
               - Administering the banner using Feature Foundation: admin/admin/admin_banner_icxt.md
             - Administering the Widget container:
               - admin/admin/t_admin_common_widget_container.md
-              - Administering gadgets for HCL Connections and widgets for Home page: 
+              - Administering gadgets for HCL Connections and widgets for Home page:
                 - admin/admin/c_admin_homepage_add_custom_widgets.md
                 - Configuring widgets: admin/admin/t_admin_homepage_add_widgets.md
                 - Enabling widgets: admin/admin/t_admin_homepage_enable_widgets.md
@@ -593,12 +593,12 @@ nav:
               - Controlling the maximum file upload size for the Connections OpenSocial Container: admin/admin/t_admin_controllmax_file_upload_size_open_social_container.md
               - Clearing the widget cache: admin/admin/t_admin_clear_widget_cache.md
               - Security token properties: admin/admin/r_admin_oauth_security__token_props.md
-            - Managing access: 
+            - Managing access:
               - admin/admin/c_admin_common_managing_access.md
-              - Roles: 
+              - Roles:
                 - admin/admin/r_admin_common_user_roles.md
                 - Assigning people to Java EE roles: admin/admin/t_admin_common_user_roles_assign.md
-              - Managing stored credentials: 
+              - Managing stored credentials:
                 - admin/admin/c_admin_common_change_passwords.md
                 - Changing the WebSphere Application Server administrative user ID password: admin/admin/t_admin_common_change_was_password.md
                 - Changing references to database administrative credentials: admin/admin/t_admin_common_change_admin_db_password.md
@@ -607,14 +607,14 @@ nav:
                 - Updating the messaging bus configuration when the connectionsAdmin user ID changes: admin/admin/t_admin_common_change_bus_password.md
                 - Changing administrative credentials for the LDAP global unique ID: admin/admin/t_admin_common_change_admin_ldap_password.md
                 - Changing the password for the mail administrative user: admin/admin/t_admin_common_change_admin_mail_password.md
-              - Managing users: 
+              - Managing users:
                 - admin/admin/c_admin_common_user_life_cycle_over.md
                 - User life cycle details: admin/admin/c_admin_common_user_life_cycle_goal.md
-                - Managing users when the Profiles application is installed: 
+                - Managing users when the Profiles application is installed:
                   - admin/admin/c_admin_common_user_life_cycle_with_profiles.md
-                  - Managing user data using Tivoli Directory Integrator Solution scripts: 
+                  - Managing user data using Tivoli Directory Integrator Solution scripts:
                     - admin/admin/c_admin_profiles_updating_ldap.md
-                    - Synchronizing the Profiles database with your organization's user data: 
+                    - Synchronizing the Profiles database with your organization's user data:
                       - admin/admin/t_admin_profiles_sync_ldap.md
                       - Synchronizing IBM Tivoli Security Directory Server and Microsoft Active Directory LDAP changes: admin/admin/t_admin_profiles_sync_ldap_tdi_ad.md
                       - Synchronizing user data between Profiles and the LDAP directory: admin/admin/t_admin_profiles_sync_dbs.md
@@ -625,35 +625,35 @@ nav:
                     - Customizing the logic used for the delete operation: admin/admin/t_admin_profiles_customize_delete_logic.md
                   - Managing user data using the Profiles Administration APIs: admin/admin/c_admin_common_sync_via_prof_admin_api.md
                   - Managing user data using Profiles administrative commands: admin/admin/t_admin_profiles_manage_users.md
-                - Managing users when the Profiles application is not installed: 
+                - Managing users when the Profiles application is not installed:
                   - admin/admin/c_admin_common_user_life_cycle_without_profiles.md
-                - Synchronizing user data by using administrative commands: 
+                - Synchronizing user data by using administrative commands:
                   - admin/admin/c_admin_common_sync_via_admin_commands1.md
-                  - Sample user management scenarios: 
+                  - Sample user management scenarios:
                     - admin/admin/c_admin_common_managing_user_scenarios.md
                     - Improving directory synchronization: admin/admin/t_admin_common_update_user_status.md
-                - Managing personal information in accordance with PI laws: 
+                - Managing personal information in accordance with PI laws:
                   - admin/admin/c_common_manage_personal_data_for_gdpr.md
                   - Managing user requests to erase PI: admin/admin/t_common_manage_user_requests_to_erase_pd.md
                   - Deleting or correcting user PI: admin/admin/t_common_erase_or_correct_data_in_body_text.md
-                - Using the LDAP directory as the user directory: 
+                - Using the LDAP directory as the user directory:
                   - admin/admin/t_admin_common_disabling_directory_services.md
                   - Using the Profiles database as the user directory: admin/admin/t_enabling_directory_services.md
                 - Groups: admin/admin/c_admin_common_groups.md
-            - Managing external user access: 
+            - Managing external user access:
               - admin/admin/c_admin_common_manage_ext_user.md
-              - Configuring self-registration for external users: 
+              - Configuring self-registration for external users:
                 - admin/admin/t_install_config_self-registration_for_external_users.md
-                - Optional Encoding the LDAP password in self-registration-confg.xml: 
+                - Optional Encoding the LDAP password in self-registration-confg.xml:
                   - admin/admin/t_admin_encode_ldap_pwd_self-reg.md
                   - Customizing notifications for self-registering users: admin/admin/c_admin_customize_self-registration_notifications.md
-                - Registering external users with Profiles: 
+                - Registering external users with Profiles:
                   - admin/admin/t_admin_profiles_external_user_script.md
                   - Map a standard LDAP attribute for external users: admin/admin/t_admin_profiles_ldap_map.md
                   - Map a standard LDAP attribute using JavaScript: admin/admin/t_admin_profiles_function_map.md
                   - Use an LDAP branch to store external users: admin/admin/t_admin_profiles_ldap_branch.md
                 - Setting user roles for external collaboration: admin/admin/t_admin_profiles_set_roles.md
-            - Customizing the deployment: 
+            - Customizing the deployment:
                 - admin/admin/c_admin_common_customizing.md
                 - Hiding email addresses: admin/admin/t_admin_common_hide_email_using_script.md
                 - Exposing email addresses: admin/admin/t_admin_common_expose_email_using_script.md
@@ -667,25 +667,25 @@ nav:
                 - Disabling the social analytics service: admin/admin/t_admin_common_disable_sand.md
                 - Adding or removing sections from the help system's table of contents: admin/admin/t_admin_common_remove_help_books.md
                 - Customizing the number of @mentions suggestions: admin/admin/t_customize_number_@mentions_results.md
-            - URL Preview: 
+            - URL Preview:
                 - admin/admin/c_admin_news_url_preview.md
                 - Configuring URL preview: admin/admin/t_admin_news_url_preview_config.md
                 - URL preview security: admin/admin/c_admin_news_url_preview_security.md
-          - Administering Activities: 
+          - Administering Activities:
             - admin/admin/c_admin_act_overview.md
-            - Changing Activities configuration property values: 
+            - Changing Activities configuration property values:
               - admin/admin/t_admin_act_changing_config.md
               - Checking out the Activities configuration files: admin/admin/t_admin_act_checkout_config_file.md
               - Activities configuration properties: admin/admin/r_admin_activities_props.md
               - Applying property changes in Activities: admin/admin/t_admin_act_save_changes.md
-              - Managing uploaded files: 
+              - Managing uploaded files:
                 - admin/admin/t_admin_act_manage_uploads.md
                 - Setting limits on uploaded files: admin/admin/t_admin_act_set_limits.md
                 - Defining multiple content stores for Activities: admin/admin/t_admin_act_change_content_store_new.md
                 - Moving the content store: admin/admin/t_admin_act_move_content_store.md
               - Completing activities that are not being used: admin/admin/t_admin_act_auto_completing.md
               - Emptying the Activities trash on a schedule: admin/admin/t_admin_act_trash_removal.md
-              - Monitoring statistics and metrics: 
+              - Monitoring statistics and metrics:
                 - admin/admin/t_admin_act_collecting_statistics.md
                 - Activity statistics: admin/admin/r_admin_act_monitor_stats.md
                 - Defining which statistics to collect: admin/admin/t_admin_act_defining_stats.md
@@ -698,11 +698,11 @@ nav:
               - Example&colon; admin/Activities administrative session: admin/admin/r_admin_act_administrative_example.md
               - Getting a list of activities: admin/admin/t_admin_act_fetch_activities.md
               - Narrowing down results: admin/admin/t_admin_act_narrow_results.md
-              - Managing activity membership: 
+              - Managing activity membership:
                 - admin/admin/c_admin_act_manage_membership.md
                 - Retrieving member information: admin/admin/t_admin_act_manage_membership.md
                 - Managing member access to activities: admin/admin/t_admin_act_manage_access.md
-              - Managing trash: 
+              - Managing trash:
                 - admin/admin/t_admin_act_deletions_over.md
                 - Deleting activities: admin/admin/t_admin_act_soft_delete.md
                 - Restoring deleted activities: admin/admin/t_admin_act_restoring_deleted_activities.md
@@ -712,22 +712,22 @@ nav:
               - Importing activities: admin/admin/t_admin_act_import_activities.md
             - Backing up Activities data: admin/admin/t_admin_act_backup.md
             - Restoring Activities data: admin/admin/t_admin_act_restore_data.md
-          - Administering Blogs: 
+          - Administering Blogs:
             - admin/admin/c_administering_blogs.md
-            - Administering Blogs from the user interface: 
+            - Administering Blogs from the user interface:
               - admin/admin/c_admin_blogs_UI.md
               - Configuring an administrator for Blogs: admin/admin/t_create_admin_blogs.md
               - Managing the Blogs Homepage blog: admin/admin/c_admin_blogs_homepage_blog.md
               - Specifying site-wide setting for Blogs: admin/admin/t_admin_settings_UI.md
               - Managing a community blog: admin/admin/t_admin_blogs_manage_com_blog.md
               - Administering Blogs users: admin/admin/t_admin_blogs_users.md
-            - Administering Blogs using the wsadmin client: 
+            - Administering Blogs using the wsadmin client:
               - admin/admin/r_admin_blogs_wsadmin.md
               - Specifying an administrator email address for Blogs notifications: admin/admin/t_admin_blogs_admin_email.md
               - Changing the blog handle: admin/admin/t_admin_blogs_change_blog_handle.md
               - Replacing URLs in Blogs: admin/admin/t_admin_blogs_replace_urls.md
               - Restoring a Community Blog after a Communities database failure: admin/admin/c_admin_blogs_restoring_community_blog.md
-            - Moderating blog content: 
+            - Moderating blog content:
               - admin/admin/c_blogs_admin_moderation_overview.md
               - Moderating Blog comments: admin/admin/t_admin_blogs_moderating_comments.md
               - Moderated content states for blogs: admin/admin/c_blogs_admin_moderation_states.md
@@ -739,39 +739,39 @@ nav:
             - Extending the list of allowable file types for blogs: admin/admin/t_admin_blogs_mime_file_types.md
             - Understanding and configuring blog hits and visits: admin/admin/c_admin_blogs_hits_and_visits.md
             - Understanding blog likes, comments, and visits: admin/admin/c_admin_blogs_visits_and_comments.md
-          - Administering Bookmarks: 
+          - Administering Bookmarks:
             - admin/admin/c_admin_dogerar_intro.md
-            - Running Bookmarks administrative commands: 
+            - Running Bookmarks administrative commands:
               - admin/admin/t_admin_dogear_changing_admin.md
               - Using administrative commands: admin/admin/t_admin_dogear_administrative.md
-            - Accessing the Bookmarks configuration file: 
+            - Accessing the Bookmarks configuration file:
               - admin/admin/t_admin_dogear_accessing_config.md
               - Bookmarks configuration properties: admin/admin/r_admin_dogear_config_properties.md
               - Applying property changes: admin/admin/t_admin_dogear_apply_prop_change.md
             - Changing the default favicon: admin/admin/t_admin_dogear_favicons.md
             - Changing the location of the favicon cache: admin/admin/t_admin_dogear_WAS_directories.md
             - Denoting sites as intranets: admin/admin/t_admin_dogear_intranet_site.md
-            - Managing links: 
+            - Managing links:
               - admin/admin/c_admin_dogear_manage_links.md
               - Replacing URLs in bookmarks: admin/admin/t_admin_dogear_replace_urls.md
             - Restrict link redirects: admin/admin/t_admin_dogear_restrict_redirect.md
             - Managing multiple Bookmark buttons: admin/admin/t_admin_dogear_manage_bookmark_buttons.md
-          - Administering Communities: 
+          - Administering Communities:
             - admin/admin/c_admin_communities_intro.md
-            - Running Communities administrative commands: 
+            - Running Communities administrative commands:
               - admin/admin/t_admin_communities_changing_admin.md
               - Communities administrative commands: admin/admin/r_admin_communities_admin_props.md
-            - Changing Communities configuration property values: 
+            - Changing Communities configuration property values:
               - admin/admin/t_admin_communities_changing_config.md
               - Communities configuration properties: admin/admin/r_admin_communities_config_props.md
               - Applying property changes in Communities: admin/admin/t_admin_communities_save_changes.md
-            - Administering community templates: 
+            - Administering community templates:
               - admin/admin/t_admin_comm_templates_container.md
               - Assigning administrators to template management roles: admin/admin/t_admin_comm_templates_assign_admins.md
               - Things to know before creating a community template: admin/admin/c_things_to_know_before_create_community_template.md
               - Managing community templates: admin/admin/t_admin_comm_templates_manage.md
             - Creating and populating communities: admin/admin/t_admin_communities_create_communities.md
-            - Managing membership in Communities: 
+            - Managing membership in Communities:
               - admin/admin/c_admin_communities_managing_membership.md
               - Adding owners and members to a community: admin/admin/t_admin_communities_add_members.md
               - Adding an alternate owner to Communities: admin/admin/t_admin_communities_add_alternate_owner.md
@@ -779,11 +779,11 @@ nav:
               - Disabling the ability to add members to a community: admin/admin/t_admin_communities_disable_add_members.md
               - Limiting the membership size of communities: admin/admin/t_admin_communities_limit_members.md
               - Managing communities when all owners are inactive: admin/admin/t_admin_communities_inactive_owners.md
-              - Managing default owner and member permissions: 
+              - Managing default owner and member permissions:
                 - admin/admin/c_admin_communities_managing_default_permissions.md
                 - Preventing owners from deleting a community: admin/admin/t_admin_communities_prevent_deletion.md
                 - Preventing members from creating specific community types: admin/admin/t_admin_communities_prevent_user_creation.md
-            - Managing community content: 
+            - Managing community content:
               - admin/admin/c_admin_communities_control_content.md
               - Removing unwanted or inappropriate content: admin/admin/t_admin_communities_remove_content.md
               - Protecting against malicious active content: admin/admin/t_admin_communities_filter_active_content.md
@@ -797,13 +797,13 @@ nav:
             - Enabling and disabling the community unique web address option: admin/admin/t_admin_communities_disable_handle.md
             - Reparenting communities: admin/admin/t_admin_community_reparent.md
             - Operations that update the communities time stamp: admin/admin/r_admin_lastmod_communities.md
-            - Working with Community trash: 
+            - Working with Community trash:
               - admin/admin/c_admin_communities_trash.md
               - Managing Community trash: admin/admin/t_admin_communities_soft_del.md
               - Configuring community trash settings: admin/admin/t_admin_communities_config_fulldelete.md
             - Enabling community feeds: admin/admin/c_admin_communities_enabling_feeds.md
             - Renaming the My Organization communities view: admin/admin/t_admin_communities_change_org.md
-            - Managing the Communities catalog: 
+            - Managing the Communities catalog:
               - admin/admin/c_admin_communities_catalog.md
               - Configuring the Communities catalog administrator role: admin/admin/t_admin_communities_catalog_admin_role.md
               - Adding sources to the Communities catalog: admin/admin/t_admin_communities_add_catalog_sources.md
@@ -811,19 +811,19 @@ nav:
               - Adding HCL Connections nodes to the Communities catalog: admin/admin/t_admin_communities_catalog_add.md
               - Configuring Communities catalog settings: admin/admin/t_admin_communities_config_cat_settings.md
               - Restoring the Communities catalog index: admin/admin/t_admin_communities_catalog_recover_index.md
-            - Administering widgets and remote applications: 
+            - Administering widgets and remote applications:
               - admin/admin/c_admin_communities_administering_widgets.md
               - Using the widgets-config.xml file for Communities: admin/admin/t_admin_communities_use_widgets_config.md
               - Defining mandatory and default widgets for communities: admin/admin/t_admin_communities_change_default_widgets.md
-              - Adding custom widgets to Communities: 
+              - Adding custom widgets to Communities:
                 - admin/admin/c_admin_communities_add_custom_widgets.md
                 - Enabling custom widgets for Communities: admin/admin/t_admin_communities_develop_custom_widgets.md
-                - Communities widget configuration substitution variables: 
+                - Communities widget configuration substitution variables:
                   - admin/admin/r_admin_substitution_variables_communities.md
                   - Specifying different system users for widget life-cycle events: admin/admin/t_admin_communities_configure_j2c.md
                   - Administering community queued events: admin/admin/t_admin_communities_event_admin.md
                   - Configuring the widget life-cycle retry schedule: admin/admin/t_admin_communities_config_retry_schedule.md
-                  - Recovering from a database failure: 
+                  - Recovering from a database failure:
                     - admin/admin/c_admin_communities_backup_and_restore.md
                     - Recovering remote Connections applications: admin/admin/t_admin_communities_restore_widgets.md
                     - Comparing remote application data with the Communities database: admin/admin/t_admin_communities_sync_remote_apps.md
@@ -837,21 +837,21 @@ nav:
             - Configuring the Events widget: admin/admin/t_admin_communities_events_config.md
             - Retrieving and listing community data: admin/admin/t_admin_communities_generate_hashmaps.md
             - Filtering community lists: admin/admin/t_admin_communities_manage_lists.md
-          - Administering Files: 
+          - Administering Files:
             - admin/admin/c_admin_files_overview.md
             - Enabling sync for files and folders: admin/admin/t_admin_enabling_file_sync.md
             - Managing images and videos for thumbnails and preview: admin/admin/t_admin_managing_thumbnails_and_videos.md
             - Enabling round-trip editing for files: admin/admin/t_admin_enabling_roundtrip_edit.md
             - Administering Push Notification: admin/admin/t_admin_push_notification.md
-            - Changing Files configuration property values: 
+            - Changing Files configuration property values:
               - admin/admin/t_admin_files_changing_config_properties.md
               - Files configuration properties: admin/admin/r_admin_files_config_properties2.md
               - Configuring MIME types for Files: admin/admin/t_admin_files_config_mime.md
               - Applying Files property changes: admin/admin/t_admin_files_config_apply.md
-            - Running Files administrative commands: 
+            - Running Files administrative commands:
               - admin/admin/t_admin_files_run_commands.md
               - Files administrative commands: admin/admin/r_admin_files_commands.md
-            - Backing up Files data: 
+            - Backing up Files data:
               - admin/admin/t_admin_files_backup.md
               - Checking Files data integrity: admin/admin/t_admin_files_data_integrity.md
               - Synchronizing Files data with Communities data: admin/admin/c_admin_files_backup_communities.md
@@ -868,23 +868,23 @@ nav:
             - Disabling transfer of file ownership by users: admin/admin/files_t_disable_transfer_file_owner_by_users.md
             - Deleting user files from the system: admin/admin/t_admin_files_delete_user_data.md
             - Finding the location of a stored file: admin/admin/t_admin_files_find_file_location.md
-          - Administering Forums: 
+          - Administering Forums:
             - admin/admin/c_admin_forums_overview.md
-            - Running Forums administrative commands: 
+            - Running Forums administrative commands:
               - admin/admin/t_admin_forums_changing_admin.md
               - Forums administrative commands: admin/admin/r_admin_forums_admin_props.md
-            - Changing Forums configuration property values: 
+            - Changing Forums configuration property values:
               - admin/admin/t_admin_forums_changing_config.md
               - Forums configuration properties: admin/admin/r_admin_forums_config_props.md
               - Applying property changes in Forums: admin/admin/t_admin_forums_save_changes.md
-            - Retrieving forum content: 
+            - Retrieving forum content:
               - admin/admin/c_retrieving_forum_content.md
               - Getting a list of forums: admin/admin/t_admin_forums_fetch_forum_list.md
               - Getting a list of forum topics: admin/admin/t_admin_forums_fetch_forums.md
               - Filtering lists of forums: admin/admin/t_admin_forums_filter_forum_list.md
             - Rectifying the count of forums and forum topics: admin/admin/t_admin_forums_rectify_count.md
             - Moderating forums: admin/admin/c_admin_forums_moderation.md
-            - Managing forum trash: 
+            - Managing forum trash:
               - admin/admin/c_admin_forums_manage_trash.md
               - Moving forums to the trash: admin/admin/t_admin_forums_soft_delete.md
               - Deleting topics from forums: admin/admin/t_admin_forums_delete_topic.md
@@ -892,7 +892,7 @@ nav:
               - Purging forum trash on a schedule: admin/admin/t_admin_forums_purge_trash.md
               - Purging specific forum content from the trash: admin/admin/t_admin_forums_purge_spec_content.md
             - Managing Forums scheduled tasks: admin/admin/t_admin_forums_manage_scheduler.md
-            - Managing file attachments in Forums: 
+            - Managing file attachments in Forums:
               - admin/admin/c_admin_forums_manage_attachments.md
               - Setting the maximum number of attachments: admin/admin/t_admin_forums_configure_max_attachments.md
               - Disabling attachments: admin/admin/t_admin_forums_disable_attachments.md
@@ -901,11 +901,11 @@ nav:
             - Adding a feed for topics and replies: admin/admin/t_admin_forums_Filter_by_tag.md
             - Restricting topic editing: admin/admin/t_admin_forums_restrict_editing.md
             - Allowing non-community members to comment in forums: admin/admin/t_admin_forums_config_comment_N.md
-          - Administering the Home page: 
+          - Administering the Home page:
             - admin/admin/c_admin_homepage_intro.md
-            - Administering the Home page from the user interface: 
+            - Administering the Home page from the user interface:
               - admin/admin/c_admin_homepage_ui.md
-              - Administering gadgets for HCL Connections and widgets for Home page: 
+              - Administering gadgets for HCL Connections and widgets for Home page:
                 - admin/admin/c_admin_homepage_add_custom_widgets_homepage.md
                 - Configuring widgets: admin/admin/t_admin_homepage_add_widgets_homepage.md
                 - Enabling widgets: admin/admin/t_admin_homepage_enable_widgets_homepage.md
@@ -913,14 +913,14 @@ nav:
                 - Editing widgets: admin/admin/t_admin_homepage_edit_widgets_homepage.md
                 - Removing widgets: admin/admin/t_admin_homepage_remove_widget_homepage.md
               - Enabling and disabling the My Page view: admin/admin/t_admin_homepage_disable_widgets_tab.md
-            - Administering the Home page using the wsadmin client: 
+            - Administering the Home page using the wsadmin client:
               - admin/admin/c_admin_homepage_wsadmin.md
               - Home page administrative commands: admin/admin/r_admin_homepage_admin_commands.md
               - Forcing the Getting Started view to be the default Home page view: admin/customize/t_customize_getstarted_tab_on.md
               - Managing the default view of the home page: admin/admin/t_admin_homepage_getstart.md
-          - Administering the News repository: 
+          - Administering the News repository:
             - admin/admin/c_admin_news.md
-            - Accessing the News configuration file: 
+            - Accessing the News configuration file:
               - admin/admin/t_admin_homepage_access_news_config.md
               - Applying property changes in the News repository: admin/admin/t_admin_news_apply_property_changes.md
             - News administrative commands: admin/admin/r_admin_news_admin_props.md
@@ -930,40 +930,40 @@ nav:
             - Reallocating and load balancing users according to mail domain: admin/admin/t_admin_news_load_balance_users.md
             - Purging compromised reply-to IDs: admin/admin/t_admin_news_purge_replyto_ids.md
             - Registering third-party applications: admin/admin/t_admin_news_enable_third-party_apps.md
-            - Administering microblogs: 
+            - Administering microblogs:
               - admin/admin/c_admin_news_microblogs.md
               - Deleting microblog data: admin/admin/c_admin_news_delete_status_updates.md
               - Specifying the maximum size for microblogs: admin/admin/t_admin_news_configure_max_microblog.md
               - Synchronizing microblog data with Communities: admin/admin/c_admin_news_sync_data.md
               - Deleting community microblogs from the News repository: admin/admin/t_admin_news_delete_community_microblogs.md
-            - Activity stream search: 
+            - Activity stream search:
               - admin/admin/c_admin_news_as_search.md
               - Administering activity stream search: admin/admin/t_admin_news_manage_as_search.md
               - Copying the activity stream search index to new nodes: admin/admin/t_admin_news_copy_as_index.md
               - Configuring activity stream search index settings: admin/admin/t_admin_news_config_as_index_settings.md
               - Restoring the activity stream search index: admin/admin/t_admin_activity_stream_recover_index.md
-          - Administering Profiles: 
+          - Administering Profiles:
             - admin/admin/c_admin_profiles_intro.md
-            - Running Profiles administrative commands: 
+            - Running Profiles administrative commands:
               - admin/admin/t_admin_profiles_changing_admin.md
               - Profiles administrative commands: admin/admin/r_admin_profiles_admin_props.md
-            - Changing Profiles configuration property values: 
+            - Changing Profiles configuration property values:
               - admin/admin/t_admin_profiles_changing_config.md
               - Profiles configuration properties: admin/admin/r_admin_profiles_config_props.md
               - Applying property changes in Profiles: admin/admin/t_admin_profiles_save_changes.md
             - Tivoli Directory Integrator Solution commands: admin/admin/r_admin_profiles_tdi_commands.md
-            - Adding supplemental content to Profiles: 
+            - Adding supplemental content to Profiles:
               - admin/admin/c_admin_profiles_add_content.md
               - Uploading pronunciation files: admin/admin/t_admin_profiles_import_pronunciation.md
               - Populating Profiles with photos from another Profiles database: admin/admin/t_admin_profiles_import_photos_export-import.md
-            - Developing custom Tivoli Security Integrator assembly lines for Profiles: 
+            - Developing custom Tivoli Security Integrator assembly lines for Profiles:
               - admin/admin/c_admin_profiles_develop_custom_tdi_scripts.md
               - Setting up your development environment: admin/admin/t_admin_profiles_config_tdi_dev_environment.md
-              - Using a custom source repository connector: 
+              - Using a custom source repository connector:
                 - admin/admin/c_admin_profiles_create_custom_source_repos_connector.md
                 - Creating an iterator connector: admin/admin/t_admin_profiles_create_iterator_connector.md
                 - Creating a lookup connector: admin/admin/t_admin_profiles_create_lookup_connector.md
-              - Using the ProfileConnector: 
+              - Using the ProfileConnector:
                 - admin/admin/t_admin_profiles_using_profile_connector.md
                 - Creating a connector to synchronize Profiles data using LDIF: admin/admin/r_prof_tdi_sample_36382.md
                 - Synchronizing a subset of Profiles data: admin/admin/r_prof_tdi_sample_52029.md
@@ -971,12 +971,12 @@ nav:
               - Using the PhotoConnector: admin/admin/t_admin_profiles_using_photo_connector.md
               - Using the PronunciationConnector: admin/admin/t_admin_profiles_using_pronunciation_connector.md
               - Using the CodesConnector: admin/admin/t_admin_profiles_using_codes_connector.md
-            - Managing profile content: 
+            - Managing profile content:
               - admin/admin/c_admin_profiles_control_content.md
               - Excluding nicknames from the Profiles database: admin/admin/t_admin_profiles_excluding_nicknames.md
               - Filtering active content in Profiles: admin/admin/t_admin_profiles_filter_active_content.md
               - Removing inappropriate content: admin/admin/t_admin_profiles_remove_inapp_content.md
-            - Configuring profile features: 
+            - Configuring profile features:
               - admin/admin/c_admin_profiles_configurable_features.md
               - Configuring the recent updates feature: admin/admin/t_admin_profiles_configure_board.md
               - Configuring the following feature: admin/admin/t_admin_profiles_configure_following.md
@@ -986,29 +986,29 @@ nav:
               - Configuring the reporting structure feature: admin/admin/t_admin_profiles_configure_report_to.md
               - Configuring the status update feature: admin/admin/t_admin_profiles_configure_status_updates.md
               - Configuring the tagging feature: admin/admin/t_admin_profiles_configure_tagging.md
-            - Configuring widgets in Profiles: 
+            - Configuring widgets in Profiles:
               - admin/admin/c_admin_profiles_configure_widgets.md
               - Checking out the widgets-config.xml file for Profiles: admin/admin/t_admin_profiles_use_widgets_config.md
-              - Managing widgets in Profiles: 
+              - Managing widgets in Profiles:
                 - admin/admin/t_admin_profiles_edit_widgets.md
                 - Profiles widgets: admin/admin/r_admin_profiles_widgets.md
               - Configuring the Status Updates widget: admin/admin/t_admin_profiles_configure_recent_post_widget.md
-              - Adding custom widgets to Profiles: 
+              - Adding custom widgets to Profiles:
                 - admin/admin/c_admin_profiles_add_custom_widgets.md
                 - Enabling custom widgets for Profiles: admin/admin/t_admin_profiles_develop_custom_widgets.md
                 - Profiles widget configuration variables: admin/admin/r_admin_substitution_variables.md
               - Profiles widget attributes: admin/admin/r_admin_profiles_widget_elements.md
-            - Configuring Profiles events: 
+            - Configuring Profiles events:
               - admin/admin/t_admin_profiles_configure_events.md
               - IBM Tivoli Directory Integrator events: admin/admin/r_admin_profiles_tdi_events.md
             - Managing Profiles scheduled tasks: admin/admin/t_admin_profiles_manage_scheduled_tasks.md
-            - Administering cache: 
+            - Administering cache:
               - admin/admin/c_admin_profiles_cache.md
               - Controlling cache operations: admin/admin/t_admin_profiles_cache_operation.md
               - Configuring the full reports-to cache: admin/admin/t_admin_profiles_configure_fullreportsto_cache.md
               - Configuring the Profiles object cache: admin/admin/t_admin_profiles_configure_object_cache.md
             - Managing the Profiles search operation: admin/admin/t_admin_profiles_search.md
-            - Monitoring statistics and metrics for Profiles: 
+            - Monitoring statistics and metrics for Profiles:
               - admin/admin/c_admin_profiles_stats.md
               - Enabling and disabling automatic generation of Profiles statistics files: admin/admin/t_admin_profiles_configure_stats_disable.md
             - Configuring the vCard export application for Profiles: admin/admin/t_admin_profiles_config_vcard_export.md
@@ -1016,35 +1016,35 @@ nav:
             - Enabling the use of pronunciation files in an HTTPS environment: admin/admin/t_admin_profiles_enable_pronunciation.md
             - Managing the Profiles event log: admin/admin/t_admin_profiles_manage_event_log.md
             - Configuring advanced settings in Profiles: admin/admin/c_admin_profiles_config_adv_settings.md
-            - Exposing information about following: 
+            - Exposing information about following:
               - admin/admin/t_admin_profiles_expose_following_info.md
               - Changing the display order of the Reporting Structure page: admin/admin/t_admin_profiles_change_display_of_full_reports_to.md
-          - Administering Search: 
+          - Administering Search:
             - admin/admin/c_admin_search.md
             - Accessing the Search configuration environment: admin/admin/t_admin_search_access_config.md
-            - Managing the Search index: 
+            - Managing the Search index:
               - admin/admin/c_admin_search_manage_index.md
-              - The indexing process: 
+              - The indexing process:
                 - admin/admin/c_admin_search_index_process.md
                 - Investigating file content search issues: admin/admin/c_admin_search_file_index_issues.md
                 - Search index directory structure: admin/admin/c_admin_search_folder_structure.md
                 - Adding a service to the search index: admin/admin/t_search_add_service_to_index.md
                 - Checking fault tolerance during the initial indexing process: admin/admin/t_admin_search_fault_tolerance_during_indexing.md
                 - Manipulating the resume tokens for HCL Connections services: admin/admin/t_admin_search_man_resume_token.md
-              - Creating Search indexes: 
+              - Creating Search indexes:
                 - admin/admin/c_admin_search_create_indexes.md
                 - Creating the initial Search index: admin/admin/t_admin_search_create_initial_index_admin.md
                 - Recreating the Search index: admin/admin/t_admin_search_create_index.md
                 - Reindexing a component in an existing index: admin/admin/t_admin_search_reindex_component_index.md
-                - Creating background indexes: 
+                - Creating background indexes:
                   - admin/admin/c_admin_search_create_bgd_index.md
                   - Performing a background crawl: admin/admin/t_admin_search_perform_bgd_crawl.md
                   - Extracting file content: admin/admin/t_admin_search_extract_file_content.md
                   - Creating a background index: admin/admin/t_admin_search_create_standalone_index.md
-              - Index settings: 
+              - Index settings:
                 - admin/admin/c_admin_search_index_settings.md
                 - Enabling indexing resumption: admin/admin/t_admin_search_resume_crawls.md
-                - Configuring dictionaries for Search: 
+                - Configuring dictionaries for Search:
                   - admin/admin/c_admin_search_configure_dictionaries.md
                   - Enabling dictionaries: admin/admin/t_admin_search_configure_dictionary.md
                   - Listing enabled dictionaries: admin/admin/t_admin_search_list_dictionary.md
@@ -1055,7 +1055,7 @@ nav:
                 - Changing the location of the Search index: admin/admin/t_admin_homepage_change_index_location.md
                 - Configuring J2C authentication for Search: admin/admin/t_search_configure_j2c.md
                 - Search and globalization: admin/admin/c_admin_search_globalization.md
-              - Verifying Search: 
+              - Verifying Search:
                 - admin/admin/c_admin_search_verify_search.md
                 - Verifying Search index creation: admin/admin/t_admin_search_verify_index_creation.md
                 - Verifying that Search is crawling regularly: admin/admin/t_admin_search_verify_index_crawling.md
@@ -1064,7 +1064,7 @@ nav:
                 - Configuring verbose logging: admin/admin/t_admin_search_enable_verbose_logging.md
                 - Verifying that index building is not taking place: admin/admin/t_admin_search_verify_no_index_building.md
               - Adding a new component to an existing index: admin/admin/t_admin_search_add_component_index.md
-              - Configuring scheduled tasks: 
+              - Configuring scheduled tasks:
                 - admin/admin/c_admin_search_configure_scheduled_tasks.md
                 - Search default scheduled tasks: admin/admin/r_admin_search_default_indexing_tasks.md
                 - Adding scheduled tasks for Search: admin/admin/t_admin_search_configure_index_tasks.md
@@ -1082,27 +1082,27 @@ nav:
               - Deleting the index: admin/admin/t_admin_search_delete_index.md
               - Listing indexing nodes: admin/admin/t_admin_search_list_nodes.md
               - Removing a node from the index management table: admin/admin/t_admin_search_remove_node.md
-              - Backup and restore: 
+              - Backup and restore:
                 - admin/admin/c_admin_search_backup_and_restore.md
                 - Configuring index backup settings: admin/admin/t_admin_search_configure_backup_settings.md
-                - Backing up the Search index: 
+                - Backing up the Search index:
                   - admin/admin/c_admin_search_backup_index.md
                   - Backing up the Search index using wsadmin commands: admin/admin/t_admin_search_backup_index.md
                   - Backing up the Search index manually: admin/admin/t_admin_homepage_backup_index.md
-                - Restoring the Search index: 
+                - Restoring the Search index:
                   - admin/admin/c_admin_search_restore_index.md
                   - Restoring a Search index in a single-node environment: admin/admin/t_admin_search_restore_index_single_node.md
                   - Restoring a Search index in an environment with multiple nodes: admin/admin/t_admin_search_restore_index_multi_node.md
                   - Restoring a Search index without restarting individual nodes: admin/admin/t_admin_search_restore_index_wo_restarting.md
-              - Configuring file attachment indexing settings: 
+              - Configuring file attachment indexing settings:
                 - admin/admin/t_admin_search_config_search_attachments.md
                 - Supported MIME types: admin/admin/r_admin_search_mime_types.md
               - Configuring the number of crawling threads: admin/admin/t_admin_search_set_max_crawling_threads.md
               - Configuring the number of indexing threads: admin/admin/t_admin_search_set_max_indexing_threads.md
               - Boosting search results by tag, title, or recency: admin/admin/t_admin_search_boost_ttr.md
-            - Managing the Search application: 
+            - Managing the Search application:
               - admin/admin/c_admin_manage_search.md
-              - Administering the social analytics service: 
+              - Administering the social analytics service:
                 - admin/admin/c_admin_search_sand_indexing_tasks.md
                 - Social analytic relationships: admin/admin/c_admin_search_sand_relationships.md
                 - Listing social analytics scheduled tasks: admin/admin/t_admin_search_list_sand_tasks.md
@@ -1123,17 +1123,17 @@ nav:
             - Viewing and collecting Search metrics: admin/admin/t_admin_search_statistics.md
             - SearchCellConfig commands: admin/admin/r_admin_searchcellconfig_commands.md
             - SearchService commands: admin/admin/r_admin_searchservice_commands.md
-          - Administering Wikis: 
+          - Administering Wikis:
             - admin/admin/c_admin_wikis_overview.md
-            - Changing Wikis configuration property values: 
+            - Changing Wikis configuration property values:
               - admin/admin/t_admin_wikis_changing_config_properties.md
               - Wikis configuration properties: admin/admin/r_admin_wikis_config_properties2.md
               - Configuring MIME types for Wikis: admin/admin/t_admin_wikis_config_mime.md
               - Applying Wikis property changes: admin/admin/t_admin_wikis_config_apply.md
-            - Running Wikis administrative commands: 
+            - Running Wikis administrative commands:
               - admin/admin/t_admin_wikis_run_commands.md
               - Wikis administrative commands: admin/admin/r_admin_wikis_commands.md
-            - Backing up Wikis data: 
+            - Backing up Wikis data:
               - admin/admin/t_admin_wikis_backup.md
               - Checking Wikis data integrity: admin/admin/t_admin_wikis_data_integrity.md
               - Synchronizing Wikis data with Communities data: admin/admin/c_admin_wikis_backup_communities.md
@@ -1149,64 +1149,64 @@ nav:
             - Deleting draft wiki pages: admin/admin/t_admin_wikis_delete_user_drafts.md
             - Finding the location of a stored attachment: admin/admin/t_admin_wikis_find_attachment_location.md
             - Displaying file attachments inline: admin/admin/t_admin_wikis_enable_inline.md
-            - Search Engine Optimization SEO for Wikis: 
+            - Search Engine Optimization SEO for Wikis:
               - admin/admin/c_admin_wikis_SEO.md
               - Enabling or disabling SEO: admin/admin/t_admin_wikis_enable_or_disable_seo.md
               - Submitting a sitemap for SEO: admin/admin/t_admin_wikis_submit_sitemap_SEO.md
               - Securing SEO: admin/admin/t_admin_wikis_secure_SEO.md
-          - Administering Component Pack for Connections: 
+          - Administering Component Pack for Connections:
             - admin/admin/c_admin_component_pack_intro.md
             - Administering MongoDB for Component Pack: admin/admin/inst_comp_pack_mongodb_admin.md
 #Custommizing
-        - Customizing: 
+        - Customizing:
           - admin/customize/c_customize_overview.md
           - Customization best practices: admin/customize/c_customize_best_practices.md
-          - Injecting customizations into Connections pages: 
+          - Injecting customizations into Connections pages:
             - admin/customize/customize_inject_customizations.md
             - About Customizer apps: admin/customize/custom_customizer_about_apps.md
             - Managing Connections Customizer apps: admin/customize/customize_manage_customizer_apps.md
             - Creating a Connections Customizer app: admin/customize/custom_customizer_create_app.md
-            - Customizer-specific properties: 
+            - Customizer-specific properties:
               - admin/customize/custom_customizer_props.md
               - Using match&colon; url to refine the path property: admin/customize/custom_customizer_props_match_url.md
               - Managing file resources used in the "include-files" property: admin/customize/custom_customizer_props_include_files.md
-            - Customizing the user interface: 
+            - Customizing the user interface:
               - admin/customize/t_admin_common_customize_main.md
-              - Determining where to save your customizations: 
+              - Determining where to save your customizations:
                 - admin/customize/t_customize_find_custom_directory.md
                 - Application WAR files and OSGi bundles: admin/customize/r_customize_war_osgi_file_locations.md
                 - Language codes: admin/customize/r_customize_lang_codes.md
               - Enabling live user interface customization editing mode: admin/customize/t_customize_enable_custom_debugging.md
               - Customizing the navigation bar: admin/customize/t_admin_navbar_create_files.md
-              - Adding an Important To Me bar to a Connections component: 
+              - Adding an Important To Me bar to a Connections component:
                 - admin/customize/c_itm_iframe_intro.md
                 - iframe integration files: admin/customize/c_itm_iframe_assets.md
                 - Integrating the iframe: admin/customize/t_itm_iframe_integrating.md
                 - Important To Me bar reference: admin/customize/r_itm_configuration_object.md
-              - Customizing images: 
+              - Customizing images:
                 - admin/customize/c_customize_images.md
                 - Replacing images: admin/customize/t_customize_replace_logo.md
                 - Changing the HCL Connections logo: admin/customize/t_customize_change_logo.md
-                - Customizing file type icons: 
+                - Customizing file type icons:
                   - admin/customize/t_admin_files_customize_icons.md
                   - File type icons: admin/customize/r_admin_MIME_icons.md
               - Adding styles to the HCL Connections style sheet: admin/customize/t_admin_navbar_change_style.md
               - Making extensive color and style changes: admin/customize/t_admin_common_change_font_styles.md
-              - Customizing the login page: 
+              - Customizing the login page:
                 - admin/customize/t_admin_common_customize_login_screen.md
                 - Customizing the login page redirect parameter: admin/customize/admin_customize_login_page_redirect.md
               - Customizing the footer: admin/customize/t_admin_common_add_footer_link.md
               - Customizing the error page: admin/customize/t_customize_error_page.md
               - Customizing the Getting Started view: admin/customize/t_customize_getting_started_page.md
-              - Customizing product strings: 
+              - Customizing product strings:
                 - admin/customize/t_customize_strings_global.md
                 - Property file strings: admin/customize/r_customize_properties_files.md
-                - Customizing strings sourced in JavaScript: 
+                - Customizing strings sourced in JavaScript:
                   - admin/customize/t_customize_strings_via_javascript.md
                   - JavaScript resource strings: admin/customize/r_customize_js_files.md
                 - Adding custom strings for widgets and other specified scenarios: admin/customize/t_admin_profiles_add_custom_strings.md
                 - Customizing notification strings: admin/customize/t_customize_notification_strings.md
-              - Overriding and extending JavaScript in HCL Connections: 
+              - Overriding and extending JavaScript in HCL Connections:
                 - admin/customize/c_customize_javascript.md
                 - Overriding JavaScript in HCL Connections: admin/customize/t_customize_override_js.md
                 - Extending JavaScript in HCL Connections: admin/customize/t_customize_extend_js.md
@@ -1214,25 +1214,25 @@ nav:
               - Customizing the Application Access and Access Request interfaces: admin/customize/../admin/t_admin_oauth_cust_app_access_rquest_ui.md
               - Embedding Connections in an IFrame: admin/customize/t_customize_connections_iframe.md
               - Customizing the Hikari theme: admin/customize/t_customize_communities_new_theme.md
-            - Customizing notifications: 
+            - Customizing notifications:
               - admin/customize/c_customize_notifications.md
               - Customizing basic notification settings CR4 and later: admin/customize/t_customize_new_template.md
               - Customizing shared resources for notifications&colon; default templates: admin/customize/t_customize_notification_resources.md
               - Customizing shared resources for notifications&colon; CR4 templates: admin/customize/t_cr4_customize_shared_resources_for_notifications.md
-              - Editing notification templates: 
+              - Editing notification templates:
                 - admin/customize/t_edit_notification_templates_container.md
-                - Customizing notifications sent as single emails: 
+                - Customizing notifications sent as single emails:
                   - admin/customize/t_customize_notifications.md
                   - Editing CR4 templates for single emails: admin/customize/r_example_edits_to_cr4_templates_for_single_emails.md
-                - Customizing email digests: 
+                - Customizing email digests:
                   - admin/customize/t_customize_email_digests.md
                   - Editing CR4 templates for email digests: admin/customize/r_example_edits_to_cr4_templates_for_email_digests.md
                 - CR4 notification template reference: admin/customize/r_cr4_notification_template_reference.md
-            - Adding new ways to share content: 
+            - Adding new ways to share content:
               - admin/customize/t_customize_sharebox_gadgets.md
               - Optional features for custom sharing gadgets: admin/customize/r_customize_sharebox_gadgets_optional.md
               - Adding a gadget to the Share dialog: admin/customize/t_add_gadget_to_share.md
-            - Customizing a blog theme: 
+            - Customizing a blog theme:
               - admin/customize/c_blogs_custom_overview.md
               - Standard Blogs theme components: admin/customize/r_blogs_theme_templates.md
               - Changing the theme used in a blog: admin/customize/t_blog_theme_customizing.md
@@ -1241,31 +1241,31 @@ nav:
               - Extending a theme: admin/customize/c_blogs_theme_extending.md
               - Making a custom theme available to your users: admin/customize/t_blogs_theme_new.md
               - Deleting a Blogs theme: admin/customize/t_blogs_theme_deleting.md
-            - Customizing Profiles: 
+            - Customizing Profiles:
               - admin/customize/c_admin_profiles_customizing.md
-              - Customizing the Profiles data model: 
+              - Customizing the Profiles data model:
                 - admin/customize/r_admin_profiles_attributes.md
                 - Standard properties in the data model: admin/customize/r_admin_profiles_attributes_std.md
-                - Extension properties in the data model: 
+                - Extension properties in the data model:
                   - admin/customize/r_admin_profiles_attributes_ext.md
                   - Populating custom extension attributes: admin/customize/t_admin_profiles_populate_ext_attributes.md
                   - Enabling custom extension attributes for Profiles: admin/customize/t_admin_profiles_enable_custom_fields.md
-                - Profile-types: 
+                - Profile-types:
                   - admin/customize/r_admin_profiles_ovr_types.md
                   - Configuring profile types for widget layout: admin/customize/t_admin_profiles_add_profile_type.md
                   - Person profile-type: admin/customize/r_admin_profiles_ovr_types_per.md
                   - Default profile-type: admin/customize/r_admin_profiles_ovr_types_def.md
                 - Specifying a custom field as required and declaring maximum field length: admin/customize/t_admin_profiles_specify_required_field.md
-              - Customizing the Profiles user interface: 
+              - Customizing the Profiles user interface:
                 - admin/customize/t_profiles_customizing_attributes.md
-                - Customizing display using templates: 
+                - Customizing display using templates:
                   - admin/customize/t_admin_profiles_customize_biz_card_main.md
                   - Customizing profile page display: admin/customize/t_admin_profiles_tbl_layout.md
                   - Customizing business card information: admin/customize/t_admin_profiles_tbl_bizcard.md
                   - Customizing search results information: admin/customize/t_admin_profiles_tbl_search.md
                   - Customizing edit display fields: admin/customize/t_admin_profiles_tbl_fields.md
                 - Template data model: admin/customize/r_admin_profiles_custuitables.md
-                - Template configuration options: 
+                - Template configuration options:
                   - admin/customize/c_admin_template_config.md
                   - Configuring template reloading: admin/customize/t_admin_profiles_template_reload.md
                   - Configuring template custom resource bundles for processing: admin/customize/t_admin_profiles_template_crbundles.md
@@ -1273,49 +1273,49 @@ nav:
               - Specifying properties to expose in the search index: admin/customize/t_admin_profiles_expose_props_search.md
               - Customizing login attributes: admin/customize/t_admin_profiles_customize_login_attbs.md
               - Creating a simple profile data model and template customization: admin/customize/t_admin_profiles_custom_example.md
-            - Using Profiles and Communities business cards: 
+            - Using Profiles and Communities business cards:
               - admin/customize/c_admin_profiles_biz_cards.md
-              - Integrating the Communities business card: 
+              - Integrating the Communities business card:
                 - admin/customize/../admin/t_admin_communities_include_biz_card.md
                 - Configuring the Communities business card on a Domino server: admin/customize/t_admin_communities_include_biz_card_domino.md
-              - Integrating the Profiles business card: 
+              - Integrating the Profiles business card:
                 - admin/customize/t_admin_profiles_include_biz_card.md
-                - Customizing the Profiles business card: 
+                - Customizing the Profiles business card:
                   - admin/customize/c_admin_profiles_customize_biz_card_links.md
                   - Adding third-party links via the XML configuration file: admin/customize/t_admin_profiles_extend_biz_card.md
                   - Adding third-party links using JavaScript: admin/customize/t_admin_profiles_extend_biz_card_js.md
                   - Customizing action links on the business card: admin/customize/t_admin_profiles_customize_biz_card_actions.md
                 - Customizing the Wikis welcome page: admin/customize/../admin/t_customize_wikis_welcome_page.md
                 - Post-customization step: admin/customize/t_admin_common_customize_postreq.md
-#SECURITY 
-        - Security: 
+#SECURITY
+        - Security:
           - admin/secure/c_sec_overview.md
           - Federal Information Processing Standard&colon; FIPS 140&colon;2 Compliance: admin/secure/sec_fips.md
-          - Allowing third party applications access to data via the OAuth2 protocol: 
+          - Allowing third party applications access to data via the OAuth2 protocol:
             - admin/admin/c_admin_common_oauth.md
             - Managing the client application list: admin/admin/r_admin_common_oauth_manage_list.md
             - Installing and enabling OAuth TAI: admin/admin/t_inst_installingandenablingoauthtai.md
-            - Registering an OAuth client with a provider: 
+            - Registering an OAuth client with a provider:
               - admin/secure/../admin/t_admin_registeroauthclientwprovider.md
               - Authorization Management Commands: admin/admin/r_admin_common_oauth_mgnt_commands.md
             - CRE Proxy Configuration: admin/customize/r_cremashupsproxyconfiguration.md
             - Configuring OAuth for custom gadgets: admin/customize/r_admin_common_oauth_config_homepage_gadgets-N.md
-          - Configuring single sign-on: 
+          - Configuring single sign-on:
             - admin/secure/c_sec_config_sso.md
             - Setting the single sign-on domain name: admin/secure/t_set_SSO_domain-name.md
-            - Enabling single sign-on with OIDC for Microsoft Azure AD: 
+            - Enabling single sign-on with OIDC for Microsoft Azure AD:
               - admin/secure/c_azure_oidc_container.md
               - Adding an application in Azure AD for SSO with Connections: admin/secure/t_azure_add_app.md
               - Updating WebSphere to support Azure AD OIDC authentication for Connections: admin/secure/t_azure_oidc_websphere.md
               - Configuring Connections to support Azure OIDC single sign-on: admin/secure/t_azure_config_conn_oidc.md
               - Supporting Azure SSO for mobile clients: admin/secure/t_azure_sso_for_mobile.md
-            - Enabling single sign-on for Security Access Manager: 
+            - Enabling single sign-on for Security Access Manager:
               - admin/secure/t_secure_with_tam.md
               - Using WebSEAL for server to server communication: admin/secure/t_secure_with_tam_s2s.md
             - Enabling single sign-on for SiteMinder: admin/secure/t_secure_with_siteminder.md
             - Enabling single sign-on for Domino: admin/secure/t_secure_domino.md
             - Enabling single sign-on for standalone LDAP: admin/secure/t_setup_standalone_ldap.md
-            - Enabling single sign-on for the Windows desktop: 
+            - Enabling single sign-on for the Windows desktop:
               - admin/secure/t_install_kerb_setup_spnego.md
               - Mapping an Active Directory account to administrative roles: admin/secure/t_kerb_configure_AD_account.md
               - Creating a service principal name and keytab file: admin/secure/t_install_kerb_create_service_account.md
@@ -1325,9 +1325,9 @@ nav:
             - Enabling SPNEGO single sign-on for Security Access Manager: admin/secure/t_secure_with_tam-spnego.md
             - Enabling SPNEGO single sign-on for SiteMinder: admin/secure/t_secure_with_siteminder_SPNEGO.md
             - The customAuthenticator element for back-end inter-service communication: admin/secure/r_custom-authenticator.md
-          - Authentication with SAML: 
+          - Authentication with SAML:
             - admin/secure/t_sec_securing_w_saml.md
-            - Configuring SAML redirection services for web SSO: 
+            - Configuring SAML redirection services for web SSO:
               - admin/secure/t_inst_set_up_saml_2.md
               - Configuring SAML for TFIM in WebSphere Application Server: admin/secure/t_sec_config_saml_for_tfim.md
               - Configuring SAML for ADFS in WebSphere Application Server: admin/secure/t_sec_config_saml_for_adfs.md
@@ -1335,7 +1335,7 @@ nav:
               - Verifying the WebSphere Default Application is protected by SAML: admin/secure/t_sec_verify_default_application_protected_by_saml.md
               - Enabling single sign-on for SAML 2.0: admin/secure/t_secure_with_saml2.md
               - Disabling SAML to validate fully functioning integration for third party servers: admin/secure/t_disable_saml.md
-          - Configuring the AJAX proxy: 
+          - Configuring the AJAX proxy:
             - admin/secure/t_admin_config_ajax_proxy.md
             - Configuring the AJAX proxy for a specific application: admin/secure/t_admin_config_ajax_proxy_feature.md
             - Enabling the AJAX proxy to forward user credentials: admin/secure/t_admin_proxy_ltpa_token.md
@@ -1346,38 +1346,38 @@ nav:
           - Forcing traffic to be sent over an encrypted connection: admin/secure/t_admin_common_forcing_ssl.md
           - Forcing traffic to use TLS 1.2: admin/secure/t_admin_common_forcing_tls.md
           - Forcing users to log in before they can access an application: admin/secure/t_admin_common_force_authentication.md
-          - Securing applications from malicious attack: 
+          - Securing applications from malicious attack:
             - admin/secure/c_admin_security_xss.md
-            - Active content filters for whitelists: 
+            - Active content filters for whitelists:
               - admin/secure/sec_acf_whitelist_intro.md
-              - Configuring active content filters for whitelists: 
+              - Configuring active content filters for whitelists:
                 - admin/secure/sec_acf_whitelist_config.md
                 - URL protocol rules for whitelists: admin/secure/sec_acf_whitelist_url.md
                 - Element and attribute rules for whitelists: admin/secure/sec_acf_whitelist_element.md
                 - Styling rules for whitelists: admin/secure/sec_acf_whitelist_styling.md
             - Configuring legacy active content filters for legacy ACF: admin/secure/sec_acf_legacy_config.md
-            - Mitigating a cross site scripting attack: 
+            - Mitigating a cross site scripting attack:
               - admin/secure/t_admin_common_secure_xss.md
               - Specifying a separate file download domain: admin/secure/t_admin_act_minimize_xss_risk.md
             - Turning off active content filtering: admin/secure/t_admin_common_turn_off_filter.md
           - Restricting domains used by the login page redirect parameter: admin/secure/sec_restrict_login_page_redirects.md
-#MOBILE 
+#MOBILE
         - Mobile: admin/overview/pointer_to_connections_mobile_collections.md
-#DEVELVOPING 
+#DEVELVOPING
         - Developing: admin/develop/dev_intro.md
-#TROUBLESHOOTING AND SUPPORT  
-        - Troubleshooting and support: 
+#TROUBLESHOOTING AND SUPPORT
+        - Troubleshooting and support:
           - admin/troubleshoot/ts_c_welcome.md
           - Techniques for troubleshooting problems: admin/troubleshoot/ts_c_checklist2.md
           - Getting product fixes: admin/troubleshoot/ts_t_fixes.md
-          - Troubleshooting tips: 
+          - Troubleshooting tips:
             - admin/troubleshoot/ts_c_ts_tips_overview.md
             - HCL Connections log file: admin/troubleshoot/c_log_file.md
             - Troubleshooting connection timeouts when running a wsadmin script: admin/troubleshoot/r_troubleshooting_timeouts.md
             - Troubleshooting a database connection: admin/troubleshoot/t_validate_db.md
             - Troubleshooting file download and page display issues: admin/troubleshoot/r_troubleshoot_file_download_and_page_display_issues.md
             - Troubleshooting display problems: admin/troubleshoot/t_troubleshooting_ie_high_security.md
-            - Troubleshooting email digests: 
+            - Troubleshooting email digests:
               - admin/troubleshoot/c_ts_email_digests.md
               - Verifying email digests: admin/troubleshoot/ts_t_trigger_email_notifications.md
               - Initializing the next tranche: admin/troubleshoot/ts_t_initialize_tranche.md
@@ -1386,17 +1386,17 @@ nav:
             - Troubleshooting Component Pack: admin/troubleshoot/admin_troubleshoot_comp_pack.md
             - Troubleshooting network shares on Windows 2003: admin/troubleshoot/ts_t_network-shares_WIN-2003.md
             - Collecting communities catalog troubleshooting data: admin/troubleshoot/r_troubleshoot_collect_comm_cat.md
-            - Troubleshooting Search: 
+            - Troubleshooting Search:
               - admin/troubleshoot/c_ts_search.md
-              - Troubleshooting Search FAQs: 
+              - Troubleshooting Search FAQs:
                 - admin/troubleshoot/r_ts_search_faqs.md
                 - How search works in HCL Connections profiles: admin/troubleshoot/r_search_profiles.md
-              - Validating Search seedlists: 
+              - Validating Search seedlists:
                 - admin/troubleshoot/c_admin_search_validating_seedlists.md
                 - Validating seedlists using the browser: admin/troubleshoot/t_admin_search_check_seedlist.md
                 - Validating seedlists using the wsadmin client: admin/troubleshoot/t_admin_search_validate_seedlist.md
               - Troubleshooting Search-related memory issues: admin/troubleshoot/t_troubleshooting_search_memory_issues.md
-              - Analyzing results from the search serverStatus page: 
+              - Analyzing results from the search serverStatus page:
                 - admin/troubleshoot/r_analyse_search_results_frame.md
                 - Reviewing the Server Status tab: admin/troubleshoot/r_analyse_search_results.md
                 - Reviewing the Initial Indexing Exceptions tab: admin/troubleshoot/r_review_initial_indexing_exceptions_tab.md
@@ -1410,7 +1410,7 @@ nav:
             - Troubleshooting SAML 2.0: admin/troubleshoot/r_ts_saml2.md
             - Troubleshooting single sign-on problems with Domino: admin/troubleshoot/ts_t_SSO_Domino.md
             - Troubleshooting Security Directory Integrator: admin/troubleshoot/ts_t_check_tdi.md
-            - Troubleshooting user data propagation: 
+            - Troubleshooting user data propagation:
               - admin/troubleshoot/ts_c_troubleshoot_user_lifecycle.md
               - Enabling traces in WebSphere Application Server: admin/troubleshoot/ts_t_enable_was_traces.md
               - Verifying that the Profiles Worker is running correctly: admin/troubleshoot/ts_t_check_profiles_worker.md
@@ -1419,7 +1419,7 @@ nav:
               - Troubleshooting user data synchronization: admin/troubleshoot/c_troubleshoot_sync_user_data.md
             - Troubleshooting virus scanning: admin/troubleshoot/r_troubleshooting_virus_scanning.md
             - Troubleshooting media views and thumbnail generation: admin/troubleshoot/r_troubleshooting_media_thumb.md
-          - Error message reference: 
+          - Error message reference:
             - admin/troubleshoot/c_error_codes.md
             - Activities error messages: admin/troubleshoot/r_error_codes_activities.md
             - Anti-virus error messages: admin/troubleshoot/r_error_codes_antivirus.md
@@ -1444,8 +1444,8 @@ nav:
             - Profiles error messages: admin/troubleshoot/r_error_codes_profiles.md
             - Search error messages: admin/troubleshoot/r_error_codes_search.md
             - User life cycle error messages: admin/troubleshoot/r_error_codes_user_life_cycle.md
-# Using Connections       
-      - Using Connections 8: 
+# Using Connections
+      - Using Connections 8:
         - user/welcome/welcome_end_user.md
         - Accessibility features for Connections: user/common/ic_r_accessibility_features.md
         - What&apos;s new in Connections&quest;: user/eucommon/r_eucommon_whats_new.md
@@ -1455,16 +1455,16 @@ nav:
             - user/eucommon/c_eucommon_connecting_people.md
             - Which app do you use&quest;: user/eucommon/c_eucommon_which_app.md
             - Connecting with external users: user/eucommon/c_eucommon_ext_user.md
-          - Shared features: 
+          - Shared features:
             - user/eucommon/c_eucommon_shared_components.md
-            - Searching Connections: 
+            - Searching Connections:
               - user/eucommon/c_eucommon_search.md
               - Performing a search: user/eucommon/t_eucommon_searching_lc.md
               - Filtering search results: user/eucommon/t_eucommon_view_search_results.md
               - Advanced search terms: user/eucommon/c_eucommon_search_adv_search_options.md
             - Sharing in Connections: user/eucommon/c_eucommon_share.md
             - Exporting app content as a PDF: user/eucommon/t_eucommon_export_as_pdf.md
-            - Using the rich text editor: 
+            - Using the rich text editor:
               - user/eucommon/eucommon_ckeditor.md
               - Adding an image: user/eucommon/t_eucommon_insert_image.md
               - Inserting an iFrame: user/eucommon/t_eucommon_insert_iFrame.md
@@ -1475,12 +1475,12 @@ nav:
             - Subscribing to feeds: user/eucommon/t_eucommon_subscribe_to_feed.md
             - Viewing metrics: user/eucommon/t_eucommon_metrics.md
           - Notices: user/notices/notices.md
-        - Home page: 
+        - Home page:
           - user/homepage/hframe.md
           - Top Updates&colon; Keeping up with what's most relevant to you: user/homepage/Tile_homepage_using.md
           - Latest Updates&colon; Keeping up with your network: user/homepage/latest_updates_homepage.md
           - Discover&colon; What's happening beyond your network&quest;: user/homepage/discover_beyond_your_network.md
-          - My Page Using apps to keep up: 
+          - My Page Using apps to keep up:
             - user/homepage/c_using_app_home_page.md
             - Customizing your My Page layout: user/homepage/c_customize_layout.md
             - About apps: user/homepage/c_about_apps.md
@@ -1490,50 +1490,50 @@ nav:
           - Getting started:
             - user/profiles/c_pers_getting_started.md
             - Setting up your profile: user/profiles/t_pers_edit_profiles.md
-          - Sharing your expertise: 
+          - Sharing your expertise:
             - user/profiles/c_pers_sharing_expertise.md
             - Sharing a status or file: user/profiles/t_pers_update_status.md
             - Posting messages and comments: user/profiles/t_pers_post_wall_message.md
             - Adding links to your profile: user/profiles/t_add_external_links.md
             - Tagging profiles: user/profiles/t_pers_tag_profiles.md
-          - Setting your preferences: 
+          - Setting your preferences:
             - user/profiles/c_pers_setting_preferences.md
             - Personalizing your Home page view: user/profiles/c_pers_personalize_homepage.md
             - Getting browser and email notifications: user/profiles/c_pers_getting_notifications.md
             - Giving apps access to your data: user/eucommon/c_eucommon_authorization.md
             - Configuring your language settings: user/eucommon/t_eucommon_change_lang.md
-          - Discovering people: 
+          - Discovering people:
             - user/profiles/c_pers_social_widgets.md
             - Viewing profiles: user/profiles/c_pers_profiles.md
             - Viewing network contacts: user/profiles/t_pers_view_colleagues.md
             - Finding things in common: user/profiles/t_pers_using_tic_widget.md
             - Viewing your connections: user/profiles/t_pers_using_sp_widget.md
-        - People: 
+        - People:
           - user/profiles/plframe.md
-          - Getting started: 
+          - Getting started:
             - user/profiles/c_people_getting_started.md
             - Searching for people: user/profiles/t_pers_search_directory.md
             - Inviting a person to your network: user/profiles/t_pers_invite_network.md
-          - Growing your network: 
+          - Growing your network:
             - user/profiles/t_pers_add_colleagues.md
             - Following people: user/profiles/t_pers_follow.md
             - Adding people to your network: user/profiles/t_pers_accept_invitations.md
             - Getting recommendations: user/profiles/t_pers_using_dyk_widget.md
-        - Activities: 
+        - Activities:
           - user/activities/aframe.md
-          - Getting acquainted: 
+          - Getting acquainted:
             - user/activities/c_get_organized.md
             - Onboarding a new hire: user/activities/c_onboard_new_hire.md
             - Coordinating a project: user/activities/c_coordinate_proect.md
             - Planning an event: user/activities/c_plan_event.md
-          - Getting started: 
+          - Getting started:
             - user/activities/c_get_started.md
             - Creating an activity: user/activities/c_create_activity.md
             - Doing more with a to-do: user/activities/c_adding_a_todo.md
             - Doing more with an entry: user/activities/c_add_entry.md
             - Organizing content: user/activities/c_organize_sections.md
             - Notifying your members: user/activities/c_notify_members.md
-          - Going further: 
+          - Going further:
             - user/activities/c_get_further.md
             - Updating membership: user/activities/c_membership.md
             - Prioritizing activities: user/activities/c_prioritize_activity.md
@@ -1541,14 +1541,14 @@ nav:
             - Creating and editing a template: user/activities/c_using_templates.md
             - Linking to a single entry: user/activities/c_get_web_link_for_entry.md
             - Saving an activity as a spreadsheet: user/activities/c_save_activity_as_csv.md
-        - Files: 
+        - Files:
           - user/files/fframe.md
-          - Getting started: 
+          - Getting started:
             - user/files/getting_started.md
             - Uploading a file: user/files/t_files_add_files_refresh.md
             - Downloading a file: user/files/t_files_download_file_refresh.md
             - Viewing a file: user/files/t_files_view_a_file_with_docs.md
-          - Managing files and folders: 
+          - Managing files and folders:
             - user/files/managing_files_folders.md
             - Using folders: user/files/t_files_folders_addfiles_refresh.md
             - Finding files fast: user/files/t_files_find_files_fast.md
@@ -1556,46 +1556,46 @@ nav:
             - Transferring a file to a new owner: user/files/t_transfer_file_to_new_owner.md
             - Deleting files and folders: user/files/deleting_files_folders.md
             - Downloading folders: user/files/downloading_folders.md
-          - Collaborating on files and folders: 
+          - Collaborating on files and folders:
             - user/files/t_files_why_file_sharing_refresh.md
             - Sharing files and folders: user/files/t_files_share_files_refresh.md
             - Working with files: user/files/t_files_others_files_refresh.md
             - Working with folders: user/files/t_files_others_folders.md
           - Organizing, syncing, and editing files in My Drive: user/files/c_files_sync_refresh.md
           - Editing a Connections file in HCL Docs: user/files/editing_hcl_docs.md
-        - Communities: 
+        - Communities:
           - user/communities/cframe.md
-          - Getting started: 
+          - Getting started:
             - user/communities/community_getstart.md
             - What is a community&quest;: user/communities/c_com_welcome.md
             - Searching for and browsing in communities: user/communities/t_com_search.md
             - Joining a community to contribute your expertise: user/communities/c_com_join.md
             - Creating a community to encourage collaboration: user/communities/t_com_create.md
-          - Members &hyphen; use your community effectively: 
+          - Members &hyphen; use your community effectively:
             - user/communities/community_members.md
-            - Finding out what&apos;s going on: 
+            - Finding out what&apos;s going on:
               - user/communities/whatsgoingon.md
               - Seeing who&apos;s in a community and communicating with them: user/communities/t_com_membership_view.md
               - Viewing updates in your community: user/communities/c_com_view_status_updates.md
               - Unsubscribing from community emails: user/communities/t_com_unsubscribe_from_community_emails.md
               - Sharing related communities with other members: user/communities/t_com_share_related_communities.md
-            - Communicating with community members: 
+            - Communicating with community members:
               - user/communities/sharing_your_ideas_and_points_of_view.md
-              - Blogging your point of view: 
+              - Blogging your point of view:
                 - user/communities/c_com_blog.md
                 - Contributing to a community blog: user/communities/c_com_create_blog_entry.md
                 - Sharing ideas in an ideation blog: user/communities/ideationblog_frame.md
-              - Getting the discussion going in a forum: 
+              - Getting the discussion going in a forum:
                 - user/communities/c_com_forum_frame.md
                 - Browsing forums: user/communities/t_com_forum_topic_view.md
                 - Adding topics to a forum: user/communities/t_com_forum_topic_add.md
-              - Creating information in a community wiki: 
+              - Creating information in a community wiki:
                 - user/communities/community_wiki_frame.md
                 - Creating a wiki page: user/communities/t_com_create_wiki_page.md
                 - Working with wiki pages: user/communities/t_com_wiki_pages.md
-            - Enhancing collaboration: 
+            - Enhancing collaboration:
               - user/communities/enhancing_collaboration.md
-              - Sharing information in community files: 
+              - Sharing information in community files:
                 - user/communities/community_files_frame.md
                 - Sharing community files and folders: user/communities/c_com_share_file.md
                 - Managing community files: user/communities/t_com_work_with_files.md
@@ -1603,69 +1603,69 @@ nav:
               - Bookmarking important places: user/communities/community_bookmarks_frame.md
               - Scheduling events: user/communities/community_events_frame.md
               - Adding a feed to a community: user/communities/t_com_feed_adding.md
-          - Owners &hyphen; manage your community effectively: 
+          - Owners &hyphen; manage your community effectively:
             - user/communities/community_owners.md
-            - Adding members to grow your community: 
+            - Adding members to grow your community:
               - user/communities/c_com_add_members.md
               - Adding or removing members: user/communities/t_com_membership_add.md
               - Inviting people to join: user/communities/c_com_invite_members.md
               - Importing multiple members: user/communities/t_com_import_members.md
               - Exporting community membership: user/communities/t_com_community_export_membership.md
               - Membership roles &hyphen; who does what: user/communities/c_com_community_roles.md
-            - Managing your community to keep it relevant: 
+            - Managing your community to keep it relevant:
               - user/communities/c_com_manage_communities.md
               - Moderating community content: user/communities/t_com_moderate_content.md
               - Changing your community&apos;s access level: user/communities/t_com_edit.md
               - Assigning app roles for community members: user/communities/managing_roles_for_community_members.md
               - Enabling your community&apos;s PDF export access: user/communities/t_com_enable_pdf_export.md
               - Creating subcommunities to reflect organizational change: user/communities/c_com_create_subcommunity.md
-              - Moving communities: 
+              - Moving communities:
                 - user/communities/c_com_move_community.md
                 - Moving a community to become a subcommunity of another community: user/communities/t_com_move_community_sub.md
                 - Moving a subcommunity to become a top-level community: user/communities/t_com_move_community_reparent.md
               - Deleting unwanted communities: user/communities/t_com_delete.md
               - Copying a community structure: user/communities/c_com_copy.md
-            - Keeping your apps contemporary: 
+            - Keeping your apps contemporary:
               - user/communities/apps_frame.md
-              - Adding apps to increase capabilities: 
+              - Adding apps to increase capabilities:
                 - user/communities/c_com_add_widgets.md
                 - Adding the SharePoint app to a community: user/communities/t_com_add_sharepoint_widget.md
-              - Sharing information in a community blog: 
+              - Sharing information in a community blog:
                 - user/communities/community_blog_frame.md
                 - Adding a blog to your community: user/communities/t_com_creating_community_blog.md
                 - Managing your community blog: user/communities/t_com_community_manage_blog.md
               - Getting ideas flowing with an ideation blog: user/communities/t_com_manage_ideationblog.md
               - Adding forums to get the discussion going: user/communities/t_com_add_forum.md
               - Keeping your community activities up-to-date: user/communities/t_com_manage_activity.md
-              - Organizing content in community files: 
+              - Organizing content in community files:
                 - user/communities/community_files_manage_frame.md
                 - Managing community folders: user/communities/t_com_manage_folders.md
                 - Managing deleted files: user/communities/t_com_working_with_deleted_files.md
-              - Working with rich content: 
+              - Working with rich content:
                 - user/communities/community_rich_content_frame.md
                 - Adding rich content pages to a community: user/communities/t_com_create_rich_content.md
                 - Managing rich content pages: user/communities/t_com_community_manage_rich_text.md
-              - Highlighting content in galleries: 
+              - Highlighting content in galleries:
                 - user/communities/gallery_frame.md
                 - Organizing gallery files: user/communities/t_com_migrate_media_com_gallery.md
                 - Configuring a gallery to display files and folders: user/communities/t_com_config_gallery.md
-              - Measuring business value with metrics: 
+              - Measuring business value with metrics:
                 - user/communities/community_metrics_frame.md
                 - Global and community metrics: user/communities/t_com_usemetrics.md
                 - Viewing metrics reports: user/communities/t_com_viewmetrics.md
-              - Customizing the Highlights page: 
+              - Customizing the Highlights page:
                 - user/communities/c_com_customizing_highlights.md
                 - Adding apps and widgets to the Highlights page: user/communities/c_com_highlights_widgets.md
                 - Managing apps and widgets on the Highlights page: user/communities/working_with_apps.md
-        - Blogs: 
+        - Blogs:
           - user/blogs/bframe.md
-          - Contributing to a blog: 
+          - Contributing to a blog:
             - user/blogs/c_welcome_blogs.md
             - Creating a blog: user/blogs/t_blog_creating.md
             - Creating an entry: user/blogs/t_blog_new_entries.md
             - Editing or deleting an entry: user/blogs/t_blog_entry_edit.md
             - Adding files and links: user/blogs/t_blog_file_upload.md
-          - Connecting with other blogs: 
+          - Connecting with other blogs:
             - user/blogs/c_blog_connecting_others.md
             - Posting a comment: user/blogs/t_blog_new_comment.md
             - Liking an entry: user/blogs/t_blog_entry_recommend.md
@@ -1673,7 +1673,7 @@ nav:
             - Following a blog: user/blogs/t_blog_follow.md
             - Notifying a user about a blog entry: user/blogs/t_blog_entry_notify.md
             - Flagging an entry as inappropriate: user/blogs/t_blog_entry_inappropriate.md
-          - Managing a blog: 
+          - Managing a blog:
             - user/blogs/c_blog_managing.md
             - Managing roles and permissions: user/blogs/c_blogs_roles.md
             - Creating an announcement: user/blogs/t_blogs_announcement.md
@@ -1681,13 +1681,13 @@ nav:
             - Editing general blog settings: user/blogs/t_blog_editing_settings.md
             - Deleting a blog: user/blogs/t_blog_deleting.md
             - Resigning from a blog: user/blogs/t_blog_resign.md
-          - Blogging within a community: 
+          - Blogging within a community:
             - user/blogs/c_blogs_community.md
             - Creating a community blog: user/blogs/t_blogs_creating_priv_community_blog.md
             - Using an Ideation Blog: user/blogs/c_blogs_ideablog.md
-        - Forums: 
+        - Forums:
           - user/forums/eframe.md
-          - Finding and participating in forums: 
+          - Finding and participating in forums:
             - user/forums/t_forums_view_topics.md
             - Adding forum topics: user/forums/t_forums_add_topic.md
             - Posting questions and answers to a forum: user/forums/c_forums_post_q_and_as.md
@@ -1695,7 +1695,7 @@ nav:
             - Editing, moving, or deleting forum content: user/forums/t_forums_working_with_topics2.md
             - Following forums and forum topics: user/forums/t_forums_follow_forum.md
             - Flagging forum content as inappropriate: user/forums/t_forums_mark_inappropriate.md
-          - Creating and managing forums: 
+          - Creating and managing forums:
             - user/forums/c_forums_manage_forums.md
             - Creating a forum: user/forums/t_forums_add_forum.md
             - Forum moderation: user/forums/c_forums_moderation.md
@@ -1703,7 +1703,7 @@ nav:
             - Pinning forum topics: user/forums/t_forums_pin_topic.md
             - Locking forums and forum topics: user/forums/c_forums_locking.md
             - Deleting forums: user/forums/t_forums_delete_forum.md
-        - Wikis: 
+        - Wikis:
           - user/wikis/wframe.md
           - Why use a wiki&quest;: user/wikis/c_wikis_overview.md
           - Creating a wiki: user/wikis/t_wikis_create_wikis.md
@@ -1712,20 +1712,20 @@ nav:
           - How do I find wikis&quest;: user/wikis/t_wikis_find_wikis.md
           - Getting notified when a wiki changes: user/wikis/t_wikis_track_changes.md
           - Managing versions of a wiki page: user/wikis/t_wikis_versioning.md
-        - Bookmarks: 
+        - Bookmarks:
           - user/bookmarks/dframe.md
-          - Getting started: 
+          - Getting started:
             - user/bookmarks/c_getting_started.md
             - What can you do with Bookmarks&quest;: user/bookmarks/whatisdogear.md
             - Creating a bookmark: user/bookmarks/bookmarkawebpage.md
             - Installing the bookmark button: user/bookmarks/getstarted-oneapproach.md
-          - Bookmark basics: 
+          - Bookmark basics:
             - user/bookmarks/c_bookmark_basics.md
             - Copying a bookmark: user/bookmarks/copyabookmark.md
             - Adding bookmarks to your watchlist: user/bookmarks/subscribetoapersonoratag.md
             - Flagging a bookmark as broken: user/bookmarks/t_bookmarks_flag_as_broken.md
             - Notifying other users about a bookmark: user/bookmarks/t_dogear_bookmark_notification.md
-          - Going further: 
+          - Going further:
             - user/bookmarks/c_advanced_bookmarks.md
             - Importing bookmarks from a web browser: user/bookmarks/importingbookmarks.md
             - Exporting bookmarks to a file: user/bookmarks/export.md
@@ -1734,20 +1734,20 @@ nav:
 # Integrating
       - Integrating with other products:
           - connectors/admin/c_connectors_over.md
-          - Connections Engagement Center: 
+          - Connections Engagement Center:
               - connectors/icec/icec_welcome.md
-              - Overview: 
+              - Overview:
                   - connectors/icec/cec-introduction_top.md
                   - Get started: connectors/icec/cec_getstarted.md
                   - Roles: connectors/icec/cec-roles.md
                   - Adding the Communities widget to your organization Adding the Engagement Center widget to a Community: connectors/icec/cec-communities.md
-                  - Admin dashboard: 
+                  - Admin dashboard:
                       - connectors/icec/cec-admin_dashboard.md
                       - Caching for Admins: connectors/icec/cec-admin-caching.md
                       - Open Community Links in new Tab: connectors/icec/cec-open-comm-links-in-new-tab.md
                       - Debugging: connectors/icec/onprem-cec-inst-debugging.md
                       - Handling external images: connectors/icec/cec-handling-external-images.md
-                  - Admin panel: 
+                  - Admin panel:
                       - connectors/icec/cec-admin_panel.md
                       - Grid and layout: connectors/icec/cec-grid-layout.md
                       - Custom CSS and images: connectors/icec/cec-custom-css.md
@@ -1758,15 +1758,15 @@ nav:
                       - Create widgets: connectors/icec/cec-create_widgets.md
                       - Integration of the Navigation: connectors/icec/cec-integration-navigation.md
                       - Access rights for pages: connectors/icec/cec-access_rights.md
-                      - Page Management: 
+                      - Page Management:
                           - connectors/icec/cec-page_management.md
                           - Creating new or multiple pages: connectors/icec/cec-new_multiple_pages.md
                           - Page import and export: connectors/icec/cec-import_export_pages.md
                           - Anonymous access: connectors/icec/cec-anonymous-access.md
                       - Templating and inheritance: connectors/icec/cec-page_templating_inheritance.md
-                  - Widgets: 
+                  - Widgets:
                       - connectors/icec/cec-widgets.md
-                      - Widget images and titles: 
+                      - Widget images and titles:
                           - connectors/icec/cec-widget-images-titles.md
                           - Teaser: connectors/icec/cec-teaser-widget.md
                           - Language-based widget titles: connectors/icec/cec-language_widget_title.md
@@ -1824,36 +1824,36 @@ nav:
                   - Personalize homepage: connectors/icec/cec-personalize-homepage.md
                   - Creating a custom widget with the custom widget API: connectors/icec/cec-custom-widget-api.md
                   - Functions &hyphen; fields &hyphen; buttons: connectors/icec/cec-functions-fields-buttons.md
-                  - Best practices: 
+                  - Best practices:
                       - connectors/icec/cec-best-practices.md
                       - Roles and restrictions in source communities: connectors/icec/cec-roles-restrictions.md
                       - Picture guidelines: connectors/icec/cec-picture-guidelines.md
-              - Installing and configuring Connections Engagement Center: 
+              - Installing and configuring Connections Engagement Center:
                   - connectors/icec/cec-inst-install_top.md
-                  - Upgrading: 
+                  - Upgrading:
                       - connectors/icec/cec-inst-upgrade.md
                       - Upgrading Highlights to Engagement Center: connectors/icec/cec-inst-upgrade602.md
-                  - Planning: 
+                  - Planning:
                       - connectors/icec/cec-inst-planning.md
                       - Modes: connectors/icec/onprem-cec-inst-modes.md
-                      - Authorized roles: 
+                      - Authorized roles:
                           - connectors/icec/cec-inst-authorized-roles.md
                           - On premises mode: connectors/icec/cec-inst-on-premise-mode.md
                           - Flyout mode: connectors/icec/cec-inst-flyout-mode.md
                           - Community mode: connectors/icec/cec-inst-community-mode.md
                           - Anonymous mode: connectors/icec/cec-inst-anonymous-mode.md
                           - Mobile mode: connectors/icec/cec-inst-mobile-mode.md
-                  - Installing: 
+                  - Installing:
                       - connectors/icec/cec-inst-installing.md
                       - Enable trace logs to analyze errors \(optional\)](connectors/icec/cec-inst-enable-trace-logs.md
                       - Mapping security roles: connectors/icec/cec-inst-tmap-security-roles.md
-                  - Configuring: 
+                  - Configuring:
                       - connectors/icec/cec-inst-configuring.md
                       - General configuration: connectors/icec/cec-inst-gneral-configuration.md
-                      - Mode configuration: 
+                      - Mode configuration:
                           - connectors/icec/cec-inst-configure-modes.md
                           - Anonymous mode configuration: connectors/icec/cec-inst-anonymous-mode-configuration.md
-                          - Community on-premises mode configuration: 
+                          - Community on-premises mode configuration:
                               - connectors/icec/cec-inst-community-on-prem-config.md
                               - Updating the widgets-config.xml file: connectors/icec/cec-inst-widgets-config.md
                               - Updating the LotusConnections-config.xml file: connectors/icec/cec-inst-connections-config.md
@@ -1874,9 +1874,9 @@ nav:
                       - Internet Explorer compatibility mode: connectors/icec/cec-inst-ie-compatibility-mode.md
                   - Debugging: connectors/icec/onprem-cec-inst-debugging.md
                   - URLs to access Connections Engagement Center: connectors/icec/onprem-cec-urls-to-access-icec.md
-          - Installing integration plug-ins for HCL Connections: 
+          - Installing integration plug-ins for HCL Connections:
               - connectors/admin/c_plugin_admin_help_over.md
-              - HCL Connections Desktop Plug-ins for Microsoft Windows: 
+              - HCL Connections Desktop Plug-ins for Microsoft Windows:
                   - connectors/enduser/c_files_window_install_ovr.md
                   - Performing a user installation: connectors/enduser/t_files_windows_user_install.md
                   - Performing a silent installation: connectors/enduser/t_files_windows_silent_install.md
@@ -1886,21 +1886,21 @@ nav:
                   - Customizing the branding strings and images for the desktop plug-in: connectors/enduser/r_files_windows_ms_custom_branding.md
                   - Connecting to an HCL Connections or Connections Cloud site: connectors/enduser/t_ms_plugins_connect.md
                   - Setting preferences for HCL Connections plug-ins for Microsoft Windows: connectors/enduser/r_ms_plugins_settings.md
-              - HCL Connections Add-in for Microsoft Outlook: 
+              - HCL Connections Add-in for Microsoft Outlook:
                   - connectors/admin/c_outlook_connector.md
                   - HCL Connections Add-in for Microsoft Outlook System Requirements: connectors/admin/c_outlook_connector_addin_sys_req.md
-                  - Installing via Component pack or Standard Install: 
+                  - Installing via Component pack or Standard Install:
                       - connectors/admin/c_outlook_addin_installing.md
                       - Installing HCL Connections Add-in for Microsoft Outlook with Component Pack: connectors/admin/t_outlook_addin_cp_install.md
                       - Installing and configuring HCL Connections Add-in for Microsoft Outlook Standalone Install: connectors/admin/t_outlook_addin_standalone_install.md
                   - Upgrading Component Pack Outlook Add-in with a Standalone docker image: connectors/admin/t_outlook_upgrade_cp_w_standalone_docker_image.md
-              - HCL Connections for Mac: 
+              - HCL Connections for Mac:
                   - connectors/enduser/msdesktop_mac_over.md
                   - Performing a user installation: connectors/enduser/t_files_mac_user_install.md
                   - Performing a silent installation: connectors/enduser/t_files_mac_silent_install.md
                   - Policies and preferences for HCL Connections for Mac: connectors/enduser/r_policies_prefs_for_mac.md
                   - Uninstalling the HCL Connections for Mac plug-in: connectors/enduser/t_files_mac_uninstall.md
-                  - Using file sync for HCL Connections for Mac: 
+                  - Using file sync for HCL Connections for Mac:
                       - connectors/enduser/mac_desktop_plugin_filesync_gs2.md
                       - Managing HCL Connections for Mac accounts: connectors/enduser/t_mac_plugins_connect.md
                       - Setting preferences for the Mac plug-in: connectors/enduser/t_mac_plugins_adv_prefs.md
@@ -1909,7 +1909,7 @@ nav:
                       - Managing file versions: connectors/enduser/mac_desktop_plugins_filesync_versions.md
                       - Suspending file sync: connectors/enduser/mac_desktop_plugins_filesync_suspend.md
                       - Viewing and resolving sync issues: connectors/enduser/mac_desktop_plugins_filesync_issues.md
-              - HCL Connections Plug-ins for HCL Notes: 
+              - HCL Connections Plug-ins for HCL Notes:
                   - connectors/admin/files_plugin_install_overview.md
                   - Upgrading the HCL Notes client after installing Connection plug-ins for HCL Notes: connectors/admin/t_files_plugin_notes_updating.md
                   - Installing the HCL Connections Plug-ins for HCL Notes: connectors/admin/Files_plug-in_installation.md
@@ -1917,10 +1917,10 @@ nav:
                   - Connecting to a Connections or a Connections Cloud server: connectors/admin/t_files_plugin_connect_server.md
                   - Configuring and troubleshooting SPNEGO for the Notes plug-in: connectors/admin/r_files_plugin_SPNEGO_config.md
                   - Uninstalling the HCL Connections Plug-ins for HCL Notes: connectors/admin/files_plug-in_uninstall.md
-          - Using the HCL Connections desktop plug-ins for Microsoft Windows: 
+          - Using the HCL Connections desktop plug-ins for Microsoft Windows:
               - connectors/enduser/c_ms_plugins_win_explorer.md
               - Managing HCL Connections files from Windows Explorer: connectors/enduser/c_files_windows_explorer_nav.md
-              - Uploading and sharing files: 
+              - Uploading and sharing files:
                   - connectors/enduser/c_files_windows_upload_over.md
                   - Uploading a file to the Files application: connectors/enduser/t_files_windows_upload.md
                   - Uploading a file to a community: connectors/enduser/t_files_windows_upload_comm.md
@@ -1930,7 +1930,7 @@ nav:
                   - Sharing a file with additional people or communities: connectors/enduser/t_files_windows_share.md
               - Editing properties for a file or folder: connectors/enduser/t_files_windows_view_props.md
               - Publishing local drafts: connectors/enduser/c_files_windows_versions_over.md
-              - Getting started with sync: 
+              - Getting started with sync:
                   - connectors/enduser/ms_desktop_plugin_filesync_gs2.md
                   - Scenario&colon; Collaborating on a document using automatic sync: connectors/enduser/scenario_file_sync.md
                   - Adding a file or folder to My Drive: connectors/enduser/ms_desktop_plugin_filesync_add_file2.md
@@ -1938,7 +1938,7 @@ nav:
                   - Viewing and resolving sync issues: connectors/enduser/ms_desktop_plugins_filesync_issues.md
                   - Managing versions for synced files: connectors/enduser/ms_desktop_plugins_filesync_versions.md
                   - Managing synced files from the Files application: connectors/enduser/ms_desktop_plugins_SC_UI.md
-              - Working with libraries: 
+              - Working with libraries:
                   - connectors/enduser/c_files_windows_ccm_overview.md
                   - Adding a file to a library: connectors/enduser/t_files_windows_ccm_add_file.md
                   - Editing a library file: connectors/enduser/t_files_windows_ccm_edit_file.md
@@ -1949,7 +1949,7 @@ nav:
                   - Managing library file drafts: connectors/enduser/t_files_windows_ccm_drafts.md
                   - Editing library file properties: connectors/enduser/t_files_windows_ccm_properties.md
                   - Setting preferences for libraries: connectors/enduser/t_files_windows_ccm_prefs.md
-          - Using file sync for HCL Connections for Mac: 
+          - Using file sync for HCL Connections for Mac:
               - connectors/enduser/mac_desktop_plugin_filesync_gs2.md
               - Managing HCL Connections for Mac accounts: connectors/enduser/t_mac_plugins_connect.md
               - Setting preferences for the Mac plug-in: connectors/enduser/t_mac_plugins_adv_prefs.md
@@ -1958,36 +1958,36 @@ nav:
               - Managing file versions: connectors/enduser/mac_desktop_plugins_filesync_versions.md
               - Suspending file sync: connectors/enduser/mac_desktop_plugins_filesync_suspend.md
               - Viewing and resolving sync issues: connectors/enduser/mac_desktop_plugins_filesync_issues.md
-          - Using the Connections plug-in for Microsoft Office: 
+          - Using the Connections plug-in for Microsoft Office:
               - connectors/enduser/c_ms_plugins.md
-              - Accessing Connections content from Microsoft Office: 
+              - Accessing Connections content from Microsoft Office:
                   - connectors/enduser/c_ms_plugins_office.md
                   - Adding Office content to Connections: connectors/enduser/t_ms_plugins_add_to_files.md
                   - Working with Office documents in a library: connectors/enduser/t_ms_plugins_add_doc_to_library.md
                   - Adding Connections content to Word documents: connectors/enduser/t_ms_plugins_add_profiles_to_word.md
                   - Searching from Office for HCL Connections content: connectors/enduser/office_connector_searching_conn.md
-          - Using Connections with Microsoft Teams: 
+          - Using Connections with Microsoft Teams:
               - connectors/admin/c_ms_teams_integration_container.md
               - Enabling app registry extensions for Microsoft Teams integration: connectors/admin/t_ms_teams_enable_reg_ext.md
               - Enabling Connections to use the app registry service: connectors/admin/t_ms_teams_enable_conn_use_appreg.md
               - Updating WebSphere to support single sign-on with Connections for Microsoft Teams: connectors/admin/t_ms_teams_update_websphere_for_sso.md
               - Configuring an Azure app to support the Microsoft Teams app: connectors/admin/t_ms_teams_config_azure_app.md
               - Setting up the Connections app for the Microsoft Teams client: connectors/admin/t_ms_teams_set_up_conn_app_for_ms.md
-          - Using the HCL Connections Add-in for Microsoft Outlook: 
+          - Using the HCL Connections Add-in for Microsoft Outlook:
               - connectors/enduser/c_ms_plugins_add_in_outlook.md
               - Accessing the Connections Add-in from the Outlook desktop client: connectors/enduser/t_ms_plugins_outlook_add_in_desktop_client.md
               - Accessing the Connections Add-in from the Outlook web client: connectors/enduser/t_ms_plugins_outlook_add_in_outlook_web_client.md
               - Using the Connections Add-in features: connectors/enduser/t_ms_plugins_outlook_add_in_features.md
-          - Using the HCL Connections community app for Microsoft Sharepoint: 
+          - Using the HCL Connections community app for Microsoft Sharepoint:
               - connectors/admin/c_admin_sharepoint_app_container.md
               - Configuring the Sharepoint app in Microsoft Azure AD: connectors/admin/t_admin_sharepoint_app_enabling.md
               - Configuring the Sharepoint app in Connections: connectors/admin/t_admin_sharepoint_app_configure.md
-          - Using plug-ins from HCL Connections with other products: 
+          - Using plug-ins from HCL Connections with other products:
               - connectors/enduser/c_plugin_enduser_help_over.md
-              - Using the HCL Connections Status Updates Plug-in for HCL Notes: 
+              - Using the HCL Connections Status Updates Plug-in for HCL Notes:
                   - connectors/enduser/c_status_updates_overview.md
                   - Working with Status Updates: connectors/enduser/r_status_updates_working.md
-              - Using the HCL Connections Files plug-in for Notes: 
+              - Using the HCL Connections Files plug-in for Notes:
                   - connectors/enduser/c_files_plugin_overview.md
                   - Uploading a file in Connections: connectors/enduser/t_files_plugin_upload_file.md
                   - Sharing a file: connectors/enduser/t_files_plugin_sharing.md
