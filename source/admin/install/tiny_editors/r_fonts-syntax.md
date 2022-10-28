@@ -19,5 +19,5 @@ fonts = "[", [ font , { "," , font } ] , "]";
 **Related information**  
 
 
-[../../admin/install/tiny\_editors/t\_configure\_09-set-fontpicker-fonts-2.md](../../admin/install/tiny_editors/t_configure_09-set-fontpicker-fonts-2.md)
+[../../install/tiny\_editors/t\_configure\_09-set-fontpicker-fonts-2.md](../../install/tiny_editors/t_configure_09-set-fontpicker-fonts-2.md)
 

@@ -15,8 +15,7 @@ You are configuring a proxy server to reside in front of the HTTP Server \(IHS\)
 
     1.  Install WebSphere 8.5.5.7 \(or later, if compatible\) onto the hardware that you are using for the proxy server.
 
-        Download and unzip the installer for the Installation Manager v1.8.3 and for WebSphere Network Deployment v8.5. The installation process is documented here: [WebSphere Application Server, Network Deployment \(Distributed platforms and Windows™\), Version 8.0 documentation](WebSphere Application
-        Server, Network Deployment (Distributed platforms and Windows), Version 8.0 documentationhttp://www-01.ibm.com/support/knowledgecenter/SSAW57_8.0.0/com.ibm.websphere.nd.doc/info/ae/ae/welcome_nd.dita). The relevant sections are: HCL Installation Manager 1.5.3 and WebSphere V8.0 Application Server Installation. The steps are the same for the newer versions of these items.
+        Download and unzip the installer for the Installation Manager v1.8.3 and for WebSphere Network Deployment v8.5. The installation process is documented here: [WebSphere Application Server, Network Deployment \(Distributed platforms and Windows™\), Version 8.0 documentation](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.0.0/com.ibm.websphere.nd.doc/info/ae/ae/welcome_nd.md). The relevant sections are: HCL Installation Manager 1.5.3 and WebSphere V8.0 Application Server Installation. The steps are the same for the newer versions of these items.
 
     2.  Federate the node into deployment.
 

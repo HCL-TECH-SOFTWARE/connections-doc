@@ -130,5 +130,5 @@ Some commands described below are not available in all editors or are only avail
 
 [Toolbar components and the toolbar definition](../../install/tiny_editors/c_toolbar.md)
 
-[../../admin/install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../admin/install/tiny_editors/t_configure_08-customize-toolbar-2.md)
+[../../install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../install/tiny_editors/t_configure_08-customize-toolbar-2.md)
 

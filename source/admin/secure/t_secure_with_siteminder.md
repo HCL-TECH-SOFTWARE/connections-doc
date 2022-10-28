@@ -147,7 +147,7 @@ To set up SSO using SiteMinder, complete the following steps:
 
     1.  Using the Agent Object and Forms Authentication Scheme that you created in [Step 3.a](t_secure_with_siteminder.md#SubstepConfigureTheWebAgentForIBM.) and [Step 4](t_secure_with_siteminder.md#StepSpecifyYourSiteMinderAuthent...), create SiteMinder realms that are protected by forms authentication.
 
-        See the [Realms that require forms authentication](Realms that require forms authenticationt_secure_with_siteminder.dita#t_secure_with_siteminder/RealmsThatRequireFormsAuthe...) table for a list of URLs that are protected by forms authentication.
+        See the [Realms that require forms authentication](t_secure_with_siteminder#RealmsThatRequireFormsAuthe...) table for a list of URLs that are protected by forms authentication.
 
         |Application|Protected URL resource|
         |-----------|----------------------|
@@ -506,11 +506,11 @@ To set up SSO using SiteMinder, complete the following steps:
     RewriteCond %{REQUEST_URI} /(.*)/ibm_security_logout(.*)
     RewriteCond %{QUERY_STRING} !=logoutExitPage=http://corphome.example.com
     RewriteRule /(.*)/ibm_security_logout(.*)  /homepage/web/ibm_security_logout?logoutExitPage=http://corphome.example.com [noescape,L,R]
-    
-    
+
+
     RewriteCond %{REQUEST_URI} !^/blogs/roller-ui/rendering/(.*)
     RewriteRule ^/blogs/(.*)/feed/blogs/atom(.*) /blogs/roller-ui/rendering/feed/$1/blogs/atom/ [R,L]
-    
+
     #Connections Config for SSL
     LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
     <IfModule mod_ibm_ssl.c>
@@ -522,11 +522,11 @@ To set up SSO using SiteMinder, complete the following steps:
     RewriteCond %{REQUEST_URI} /(.*)/ibm_security_logout(.*)
     RewriteCond %{QUERY_STRING} !=logoutExitPage=http://corphome.example.com
     RewriteRule /(.*)/ibm_security_logout(.*) /homepage/web/ibm_security_logout?logoutExitPage=http://corphome.example.com [noescape,L,R]
-    
-    
+
+
     RewriteCond %{REQUEST_URI} !^/blogs/roller-ui/rendering/(.*)
     RewriteRule ^/blogs/(.*)/feed/blogs/atom(.*) /blogs/roller-ui/rendering/feed/$1/blogs/atom/ [R,L]
-    
+
     </VirtualHost>
     </IfModule>
     SSLDisable
@@ -593,7 +593,7 @@ Advise your users to close all browser windows when they log out of Activities. 
 
 **Parent topic:**[Configuring single sign-on](../secure/c_sec_config_sso.md)
 
-**Related information**  
+**Related information**
 
 
 [Changing references to administrative credentials](../admin/t_admin_common_changing_admin_passwords.md)

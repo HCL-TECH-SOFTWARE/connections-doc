@@ -8,7 +8,7 @@ Prerequisites for installing Activities Plus are:
 
 -   Get a free license key from the ISW site.
 
--   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.dita) in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.
+-   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.md) in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.
 
 
 1.  Delete existing kudos-boards-cp chart:

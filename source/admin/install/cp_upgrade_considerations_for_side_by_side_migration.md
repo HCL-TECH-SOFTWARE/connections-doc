@@ -63,7 +63,7 @@ Understanding how PV\(C\)s are configured
 Moving data between PVs
 :   There are two types of data that you eventually want to migrate: MongoDB and Elasticsearch.
 
-:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](migrating_data_mongodb_v3_v5.dita); for Elasticsearch, do the same with something like [elasticsearch-dump](cp_migrate_data_from_es7_to_opensearch.dita)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
+:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](migrating_data_mongodb_v3_v5.md); for Elasticsearch, do the same with something like [elasticsearch-dump](cp_migrate_data_from_es7_to_opensearch.md)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
 
 ## Completing the migration {#section_fvq_p2s_lpb .section}
 

@@ -26,7 +26,7 @@ Where additional customization is required, custom plugins can be loaded into Ti
     ],
     ```
 
-3.  [Continue configuring the Tiny Editors integration](https://help.hcltechsw.com/connections/v65/admin/install/tiny_editors/t_01-setup_03-editors_01-configure_00-summary.html) or [continue with the installation](https://help.hcltechsw.com/connections/v65/admin/install/tiny_editors/t_01-setup_03-editors_02-install_00-summary.html).
+3.  [Continue configuring the Tiny Editors integration](https://help.hcltechsw.com/connections/v../install/tiny_editors/t_01-setup_03-editors_01-configure_00-summary.html) or [continue with the installation](https://help.hcltechsw.com/connections/v../install/tiny_editors/t_01-setup_03-editors_02-install_00-summary.html).
 
 ## HCL Connections supported TinyMCE - Plugins { .section}
 

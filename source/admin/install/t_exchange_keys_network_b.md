@@ -8,7 +8,7 @@ This topic describes the procedure to configure certificates in a deployment wit
 
 If you select to configure the HTTP server during the HCL Connections installation, this task could be performed at that time instead of as a post-installation task. To establish trusted server-to-server communication for HCL Connections, import signer certificates from IBM HTTP Server into the WebSphere Application Server default trust store.
 
-There are different types of certificates that you can use. This procedure describes how to import a self-signed certificate. You can also import a certificate that you purchased from a third-party Certificate Authority. To help decide a key file strategy for your environment, go the[IBM HTTP Server knowledge center](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.ihs.doc/ihs/welcome_ihs.dita).
+There are different types of certificates that you can use. This procedure describes how to import a self-signed certificate. You can also import a certificate that you purchased from a third-party Certificate Authority. To help decide a key file strategy for your environment, go the[IBM HTTP Server knowledge center](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.ihs.doc/ihs/welcome_ihs.md).
 
 To import a public certificate from IBM HTTP Server to the default trust store in IBM WebSphere Application Server, complete the following steps:
 

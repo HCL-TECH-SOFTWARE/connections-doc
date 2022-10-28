@@ -314,7 +314,7 @@ ephox {
 
 [Configuring the application.conf for the Tiny Editors Services](../../install/tiny_editors/t_01-setup_02-services_01-appconf_00-summary.md)
 
-[../../admin/install/tiny\_editors/t\_01-setup\_02-services\_01-appconf\_01-create-an-application-conf-1.md](../../admin/install/tiny_editors/t_01-setup_02-services_01-appconf_01-create-an-application-conf-1.md)
+[../../install/tiny\_editors/t\_01-setup\_02-services\_01-appconf\_01-create-an-application-conf-1.md](../../install/tiny_editors/t_01-setup_02-services_01-appconf_01-create-an-application-conf-1.md)
 
 [Disable SSL certificate validation for testing](../../install/tiny_editors/t_disable-certificate-validation-for-testing.md)
 

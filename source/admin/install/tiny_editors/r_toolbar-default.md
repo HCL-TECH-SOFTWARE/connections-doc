@@ -49,5 +49,5 @@ The default toolbar used by the Tiny editors.
 
 [Toolbar components and the toolbar definition](../../install/tiny_editors/c_toolbar.md)
 
-[../../admin/install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../admin/install/tiny_editors/t_configure_08-customize-toolbar-2.md)
+[../../install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../install/tiny_editors/t_configure_08-customize-toolbar-2.md)
 

@@ -33,7 +33,7 @@ Custom commands have an `id`, `text`, `icon` and `action` properties.
 **Related information**  
 
 
-[../../admin/install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../admin/install/tiny_editors/t_configure_08-customize-toolbar-2.md)
+[../../install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../install/tiny_editors/t_configure_08-customize-toolbar-2.md)
 
 [The default toolbar configuration](../../install/tiny_editors/r_toolbar-default.md)
 

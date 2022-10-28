@@ -58,7 +58,7 @@ The default value is inactivate.
 
 **Parent topic:**[Managing user data using Tivoli Directory Integrator Solution scripts](../admin/c_admin_profiles_updating_ldap.md)
 
-**Related information**  
+**Related information**
 
 
 [Managing user data using Profiles administrative commands](../admin/t_admin_profiles_manage_users.md)
@@ -67,5 +67,5 @@ The default value is inactivate.
 
 [Configuring IBM Security Directory Integrator](../install/t_prof_install_tdi.md)
 
-[Customizing the logic used for the delete operation](Customizing the logic used for the delete operationt_admin_profiles_customize_delete_logic.dita)
+[Customizing the logic used for the delete operation](t_admin_profiles_customize_delete_logic.md)
 

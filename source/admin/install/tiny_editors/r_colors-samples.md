@@ -36,5 +36,5 @@ In the following example:
 **Related information**  
 
 
-[../../admin/install/tiny\_editors/t\_configure\_10-set-colorpicker-colors-2.md](../../admin/install/tiny_editors/t_configure_10-set-colorpicker-colors-2.md)
+[../../install/tiny\_editors/t\_configure\_10-set-colorpicker-colors-2.md](../../install/tiny_editors/t_configure_10-set-colorpicker-colors-2.md)
 

@@ -23,10 +23,10 @@ To avoid this risk, take one or more of the following steps:
 
 **Parent topic:**[Managing access](../admin/c_admin_common_managing_access.md)
 
-**Related information**  
+**Related information**
 
 
-[Adding members to grow your community](Adding members to grow your communityc_com_add_members.dita)
+[Adding members to grow your community](../../user/communities/c_com_add_members.md)
 
 [Managing membership in Communities](../admin/c_admin_communities_managing_membership.md)
 
