@@ -5,13 +5,13 @@ Welcome to the HCL Connections documentation site. HCL Connections is social net
 **Getting started with a new deployment**  
 
 
-[What is HCL Connections?](https://opensource.hcltechsw.com/connections-doc/v8/admin/overview/c_what_is_lc.html)
+[What is HCL Connections?](https://opensource.hcltechsw.com/connections-doc/admin/overview/c_what_is_lc.html)
 
-[What is new in HCL Connections?](https://opensource.hcltechsw.com/connections-doc/v8/admin/overview/i_ovr_r_whats_new.html)
+[What is new in HCL Connections?](https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html)
 
-[System requirements](https://opensource.hcltechsw.com/connections-doc/v8/admin/plan/r_install_prerqs.html)
+[System requirements](https://opensource.hcltechsw.com/connections-doc/admin/plan/r_install_prerqs.html)
 
-[Planning your deployment](https://opensource.hcltechsw.com/connections-doc/v8/admin/plan/c_installation_overview.html)
+[Planning your deployment](https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html)
 
 **Installing or updating an existing deployment**  
 
@@ -21,7 +21,7 @@ Welcome to the HCL Connections documentation site. HCL Connections is social net
 **Troubleshooting and support**  
 
 
-[Troubleshooting](https://opensource.hcltechsw.com/connections-doc/v8/admin/troubleshoot/ts_c_welcome.html)
+[Troubleshooting](https://opensource.hcltechsw.com/connections-doc/admin/troubleshoot/ts_c_welcome.html)
 
 [HCL Support Services](https://support.hcltechsw.com/)
 
@@ -30,5 +30,5 @@ Welcome to the HCL Connections documentation site. HCL Connections is social net
 **Developer Documentation**  
 
 
-[Developing with HCL Connections API](https://opensource.hcltechsw.com/connections-doc/v8/admin/develop/dev_intro.html)
+[Developing with HCL Connections API](https://opensource.hcltechsw.com/connections-doc/admin/develop/dev_intro.html)
 

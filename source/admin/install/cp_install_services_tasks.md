@@ -220,18 +220,15 @@ Register the snapshot repository in Elasticsearch 7:
 1.  Connect to an Elasticsearch 7 client pod by running the following command:
 
     ``` {#codeblock_rgx_4yt_hvb}
-    kubectl exec -ti -n connections $(kubectl get pods -n connections
-    |grep **es-client** |awk '{print $1}') -- bash
+    kubectl exec -ti -n connections $(kubectl get pods -n connections | grep es-client | awk '{print $1}') -- bash
     ```
 
 2.  Enter the following commands, which make use of the sendRequest utility to communicate with Elasticsearch 7:
 
     ``` {#codeblock_x4z_ryt_hvb}
-    /opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot
-    /**$\{REPONAME\}** \
+    /opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME} \
     -H 'Content-Type: application/json' \
-    -d '{"type": "fs","settings": {"compress" : true, "location":
-    **"$\{BACKUPPATH\}"**}}'
+    -d '{"type": "fs","settings": {"compress" : true, "location": "${BACKUPPATH}"}}'
     ```
 
     ``` {#codeblock_iq3_tyt_hvb}
@@ -239,8 +236,7 @@ Register the snapshot repository in Elasticsearch 7:
     ```
 
     ``` {#codeblock_iny_tyt_hvb}
-    /opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot
-    /_all?pretty
+    /opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot/_all?pretty
     ```
 
     ``` {#codeblock_ebp_5yt_hvb}
@@ -250,27 +246,25 @@ Register the snapshot repository in Elasticsearch 7:
 
     Where:
 
-    -   $\{REPONAME\} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
-    -   $\{BACKUPPATH\} is the mount path of the shared Elasticsearch 7 backup persistent volume \(esbackup\). By default this path is /backup.
-    Disconnect from the pod \(press Ctrl+D, or type exit and press Enter\).
+    -   ${REPONAME} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
+    -   ${BACKUPPATH} is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.
+    Disconnect from the pod (press Ctrl+D, or type `exit` and press Enter).
 
 3.  Connect to an Elasticsearch 7 client pod in the Elasticsearch 7 cluster by running the following command on a Kubernetes node:
 
     ``` {#codeblock_cjp_bzt_hvb}
-    kubectl exec -ti -n connections $(kubectl get pods -n connections -o
-    wide |grep es-client-7 |awk '{print $1}' |head -n 1) – bash
+    kubectl exec -ti -n connections $(kubectl get pods -n connections -o wide | grep es-client-7 | awk '{print $1}' | head -n 1) – bash
     ```
 
 4.  Back up all Elasticsearch 7 indexes by running the following command:
 
     ``` {#codeblock_gqp_czt_hvb}
-    /opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot
-    /${REPONAME}/snapshot_migration?wait_for_completion=true
+    /opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME}/snapshot_migration?wait_for_completion=true
     ```
 
-    Where $\{REPONAME\} is the name of the snapshot repository, which was previously used to register and manage the Elasticsearch 7 snapshot, for example, connectionsbackup.
+    Where ${REPONAME} is the name of the snapshot repository, which was previously used to register and manage the Elasticsearch 7 snapshot, for example, connectionsbackup.
 
-    Disconnect from the pod \(press Ctrl+D, or type exit and press Enter\).
+    Disconnect from the pod (press Ctrl+D, or type `exit` and press Enter).
 
 
 ## Set up OpenSearch and MongoDB volumes on NFS {#setup_nfs .section}
@@ -593,34 +587,36 @@ Installing the OpenSearch chart creates an additional secret – use the default
     1.3.0-20220520-092636
     ```
 
-2.  Download the j2 template for opensearch\_master.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
-3.  Install OpenSearch master:
+2.  Download the j2 templates for opensearch\_master.yml, opensearch\_data.yml, and opensearch\_client.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
+3.  Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch\_master.yml, opensearch\_data.yml, and opensearch\_client.yml files:
+    `pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD`
+
+4. Install OpenSearch master:
 
     ``` {#codeblock_jxs_ltr_bvb}
     helm upgrade opensearch-master v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
     ```
 
-4.  Download the j2 template for opensearch\_data.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 5.  Install OpenSearch data:
 
     ``` {#codeblock_kxs_ltr_bvb}
     helm upgrade opensearch-data v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
     ```
 
-6.  Download the j2 template for opensearch\_client.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
-7.  Install OpenSearch client:
+6.  Install OpenSearch client:
 
     ``` {#codeblock_mxs_ltr_bvb}
     helm upgrade opensearch-client v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
     ```
 
-8.  Check if the OpenSearch master, data, and client pods are up and running:
+7.  Check if the OpenSearch master, data, and client pods are up and running:
 
     ``` {#codeblock_nxs_ltr_bvb}
     kubectl get pods -n connections | grep -i "opensearch-cluster-"
     ```
 
-9.  Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:
+8.  Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:
 
     ``` {#codeblock_oxs_ltr_bvb}
     kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"
@@ -729,7 +725,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 2.  Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.
 
     1.  Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.
-    2.  Click **Security** \> **SSL certificate and key management** \> ******Dynamic outbound endpoint SSL configurations** and, for each cluster member, delete any endpoints starting with **SSLToES and SearchToES**.
+    2.  Click **Security** \> **SSL certificate and key management** \> **Dynamic outbound endpoint SSL configurations** and, for each cluster member, delete any endpoints starting with **SSLToES and SearchToES**.
     3.  Click **Security** \> **SSL certificate and key management** \> **SSL configurations**, and delete the **ESCloudSSLSettings**and **ESSearchSSLSettings** configuration.
     4.  Click **Security** \> **SSL certificate and key management** \> **Key stores and certificates** and delete the **ESCloudKeyStore** and **ESSearchKeyStore** configuration.
 3.  Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.
@@ -986,7 +982,7 @@ To enable Microsoft Teams integration, see [Setting up the Connections app for t
 
 For post-installation tasks required to deploy the community creation wizard and templates, see [Configuring the community creation wizard](t_configure_community_wizard.md) and [Assigning administrators to template management roles](../admin/t_admin_comm_templates_assign_admins.md).
 
-## Configure the LotusConnections-config.xml {#section_i5b_1pt_hvb .section}
+## Configure the LotusConnections-config.xml {#lotusxml .section}
 
 1.  Start the wsadmin command. Refer to [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md).
 2.  Load the IBM Connections configuration file:
@@ -1022,7 +1018,7 @@ For post-installation tasks required to deploy the community creation wizard and
         <genericProperty name="elasticsearch.eSmajorVersion">7</genericProperty>
         <genericProperty name="people.typeahead">enabled</genericProperty>
         <genericProperty name="lconn.core.WidgetPlacement.communities.useCRE">true</genericProperty>
-        <**genericProperty name="componentPackInstalled"\>true</genericProperty\>**
+        <genericProperty name="componentPackInstalled"\>true</genericProperty\>
         <genericProperty name="lconn.core.WidgetPlacement.profiles.useCRE">true</genericProperty>
     </properties>
     ```
@@ -1035,7 +1031,7 @@ For post-installation tasks required to deploy the community creation wizard and
 
     The file is validated, and you are notified if an error is found.
 
-6.  To exit the wsadmin client, type exit at the prompt.
+6.  To exit the wsadmin client, type `exit` at the prompt.
 7.  Deploy the changes by doing a **Fully Resynchronize** of the nodes on WebSphere Admin Console \([https://<host\_name\>:9043/ibm/console](https://%3chost_name%3e:9043/ibm/console)\).
 8.  Stop and restart the servers that host the IBM Connections applications.
 
@@ -1048,7 +1044,11 @@ For post-installation tasks required to deploy the community creation wizard and
 
 **Procedure**
 
-For steps to set up Activities Plus, refer to [Installing Activities Plus services](cp_3p_install_ap_services.md). Afterwards, you can find out more about Activities Plus in [Integrating with Activities Plus](cp_3p_integrate_intro.md).
+For steps to set up Activities Plus, refer to [Installing Activities Plus services](cp_3p_install_ap_services.md).
+
+To move existing activities to Activities Plus, see [Migrating Activities data](cp_3p_migrate_activities_data.md)
+
+You can find out more about Activities Plus in [Integrating with Activities Plus](cp_3p_integrate_intro.md).
 
 ## Set up Connections add-in for Microsoft Outlook {#ms_outlook_addin .section}
 
@@ -1082,8 +1082,8 @@ For steps to set up Activities Plus, refer to [Installing Activities Plus servic
     -   What may be overriden:
         -   CONTEXT\_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS\_URL. Do NOT start or end with \`/. \(default: outlook-addin\)
         -   SUPPORT\_URL - URL that a user can go to for support \(help\). \(default: https://help.hcltechsw.com/connections/v7/connectors/enduser/c\_ms\_plugins\_add\_in\_outlook.html\)
-        -   CONNECTIONS\_NAME – A custom name for the add-in..\(default: 'HCL Connections'\)
-        -   EWS\_HOSTNAME – The hostname for Exchange Web Services. Default: 'outlook.office365.com'
+        -   CONNECTIONS\_NAME – A custom name for the add-in. \(default: 'HCL Connections'\)
+        -   EWS\_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')
     -   Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.
 5.  Install chart:
 

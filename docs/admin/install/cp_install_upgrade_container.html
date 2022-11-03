@@ -34776,114 +34776,110 @@
 <tbody>
 <tr>
 <td>1.  Install or upgrade HCL Connections</td>
-<td></td>
+<td>1.  Install or upgrade HCL Connections</td>
 </tr>
 <tr>
 <td>2.  <a href="cp_install_services_tasks.html#section_e4p_jrp_tnb">Set up NFS</a></td>
-<td></td>
+<td>2.  Ensure that you have NFS up and running and a proper set of NFS folders with specific permissions, which are exported and mountable from all Kubernetes nodes</td>
 </tr>
 <tr>
 <td>3.  <a href="cp_install_services_tasks.html#section_ln3_qp3_dvb">Create the Connections namespace</a></td>
-<td></td>
+<td>3.  <a href="cp_install_services_tasks.html#backup_mongo3">Back up MongoDB data</a></td>
 </tr>
 <tr>
 <td>4.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
-<td></td>
+<td>4.  <a href="cp_install_services_tasks.html#backup_es7">Back up Elasticsearch 7 data</a></td>
 </tr>
 <tr>
 <td>5.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
-<td></td>
+<td>5.  <a href="cp_install_services_tasks.html#setup_nfs">Set up OpenSearch and MongoDB volumes on NFS</a></td>
 </tr>
 <tr>
 <td>6.  <a href="cp_install_services_tasks.html#pod_sec">Set up pod security policy</a></td>
-<td></td>
+<td>6.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
 </tr>
 <tr>
 <td>7.  <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
-<td></td>
+<td>7.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
 </tr>
 <tr>
 <td>8.  <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
-<td></td>
+<td>8.  <a href="cp_install_services_tasks.html#pod_sec">Set up pod security policy</a></td>
 </tr>
 <tr>
 <td>9.  <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
-<td></td>
+<td>9.  <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
 </tr>
 <tr>
 <td>10. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
-<td></td>
+<td>10. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
 </tr>
 <tr>
 <td>11. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
-<td></td>
+<td>11. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
 </tr>
 <tr>
 <td>12. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
-<td></td>
+<td>12. <a href="cp_install_services_tasks.html#del_ingress">Delete ingresses</a></td>
 </tr>
 <tr>
 <td>13. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
-<td></td>
+<td>13. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
 </tr>
 <tr>
 <td>14. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
-<td></td>
+<td>14. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
 </tr>
 <tr>
 <td>15. <a href="cp_install_services_tasks.html#orientme_os">Set up Orient Me for OpenSearch</a></td>
-<td></td>
+<td>15. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate MongoDB data</a></td>
 </tr>
 <tr>
 <td>16. <a href="cp_install_services_tasks.html#metrics_os">Set up Metrics for OpenSearch</a></td>
-<td></td>
+<td>16. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
 </tr>
 <tr>
 <td>17. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
-<td></td>
+<td>17. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
 </tr>
 <tr>
 <td>18. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) charts</a></td>
-<td></td>
+<td>18. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate ElasticSearch 7 data</a></td>
 </tr>
 <tr>
-<td>19. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
-<td></td>
+<td>19. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
+<td>19. <a href="cp_install_services_tasks.html#orientme_os">Reconfigure Orient Me for OpenSearch</a></td>
 </tr>
 <tr>
-<td>20. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
+<td>20. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
+<td>20. <a href="cp_install_services_tasks.html#metrics_os">Reconfigure Metrics for OpenSearch</a></td>
+</tr>
+<tr>
+<td>21. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
+<td>21. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
+</tr>
+<tr>
 <td></td>
+<td>22. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
+</tr>
+<tr>
+<td></td>
+<td>23. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) charts</a></td>
+</tr>
+<tr>
+<td></td>
+<td>24. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
+</tr>
+<tr>
+<td></td>
+<td>25. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
+</tr>
+<tr>
+<td></td>
+<td>26. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
 </tr>
 </tbody>
 </table>
-<p>|1.  Install or upgrade HCL Connections
-2.  Ensure that you have:
-    -   NFS up and running
-    -   A proper set of NFS folders with specific permissions, which are exported and mountable from all Kubernetes nodes
-3.  <a href="cp_install_services_tasks.html#backup_mongo3">Back up MongoDB data</a>
-4.  <a href="cp_install_services_tasks.html#backup_es7">Back up Elasticsearch 7 data</a>
-5.  <a href="cp_install_services_tasks.html#setup_nfs">Set up OpenSearch and MongoDB volumes on NFS</a>
-6.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a>
-7.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a>
-8.  <a href="cp_install_services_tasks.html#pod_sec">Set up pod security policy</a>
-9.  <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a>
-10. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a>
-11. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a>
-12. <a href="cp_install_services_tasks.html#del_ingress">Delete ingresses</a>
-13. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a>
-14. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a>
-15. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate MongoDB data</a>
-16. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a>
-17. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a>
-18. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate ElasticSearch 7 data</a>
-19. <a href="cp_install_services_tasks.html#orientme_os">Reconfigure Orient Me for OpenSearch</a>
-20. <a href="cp_install_services_tasks.html#metrics_os">Reconfigure Metrics for OpenSearch</a>
-21. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a>
-22. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a>
-23. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) charts</a>
-24. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a>
-25. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></p>
-<p>|</p>
 <p>For more information, see <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a>.</p>
 <ul>
 <li>
@@ -34896,7 +34892,7 @@ If your Connections upgrade strategy requires a side-by-side migration, understa
 <li><strong><a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a></strong><br />
 Use these steps to help you install Component Pack 8 or replace Component Pack 7 with 8.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="cp_install_config_intro.html">Installing or upgrading Component Pack for Connections</a></p>
+<p><strong>Parent topic:</strong> <a href="cp_install_config_intro.html">Installing or upgrading Component Pack for Connections</a></p>
 
               
             </article>

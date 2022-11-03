@@ -34963,14 +34963,52 @@
         &lt;/property&gt;     
 </code></pre></div>
 <p>Save the file, perform a full synchronization for all nodes, and restart the Search application for any new values to take effect.</p>
-<p>|<strong>Property</strong>|<strong>Default value</strong>|<strong>Description</strong>|
-|tikaFileConversion.deleteTempFiles|true|The conversion process creates temporary files containing the plain text that are deleted by default. If debugging and it is necessary to review these files, change this to false.|
-|tikaFileConversion.javaOptions| |Update only if specific JVM options are required such as increasing the process heap size|
-|tikaFileConversion.maxContentSize|204800|Indicates the Maximum number of bytes to index at the beginning of a document.|
-|tikaFileConversion.maxConversionSeconds|180|Indicates the number of seconds that the Connections server waits for a tika process to respond to a conversion request.|
-|tikaFileConversion.maxDocConversionsPerProcess|100|Indicates the number of conversions each tika server process is allowed to execute before the process is recycled and started over.|
-|tikaFileConversion.maxConversionThreads|5|Displays the maximum number of threads that will be allowed to run conversions simultaneously. This is also the maximum number of tika processes which run simultaneously.|
-|tikaFileConversion.tempDirectory|${SEARCH_INDEX_DIR}/filesTemp|Displays the directory used to store temporary conversion file output|</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Default value</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tikaFileConversion.deleteTempFiles</td>
+<td>true</td>
+<td>The conversion process creates temporary files containing the plain text that are deleted by default. If debugging and it is necessary to review these files, change this to false.</td>
+</tr>
+<tr>
+<td>tikaFileConversion.javaOptions</td>
+<td> </td>
+<td>Update only if specific JVM options are required such as increasing the process heap size</td>
+</tr>
+<tr>
+<td>tikaFileConversion.maxContentSize</td>
+<td>204800</td>
+<td>Indicates the Maximum number of bytes to index at the beginning of a document.</td>
+</tr>
+<tr>
+<td>tikaFileConversion.maxConversionSeconds</td>
+<td>180</td>
+<td>Indicates the number of seconds that the Connections server waits for a tika process to respond to a conversion request.</td>
+</tr>
+<tr>
+<td>tikaFileConversion.maxDocConversionsPerProcess</td>
+<td>100</td>
+<td>Indicates the number of conversions each tika server process is allowed to execute before the process is recycled and started over.</td>
+</tr>
+<tr>
+<td>tikaFileConversion.maxConversionThreads</td>
+<td>5</td>
+<td>Displays the maximum number of threads that will be allowed to run conversions simultaneously. This is also the maximum number of tika processes which run simultaneously.</td>
+</tr>
+<tr>
+<td>tikaFileConversion.tempDirectory</td>
+<td>${SEARCH_INDEX_DIR}/filesTemp</td>
+<td>Displays the directory used to store temporary conversion file output</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Parent topic:</strong><a href="c_admin_search_index_process.html">The indexing process</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../troubleshoot/t_ts_missing_files_content_after_search.html">Troubleshooting when files content is not found after searching</a></p>

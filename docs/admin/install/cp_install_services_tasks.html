@@ -34886,7 +34886,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section_i5b_1pt_hvb" class="md-nav__link">
+  <a href="#lotusxml" class="md-nav__link">
     Configure the LotusConnections-config.xml
   </a>
   
@@ -35100,17 +35100,16 @@ db.fsyncUnlock ()
 <ol>
 <li>
 <p>Connect to an Elasticsearch 7 client pod by running the following command:</p>
-<div id="codeblock_rgx_4yt_hvb" class="highlight"><pre><span></span><code>kubectl exec -ti -n connections $(kubectl get pods -n connections
-|grep **es-client** |awk &#39;{print $1}&#39;) -- bash
+<div id="codeblock_rgx_4yt_hvb" class="highlight"><pre><span></span><code>kubectl exec -ti -n connections $(kubectl get pods -n connections | grep es-client | awk &#39;{print $1}&#39;) -- bash
 </code></pre></div>
 </li>
 <li>
 <p>Enter the following commands, which make use of the sendRequest utility to communicate with Elasticsearch 7:</p>
 <div id="codeblock_x4z_ryt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot
-/**$\{REPONAME\}** \
+/$\{REPONAME\} \
 -H &#39;Content-Type: application/json&#39; \
 -d &#39;{&quot;type&quot;: &quot;fs&quot;,&quot;settings&quot;: {&quot;compress&quot; : true, &quot;location&quot;:
-**&quot;$\{BACKUPPATH\}&quot;**}}&#39;
+&quot;$\{BACKUPPATH\}&quot;}}&#39;
 </code></pre></div>
 <div id="codeblock_iq3_tyt_hvb" class="highlight"><pre><span></span><code>o/p: {&quot;acknowledged&quot;:true}
 </code></pre></div>
@@ -35129,8 +35128,7 @@ Disconnect from the pod (press Ctrl+D, or type exit and press Enter).</li>
 </li>
 <li>
 <p>Connect to an Elasticsearch 7 client pod in the Elasticsearch 7 cluster by running the following command on a Kubernetes node:</p>
-<div id="codeblock_cjp_bzt_hvb" class="highlight"><pre><span></span><code>kubectl exec -ti -n connections $(kubectl get pods -n connections -o
-wide |grep es-client-7 |awk &#39;{print $1}&#39; |head -n 1) – bash
+<div id="codeblock_cjp_bzt_hvb" class="highlight"><pre><span></span><code>kubectl exec -ti -n connections $(kubectl get pods -n connections -o wide | grep es-client-7 | awk &#39;{print $1}&#39; | head -n 1) – bash
 </code></pre></div>
 </li>
 <li>
@@ -35395,7 +35393,11 @@ mkdir -p /pv-connections/mongo5-node-2
 </code></pre></div>
 </li>
 <li>
-<p>Download the j2 template for opensearch_master.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
+<p>Download the j2 templates for opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
+</li>
+<li>
+<p>Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml files:
+    <code>pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD</code></p>
 </li>
 <li>
 <p>Install OpenSearch master:</p>
@@ -35403,15 +35405,9 @@ mkdir -p /pv-connections/mongo5-node-2
 </code></pre></div>
 </li>
 <li>
-<p>Download the j2 template for opensearch_data.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
-</li>
-<li>
 <p>Install OpenSearch data:</p>
 <div id="codeblock_kxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-data v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
 </code></pre></div>
-</li>
-<li>
-<p>Download the j2 template for opensearch_client.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
 <p>Install OpenSearch client:</p>
@@ -35518,7 +35514,7 @@ mkdir -p /pv-connections/mongo5-node-2
 <p>Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.</p>
 <ol>
 <li>Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.</li>
-<li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong><em>*</em>*Dynamic outbound endpoint SSL configurations</strong> and, for each cluster member, delete any endpoints starting with <strong>SSLToES and SearchToES</strong>.</li>
+<li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Dynamic outbound endpoint SSL configurations</strong> and, for each cluster member, delete any endpoints starting with <strong>SSLToES and SearchToES</strong>.</li>
 <li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>SSL configurations</strong>, and delete the <strong>ESCloudSSLSettings</strong>and <strong>ESSearchSSLSettings</strong> configuration.</li>
 <li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Key stores and certificates</strong> and delete the <strong>ESCloudKeyStore</strong> and <strong>ESSearchKeyStore</strong> configuration.</li>
 <li>Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.</li>
@@ -35751,7 +35747,7 @@ execfile(&#39;searchAdmin.py&#39;)
 </li>
 </ol>
 <p>For post-installation tasks required to deploy the community creation wizard and templates, see <a href="t_configure_community_wizard.html">Configuring the community creation wizard</a> and <a href="../admin/t_admin_comm_templates_assign_admins.html">Assigning administrators to template management roles</a>.</p>
-<h2 class="section" id="section_i5b_1pt_hvb">Configure the LotusConnections-config.xml</h2>
+<h2 class="section" id="lotusxml">Configure the LotusConnections-config.xml</h2>
 <ol>
 <li>Start the wsadmin command. Refer to <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a>.</li>
 <li>
@@ -35782,7 +35778,7 @@ execfile(&#39;searchAdmin.py&#39;)
     &lt;genericProperty name=&quot;elasticsearch.eSmajorVersion&quot;&gt;7&lt;/genericProperty&gt;
     &lt;genericProperty name=&quot;people.typeahead&quot;&gt;enabled&lt;/genericProperty&gt;
     &lt;genericProperty name=&quot;lconn.core.WidgetPlacement.communities.useCRE&quot;&gt;true&lt;/genericProperty&gt;
-    &lt;**genericProperty name=&quot;componentPackInstalled&quot;\&gt;true&lt;/genericProperty\&gt;**
+    &lt;genericProperty name=&quot;componentPackInstalled&quot;\&gt;true&lt;/genericProperty\&gt;
     &lt;genericProperty name=&quot;lconn.core.WidgetPlacement.profiles.useCRE&quot;&gt;true&lt;/genericProperty&gt;
 &lt;/properties&gt;
 </code></pre></div>
@@ -35806,7 +35802,9 @@ execfile(&#39;searchAdmin.py&#39;)
 <li>Register it with Connections as described in <a href="cp_3p_config_ap_oauth.html">Registering an OAuth application with a provider</a> in the Integrating Activities Plus section.</li>
 </ul>
 <p><strong>Procedure</strong></p>
-<p>For steps to set up Activities Plus, refer to <a href="cp_3p_install_ap_services.html">Installing Activities Plus services</a>. Afterwards, you can find out more about Activities Plus in <a href="cp_3p_integrate_intro.html">Integrating with Activities Plus</a>.</p>
+<p>For steps to set up Activities Plus, refer to <a href="cp_3p_install_ap_services.html">Installing Activities Plus services</a>.</p>
+<p>To move existing activities to Activities Plus, see <a href="cp_3p_migrate_activities_data.html">Migrating Activities data</a></p>
+<p>You can find out more about Activities Plus in <a href="cp_3p_integrate_intro.html">Integrating with Activities Plus</a>.</p>
 <h2 class="section" id="ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</h2>
 <p><strong>Prerequisites</strong></p>
 <ul>
