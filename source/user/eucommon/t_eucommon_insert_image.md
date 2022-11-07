@@ -25,37 +25,20 @@ You can add any image file format that is supported by your browser. The most wi
 
 5.  After the image is inserted, you can set image properties by right-clicking the image and select **Image Properties**.
 
-    Alternative text
-    :   Add descriptive text about the image to make it accessible to visually impaired users.
-
-    Width
-    :   Width of the image in pixels.
-
-    Height
-    :   Height of the image in pixels.
-
-    Horizontal space
-    :   Horizontal margin, in pixels, between the image and adjacent objects.
-
-    Vertical space
-    :   Vertical margin, in pixels, between the image and adjacent objects.
-
-    Align
-    :   The alignment of the image. For example: Left-aligned or right-aligned.
-
-    Border
-    :   Size of the border around the image in pixels.
-
-    Preview
-    :   A view of the image that uses the attributes that you selected.
+    - **Alternative text**: Add descriptive text about the image to make it accessible to visually impaired users.
+    - **Width**: Width of the image in pixels.
+    - **Height**: Height of the image in pixels.
+    - **Horizontal space**: Horizontal margin, in pixels, between the image and adjacent objects.
+    - **Vertical space**: Vertical margin, in pixels, between the image and adjacent objects.
+    - **Align** : The alignment of the image. For example: Left-aligned or right-aligned.
+    - **Border**: Size of the border around the image in pixels.
+    - **Preview**: A view of the image that uses the attributes that you selected.
 
 6.  Click the **Link** tab to assign a link to the inserted image:
 
-    URL
-    :   The web address that the image points to. If the image is on an external server, use the full address, for example, http://example.com/page1.html, but not www.example.com/page1.html. If the image is on the same server as the Connections application, use a relative path, for example, /page1.html.
+    - **URL**: The web address that the image points to. If the image is on an external server, use the full address, for example, http://example.com/page1.html, but not www.example.com/page1.html. If the image is on the same server as the Connections application, use a relative path, for example, /page1.html.
 
-    Target
-    :   Specify whether the link opens in a new window, the topmost window, the same window, or the parent window. For more information, go to the [HTML <a\> target Attribute](http://www.w3schools.com/tags/att_a_target.asp) webpage.
+    - **Target**: Specify whether the link opens in a new window, the topmost window, the same window, or the parent window. For more information, go to the [HTML <a\> target Attribute](http://www.w3schools.com/tags/att_a_target.asp) webpage.
 
 
 ## Pasting an image {#section_zbn_fzs_sy .section}

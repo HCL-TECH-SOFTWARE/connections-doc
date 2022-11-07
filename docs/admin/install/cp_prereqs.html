@@ -19573,6 +19573,8 @@
         
           
         
+          
+        
       
       
         
@@ -19592,6 +19594,20 @@
           Administering Component Pack for Connections
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/cp_config_os_backup_restore_data.html" class="md-nav__link">
+        Backing up and restoring data for OpenSearch indices
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34709,6 +34725,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#section_harbor_registry" class="md-nav__link">
+    HCL Harbor repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#section_jtc_3z5_ylb" class="md-nav__link">
     Supported Kubernetes platforms
   </a>
@@ -34736,33 +34759,39 @@
 <p>On a very high level, to install and successfully run HCL Component Pack, you will need HCL Connections plus additional resources to satisfy the following requirements.</p>
 <ul>
 <li>Fully functioning Kubernetes cluster or containerd as the container runtime, and support for persistent volumes.</li>
-<li>Access to the HCL Harbor registry to pull images and Helm charts for your deployment.</li>
-<li>One machine with kubectl, Helm installed and configured, and at least 50G of free space. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.</li>
+<li>
+<p>Access to the <a href="https://hclcr.io/harbor/projects/15/repositories">HCL Harbor repository</a>, an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.</p>
+<p>When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see <a href="cp_install_upgrade_container.html">Installation and upgrade</a>.</p>
+<p>Customers with credentials to access Connections in the HCL Software License &amp; Download portal may apply those credentials to access Harbor.
+-   One machine with kubectl, Helm installed and configured, and at least 50G of free space. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.</p>
+</li>
 </ul>
 <p>For the supported versions of Kubernetes, Helm, and so on, see <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 System Requirements</a>.</p>
 <p>If you are new to Component Pack, and doing your first installation, you can choose to defer to the HCL-provided Ansible automation for setting up Component Pack and all its dependencies. For information on the automation, see HCL's open-source GitHub for the documents <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md">Quickstart for setting up HCL Connections and Component Pack using Ansible automation</a> and <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md">HCL Connections and Component Pack automation scripts</a>.</p>
+<h2 class="section" id="section_harbor_registry">HCL Harbor repository</h2>
+<p>Component Pack is now deployed through Harbor, an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.</p>
+<p>When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see <a href="cp_install_upgrade_container.html">Installation and upgrade</a>.</p>
+<p>Customers with credentials to access Connections in the HCL Software License &amp; Download portal may apply those credentials to access Harbor.</p>
 <h2 class="section" id="section_jtc_3z5_ylb">Supported Kubernetes platforms</h2>
-<p>How to install Kubernetes?
-:   Official Kubernetes documentation and terminology distinguish between <em>learning</em> and <em>production</em> environments, and it is best if you follow their documentation on how to set up Kubernetes. Note that Component Pack needs to run in both learning and production environments.</p>
-<p>:   You can also use the HCL-provided Ansible automation to install Kubernetes end to end.</p>
-<p>Supported container runtimes
-:   Component Pack for Connections was tested using containerd as the container runtime for Kubernetes. See the Kubernetes documentation for the <a href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/">installation instructions for containerd</a>.</p>
-<p>:   If you are setting up the cluster yourself, see <a href="https://containerd.io/releases/#kubernetes-support">which containerd versions are supported by which version of Kubernetes</a> in the Kubernetes documentation.</p>
-<p>Supported Kubernetes versions
-:   See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 System Requirements</a>. Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.</p>
-<pre><code>**Note:** Applications on which Component Pack relies, such as community ingress, have their own Kubernetes support pattern, and should be double-checked before beginning a Component Pack install or upgrade.
-</code></pre>
-<p>Supported Kubernetes flavors
-:   Component Pack is designed to work with Kubernetes platforms that are using containerd as the container runtime. To ensure compatibility, all development and testing is done internally on the vanilla Kubernetes installations, without preference for any specific provider.</p>
-<p>:   However, HCL is always working on optimizing the Component Pack experience, which includes lowering costs for our customers, and is therefore trying to ensure that some vendor-specific options are supported as well.</p>
-<p>Supported Kubernetes network plugins
-:   Component Pack is developed and tested using <a href="https://docs.projectcalico.org/getting-started/kubernetes/">Calico</a> as the Kubernetes CNI, but you can use another CNI if it better suits your use case.</p>
-<p>Support for persistent volumes
-:   Component Pack uses <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">persistent volumes</a> to store the data. Starting with version 7, HCL supports persistent volumes on NFS and on Amazon EFS using automatic volume claims.</p>
-<p>Cluster layout considerations
-:   Because Component Pack runs on Kubernetes, it can run on one or multiple servers, depending on how your Kubernetes cluster is set up.</p>
-<pre><code>If you are considering a vanilla Kubernetes installation, for production it is best to have at least one master node and at least three workers. This layout can support up to 1000 concurrent users, and more if you scale Customizer properly. For more information on these requirements, see the section [Sizing the Kubernetes cluster](cp_sizing_kubernetes_container.md) and the [sizing guide for Connections and Component Pack](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf).
-</code></pre>
+<p><strong>How to install Kubernetes?</strong></p>
+<p>Official Kubernetes documentation and terminology distinguish between <em>learning</em> and <em>production</em> environments, and it is best if you follow their documentation on how to set up Kubernetes. Note that Component Pack needs to run in both learning and production environments.</p>
+<p>You can also use the HCL-provided Ansible automation to install Kubernetes end to end.</p>
+<p><strong>Supported container runtimes</strong></p>
+<p>Component Pack for Connections was tested using containerd as the container runtime for Kubernetes. See the Kubernetes documentation for the <a href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/">installation instructions for containerd</a>.</p>
+<p>If you are setting up the cluster yourself, see <a href="https://containerd.io/releases/#kubernetes-support">which containerd versions are supported by which version of Kubernetes</a> in the Kubernetes documentation.</p>
+<p><strong>Supported Kubernetes versions</strong></p>
+<p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 System Requirements</a>. Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.</p>
+<p><strong>Note:</strong> Applications on which Component Pack relies, such as community ingress, have their own Kubernetes support pattern, and should be double-checked before beginning a Component Pack install or upgrade.</p>
+<p><strong>Supported Kubernetes flavors</strong></p>
+<p>Component Pack is designed to work with Kubernetes platforms that are using containerd as the container runtime. To ensure compatibility, all development and testing is done internally on the vanilla Kubernetes installations, without preference for any specific provider.</p>
+<p>However, HCL is always working on optimizing the Component Pack experience, which includes lowering costs for our customers, and is therefore trying to ensure that some vendor-specific options are supported as well.</p>
+<p><strong>Supported Kubernetes network plugins</strong></p>
+<p>Component Pack is developed and tested using <a href="https://docs.projectcalico.org/getting-started/kubernetes/">Calico</a> as the Kubernetes CNI, but you can use another CNI if it better suits your use case.</p>
+<p><strong>Support for persistent volumes</strong></p>
+<p>Component Pack uses <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">persistent volumes</a> to store the data. Starting with version 7, HCL supports persistent volumes on NFS and on Amazon EFS using automatic volume claims.</p>
+<p><strong>Cluster layout considerations</strong></p>
+<p>Because Component Pack runs on Kubernetes, it can run on one or multiple servers, depending on how your Kubernetes cluster is set up.</p>
+<p>If you are considering a vanilla Kubernetes installation, for production it is best to have at least one master node and at least three workers. This layout can support up to 1000 concurrent users, and more if you scale Customizer properly. For more information on these requirements, see the section <a href="cp_sizing_kubernetes_container.html">Sizing the Kubernetes cluster</a> and the <a href="https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf">sizing guide for Connections and Component Pack</a>.</p>
 <ul>
 <li><strong><a href="cp_sizing_kubernetes_container.html">Sizing the Kubernetes cluster</a></strong><br />
 Before you start sizing Kubernetes, let's consider the needs of Component Pack, your operational specifics, master nodes versus worker nodes, and availability.</li>

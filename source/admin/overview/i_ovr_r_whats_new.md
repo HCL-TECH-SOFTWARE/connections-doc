@@ -6,6 +6,12 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   **Download** Connections 8.0 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
+    Harbor is an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.
+
+    When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see [Installation and upgrade](../install/cp_install_upgrade_container.md).
+    
+    Customers with credentials to access Connections in the HCL Software License & Download portal may apply those credentials to access Harbor.
+
 **Attention:** Connections customers are given a transition period to prepare for the new Connections 8.0 user experience. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
 
 ## What's New in HCL Connections 8.0 and Component Pack 8 {#section_hgz_3dy_clb .section}
@@ -24,11 +30,11 @@ Find out about features that are new or updated in this release of HCL Connectio
     -   [HCL Connections 8.0 Sizing Guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf): Provides sizing and deployment recommendations for both Connections and Component Pack, based on HCL performance tests and best practices learned and confirmed by multiple customers through time.
 -   **Component Pack**
     -   For supported versions of components, for example Kubernetes and Helm, refer to the table in the [HCL Connections 8.0 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
-    -   Component Pack is now installed from Harbor instead of a local Docker registry, so you will need access to the Harbor repository. For more information, see [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md).
+    -   Component Pack is now installed from the [HCL Harbor repository](https://hclcr.io/harbor/projects/15/repositories). 
 
 -   **Roadmap to Connections and Component Pack**
     -   **Connections 8.0**: See [Installing Connections](../install/c_installing.md) or [Upgrading and updating](../migrate/c_upgrade_migrate_overview.md).
-    -   **Component Pack 8**: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to [Installing and upgrading Component Pack for Connections](../install/cp_install_config_intro.md).
+    -   **Component Pack 8**: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to [Installing and upgrading Component Pack for Connections](../install/cp_install_config_intro.md). 
     -   Check which new features are supported for a Component Pack and non-Component Pack deployment in [Deployment requirements for supporting 8.0 functionality](../plan/supported_features.md).
 
 **HCL Connections 8.0 will fully support the following in a future CR:**

@@ -19619,6 +19619,8 @@
         
           
         
+          
+        
       
       
         
@@ -19638,6 +19640,20 @@
           Administering Component Pack for Connections
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/cp_config_os_backup_restore_data.html" class="md-nav__link">
+        Backing up and restoring data for OpenSearch indices
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34787,7 +34803,7 @@
 
 <h1 class="concept" id="enabling_cnx8_ux">Enabling the Connections 8.0 user experience</h1>
 <p>If you are upgrading from previous versions of Connections to 8.0, the new user experience is initially disabled. This allows you to adopt the infrastructural benefits of Connections 8.0 – such as updated platform versions and security fixes – without any user disruption.</p>
-<p><strong>Note:</strong> You can choose between the Connections 7.0 and 8.0 experience only during the transition period. For details, see <a href="../overview/i_ovr_r_whats_new.html#8.0_transition">What's new in HCL Connections</a>.</p>
+<p><strong>Note:</strong> The option to switch between the Connections 7.0 and 8.0 experience is available only during the transition period. For more details, see <a href="../overview/i_ovr_r_whats_new.html#8.0_transition">What's new in HCL Connections</a>.</p>
 <h2 class="section" id="section_w1q_pbl_2vb">About this task</h2>
 <p>The <code>ics.ui.isCNX8UXEnabled</code> property in the LotusConnections-config.xml file controls the activation of the new Connections 8.0 user experience.</p>
 <h2 class="section" id="section_hmh_nbl_2vb">Procedure</h2>
@@ -34797,7 +34813,7 @@
 <p>Check out the LotusConnections-config.xml file:</p>
 <div id="codeblock_rn2_4bl_2vb" class="highlight"><pre><span></span><code>LCConfigService.checkOutConfig(&quot;working_directory&quot;, &quot;cell_name&quot;)
 </code></pre></div>
-<p>For more information, see <a href="../admin/t_admin_common_checkout_config_file.html">Editing configuration files</a>.</p>
+<p>Note that execfile("connectionsConfig.py") is needed for the above command to work. For more information, see <a href="../admin/t_admin_common_checkout_config_file.html">Editing configuration files</a>.</p>
 </li>
 <li>
 <p>Edit the checked out LotusConnections-config.xml file. Locate the generic property <code>ics.ui.isCNX8UXEnabled</code>, and set its value to <code>true</code>:</p>

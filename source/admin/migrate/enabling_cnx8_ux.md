@@ -2,7 +2,7 @@
 
 If you are upgrading from previous versions of Connections to 8.0, the new user experience is initially disabled. This allows you to adopt the infrastructural benefits of Connections 8.0 – such as updated platform versions and security fixes – without any user disruption.
 
-**Note:** You can choose between the Connections 7.0 and 8.0 experience only during the transition period. For details, see [What's new in HCL Connections](../overview/i_ovr_r_whats_new.md#8.0_transition).
+**Note:** The option to switch between the Connections 7.0 and 8.0 experience is available only during the transition period. For more details, see [What's new in HCL Connections](../overview/i_ovr_r_whats_new.md#8.0_transition).
 
 ## About this task {#section_w1q_pbl_2vb .section}
 
@@ -17,7 +17,7 @@ The `ics.ui.isCNX8UXEnabled` property in the LotusConnections-config.xml file co
     LCConfigService.checkOutConfig("working_directory", "cell_name")
     ```
 
-    For more information, see [Editing configuration files](../admin/t_admin_common_checkout_config_file.md).
+    Note that execfile("connectionsConfig.py") is needed for the above command to work. For more information, see [Editing configuration files](../admin/t_admin_common_checkout_config_file.md).
 
 3.  Edit the checked out LotusConnections-config.xml file. Locate the generic property `ics.ui.isCNX8UXEnabled`, and set its value to `true`:
 

@@ -28,8 +28,9 @@ All the nodes are available using their FQDNs and are in a different domain:
 -   Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net
 -   NFS master is collocated with cp1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/
 
-Network configuration
-:   All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
+**Network configuration**
+
+All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
 
     -   connections.example.com:
         -   443 from nginx.example.com
@@ -45,8 +46,9 @@ Network configuration
         -   443 from everywhere
         -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
 
-Storage configuration
-:   Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.
+**Storage configuration**
+
+Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.
 
 ## Installation vs. upgrade steps {#section_v5r_1dj_dvb .section}
 
@@ -67,7 +69,9 @@ These guidelines and sample files describe how to set up all of the persistent v
 **Exporting the persistent volumes**
 
 1.  Perform these steps on NFS master:
+
     1.  Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700
+
     2.  Inside that folder, create this set of subfolders:
         -   /pv-connections/customizations with permissions 0005
         -   /pv-connections/opensearchbackup with permissions 0700 \(Inside /pv-connections, create a subfolder for Component Pack upgrade\)
@@ -85,6 +89,7 @@ These guidelines and sample files describe how to set up all of the persistent v
         -   /pv-connections/mongo5-node-1/data/db with permissions 0700
         -   /pv-connections/mongo5-node-2/data/db with permissions 0700
     3.  Download nfsSetup.sh and volumes.txt from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) to a directory of your choice \(for example, /tmp\).
+
     4.  Check if firewalld is already installed using the following rpm command:
 
         ``` {#codeblock_lxc_p5t_hvb}
@@ -334,6 +339,7 @@ Register the snapshot repository in Elasticsearch 7:
     -   << helm repo path \>\> is the Helm chart path in Harbor repository, that is `https://hclcr.io/chartrepo/cnx`
     -   << helm\_repo\_username \>\> is the Harbor username
     -   << helm\_repo\_password \>\> is the CLI secret \(to access, **log in to Harbor** \> **at the top-right corner, click on your name** \> **User Profile** \> **CLI Secretsecret**\)
+
 2.  Since you'll be switching the Docker registry to Harbor, you need to recreate the secret called `myregkey`:
 
     1.  First, delete the credentials:
@@ -486,6 +492,7 @@ Be aware that bootstrap installation overwrites existing secrets, and therefore 
     ```
 
 3.  Download the j2 template for bootstrap.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
 4.  Run the bootstrap installation:
 
     ``` {#codeblock_vk4_ytt_hvb}
@@ -505,6 +512,7 @@ The configmap for connections-env contains all the variables needed for the Cust
     ```
 
 2.  Download the j2 template for connections-env.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
 3.  Run the connections-env installation:
 
     ``` {#codeblock_lc1_cvt_hvb}
@@ -558,6 +566,7 @@ Customizer needs to be installed, customizations copied into its PV \(living on 
     ```
 
 3.  Download the j2 template for customizer.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
 4.  Install chart:
 
     ``` {#codeblock_b2f_sqt_hvb}
@@ -651,6 +660,7 @@ With Connections 8, the only backend for Orient Me is OpenSearch, so you need to
 2.  Download the j2 template for orientme.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars), then update these settings:
     -   `orient-indexing-service.indexing.opensearch=true and orient-indexing-service.indexing.elasticsearch=false`
     -   `orient-retrieval-service.Retrieval.Opensearch=true and orient-retrieval-service.Retrieval.elasticsearch=false`
+
 3.  Install chart:
 
     ``` {#codeblock_ccz_ztr_bvb}
@@ -725,9 +735,13 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 2.  Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.
 
     1.  Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.
+
     2.  Click **Security** \> **SSL certificate and key management** \> **Dynamic outbound endpoint SSL configurations** and, for each cluster member, delete any endpoints starting with **SSLToES and SearchToES**.
+
     3.  Click **Security** \> **SSL certificate and key management** \> **SSL configurations**, and delete the **ESCloudSSLSettings**and **ESSearchSSLSettings** configuration.
+
     4.  Click **Security** \> **SSL certificate and key management** \> **Key stores and certificates** and delete the **ESCloudKeyStore** and **ESSearchKeyStore** configuration.
+
 3.  Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.
 
     For example, copy the two certificate files created in step 1 \(that is, **/tmp/es\_certs/chain-ca.pem** and **/tmp/es\_certs/elasticsearch-metrics.p12**\) to the following directory: **/opt/IBM/es\_certs** on the WebSphere Deployment Manager.
@@ -735,6 +749,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     If this directory path does not yet exist, create it.
 
 4.  Configure OpenSearch metrics within Connections:
+
     1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
         ``` {#codeblock_pyp_xkg_fvb}
@@ -770,8 +785,11 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         Disconnect from the wsadmin environment with **quit**.
 
     3.  Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
+
     4.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
+
     5.  Enable or switch to OpenSearch Metrics. The following script causes the RDBMS-based app to stop capturing data, and the OpenSearch component to start capturing it.
+
         1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
             ``` {#codeblock_jhv_b1p_fvb}
@@ -862,7 +880,9 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         ```
 
     7.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
+
 6.  To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the **/metrics** URL.
+
 7.  Download config\_blue\_metrics.py from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
 
 8.  Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Metrics using OpenSearch.
@@ -924,6 +944,7 @@ For optional procedures to configure Metrics, see [Configuring the OpenSearch Me
     ```
 
 2.  Download the j2 template for teams.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
 3.  Install the chart:
 
     ``` {#codeblock_cp2_bbt_hvb}
@@ -972,6 +993,7 @@ To enable Microsoft Teams integration, see [Setting up the Connections app for t
     ```
 
 2.  Download the j2 template for tailoredexperience.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
 3.  Install the chart:
 
     ``` {#codeblock_anp_fct_hvb}
@@ -985,6 +1007,7 @@ For post-installation tasks required to deploy the community creation wizard and
 ## Configure the LotusConnections-config.xml {#lotusxml .section}
 
 1.  Start the wsadmin command. Refer to [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md).
+
 2.  Load the IBM Connections configuration file:
 
     ``` {#codeblock_mjx_spt_hvb}
@@ -1032,7 +1055,9 @@ For post-installation tasks required to deploy the community creation wizard and
     The file is validated, and you are notified if an error is found.
 
 6.  To exit the wsadmin client, type `exit` at the prompt.
+
 7.  Deploy the changes by doing a **Fully Resynchronize** of the nodes on WebSphere Admin Console \([https://<host\_name\>:9043/ibm/console](https://%3chost_name%3e:9043/ibm/console)\).
+
 8.  Stop and restart the servers that host the IBM Connections applications.
 
 ## Set up Activities Plus {#activities_plus .section}
@@ -1085,6 +1110,7 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
         -   CONNECTIONS\_NAME – A custom name for the add-in. \(default: 'HCL Connections'\)
         -   EWS\_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')
     -   Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.
+
 5.  Install chart:
 
     ``` {#codeblock_iwr_wct_hvb}

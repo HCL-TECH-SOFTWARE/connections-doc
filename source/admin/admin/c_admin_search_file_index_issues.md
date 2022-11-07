@@ -100,6 +100,7 @@ These parameters can be updated in the search-config.xml file.
 Save the file, perform a full synchronization for all nodes, and restart the Search application for any new values to take effect.
 
 |**Property**|**Default value**|**Description**|
+|-----------|-----------|-----------|
 |tikaFileConversion.deleteTempFiles|true|The conversion process creates temporary files containing the plain text that are deleted by default. If debugging and it is necessary to review these files, change this to false.|
 |tikaFileConversion.javaOptions| |Update only if specific JVM options are required such as increasing the process heap size|
 |tikaFileConversion.maxContentSize|204800|Indicates the Maximum number of bytes to index at the beginning of a document.|

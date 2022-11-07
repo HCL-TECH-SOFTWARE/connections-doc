@@ -19643,6 +19643,8 @@
         
           
         
+          
+        
       
       
         
@@ -19662,6 +19664,20 @@
           Administering Component Pack for Connections
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/cp_config_os_backup_restore_data.html" class="md-nav__link">
+        Backing up and restoring data for OpenSearch indices
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34845,6 +34861,9 @@
 </li>
 <li>
 <p><strong>Download</strong> Connections 8.0 from the <a href="https://hclsoftware.flexnetoperations.com">HCL Software License &amp; Download portal</a>, and Component Pack 8 from <a href="https://hclcr.io/harbor/projects/15/repositories">Harbor</a>.</p>
+<p>Harbor is an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.</p>
+<p>When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see <a href="../install/cp_install_upgrade_container.html">Installation and upgrade</a>.</p>
+<p>Customers with credentials to access Connections in the HCL Software License &amp; Download portal may apply those credentials to access Harbor.</p>
 </li>
 </ul>
 <p><strong>Attention:</strong> Connections customers are given a transition period to prepare for the new Connections 8.0 user experience. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see <a href="../migrate/enabling_cnx8_ux.html">Enabling the Connections 8.0 user experience</a>.</p>
@@ -34873,14 +34892,14 @@
 <p><strong>Component Pack</strong></p>
 <ul>
 <li>For supported versions of components, for example Kubernetes and Helm, refer to the table in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 System Requirements</a>.</li>
-<li>Component Pack is now installed from Harbor instead of a local Docker registry, so you will need access to the Harbor repository. For more information, see <a href="../install/cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a>.</li>
+<li>Component Pack is now installed from the <a href="https://hclcr.io/harbor/projects/15/repositories">HCL Harbor repository</a>. </li>
 </ul>
 </li>
 <li>
 <p><strong>Roadmap to Connections and Component Pack</strong></p>
 <ul>
 <li><strong>Connections 8.0</strong>: See <a href="../install/c_installing.html">Installing Connections</a> or <a href="../migrate/c_upgrade_migrate_overview.html">Upgrading and updating</a>.</li>
-<li><strong>Component Pack 8</strong>: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to <a href="../install/cp_install_config_intro.html">Installing and upgrading Component Pack for Connections</a>.</li>
+<li><strong>Component Pack 8</strong>: Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Upgrading to Component Pack 8 requires the replacement of MongoDB 3 with 5, and Elasticsearch 7 with OpenSearch. Refer to <a href="../install/cp_install_config_intro.html">Installing and upgrading Component Pack for Connections</a>. </li>
 <li>Check which new features are supported for a Component Pack and non-Component Pack deployment in <a href="../plan/supported_features.html">Deployment requirements for supporting 8.0 functionality</a>.</li>
 </ul>
 </li>

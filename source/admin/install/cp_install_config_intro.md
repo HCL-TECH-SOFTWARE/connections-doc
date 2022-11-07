@@ -1,6 +1,12 @@
 # Installing or upgrading Component Pack for Connections {#cp_install_config_intro .concept}
 
-The Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Read on to understand the offerings, what resources Component Pack requires, some sizing considerations for Kubernetes, information on automating installation or upgrade, and steps for installation or upgrade.
+Component Pack is now deployed through Harbor, an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.
+
+When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see [Installation and upgrade](../install/cp_install_upgrade_container.md).
+    
+Customers with credentials to access Connections in the HCL Software License & Download portal may apply those credentials to access Harbor.
+
+Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Read on to understand the offerings, what resources Component Pack requires, some sizing considerations for Kubernetes, and information on automating installation or upgrade.
 
 To see what's new in Component Pack 8, see [What's New in HCL Connections](../overview/i_ovr_r_whats_new.md).
 

@@ -19575,6 +19575,8 @@
         
           
         
+          
+        
       
       
         
@@ -19594,6 +19596,20 @@
           Administering Component Pack for Connections
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/cp_config_os_backup_restore_data.html" class="md-nav__link">
+        Backing up and restoring data for OpenSearch indices
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34948,8 +34964,8 @@
 <li>Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net</li>
 <li>NFS master is collocated with cp1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/</li>
 </ul>
-<p>Network configuration
-:   All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:</p>
+<p><strong>Network configuration</strong></p>
+<p>All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:</p>
 <pre><code>-   connections.example.com:
     -   443 from nginx.example.com
     -   443 from cpmaster.example.com
@@ -34964,8 +34980,8 @@
     -   443 from everywhere
     -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
 </code></pre>
-<p>Storage configuration
-:   Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.</p>
+<p><strong>Storage configuration</strong></p>
+<p>Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.</p>
 <h2 class="section" id="section_v5r_1dj_dvb">Installation vs. upgrade steps</h2>
 <p>This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures. Some of the following steps apply only to one scenario (install <em>or</em> upgrade), while others apply to both (install <em>and</em> upgrade). Refer to <a href="cp_install_upgrade_container.html#order_cp_install">Order of installation</a> for the complete list of steps for each scenario.</p>
 <h2 class="section" id="section_e4p_jrp_tnb">Set up NFS</h2>
@@ -34979,8 +34995,12 @@
 <li>
 <p>Perform these steps on NFS master:</p>
 <ol>
-<li>Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700</li>
-<li>Inside that folder, create this set of subfolders:<ul>
+<li>
+<p>Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700</p>
+</li>
+<li>
+<p>Inside that folder, create this set of subfolders:</p>
+<ul>
 <li>/pv-connections/customizations with permissions 0005</li>
 <li>/pv-connections/opensearchbackup with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
 <li>/pv-connections/opensearchmaster-0 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
@@ -34998,7 +35018,9 @@
 <li>/pv-connections/mongo5-node-2/data/db with permissions 0700</li>
 </ul>
 </li>
-<li>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a> to a directory of your choice (for example, /tmp).</li>
+<li>
+<p>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a> to a directory of your choice (for example, /tmp).</p>
+</li>
 <li>
 <p>Check if firewalld is already installed using the following rpm command:</p>
 <div id="codeblock_lxc_p5t_hvb" class="highlight"><pre><span></span><code>- $rpm -qa firewalld
@@ -35105,16 +35127,13 @@ db.fsyncUnlock ()
 </li>
 <li>
 <p>Enter the following commands, which make use of the sendRequest utility to communicate with Elasticsearch 7:</p>
-<div id="codeblock_x4z_ryt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot
-/$\{REPONAME\} \
+<div id="codeblock_x4z_ryt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME} \
 -H &#39;Content-Type: application/json&#39; \
--d &#39;{&quot;type&quot;: &quot;fs&quot;,&quot;settings&quot;: {&quot;compress&quot; : true, &quot;location&quot;:
-&quot;$\{BACKUPPATH\}&quot;}}&#39;
+-d &#39;{&quot;type&quot;: &quot;fs&quot;,&quot;settings&quot;: {&quot;compress&quot; : true, &quot;location&quot;: &quot;${BACKUPPATH}&quot;}}&#39;
 </code></pre></div>
 <div id="codeblock_iq3_tyt_hvb" class="highlight"><pre><span></span><code>o/p: {&quot;acknowledged&quot;:true}
 </code></pre></div>
-<div id="codeblock_iny_tyt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot
-/_all?pretty
+<div id="codeblock_iny_tyt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot/_all?pretty
 </code></pre></div>
 <div id="codeblock_ebp_5yt_hvb" class="highlight"><pre><span></span><code>o/p: { “${REPONAME}” : { &quot;type&quot; : &quot;fs&quot;, &quot;settings&quot; : { &quot;compress&quot; :
 &quot;true&quot;, &quot;location&quot; : “${BACKUPPATH}” } } }
@@ -35123,7 +35142,7 @@ db.fsyncUnlock ()
 <ul>
 <li>${REPONAME} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.</li>
 <li>${BACKUPPATH} is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.
-Disconnect from the pod (press Ctrl+D, or type exit and press Enter).</li>
+Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter).</li>
 </ul>
 </li>
 <li>
@@ -35133,11 +35152,10 @@ Disconnect from the pod (press Ctrl+D, or type exit and press Enter).</li>
 </li>
 <li>
 <p>Back up all Elasticsearch 7 indexes by running the following command:</p>
-<div id="codeblock_gqp_czt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot
-/${REPONAME}/snapshot_migration?wait_for_completion=true
+<div id="codeblock_gqp_czt_hvb" class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME}/snapshot_migration?wait_for_completion=true
 </code></pre></div>
 <p>Where ${REPONAME} is the name of the snapshot repository, which was previously used to register and manage the Elasticsearch 7 snapshot, for example, connectionsbackup.</p>
-<p>Disconnect from the pod (press Ctrl+D, or type exit and press Enter).</p>
+<p>Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter).</p>
 </li>
 </ol>
 <h2 class="section" id="setup_nfs">Set up OpenSearch and MongoDB volumes on NFS</h2>
@@ -35200,9 +35218,11 @@ mkdir -p /pv-connections/mongo5-node-2
 <li>&lt;&lt; helm repo path >> is the Helm chart path in Harbor repository, that is <code>https://hclcr.io/chartrepo/cnx</code></li>
 <li>&lt;&lt; helm_repo_username >> is the Harbor username</li>
 <li>&lt;&lt; helm_repo_password >> is the CLI secret (to access, <strong>log in to Harbor</strong> > <strong>at the top-right corner, click on your name</strong> > <strong>User Profile</strong> > <strong>CLI Secretsecret</strong>)</li>
+</ul>
+</li>
 <li>
 <p>Since you'll be switching the Docker registry to Harbor, you need to recreate the secret called <code>myregkey</code>:</p>
-</li>
+<ol>
 <li>
 <p>First, delete the credentials:</p>
 <div id="codeblock_ug2_zhr_bvb" class="highlight"><pre><span></span><code>kubectl delete secret myregkey -n connections
@@ -35213,7 +35233,7 @@ mkdir -p /pv-connections/mongo5-node-2
 <div id="codeblock_vg2_zhr_bvb" class="highlight"><pre><span></span><code>kubectl create secret docker-registry myregkey -n connections --docker-server=&lt;&lt; docker_registry_url &gt;&gt; --docker-username=&lt;&lt; docker_registry_username &gt;&gt; --docker-password &lt;&lt; docker_registry_password &gt;&gt;
 </code></pre></div>
 </li>
-</ul>
+</ol>
 </li>
 </ol>
 <h2 class="section" id="setup_helm">Set up Helm charts</h2>
@@ -35513,12 +35533,22 @@ mkdir -p /pv-connections/mongo5-node-2
 <li>
 <p>Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.</p>
 <ol>
-<li>Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.</li>
-<li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Dynamic outbound endpoint SSL configurations</strong> and, for each cluster member, delete any endpoints starting with <strong>SSLToES and SearchToES</strong>.</li>
-<li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>SSL configurations</strong>, and delete the <strong>ESCloudSSLSettings</strong>and <strong>ESSearchSSLSettings</strong> configuration.</li>
-<li>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Key stores and certificates</strong> and delete the <strong>ESCloudKeyStore</strong> and <strong>ESSearchKeyStore</strong> configuration.</li>
-<li>Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.</li>
+<li>
+<p>Log in to the WebSphere Integrated Solutions Console for the type-ahead search cluster.</p>
+</li>
+<li>
+<p>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Dynamic outbound endpoint SSL configurations</strong> and, for each cluster member, delete any endpoints starting with <strong>SSLToES and SearchToES</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>SSL configurations</strong>, and delete the <strong>ESCloudSSLSettings</strong>and <strong>ESSearchSSLSettings</strong> configuration.</p>
+</li>
+<li>
+<p>Click <strong>Security</strong> > <strong>SSL certificate and key management</strong> > <strong>Key stores and certificates</strong> and delete the <strong>ESCloudKeyStore</strong> and <strong>ESSearchKeyStore</strong> configuration.</p>
+</li>
 </ol>
+</li>
+<li>
+<p>Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.</p>
 <p>For example, copy the two certificate files created in step 1 (that is, <strong>/tmp/es_certs/chain-ca.pem</strong> and <strong>/tmp/es_certs/elasticsearch-metrics.p12</strong>) to the following directory: <strong>/opt/IBM/es_certs</strong> on the WebSphere Deployment Manager.</p>
 <p>If this directory path does not yet exist, create it.</p>
 </li>
@@ -35556,7 +35586,9 @@ enableSslForMetrics(&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;, &#39;pas
 <li>
 <p>Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.</p>
 </li>
-<li>Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications (including the Deployment Manager and nodes).</li>
+<li>
+<p>Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications (including the Deployment Manager and nodes).</p>
+</li>
 <li>
 <p>Enable or switch to OpenSearch Metrics. The following script causes the RDBMS-based app to stop capturing data, and the OpenSearch component to start capturing it.</p>
 <ol>
@@ -35642,9 +35674,13 @@ execfile(&#39;searchAdmin.py&#39;)
 <li>
 <p>Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications (including the Deployment Manager and nodes).</p>
 </li>
-<li>To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the <strong>/metrics</strong> URL.</li>
-<li>Download config_blue_metrics.py from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py">HCL Connections deployment automation Git repository</a>. This script sets the OpenSearch server base URL in Metrics.</li>
 </ol>
+</li>
+<li>
+<p>To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the <strong>/metrics</strong> URL.</p>
+</li>
+<li>
+<p>Download config_blue_metrics.py from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py">HCL Connections deployment automation Git repository</a>. This script sets the OpenSearch server base URL in Metrics.</p>
 </li>
 <li>
 <p>Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Metrics using OpenSearch.</p>
@@ -35749,7 +35785,9 @@ execfile(&#39;searchAdmin.py&#39;)
 <p>For post-installation tasks required to deploy the community creation wizard and templates, see <a href="t_configure_community_wizard.html">Configuring the community creation wizard</a> and <a href="../admin/t_admin_comm_templates_assign_admins.html">Assigning administrators to template management roles</a>.</p>
 <h2 class="section" id="lotusxml">Configure the LotusConnections-config.xml</h2>
 <ol>
-<li>Start the wsadmin command. Refer to <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a>.</li>
+<li>
+<p>Start the wsadmin command. Refer to <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a>.</p>
+</li>
 <li>
 <p>Load the IBM Connections configuration file:</p>
 <div id="codeblock_mjx_spt_hvb" class="highlight"><pre><span></span><code>execfile(&quot;connectionsConfig.py&quot;)
@@ -35790,10 +35828,14 @@ execfile(&#39;searchAdmin.py&#39;)
 <p>The file is validated, and you are notified if an error is found.</p>
 </li>
 <li>
-<p>To exit the wsadmin client, type exit at the prompt.</p>
+<p>To exit the wsadmin client, type <code>exit</code> at the prompt.</p>
 </li>
-<li>Deploy the changes by doing a <strong>Fully Resynchronize</strong> of the nodes on WebSphere Admin Console (<a href="https://%3chost_name%3e:9043/ibm/console">https://&lt;host_name>:9043/ibm/console</a>).</li>
-<li>Stop and restart the servers that host the IBM Connections applications.</li>
+<li>
+<p>Deploy the changes by doing a <strong>Fully Resynchronize</strong> of the nodes on WebSphere Admin Console (<a href="https://%3chost_name%3e:9043/ibm/console">https://&lt;host_name>:9043/ibm/console</a>).</p>
+</li>
+<li>
+<p>Stop and restart the servers that host the IBM Connections applications.</p>
+</li>
 </ol>
 <h2 class="section" id="activities_plus">Set up Activities Plus</h2>
 <p><strong>Prerequisites</strong></p>
@@ -35839,13 +35881,15 @@ execfile(&#39;searchAdmin.py&#39;)
 <li>What may be overriden:<ul>
 <li>CONTEXT_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS_URL. Do NOT start or end with `/. (default: outlook-addin)</li>
 <li>SUPPORT_URL - URL that a user can go to for support (help). (default: https://help.hcltechsw.com/connections/v7/connectors/enduser/c_ms_plugins_add_in_outlook.html)</li>
-<li>CONNECTIONS_NAME – A custom name for the add-in..(default: 'HCL Connections')</li>
-<li>EWS_HOSTNAME – The hostname for Exchange Web Services. Default: 'outlook.office365.com'</li>
+<li>CONNECTIONS_NAME – A custom name for the add-in. (default: 'HCL Connections')</li>
+<li>EWS_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')</li>
 </ul>
 </li>
 <li>Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.</li>
-<li>Install chart:</li>
 </ul>
+</li>
+<li>
+<p>Install chart:</p>
 <div id="codeblock_iwr_wct_hvb" class="highlight"><pre><span></span><code>helm upgrade connections-outlook-desktop v-connections-helm/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
 </code></pre></div>
 </li>

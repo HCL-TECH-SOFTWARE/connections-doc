@@ -1156,6 +1156,7 @@ nav:
               - Securing SEO: admin/admin/t_admin_wikis_secure_SEO.md
           - Administering Component Pack for Connections: 
             - admin/admin/c_admin_component_pack_intro.md
+            - Backing up and restoring data for OpenSearch indices: admin/admin/cp_config_os_backup_restore_data.md
             - Administering MongoDB for Component Pack: admin/admin/inst_comp_pack_mongodb_admin.md
 #Custommizing
         - Customizing: 

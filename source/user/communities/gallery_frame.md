@@ -24,9 +24,7 @@ The following document, photo, and video file formats are supported.
 |----------------|--------------|--------------|--------------|---------|
 |QuickTime|.mov|H.264|AAC|video/QuickTime|
 |MPEG|.mp4|H.264 or AAC|-|video/mp4|
-|Flash video|.flv|On2 VP6, Sorenson Spark|MP3|video/x-flv
-
-|
+|Flash video|.flv|On2 VP6, Sorenson Spark|MP3|video/x-flv|
 
 -   **[Organizing gallery files](../communities/t_com_migrate_media_com_gallery.md)**  
 You can put gallery files in community folders and showcase files in the Gallery app.
