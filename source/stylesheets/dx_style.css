@@ -48,3 +48,7 @@
     color: white !important;
     text-decoration: underline;
 }
+
+dt {
+    font-weight: bold;
+}
