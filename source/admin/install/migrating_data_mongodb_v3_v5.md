@@ -33,8 +33,11 @@ Before migrating your data, check the verification section below to understand h
     **Note:** The following steps depend on the type of file system used, for example NFS, EFS, and the like.
 
     1.  Ensure that you have the necessary permissions to complete the following steps.
+    
     2.  Go to the location which was configured as the PV storage component directory on your Mongo database, for example: /mnt/pv-connections/mongo-node-0/data/db/backups or NFS master: /pv-connections/mongo-node-0/data/db/backups
+    
     3.  Copy the Mongo backup folder to the Mongo5 directory, for example: cp -rfp /pv-connections/mongo-node-0/data/db/backups /pv-connections/mongo5-node-0/data/db
+
 2.  Restore data with x509 Authentication activated.
     1.  Connect to a Mongo5 pod by running the following command:
 

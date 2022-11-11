@@ -9,11 +9,12 @@ Ensure you have the following:
 -   A Component Pack machine that is ready to deploy infrastructure chart
 -   Docker installed on the system \(to build an image from the Dockerfile\)
 -   Helm to install MongoDB using a Helm chart
--   Access to the [HCL Mongo repository](https://github.com/HCL-TECH-SOFTWARE/mongodb)
+-   Access to the [HCL Mongo repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo5)
 
 ## Procedure {#section_cwf_p14_y5b .section}
 
-1.  Download or git clone the [HCL Mongo repository](https://github.com/HCL-TECH-SOFTWARE/mongodb) and extract \(if needed\) it on the machine where Docker is installed.
+1.  Download or git clone the [HCL Mongo repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo5) and extract \(if needed\) it on the machine where Docker is installed.
+
 2.  Go to the extracted folder \(from step 1\) and check if the Dockerfile exists there. Use this Dockerfile to build a new MongoDB 5 image:
 
     ``` {#codeblock_s3f_r14_y5b}
@@ -25,6 +26,7 @@ Ensure you have the following:
 
     -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
     -   `image_tag` is the user-defined tag for the image, for example `current timestamp` .
+
 3.  Save this image to a `tar` file:
 
     ``` {#codeblock_u3f_r14_y5b}
@@ -36,7 +38,9 @@ Ensure you have the following:
 
     -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
     -   `image_tag` is the user-defined tag for the image defined in step 2.
+
 4.  Copy mongodb5.tar on all the Kubernetes worker nodes used for Component Pack installation.
+
 5.  Import MongoDB 5 image into containerd on all the Kubernetes worker nodes:
 
     ``` {#codeblock_v3f_r14_y5b}
@@ -50,7 +54,9 @@ Ensure you have the following:
     ```
 
 7.  With MongoDB 5, you need persistent volumes for all replicas of Mongo5 pod and you need to verify that they have been created. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb).
+
 8.  Install Helm charts. When it comes to Helm charts, this documentation references to YAML files stored in the [HCL Helm repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars) as parameters.
+
 9.  Before installing Mongo5, set up PV/PVC. Install the connections-volumes Helm chart to set up the persistence layer:
     1.  On your Component Pack node, download [connections-volumes.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars). Then, rename the downloaded file to connections-volumes.yml and open it.
 

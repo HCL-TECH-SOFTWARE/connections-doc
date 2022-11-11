@@ -11,13 +11,13 @@ If necessary, you can remove the Activities Plus app from your Connections deplo
 2.  Uninstall Activities Plus using the following command:
 
     ```
-    helm delete <release_name> --purge
+    helm uninstall <release_name> --purge
     ```
 
     Where `<release_name>` is `kudos-boards-cp`, for example:
 
     ```
-    helm delete kudos-boards-cp --purge
+    helm uninstall kudos-boards-cp --purge
     ```
 
 

@@ -547,8 +547,10 @@ Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – se
 Customizer needs to be installed, customizations copied into its PV \(living on your NFS:/pv-connections/customizations\), and then enabled on Nginx:
 
 -   Mount NFS:/pv-connections/customizations to the server where you have your Component Pack unpacked and from which you are managing installations
--   Copy all the files from component\_pack\_installations\_folder/hybridcloud/support/customizations/\* to NFS:/pv-connections/customizations
--   Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder to NFS:/pv-connections/customizations
+-   Copy HelloWorld.js for Customizer from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/component-pack-harbor/files/helloWorld.user.js) to NFS:/pv-connections/customizations/helloWorld/
+-   Copy MS Teams Share.js for Customizer from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/component-pack-harbor/files/ms-teams/customizations/ms-teams/teamsshare/connections-teams-share-integration.js) to NFS:/pv-connections/customizations/share-extensions/ms-teams/
+<!--Copy all the files from component\_pack\_installations\_folder/hybridcloud/support/customizations/\* to NFS:/pv-connections/customizations
+Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder to NFS:/pv-connections/customizations-->
 
 **Procedure**
 
@@ -1106,7 +1108,7 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
         -   CONNECTIONS\_CLIENT\_ID - Client ID \(aka. app ID\) used when registering OAuth provider in Connections in the first step \(default: hcl-cnx-office-addin\)
     -   What may be overriden:
         -   CONTEXT\_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS\_URL. Do NOT start or end with \`/. \(default: outlook-addin\)
-        -   SUPPORT\_URL - URL that a user can go to for support \(help\). \(default: https://help.hcltechsw.com/connections/v7/connectors/enduser/c\_ms\_plugins\_add\_in\_outlook.html\)
+        -   SUPPORT\_URL - URL that a user can go to for support \(help\). \(default: https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html\)
         -   CONNECTIONS\_NAME – A custom name for the add-in. \(default: 'HCL Connections'\)
         -   EWS\_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')
     -   Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.

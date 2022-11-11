@@ -4,12 +4,13 @@ Activities Plus in Connections Component Pack uses the existing Component Pack i
 
 Prerequisites for installing Activities Plus are:
 
--   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The OAuth secret and license key can be copied from your previous YAML file.
+-   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The OAuth secret and license key can be copied from your previous YAML file in [Set up Helm charts](cp_install_services_tasks.md#setup_helm).
 
 -   Get a free license key from the ISW site.
 
--   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.dita) in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.
+-   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.md) in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.
 
+## Procedure
 
 1.  Delete existing kudos-boards-cp chart:
 
