@@ -1,4 +1,4 @@
-/* General Styles */
+/* General CNX Styles */
 /* General flexbox styles */
 
 .section-flexbox-row {
@@ -59,9 +59,6 @@
     color: white;
 }
 
-.md-main {
-    display: none;
-}
 
 .body-text {
     font-size: 16px;
@@ -97,10 +94,22 @@
 /* Hero section styles */
 .dx-hero-container {
     padding-top: 0rem;
-    background: url(../images/dx-doc-hero-banner.png) no-repeat;
+    background: url(../assets/CNX_hero.jpg) no-repeat;
     background-position: left bottom;
     background-size: cover;
     height: 20rem;
+	min-height: 62vh;
+}
+
+/*Style for Video clip insertion*/
+
+.dx-hero__image {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-left: 140%;
+    margin-top: -250px;
 }
 
 .dx-hero__content {
@@ -131,7 +140,7 @@
 
 .section-designedforyou {
     color: black;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../images/dx-teams-abstract-dots.jpeg);
+    background: url(../assets/CNX_overview_bkgd.jpg);
     background-position: left bottom;
     background-size: cover;
     height: auto;
@@ -214,11 +223,13 @@
     text-align: center;
     font-size: 28px;
 }
-.persona-developer{
+
+.feature-1{
     width: 200px;
     height: 200px;
 
-    background: url(../images/francesca.jpeg);
+    background: url(../assets/CNX_usability_01.jpg);
+
     background-size: 200px;
     border-radius: 100px;
 
@@ -228,11 +239,12 @@
     flex-grow: 0;
 }
 
-.persona-practitioner{
+.feature-2{
     width: 200px;
     height: 200px;
 
-    background: url(../images/camille.jpeg);
+    background: url(../assets/CNX_search_02.jpg);
+
     background-size: 200px;
     border-radius: 100px;
 
@@ -242,11 +254,11 @@
     flex-grow: 0;
 }
 
-.persona-administrator{
+.feature-3{
     width: 200px;
     height: 200px;
 
-    background: url(../images/adam.jpeg);
+    background: url(../assets/CNX_searchshare_03.jpg);
     background-size: 200px;
     border-radius: 100px;
 
@@ -261,7 +273,7 @@
 .section-academy {
     background-color: black;
     color: white;
-    background: url(../images/dx-teams-abstract-dots-black.jpeg);
+    background: url(../assets/CNX_academy_bkgd.jpg);
     background-position: left center;
     background-size: cover;
     height: 422px;

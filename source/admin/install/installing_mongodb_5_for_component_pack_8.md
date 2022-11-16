@@ -100,7 +100,7 @@ Ensure you have the following:
             **Note:** You need only one --set option with a comma-separated list of properties.
 
             ``` {#codeblock_dv3_bwv_dvb}
-            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20220617-050009 --namespace connections -f infrastructure.yml --set mongo5.global.image.repository={{ docker_registry_url  }}/middleware-mongodb5,mongo5.image.tag={{ image_tag }}
+            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20220617-050009 --namespace connections -f infrastructure.yml --set mongo5.image.tag={{ image_tag }}
             ```
 
             Where:
@@ -108,12 +108,13 @@ Ensure you have the following:
             -   `0.1.0-20220617-050009` is the version number identified from step 10b.
             -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
             -   `image_tag` is the user-defined tag for the image defined in step 2.
+            
             For example:
 
             ``` {#codeblock_grg_fwv_dvb}
-            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20221006-050011 --namespace connections -f infrastructure.yml --set mongo5.global.image.repository=hclcr.io/cnx-staging/middleware-mongodb5,mongo5.image.tag=20221010-9977
+            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20221006-050011 --namespace connections -f infrastructure.yml --set mongo5.image.tag=20221010-9977
             ```
 
 
-**Parent topic:**[Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
 
