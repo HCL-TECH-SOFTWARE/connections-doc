@@ -60,7 +60,7 @@ Component Pack uses [persistent volumes](https://kubernetes.io/docs/concepts/sto
 
 Because Component Pack runs on Kubernetes, it can run on one or multiple servers, depending on how your Kubernetes cluster is set up.
 
-If you are considering a vanilla Kubernetes installation, for production it is best to have at least one master node and at least three workers. This layout can support up to 1000 concurrent users, and more if you scale Customizer properly. For more information on these requirements, see the section [Sizing the Kubernetes cluster](cp_sizing_kubernetes_container.md) and the [sizing guide for Connections and Component Pack](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf).
+If you are considering a vanilla Kubernetes installation, for production it is best to have at least one master node and at least three workers. This layout can support up to 1000 concurrent users, and more if you scale Customizer properly. For more information on these requirements, see the section [Sizing the Kubernetes cluster](cp_sizing_kubernetes_container.md) and the [sizing guide for Connections and Component Pack](https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/connections8_sizing_guide.pdf).
 
 -   **[Sizing the Kubernetes cluster](../install/cp_sizing_kubernetes_container.md)**  
 Before you start sizing Kubernetes, let's consider the needs of Component Pack, your operational specifics, master nodes versus worker nodes, and availability.

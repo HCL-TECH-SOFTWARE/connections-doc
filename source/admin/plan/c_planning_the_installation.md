@@ -8,7 +8,7 @@ A network deployment provides the administrator with a central management facili
 
 Any of these deployments can be set up to allow employees and external users to work together. After you install Connections, you must register external users manually and then add them to the Profiles database.
 
-**Best practices guide:** For the latest deployment recommendations for both Connections and Component Pack, see [HCL Connections and Component Pack Sizing Guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/connections8_sizing_guide.pdf). The guide is based on HCL performance tests and best practices learned and confirmed by multiple customers through time.
+**Best practices guide:** For the latest deployment recommendations for both Connections and Component Pack, see [HCL Connections and Component Pack Sizing Guide](https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/connections8_sizing_guide.pdf). The guide is based on HCL performance tests and best practices learned and confirmed by multiple customers through time.
 
 When you are installing Connections, you have three deployment options:
 
