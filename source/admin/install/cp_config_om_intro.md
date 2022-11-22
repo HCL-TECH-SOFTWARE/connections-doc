@@ -13,7 +13,7 @@ To enable Component Pack to access user accounts in HCL Connections, you must en
 -   **[Configuring the Orient Me home page](../install/cp_config_om_enable_notifications.md)**  
 Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.
 -   **[Creating WebSEAL junctions for Orient Me](../install/cp_config_om_create_webseal_junctions.md)**  
-For environments that use IBM® Security Access Manager \(formerly Tivoli® Access Manager\), configure WebSEAL junctions for Orient Me.
+For environments that use IBM Security Verify Access (formerly Security Access Manager), configure WebSEAL junctions for Orient Me.
 -   **[Enabling and securing Redis traffic to Orient Me](../install/cp_config_om_redis_traffic.md)**  
 HCL Connections requires some additional configuration to know how to securely communicate with the Orient Me home page.
 -   **[Populating the Orient Me home page](../install/cp_config_om_populate_home_page.md)**  

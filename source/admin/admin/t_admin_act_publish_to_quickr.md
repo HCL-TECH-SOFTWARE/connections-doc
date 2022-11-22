@@ -77,7 +77,7 @@ To edit configuration files, you must use the wsadmin client. See [Starting the 
     </PublishFile>
     ```
 
-    If the Quickr serves are protected by ISAM, use the junction name in the URL. For example:
+    If the Quickr serves are protected by ISVA (formerly ISAM), use the junction name in the URL. For example:
 
     ```
     <PublishFile enabled="true" allowCustomServers="false" requireSSO="true">

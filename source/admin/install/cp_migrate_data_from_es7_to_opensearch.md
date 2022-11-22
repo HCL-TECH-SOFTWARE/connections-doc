@@ -48,7 +48,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
         ```
 
         ``` {#codeblock_xmz_pqx_z5b}
-        /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/$\{REPONAME\} -H 'Content-Type: application/json' -d '{"type": "fs","settings": {"compress": true, "location": "$\{BACKUPPATH\}"}}'
+        /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/${REPONAME} -H 'Content-Type: application/json' -d '{"type": "fs","settings": {"compress": true, "location": "${BACKUPPATH}"}}'
         ```
 
         This command returns the following output:
@@ -59,7 +59,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
 
         Where:
 
-        -   `$\{REPONAME\}` is the name of the snapshot repository, which will be used to register and manage the OpenSearch snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
+        -   `${REPONAME}` is the name of the snapshot repository, which will be used to register and manage the OpenSearch snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
         -   `${BACKUPPATH}` is the mount path of the shared OpenSearch backup path. By default, this path is /backup.
         Disconnect from the pod \(press Ctrl+D, or type `exit` and press Enter\).
 
@@ -123,7 +123,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
         To delete specific indexes:
 
         ``` {#codeblock_tbw_vjs_z5b}
-        /usr/share/opensearch/probe/sendRequest.sh DELETE /<< INDEX NAME \>\>
+        /usr/share/opensearch/probe/sendRequest.sh DELETE /<< INDEX NAME >>
         ```
 
         Disconnect from the pod \(press Ctrl+D, or type `exit` and press Enter\).
@@ -137,7 +137,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
                 ```
 
                 ``` {#codeblock_if5_frx_z5b}
-                /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/**$\{REPONAME\}**/snapshot_migration/_restore
+                /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/${REPONAME}/snapshot_migration/_restore
                 ```
 
                 This command returns the following output:
@@ -161,7 +161,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
     ```
 
     ``` {#codeblock_wlh_hrx_z5b}
-    /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/$\{REPONAME\}
+    /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/${REPONAME}
     /snapshot_migration/_restore \
          -H 'Content-Type: application/json' \
          -d'
@@ -185,7 +185,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
     ```
 
     ``` {#codeblock_twp_lks_z5b}
-    /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/$\{REPONAME\}
+    /usr/share/opensearch/probe/sendRequest.sh POST /_snapshot/${REPONAME}
     /snapshot_migration/_restore \
             -H 'Content-Type: application/json' \
             -d'
@@ -215,7 +215,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
                 {
                           "source": {
                                     "index":
-        "migrated\_*ONE\_index\_name\_with\_conflict*"
+        "migrated_ONE_index_name_with_conflict"
                                     },
                             "dest": {
                                       "index": "Corresponding_EXISTING_index_name"

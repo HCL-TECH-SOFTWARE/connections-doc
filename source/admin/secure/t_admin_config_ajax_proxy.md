@@ -149,7 +149,7 @@ To configure the AJAX proxy, complete the following steps:
 
     **Note:** Specify the headers using regular expressions. If no cookies are specified, the proxy will pass all of them. To prevent it from passing any cookies, specify <proxy:cookies/\>.
 
-    -   To allow a particular service to run on your network configured with SSO, and to pass cookies for LTPA tokens and ISAM or Siteminder to the service, use the following <proxy:cookies\> pattern:
+    -   To allow a particular service to run on your network configured with SSO, and to pass cookies for LTPA tokens and ISVA (formerly ISAM) or Siteminder to the service, use the following <proxy:cookies\> pattern:
 
         ```
         <proxy:policy url=" http://my.network.com/service/*"

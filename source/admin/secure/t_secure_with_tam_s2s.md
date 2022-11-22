@@ -38,7 +38,7 @@ To send all traffic through your WebSeal server, including server to server traf
         -   Each href attribute in the LotusConnections-config.xml file is case-sensitive and must specify a fully-qualified domain name.
 
         -   The fully-qualified host name for the WebSEAL server and the dynamicHosts configuration must be identical.
-    3.  \(Do not complete this step for Security Access Manager with SPNEGO\) Update the interService URL values by running the following command:
+    3.  \(Do not complete this step for Security Verify Access, or SVA, formerly Security Access Manager, with SPNEGO\) Update the interService URL values by running the following command:
 
         LCConfigService.updateConfig\("application\_interService\_key","https://WebSEAL\_host"\)
 
@@ -70,9 +70,9 @@ To send all traffic through your WebSeal server, including server to server traf
 
     **Note:** You can also complete this step by running the connectionsConfig.py script in the wsadmin client.
 
-2.  \(Do not complete this step for Security Access Manager with SPNEGO\) Add a Security Access Manager authenticator property by editing the LotusConnections-config.xml file.
+2.  \(Do not complete this step for Security Verify Access with SPNEGO\) Add a Security Verify Access authenticator property by editing the LotusConnections-config.xml file.
 
-    1.  Configure the custom Authenticator to support server-to-server authentication for Security Access Manager:
+    1.  Configure the custom Authenticator to support server-to-server authentication for Security Verify Access:
 
         LCConfigService.updateConfig\("customAuthenticator.name",
 
@@ -80,11 +80,11 @@ To send all traffic through your WebSeal server, including server to server traf
 
     2.  Keep the file open until you have completed the next step.
 
-3.  \(Do not complete this step for Security Access Manager with SPNEGO\) Configure the cookie timeout value for Connections:
+3.  \(Do not complete this step for Security Verify Access with SPNEGO\) Configure the cookie timeout value for Connections:
 
     1.  Locate the CookieTimeout attribute in the LotusConnections-config.xml file. If the attribute is not present, add it to the <customAuthenticator name="TAMAuthenticator"\> element.
 
-    2.  Set the value, in minutes, of the **CookieTimeout** attribute to be equal to or less than the maximum timeout and idle timeout [values that you configured in Security Access Manager](t_secure_with_tam.md#TheValueOfTheCookieTimeoutAttribut).
+    2.  Set the value, in minutes, of the **CookieTimeout** attribute to be equal to or less than the maximum timeout and idle timeout [values that you configured in Security Verify Access](t_secure_with_tam.md#TheValueOfTheCookieTimeoutAttribut).
 
         **Note:** If the parameter does not already exist in the LotusConnections-config.xml file, create it. Open the file in a text editor and add the parameter to the customAuthenticator element.
 
@@ -94,8 +94,8 @@ To send all traffic through your WebSeal server, including server to server traf
 
         LCConfigService.checkInConfig\(\)
 
-        **Note:** The connectionsAdmin J2C alias that you specified during installation must correspond to a valid account that can authenticate with ISAM. It may map to a back-end administrative user account but is not intended to be used as a user account for Connections. This account must be capable of authenticating for single sign-on against ISAM. If you need to update the userid or credentials for this alias, see the [Changing references to administrative credentials](../admin/t_admin_common_changing_admin_passwords.md) topic.
+        **Note:** The connectionsAdmin J2C alias that you specified during installation must correspond to a valid account that can authenticate with ISVA. It may map to a back-end administrative user account but is not intended to be used as a user account for Connections. This account must be capable of authenticating for single sign-on against ISVA. If you need to update the userid or credentials for this alias, see the [Changing references to administrative credentials](../admin/t_admin_common_changing_admin_passwords.md) topic.
 
 
-**Parent topic:**[Enabling single sign-on for Security Access Manager](../secure/t_secure_with_tam.md)
+**Parent topic:**[Enabling single sign-on for Security Verify Access](../secure/t_secure_with_tam.md)
 

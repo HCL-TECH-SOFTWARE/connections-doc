@@ -2,7 +2,7 @@
 
 Set properties that make it possible for people outside of your company to self-register for a Connections account when invited to join.
 
-**Note:** Self-registration requires that users have anonymous access to be able to register and reset their guest password. If an access manager solution such as IBM® Security Access Manager is in place, a junction for the following context route has to be created/whitelisted: **/selfservice/**
+**Note:** Self-registration requires that users have anonymous access to be able to register and reset their guest password. If an access manager solution such as IBM Security Verify Access (formerly Security Access Manager) is in place, a junction for the following context route has to be created/whitelisted: **/selfservice/**
 
 1.  For external collaboration self-registration to work, it is mandatory that each of the following properties in the selfregistration-config.xml file have a value entered. You can modify default values to fit your environment.
 

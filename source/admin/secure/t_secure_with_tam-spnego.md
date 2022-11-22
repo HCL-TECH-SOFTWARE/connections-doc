@@ -1,22 +1,22 @@
-# Enabling SPNEGO single sign-on for Security Access Manager {#t_secure_with_tam-spnego .task}
+# Enabling SPNEGO single sign-on for Security Verify Access {#t_secure_with_tam-spnego .task}
 
-Configure HCL Connections to use single sign-on with IBM Security Access Manager \(ISAM\), formerly Tivoli® Access Manager and SPNEGO.
+Configure HCL Connections to use single sign-on with Security Verify Access (or ISVA, formerly Security Access Manager or ISAM) and SPNEGO.
 
 -   Complete the task described in the [Configuring web browsers to support SPNEGO](t_install_kerb_edit_browsers.md) topic.
--   Ensure that ISAM is installed.
--   This task describes how to enable single sign-on \(SSO\) for ISAM on the Windows™ operating system.
--   Connections supports the WebSphere® cookie-based, lightweight, third-party authentication \(LTPA\) mechanism as an SSO solution for ISAM. Connections does not support other SSO solutions that WebSEAL supports such as WebSphere Trust Association Interceptor \(TAI\), Forms SSO, Cross-domain SSO, or E-community SSO.
--   Connections supports the use of encrypted connections, Transparent Path junctions with ISAM. Connections does not support TCP type junctions or ISAM Standard junctions.
+-   Ensure that ISVA is installed.
+-   This task describes how to enable single sign-on \(SSO\) for ISVA on the Windows™ operating system.
+-   Connections supports the WebSphere® cookie-based, lightweight, third-party authentication \(LTPA\) mechanism as an SSO solution for ISVA. Connections does not support other SSO solutions that WebSEAL supports such as WebSphere Trust Association Interceptor \(TAI\), Forms SSO, Cross-domain SSO, or E-community SSO.
+-   Connections supports the use of encrypted connections, Transparent Path junctions with ISVA. Connections does not support TCP type junctions or ISVA Standard junctions.
 -   Verify that you can access Connections applications from a web browser.
--   Set the IBM® WebSphere Application Server single sign-on domain to the same value as the domain of the ISAM server.
+-   Set the IBM® WebSphere Application Server single sign-on domain to the same value as the domain of the ISVA server.
 
 
 
 Single sign-on \(SSO\) enables users to log in to an Connections application and switch to other applications within the product without having to authenticate again.
 
-There are several different ways to configure SSO. The Connections DefaultAuthenticator protocol allows your users and Security Access Manager to prove their identities to one another in a secure manner. After users sign in to their Active Directory Windows client systems, they are automatically signed into both Security Access Manager and Connections.
+There are several different ways to configure SSO. The Connections DefaultAuthenticator protocol allows your users and Security Verify Access to prove their identities to one another in a secure manner. After users sign in to their Active Directory Windows client systems, they are automatically signed into both Security Verify Access and Connections.
 
-To set up SSO using Security Access Manager with SPNEGO, complete the following steps:
+To set up SSO using Security Verify Access with SPNEGO, complete the following steps:
 
 1.  Create a user account for WebSEAL in your Active Directory domain. When creating the user account, ensure that you specify the following options:
 
@@ -24,7 +24,7 @@ To set up SSO using Security Access Manager with SPNEGO, complete the following 
     -   The password never expires
     For example, if you create an account for A User, where the Active Directory domain is isamspnego.example.com, the user identity is auser@isamspnego.example.com.
 
-2.  Map a Kerberos principal to an Active Directory user. Map the service principal name to the account that you created in Step 1 by running the ktpass command on the domain controller. Use the ISAM server through which users access Connections as the instance in the service principal name.
+2.  Map a Kerberos principal to an Active Directory user. Map the service principal name to the account that you created in Step 1 by running the ktpass command on the domain controller. Use the ISVA server through which users access Connections as the instance in the service principal name.
 
     1.  Run the following ktpass command:
 
@@ -61,7 +61,7 @@ To set up SSO using Security Access Manager with SPNEGO, complete the following 
 
         For example: kerberosv5 = TDI\_root\\bin\\stliauthn.dll
 
-        where TDI\_root is the installation directory of Security Access Manager.
+        where TDI\_root is the installation directory of Security Verify Access.
 
 4.  Enable TAI authentication as follows:
 
@@ -77,7 +77,7 @@ To set up SSO using Security Access Manager with SPNEGO, complete the following 
     3.  Click **OK** and then click **Save** to preserve your update.
 5.  Restart WebSEAL from the Services Control Panel. On Windows, WebSEAL must be running as a service for SPNEGO authentication to work properly. Otherwise, it runs using the credentials of the logged in user.
 
-6.  Configure form-based authentication with transparent junctions. Complete all the steps in the [Enabling single sign-on for Security Access Manager](t_secure_with_tam-spnego.md) topic except the steps about [updating interService URLs](t_secure_with_tam.md#CmdDoNotCompleteThisStepFor...)
+6.  Configure form-based authentication with transparent junctions. Complete all the steps in the [Enabling single sign-on for Security Verify Access](t_secure_with_tam-spnego.md) topic except the steps about [updating interService URLs](t_secure_with_tam.md#CmdDoNotCompleteThisStepFor...)
 
     , adding a Tivoli Allow access to the Embedded Experience gadget, and [adding an authenticator property](t_secure_with_tam.md#AddATivoliAccessManagerCustomAuthe). You need to use the HTTP Server URLs and the DefaultAuthenticator property in this configuration.
 
@@ -100,7 +100,7 @@ After users sign in to the Windows desktop, they are automatically signed into C
 
 **Note:** If you are using on-ramp plug-ins or mobile services, your data traffic is not authenticated by Kerberos tickets or SPNEGO tokens. It is instead authenticated through Java EE form-based authentication.
 
-For more information about Kerberos and SPNEGO, refer to [SPNEGO protocol and Kerberos authentication](https://www.ibm.com/docs/sva/9.0.1?topic=concepts-spnego-protocol-kerberos-authentication) in the IBM Security Access Manager documentation.
+For more information about Kerberos and SPNEGO, refer to [SPNEGO protocol and Kerberos authentication](https://www.ibm.com/docs/sva/9.0.1?topic=concepts-spnego-protocol-kerberos-authentication) in the IBM Security Verify Access documentation.
 
 **Parent topic:**[Configuring single sign-on](../secure/c_sec_config_sso.md)
 

@@ -31,7 +31,7 @@ Configure a service principal name and keytab using HCL Connections Customizer i
 -   **[Configuring the HTTP server for the App Registry](../install/cp_config_customizer_HTTP_server.md)**  
 Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.
 -   **[Creating WebSEAL junctions for Customizer](../install/cp_config_customizer_webseal_junctions.md)**  
-For environments that use IBM® Security Access Manager \(formerly Tivoli® Access Manager\), configure WebSEAL junctions for Connections Customizer.
+For environments that use IBM Security Verify Access (formerly Security Access Manager), configure WebSEAL junctions for Connections Customizer.
 -   **[Changing maximum allowed HTTP header size](../install/changing_maximum_allowed_http_header_size.md)**  
 The Nodejs server code enforces a maximum HTTP header size on requests. In Nodejs v8 and v12, the maximum HTTP header size was 8 KB. For v14 and later versions, it was 16 KB. In Nodejs v11.6.0 and later versions, the command line parameter `*--max-http-header-size*` was introduced, allowing you to customize the maximum size.
 

@@ -357,7 +357,7 @@ For information on how to format the value of an interval attribute, see *Schedu
 
 [Disabling file versioning](../admin/t_admin_files_disable_versioning.md)
 
-[Enabling single sign-on for Security Access Manager](../secure/t_secure_with_tam.md)
+[Enabling single sign-on for Security Verify Access](../secure/t_secure_with_tam.md)
 
 [Securing applications from malicious attack](../secure/c_admin_security_xss.md)
 

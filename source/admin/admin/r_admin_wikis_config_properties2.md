@@ -334,7 +334,7 @@ security.logout.href
 
 [Disabling wiki page versioning](../admin/t_admin_wikis_disable_versioning.md)
 
-[Enabling single sign-on for Security Access Manager](../secure/t_secure_with_tam.md)
+[Enabling single sign-on for Security Verify Access](../secure/t_secure_with_tam.md)
 
 [Configuring file downloads through IBM HTTP Server](../install/t_install_post_files_downloads.md)
 

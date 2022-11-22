@@ -1,8 +1,8 @@
-# Enabling single sign-on for Security Access Manager {#t_secure_with_tam .task}
+# Enabling single sign-on for Security Verify Access {#t_secure_with_tam .task}
 
-Configure HCL Connections™ to use single sign-on with Secure Access Manager \(formerly Tivoli® Access Manager\).
+Configure HCL Connections™ to use single sign-on with Security Verify Access (formerly Security Access Manager).
 
-Install the [supported version](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085090#security) of Security Access Manager \(ISAM\).
+Install the [supported version](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085090#security) of IBM Security Verify Access (ISVA).
 
 Ensure that you can access the installed Connections applications from a web browser.
 
@@ -10,20 +10,20 @@ Set the IBM® WebSphere® Application Server single sign-on domain to the same v
 
 **Note:**
 
--   Connections supports the WebSphere cookie-based lightweight third-party authentication \(LTPA\) mechanism as an SSO solution for ISAM. Connections does not support other SSO solutions that WebSEAL supports such as WebSphere Trust Association Interceptor \(TAI\), Forms SSO, Cross-domain SSO, or E-community SSO.
--   For more information, refer to [IBM Security Access Manager](https://www.ibm.com/docs/en/sva/9.0.1) on the IBM Documentation site.
+-   Connections supports the WebSphere cookie-based lightweight third-party authentication \(LTPA\) mechanism as an SSO solution for ISVA. Connections does not support other SSO solutions that WebSEAL supports such as WebSphere Trust Association Interceptor \(TAI\), Forms SSO, Cross-domain SSO, or E-community SSO.
+-   For more information, refer to [IBM Security Verify Access](https://www.ibm.com/docs/en/sva/9.0.1) on the IBM Documentation site.
 
 Single sign-on \(SSO\) enables users to log in to one application of Connections and switch to other applications and resources without having to authenticate again.
 
-Connections supports the use of encrypted connections Transparent Path junctions with ISAM. Connections does not support TCP type junctions or Standard junctions. This procedure uses a WebSphere Application Server LTPA key and WebSEAL Transparent Junctions.
+Connections supports the use of encrypted connections Transparent Path junctions with ISVA. Connections does not support TCP type junctions or Standard junctions. This procedure uses a WebSphere Application Server LTPA key and WebSEAL Transparent Junctions.
 
-To set up SSO using Security Access Manager, complete the following steps:
+To set up SSO using Security Verify Access, complete the following steps:
 
 1.  Use available authentication data when an unprotected URI is accessed: On the **Global security** page, expand **Web and SIP security**, and then click **General settings**. Click **Authenticate only when the URI is protected** and select **Use available authentication data when an unprotected URI is accessed**, if it is not already selected. Click **Apply** and then click **OK**.
 
-2.  Import your HTTP Server certificate into the Security Access Manager keystore. To import the certificate, complete the following steps:
+2.  Import your HTTP Server certificate into the Security Verify Access keystore. To import the certificate, complete the following steps:
 
-    1.  In Security Access Manager, click **Manage** \> **Secure Settings** \> **SSL Certificates** and select the **pdsrv database**.
+    1.  In Security Verify Access, click **Manage** \> **Secure Settings** \> **SSL Certificates** and select the **pdsrv database**.
 
     2.  With the **pdsrv database** selected, click on **Manage** and select **Edit SSL Certificate Database**.
 
@@ -33,11 +33,11 @@ To set up SSO using Security Access Manager, complete the following steps:
         -   If you select Load, you can specify the HTTP hostname, port, and certificate label and import them remotely.
     4.  After you add the certificate to the database, it displays in the certificate list.
 
-    5.  Click the link **Click here to review the changes or apply them to the system**; restart Security Access Manager components when prompted.
+    5.  Click the link **Click here to review the changes or apply them to the system**; restart Security Verify Access components when prompted.
 
         **Note:** If you have already imported other HTTP Server certificates into the WebSEAL certificate file, you must delete them before you can add a certificate.
 
-3.  To support SSO with the Lightweight Third-Party Authentication \(LTPA\) key, the same keys and passwords must be shared by Security Access Manager and WebSphere Application Server. To export the keys from WebSphere Application Server, complete the following steps:
+3.  To support SSO with the Lightweight Third-Party Authentication \(LTPA\) key, the same keys and passwords must be shared by Security Verify Access and WebSphere Application Server. To export the keys from WebSphere Application Server, complete the following steps:
 
     1.  Log in to the WebSphere Application Server Integrated Solutions Console as an administrator, expand **Security**, and then click **Global security**. In the **Authentication mechanisms and expiration** area, click **LTPA**.
 
@@ -53,13 +53,13 @@ To set up SSO using Security Access Manager, complete the following steps:
 
     3.  Click **Export keys**.
 
-    **Note:** If you have modified your federated repository properties, such as the realm name of the federated repository, re-export your LTPA keys and copy them to the Security Access Manager server, to the same location that you used to create the Security Access Manager junctions. See [Step 4](t_secure_with_tam.md#StepUseTheExportedLTPAKeyToCo...) for more details.
+    **Note:** If you have modified your federated repository properties, such as the realm name of the federated repository, re-export your LTPA keys and copy them to the Security Verify Access server, to the same location that you used to create the Security Verify Access junctions. See [Step 4](t_secure_with_tam.md#StepUseTheExportedLTPAKeyToCo...) for more details.
 
-4.  Use the exported LTPA key to configure the transparent path junctions in Security Access Manager.
+4.  Use the exported LTPA key to configure the transparent path junctions in Security Verify Access.
 
-    1.  Copy the file containing the LTPA keys that you exported in [Step 3](t_secure_with_tam.md#StepToSupportSSOWithTheLightwe...) to the Security Access Manager server.
+    1.  Copy the file containing the LTPA keys that you exported in [Step 3](t_secure_with_tam.md#StepToSupportSSOWithTheLightwe...) to the Security Verify Access server.
 
-    2.  In Security Access Manager, click **Secure Web Settings** \> **Global Keys** \> **LTPA Keys**.
+    2.  In Security Verify Access, click **Secure Web Settings** \> **Global Keys** \> **LTPA Keys**.
 
     3.  In the LTPA Key Files area, click **Manage** \> **Import**
 
@@ -67,9 +67,9 @@ To set up SSO using Security Access Manager, complete the following steps:
 
     5.  Click **Import**.
 
-    6.  Click the link **Click here to review the changes or apply them to the system**; restart Security Access Manager components when prompted.
+    6.  Click the link **Click here to review the changes or apply them to the system**; restart Security Verify Access components when prompted.
 
-    7.  Open the pdadmin command line utility, which is installed as part of the Security Access Manager runtime package.
+    7.  Open the pdadmin command line utility, which is installed as part of the Security Verify Access runtime package.
 
     8.  Configure a transparent path junction for each installed application. Enter the following command once for each junction:
 
@@ -89,7 +89,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
             For example: default-webseald-server.name.example.com
 
-        -   backend-server-name is the host name of the Connections server for which Security Access Manager is managing authentication. For example, HTTP Server configured for Connections.
+        -   backend-server-name is the host name of the Connections server for which Security Verify Access is managing authentication. For example, HTTP Server configured for Connections.
         -   backend-server-port is the port used by the backend server.
         -   ltpa-token is the name of the file that you created to store the keys that you exported from WebSphere Application Server.
         -   ltpa-password is the password that you defined to encrypt the key file.
@@ -134,7 +134,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         -   If an invalid certificate error occurs, import your backend-server-name certificate into the WebSEAL certificate store before you create the junctions. Verify that you completed [Step 2](#importihscertificate) correctly and the SSL certificate is being imported to the correct key file.
         -   The transparent path junctions include /help even though it is not an independent Connections application. It is a part of the News application but must be configured as a separate junction.
-    For more information about using the pdadmin command line utility, refer to [Server task commands for junctions](https://www.ibm.com/docs/en/sva/9.0.1?topic=reference-pdadmin-commands) in the Security Access Manager knowledge center.
+    For more information about using the pdadmin command line utility, refer to [Server task commands for junctions](https://www.ibm.com/docs/en/sva/9.0.1?topic=reference-pdadmin-commands) in the Security Verify Access knowledge center.
 
 5.  Create a default Connections ACL to override the default WebSEAL ACL by running the following commands:
 
@@ -158,7 +158,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         where:
 
-        -   isam\_server is the host name of the Security Access Manager server
+        -   isam\_server is the host name of the Security Verify Access server
         -   WebSEAL\_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default
         -   app\_root is the root path to the Connections applications, including the following:
             -   /activities
@@ -191,7 +191,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         where:
 
-        -   isam\_server is the host name of the Security Access Manager server
+        -   isam\_server is the host name of the Security Verify Access server
         -   WebSEAL\_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default
         -   object-path is the path to the resource on that domain
         -   lc3-default-acl is the access control list that you defined in [Step 5.](t_secure_with_tam.md#CreateADefaultLotusConnectionsACLT) Replace this variable with the name of your default ACL.
@@ -227,7 +227,7 @@ To set up SSO using Security Access Manager, complete the following steps:
         |Sidebar|/socialsidebar|
         |Touchpoint|/touchpoint|
 
-7.  Define the unprotected access control list and then attach unprotected resources and resources that require basic-authentication to it using the pdadmin command line utility, so that Security Access Manager passes HTTP requests for these resources through to WebSphere Application Server for authentication.
+7.  Define the unprotected access control list and then attach unprotected resources and resources where Connections requires basic authentication using the pdadmin command line utility, so that Security Verify Access passes HTTP requests for these resources through to WebSphere Application Server for authentication.
 
     1.  To define the unprotected access control list, enter the following commands:
 
@@ -253,7 +253,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         where:
 
-        -   isam\_server is the host name of the Security Access Manager server
+        -   isam\_server is the host name of the Security Verify Access server
         -   WebSEAL\_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default
         -   object-path is the path to the resource on that domain
         -   ic-bypass-acl is the access control list that you defined in [Step 7 a](t_secure_with_tam.md#ToDefineTheAccessControlListEnterT)
@@ -385,7 +385,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         where:
 
-        -   isam\_server is the host name of the Security Access Manager server
+        -   isam\_server is the host name of the Security Verify Access server
         -   WebSEAL\_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default
         -   object-path is the path to the resource on that domain
         -   ic-bypass-acl is the access control list that you defined in [Step 7 a](t_secure_with_tam.md#ToDefineTheAccessControlListEnterT)
@@ -456,7 +456,7 @@ To set up SSO using Security Access Manager, complete the following steps:
         |Orient Me|/community-suggestions|
         |Profiles|/profiles/atom|
         |/profiles/atom2|
-        |/profiles/atom/forms/tagCloud.do **Note:** If you use case-insensitive junctions in your Security Access Manager configuration, specify tagcloud.do instead of tagCloud.do.
+        |/profiles/atom/forms/tagCloud.do **Note:** If you use case-insensitive junctions in your Security Verify Access configuration, specify tagcloud.do instead of tagCloud.do.
 
 |
         |/profiles/follow/atom|
@@ -470,7 +470,7 @@ To set up SSO using Security Access Manager, complete the following steps:
         |Wikis|/wikis/basic/api|
         |/wikis/follow/atom|
 
-    4.  Include the following unprotected resources when you configure ISAM 8 and future releases of ISAM.
+    4.  Include the following unprotected resources when you configure ISVA.
 
         -   /communities/seedlist/myserver
         -   /dogear/seedlist/myserver
@@ -482,13 +482,13 @@ To set up SSO using Security Access Manager, complete the following steps:
         -   /forums/seedlist/myserver
         -   /forums/seedlist/myserver
         -   /wikis/seedlist/myserver
-8.  To get the activity stream on the Homepage to display, you must import an encrypted connection \(SSL\) certificate from the ISAM server to the nodes.
+8.  To get the activity stream on the Homepage to display, you must import an encrypted connection \(SSL\) certificate from the ISVA server to the nodes.
 
     1.  Navigate to **SSL certificate and key management** \> **Key stores and certificates** \> **CellDefaultTrustStore\> \\ signer certs**.
     2.  Restart the Homepage application.
     **Note:** To get the ECM events to appear, the ISAM certs must be imported to the **NodeDefaultTrustStore**.
 
-    If the ISAM server and the WebSEAL server are different, you need to import the cert from the WebSEAL server.
+    If the ISVA server and the WebSEAL server are different, you need to import the cert from the WebSEAL server.
 
 9.  Specify a dynamic URL pattern to support the Blogs application and mail notification:
 
@@ -508,7 +508,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         where:
 
-        -   isam\_server is the host name of the Security Access Manager server.
+        -   isam\_server is the host name of the Security Verify Access server.
         -   WebSEAL\_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default.
         -   ic-bypass-acl is the name of the access control list that you defined [earlier](t_secure_with_tam.md#ToDefineTheAccessControlListEnterT).
         For example:
@@ -523,13 +523,13 @@ To set up SSO using Security Access Manager, complete the following steps:
 
         suppress-dynurl-parsing-of-posts = yes
 
-10. Configure Security Access Manager to use form-authentication over HTTPS by updating the webseald-server-name.conf file. Add the following line to the \[forms\] stanza:
+10. Configure Security Verify Access to use form-authentication over HTTPS by updating the webseald-server-name.conf file. Add the following line to the \[forms\] stanza:
 
     forms-auth = https
 
     **Note:** You cannot specify HTTP-only authentication. To specify both HTTP and HTTPS, add the following line: forms-auth = both.
 
-11. \(Do not complete this step for Security Access Manager with SPNEGO\) Add HCL Allow access to the Embedded Experience gadget by adding the following line to the \[ba\] stanza in the webseald-server-name.conf file:
+11. \(Do not complete this step for Security Verify Access with SPNEGO\) Add HCL Allow access to the Embedded Experience gadget by adding the following line to the \[ba\] stanza in the webseald-server-name.conf file:
 
     ba-auth = none
 
@@ -555,7 +555,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
     utf8-qstring-support-enabled = yes
 
-14. Configure Security Access Manager as the reverse proxy for Connections. Update the webseald-server-name.conf file:
+14. Configure Security Verify Access as the reverse proxy for Connections. Update the webseald-server-name.conf file:
 
     Add the following line to the \[server\] stanza:
 
@@ -565,7 +565,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
     use-same-session = yes
 
-15. Configure Security Access Manager to include host information in the HTTP header. Update the webseald-server-name.conf file:
+15. Configure Security Verify Access to include host information in the HTTP header. Update the webseald-server-name.conf file:
 
     In the `[header-names]` stanza, add the following line:
 
@@ -632,7 +632,7 @@ To set up SSO using Security Access Manager, complete the following steps:
 
 20. The value of the cookie timeout attribute in the LotusConnections-config.xml file must be smaller than the values of the timeout and inactive-timeout attributes in the webseald-server-name.conf file. Check these values in the \[session\] stanza of the webseald-server-name.conf file and edit them if necessary.
 
-    **Note:** The values of the timeout parameters in the Security Access Manager configuration file are given in seconds but the CookieTimeout value in the LotusConnections-config.xml file is given in minutes.
+    **Note:** The values of the timeout parameters in the Security Verify Access configuration file are given in seconds but the CookieTimeout value in the LotusConnections-config.xml file is given in minutes.
 
     Use the following example as a guide:
 

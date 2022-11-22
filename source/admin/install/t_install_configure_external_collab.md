@@ -12,18 +12,18 @@ To configure external collaboration, complete the following steps:
 
     -   Configure the self-registration feature to have external users added to your LDAP directory as they register. For more information, see [Configuring self-registration for external users](t_install_config_self-registration_for_external_users.md).
 
-        **Note:** Self-registration requires that users have anonymous access to be able to register and reset their guest password. If an access manager solution such as IBM Security Access Manager is in place, a junction for the following context route has to be created/whitelisted: **/selfservice/**
+        **Note:** Self-registration requires that users have anonymous access to be able to register and reset their guest password. If an access manager solution such as IBM Security Verify Access (formerly Security Access Manager) is in place, a junction for the following context route has to be created/whitelisted: **/selfservice/**
 
     -   Add external users to your LDAP directory. The managed registration process differs for each organization and cannot be described here. For more information, see your organization's registration guidelines.
 3.  If you did NOT configure self-registration in step 2, synchronize your LDAP with the Profiles database. For more information, see [Registering external users with Profiles](../admin/t_admin_profiles_external_user_script.md).
 
 4.  \(Optional\) Allow internal users to collaborate with external users by changing their Profiles roles. For more information, see [Setting user roles for external collaboration](../admin/t_admin_profiles_set_roles.md). To also allow internal users to invite external users to Connections through a menu option, see [Configuring self-registration for external users](../admin/t_install_config_self-registration_for_external_users.md).
 
-    Internal users cannot, by default, create communities that can have external users as members. All external users must be populated to Connections Profiles via IBM Security Access Manager Directory Integrator first. After an external user is created, then internal users can invite the external user to collaborate on Communities, Files and Activities, as long as those communities/files/activities are external.
+    Internal users cannot, by default, create communities that can have external users as members. All external users must be populated to Connections Profiles via IBM Security Verify Access Directory Integrator first. After an external user is created, then internal users can invite the external user to collaborate on Communities, Files and Activities, as long as those communities/files/activities are external.
 
-5.  If your approach is managed registration and your deployment does not use an authentication mechanism such as IBM Security Access Manager or SiteMinder, disable anonymous access to HCL Connections. For more information, see [Forcing users to log in before they can access an application](../secure/t_admin_common_force_authentication.md).
+5.  If your approach is managed registration and your deployment does not use an authentication mechanism such as IBM Security Verify Access (SVA) or SiteMinder, disable anonymous access to HCL Connections. For more information, see [Forcing users to log in before they can access an application](../secure/t_admin_common_force_authentication.md).
 
-6.  If you have enabled single sign-on for IBM Security Access Manager with SPNEGO, the authentication on the Security Access Manager server must be set to forms-based authentication when SPNEGO is not present and the external visitor users in the database must match the IBM Security Access Manager imported users. For more information, see [Enabling SPNEGO single sign-on for Security Access Manager](../secure/t_secure_with_tam-spnego.md).
+6.  If you have enabled single sign-on for IBM SVA with SPNEGO, the authentication on the SVA server must be set to forms-based authentication when SPNEGO is not present and the external visitor users in the database must match the IBM SVA imported users. For more information, see [Enabling SPNEGO single sign-on for  Security Verify Access](../secure/t_secure_with_tam-spnego.md).
 
 
 **Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)

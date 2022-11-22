@@ -19,7 +19,7 @@ AllowSelfSignedCerts
 :   Optional. Should be set to false in the production environment. For security and legal reasons, self-signed certificates should only be used in test environments. The default value is true.
 
 CookieTimeout
-:   This value should match the value in your security proxy or the **LTPA timeout** value for forwarded credentials between servers specified in WebSphere® Application Server. When the ISAM authenticator is in use, this value should also match the ISAM inactive-timeout setting. The default value is 60 minutes.
+:   This value should match the value in your security proxy or the **LTPA timeout** value for forwarded credentials between servers specified in WebSphere® Application Server. When the ISVA authenticator is in use, this value should also match the ISVA inactive-timeout setting. The default value is 60 minutes.
 
 ConnectionTimeout
 :   This value determines the time period after which a connection is dropped. The default value is 30 seconds.
@@ -33,7 +33,7 @@ MaxTotalConnections
 DefaultMaxConnectionsPerHost
 :   This value defines the maximum number of connections allowed per host. The default value is 128 connections.
 
-## Additional attributes for HCL Security Access Manager and SiteMinder { .section}
+## Additional attributes for Security Verify Access (formerly Security Access Manager) and SiteMinder { .section}
 
 There are additional attributes available when the customAuthenticator attribute is set to ISAMAuthenticator or SiteMinderAuthenticator.
 

@@ -13,8 +13,7 @@ Blogs
 Bookmarks
 :   Social bookmarking tool for saving, organizing, and sharing Internet and intranet bookmarks. Discover bookmarks that were created by others with similar interests and expertise.
 
-!!! note
-    This application was previously named Dogear.
+    **Note:** This application was previously named Dogear.
 
 Communities
 :   A place where people who share a common interest can interact with one another, share information, and exchange ideas. Community members can participate in community-specific activities and forums, and can share blogs, bookmarks, feeds, and files.

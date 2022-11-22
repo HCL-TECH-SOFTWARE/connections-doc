@@ -1,4 +1,4 @@
-# Supported languages {#i_ovr_c_supported_langs .concept}
+# Supported languages 
 
 HCL Connections 8 supports the following 30 languages.
 
@@ -57,6 +57,7 @@ Initially for Connection 8 the following eight languages have been translated fo
 -   Hebrew / עברית
 -   Italian / Italiano
 -   Japanese / 日本語
+-   Portuguese/Brazil / Português/Brasil
 
 **Parent topic:**[Product overview](../overview/c_lc4_product_overview.md)
 

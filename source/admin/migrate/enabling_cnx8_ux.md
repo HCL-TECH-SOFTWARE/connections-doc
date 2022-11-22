@@ -2,7 +2,7 @@
 
 If you are upgrading from previous versions of Connections to 8.0, the new user experience is initially disabled. This allows you to adopt the infrastructural benefits of Connections 8.0 – such as updated platform versions and security fixes – without any user disruption.
 
-**Note:** The option to switch between the Connections 7.0 and 8.0 experience is available only during the transition period. For more details, see [What's new in HCL Connections](../overview/i_ovr_r_whats_new.md#8.0_transition).
+**Note:** The option to change the user interface to either the Connections 7.0 or 8.0 experience is available only during the transition period. For more details, see [What's new in HCL Connections](../overview/i_ovr_r_whats_new.md#8.0_transition).
 
 ## About this task {#section_w1q_pbl_2vb .section}
 
@@ -41,8 +41,9 @@ The `ics.ui.isCNX8UXEnabled` property in the LotusConnections-config.xml file co
 
 6.  To exit the wsadmin client, type `exit` at the prompt.
 7.  Stop and restart the servers that host the HCL Connections applications.
+8.  Make sure to remove temp files, as they will likely have stale references when you change from the 7.0 UI to the 8.0 UI.
 
-**Parent topic:**[Upgrading and updating](../migrate/c_upgrade_migrate_overview.md)
+**Parent topic:** [Upgrading and updating](../migrate/c_upgrade_migrate_overview.md)
 
 **Related information**  
 

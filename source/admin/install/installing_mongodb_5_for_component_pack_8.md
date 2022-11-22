@@ -18,8 +18,8 @@ Ensure you have the following:
 2.  Go to the extracted folder \(from step 1\) and check if the Dockerfile exists there. Use this Dockerfile to build a new MongoDB 5 image:
 
     ``` {#codeblock_s3f_r14_y5b}
-    docker build --no-cache --tag {{ **docker\_registry\_url  **
-    }}/middleware-mongodb5:{{ **image\_tag** }} -f Dockerfile .
+    docker build --no-cache --tag {{ docker_registry_url 
+    }}/middleware-mongodb5:{{ image_tag }} -f Dockerfile .
     ```
 
     Where:
@@ -30,8 +30,8 @@ Ensure you have the following:
 3.  Save this image to a `tar` file:
 
     ``` {#codeblock_u3f_r14_y5b}
-    docker save -o mongodb5.tar {{ **docker\_registry\_url**
-    }}/middleware-mongodb5:{{ **image\_tag** }}
+    docker save -o mongodb5.tar {{ docker_registry_url
+    }}/middleware-mongodb5:{{ image_tag }}
     ```
 
     Where:
@@ -50,7 +50,7 @@ Ensure you have the following:
 6.  Verify if the image is imported successfully into containerd:
 
     ``` {#codeblock_w3f_r14_y5b}
-    sudo ctr -n=k8s.io image list | grep middleware-mongodb5:{{ **image\_tag** }} 
+    sudo ctr -n=k8s.io image list | grep middleware-mongodb5:{{ image_tag }} 
     ```
 
 7.  With MongoDB 5, you need persistent volumes for all replicas of Mongo5 pod and you need to verify that they have been created. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb).

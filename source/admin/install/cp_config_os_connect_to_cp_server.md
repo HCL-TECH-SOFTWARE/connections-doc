@@ -6,9 +6,9 @@ Make sure that secure connections are established in your deployment, as explain
 
 **Important:** OpenSearch Metrics requires that the WebSphere Application Server is running Java 8. If you have a new FileNet deployment and you temporarily switched to Java 6 to update FileNet components after applying Connections 6.0 CR1, make sure that you switch back to Java 8 before you start the following procedure.
 
-1.  If your single sign-on solution includes IBM Security Access Manager, SiteMinder, or SPNEGO with SiteMinder, update the URLs that require basic authentication to include /metricssc/configsetter by referring to the appropriate topic:
+1.  If your single sign-on solution includes IBM Security Verify Access (formerly Security Access Manager), SiteMinder, or SPNEGO with SiteMinder, update the URLs that require basic authentication to include /metricssc/configsetter by referring to the appropriate topic:
 
-    -   For IBM Security Access Manager, see [Enabling single sign-on for Security Access Manager](../secure/t_secure_with_tam.md).
+    -   For IBM Security Verify Access, see [Enabling single sign-on for IBM Security Verify Access](../secure/t_secure_with_tam.md).
     -   For SiteMinder, see [Enabling single sign-on for SiteMinder](../secure/t_secure_with_siteminder.md).
     -   For SPNEGO with SiteMinder, see [Enabling SPNEGO single sign-on for SiteMinder](../secure/t_secure_with_siteminder_SPNEGO.md).
 2.  In the LotusConnections-config.xml file, you must point to the correct version of OpenSearch by changing the value of the following parameter to 7:

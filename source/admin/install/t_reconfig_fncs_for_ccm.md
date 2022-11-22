@@ -5,7 +5,7 @@ Use the IBM® Content Navigator Configuration and Deployment tool to reconfigure
 Reconfigure FileNet Collaboration Services under the following circumstances:
 
 -   When the host name used by HCL Connections \(including those host names used by FileNet Collaboration Services\) is changed.
--   When IBM Security Access Manager \(ISAM\), Site Minder or other services that change the URL used by the user to interact with the system are configured.
+-   When IBM Security Verify Access (ISVA), Site Minder or other services that change the URL used by the user to interact with the system are configured.
 -   When FileNet Collaboration Service fix packs or service releases are installed.
 -   When site preference parameters are changed.
 

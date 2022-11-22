@@ -467,7 +467,7 @@ Make sure that the network configuration of your NFS environment is correct befo
     ```
 
 
-For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pack guide](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) document.
+For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pack guide](https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) document.
 
 ## Set up bootstrap charts {#bootstrap .section}
 
@@ -536,7 +536,7 @@ Perform the steps in [Installing MongoDB 5 for Component Pack 8](installing_mong
 
 The infrastructure charts are installed during MongoDB 5 installation \(see previous step\).
 
-If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the [Troubleshooting Component Pack](https://opensource.hcltechsw.com/connections-doc/v8/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) document.
+If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the [Troubleshooting Component Pack](https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf) document.
 
 Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – see [Configuring the HTTP server](cp_config_proxy_rules.md).
 

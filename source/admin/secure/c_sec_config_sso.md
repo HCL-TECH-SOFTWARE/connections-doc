@@ -16,8 +16,8 @@ SSO solutions can inadvertently block back-end server-to-server communication. C
 Set the single sign-on \(SSO\) domain name for your IBM® WebSphere Application Server environment.
 -   **[Enabling single sign-on with OIDC for Microsoft Azure AD](../secure/c_azure_oidc_container.md)**  
 Single sign-on is accomplished by setting up a trust relationship between the Connections server and Microsoft Azure Active Directory using the IBM WebSphere OpenID Connect Relying Party Trust Association Interceptor \(OIDC Relying Party TAI\).
--   **[Enabling single sign-on for Security Access Manager](../secure/t_secure_with_tam.md)**  
-Configure HCL Connections to use single sign-on with Secure Access Manager \(formerly Tivoli® Access Manager\).
+-   **[Enabling single sign-on for Security Verify Access](../secure/t_secure_with_tam.md)**  
+Configure HCL Connections to use single sign-on with Security Verify Access (formerly Security Access Manager).
 -   **[Enabling single sign-on for SiteMinder](../secure/t_secure_with_siteminder.md)**  
 Configure HCL Connections to use Computer Associates' SiteMinder to implement user authentication and single sign-on \(SSO\).
 -   **[Enabling single sign-on for Domino](../secure/t_secure_domino.md)**  
@@ -26,8 +26,8 @@ If your organization uses HCL Connections in a Domino® environment, you can ena
 HCL Connections requires a federated repositories configuration, but you can enable Connections applications to perform Single sign-on for a standalone LDAP directory.
 -   **[Enabling single sign-on for the Windows desktop](../secure/t_install_kerb_setup_spnego.md)**  
 Configure HCL Connections to use SPNEGO for single sign-on \(SSO\). This configuration permits users to sign in to the Microsoft Windows™ desktop and automatically authenticate with Connections.
--   **[Enabling SPNEGO single sign-on for Security Access Manager](../secure/t_secure_with_tam-spnego.md)**  
-Configure HCL Connections to use single sign-on with IBM Security Access Manager \(ISAM\), formerly Tivoli® Access Manager and SPNEGO.
+-   **[Enabling SPNEGO single sign-on for Security Verify Access](../secure/t_secure_with_tam-spnego.md)**  
+Configure HCL Connections to use single sign-on with IBM Security Verify Access (formerly Security Access Manager) and SPNEGO.
 -   **[Enabling SPNEGO single sign-on for SiteMinder](../secure/t_secure_with_siteminder_SPNEGO.md)**  
 Configure HCL Connections to use single sign-on with Computer Associates' SiteMinder and SPNEGO.
 -   **[The customAuthenticator element for back-end inter-service communication](../secure/r_custom-authenticator.md)**  

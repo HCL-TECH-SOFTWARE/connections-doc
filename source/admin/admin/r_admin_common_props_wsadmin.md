@@ -181,7 +181,7 @@ customAuthenticator.name
 
     -   DefaultAuthenticator: Uses the IBM® LTPA token to secure the connection. This option is the default.
     -   SiteMinderAuthenticator: Uses a SiteMinder token to secure the connection.
-    -   ISAMAuthenticator: Uses the IBM Security Access Manager token to secure the connection.
+    -   ISAMAuthenticator: Uses the IBM Security Verify Access (formerly Security Access Manager) token to secure the connection.
 
     **Note:** The customAuthenticator.ConnectionTimeout, customAuthenticator.CookieTimeout, customAuthenticator.DefaultMaxConnectionsPerHost, customAuthenticator.MaxTotalConnections, and customAuthenticator.SoTimeout properties were deprecated in version 3.
 

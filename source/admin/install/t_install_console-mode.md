@@ -136,7 +136,7 @@ To install HCL Connections in console mode, complete the following steps:
         Administrator ID
         :   The administrative ID of the DM.
 
-            **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Security Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
+            **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Security Verify Access (formerly Security Access Manager) or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
 
             **Note:** This user account needs to be both a WebSphere Application Server administrative user and an LDAP user.
 
