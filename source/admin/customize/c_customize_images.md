@@ -1,6 +1,6 @@
-# Customizing images {#c_customize_images .concept}
+# Customizing images 
 
-You can update the images used in HCL Connections™ to suit the needs of your organization. For example, you can replace the IBM® logo with your company logo, or customize the sprited images and file type icons that are used in the product interface to fit with your company's branding.
+You can update the images used in HCL Connections™ to suit the needs of your organization. For example, you can replace the HCL logo with your company logo, or customize the images and file type icons that are used in the product interface to fit with your company's branding.
 
 **Note:**
 
