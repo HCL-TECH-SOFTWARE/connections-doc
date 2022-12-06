@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://opensource.hcltechsw.com/connections/admin/secure/t_secure_with_tam.html">
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
     
     
       
@@ -22,29 +22,33 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
         
       
+      
+
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
       <link rel="stylesheet" href="../../stylesheets/style.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />
@@ -57,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -77,18 +81,20 @@
         <aside class="md-banner">
           <div class="md-banner__inner md-grid md-typeset">
             
+            
 
    <a href="https://www.hcltechsw.com/"> 
   <img width="150" height="50" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>
 
           </div>
+          
         </aside>
       
     </div>
     
       <div data-md-component="outdated" hidden>
-        <aside class="md-banner md-banner--warning">
-          
+        
+          <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
@@ -98,8 +104,8 @@
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          
-        </aside>
+          </aside>
+        
       </div>
     
     
@@ -113,7 +119,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -135,7 +141,7 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -143,17 +149,17 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
           </a>
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -175,10 +181,10 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     hcl-software/connections-doc
@@ -304,10 +310,10 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     hcl-software/connections-doc
@@ -20612,7 +20618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../admin/t_admin_oauth_cust_app_access_rquest_ui.html" class="md-nav__link">
+      <a href="../admin/t_admin_oauth_cust_app_access_rquest_ui.md" class="md-nav__link">
         Customizing the Application Access and Access Request interfaces
       </a>
     </li>
@@ -21798,18 +21804,14 @@
         
           
         
+          
+        
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../admin/t_admin_communities_include_biz_card.html">Integrating the Communities business card</a>
-          
-            <label for="__nav_3_11_2_10_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_3_11_2_10_1">
+          Integrating the Communities business card
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Integrating the Communities business card" data-md-level="5">
         <label class="md-nav__title" for="__nav_3_11_2_10_1">
@@ -21817,6 +21819,20 @@
           Integrating the Communities business card
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/t_admin_communities_include_biz_card.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -21974,7 +21990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../admin/t_customize_wikis_welcome_page.html" class="md-nav__link">
+      <a href="../admin/t_customize_wikis_welcome_page.md" class="md-nav__link">
         Customizing the Wikis welcome page
       </a>
     </li>
@@ -22186,18 +22202,14 @@
         
           
         
+          
+        
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../admin/t_admin_registeroauthclientwprovider.html">Registering an OAuth client with a provider</a>
-          
-            <label for="__nav_3_12_2_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_3_12_2_3">
+          Registering an OAuth client with a provider
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Registering an OAuth client with a provider" data-md-level="4">
         <label class="md-nav__title" for="__nav_3_12_2_3">
@@ -22205,6 +22217,20 @@
           Registering an OAuth client with a provider
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/t_admin_registeroauthclientwprovider.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34720,23 +34746,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-task" class="md-nav__link">
+    About this task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-<a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc/edit/main/docs/admin/secure/t_secure_with_tam.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
+                  
+
+  <a href="https://github.com/HCL-TECH-SOFTWARE/connections-doc/edit/main/docs/admin/secure/t_secure_with_tam.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
 
-<h1 class="task" id="t_secure_with_tam">Enabling single sign-on for Security Verify Access</h1>
+<h1 class="concept" id="t_secure_with_tam">Enabling single sign-on for Security Verify Access</h1>
 <p>Configure HCL Connections™ to use single sign-on with Security Verify Access (formerly Security Access Manager).</p>
+<h2 id="before-you-begin">Before you begin</h2>
 <p>Install the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0085090#security">supported version</a> of IBM Security Verify Access (ISVA).</p>
 <p>Ensure that you can access the installed Connections applications from a web browser.</p>
 <p>Set the IBM® WebSphere® Application Server single sign-on domain to the same value as that of the Secure Access Manager server.</p>
@@ -34745,9 +34804,11 @@
 <li>Connections supports the WebSphere cookie-based lightweight third-party authentication (LTPA) mechanism as an SSO solution for ISVA. Connections does not support other SSO solutions that WebSEAL supports such as WebSphere Trust Association Interceptor (TAI), Forms SSO, Cross-domain SSO, or E-community SSO.</li>
 <li>For more information, refer to <a href="https://www.ibm.com/docs/en/sva/9.0.1">IBM Security Verify Access</a> on the IBM Documentation site.</li>
 </ul>
+<h2 id="about-this-task">About this task</h2>
 <p>Single sign-on (SSO) enables users to log in to one application of Connections and switch to other applications and resources without having to authenticate again.</p>
 <p>Connections supports the use of encrypted connections Transparent Path junctions with ISVA. Connections does not support TCP type junctions or Standard junctions. This procedure uses a WebSphere Application Server LTPA key and WebSEAL Transparent Junctions.</p>
 <p>To set up SSO using Security Verify Access, complete the following steps:</p>
+<h2 id="procedure">Procedure</h2>
 <ol>
 <li>
 <p>Use available authentication data when an unprotected URI is accessed: On the <strong>Global security</strong> page, expand <strong>Web and SIP security</strong>, and then click <strong>General settings</strong>. Click <strong>Authenticate only when the URI is protected</strong> and select <strong>Use available authentication data when an unprotected URI is accessed</strong>, if it is not already selected. Click <strong>Apply</strong> and then click <strong>OK</strong>.</p>
@@ -34765,11 +34826,11 @@
 <p>In the <strong>Signer Certificate</strong>, select <strong>Manage</strong> and then select one of the following two options:</p>
 <ul>
 <li>If you select Import, you will be prompted to browse for the certificate file from your local drive.</li>
-<li>If you select Load, you can specify the HTTP hostname, port, and certificate label and import them remotely.<ol>
-<li>After you add the certificate to the database, it displays in the certificate list.</li>
-</ol>
-</li>
+<li>If you select Load, you can specify the HTTP hostname, port, and certificate label and import them remotely.</li>
 </ul>
+</li>
+<li>
+<p>After you add the certificate to the database, it displays in the certificate list.</p>
 </li>
 <li>
 <p>Click the link <strong>Click here to review the changes or apply them to the system</strong>; restart Security Verify Access components when prompted.</p>
@@ -34786,12 +34847,12 @@
 <li>
 <p>In the Cross-cell single sign-on section, provide values for the following fields:</p>
 <ul>
-<li><strong>Password</strong> Enter a secure password and then confirm the password. You need to provide this password later.</li>
-<li><strong>Fully qualified key file name</strong> Specify a valid path and a file name for the file that holds the exported keys.
-For example:</li>
+<li><strong>Password</strong>: Enter a secure password and then confirm the password. You need to provide this password later.</li>
+<li><strong>Fully qualified key file name</strong>: Specify a valid path and a file name for the file that holds the exported keys.</li>
 </ul>
-<p>p*ssw*rd</p>
-<p>C:\WAS_ltpa.keys</p>
+<p>For example:</p>
+<p><code>p\*ssw\*rd</code></p>
+<p><code>C:\\WAS\_ltpa.keys</code></p>
 </li>
 <li>
 <p>Click <strong>Export keys</strong>.</p>
@@ -34826,10 +34887,10 @@ For example:</li>
 <li>
 <p>Configure a transparent path junction for each installed application. Enter the following command once for each junction:</p>
 <p><strong>Note:</strong> Do not include the carriage returns in the command. They are added here for display purposes.</p>
-<p>server task WebSEAL-instance-name create -t ssl</p>
-<p>-h backend-server-name -x -p backend-server-port -i -b ignore -f -A -2</p>
-<p>-F ltpa-token -Z ltpa-password -k transparent-path-jct</p>
-<p>where:</p>
+<p><code>server task WebSEAL-instance-name create -t ssl</code></p>
+<p><code>-h backend-server-name -x -p backend-server-port -i -b ignore -f -A -2</code></p>
+<p><code>-F ltpa-token -Z ltpa-password -k transparent-path-jct</code></p>
+<p>Where:</p>
 <ul>
 <li>
 <p>WebSEAL-instance-name is the name of the WebSEAL server. Use the following syntax:</p>
@@ -34961,20 +35022,20 @@ For example: acl attach /WebSEAL/tam.example.com-default/activities/service/getn
 <td>/activities/seedlist/myserver</td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/atom2/communityEvent</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/atom2/forms</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/download/forms</td>
-<td></td>
 </tr>
 <tr>
-<td>/activities/service/getnonce/forms</td>
 <td></td>
+<td>/activities/service/getnonce/forms</td>
 </tr>
 <tr>
 <td>Blogs</td>
@@ -34985,36 +35046,36 @@ For example: acl attach /WebSEAL/tam.example.com-default/activities/service/getn
 <td>/dogear/seedlist/myserver</td>
 </tr>
 <tr>
-<td>/dogear/api_fba/app</td>
 <td></td>
+<td>/dogear/api_fba/app</td>
 </tr>
 <tr>
 <td>Common resources</td>
 <td>/connections/config</td>
 </tr>
 <tr>
-<td>/connections/settings/globalization/service</td>
 <td></td>
+<td>/connections/settings/globalization/service</td>
 </tr>
 <tr>
-<td>/connections/opensocial/rest</td>
 <td></td>
+<td>/connections/opensocial/rest</td>
 </tr>
 <tr>
 <td>Communities</td>
 <td>/communities/calendar/seedlist/myserver</td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/forum/service/atom/forms</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/recomm/ajax</td>
-<td></td>
 </tr>
 <tr>
-<td>/communities/recomm/atom_form</td>
 <td></td>
+<td>/communities/recomm/atom_form</td>
 </tr>
 <tr>
 <td>Engagement Center</td>
@@ -35025,8 +35086,8 @@ For example: acl attach /WebSEAL/tam.example.com-default/activities/service/getn
 <td>/forums/atom/forms</td>
 </tr>
 <tr>
-<td>/forums/seedlist/myserver</td>
 <td></td>
+<td>/forums/seedlist/myserver</td>
 </tr>
 <tr>
 <td>Invite</td>
@@ -35037,16 +35098,16 @@ For example: acl attach /WebSEAL/tam.example.com-default/activities/service/getn
 <td>/profiles/atom/forms</td>
 </tr>
 <tr>
-<td>/profiles/atom2/forms</td>
 <td></td>
+<td>/profiles/atom2/forms</td>
 </tr>
 <tr>
 <td>URL Preview</td>
 <td>/connections/opengraph/form/api/oembed</td>
 </tr>
 <tr>
-<td>/connections/thumbnail/form/api/imageProxy</td>
 <td></td>
+<td>/connections/thumbnail/form/api/imageProxy</td>
 </tr>
 <tr>
 <td>Sidebar</td>
@@ -35099,300 +35160,300 @@ See the <a href="t_secure_with_tam.html#ResourcesThatDoNotRequireA...">Resources
 <td>/activities/auth</td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/authverify</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities_content</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/images</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/mainpage</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/images</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/servermetrics</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/serverstats</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/static</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/styles</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/activities/service/html/themes</td>
-<td></td>
 </tr>
 <tr>
-<td>/activities/serviceconfigs</td>
 <td></td>
+<td>/activities/serviceconfigs</td>
 </tr>
 <tr>
 <td>Blogs</td>
 <td>/blogs/static</td>
 </tr>
 <tr>
-<td>/blogs/oauth</td>
 <td></td>
+<td>/blogs/oauth</td>
 </tr>
 <tr>
-<td>/blogs/serviceconfigs</td>
 <td></td>
+<td>/blogs/serviceconfigs</td>
 </tr>
 <tr>
 <td>Bookmarks</td>
 <td>/dogear/bookmarklet/tagslike/proxy</td>
 </tr>
 <tr>
+<td></td>
 <td>/dogear/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/dogear/peoplelike</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/dogear/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/dogear/static</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/dogear/tagslike</td>
-<td></td>
 </tr>
 <tr>
-<td>/dogear/tagrecs</td>
 <td></td>
+<td>/dogear/tagrecs</td>
 </tr>
 <tr>
 <td>Common resources</td>
 <td>/connections/bookmarklet/tools/blet.js</td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/bookmarklet/tools/discussThis.js</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/bookmarklet/tools/rlet.js</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/core/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/resources/socmail-client</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/resources/ic</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/resources/web</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/resources/socpim</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/rte</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
-<td>/nav/common</td>
 <td></td>
+<td>/nav/common</td>
 </tr>
 <tr>
 <td>Communities</td>
 <td>/communities/calendar/calendar.xml</td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/calendar/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/images</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/recomm/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/recomm/recomm.xml</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/atom/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/html/communityview</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/json/oauth/</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/opensocial/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/html/community/autoCompleteMembers.do</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/service/html/singleas</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/static</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/communities/stylesheet</td>
-<td></td>
 </tr>
 <tr>
-<td>/communities/tools/embedAS.html</td>
 <td></td>
+<td>/communities/tools/embedAS.html</td>
 </tr>
 <tr>
 <td>Content Manager</td>
 <td>/wsi</td>
 </tr>
 <tr>
-<td>/acce</td>
 <td></td>
+<td>/acce</td>
 </tr>
 <tr>
-<td>/dm</td>
 <td></td>
+<td>/dm</td>
 </tr>
 <tr>
 <td>Engagement Center</td>
 <td>/xcc/templates</td>
 </tr>
 <tr>
-<td>/xcc/js</td>
 <td></td>
+<td>/xcc/js</td>
 </tr>
 <tr>
 <td>Files</td>
 <td>/files/app</td>
 </tr>
 <tr>
+<td></td>
 <td>/files/basic/anonymous/api</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/basic/anonymous/cmis</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/basic/anonymous/opensocial</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files_content</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/downloadfiles</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/form/anonymous/api</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/form/anonymous/cmis</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/form/anonymous/opensocial</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/files/static</td>
-<td></td>
 </tr>
 <tr>
-<td>/files/serviceconfigs</td>
 <td></td>
+<td>/files/serviceconfigs</td>
 </tr>
 <tr>
 <td>Forums</td>
 <td>/forums/oauth</td>
 </tr>
 <tr>
-<td>/forums/serviceconfigs</td>
 <td></td>
+<td>/forums/serviceconfigs</td>
 </tr>
 <tr>
-<td>/forums/static</td>
 <td></td>
+<td>/forums/static</td>
 </tr>
 <tr>
 <td>Home page</td>
 <td>/homepage/oauth</td>
 </tr>
 <tr>
+<td></td>
 <td>/homepage/search</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/homepage/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
-<td>/homepage/static</td>
 <td></td>
+<td>/homepage/static</td>
 </tr>
 <tr>
 <td>Libraries</td>
@@ -35407,40 +35468,40 @@ See the <a href="t_secure_with_tam.html#ResourcesThatDoNotRequireA...">Resources
 <td>/mobile/homepage/SecurityConfiguration</td>
 </tr>
 <tr>
-<td>/mobile_content</td>
 <td></td>
+<td>/mobile_content</td>
 </tr>
 <tr>
 <td>News</td>
 <td>/help</td>
 </tr>
 <tr>
+<td></td>
 <td>/news/common/sand/static/</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/news/follow/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/news/microblogging/isPermitted.action</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/news/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/news/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/news/sharebox/config.action</td>
-<td></td>
 </tr>
 <tr>
-<td>/news/static</td>
 <td></td>
+<td>/news/static</td>
 </tr>
 <tr>
 <td>OAuth Provider</td>
@@ -35451,239 +35512,172 @@ See the <a href="t_secure_with_tam.html#ResourcesThatDoNotRequireA...">Resources
 <td>/profiles/images</td>
 </tr>
 <tr>
+<td></td>
 <td>/profiles/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/profiles/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/profiles/static</td>
-<td></td>
 </tr>
 <tr>
-<td>/profiles/widget-catalog</td>
 <td></td>
+<td>/profiles/widget-catalog</td>
 </tr>
 <tr>
 <td>Push</td>
 <td>/push/basic/comet</td>
 </tr>
 <tr>
-<td>/push/form/comet</td>
 <td></td>
+<td>/push/form/comet</td>
 </tr>
 <tr>
 <td>Search</td>
 <td>/search/atom/search/*</td>
 </tr>
 <tr>
+<td></td>
 <td>/search/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/search/static</td>
-<td></td>
 </tr>
 <tr>
-<td>/search/serviceconfigs</td>
 <td></td>
+<td>/search/serviceconfigs</td>
 </tr>
 <tr>
 <td>URL Preview</td>
 <td>/connections/opengraph/form/anonymous/api/oembed</td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opengraph/basic/anonymous/api/oembed</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opengraph/oauth/anonymous/api/oembed</td>
-<td></td>
 </tr>
 <tr>
-<td>/connections/thumbnail/api/imageProxy</td>
 <td></td>
+<td>/connections/thumbnail/api/imageProxy</td>
 </tr>
 <tr>
 <td>Widget container</td>
 <td>/connections/opensocial/anonymous/rest</td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/common</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/gadgets</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/ic</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/rpc</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/social</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/connections/opensocial/xrds</td>
-<td></td>
 </tr>
 <tr>
-<td>/connections/opensocial/xpc</td>
 <td></td>
+<td>/connections/opensocial/xpc</td>
 </tr>
 <tr>
 <td>Wikis</td>
 <td>/wikis/basic/anonymous/api</td>
 </tr>
 <tr>
+<td></td>
 <td>/wikis_content</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/wikis/form/anonymous/api</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/wikis/oauth</td>
-<td></td>
 </tr>
 <tr>
+<td></td>
 <td>/wikis/serviceconfigs</td>
-<td></td>
 </tr>
 <tr>
-<td>/wikis/static</td>
 <td></td>
+<td>/wikis/static</td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
 <p>The Atom feeds on Connections servers use basic authentication because most feed readers are unable to authenticate with form-authentication. WebSphere Application Server and Connections applications authenticate these Atom HTTP requests through basic authentication as required. To attach the unprotected ACL to resources that Connections protects with basic authentication, run the following command:</p>
-<p>acl attach /WebSEAL/isam_server-WebSEAL_instance/object-pathic-bypass-acl</p>
+<p><code>acl attach /WebSEAL/isam\_server-WebSEAL\_instance/object-pathic-bypass-acl</code></p>
 <p>where:</p>
 <ul>
 <li>isam_server is the host name of the Security Verify Access server</li>
 <li>WebSEAL_instance is the name of the instance of the WebSEAL server that is configured to manage Connections; for example: default</li>
 <li>object-path is the path to the resource on that domain</li>
-<li>ic-bypass-acl is the access control list that you defined in <a href="t_secure_with_tam.html#ToDefineTheAccessControlListEnterT">Step 7 a</a>
-For example: acl attach /WebSEAL/example.com-default/activities/service/atom example-bypass-acl</li>
+<li>ic-bypass-acl is the access control list that you defined in <a href="t_secure_with_tam.html#ToDefineTheAccessControlListEnterT">Step 7 a</a></li>
 </ul>
+<p>For example: acl attach /WebSEAL/example.com-default/activities/service/atom example-bypass-acl</p>
 <p>See the <a href="t_secure_with_tam.html#ResourcesThatRequireBasicAu...">Resources that require basic authentication</a> table for a list of protected URLs .</p>
-<table>
-<thead>
+<p><table>
 <tr>
-<th>Application</th>
-<th>Protected URL</th>
+<th><b>Application</th>
+<th><b>Protected URL</th>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>Activities</td>
-<td>/activities/follow/atom</td>
-</tr>
-<tr>
-<td>/activities/service/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/atom2</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/download</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/getnonce</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/html/autocompleteactivityname</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/html/autocompleteentryname</td>
-<td></td>
-</tr>
-<tr>
-<td>/activities/service/html/autocompletemembers</td>
-<td></td>
+<td>/activities/follow/atom <br>
+/activities/service/atom <br> 
+/activities/service/atom2 <br> 
+/activities/service/download <br> 
+/activities/service/getnonce <br> 
+/activities/service/html/autocompleteactivityname <br> 
+/activities/service/html/autocompleteentryname <br> 
+/activities/service/html/autocompletemembers</td>
 </tr>
 <tr>
 <td>App Registry</td>
-<td>/appreg</td>
-</tr>
-<tr>
 <td>/appregistry</td>
-<td></td>
 </tr>
 <tr>
 <td>Blogs</td>
-<td>/blogs/api</td>
-</tr>
-<tr>
-<td>/blogs/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/follow/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/issuecategories</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/roller-ui/blog</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/roller-ui/feed</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/roller-ui/BlogsWidgetEventHandler.do</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/roller-ui/rendering/api</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/roller-ui/rendering/feed</td>
-<td></td>
-</tr>
-<tr>
-<td>/blogs/services/atom</td>
-<td></td>
+<td>/blogs/api <br> 
+/blogs/atom <br> 
+/blogs/follow/atom <br> 
+/blogs/issuecategories <br> 
+/blogs/roller-ui/blog <br> 
+/blogs/roller-ui/feed <br> 
+/blogs/roller-ui/BlogsWidgetEventHandler.do <br> 
+/blogs/roller-ui/rendering/api <br> 
+/blogs/roller-ui/rendering/feed <br> 
+/blogs/services/atom</td>
 </tr>
 <tr>
 <td>Bookmarks</td>
-<td>/dogear/api/app</td>
-</tr>
-<tr>
-<td>/dogear/api/deleted</td>
-<td></td>
-</tr>
-<tr>
-<td>/dogear/api/notify</td>
-<td></td>
-</tr>
-<tr>
-<td>/dogear/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/dogear/people.do</td>
-<td></td>
+<td>/dogear/api/app <br>
+/dogear/api/deleted <br>
+/dogear/api/notify <br>
+/dogear/atom <br>
+/dogear/people.do</td>
 </tr>
 <tr>
 <td>Common resources</td>
@@ -35691,179 +35685,97 @@ For example: acl attach /WebSEAL/example.com-default/activities/service/atom exa
 </tr>
 <tr>
 <td>Communities</td>
-<td>/communities/calendar/atom</td>
-</tr>
-<tr>
-<td>/communities/calendar/handleevent</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/calendar/ical</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/community-suggestions</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/follow/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/forum/service/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/recomm/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/recomm/handleevent</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/service/atom</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/service/atom/communities/my</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/service/json</td>
-<td></td>
-</tr>
-<tr>
-<td>/communities/service/opensocial</td>
-<td></td>
+<td>/communities/calendar/atom <br>
+/communities/calendar/handleevent <br>
+/communities/calendar/ical <br>
+/communities/community-suggestions <br>
+/communities/follow/atom <br>
+/communities/forum/service/atom <br>
+/communities/recomm/atom <br>
+/communities/recomm/handleevent <br>
+/communities/service/atom <br>
+/communities/service/atom/communities/my <br>
+/communities/service/json <br>
+/communities/service/opensocial</td>
 </tr>
 <tr>
 <td>Files</td>
-<td>/files/basic/api</td>
-</tr>
-<tr>
-<td>/files/basic/api/myuserlibrary/feed</td>
-<td></td>
-</tr>
-<tr>
-<td>/files/basic/cmis</td>
-<td></td>
-</tr>
-<tr>
-<td>/files/basic/opensocial</td>
-<td></td>
-</tr>
-<tr>
-<td>/files/follow/atom</td>
-<td></td>
+<td>/files/basic/api <br>
+/files/basic/api/myuserlibrary/feed <br>
+/files/basic/cmis <br>
+/files/basic/opensocial <br>
+/files/follow/atom </td>
 </tr>
 <tr>
 <td>Forums</td>
-<td>/forums/atom</td>
-</tr>
-<tr>
-<td>/forums/follow/atom</td>
-<td></td>
+<td>/forums/atom <br>
+/forums/follow/atom </td>
 </tr>
 <tr>
 <td>Home page</td>
-<td>/homepage/atom/mysearch</td>
-</tr>
-<tr>
-<td>/homepage/atom/search</td>
-<td></td>
-</tr>
-<tr>
-<td>/homepage/web/updates/</td>
-<td></td>
+<td>/homepage/atom/mysearch <br>
+/homepage/atom/search <br>
+/homepage/web/updates/ </td>
 </tr>
 <tr>
 <td>News</td>
-<td>/news/atom/service</td>
-</tr>
-<tr>
-<td>/news/atom/stories/community</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/newsfeed</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/public</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/save</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/saved</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/statusupdates</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/stories/top</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atom/watchlist</td>
-<td></td>
-</tr>
-<tr>
-<td>/news/atomfba/stories/public</td>
-<td></td>
+<td>/news/atom/service <br>
+/news/atom/stories/community <br>
+/news/atom/stories/newsfeed <br>
+/news/atom/stories/public <br>
+/news/atom/stories/save <br>
+/news/atom/stories/saved <br>
+/news/atom/stories/statusupdates <br>
+/news/atom/stories/top <br>
+/news/atom/watchlist <br>
+/news/atomfba/stories/public </td>
 </tr>
 <tr>
 <td>Orient Me</td>
-<td>/community-suggestions</td>
+<td>/community-suggestions </td>
 </tr>
 <tr>
 <td>Profiles</td>
-<td>/profiles/atom</td>
+<td>/profiles/atom <br>
+/profiles/atom2 <br>
+/profiles/atom/forms/tagCloud.do <br>
+<b>Note:</b>** If you use case-insensitive junctions in your Security Verify Access configuration, specify tagcloud.do instead of tagCloud.do. <br>
+/profiles/follow/atom <br>
+/profiles/admin/atom <br>
+/profiles/photo.do <br>
+/profiles/json <br>
+/profiles/audio.do <br>
+/profiles/vcard </td>
 </tr>
 <tr>
-<td>/profiles/atom2</td>
-<td></td>
+<td>URL Preview</td>
+<td>/connections/opengraph/basic/api/oembed <br>
+/connections/thumbnail/basic/api/imageProxy </td>
 </tr>
 <tr>
-<td>/profiles/atom/forms/tagCloud.do <strong>Note:</strong> If you use case-insensitive junctions in your Security Verify Access configuration, specify tagcloud.do instead of tagCloud.do.</td>
-<td></td>
+<td>Wikis</td>
+<td>/wikis/basic/api <br>
+/wikis/follow/atom </td>
 </tr>
-</tbody>
-</table>
+</table></p>
+</li>
+<li>
+<p>Include the following unprotected resources when you configure ISVA.</p>
+<ul>
+<li>/communities/seedlist/myserver</li>
+<li>/dogear/seedlist/myserver</li>
+<li>/profiles/seedlist/myserver</li>
+<li>/news/seedlist/myserver</li>
+<li>/activities/seedlist/myserver</li>
+<li>/communities/calendar/seedlist/myserver</li>
+<li>/blogs/seedlist/myserver</li>
+<li>/forums/seedlist/myserver</li>
+<li>/forums/seedlist/myserver</li>
+<li>/wikis/seedlist/myserver</li>
+</ul>
 </li>
 </ol>
 </li>
-</ol>
-<p>|
-        |/profiles/follow/atom|
-        |/profiles/admin/atom|
-        |/profiles/photo.do|
-        |/profiles/json|
-        |/profiles/audio.do|
-        |/profiles/vcard|
-        |URL Preview|/connections/opengraph/basic/api/oembed|
-        |/connections/thumbnail/basic/api/imageProxy|
-        |Wikis|/wikis/basic/api|
-        |/wikis/follow/atom|</p>
-<pre><code>4.  Include the following unprotected resources when you configure ISVA.
-
-    -   /communities/seedlist/myserver
-    -   /dogear/seedlist/myserver
-    -   /profiles/seedlist/myserver
-    -   /news/seedlist/myserver
-    -   /activities/seedlist/myserver
-    -   /communities/calendar/seedlist/myserver
-    -   /blogs/seedlist/myserver
-    -   /forums/seedlist/myserver
-    -   /forums/seedlist/myserver
-    -   /wikis/seedlist/myserver
-</code></pre>
-<ol>
 <li>
 <p>To get the activity stream on the Homepage to display, you must import an encrypted connection (SSL) certificate from the ISVA server to the nodes.</p>
 <ol>
@@ -35998,25 +35910,29 @@ To capture requests to /ibm_security_logout and redirect them to /pkmslogout, ad
 <li>
 <p>Restart your cluster: Stop all application servers and all nodes, and then restart the deployment manager, all the nodes, and all the application servers.</p>
 </li>
-<li>
+</ol>
 <p><strong><a href="t_secure_with_tam_s2s.html">Using WebSEAL for server to server communication</a></strong><br />
 To send all traffic through your WebSeal server, including server to server traffic, update the LotusConnections-config.xml file.</p>
-</li>
-</ol>
-<p><strong>Parent topic:</strong><a href="c_sec_config_sso.html">Configuring single sign-on</a></p>
+<p><strong>Parent topic:</strong> <a href="c_sec_config_sso.html">Configuring single sign-on</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_setup_standalone_ldap.html">Enabling single sign-on for standalone LDAP</a></p>
 <p><a href="../admin/t_admin_common_changing_admin_passwords.html">Changing references to administrative credentials</a></p>
 <p><a href="../install/t_exchange_keys_network.html">Adding certificates to the WebSphere trust store</a></p>
 <p><a href="../install/t_install_configure_external_collab.html">Configuring external collaboration</a></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
         
@@ -36024,12 +35940,13 @@ To send all traffic through your WebSeal server, including server to server traf
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
         <a href="t_azure_sso_for_mobile.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Supporting Azure SSO for mobile clients" rel="prev">
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
           <div class="md-footer__title">
             <div class="md-ellipsis">
@@ -36053,7 +35970,7 @@ To send all traffic through your WebSeal server, including server to server traf
             </div>
           </div>
           <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
           </div>
         </a>
       
@@ -36079,7 +35996,7 @@ To send all traffic through your WebSeal server, including server to server traf
       
     
     <a href="https://github.com/HCL-TECH-SOFTWARE" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -36092,10 +36009,66 @@ To send all traffic through your WebSeal server, including server to server traf
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": {"provider": "mike"}}</script>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
     
     
-      <script src="../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>

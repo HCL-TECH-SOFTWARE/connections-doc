@@ -20,8 +20,8 @@ Feeds pull information from websites and provide content summaries and links. Yo
 **Tips:** \(Communities only\)
 
 -   The Feeds feature in the Communities app works differently. It acts as a mini feed reader that publishes updates from external sites on the community page.
--   When you specify the web address of a feed, you can use the ps parameter to specify a different page size for the feed. By default, feeds in Communities display 10 entries per page. The first page of 10 entries is fetched by default. You can use the page parameter to fetch subsequent pages. For example, you can use the following web address to fetch the second page of the My Communities feed where the page size is set to 20 entries: http://connections.example.com/communities/service/atom/communities/my?page=2&ps=20http://app.example.com/communities/service/atom/communities/my?page=2&ps=20.
+-   When you specify the web address of a feed, you can use the **ps** parameter to specify a different page size for the feed. By default, feeds in Communities display 10 entries per page. The first page of 10 entries is fetched by default. You can use the **page** parameter to fetch subsequent pages. For example, you can use the following web address to fetch the second page of the My Communities feed where the page size is set to 20 entries: ```http://connections.example.com/communities/service/atom/communities/my?page=2&ps=20```.
 -   To track activities in the community, subscribe to the Activities feed of that community.
 
-**Parent topic:**[Shared features](../eucommon/c_eucommon_shared_components.md)
+**Parent topic:** [Shared features](../eucommon/c_eucommon_shared_components.md)
 

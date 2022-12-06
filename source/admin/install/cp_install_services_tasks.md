@@ -967,7 +967,7 @@ The items of information needed for this setup are:
 With this information, to upgrade the connections-env and create the configmap and secret, run:
 
 ``` {#codeblock_uqj_hlp_fvb}
-helm upgrade connections-env component\_pack\_installation\_folder/hybridcloud/helmbuilds/connections-env-*.tgz --reuse-values --set integrations.msteams.enabled=true,integrations.msteams.tenant.id="your\_tenant\_id",integrations.msteams.client.id="your\_bot\_id",integrations.msteams.client.secret="your\_bot\_secret",integrations.msteams.auth.schema="3",integrations.msgraph.client.id="not_used",integrations.msgraph.client.secret="not_used",integrations.msgraph.redirect.uri="not_used",integrations.msteams.share.ui.files.api="/files/basic/api",integrations.msteams.redirect.uri="not_used",integrations.msgraph.secret.name="not_used",integrations.msgraph.auth.endpoint="not_used",integrations.msgraph.meta.endpoint="not_used",integrations.msgraph.authorize.endpoint="not_used",integrations.msgraph.token.endpoint="not_used",integrations.msteams.share.service.endpoint="my.connections.server.com",imagePullSecretName="myregkey"
+helm upgrade connections-env component_pack_installation_folder/hybridcloud/helmbuilds/connections-env-*.tgz --reuse-values --set integrations.msteams.enabled=true,integrations.msteams.tenant.id="your_tenant_id",integrations.msteams.client.id="your_bot_id",integrations.msteams.client.secret="your_bot_secret",integrations.msteams.auth.schema="3",integrations.msgraph.client.id="not_used",integrations.msgraph.client.secret="not_used",integrations.msgraph.redirect.uri="not_used",integrations.msteams.share.ui.files.api="/files/basic/api",integrations.msteams.redirect.uri="not_used",integrations.msgraph.secret.name="not_used",integrations.msgraph.auth.endpoint="not_used",integrations.msgraph.meta.endpoint="not_used",integrations.msgraph.authorize.endpoint="not_used",integrations.msgraph.token.endpoint="not_used",integrations.msteams.share.service.endpoint="my.connections.server.com",imagePullSecretName="myregkey"
 ```
 
 Once the configmap and secret are created, continue to install the microservices that rely on them for configuration.
@@ -1026,8 +1026,8 @@ For post-installation tasks required to deploy the community creation wizard and
 
     Where:
 
-    -   working\_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
-    -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client:
+    -   working_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
+    -   cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client:
 
         ``` {#codeblock_owg_zpt_hvb}
         print AdminControl.getCell()
@@ -1058,7 +1058,7 @@ For post-installation tasks required to deploy the community creation wizard and
 
 6.  To exit the wsadmin client, type `exit` at the prompt.
 
-7.  Deploy the changes by doing a **Fully Resynchronize** of the nodes on WebSphere Admin Console \([https://<host\_name\>:9043/ibm/console](https://%3chost_name%3e:9043/ibm/console)\).
+7.  Deploy the changes by doing a **Fully Resynchronize** of the nodes on WebSphere Admin Console ([https://<host_name>:9043/ibm/console](https://%3chost_name%3e:9043/ibm/console)\).
 
 8.  Stop and restart the servers that host the IBM Connections applications.
 

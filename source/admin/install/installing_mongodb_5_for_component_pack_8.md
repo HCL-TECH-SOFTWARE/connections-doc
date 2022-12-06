@@ -55,10 +55,10 @@ Ensure you have the following:
 
 7.  With MongoDB 5, you need persistent volumes for all replicas of Mongo5 pod and you need to verify that they have been created. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb).
 
-8.  Install Helm charts. When it comes to Helm charts, this documentation references to YAML files stored in the [HCL Helm repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars) as parameters.
+8.  Install Helm charts. When it comes to Helm charts, this documentation references to YAML files stored in the [HCL Helm repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) as parameters.
 
 9.  Before installing Mongo5, set up PV/PVC. Install the connections-volumes Helm chart to set up the persistence layer:
-    1.  On your Component Pack node, download [connections-volumes.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars). Then, rename the downloaded file to connections-volumes.yml and open it.
+    1.  On your Component Pack node, download [connections-volumes.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars). Then, rename the downloaded file to connections-volumes.yml and open it.
 
         Replace variables in curly braces with the appropriate values.
 
@@ -82,7 +82,7 @@ Ensure you have the following:
         **Note:** If `upgrade connections-volumes` fails, try to delete all PV, PVC first and then run upgrade command.
 
 10. Install MongoDB 5 using Helm charts.
-    1.  On your Component Pack node, download [infrastructure.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack/templates/helmvars). Then, rename the file to infrastructure.yml and open it.
+    1.  On your Component Pack node, download [infrastructure.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars). Then, rename the file to infrastructure.yml and open it.
 
         Replace variables in curly braces with the appropriate values.
 

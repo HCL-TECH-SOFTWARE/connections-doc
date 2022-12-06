@@ -53,9 +53,6 @@ Once the microservices are installed and running for Microsoft Teams integration
 # teams-tab-ui
 ProxyPass "/teams-tab" "http://master_node_host_name:32080/teams-tab" 
 ProxyPassReverse "/teams-tab" "http://master_node_host_name:32080/teams-tab"    
-# teams-tab-api 
-ProxyPass "/teams-tab/api" "http://master_node_host_name:32080/teams-tab/api" 
-ProxyPassReverse "/teams-tab/api" "http://master_node_host_name:32080/teams-tab/api"
 # teams-share-service 
 ProxyPass "/teams-share-service" "http://master_node_host_name:32080/teams-share-service" 
 ProxyPassReverse "/teams-share-service" "http://master_node_host_name:32080/teams-share-service"
