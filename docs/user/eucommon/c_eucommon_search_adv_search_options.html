@@ -22478,7 +22478,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../admin/secure/t_secure_with_tam.html">Enabling single sign-on for Security Access Manager</a>
+          <a href="../../admin/secure/t_secure_with_tam.html">Enabling single sign-on for Security Verify Access</a>
           
             <label for="__nav_3_12_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -22486,10 +22486,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Enabling single sign-on for Security Access Manager" data-md-level="4">
+      <nav class="md-nav" aria-label="Enabling single sign-on for Security Verify Access" data-md-level="4">
         <label class="md-nav__title" for="__nav_3_12_3_3">
           <span class="md-nav__icon md-icon"></span>
-          Enabling single sign-on for Security Access Manager
+          Enabling single sign-on for Security Verify Access
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -22684,7 +22684,7 @@
   
     <li class="md-nav__item">
       <a href="../../admin/secure/t_secure_with_tam-spnego.html" class="md-nav__link">
-        Enabling SPNEGO single sign-on for Security Access Manager
+        Enabling SPNEGO single sign-on for Security Verify Access
       </a>
     </li>
   
@@ -34883,55 +34883,54 @@
 <h2 class="section" id="search-operators">Search operators</h2>
 <p>Use the following operators to control the scope of your search.</p>
 <table>
-<thead>
 <tr>
-<th>Operator</th>
-<th>Description</th>
+<th><b>Operator</th>
+<th><b>Description</th>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>OR</td>
-<td>Use the OR operator between two words to search for content that contains either word.For example, if you enter car or motorcycle, Search returns information that contains either car or motorcycle.</td>
+<td>Use the OR operator between two words to search for content that contains either word.<br>
+For example, if you enter <b>car or motorcycle</b>, Search returns information that contains either car or motorcycle.</td>
 </tr>
-</tbody>
+<td>AND</td>
+<td>Use the AND operator to search for content where both terms exist anywhere in the text of a single document. By default, a space between keywords is treated as an AND operation. The double ampersand (&&) operator can be used as a synonym for the AND operator.
+<br>For example, to search for information containing the text car and motorcycle enter the following query:
+<br> <b>"car" AND "motorcycle"</b>
+</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Use the plus sign (+) to combine search words. The plus sign operator is similar to the AND operator, but it applies only to the word immediately following it.
+<br>For example, to search for information that must contain car and can contain motorcycle, enter the following query:
+<br> <b>+car motorcycle</b>
+</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>Use the NOT operator to exclude a word from your search. Results containing the word immediately following the operator are excluded by the search. The exclamation point (!) and minus sign (-) can be used as synonyms for the NOT operator.
+<br> For example, to search for information that contains car but not motorcycle, enter one of the following queries:
+<br> -   <b>car NOT motorcycle</b>
+<br> -   <b>car -motorcycle</b>
+<br>
+<br> Using the NOT operator, exclamation point (!), or minus sign (-) with a single term returns no results.
+</td>
+</tr>
 </table>
-<p>|
-|AND|Use the AND operator to search for content where both terms exist anywhere in the text of a single document. By default, a space between keywords is treated as an AND operation. The double ampersand (&amp;&amp;) operator can be used as a synonym for the AND operator.</p>
-<p>For example, to search for information containing the text car and motorcycle enter the following query:</p>
-<p>"car" AND "motorcycle"</p>
-<p>|
-|+|Use the plus sign (+) to combine search words. The plus sign operator is similar to the AND operator, but it applies only to the word immediately following it.For example, to search for information that must contain car and can contain motorcycle, enter the following query:</p>
-<p>+car motorcycle</p>
-<p>|
-|NOT|Use the NOT operator to exclude a word from your search. Results containing the word immediately following the operator are excluded by the search.The exclamation point (!) and minus sign (-) can be used as synonyms for the NOT operator.</p>
-<p>For example, to search for information that contains car but not motorcycle, enter one of the following queries:</p>
-<ul>
-<li>car NOT motorcycle</li>
-<li>car -motorcycle</li>
-</ul>
-<p>Using the NOT operator, exclamation point (!), or minus sign (-) with a single term returns no results.</p>
-<p>|</p>
+
 <h2 class="section" id="grouping">Grouping</h2>
 <p>Use parentheses to group search terms in clauses and further refine the scope of your search.</p>
 <p>For example, if you want to search for information that contains plane and car or plane and motorcycle, enter the following query:</p>
-<p>(car OR motorcycle) AND plane</p>
+<p><b>(car OR motorcycle) AND plane</b></p>
 <h2 class="section" id="special-characters">Special characters</h2>
 <p>When your search term contains one of the nonalphanumeric characters listed below, you need to escape the character by using a backslash ( \ ) before the character or by enclosing the search term in double quotation marks ("). Use a backslash before using any of these characters:</p>
-<ul>
-<li>
-<ul>
-<li>&amp;&amp; || ! ( ) { } [ ] ^ " ~ * ? : \</li>
-</ul>
-</li>
-</ul>
+<p>+ - &amp;&amp; || ! ( ) { } [ ] ^ " ~ * ? : \</p>
 <p>If you do not perform this escape operation, Search interprets the characters as being part of the query instructions.</p>
-<p>For example, if you want to search for information that contains the text string cat + dog and you enter cat + dog as your search term, Search looks for any data that contains both the word cat and the word dog. This result is because the plus sign (+) is a reserved operator with a predefined meaning. To search for information containing the actual text string cat + dog, use one of the following queries:</p>
+<p>For example, if you want to search for information that contains the text string <b>cat + dog</b> and you enter <b>cat + dog</b> as your search term, Search looks for any data that contains both the word <b>cat</b> and the word <b>dog</b>. This result is because the plus sign (+) is a reserved operator with a predefined meaning. To search for information containing the actual text string <b>cat + dog</b>, use one of the following queries:</p>
 <ul>
-<li>cat \+ dog</li>
-<li>"cat + dog"</li>
+<li><b>cat + dog</b></li>
+<li><b>"cat + dog"</b></li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_eucommon_search.html">Searching Connections</a></p>
+<p><strong>Parent topic:</strong> <a href="c_eucommon_search.html">Searching Connections</a></p>
 
 
 
