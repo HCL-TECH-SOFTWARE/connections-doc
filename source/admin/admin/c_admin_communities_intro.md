@@ -62,12 +62,11 @@ The community fetch commands return a Java™ vector of Java™ hash maps. No fi
 -   **[Filtering community lists](../admin/t_admin_communities_manage_lists.md)**  
 Use the CommunitiesListService commands to filter the information in community lists and to generate smaller lists containing more specific information.
 
-**Parent topic:**[Administering](../admin/c_lc_admin_overview.md)
+**Parent topic: **[Administering](../admin/c_lc_admin_overview.md)
 
 **Related information**  
 
 
-[Configuring the active content filter for Activities, Communities, and Bookmarks](../secure/t_sec_change_acf_config_ckeditor.md)
 
 [Integrating the Communities business card](../admin/t_admin_communities_include_biz_card.md)
 

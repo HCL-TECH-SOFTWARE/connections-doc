@@ -1,4 +1,4 @@
-# Tiny Editor Services configuration {#tiny-editors .concept}
+# Tiny Editor Services configuration 
 
 The Tiny Editor Services use a configuration file called application.conf, written in [Human-Optimized Config Object Notation](https://github.com/lightbend/config/blob/master/HOCON.md). These settings can be [overridden by JVM environment variables](https://github.com/lightbend/config/blob/master/HOCON.md#conventional-override-by-system-properties) named with the [path of the setting](https://github.com/lightbend/config/blob/master/HOCON.md#paths-as-keys).
 
@@ -27,8 +27,6 @@ For a list of available settings, see: [List of valid application.conf settings]
 
 
 [Configuring the application.conf for the Tiny Editors Services](../../install/tiny_editors/t_01-setup_02-services_01-appconf_00-summary.md)
-
-[../../admin/install/tiny\_editors/t\_01-setup\_02-services\_01-appconf\_01-create-an-application-conf-1.md](../../admin/install/tiny_editors/t_01-setup_02-services_01-appconf_01-create-an-application-conf-1.md)
 
 [Disable SSL certificate validation for testing](../../install/tiny_editors/t_disable-certificate-validation-for-testing.md)
 

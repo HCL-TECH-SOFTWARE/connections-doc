@@ -1,8 +1,8 @@
-# How search works in HCL Connections profiles {#reference_u3q_chh_sn .reference}
+# How search works in HCL Connections profiles 
 
 There are different ways to search for content in HCL Connections™ profiles.
 
-## Searchable contents { .section}
+## Searchable contents
 
 All profiles content can be searched, regardless of whether the data is entered by the user or is obtained from external data sources such as LDAP. This includes the following profiles content:
 
@@ -35,10 +35,9 @@ The following search types are supported:
 
     -   Because the database search is performed on the Profiles database directly, there is no delay for any new/updated/deleted data. For example, if a user's name is updated by the TDI scripts, then searching against the new name finds the user immediately. In the meantime, searching against the old name would not find the user.
     -   All user queries are appended with a wildcard at the end of each word. For example, if a user types a search term: "Amy Jones", this query would search for names like: `"amy% jones%"`.
-    -   Inactive users are not included in database search results. To find inactive users, use the index searches and specifically select to include inactive users. For more information, see [Index Search](r_search_profiles.md#index_search).
--   Index search:
+    -   Inactive users are not included in database search results. To find inactive users, use the index searches and specifically select to include inactive users. For more information, see Index search in the next section.
 
-    Indexes are built for all profile contents for advanced searches. The profiles indexes are also used for social data analytic purposes.
+    - Index Search - Indexes are built for all profile contents for advanced searches. The profiles indexes are also used for social data analytic purposes.
 
     The following searches from the user interface use the index search:
 
@@ -55,8 +54,8 @@ The following search types are supported:
     -   Inactive users are not included in the search results for index searches. From the user interface with Full search options, check the **Include inactive users** checkbox to include inactive users in the search results. You cannot search for inactive users only.
 -   Search APIs:
 
-    All profile contents can be searched by profile search APIs, for more information, see [Profiles Search API](http://www-10.lotus.com/ldd/appdevwiki.nsf/xpViewCategories.xsp).
-
+    All profile contents can be searched by profile search APIs.
+    
     When the name parameter is used in the search APIs, the database search is used; otherwise, the index search is used for the search APIs.
 
 -   Organization tag cloud
@@ -368,8 +367,6 @@ OR FIELD_GIVEN_NAME:amy), pageNum = 1
 
 **Related information**  
 
-
-[Customizing Profiles search](../customize/c_admin_profiles_adv_search.md)
 
 [Managing the Profiles search operation](../admin/t_admin_profiles_search.md)
 

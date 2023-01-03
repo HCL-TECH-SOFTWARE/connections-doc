@@ -1,41 +1,28 @@
-# Troubleshooting Search FAQs {#r_ts_search_faqs .reference}
+# Troubleshooting Search FAQs 
 
 A list of the common troubleshooting issues and answers.
 
-## Search FAQs { .section}
+## Search FAQs 
 
--   [What is the difference between foreground indexing and background indexing?](r_ts_search_faqs.md#indexing_differences)
--   [Will the initial indexing task resume if I restart the Search application several times before the index is built?](r_ts_search_faqs.md#initial_indexing)
--   [Do I need to rebuild the Search index after migrating from Connections 3.0.1 to Connections 4?](r_ts_search_faqs.md#rebuild_index)
--   [What is the state parameter?](r_ts_search_faqs.md#state_parameter)
--   [How much free space should I allocate to the index and its backup?](r_ts_search_faqs.md#free_space)
--   [I am seeing the following message in the logs, what does it mean? CLFRW0618I: Unable to resolve wikis...](r_ts_search_faqs.md#CLFRW0618I)
--   [I see the following warning, what does it mean? WSVR0605W: Thread "WorkManager.DefaultWorkManager...](r_ts_search_faqs.md#WSVR0605W)
+-   What is the difference between foreground indexing and background indexing?
+-   Will the initial indexing task resume if I restart the Search application several times before the index is built?
+-   Do I need to rebuild the Search index after migrating from Connections 3.0.1 to Connections 4?
+-   What is the state parameter?
+-   How much free space should I allocate to the index and its backup?
+-   I am seeing the following message in the logs, what does it mean? CLFRW0618I: Unable to resolve wikis
+-   I see the following warning, what does it mean?
 
 -   What is the difference between foreground indexing and background indexing?
 
     The following table explains the key differences between foreground indexing and background indexing:
 
-    | |Foreground indexing|Background indexing|
-    |--|-------------------|-------------------|
-    |Initial indexing|The initial index is built by using the default 15 min-search-indexing-task.Alternatively, it can be built by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow\(String applicationNames\).
 
-This index is used for searching and for further indexing. The database cache is not used.
+| Foreground  | Indexing  | Background indexing   |
+|---|---|---|
+|Initial indexing|The initial index is built by using the default 15 min-search-indexing-task.Alternatively, it can be built by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow\(String applicationNames\). This index is used for searching and for further indexing. The database cache is not used.|An index is built by using the SearchService.startBackgroundIndex command.The background indexing command creates a one-off index in a specified location on disk.  This index is not used for searching. The database cache is not used.|
+|Incremental indexing|The index is updated by using the default 15min-search-indexing-task.Alternatively, the index can be updated by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow.  This index is used for searching and for further indexing. The database cache is used.|A background index can be updated by using the SearchService.startBackgroundIndex command.This index is not used for searching. The database cache is not used.| 
 
-|An index is built by using the SearchService.startBackgroundIndex command.The background indexing command creates a one-off index in a specified location on disk.
-
-This index is not used for searching. The database cache is not used.
-
-|
-    |Incremental indexing|The index is updated by using the default 15min-search-indexing-task.Alternatively, the index can be updated by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow.
-
-This index is used for searching and for further indexing. The database cache is used.
-
-|A background index can be updated by using the SearchService.startBackgroundIndex command.This index is not used for searching. The database cache is not used.
-
-|
-
-    You can replace the index at the default index location with an index created by using background indexing. This step is useful when you want to rebuild the Search index but want to avoid downtime. For more information, see [Creating a background index](../admin/t_admin_search_create_standalone_index.md). You can either stop the Search application, replace the index, and then restart Search, or you can use the SearchService.reloadIndex command to replace the index. For more information, see [Restoring a Search index without restarting individual nodes](../admin/t_admin_search_restore_index_wo_restarting.md).
+You can replace the index at the default index location with an index created by using background indexing. This step is useful when you want to rebuild the Search index but want to avoid downtime. For more information, see [Creating a background index](../admin/t_admin_search_create_standalone_index.md). You can either stop the Search application, replace the index, and then restart Search, or you can use the SearchService.reloadIndex command to replace the index. For more information, see [Restoring a Search index without restarting individual nodes](../admin/t_admin_search_restore_index_wo_restarting.md).
 
 -   Does the initial indexing task resume if I restart the Search application several times before the index is built?
 
@@ -131,22 +118,5 @@ This index is used for searching and for further indexing. The database cache is
 -   **[How search works in HCL Connections profiles](../troubleshoot/r_search_profiles.md)**  
 There are different ways to search for content in HCL Connections™ profiles.
 
-**Parent topic:**[Troubleshooting Search](../troubleshoot/c_ts_search.md)
 
-**Related information**  
-
-
-[Administering Search](../admin/c_admin_homepage_search.md)
-
-[Creating Search indexes](../admin/c_admin_search_create_indexes.md)
-
-[Restoring a Search index without restarting individual nodes](../admin/t_admin_search_restore_index_wo_restarting.md)
-
-[Enabling indexing resumption](../admin/t_admin_search_resume_crawls.md)
-
-[Adding scheduled tasks for Search](../admin/t_admin_search_configure_index_tasks.md)
-
-[Running one-off tasks](../admin/t_admin_search_one_off_tasks.md)
-
-[Creating a background index](../admin/t_admin_search_create_standalone_index.md)
 

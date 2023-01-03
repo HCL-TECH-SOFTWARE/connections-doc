@@ -111,9 +111,3 @@ Use the searchResults.ftl template to customize the display of fields in either 
 
 
 **Parent topic:**[Customizing display using templates](../customize/t_admin_profiles_customize_biz_card_main.md)
-
-**Related information**  
-
-
-[Adding custom extension attributes for Profiles](../customize/c_admin_profiles_add_custom_field.md)
-

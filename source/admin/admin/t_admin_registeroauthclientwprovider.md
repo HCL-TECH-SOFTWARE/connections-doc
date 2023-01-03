@@ -75,8 +75,3 @@ To allow a seamless user experience while using the Activity Streams, HCL Connec
     -   refresh token=6 months
     -   cleanup interval=1 hour
 
--   **[Authorization Management Commands](../admin/r_admin_common_oauth_mgnt_commands.md)**  
-Once client applications are registered with the OAuth provider in HCL Connections, they are allowed to request authorization from Connections users to access and interact with their data. Connections administrators can run wsadmin commands to manage authorizations issued to registered client applications, in order to revoke authorizations granted to malicious applications, or to remove a compromised access token.
-
-**Parent topic:**[Allowing third-party applications access to data via the OAuth2 protocol](../admin/c_admin_common_oauth.md)
-

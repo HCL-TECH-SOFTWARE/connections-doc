@@ -4,7 +4,7 @@ Edit configuration settings to enable email notifications in the HCL Connections
 
 Only complete this procedure if you did not enable email notifications during the product installation. Also, be sure to complete the steps described in [Sending mail from any available mail server](t_admin_common_config_mail_dnx.md) or [Sending mail from a dedicated mail server](t_admin_common_config_mail_was.md).
 
-**Note:** If your organization is implementing the new look for email notifications introduced in CR4, skip this topic and see [Enabling email notifications](t_admin_common_enable_template.md).
+**Note:** If your organization is implementing the new look for email notifications introduced in CR4, skip this topic and see [t\_admin\_common\_enable\_template.md](t_admin_common_enable_template.md).
 
 You might choose not to enable email notifications if you have configured HCL Connections to hide email addresses, for example. Even when you do not enable email notifications, if you installed the Home page application, the product still supports a subset of notifications that can be displayed in the Home page application. The subset includes the notifications of type "Directed," which are listed in *Configuring notifications*.
 
@@ -50,17 +50,4 @@ When you set the enabled property to false globally or for a specific source, th
 
 
 See *Defining valid administrator email addresses* for some additional steps that you must take to configure automatic notifications in Activities.
-
-**Parent topic:**[Configuring notifications](../admin/t_admin_common_config_notification.md)
-
-**Related information**  
-
-
-[Changing common configuration property values](../admin/t_admin_common_changing_config.md)
-
-[Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
-
-[Defining valid administrator email addresses](../admin/t_admin_act_managing_notifications.md)
-
-[Configuring Forums for email notification replies](../admin/c_admin_forums_notification_replies.md)
 

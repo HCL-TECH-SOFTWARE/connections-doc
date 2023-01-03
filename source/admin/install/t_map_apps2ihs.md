@@ -1,4 +1,4 @@
-# Mapping applications to IBM HTTP Server {#t_update_web_addresses_in_IHS .task}
+# Mapping applications to IBM HTTP Server 
 
 Map HCL Connections applications to IBM® HTTP Server.
 
@@ -62,14 +62,4 @@ http://hostname/application\_name
 
 where hostname is the host name of the web server to which you mapped the application and application\_name is the name of the application. Do not specify the port number.
 
-**Parent topic:**[Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
-
-**Previous topic:**[Defining IBM HTTP Server](../install/t_create_webserver1_node.md)
-
-**Next topic:**[Verifying application mappings](../install/t_verify_application_mappings.md)
-
-**Related information**  
-
-
-[Reconfiguring FileNet Collaboration Services 2.0.3 and later](../install/t_inst_reconfig_fncs_for_203.md)
-
+**Parent topic:** [Configuring IBM HTTP Server](../install/c_add_ihs_over.md)

@@ -1,4 +1,4 @@
-# Populating the Profiles database {#t_prof_install_profiles_db .task}
+# Populating the Profiles database 
 
 Populate the Profiles database with data from the LDAP directory.
 
@@ -28,10 +28,4 @@ Decide if you will accept the default identifiers used by your LDAP directory se
 -   **[Optional: Specifying a custom ID attribute for users or groups](../install/t_specify_dif_guid.md)**  
 Add custom global unique ID attributes in the LDAP directory to make user record changes easier to manage and to minimize the possibility of accidentally introducing dual accounts for a user. This is an optional task.
 
-**Parent topic:**[Pre-installation tasks](../install/c_preinstall_actions.md)
-
-**Related information**  
-
-
-[Developing custom Tivoli Security Integrator assembly lines for Profiles](../admin/c_admin_profiles_develop_custom_tdi_scripts.md)
-
+**Parent topic:** [Pre-installation tasks](../install/c_preinstall_actions.md)

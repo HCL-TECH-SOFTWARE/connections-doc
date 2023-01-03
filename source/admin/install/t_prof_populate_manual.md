@@ -1,4 +1,4 @@
-# Manually populating the Profiles database {#t_prof_populate_manual .task}
+# Manually populating the Profiles database 
 
 Instead of using the Profiles population wizard, you can manually populate the database.
 
@@ -161,7 +161,7 @@ After installing the Profiles database, and setting up the SDI Solutions Directo
     -   Organization codes script ./fill\_organization.sh or fill\_organization.bat
     -   Employee type code script ./fill\_emp\_type.sh or fill\_emp\_type.bat
     -   Department code script ./fill\_department.sh or fill\_department.bat
-    For more information, see [Supplemental user data for Profiles](r_prof_fill-tables.md).
+    For more information, see [Supplemental user data for Profiles](../install/r_prof_fill-tables.md).
 
 
 Perform the remaining tasks under [Populating the Profiles database](t_prof_install_profiles_db.md).
@@ -175,16 +175,4 @@ HCL Connections provides several batch files that automate the collection and pr
 -   **[Considerations when populating a large user set](../install/c_populate_large_user_set.md)**  
 Populate the Profiles database with many users from an LDAP directory.
 
-**Parent topic:**[Adding source data to the Profiles database](../install/t_populate_profiles_db.md)
-
-**Related information**  
-
-
-[Use an LDAP branch to store external users](../admin/t_admin_profiles_ldap_branch.md)
-
-[Customizing the Profiles data model](../customize/r_admin_profiles_attributes.md)
-
-[Managing the Search index](../admin/c_admin_search_manage_index.md)
-
-[Profile-types](../customize/r_admin_profiles_ovr_types.md)
-
+**Parent topic:** [Adding source data to the Profiles database](../install/t_populate_profiles_db.md)

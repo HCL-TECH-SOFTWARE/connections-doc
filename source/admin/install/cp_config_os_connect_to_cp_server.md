@@ -2,20 +2,20 @@
 
 For the OpenSearch Metrics component to work with HCL Connections Component Pack, you must run a script on the Component Pack system to set the OpenSearch server base URL in Highway. Also, WebSphere Application Server, which hosts the Metrics component, must run Java 8 and use an SSL client certificate when sending HTTPS requests to OpenSearch on the Component Pack system.
 
-Make sure that secure connections are established in your deployment, as explained in [Forcing traffic to use TLS 1.2](../secure/t_admin_common_forcing_tls.md).
+Make sure that secure connections are established in your deployment, as explained in [../secure/t\_admin\_common\_forcing\_tls.md](../secure/t_admin_common_forcing_tls.md).
 
 **Important:** OpenSearch Metrics requires that the WebSphere Application Server is running Java 8. If you have a new FileNet deployment and you temporarily switched to Java 6 to update FileNet components after applying Connections 6.0 CR1, make sure that you switch back to Java 8 before you start the following procedure.
 
-1.  If your single sign-on solution includes IBM Security Verify Access (formerly Security Access Manager), SiteMinder, or SPNEGO with SiteMinder, update the URLs that require basic authentication to include /metricssc/configsetter by referring to the appropriate topic:
+1.  If your single sign-on solution includes IBM Security Access Manager, SiteMinder, or SPNEGO with SiteMinder, update the URLs that require basic authentication to include /metricssc/configsetter by referring to the appropriate topic:
 
-    -   For IBM Security Verify Access, see [Enabling single sign-on for IBM Security Verify Access](../secure/t_secure_with_tam.md).
-    -   For SiteMinder, see [Enabling single sign-on for SiteMinder](../secure/t_secure_with_siteminder.md).
-    -   For SPNEGO with SiteMinder, see [Enabling SPNEGO single sign-on for SiteMinder](../secure/t_secure_with_siteminder_SPNEGO.md).
+    -   For IBM Security Access Manager, see [../secure/t\_secure\_with\_tam.md](../secure/t_secure_with_tam.md).
+    -   For SiteMinder, see [../secure/t\_secure\_with\_siteminder.md](../secure/t_secure_with_siteminder.md).
+    -   For SPNEGO with SiteMinder, see [../secure/t\_secure\_with\_siteminder\_SPNEGO.md](../secure/t_secure_with_siteminder_SPNEGO.md).
 2.  In the LotusConnections-config.xml file, you must point to the correct version of OpenSearch by changing the value of the following parameter to 7:
 
     <genericProperty name="elasticsearch.eSmajorVersion"\>7</genericProperty\>
 
-    For more information on making changes to the LotusConnections-config.xml file, see [Editing configuration files](../admin/t_admin_common_checkout_config_file.md).
+    For more information on making changes to the LotusConnections-config.xml file, see [../admin/t\_admin\_common\_checkout\_config\_file.md](../admin/t_admin_common_checkout_config_file.md).
 
 3.  Run the config\_blue\_metrics.py script as follows:
 
@@ -79,14 +79,14 @@ Make sure that secure connections are established in your deployment, as explain
         
         ```
 
-        where `Elasticsearch\_CA\_password` is the password that was set while [Bootstrapping the Kubernetes cluster](cp_install_bootstrap.md).
+        where `Elasticsearch\_CA\_password` is the password that was set while [cp\_install\_bootstrap.md](cp_install_bootstrap.md).
 
     3.  Copy the updated elasticsearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
 
     4.  Synchronize the nodes and then restart the servers or clusters that are running the Search and Common applications \(including the Deployment Manager and nodes\).
 
-    5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [Setting up certificates for type-ahead search](inst_tasearch_no_metrics.md).
+    5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [inst\_tasearch\_no\_metrics.md](inst_tasearch_no_metrics.md).
 
 
-Deploy OpenSearch-based metrics for Connections as explained in [Deploying OpenSearch Metrics](cp_config_os_metrics_no_cognos.md).
+Deploy OpenSearch-based metrics for Connections as explained in [cp\_config\_os\_metrics\_no\_cognos.md](cp_config_os_metrics_no_cognos.md).
 

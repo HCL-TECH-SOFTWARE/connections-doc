@@ -12,7 +12,7 @@ In most browsers, you can spell-check words in the editor by selecting the words
 
 ## Embedding external content { .section}
 
-You can embed content such as a video or an external website by inserting an HTML iframe element into your blog post or wiki page. The external content displays on your page in much the same way as a photo or other graphic, except that it is dynamic and interactive. When the external content changes, so does the display within the iframe. When you insert an iframe, you specify the URL of the web page or video that you want to embed. You can also specify other attributes such as the height and width in pixels. For more information, see [Adding a video to your wiki page or blog post](../communities/richtext_insert_movie.md).
+You can embed content such as a video or an external website by inserting an HTML iframe element into your blog post or wiki page. The external content displays on your page in much the same way as a photo or other graphic, except that it is dynamic and interactive. When the external content changes, so does the display within the iframe. When you insert an iframe, you specify the URL of the web page or video that you want to embed. You can also specify other attributes such as the height and width in pixels. For more information, see [Embedding videos](../eucommon/embed_video.md).
 
 ## Partial list of features { .section}
 
@@ -112,7 +112,7 @@ Embed external content such as a web page or video. You must supply the URL of t
 **Insert Flash movie**
 ![Insert Flash Movie](../wikis/images/flash.png)
 
-Insert an Adobe Flash movie. You must supply the URL of the Flash movie, which usually has a file name extension of .swf. For example, http://example.com/movie.swf. Some features of the editor are not available in certain apps. For example, you can insert an Adobe Flash movie into a blog post, but not into a forum topic. For more information, see the [Adding a video to your wiki page](../wikis/t_wikis_insert_image.md) and [Adding a video to your blog posting](../communities/t_com_add_video_to_blog.md) topics.
+Insert an Adobe Flash movie. You must supply the URL of the Flash movie, which usually has a file name extension of .swf. For example, http://example.com/movie.swf. Some features of the editor are not available in certain apps. For example, you can insert an Adobe Flash movie into a blog post, but not into a forum topic. For more information, see the [Embedding videos](../eucommon/embed_video.md) topic.
 
 **Note:** This feature is available in Blogs, Forums, and Wikis only.
 

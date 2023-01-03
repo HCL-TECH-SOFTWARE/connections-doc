@@ -131,6 +131,7 @@ To set up SSO using SiteMinder, complete the following steps:
     -   When activated, the LogOffUri parameter clears the SMSESSION cookie and ensures that the user is logged out of all Connections browser sessions.
     -   To add parameters, edit the Agent Configuration Object on the SiteMinder Policy Server. Alternatively, you can edit the LocalConfig.conf file on the HTTP server if the Web Agent is configured to use it.
     -   If you are editing the SiteMinder configuration file directly, you must surround the values of SiteMinder configuration parameters with quotation marks \("\); for example: BadCSSChars="<,\>". If you are changing these parameters within the SiteMinder Policy Server, do not use quotation marks.
+
 4.  Specify your SiteMinder Authentication Scheme configuration:
 
     1.  Open the SiteMinder Administration Console and navigate to the **Authentication Scheme Properties** dialog box.
@@ -145,9 +146,9 @@ To set up SSO using SiteMinder, complete the following steps:
 
 6.  Create protected realms under the HTTP Server Web Agent domain:
 
-    1.  Using the Agent Object and Forms Authentication Scheme that you created in [Step 3.a](t_secure_with_siteminder.md#SubstepConfigureTheWebAgentForIBM.) and [Step 4](t_secure_with_siteminder.md#StepSpecifyYourSiteMinderAuthent...), create SiteMinder realms that are protected by forms authentication.
+    1.  Using the Agent Object and Forms Authentication Scheme that you created in Step 3a and Step 4, create SiteMinder realms that are protected by forms authentication.
 
-        See the [Realms that require forms authentication](Realms that require forms authenticationt_secure_with_siteminder.dita#t_secure_with_siteminder/RealmsThatRequireFormsAuthe...) table for a list of URLs that are protected by forms authentication.
+        See the *Realms that require forms authentication* table for a list of URLs that are protected by forms authentication.
 
         |Application|Protected URL resource|
         |-----------|----------------------|
@@ -186,9 +187,9 @@ To set up SSO using SiteMinder, complete the following steps:
         |/connections/thumbnail/form/api/imageProxy|
         |Wikis|/wikis/follow/atomfba|
 
-    2.  Using the Agent Object and Forms Authentication Scheme that you created in [Step 3.a](t_secure_with_siteminder.md#SubstepConfigureTheWebAgentForIBM.) and [Step 4](t_secure_with_siteminder.md#StepSpecifyYourSiteMinderAuthent...), create SiteMinder realms that are protected by basic authentication.
+    2.  Using the Agent Object and Forms Authentication Scheme that you created in Step 3a and Step 4, create SiteMinder realms that are protected by basic authentication.
 
-        See the [Realms that require basic authentication](t_secure_with_siteminder.md#RealmsThatRequireBasicAuthenticati) table for a list of URLs that are protected by basic authentication.
+        See the *Realms that require basic authentication* table for a list of URLs that are protected by basic authentication.
 
         |Application|Protected URL resource|
         |-----------|----------------------|
@@ -445,7 +446,7 @@ To set up SSO using SiteMinder, complete the following steps:
 
     2.  Install the Web Agent. For instructions, go to the [SiteMinder BookShelf](https://support.ca.com/cadocs/0/CA%20SiteMinder%2012%2051-ENU/Bookshelf.html).
 
-    3.  When you are prompted for the Agent Configuration details, specify the Agent Configuration Object that you created [earlier](t_secure_with_siteminder.md#SubstepConfigureTheWebAgentForIBM.).
+    3.  When you are prompted for the Agent Configuration details, specify the Agent Configuration Object that you created earlier.
 
 17. Install the Application Server Agent on your WebSphere nodes:
 
@@ -453,7 +454,7 @@ To set up SSO using SiteMinder, complete the following steps:
 
     2.  Install the Application Server Agent on each node in your Connections deployment. For instructions, see the [SiteMinder Agent for WebSphere Agent Guide](https://support.ca.com/cadocs/0/CA%20SiteMinder%20Agent%20for%20WebSphere%20r12%20SP2-ENU/Bookshelf_Files/PDF/SMWebSphereAgent_conf_enu.pdf).
 
-    3.  When you are prompted for the Agent Configuration details, specify the Agent Configuration Object that you created [earlier](t_secure_with_siteminder.md#CreateAgentsOnTheSiteMinderPolicySe-57BCF163).
+    3.  When you are prompted for the Agent Configuration details, specify the Agent Configuration Object that you created earlier.
 
 18. Copy the smagent.properties file from the ASA installation conf folder to the WebSphere Application Server profile properties folder; for example: C:\\program files\\IBM\\websphere\\appserver\\profiles\\appsvr01\\properties.
 
@@ -566,7 +567,7 @@ To set up SSO using SiteMinder, complete the following steps:
 
             "SiteMinderAuthenticator"\)
 
-        2.  Set the value of the custom.authenticator.cookieTimeout parameter to be equal to or less than the maximum timeout and idle timeout values that you configured [earlier](t_secure_with_siteminder.md#SetTheTimeoutValueOfTheSessionByCl). Specify the timeout value in minutes.
+        2.  Set the value of the custom.authenticator.cookieTimeout parameter to be equal to or less than the maximum timeout and idle timeout values that you configured earlier. Specify the timeout value in minutes.
 
             LCConfigService.updateConfig\("customAuthenticator.CookieTimeout","timeout"
 

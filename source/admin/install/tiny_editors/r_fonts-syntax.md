@@ -1,4 +1,4 @@
-# The fonts customization syntax {#fonts-syntax .reference}
+# The fonts customization syntax 
 
 The syntax for the fonts customization option is written using [Extended Backus–Naur form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
 
@@ -15,9 +15,4 @@ fonts = "[", [ font , { "," , font } ] , "]";
 ```
 
 **Parent topic:**[Common tasks, concepts and reference information](../../install/tiny_editors/r_appendix.md)
-
-**Related information**  
-
-
-[../../admin/install/tiny\_editors/t\_configure\_09-set-fontpicker-fonts-2.md](../../admin/install/tiny_editors/t_configure_09-set-fontpicker-fonts-2.md)
 

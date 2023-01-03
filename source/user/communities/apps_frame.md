@@ -16,8 +16,6 @@ Edit the details of your community activities to reflect your current goals and 
 Manage your community's files to make them more accessible, organized, and relevant to the community.
 -   **[Working with rich content](../communities/community_rich_content_frame.md)**  
 Use a rich content page to share rich content, including text, links, and images with your community.
--   **[Organizing content in Box folders](../communities/community_box_frame.md)**  
-Box is a cloud-based file sharing and content management service for businesses. Upload, download, and share community files using the Box app. You can then either link to or embed Box files or folders using the rich text editors in community blogs, wikis, forums, or activities.
 -   **[Highlighting content in galleries](../communities/gallery_frame.md)**  
 The Gallery app highlights the community files or the contents of a community folder on the community Highlights page. The app displays thumbnails or file type icons for the files in the folder.
 -   **[Measuring business value with metrics](../communities/community_metrics_frame.md)**  

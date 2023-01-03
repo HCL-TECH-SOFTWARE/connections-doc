@@ -1,4 +1,4 @@
-# Configuring the OpenSearch Metrics component {#cp_config_es_intro .concept}
+# Configuring the OpenSearch Metrics component 
 
 Configure the OpenSearch offering of the Component Pack for HCL Connections™ to provide Metrics data.
 
@@ -24,5 +24,5 @@ Configure the `community-metrics-run` security role to grant users the authority
 -   **[Changing the number of shards for the OpenSearch Metrics index](../install/cp_config_os_number_shards.md)**  
 If your environment requires, you can change the default number of shards that will be assigned to the OpenSearch Metrics index when it is created.
 
-**Parent topic:**[Configuring the Component Pack](../install/cp_config_intro.md)
+**Parent topic:** [Configuring the Component Pack](../install/cp_config_intro.md)
 

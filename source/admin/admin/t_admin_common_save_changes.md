@@ -52,9 +52,5 @@ After you edit configuration properties for an HCL Connections application, chec
 
 [Customizing product strings](../customize/t_customize_strings_global.md)
 
-[Configuring the active content filter for Blogs, Wikis, and Forums](../secure/t_sec_change_acf_config.md)
-
-[Configuring the active content filter for Activities, Communities, and Bookmarks](../secure/t_sec_change_acf_config_ckeditor.md)
-
 [Turning off active content filtering](../secure/t_admin_common_turn_off_filter.md)
 

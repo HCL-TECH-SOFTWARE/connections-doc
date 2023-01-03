@@ -37,6 +37,3 @@ From the community, you can do the following:
 
 
 [Managing your community blog](../communities/t_com_community_manage_blog.md)
-
-[Who can see my blog? Creating public and restricted blogs](../blogs/c_blogs_pub_priv_mod.md)
-

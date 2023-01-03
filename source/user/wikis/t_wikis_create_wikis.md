@@ -15,7 +15,8 @@ To create a wiki:
         -   **Wiki editors and owners only**: Only people with Editor or Owner access can edit the wiki. You need to add members and grant them the appropriate access for this.
 4.  Grant specific people and groups with Owner, Editor, or Reader access, referring to the following table:
 
-        |**Access level**|**Definition**|
+    |Access level|Definition|
+    |---|---|
     |Owner|The person or group can delete, create, edit, tag, read, comment, and like pages. Owners can also tag the wiki and change the wiki description.|
     |Editor|The person or group can create, edit, tag, read, comment, and like pages.|
     |Reader|The person or group can read, comment, and like pages.|

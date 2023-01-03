@@ -85,9 +85,3 @@ To analyze errors, enable trace logs on your server. These logs are not configur
 
 |
 
-**Parent topic:**[Installing](../../connectors/icec/cec-inst-installing.md)
-
-**Previous topic:**[Installing](../../connectors/icec/cec-inst-installing.md)
-
-**Next topic:**[Mapping security roles](../../connectors/icec/cec-inst-tmap-security-roles.md)
-

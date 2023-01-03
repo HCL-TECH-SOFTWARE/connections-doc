@@ -118,7 +118,5 @@ All custom extension attributes must have a maximum length definition to ensure 
 
 [Enabling custom extension attributes for Profiles](../customize/t_admin_profiles_enable_custom_fields.md)
 
-[Specifying external labels for attributes](../customize/t_admin_profiles_set_attribute_labels.md)
-
 [Saving your customizations](../migrate/c_configuration_changes_after_update.md)
 

@@ -1,4 +1,4 @@
-# Handling external images {#concept_hzy_qjv_g2b .concept}
+# Handling external images 
 
 Use the Admin Dashboard to control how HTTP images pulled from the web can be displayed in Connections Engagement Center.
 
@@ -12,12 +12,12 @@ From **Global Settings** in the Admin Dashboard, you can select how to handle ex
 
     For information on setting up a proxy server, see [HCL Connections proxy configuration](https://help.hcltechsw.com/connections/v7/connectors/icec/cec-inst-ibm-conx-proxy-config.html).
 
-    You must also configure the proxy with a whitelist. For more information, see [Configuring a whitelist for the proxy server](cec-rss-cloud-configure.md).
+    You must also configure the proxy with a whitelist. 
 
 -   With **Allow HTTP**, images sourced from HTTP are directly loaded inside Engagement Center \(HTTPS\) pages, causing some browsers to warn users of the insecure content.
 
     **Tip:** Use this option when a proxy server is not available and images sourced in HTTP cannot be loaded with HTTPS.
 
 
-**Parent topic:**[Admin dashboard](../../connectors/icec/cec-admin_dashboard.md)
+**Parent topic:** [Admin dashboard](../../connectors/icec/cec-admin_dashboard.md)
 

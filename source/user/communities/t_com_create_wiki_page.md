@@ -11,14 +11,14 @@ With Editor access, you can create a wiki page and add content to it so you can 
 
     -   To layout and format your content, use the extensive formatting options, such as **Paragraph Format**, **Font Names**, and **Font Sizes**.
     -   To attach an image to the page, use **Insert/Edit Image**.
-    Learn more about other content that you can add [using the rich text editor](eucommon_ckeditor.md).
+    Learn more about other content that you can add [using the rich text editor](../eucommon/eucommon_ckeditor.md).
 
 
 ## What to do next {#section_dxj_22v_h5b .section}
 
 Want to get notified about updates to a community wiki or wiki page? Open the wiki or wiki page and, in the Following Actions area, click **Follow this Wiki** and **Follow this Page**.
 
-**Parent topic:**[Creating information in a community wiki](../communities/community_wiki_frame.md)
+**Parent topic:** [Creating information in a community wiki](../communities/community_wiki_frame.md)
 
 **Related information**  
 

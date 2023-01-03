@@ -1,4 +1,4 @@
-# Uninstalling: delete databases with the database wizard {#usingthelotusconnectionsdatabasewizard .task}
+# Uninstalling: delete databases with the database wizard 
 
 Use the database wizard to delete databases.
 
@@ -41,8 +41,6 @@ To delete databases with the database wizard, complete the following steps:
 
         **Note:** The database instance that you specify must already exist on your system.
 
-        For more detail about the database information, refer to [Creating databases using SQL scripts](t_install_databases_using_scripts.md).
-
 6.  Select the application databases that you want to delete and click **Next**.
 
     **Note:** Application databases that are not installed are greyed out.
@@ -52,5 +50,5 @@ To delete databases with the database wizard, complete the following steps:
 8.  Review the Post Configuration Task Summary panel and, if necessary, click **View Log** to open the log file. Click **Finish** to exit the wizard.
 
 
-**Parent topic:**[Uninstalling](../install/t_uninstall_over.md)
+**Parent topic:** [Uninstalling](../install/t_uninstall_over.md)
 

@@ -35,5 +35,5 @@ Each node running the Search application requires its own dedicated index on the
 
 [Creating Search indexes](../admin/c_admin_search_create_indexes.md)
 
-[Creating the initial Search index](../admin/t_admin_search_create_initial_index.md)
+[Creating the initial Search index](../admin/t_admin_search_create_initial_index_admin.md)
 

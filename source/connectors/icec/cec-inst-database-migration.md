@@ -28,5 +28,3 @@ You can migrate each supported database to another supported database. Sometimes
 
 |
 
-**Parent topic:**[Creating a database](../../connectors/icec/cec-inst-creating-database.md)
-

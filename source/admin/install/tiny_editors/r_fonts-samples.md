@@ -1,4 +1,4 @@
-# Sample fonts list configurations {#fonts-samples .reference}
+# Sample fonts list configurations 
 
 Samples of font lists for the Tiny editors' font picker.
 
@@ -29,9 +29,4 @@ To provide an alternate name for a font, use the `text` property. For example: T
 ```
 
 **Parent topic:**[Common tasks, concepts and reference information](../../install/tiny_editors/r_appendix.md)
-
-**Related information**  
-
-
-[../../admin/install/tiny\_editors/t\_configure\_09-set-fontpicker-fonts-2.md](../../admin/install/tiny_editors/t_configure_09-set-fontpicker-fonts-2.md)
 

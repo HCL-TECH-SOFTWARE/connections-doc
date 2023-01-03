@@ -1,4 +1,4 @@
-# Configuring Files to use an object store {#admin_files_conf_obj_store .task}
+# Configuring Files to use an object store
 
 Configure HCL Connections Files to seamlessly work with an external object store, providing scalability and data recovery for your deployment, while enabling faster access to files for users.
 
@@ -156,6 +156,4 @@ Connections Files uses an intermediary application called storageProxy to functi
     </Location>
     ```
 
-
-**Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
 

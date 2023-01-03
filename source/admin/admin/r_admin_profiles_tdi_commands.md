@@ -91,8 +91,6 @@ Use these commands to manage and work with profile data.
 
 [Deleting or inactivating users in the Profiles database](../admin/t_admin_profiles_delete_users.md)
 
-[Populating Profiles with photos from LDAP](../admin/t_admin_profiles_import_photos.md)
-
 [Uploading pronunciation files](../admin/t_admin_profiles_import_pronunciation.md)
 
 [Customizing the logic used for the delete operation](../admin/t_admin_profiles_customize_delete_logic.md)

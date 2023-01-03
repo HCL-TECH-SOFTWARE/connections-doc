@@ -1,10 +1,10 @@
-# Configuring Orient Me to support a reverse-proxy server {#cp_config_om_reverse_proxy .task}
+# Configuring Orient Me to support a reverse-proxy server 
 
 Configure the Orient Me service to support the reverse-proxy server used by the Customizer offering of the Component Pack for HCL Connections™.
 
 Do you need to complete this task?
 
-You only need to update the connections-env release with the new Customizer reverse-proxy server if you did not specify it as the value for the `ic.host` setting when you initially [installed connections-env](cp_install_connections-env.md).
+You only need to update the connections-env release with the new Customizer reverse-proxy server if you did not specify it as the value for the `ic.host` setting when you initially installed your connections-env.
 
 To determine whether you need to complete this task, run the following commands:
 
@@ -19,9 +19,7 @@ If all of the results point to either the Customizer reverse-proxy server or a l
 
 If you deployed a reverse-proxy server for Customizer and you have already deployed Orient Me, then you must configure Orient Me to work with the new reverse-proxy server. Update Orient Me configuration settings to allow users to access the home page using the reverse proxy server; otherwise tiles will not load successfully and the action center will not function.
 
-1.  [Run a Helm upgrade the connections-env release.](cp_install_connections-env.md)
-
-    In the upgrade command, be sure to use the Customizer reverse-proxy server \(or a load balancer that sits in front of it\) for the `ic.host` setting, and use the IBM HTTP Server address that sits in front of Connections for the `ic.internal` setting.
+1. In the upgrade command, be sure to use the Customizer reverse-proxy server \(or a load balancer that sits in front of it\) for the `ic.host` setting, and use the IBM HTTP Server address that sits in front of Connections for the `ic.internal` setting.
 
 2.  Restart the pods that use the updated configmap values by running the following commands:
 
@@ -49,5 +47,5 @@ If you deployed a reverse-proxy server for Customizer and you have already deplo
     ```
 
 
-**Parent topic:**[Configuring the Customizer component](../install/cp_config_customizer_intro.md)
+**Parent topic:**  [Configuring the Customizer component](../install/cp_config_customizer_intro.md)
 

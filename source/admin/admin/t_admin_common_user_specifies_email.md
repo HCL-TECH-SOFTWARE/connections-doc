@@ -1,4 +1,4 @@
-# Enabling users to specify email notification preferences {#t_admin_common_user_specifies_email .task}
+# Enabling users to specify email notification preferences 
 
 Edit configuration settings to enable users to specify the email address to which they would like notifications sent, the frequency with which they receive notifications, and the language the notification is written in.
 
@@ -176,16 +176,4 @@ The following preferences are set by default:
 9.  Update the version stamp property to force a refresh of users' web browsers, so that they see the email preference changes the next time they access the product. See *Required post-customization step*.
 
 
-**Parent topic:**[Configuring notifications](../admin/t_admin_common_config_notification.md)
-
-**Related information**  
-
-
-[Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
-
-[Setting email notification preferences](../../user/eucommon/t_eucommon_set_email_preferences.md)
-
-[Enabling users to set a language preference](../admin/t_admin_common_enable_lang_change.md)
-
-[Post-customization step](../customize/t_admin_common_customize_postreq.md)
-
+**Parent topic:** [Configuring notifications](../admin/t_admin_common_config_notification.md)

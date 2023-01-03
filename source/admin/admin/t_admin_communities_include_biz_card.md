@@ -118,15 +118,3 @@ This property is required.
     ```
 
 
--   **[Configuring the Communities business card on a Domino server](../customize/t_admin_communities_include_biz_card_domino.md)**  
-If you are adding the Communities business card to a web application that is deployed on an HCL Domino 8.5 server, perform the following steps to configure the card so that it works correctly.
-
-**Parent topic:**[Using Profiles and Communities business cards](../customize/c_admin_profiles_biz_cards.md)
-
-**Related information**  
-
-
-[Administering Communities](../admin/c_admin_communities_intro.md)
-
-[Integrating the Profiles business card](../customize/t_admin_profiles_include_biz_card.md)
-

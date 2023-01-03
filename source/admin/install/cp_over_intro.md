@@ -4,14 +4,14 @@ Component Pack for HCL Connections™ is both designed and deployed upon a diffe
 
 Component Pack's architecture consists of three main components.
 
-Container runtime \(containerd\)
-:   With containers, everything required to make a piece of software run is packaged into isolated containers by containerd. Unlike VMs, containers do not bundle a full operating system—only libraries and settings required to make the software work are needed. This makes for efficient, lightweight, self-contained systems and guarantees that software will always run the same, regardless of where it’s deployed.
+**Container runtime \(containerd\)**
+With containers, everything required to make a piece of software run is packaged into isolated containers by containerd. Unlike VMs, containers do not bundle a full operating system—only libraries and settings required to make the software work are needed. This makes for efficient, lightweight, self-contained systems and guarantees that software will always run the same, regardless of where it’s deployed.
 
-Container orchestrator \(Kubernetes\)
-:   [Kubernetes](https://kubernetes.io/) is an open-source platform for automating the deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.
+**Container orchestrator \(Kubernetes\)**
+[Kubernetes](https://kubernetes.io/) is an open-source platform for automating the deployment, scaling, and operations of application containers across clusters of hosts, providing container-centric infrastructure.
 
-Package manager for Kubernetes \(Helm\)
-:   [Helm](https://v2.helm.sh/) helps you manage Kubernetes applications—Helm charts help you define, install, and upgrade even the most complex Kubernetes application.
+**Package manager for Kubernetes \(Helm\)**
+[Helm](https://v2.helm.sh/) helps you manage Kubernetes applications—Helm charts help you define, install, and upgrade even the most complex Kubernetes application.
 
 The installation package relies on container technology and includes HCL proprietary components as well as the following open-source components:
 

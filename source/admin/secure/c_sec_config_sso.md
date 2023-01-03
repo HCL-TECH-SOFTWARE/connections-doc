@@ -1,14 +1,14 @@
-# Configuring single sign-on {#c_sec_config_sso .concept}
+# Configuring single sign-on 
 
 Set up single sign-on integration between HCL Connections™ and other HCL products and third-party security products.
 
-## How single sign-on works { .section}
+## How single sign-on works 
 
 HCL Connections uses single sign-on \(SSO\) to secure the transfer of user ID and password information that is used to authenticate with the system. With SSO, users can switch to different applications without needing to authenticate again.
 
 SSO is automatically enabled using WebSphere's built-in Lightweight Third Party Authentication \(LTPA\) when Connections is installed on a single WebSphere® Application Server profile or when different profiles are federated into the same cell.
 
-## Server-to-server authentication { .section}
+## Server-to-server authentication 
 
 SSO solutions can inadvertently block back-end server-to-server communication. Connections uses a server-to-server authenticator to prevent internal communication being blocked by your SSO solution. The configuration settings for the authenticator are stored in the customAuthenticator element in the LotusConnections-config.xml file.
 
@@ -33,10 +33,4 @@ Configure HCL Connections to use single sign-on with Computer Associates' SiteMi
 -   **[The customAuthenticator element for back-end inter-service communication](../secure/r_custom-authenticator.md)**  
 The customAuthenticator element in the LotusConnections-config.xml file defines some key parameters in your single sign-on \(SSO\) solution.
 
-**Parent topic:**[Security](../secure/c_sec_overview.md)
-
-**Related information**  
-
-
-[Configuring HCL Connections for SSO](../admin/t_admin_communities_library_cm_sso_ic.md)
-
+**Parent topic:** [Security](../secure/c_sec_overview.md)

@@ -6,20 +6,49 @@ After a file is uploaded to Files, you can view it. You can browse through the f
 
 To view a file from the Files app, simply click on the file name. From there, you can pin, like, download, and comment on the file.
 
-|Application|File type|
-|-----------|---------|
-|ODF \(Open Document Format\) Documents|.odt, .ott|
-|ODF \(Open Document Format\) Presentations|.odp, .otp|
-|ODF \(Open Document Format\) Spreadsheets|.ods, .ots|
-|Microsoft™ Word|.doc, .docx, .dot, .dotx|
-|Microsoft PowerPoint|.ppt, .pptx, .pot, .potx|
-|Microsoft Excel|.xls, .xlsx, .xlsm, .xlt, .xltx|
-|Adobe™ Reader|.pdf**Note:** When viewing .pdf files, if you have accessibility requirements, download the file and then open it using a third-party application that supports PDF accessibility.
+<table>
+<tr>
+<th>Application</th>
+<th>File type</th>
+</tr>
+<tr>
+<td>ODF (Open Document Format) Documents</td>
+<td>.odt, .ott</td>
+</tr>
+<tr>
+<td>ODF (Open Document Format) Presentations</td>
+<td>.odp, .otp</td>
+</tr>
+<tr>
+<td>ODF (Open Document Format) Spreadsheets</td>
+<td>.ods, .ots</td>
+</tr>
+<tr>
+<td>Microsoft™ Word</td>
+<td>.doc, .docx, .dot, .dotx</td>
+</tr>
+<tr>
+<td>Microsoft PowerPoint</td>
+<td>.ppt, .pptx, .pot, .potx</td>
+</tr>
+<td>Microsoft Excel</td>
+<td>.xls, .xlsx, .xlsm, .xlt, .xltx</td>
+</tr>
+<tr>
+<td>Adobe™ Reader</td>
+<td>.pdf<br><b>Note:</b> When viewing .pdf files, if you have accessibility requirements, download the file and then open it using a third-party application that supports PDF accessibility.</td>
+</tr>
+<tr>
+<td>Image files</td>
+<td>.jpg, .gif, .png</td>
+</tr>
+<tr>
+<td>Video files</td>
+<td>.mov, .mp4</td>
+</tr>
+<tr>
+<td>Others</td>
+<td>.txt, .rtf</td>
 
-|
-|Image files|.jpg, .gif, .png|
-|Video files|.mov, .mp4|
-|Others|.txt, .rtf|
-
-**Parent topic:**[Getting started](../files/getting_started.md)
+**Parent topic:** [Getting started](../files/getting_started.md)
 

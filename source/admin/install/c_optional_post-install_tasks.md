@@ -1,4 +1,4 @@
-# Optional post-installation tasks {#optionaltasks .concept}
+# Optional post-installation tasks 
 
 Complete the post-installation tasks that are relevant to your deployment.
 
@@ -37,14 +37,6 @@ HTTP long polling can be used to push updates to a web client. A connection is h
 -   **[Configuring notifications](../admin/t_admin_common_config_notification.md)**  
 Enable support for email notifications in HCL Connections applications.
 
-**Parent topic:**[Administering Connections 8.0](../welcome/welcome_admin.md)
+**Parent topic:**  [Administering Connections 8.0](../welcome/welcome_admin.md)
 
-**Related information**  
-
-
-[Defining valid administrator email addresses](../admin/t_admin_act_managing_notifications.md)
-
-[Managing content moderation and flagged content](../admin/t_admin_blogs_flag_inappropriate.md)
-
-[Changing application URLs](../admin/t_admin_common_change_context_root.md)
 

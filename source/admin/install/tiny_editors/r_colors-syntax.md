@@ -1,4 +1,4 @@
-# The colors customization syntax {#colors-syntax .reference}
+# The colors customization syntax
 
 The syntax for the colors customization option is written using [Extended Backus–Naur form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
 
@@ -20,8 +20,4 @@ colors = buttons | "{" , "'buttons':" , buttons , [ "," , "'custom':" , custom ]
 
 **Parent topic:**[Common tasks, concepts and reference information](../../install/tiny_editors/r_appendix.md)
 
-**Related information**  
-
-
-[../../admin/install/tiny\_editors/t\_configure\_10-set-colorpicker-colors-2.md](../../admin/install/tiny_editors/t_configure_10-set-colorpicker-colors-2.md)
 

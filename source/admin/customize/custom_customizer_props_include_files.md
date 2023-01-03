@@ -6,7 +6,7 @@ The include-files payload property lists one or more files to be inserted into t
 
 Any files declared in the include-files property list must be stored on the Storage node in the /pv-connections/customizations directory.
 
-For more information on configuring persistent volumes in Connections, see [Setting up persistent volumes on a high availability deployment \(NFS\)](../install/r_Orient_Me_setup_pers_vols_HA.md).
+<!--For more information on configuring persistent volumes in Connections, see [Setting up persistent volumes on a high availability deployment \(NFS\)](../install/r_Orient_Me_setup_pers_vols_HA.md).-->
 
 ## How do you add your own include-files to Connections? { .section}
 

@@ -1,4 +1,4 @@
-# Sharing in Connections {#c_eucommon_share .concept}
+# Sharing in Connections 
 
 HCL Connections allows user to share Connections content, files, or links instantly to specific people, communities, or to applications such as Microsoft Teams.
 
@@ -14,7 +14,7 @@ Sharing in Connections can be easily done by clicking on the **Share** ![](share
 
     **Note:**
 
-    -   If your deployment includes MS Teams integration, additional details can be found in[Using Connections and Microsoft Teams together](../../connectors/enduser/c_eucommon_conn_and_ms_teams.md)section.
+    -   If your deployment includes MS Teams integration, additional details can be found in [Using Connections and Microsoft Teams together](../../connectors/enduser/c_eucommon_conn_and_ms_teams.md) section.
     -   The use of the Share feature with MS Teams requires for the Component Pack to be configured properly.
     .
 

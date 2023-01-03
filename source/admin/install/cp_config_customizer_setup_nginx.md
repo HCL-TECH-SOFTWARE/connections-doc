@@ -1,4 +1,4 @@
-# Configuring the NGINX proxy server for Customizer {#cp_config_customizer_setup_nginx .task}
+# Configuring the NGINX proxy server for Customizer 
 
 A reverse proxy server is required to forward HTTP requests to mw-proxy for customizations to be applied with the HCL Connections™ Customizer component. Any reverse proxy application with the appropriate configuration rules can be used. The following sample guide provides steps on how to configure an NGINX proxy server to function as a reverse proxy server for the Connections Customizer component.
 
@@ -61,8 +61,6 @@ There are two general approaches for setting up NGINX as a reverse proxy server 
     ```
     kubectl get configmap connections-env -o yaml -n connections | grep customizer-interservice-host
     ```
-
-    If the value is incorrectly set, you can [run a Helm upgrade of the connections-env](cp_install_connections-env.md).
 
 4.  On the NGINX server, create an SSL certificate directory.
 
@@ -255,5 +253,5 @@ socket() failed (24: Too many open files) while connecting to upstream
 worker_connections are not enough while connecting to upstream
 ```
 
-**Parent topic:**[Configuring the Customizer component](../install/cp_config_customizer_intro.md)
+**Parent topic:** [Configuring the Customizer component](../install/cp_config_customizer_intro.md)
 

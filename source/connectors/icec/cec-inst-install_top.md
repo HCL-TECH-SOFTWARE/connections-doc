@@ -1,4 +1,4 @@
-# Installing and configuring Connections Engagement Center {#reference_w2p_15r_h1b .reference}
+# Installing and configuring Connections Engagement Center 
 
 This section provides instructions for upgrading an existing XCC Web Content Management Extension to the Connections Engagement Center. For fresh installations, instructions are provided for planning, creating a database, installing, and then configuring the Engagement Center. Also included are browser links to access the various modes of Connections Engagement Center, and instructions for uninstalling Connections Engagement Center.
 

@@ -40,5 +40,3 @@ To reject an answer that is already marked as accepted, click **Decline this Ans
 
 If your question is marked as answered, but you later find that you need more information, click **Reopen Question**. The question is marked as open and users can post answers to it again.
 
-**Parent topic:**[Posting questions and answers to a forum](../forums/c_forums_post_q_and_as.md)
-

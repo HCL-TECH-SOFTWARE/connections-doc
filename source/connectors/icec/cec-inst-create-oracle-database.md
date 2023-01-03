@@ -27,5 +27,3 @@ An SQL script file is included for each supported RDBMS in the Connections Engag
 
 |
 
-**Parent topic:**[Using Oracle as database](../../connectors/icec/cec-inst-using-oracle-as-database.md)
-

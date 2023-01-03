@@ -1,4 +1,4 @@
-# Configuring external collaboration {#configure_external_collab .task}
+# Configuring external collaboration 
 
 External collaboration allows internal and external users to work together in your HCL Connections deployment. You can either configure this feature to allow self-registration by external users who received an invitation, or you can manage registration with a custom setup tailored to your particular environment.
 
@@ -10,7 +10,7 @@ To configure external collaboration, complete the following steps:
 
 2.  Take one of the following approaches:
 
-    -   Configure the self-registration feature to have external users added to your LDAP directory as they register. For more information, see [Configuring self-registration for external users](t_install_config_self-registration_for_external_users.md).
+    -   Configure the self-registration feature to have external users added to your LDAP directory as they register. 
 
         **Note:** Self-registration requires that users have anonymous access to be able to register and reset their guest password. If an access manager solution such as IBM Security Verify Access (formerly Security Access Manager) is in place, a junction for the following context route has to be created/whitelisted: **/selfservice/**
 
@@ -26,5 +26,5 @@ To configure external collaboration, complete the following steps:
 6.  If you have enabled single sign-on for IBM SVA with SPNEGO, the authentication on the SVA server must be set to forms-based authentication when SPNEGO is not present and the external visitor users in the database must match the IBM SVA imported users. For more information, see [Enabling SPNEGO single sign-on for  Security Verify Access](../secure/t_secure_with_tam-spnego.md).
 
 
-**Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
+**Parent topic:** [Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
 

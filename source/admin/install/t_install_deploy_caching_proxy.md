@@ -1,4 +1,4 @@
-# Configuring a reverse caching proxy {#t_install_deploy_caching_proxy .task}
+# Configuring a reverse caching proxy
 
 Configure a reverse proxy that directs all traffic to your HCL Connections deployment to a single server.
 
@@ -118,8 +118,6 @@ This topic describes how to configure the Edge components to optimize the perfor
     -   Add the `isExternal` attribute to the Sametime configuration in LotusConnections-config.xml if you configured Sametime awareness through the Sametime server as described in [Adding Sametime awareness through the Sametime server](../admin/t_admin_common_add_st_awareness_via_proxy.md).
     -   Each href attribute in the LotusConnections-config.xml file is case-sensitive and must specify a fully-qualified domain name.
 
-5.  If you are using Connections Content Manager, you must reconfigure FileNet Collaboration Services to be aware of your reverse proxy. Set **fncsServerURL**, **fncsServerURLSecure** and **icURI** properties as described in [Configuring FileNet Collaboration Services for the Connections Content Manager](t_inst_config_filenet.md).
-
 6.  Using iKeyman, extract certificates from HCL Connections and add them to the proxy server key database:
 
     **Note:** Be sure to use iKeyman that comes with the HTTP server, since it does not come with the proxy.
@@ -133,5 +131,5 @@ This topic describes how to configure the Edge components to optimize the perfor
 7.  Restart the Edge server.
 
 
-**Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
+**Parent topic:** [Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
 

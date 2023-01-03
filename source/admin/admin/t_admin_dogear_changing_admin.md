@@ -49,5 +49,4 @@ The commands described here manipulate managed Java™ beans \(MBeans\) to make 
 
 [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
 
-[Deleting unnecessary links](../admin/t_admin_dogear_deleting_links.md)
 

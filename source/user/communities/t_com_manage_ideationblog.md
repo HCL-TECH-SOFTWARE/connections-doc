@@ -54,7 +54,5 @@ An ideation blog is a type of blog that is designed to generate ideas on a parti
 
 [Using an Ideation Blog](../blogs/c_blogs_ideablog.md)
 
-[Working with activities](../communities/community_activity_frame.md)
-
 [Sharing ideas in an ideation blog](ideationblog_frame.md)
 

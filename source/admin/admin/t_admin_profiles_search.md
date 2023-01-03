@@ -135,5 +135,4 @@ This property takes a Boolean value.
 
 [Applying property changes in Profiles](../admin/t_admin_profiles_save_changes.md)
 
-[Customizing Profiles search](../customize/c_admin_profiles_adv_search.md)
 

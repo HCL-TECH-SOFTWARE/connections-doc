@@ -8,7 +8,7 @@ With the **Latest Updates** tab of your HCL Connections home page, you can keep 
 
 You might want to see different kinds of updates at different times. Here are some ways to manage your update stream:
 
--   Switch the type of updates that you see. Click the down arrow next to the filter-stream option \( **I'm Following** by default\) and select a view from the list of filters:
+-   Switch the type of updates that you see. Click the down arrow next to the filter-stream option \(**I'm Following** by default\) and select a view from the list of filters:
 
     ![](images/latest_personal_filters.png)
 

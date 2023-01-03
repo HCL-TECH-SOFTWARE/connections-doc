@@ -107,8 +107,3 @@ Check in and check out configuration files.
 
 **Parent topic:**[Administration tools](../admin/c_admin_common_tools.md)
 
-**Related information**  
-
-
-[Configuring web resources and virus scan properties](../admin/t_admin_communities_viruscan_props.md)
-

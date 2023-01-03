@@ -1,4 +1,4 @@
-# Migrating data from MongoDB 3 to 5 {#migrating_data_mongodb_v3_v5 .concept}
+# Migrating data from MongoDB 3 to 5 
 
 Back up, copy, restore, and validate your MongoDB databases.
 

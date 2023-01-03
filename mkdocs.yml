@@ -39,6 +39,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - attr_list
+  - md_in_html
 
 extra:
 #  analytics: 
@@ -188,7 +189,7 @@ nav:
                 - Attribute mapping for Profiles: admin/install/r_attribute_mapping_profiles.md
               - Populating Profiles with photos from LDAP: admin/install/t_install_profiles_import_photos_ldap.md
               - Configuring the Manager designation in user profiles: admin/install/r_report-to_chains_profiles.md
-              - Supplemental user data for Profiles: admin/install/install/r_prof_fill-tables.md
+              - Supplemental user data for Profiles: admin/install/r_prof_fill-tables.md
               - Specifying the global ID attribute for users and groups: admin/install/c_specify_guid.md
               - Optional&colon; Specifying a custom ID attribute for users or groups: admin/install/t_specify_dif_guid.md
             - Before installing:
@@ -310,7 +311,7 @@ nav:
                - admin/install/inst_tasearch_intro.md
                - Managing the OpenSearch index for Connections type-ahead search: admin/install/inst_managing_os_index_cnx_typeahead_search.md
                - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
-#            - Installing Cutomizer Lite:
+#            - Installing Customizer Lite:
 #              - admin/install/cp_install_customizer_lite.md
 #              - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
 #              - Configuring the NGINX proxy server for Customizer Lite HA: admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.md
@@ -421,7 +422,7 @@ nav:
           - Adding a node to a cluster: admin/install/t_adding_nodes_to_cluster.md
           - Configuring a reverse caching proxy: admin/install/t_install_deploy_caching_proxy.md
           - JavaScript configuration: admin/install/t_javascript_config.md
-          - Enabling locked domains: admin/install/t_javascript_config.md
+          - Enabling locked domains: admin/install/t_post_install_cre11_conn_security_locked.md
           - Configuring the custom ID attribute for users or groups: admin/install/t_post-install_configure_dif_guid.md
           - Post-installation tasks for Connections PDF Export: admin/install/install-guide-preparations.md
           - Post-installation tasks for Connections Touchpoint:
@@ -431,7 +432,7 @@ nav:
             - Adding a welcome video to Touchpoint: admin/install/tp_t_add_welcome_video.md
           - Configuring external collaboration: admin/install/t_install_configure_external_collab.md
           - Integrating Connections Sidebar with a website: admin/install/t_install_config_sidebar_for_website.md
-          - Configuring Files to use an object store: admin/install/admin_files_conf_obj_store.md
+          - Configuring Files to use an object store: admin/admin/admin_files_conf_obj_store.md
           - Installing and deploying HCL Connections Docs: admin/install/t_inst_deploy_file_viewr.md
           - Deploying URL preview in an environment where anonymous access is disabled: admin/install/t_inst_access_internal_resources_when_authentication_forced.md
           - Enabling anonymous access for the Rich Content Widget component: admin/install/t_inst_enable_anonymous_access_for_rte.md
@@ -440,7 +441,7 @@ nav:
           - Setting up and configuring a WAS proxy server for long poll testing: 
             - admin/secure/t_admin_config_was_proxy.md
             - Setting up a WAS proxy server for long polling: admin/secure/t_admin_setting_up_WASProxy_t.md
-            - Setting up a new proxy core group: admin/securetall/t_admin_setting_up_ProxyCoreGroup_t.md
+            - Setting up a new proxy core group: admin/secure/t_admin_setting_up_ProxyCoreGroup_t.md
             - Tuning the WAS proxy server for long poll: admin/secure/t_admin_tuning_WASProxy_t.md
           - Configuring notifications: 
             - admin/admin/t_admin_common_config_notification.md
@@ -449,7 +450,7 @@ nav:
             - Accessing the notification configuration file: admin/admin/t_admin_common_checkout_notification_config.md
             - Sending mail from any available mail server: admin/admin/t_admin_common_config_mail_dnx.md
             - Sending mail from a dedicated mail server: admin/admin/t_admin_common_config_mail_was.md
-            - Enabling email notifications (default templates): admin/admin/t_admin_common_enable_mail.hmd
+            - Enabling email notifications (default templates): admin/admin/t_admin_common_enable_mail.md
             - Enabling link stripping in email notifications: admin/install/enable_link_stripping_in_notifications.md
             - Setting the default frequency of email digests: admin/admin/t_admin_common_specify_default_notification_frequency.md
           - Configuring Forums for email notification replies: 
@@ -507,7 +508,7 @@ nav:
               - updateSilent command: admin/migrate/r_updatelc_command.md
             - Uninstalling fixes: 
               - admin/migrate/c_update_uninstall.md
-              - Uninstalling fixes in interactive mode: t_uninstall_interim-fix_interactive-mode.md
+              - Uninstalling fixes in interactive mode: admin/migrate/t_uninstall_interim-fix_interactive-mode.md
               - Uninstalling fixes in silent mode: admin/migrate/t_uninstall_interim-fix_silent-mode.md
           - Synchronizing nodes: 
             - admin/migrate/t_synch_updates.md
@@ -1158,7 +1159,7 @@ nav:
             - admin/admin/c_admin_component_pack_intro.md
             - Backing up and restoring data for OpenSearch indices: admin/admin/cp_config_os_backup_restore_data.md
             - Administering MongoDB for Component Pack: admin/admin/inst_comp_pack_mongodb_admin.md
-#Custommizing
+#Customizing
         - Customizing: 
           - admin/customize/c_customize_overview.md
           - Customization best practices: admin/customize/c_customize_best_practices.md
@@ -1212,7 +1213,7 @@ nav:
                 - Overriding JavaScript in HCL Connections: admin/customize/t_customize_override_js.md
                 - Extending JavaScript in HCL Connections: admin/customize/t_customize_extend_js.md
               - Extending JSP files with custom tags: admin/customize/t_customize_tag_files.md
-              - Customizing the Application Access and Access Request interfaces: admin/customize/../admin/t_admin_oauth_cust_app_access_rquest_ui.md
+              - Customizing the Application Access and Access Request interfaces: admin/admin/t_admin_oauth_cust_app_access_rquest_ui.md
               - Embedding Connections in an IFrame: admin/customize/t_customize_connections_iframe.md
               - Customizing the Hikari theme: admin/customize/t_customize_communities_new_theme.md
             - Customizing notifications: 
@@ -1233,15 +1234,6 @@ nav:
               - admin/customize/t_customize_sharebox_gadgets.md
               - Optional features for custom sharing gadgets: admin/customize/r_customize_sharebox_gadgets_optional.md
               - Adding a gadget to the Share dialog: admin/customize/t_add_gadget_to_share.md
-            - Customizing a blog theme: 
-              - admin/customize/c_blogs_custom_overview.md
-              - Standard Blogs theme components: admin/customize/r_blogs_theme_templates.md
-              - Changing the theme used in a blog: admin/customize/t_blog_theme_customizing.md
-              - Customizing a blog template: admin/customize/t_blog_template_custom.md
-              - Example&colon; Adding a logo to a blog theme: admin/customize/t_blogs_theme_ex_logo.md
-              - Extending a theme: admin/customize/c_blogs_theme_extending.md
-              - Making a custom theme available to your users: admin/customize/t_blogs_theme_new.md
-              - Deleting a Blogs theme: admin/customize/t_blogs_theme_deleting.md
             - Customizing Profiles: 
               - admin/customize/c_admin_profiles_customizing.md
               - Customizing the Profiles data model: 
@@ -1277,7 +1269,7 @@ nav:
             - Using Profiles and Communities business cards: 
               - admin/customize/c_admin_profiles_biz_cards.md
               - Integrating the Communities business card: 
-                - admin/customize/../admin/t_admin_communities_include_biz_card.md
+                - admin/admin/t_admin_communities_include_biz_card.md
                 - Configuring the Communities business card on a Domino server: admin/customize/t_admin_communities_include_biz_card_domino.md
               - Integrating the Profiles business card: 
                 - admin/customize/t_admin_profiles_include_biz_card.md
@@ -1286,8 +1278,8 @@ nav:
                   - Adding third-party links via the XML configuration file: admin/customize/t_admin_profiles_extend_biz_card.md
                   - Adding third-party links using JavaScript: admin/customize/t_admin_profiles_extend_biz_card_js.md
                   - Customizing action links on the business card: admin/customize/t_admin_profiles_customize_biz_card_actions.md
-                - Customizing the Wikis welcome page: admin/customize/../admin/t_customize_wikis_welcome_page.md
-                - Post-customization step: admin/customize/t_admin_common_customize_postreq.md
+            - Customizing the Wikis welcome page: admin/admin/t_customize_wikis_welcome_page.md
+            - Post-customization step: admin/customize/t_admin_common_customize_postreq.md
 #SECURITY 
         - Security: 
           - admin/secure/c_sec_overview.md
@@ -1297,7 +1289,7 @@ nav:
             - Managing the client application list: admin/admin/r_admin_common_oauth_manage_list.md
             - Installing and enabling OAuth TAI: admin/admin/t_inst_installingandenablingoauthtai.md
             - Registering an OAuth client with a provider: 
-              - admin/secure/../admin/t_admin_registeroauthclientwprovider.md
+              - admin/admin/t_admin_registeroauthclientwprovider.md
               - Authorization Management Commands: admin/admin/r_admin_common_oauth_mgnt_commands.md
             - CRE Proxy Configuration: admin/customize/r_cremashupsproxyconfiguration.md
             - Configuring OAuth for custom gadgets: admin/customize/r_admin_common_oauth_config_homepage_gadgets-N.md
@@ -1310,7 +1302,7 @@ nav:
               - Updating WebSphere to support Azure AD OIDC authentication for Connections: admin/secure/t_azure_oidc_websphere.md
               - Configuring Connections to support Azure OIDC single sign-on: admin/secure/t_azure_config_conn_oidc.md
               - Supporting Azure SSO for mobile clients: admin/secure/t_azure_sso_for_mobile.md
-            - Enabling single sign-on for Security Access Manager: 
+            - Enabling single sign-on for Security Verify Access: 
               - admin/secure/t_secure_with_tam.md
               - Using WebSEAL for server to server communication: admin/secure/t_secure_with_tam_s2s.md
             - Enabling single sign-on for SiteMinder: admin/secure/t_secure_with_siteminder.md
@@ -1323,7 +1315,7 @@ nav:
               - Creating a redirect page for users without SPNEGO support: admin/secure/t_install_kerb_create_redirect-page.md
               - Configuring SPNEGO and Kerberos optionally on WebSphere Application Server: admin/secure/t_install_kerb_add_spnego_tai_to_was.md
               - Configuring web browsers to support SPNEGO: admin/secure/t_install_kerb_edit_browsers.md
-            - Enabling SPNEGO single sign-on for Security Access Manager: admin/secure/t_secure_with_tam-spnego.md
+            - Enabling SPNEGO single sign-on for Security Verify Access: admin/secure/t_secure_with_tam-spnego.md
             - Enabling SPNEGO single sign-on for SiteMinder: admin/secure/t_secure_with_siteminder_SPNEGO.md
             - The customAuthenticator element for back-end inter-service communication: admin/secure/r_custom-authenticator.md
           - Authentication with SAML: 
@@ -1342,7 +1334,7 @@ nav:
             - Enabling the AJAX proxy to forward user credentials: admin/secure/t_admin_proxy_ltpa_token.md
             - Configuring the AJAX proxy to work with a pass-through proxy: admin/secure/t_admin_configure_passthru_proxy.md
             - Configuring the library widget proxy: admin/secure/t_admin_communities_library_proxy.md
-          - Enabling locked domains: admin/install/t_post_install_cre11_conn_security_locked_N.md
+          - Enabling locked domains: admin/install/t_post_install_cre11_conn_security_locked.md
           - Enabling virus scanning: admin/secure/t_admin_common_virus_scanning.md
           - Forcing traffic to be sent over an encrypted connection: admin/secure/t_admin_common_forcing_ssl.md
           - Forcing traffic to use TLS 1.2: admin/secure/t_admin_common_forcing_tls.md
@@ -1844,35 +1836,52 @@ nav:
                           - Community mode: connectors/icec/cec-inst-community-mode.md
                           - Anonymous mode: connectors/icec/cec-inst-anonymous-mode.md
                           - Mobile mode: connectors/icec/cec-inst-mobile-mode.md
+                  - Creating a database:
+                    - connectors/icec/cec-inst-creating-database.md
+                    - Using DB2 as a database: 
+                      - connectors/icec/cec-inst-using-db2-database.md
+                      - Creating a DB2 database for Windows: connectors/icec/cec-inst-create-db2-windows.md
+                      - Creating a DB2 database for Linux: connectors/icec/cec-inst-create-db2-linux.md
+                      - Creating a DB2 JDBC provider &#40;(optional)&#41;: connectors/icec/cec-inst-create-db2-jdbc.md
+                    - Using MSSQL as a database:
+                      - connectors/icec/cec-inst-using-mssql-database.md
+                      - Creating an MSSQL database: connectors/icec/cec-inst-create-mssql-database.md
+                      - Creating an MSSQL JDBC provider &#40;(optional)&#41;: connectors/icec/cec-inst-mssql-jdbc-provider.md
+                    - Using Oracle as database:
+                      - connectors/icec/cec-inst-using-oracle-as-database.md
+                      - Creating an Oracle database: connectors/icec/cec-inst-create-oracle-database.md
+                      - Creating an Oracle JDBC provider &#40;(optional)&#41;: connectors/icec/cec-inst-create-oracle-jdbc-provider.md
+                    - Migrating a database: connectors/icec/cec-inst-database-migration.md
                   - Installing: 
-                      - connectors/icec/cec-inst-installing.md
-                      - Enable trace logs to analyze errors \(optional\)](connectors/icec/cec-inst-enable-trace-logs.md
-                      - Mapping security roles: connectors/icec/cec-inst-tmap-security-roles.md
+                    - connectors/icec/cec-inst-installing.md
+                    - Enable trace logs to analyze errors &#40;(optional)&#41;: connectors/icec/cec-inst-enable-trace-logs.md
+                    - Mapping security roles: connectors/icec/cec-inst-tmap-security-roles.md
                   - Configuring: 
-                      - connectors/icec/cec-inst-configuring.md
-                      - General configuration: connectors/icec/cec-inst-gneral-configuration.md
-                      - Mode configuration: 
-                          - connectors/icec/cec-inst-configure-modes.md
-                          - Anonymous mode configuration: connectors/icec/cec-inst-anonymous-mode-configuration.md
-                          - Community on-premises mode configuration: 
-                              - connectors/icec/cec-inst-community-on-prem-config.md
-                              - Updating the widgets-config.xml file: connectors/icec/cec-inst-widgets-config.md
-                              - Updating the LotusConnections-config.xml file: connectors/icec/cec-inst-connections-config.md
-                              - Creating string properties files: connectors/icec/cec-inst-create-string-prop-files.md
-                              - Registering with the Widget Container on the Homepage: connectors/icec/cec-inst-registering-icec-homepage.md
-                              - Publishing the community configuration: connectors/icec/cec-inst-publish-configuration.md
-                          - Flyout mode configuration: connectors/icec/cec-inst-flyout-mode-config.md
-                          - Mobile mode configuration: connectors/icec/cec-inst-mobile-mode-config.md
-                      - Changing the name of the LTPA cookie &#40;optional&#41;: connectors/icec/cec-inst-update-lpta-cookie.md
-                      - Adding a link to the HCL Connections navigation bar: connectors/icec/cec-inst-adding-link-header-nav.md
-                      - People Birthday widget: connectors/icec/cec-inst-birthday-widget.md
-                      - Customize labels for languages: connectors/icec/cec-inst-customize-labels-for-languages.md
-                      - Edit personalization attributes: connectors/icec/cec-inst-edit-personalization-attributes.md
-                      - HCL Connections proxy configuration: connectors/icec/cec-inst-ibm-conx-proxy-config.md
-                      - Landing page configuration: connectors/icec/cec-inst-landing-page-config.md
-                      - Rebuilding the search index of HCL Connections: connectors/icec/cec-inst-rebuilding-search.md
-                      - Import and export of XML files: connectors/icec/cec-inst-import-export-xml.md
-                      - Internet Explorer compatibility mode: connectors/icec/cec-inst-ie-compatibility-mode.md
+                    - connectors/icec/cec-inst-configuring.md
+                    - General configuration: connectors/icec/cec-inst-gneral-configuration.md
+                    - Mode configuration: 
+                      - connectors/icec/cec-inst-configure-modes.md
+                      - Anonymous mode configuration: 
+                        - connectors/icec/cec-inst-anonymous-mode-configuration.md
+                        - Community on-premises mode configuration: 
+                          - connectors/icec/cec-inst-community-on-prem-config.md
+                          - Updating the widgets-config.xml file: connectors/icec/cec-inst-widgets-config.md
+                          - Updating the LotusConnections-config.xml file: connectors/icec/cec-inst-connections-config.md
+                          - Creating string properties files: connectors/icec/cec-inst-create-string-prop-files.md
+                          - Registering with the Widget Container on the Homepage: connectors/icec/cec-inst-registering-icec-homepage.md
+                          - Publishing the community configuration: connectors/icec/cec-inst-publish-configuration.md
+                      - Flyout mode configuration: connectors/icec/cec-inst-flyout-mode-config.md
+                      - Mobile mode configuration: connectors/icec/cec-inst-mobile-mode-config.md
+                    - Changing the name of the LTPA cookie &#40;optional&#41;: connectors/icec/cec-inst-update-lpta-cookie.md
+                    - Adding a link to the HCL Connections navigation bar: connectors/icec/cec-inst-adding-link-header-nav.md
+                    - People Birthday widget: connectors/icec/cec-inst-birthday-widget.md
+                    - Customize labels for languages: connectors/icec/cec-inst-customize-labels-for-languages.md
+                    - Edit personalization attributes: connectors/icec/cec-inst-edit-personalization-attributes.md
+                    - HCL Connections proxy configuration: connectors/icec/cec-inst-ibm-conx-proxy-config.md
+                    - Landing page configuration: connectors/icec/cec-inst-landing-page-config.md
+                    - Rebuilding the search index of HCL Connections: connectors/icec/cec-inst-rebuilding-search.md
+                    - Import and export of XML files: connectors/icec/cec-inst-import-export-xml.md
+                    - Internet Explorer compatibility mode: connectors/icec/cec-inst-ie-compatibility-mode.md
                   - Debugging: connectors/icec/onprem-cec-inst-debugging.md
                   - URLs to access Connections Engagement Center: connectors/icec/onprem-cec-urls-to-access-icec.md
           - Installing integration plug-ins for HCL Connections: 
@@ -1885,7 +1894,7 @@ nav:
                   - Preferences and policies for the HCL Connections Desktop Plug-ins for Microsoft Windows: connectors/enduser/r_files_prefs_and_policies_windows.md
                   - Managing policies and preferences with a group policy: connectors/enduser/t_ms_office_group_policies.md
                   - Customizing the branding strings and images for the desktop plug-in: connectors/enduser/r_files_windows_ms_custom_branding.md
-                  - Connecting to an HCL Connections or Connections Cloud site: connectors/enduser/t_ms_plugins_connect.md
+                  - Connecting to an HCL Connections or Connections Multi-tenant site: connectors/enduser/t_ms_plugins_connect.md
                   - Setting preferences for HCL Connections plug-ins for Microsoft Windows: connectors/enduser/r_ms_plugins_settings.md
               - HCL Connections Add-in for Microsoft Outlook: 
                   - connectors/admin/c_outlook_connector.md
@@ -1967,13 +1976,15 @@ nav:
                   - Working with Office documents in a library: connectors/enduser/t_ms_plugins_add_doc_to_library.md
                   - Adding Connections content to Word documents: connectors/enduser/t_ms_plugins_add_profiles_to_word.md
                   - Searching from Office for HCL Connections content: connectors/enduser/office_connector_searching_conn.md
-          - Using Connections with Microsoft Teams: 
+          - Setting up Connections and Microsoft Teams integration: 
               - connectors/admin/c_ms_teams_integration_container.md
               - Enabling app registry extensions for Microsoft Teams integration: connectors/admin/t_ms_teams_enable_reg_ext.md
               - Enabling Connections to use the app registry service: connectors/admin/t_ms_teams_enable_conn_use_appreg.md
               - Updating WebSphere to support single sign-on with Connections for Microsoft Teams: connectors/admin/t_ms_teams_update_websphere_for_sso.md
               - Configuring an Azure app to support the Microsoft Teams app: connectors/admin/t_ms_teams_config_azure_app.md
               - Setting up the Connections app for the Microsoft Teams client: connectors/admin/t_ms_teams_set_up_conn_app_for_ms.md
+          - Using Connections and Microsoft Teams together:
+              - connectors/enduser/c_eucommon_conn_and_ms_teams.md
           - Using the HCL Connections Add-in for Microsoft Outlook: 
               - connectors/enduser/c_ms_plugins_add_in_outlook.md
               - Accessing the Connections Add-in from the Outlook desktop client: connectors/enduser/t_ms_plugins_outlook_add_in_desktop_client.md

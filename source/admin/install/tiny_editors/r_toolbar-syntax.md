@@ -1,4 +1,4 @@
-# The Toolbar customization syntax {#toolbar-syntax .reference}
+# The Toolbar customization syntax 
 
 The syntax for the toolbar customization option is written using [Extended Backus–Naur form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
 
@@ -88,6 +88,4 @@ toolbar = "[", [ group , { "," , group } ] , "]";
 
 
 [Toolbar components and the toolbar definition](../../install/tiny_editors/c_toolbar.md)
-
-[../../admin/install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../admin/install/tiny_editors/t_configure_08-customize-toolbar-2.md)
 

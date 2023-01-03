@@ -70,5 +70,4 @@ The search \(link\) criteria can be either uid or key.
 
 [Setting up your development environment](../admin/t_admin_profiles_config_tdi_dev_environment.md)
 
-[Populating Profiles with photos from LDAP](../admin/t_admin_profiles_import_photos.md)
 

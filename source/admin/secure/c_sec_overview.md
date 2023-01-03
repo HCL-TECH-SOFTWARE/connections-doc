@@ -1,4 +1,4 @@
-# Security {#c_sec_overview .concept}
+# Security 
 
 HCL Connections™ provides a flexible security infrastructure that supports an open, easily shareable data model.
 
@@ -14,7 +14,7 @@ Set up single sign-on integration between HCL Connections and other HCL products
 You can use the SAML \(Security Assertion Markup Language\) 2.0 web SSO redirection services support to implement user authentication and single sign-on \(SSO\). To establish your SAML environment, you must consider the following information to ensure that your system is a good candidate.
 -   **[Configuring the AJAX proxy](../secure/t_admin_config_ajax_proxy.md)**  
 By default, the HCL Connections AJAX proxy is configured to allow cookies, headers or mime types, and all HTTP actions to be exchanged among the Connections applications. If you want to change the traffic that is allowed from non-HCL Connections services, you must explicitly configure it.
--   **[Enabling locked domains](../install/t_post_install_cre11_conn_security_locked_N.md)**  
+-   **[Enabling locked domains](../install/t_post_install_cre11_conn_security_locked.md)**  
 Assuming that you have completed the server setup previously described, to enable locked domains in HCL Connections, specify an additional attribute in the LotusConnections-config.xml to ensure that only ConnectionsOpensocial application is mapped to the locked domain host.
 -   **[Enabling virus scanning](../secure/t_admin_common_virus_scanning.md)**  
 Edit configuration property settings to force the applications that handle uploaded files to scan all files for viruses.
@@ -29,10 +29,4 @@ HCL Connections provides security measures, such as an active content filter and
 -   **[Restricting domains used by the login page redirect parameter](../secure/sec_restrict_login_page_redirects.md)**  
 By default, the HCL Connections default login page allows redirecting to any destination. You can configure Connections to use a whitelist of domains to ensure login navigation to a secure page.
 
-**Parent topic:**[Administering Connections 8.0](../welcome/welcome_admin.md)
-
-**Related information**  
-
-
-[Forums configuration properties](../admin/r_admin_forums_config_props.md)
-
+**Parent topic:** [Administering Connections 8.0](../welcome/welcome_admin.md)

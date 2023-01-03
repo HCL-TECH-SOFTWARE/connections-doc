@@ -1,4 +1,4 @@
-# Creating an MSSQL JDBC provider \(optional\) {#id_name .reference}
+# Creating an MSSQL JDBC provider \(optional\) 
 
 You can skip these steps if you elect to use the default JDBC provider that Connections Activities uses. The Activities JDBC provider is used as the default in the install.properties file when you install the Connections Engagement Center. If you want to have a clear separation for the Connections Engagement Center database, follow these instructions.
 
@@ -46,6 +46,4 @@ You can skip these steps if you elect to use the default JDBC provider that Conn
  ![image](images/image43.png)
 
 |
-
-**Parent topic:**[Using MSSQL as a database](../../connectors/icec/cec-inst-using-mssql-database.md)
 

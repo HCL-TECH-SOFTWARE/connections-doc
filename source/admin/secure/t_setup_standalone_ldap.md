@@ -1,4 +1,4 @@
-# Enabling single sign-on for standalone LDAP {#t_setup_standalone_ldap .task}
+# Enabling single sign-on for standalone LDAP 
 
 HCL Connections™ requires a federated repositories configuration, but you can enable Connections applications to perform Single sign-on for a standalone LDAP directory.
 
@@ -70,12 +70,4 @@ To enable SSO between Connections and a WebSphere Application Server configured 
     7.  Select **Servers** \> **Clusters**. Select the check box the cluster you want to restart and click **Start**.
 
 
-**Parent topic:**[Configuring single sign-on](../secure/c_sec_config_sso.md)
-
-**Related information**  
-
-
-[Configuring HCL Connections for SSO](../admin/t_admin_communities_library_cm_sso_ic.md)
-
-[Enabling single sign-on for Domino](../secure/t_secure_domino.md)
-
+**Parent topic:** [Configuring single sign-on](../secure/c_sec_config_sso.md)

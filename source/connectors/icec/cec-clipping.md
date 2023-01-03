@@ -1,4 +1,4 @@
-# Clipping {#id_name .reference}
+# Clipping 
 
 This widget allows you to display content from other sites. For example, you can include the news section from an external website. To configure this widget, HTML, jQuery and CSS skills are useful.
 
@@ -6,7 +6,7 @@ This widget allows you to display content from other sites. For example, you can
 
 **Important:** Be sure that you configured the AJAX-Proxy. For more information, see [HCL Connections proxy configuration](https://help.hcltechsw.com/connections/v7/connectors/icec/cec-inst-ibm-conx-proxy-config.html) in the Connections Engagement Center Installation Instructions.
 
-**Important:** Be sure to configure the Clipping widget to work with the Connections Cloud approved proxies. For more information, see [Configuring a whitelist for the proxy server](cec-rss-cloud-configure.md).
+**Important:** Be sure to configure the Clipping widget to work with the Connections Cloud approved proxies.
 
 ## Content source { .section}
 

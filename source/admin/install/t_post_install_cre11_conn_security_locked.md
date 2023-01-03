@@ -1,8 +1,8 @@
-# Enabling locked domains {#bestpractices .reference}
+# Enabling locked domains
 
 Assuming that you have completed the server setup previously described, to enable locked domains in HCL Connections, specify an additional attribute in the LotusConnections-config.xml to ensure that only ConnectionsOpensocial application is mapped to the locked domain host.
 
-## Enabling locked domains for additional security { .section}
+## Enabling locked domains for additional security 
 
 For added security, only the ConnectionsCommon.ear should be mapped to the locked host. Although no SSO tokens will be flowing from the host, this extra precaution limits exposure of your Connections infrastructure to potentially malicious gadgets. For more information about locked domains refer to [Understanding and configuring locked domains](https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf) in the HCL Connections wiki.
 
@@ -63,7 +63,7 @@ For added security, only the ConnectionsCommon.ear should be mapped to the locke
     8.  After making updates, enter the following command to deploy the changes: synchAllNodes\(\)
 2.  Restart your Connections server.
 
-## Example { .section}
+## Example 
 
 This configuration could look like the following sample:
 
@@ -77,5 +77,5 @@ This configuration could look like the following sample:
     </sloc:serviceReference>
 ```
 
-**Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
+**Parent topic:**  [Security](../secure/c_sec_overview.md)
 

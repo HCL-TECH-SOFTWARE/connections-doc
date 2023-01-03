@@ -1,4 +1,4 @@
-# Updating HCL Connections to use the HTTP server {#t_update_web_addresses_in_IHS .task}
+# Updating HCL Connections to use the HTTP server 
 
 Update the web addresses that IBM® HTTP Server uses to access HCL Connections applications.
 
@@ -41,9 +41,8 @@ To update the web addresses to your HCL Connections applications, complete the f
     -   webserver is the domain name of IBM HTTP Server, such as webserver.example.com.
     -   port is the default port number of the application. Remove the port number when you specify a web server.
     -   application is the name of an HCL Connections application.
-    **Note:**
-
-    Each href attribute in the LotusConnections-config.xml file is case-sensitive and must specify a fully-qualified domain name.
+    
+       **Note:** Each href attribute in the LotusConnections-config.xml file is case-sensitive and must specify a fully-qualified domain name.
 
     For example, to update the web address for Communities, add the following specifications to the file:
 
@@ -59,7 +58,7 @@ To update the web addresses to your HCL Connections applications, complete the f
 
     </sloc:href\>
 
-    **Note:** If you plan to use a reverse proxy, the web addresses defined in this file must be updated to match the appropriate proxy server URLs. Go to the [HCL Connections wiki](http://www-10.lotus.com/ldd/lcwiki.nsf/) for more information about deployment scenarios, including how to configure a reverse proxy.
+    **Note:** If you plan to use a reverse proxy, the web addresses defined in this file must be updated to match the appropriate proxy server URLs. For more information about [how to configure a reverse proxy](../install/t_install_deploy_caching_proxy.md).
 
 4.  Save and check in the LotusConnections-config.xml file.
 
@@ -69,14 +68,6 @@ To update the web addresses to your HCL Connections applications, complete the f
 
 7.  Log on to each application to ensure that the web addresses in the navigation bar are correct.
 
-8.  If you have deployed Connections Content Manager, update FileNet® Collaboration Services to use the new URL. For more information, see [Re-configuring FileNet Collaboration Services to support changes to Connections Content Manager](t_reconfig_fncs_for_ccm.md).
-
-
 You can access each application without needing to specify a port number.
 
-**Parent topic:**[Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
-
-**Previous topic:**[Determining which files to compress](../install/t_ihs_config_not_compressing_files.md)
-
-**Next topic:**[Allow Upload To Files Application](../install/t_allow_uploads_to_files.md)
-
+**Parent topic:** [Configuring IBM HTTP Server](../install/c_add_ihs_over.md)

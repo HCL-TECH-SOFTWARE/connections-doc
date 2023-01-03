@@ -530,7 +530,6 @@ To set up SSO using Security Verify Access, complete the following steps:
         -   /communities/calendar/seedlist/myserver
         -   /blogs/seedlist/myserver
         -   /forums/seedlist/myserver
-        -   /forums/seedlist/myserver
         -   /wikis/seedlist/myserver
         
 8.  To get the activity stream on the Homepage to display, you must import an encrypted connection \(SSL\) certificate from the ISVA server to the nodes.

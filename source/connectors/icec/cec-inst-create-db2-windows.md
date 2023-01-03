@@ -31,5 +31,3 @@ The default user is LCUSER within this script file to grant the necessary access
 
 |
 
-**Parent topic:**[Using DB2 as a database](../../connectors/icec/cec-inst-using-db2-database.md)
-

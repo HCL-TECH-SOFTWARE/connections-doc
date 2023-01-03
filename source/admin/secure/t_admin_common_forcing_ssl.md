@@ -1,4 +1,4 @@
-# Forcing traffic to be sent over an encrypted connection {#t_admin_common_forcing_ssl .task}
+# Forcing traffic to be sent over an encrypted connection 
 
 You can configure HCL Connections™ to force all traffic that passes between a Connections server and a user's web browser to be sent over an encrypted connection.
 
@@ -36,7 +36,7 @@ To edit configuration files, you must use the wsadmin client. See [Starting the 
 
 3.  After making changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. See [Applying common configuration property changes](../admin/t_admin_common_save_changes.md) for information about how to save and apply your changes.
 
-4.  To secure session cookies, complete the following steps:
+4.  **Optional**: To secure session cookies, complete the following steps:
 
     1.  Log in to the WebSphere Application Server Integrated Solutions Console of the server hosting your Connections applications as the administrator.
 
@@ -50,7 +50,7 @@ To edit configuration files, you must use the wsadmin client. See [Starting the 
 
     6.  Click **Apply**, and then click **OK**.
 
-5.  To secure LTPA tokens, complete the following steps:
+5.  **Optional**: To secure LTPA tokens, complete the following steps:
 
     1.  From the WebSphere Application Server Integrated Solutions Console, expand **Security**, and then click **Global security**.
 
@@ -61,18 +61,4 @@ To edit configuration files, you must use the wsadmin client. See [Starting the 
     4.  Click **Apply**, and then click **OK**.
 
 
-**Parent topic:**[Security](../secure/c_sec_overview.md)
-
-**Related information**  
-
-
-[Changing common configuration property values](../admin/t_admin_common_changing_config.md)
-
-[Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
-
-[Applying common configuration property changes](../admin/t_admin_common_save_changes.md)
-
-[Enabling users to publish file attachments to Lotus Quickr](../admin/t_admin_act_publish_to_quickr.md)
-
-[Configuring IBM HTTP Server for an encrypted connection](../install/t_configure_ihs.md)
-
+**Parent topic:** [Security](../secure/c_sec_overview.md)

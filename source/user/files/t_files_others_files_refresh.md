@@ -8,15 +8,49 @@ There are three primary levels of access for any file: private, shared with spec
 
 File owners can allow other people to share files. When someone shares a file with you, they can give you Reader or Editor access. When a file is given public access, anyone can read and download it, even people who are not logged in. After they log in, people can also share the file, add it to a folder, comment on it, and receive notifications when someone edits it or comments on it.
 
-|**Option**|**Reader**|**Editor**|**Owner**|
-|----------|----------|----------|---------|
-|**Transfer file ownership**|❌|❌|✔|
-|**Allow others to share a file**|❌|❌|✔|
-|**Edit a file**|❌|✔|✔|
-|**Upload a new version of a file**|❌|✔|✔|
-|**Restore a version of a file**|❌|✔|✔|
-|**Edit file properties on your own file or someone else's file**1.  From the navigation bar, click **Files**.
-2.  Click **My Files** or the **Shared With Me** in the sidebar, and then select the list view![List view icon](images/files_list_view_icon.png) in the action bar.
+<table>
+<tr>
+<th>Option</th>
+<th>Reader</th>
+<th>Editor</th>
+<th>Owner</th>
+</tr>
+<tr>
+<td>Transfer file ownership</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+</tr>
+<tr>
+<td>Allow others to share a file</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Edit a file</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Upload a new version of a file</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Restore a version of a file</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Edit file properties on your own file or someone else's file<br>
+<ol>
+    <li>From the navigation bar, click <b>Files</b>.</li>
+    <li>Click <b>My Files</b> or the **Shared With Me** in the sidebar, and then select the list view![List view icon](images/files_list_view_icon.png) in the action bar.
 3.  Click **More** next to the file whose properties you want to edit.
 4.  Click **More Actions** and then select **Edit Properties** from the list.
 5.  Change the file name, description, or file extension.

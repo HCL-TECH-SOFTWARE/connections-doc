@@ -2,7 +2,7 @@
 
 To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.
 
-## Before you begin {#section_bvd_m5p_bvb .section}
+## Before you begin 
 
 Before you begin migration, verify that the Elasticsearch 7 server is running and ensure that the user account used has the proper access rights to perform the steps in this task.
 
@@ -18,8 +18,7 @@ To avoid losing new data while migrating the existing data, run this task during
 
 For information on setting up persistent volumes, see [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc).
 
-## Migrate data {#section_nh3_ry2_ztb .section}
-
+## Migrate data 
 1.  Get the index list that will be migrated into the new OpenSearch instance.
     1. Run the following command:
 
@@ -241,7 +240,7 @@ For information on setting up persistent volumes, see [Set up persistent volumes
 
 
 
-## Verify migrated data in the user interface {#section_bsd_22t_ztb .section}
+## Verify migrated data in the user interface 
 
 Use the UI to verify that the Metrics and type-ahead search data was migrated successfully.
 
@@ -258,5 +257,5 @@ Use the UI to verify that the Metrics and type-ahead search data was migrated su
     2.  Navigate to some content, such as a forum, wiki, or community. View a global report and verify that the migrated data displays.
     3.  Open the type-ahead search sidebar by clicking the Search icon. Verify that you can see the content you viewed at the top of the list.
 
-**Parent topic:**[Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
 

@@ -1,4 +1,4 @@
-# Customizing display using templates {#t_admin_profiles_customize_biz_card_main .task}
+# Customizing display using templates {#t_admin_profiles_customize_biz_card_main}
 
 Customize various sections of the Profiles application using the supplied template files. You can choose to modify the set of standard and extension attributes that are rendered in the user interface for a profile record. Extension attributes of type XML are not provided for use by template authors. You can also modify the structure of the layout of content using the flexibility provided by the FreeMarker Template Language.
 
@@ -80,6 +80,4 @@ Edit the profileEdit.ftl file to customize edit display fields.
 
 
 [Applying property changes in Profiles](../admin/t_admin_profiles_save_changes.md)
-
-[Adding custom extension attributes for Profiles](../customize/c_admin_profiles_add_custom_field.md)
 

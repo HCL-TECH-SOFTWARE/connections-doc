@@ -67,7 +67,7 @@ For a complete example, see [Creating a simple profile data model and template c
 
         -   bundle\_prefix is a globally unique name that identifies the bundle. This is a string value. The bundle prefix is used to uniquely scope the keys in each bundle. The prefix must be unique across all registered widget bundles.
 
-            This bundle prefix maps to the bundle ID reference that you specify when you define a custom resource attribute or widget. For more information about defining custom resource attributes, see [Enabling custom extension attributes for Profiles](t_admin_profiles_enable_custom_fields.md). For information about defining custom widgets, see [Enabling custom widgets for Communities](../install/in_deploy_custom_widgets_communities.md) or [Enabling custom widgets for Profiles](../admin/t_admin_profiles_develop_custom_widgets.md).
+            This bundle prefix maps to the bundle ID reference that you specify when you define a custom resource attribute or widget. For more information about defining custom resource attributes, see [Enabling custom extension attributes for Profiles](t_admin_profiles_enable_custom_fields.md). For information about defining custom widgets, see [Enabling custom widgets for Profiles](../admin/t_admin_profiles_develop_custom_widgets.md).
 
         -   bundle\_name is the Java™ package name. This parameter takes a string value. When you name the resource bundle, the elements in the bundle name must correspond to the file name of the properties file that you created in step 1.
 
@@ -106,8 +106,6 @@ For information about how to apply the label configuration to each user interfac
 
 
 [Configuring the vCard export application for Profiles](../admin/t_admin_profiles_config_vcard_export.md)
-
-[Specifying external labels for attributes](../customize/t_admin_profiles_set_attribute_labels.md)
 
 [Creating a simple profile data model and template customization](../customize/t_admin_profiles_custom_example.md)
 

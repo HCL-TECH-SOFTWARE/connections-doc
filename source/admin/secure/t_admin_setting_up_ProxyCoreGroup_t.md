@@ -1,4 +1,4 @@
-# Setting up a new proxy core group {#setting_up_ProxyCoreGroup_t .task}
+# Setting up a new proxy core group 
 
 It is necessary to separate the WebSphere® Application Server \(WAS\) proxy server and the PushNotificationClusters into different core groups to ensure that requests for the PushNotificationClusters do not get routed to the HTTP Server \(IHS\) simultaneously.
 
@@ -56,6 +56,4 @@ It is necessary to separate the WebSphere® Application Server \(WAS\) proxy ser
 
     3.  Stop, synchronize, and restart your node agents. If you restart your deployment after assigning the bridge interfaces, and the initial loading of the bridge interfaces causes an error, restart the Java™ Virtual Machines \(JVMs\).
 
-
-**Parent topic:**[Setting up and configuring a WAS proxy server for long poll testing](../secure/t_admin_config_was_proxy.md)
 

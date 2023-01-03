@@ -101,10 +101,3 @@ ar;Argentina
 
 You can find more sample CSV files in the wizard\_files\_directory/TDIPopulation/TDISOL/aix\|lin\|win/samples directory, where the wizard\_files\_directory is the location of the various Wizard files that you downloaded or received on disk, and aix\|lin\|win is the AIX®, Linux®, or Microsoft® Windows® version of the directory.
 
-**Parent topic:**[Populating the Profiles database](../install/t_prof_install_profiles_db.md)
-
-**Related information**  
-
-
-[Using the CodesConnector](../admin/t_admin_profiles_using_codes_connector.md)
-

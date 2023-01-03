@@ -1,10 +1,10 @@
-# Before installing {#before_installing .reference}
+# Before installing 
 
 Verify that all necessary prerequisite conditions are complete before installing HCL Connections.
 
-## Prerequisites { .section}
+## Prerequisites 
 
-**Important:** If Feature Foundation is included in your HCL Connections 8.0 installation then both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](https://help.hcltechsw.com/connections/v7/admin/migrate/t_back-up.html) for details. You can use this backup to restore your existing deployment if the migration or update fails.
+**Important:** If Feature Foundation is included in your HCL Connections 8.0 installation then both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](../migrate/t_back-up.md) for details. You can use this backup to restore your existing deployment if the migration or update fails.
 
 1.  Refer to the [What's New in HCL Connections](../overview/i_ovr_r_whats_new.md) to review the latest new features in a release, gather download links, look over the latest fix list and update strategy information.
 2.  Install all the required fixes for WebSphere® Application Server that are listed in the [HCL Connections Software Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) web page. If you are migrating from an earlier release or updating a release, verify that you have upgraded to the supported versions of all required software and all required fixes. Requirements have changed since the previous release.
@@ -35,13 +35,13 @@ Verify that all necessary prerequisite conditions are complete before installing
 -   Use a worksheet to record the user IDs, passwords, server names, and other information that you need during and after installation. For more information, see the *Worksheet for installing HCL Connections* topic.
 -   Installing and configuring HCL Connections is a complex process; not only should you read the instructions but you must also pay attention to the *Before you begin* prerequisites in each topic.
 
-## Linux and AIX considerations { .section}
+## Linux and AIX considerations 
 
 -   \(Linux only\) If you receive an error message after attempting to start IBM Installation Manager, you might need to install additional 32-bit libraries. For more information about required Linux libraries, see the *Linux libraries* topic. For more information about IBM Installation Manager errors, go to the [Unable to install Installation Manager on RHEL 6.0/6.1 \(64-bit\)](https://www-304.ibm.com/support/docview.wss?uid=swg21459143) web page.
 -   \(AIX and Linux\) Ensure that the directory paths that you enter contain no spaces.
 -   \(AIX, IBMi, and Linux\) Ensure that the Open File Descriptor limit is 8192. For information about setting the file limit, go to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E.
 -   \(AIX only\) IBM Installation Manager requires additional libraries for the AIX operating system. For more information, go to the [Required filesets on AIX for Installation Manager](http://www-01.ibm.com/support/docview.wss?uid=swg21584548) web page.
--   \(AIX only\) IBM Installation Manager requires additional 64-bit AIX libraries to support the graphical user interface. For a complete list of libraries, refer to [AIX libraries](../migrate/r_aix_libraries.md).
+-   \(AIX only\) IBM Installation Manager requires additional 64-bit AIX libraries to support the graphical user interface. 
 -   \(AIX only\) If IBM Installation Manager hangs while being installed on your system, you might need to update your version of the software. For more information, read the [IBM Installation Manager hangs on 64-bit AIX systems](http://www-01.ibm.com/support/docview.wss?uid=swg21431957) technote.
 -   \(AIX only\) If you are downloading IBM Installation Manager, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM distributes through the AIX Toolbox for Linux Applications at the [IBM AIX Toolbox](http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html) website. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.
 
@@ -58,5 +58,5 @@ Linux libraries that are required for deploying HCL Connections.
 -   **[AIX libraries](../install/r_aix_libraries-N.md)**  
 Installation Manager requires additional 64-bit AIX libraries to support the graphical user interface in an HCL Connections deployment.
 
-**Parent topic:**[Pre-installation tasks](../install/c_preinstall_actions.md)
+**Parent topic:** [Pre-installation tasks](../install/c_preinstall_actions.md)
 

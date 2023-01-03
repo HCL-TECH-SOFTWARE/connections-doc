@@ -1,4 +1,4 @@
-# Deployment options {#c_planning_the_installation .concept}
+# Deployment options 
 
 Install HCL Connections™ in one of three deployment topologies to achieve optimum scaling, load balancing, and failover.
 
@@ -12,22 +12,23 @@ Any of these deployments can be set up to allow employees and external users to 
 
 When you are installing Connections, you have three deployment options:
 
-Small deployment
-:   Install all Connections applications on a single node in a single cluster. This option is the simplest deployment but has limited flexibility and does not allow individual applications to be scaled up. All the applications run within a single Java™ Virtual Machine \(JVM\).
+**Small deployment**
+Install all Connections applications on a single node in a single cluster. This option is the simplest deployment but has limited flexibility and does not allow individual applications to be scaled up. All the applications run within a single Java™ Virtual Machine \(JVM\).
 
-    **Note:** The diagram depicts a topology with up to 8 servers. If you install the servers on shared systems, you do not need to deploy 8 separate systems.
+**Note:** The diagram depicts a topology with up to 8 servers. If you install the servers on shared systems, you do not need to deploy 8 separate systems.
 
-    ![Small deployment topology](deployment-diagrams-connections-small.jpg "Small deployment ")
+![Small deployment topology](deployment-diagrams-connections-small.jpg)
+    
 
-Medium deployment
-:   Install a subset of applications in separate clusters. Connections provides five predefined cluster names shared among all of its applications. Use this option to distribute applications according to your usage expectations. For instance, you might anticipate higher loads for the Profiles application and install it in its own cluster, while other applications could be installed in a different cluster. This option allows you to maximize the use of available hardware and system resources to suit your needs.
+**Medium deployment**
+Install a subset of applications in separate clusters. Connections provides five predefined cluster names shared among all of its applications. Use this option to distribute applications according to your usage expectations. For instance, you might anticipate higher loads for the Profiles application and install it in its own cluster, while other applications could be installed in a different cluster. This option allows you to maximize the use of available hardware and system resources to suit your needs.
 
-    ![Medium deployment topology](deployment-diagrams-connections-medium.jpg "Medium deployment")
+![Medium deployment topology](deployment-diagrams-connections-medium.jpg)
 
-Large deployment
-:   Install each application in its own cluster. Connections provides a predefined cluster name for each application. This option provides the best performance in terms of scalability and availability options but also requires more system resources. In most cases, you should install the News and Home page applications in the same cluster.
+**Large deployment**
+Install each application in its own cluster. Connections provides a predefined cluster name for each application. This option provides the best performance in terms of scalability and availability options but also requires more system resources. In most cases, you should install the News and Home page applications in the same cluster.
 
-    ![Large deployment topology](deployment-diagrams-connections-large.jpg "Large deployment ")
+![Large deployment topology](deployment-diagrams-connections-large.jpg )
 
 **Notes:**
 
@@ -46,5 +47,5 @@ Large deployment
 
 -   If you use Forms, Viewer, Polls, or Surveys, your deployment topology requires additional servers.
 
-**Parent topic:**[Planning](../plan/c_installation_overview.md)
+**Parent topic:** [Planning](../plan/c_installation_overview.md)
 

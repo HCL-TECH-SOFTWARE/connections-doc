@@ -47,5 +47,3 @@ You can skip these steps if you elect to use the default JDBC provider that Conn
 
 |
 
-**Parent topic:**[Using Oracle as database](../../connectors/icec/cec-inst-using-oracle-as-database.md)
-

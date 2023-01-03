@@ -1,4 +1,4 @@
-# Setting up and configuring a WAS proxy server for long poll testing {#t_admin_config_was_proxy .task}
+# Setting up and configuring a WAS proxy server for long poll testing 
 
 HTTP long polling can be used to push updates to a web client. A connection is held open between the web client and the web server so that when the server has new information it can push it to the client. That connection is then closed. For Connections Social Cloud, a WebSphere® Application Server \(WAS\) proxy server must be used to test this function.
 
@@ -9,5 +9,5 @@ It is necessary to separate the WebSphere Application Server \(WAS\) proxy serve
 -   **[Tuning the WAS proxy server for long poll](../secure/t_admin_tuning_WASProxy_t.md)**  
 The proxy server must be tuned to allow for the high number of connections in the long poll test scenario.
 
-**Parent topic:**[Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
+**Parent topic:** [Optional post-installation tasks](../install/c_optional_post-install_tasks.md)
 

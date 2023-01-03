@@ -18,8 +18,6 @@ Move communities around for better and more relevant organization.
 If a community no longer has a purpose or is inactive, you might want to delete it.
 -   **[Copying a community structure](../communities/c_com_copy.md)**  
 When you want to create a new community, it might be easier to copy an existing community rather than creating one from scratch.
--   **[Changing the business owner of a community](../communities/t_com_changing_business_owner.md)**  
-You must be the current business owner to transfer business ownership of a community to another member.
 
 **Parent topic:**[Owners - manage your community effectively](../communities/community_owners.md)
 

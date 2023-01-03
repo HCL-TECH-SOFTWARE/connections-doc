@@ -27,14 +27,10 @@ You need Author or Draft permissions to contribute an idea. To change member rol
     -   To mark the idea as a duplicate, click **More Actions** and select **Mark as Duplicate**. You must search for the duplicate idea so the votes can be merged. The duplicate idea is marked as a duplicate and no further votes are allowed.
     -   To remove the idea from the ideation blog, click **More Actions** and select **Delete Idea**.
 
-**Parent topic:**[Blogging your point of view](../communities/c_com_blog.md)
+**Parent topic:** [Blogging your point of view](../communities/c_com_blog.md)
 
 **Related information**  
 
-
-[Communities](../communities/cframe.md)
-
-[Working with activities](../communities/community_activity_frame.md)
 
 [Using an Ideation Blog](../blogs/c_blogs_ideablog.md)
 

@@ -33,5 +33,3 @@ We have included a SQL script file for each supported RDBMS into the Connections
 
 |
 
-**Parent topic:**[Using MSSQL as a database](../../connectors/icec/cec-inst-using-mssql-database.md)
-

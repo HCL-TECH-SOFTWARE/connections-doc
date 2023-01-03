@@ -1,4 +1,4 @@
-# Configuring dictionaries for Search {#c_admin_search_configure_dictionaries .concept}
+# Configuring dictionaries for Search 
 
 The Search application provides globalization support by using different dictionaries for different languages. Each dictionary file must be enabled in the Search configuration file before indexing. By default, only the English language dictionary is enabled during installation.
 
@@ -19,14 +19,4 @@ The Search application provides a number of language dictionaries.
 -   **[Searching over Multiple Languages](../admin/c_admin_search_mult_language.md)**  
 The Search application provides globalization support by using different dictionaries for different languages. Each dictionary file must be enabled in the Search configuration file before indexing. By default, only the English language dictionary is enabled during installation.
 
-**Parent topic:**[Index settings](../admin/c_admin_search_index_settings.md)
-
-**Related information**  
-
-
-[Creating the initial Search index](../admin/t_admin_search_create_initial_index.md)
-
-[Reloading the Search application](../admin/t_admin_search_reload_search.md)
-
-[Search and globalization](../admin/c_admin_search_globalization.md)
-
+**Parent topic:** [Index settings](../admin/c_admin_search_index_settings.md)

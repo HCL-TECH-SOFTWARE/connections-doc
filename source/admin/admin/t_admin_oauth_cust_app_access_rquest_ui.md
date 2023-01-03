@@ -11,5 +11,3 @@ With the OAuth runtime configured, HCL Connections users can allow applications 
     For more information about customizing interface strings, refer to [Customizing property strings](../customize/t_customize_strings_global.md).
 
 
-**Parent topic:**[Customizing the user interface](../customize/t_admin_common_customize_main.md)
-

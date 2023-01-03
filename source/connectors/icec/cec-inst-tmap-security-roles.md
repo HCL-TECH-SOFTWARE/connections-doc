@@ -1,4 +1,4 @@
-# Mapping security roles {#id_name .reference}
+# Mapping security roles 
 
 Map users to security roles.
 
@@ -39,8 +39,3 @@ Map users to security roles.
 |
 
 **Parent topic:**[Installing](../../connectors/icec/cec-inst-installing.md)
-
-**Previous topic:**[Enable trace logs to analyze errors \(optional\)](../../connectors/icec/cec-inst-enable-trace-logs.md)
-
-**Next topic:**[Configuring](../../connectors/icec/cec-inst-configuring.md)
-

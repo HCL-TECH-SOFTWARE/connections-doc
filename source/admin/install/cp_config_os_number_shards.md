@@ -1,4 +1,4 @@
-# Changing the number of shards for the OpenSearch Metrics index {#cp_config_es_number_shards .task}
+# Changing the number of shards for the OpenSearch Metrics index 
 
 If your environment requires, you can change the default number of shards that will be assigned to the OpenSearch Metrics index when it is created.
 
@@ -15,7 +15,7 @@ If you migrate data from an old metrics database or when you deploy the OpenSear
 2.  Synchronize the nodes.
 
 
-To use the new shard number when the index is created, the MetricsEventCapture app \(already running on WebSphere Application Server\) will need to be restarted. You can restart MetricsEventsCapture as part of your next task for configuring OpenSearch metrics: [Enabling OpenSearch Metrics to connect to a Component Pack server](cp_config_os_connect_to_cp_server.md).
+To use the new shard number when the index is created, the MetricsEventCapture app \(already running on WebSphere Application Server\) will need to be restarted. You can restart MetricsEventsCapture as part of your next task for configuring OpenSearch metrics: [Enabling OpenSearch Metrics to connect to a Component Pack server](../install/cp_config_os_connect_to_cp_server.md).
 
-**Parent topic:**[Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
+**Parent topic:** [Configuring the OpenSearch Metrics component](../install/cp_config_os_intro.md)
 

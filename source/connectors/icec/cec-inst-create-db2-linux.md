@@ -33,5 +33,3 @@ db2 -tvf **<XCC\_PACKAGE\_PATH\>**/Create_XCC_DB2_Database.sql
 
 |
 
-**Parent topic:**[Using DB2 as a database](../../connectors/icec/cec-inst-using-db2-database.md)
-

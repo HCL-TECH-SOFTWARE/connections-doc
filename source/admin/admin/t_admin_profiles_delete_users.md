@@ -67,5 +67,5 @@ The default value is inactivate.
 
 [Configuring IBM Security Directory Integrator](../install/t_prof_install_tdi.md)
 
-[Customizing the logic used for the delete operation](Customizing the logic used for the delete operationt_admin_profiles_customize_delete_logic.dita)
+[Customizing the logic used for the delete operation](../admin/t_admin_profiles_customize_delete_logic.md)
 

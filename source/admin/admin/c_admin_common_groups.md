@@ -1,4 +1,4 @@
-# Groups {#c_admin_common_groups .concept}
+# Groups
 
 Content owners can use LDAP groups to control access to resources in the Communities, Activities, Files, and Wikis applications. For this reason, it is important to consider the effect that updating LDAP groups has on the existing membership of these resources.
 
@@ -21,20 +21,4 @@ To avoid this risk, take one or more of the following steps:
 -   If none of the preceding steps is possible, advise your users to add only those groups to communities that do not contain external users. For more information, see the *Managing external user access* topic.
 
 
-**Parent topic:**[Managing access](../admin/c_admin_common_managing_access.md)
-
-**Related information**  
-
-
-[Adding members to grow your community](Adding members to grow your communityc_com_add_members.dita)
-
-[Managing membership in Communities](../admin/c_admin_communities_managing_membership.md)
-
-[Managing activity membership](../admin/c_admin_act_manage_membership.md)
-
-[Administering Files](../admin/c_admin_files_overview.md)
-
-[Administering Wikis](../admin/c_admin_wikis_overview.md)
-
-[Managing external user access](../admin/c_admin_common_manage_ext_user.md)
-
+**Parent topic: **[Managing access](../admin/c_admin_common_managing_access.md)

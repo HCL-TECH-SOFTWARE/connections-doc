@@ -1,4 +1,4 @@
-# Enabling single sign-on for Domino {#t_secure_domino .task}
+# Enabling single sign-on for Domino 
 
 If your organization uses HCL Connections™ in a Domino® environment, you can enable single sign-on \(SSO\) for easier user authentication.
 
@@ -91,6 +91,7 @@ To enable SSO for Domino, complete the following steps:
             -   To use the LDAP distinguished name, enter a value of $DN. This is the most common configuration; it indicates that the user's LDAP DN is the name expected by WebSphere Application Server, rather than a name in an arbitrary LDAP field.
             -   Use any appropriate LDAP attribute, provided it uniquely identifies the user.
             -   Leave the field blank to default to the Domino distinguished name, if known. Otherwise, the default is the LDAP distinguished name.
+
 6.  Configure Domino Server to use the new Web SSO Configuration Document:
 
     1.  In Domino Administrator, click **Files** and then open the server’s Address Book \(the names.nsf file\).
@@ -116,14 +117,4 @@ To enable SSO for Domino, complete the following steps:
 
 Verify that you can switch between Connections applications without needing to authenticate more than once.
 
-**Parent topic:**[Configuring single sign-on](../secure/c_sec_config_sso.md)
-
-**Related information**  
-
-
-[Enabling single sign-on for Lotus Quickr](../secure/t_secure_sso_quickr.md)
-
-[Enabling single sign-on for standalone LDAP](../secure/t_setup_standalone_ldap.md)
-
-[Troubleshooting single sign-on problems with Domino](../troubleshoot/ts_t_SSO_Domino.md)
-
+**Parent topic:** [Configuring single sign-on](../secure/c_sec_config_sso.md)

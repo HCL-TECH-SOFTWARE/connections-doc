@@ -1,6 +1,8 @@
-# Enabling virus scanning {#t_admin_common_virus_scanning .task}
+# Enabling virus scanning 
 
 Edit configuration property settings to force the applications that handle uploaded files to scan all files for viruses.
+
+## Before you begin
 
 HCL Connections™ does not provide virus scanning software, but it does enable you to use existing virus scanning services implemented within your corporate infrastructure. Before you begin this procedure, find out the location of the virus scanning service.
 
@@ -9,6 +11,8 @@ Connections supports the Internet Content Adaptation Protocol \(ICAP\) and its a
 **Note:** Disable any file cleaning services that are provided by the virus scanning product you are using. Cleaning must be disabled for the virus scanner to interact properly with Connections. See the documentation for the virus scanner to determine how to disable file cleaning.
 
 To edit configuration files, you must use the wsadmin client. See [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md) for details.
+
+## About this task
 
 The Bookmarks and Home page applications do not implement virus scanning because no files or images are uploaded to those application databases.
 
@@ -30,10 +34,12 @@ To enable virus scanning for Activities, Blogs, Communities, Files, Forums, Prof
         where:
 
         -   working\_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
-        -   **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory.
+        
+            **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory.
 
--   For example:"C:/temp".
--   AIX®, and Linux only: The directory must grant write permissions or the command fails.
+                -   For example:"C:/temp".
+                -   AIX®, and Linux only: The directory must grant write permissions or the command fails.
+        
         -   cell\_name is the name of the WebSphere® Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell\(\)
 
             **Note:** This input parameter is case-sensitive.
@@ -52,11 +58,11 @@ To enable virus scanning for Activities, Blogs, Communities, Files, Forums, Prof
 
 4.  Replace references to scanner.service with the name of the ICAP response modification service on the ICAP-enabled scanner. Select one of the following options:
 
-    RESPMOD
-    :   Represents McAfee virus scanning software
+    **RESPMOD**
+    Represents McAfee virus scanning software
 
-    AVSCAN
-    :   Represents Symantec virus scanning software
+    **AVSCAN**
+    Represents Symantec virus scanning software
 
     Or add the ICAP response modification service for the virus scanning software that you want to support.
 
@@ -91,17 +97,8 @@ To enable virus scanning for Activities, Blogs, Communities, Files, Forums, Prof
 
 8.  After making changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. See [Applying common configuration property changes](../admin/t_admin_common_save_changes.md) for information about how to save and apply your changes.
 
+## What to do next
 
 Once virus scanning is running in your environment, any scanning-related errors are written to the SystemOut.log file. See [Troubleshooting virus scanning](../troubleshoot/r_troubleshooting_virus_scanning.md) for information about possible errors and their causes.
 
-**Parent topic:**[Security](../secure/c_sec_overview.md)
-
-**Related information**  
-
-
-[Configuring web resources and virus scan properties](../admin/t_admin_communities_viruscan_props.md)
-
-[Applying common configuration property changes](../admin/t_admin_common_save_changes.md)
-
-[Troubleshooting virus scanning](../troubleshoot/r_troubleshooting_virus_scanning.md)
-
+**Parent topic:** [Security](../secure/c_sec_overview.md)

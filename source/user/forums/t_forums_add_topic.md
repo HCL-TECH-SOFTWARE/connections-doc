@@ -19,12 +19,8 @@ Start a discussion with people in your organization by creating a forum topic. A
 
 If forum topics are moderated in your organization, the new content is not displayed immediately because the forum moderator must approve it first. If content moderation is not enabled, the topic is displayed immediately.
 
--   **[Using the rich text editor](../forums/eucommon_ckeditor.md)**  
+-   **[Using the rich text editor](../eucommon/eucommon_ckeditor.md)**  
 Use the rich text editor to create visually interesting blog posts, wiki articles, forum topics, and activity entries. The rich text editor is also used in Communities, Events, and Profiles.
--   **[Inserting an iFrame](../forums/t_eucommon_insert_iFrame.md)**  
-You can add embedded content, such as webpages or videos, to an iFrame by referencing a URL to the content. An iFrame is an object that is embedded in a frame within a webpage.
--   **[Adding an image](../forums/t_eucommon_insert_image.md)**  
-Add an image to an entry in an HCL Connections™ application.
 
 **Parent topic:**[Finding and participating in forums](../forums/t_forums_view_topics.md)
 

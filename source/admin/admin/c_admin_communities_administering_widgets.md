@@ -32,9 +32,9 @@ Use the CommunitiesQEventService commands to administer the lifecycle events tha
 Communities uses the IBM WebSphere Application Server scheduler to run a scheduled task that processes events in the widget life-cycle event queue. You can configure the frequency with which this task runs by editing settings in the communities-config.xml file.
 -   **[Recovering from a database failure](../admin/c_admin_communities_backup_and_restore.md)**  
 When Communities or another HCL Connections application experiences a database failure that involves restoring to a backup without replaying the transaction log to the point of failure, you can follow a number of steps to ensure a consistent data state for communities and their associated remote applications.
--   **[Migrating community apps](../admin/c_admin_communities_apps_migrate.md)**  
+<!---   **[Migrating community apps](../admin/c_admin_communities_apps_migrate.md)**  
 HCL Connections stores the apps that are created for a community in a database. As part of the Overview page customization, the mandatory user interface elements are being replaced with new apps that can be moved, hidden, or removed. Therefore, the Communities app is being updated to accommodate four new apps: Community Description, Tags, Important Bookmarks, and Members. The migration involves updating the database to add these new widgets for each community.
-
+-->
 **Parent topic:**[Administering Communities](../admin/c_admin_communities_intro.md)
 
 **Related information**  

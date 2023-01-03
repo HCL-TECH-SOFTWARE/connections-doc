@@ -34,7 +34,5 @@ Allow users who are not community members to comment in forums in public or mode
 **Related information**  
 
 
-[Configuring the active content filter for Activities, Communities, and Bookmarks](../secure/t_sec_change_acf_config_ckeditor.md)
-
 [Managing users](../admin/c_admin_common_user_life_cycle_over.md)
 

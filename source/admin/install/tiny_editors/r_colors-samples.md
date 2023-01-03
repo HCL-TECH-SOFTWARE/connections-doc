@@ -32,9 +32,3 @@ In the following example:
 ```
 
 **Parent topic:**[Common tasks, concepts and reference information](../../install/tiny_editors/r_appendix.md)
-
-**Related information**  
-
-
-[../../admin/install/tiny\_editors/t\_configure\_10-set-colorpicker-colors-2.md](../../admin/install/tiny_editors/t_configure_10-set-colorpicker-colors-2.md)
-

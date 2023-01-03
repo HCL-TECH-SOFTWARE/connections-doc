@@ -29,9 +29,5 @@ Common configuration properties for HCL Connections that you can change only by 
 
 [Using Profiles and Communities business cards](../customize/c_admin_profiles_biz_cards.md)
 
-[Configuring the active content filter for Blogs, Wikis, and Forums](../secure/t_sec_change_acf_config.md)
-
-[Configuring the active content filter for Activities, Communities, and Bookmarks](../secure/t_sec_change_acf_config_ckeditor.md)
-
 [Troubleshooting inter-server communication](../troubleshoot/t_troubleshooting_server_communication.md)
 

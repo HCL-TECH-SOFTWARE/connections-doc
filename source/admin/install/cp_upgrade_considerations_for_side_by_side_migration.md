@@ -1,4 +1,4 @@
-# Upgrade considerations for side-by-side migration of data {#cp_upgrade_considerations_for_side_by_side_migration .concept}
+# Upgrade considerations for side-by-side migration of data 
 
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.
 
@@ -23,7 +23,7 @@ By installing the bootstrap pod, you are creating certificates for MongoDB and O
 
 ## Data Persistence {#section_pfr_lcs_lpb .section}
 
-Component Pack uses persistent volumes for keeping important data. According to the Kubernetes documentation, persistent volumes are mapped to NFS, which means that, as long as the data exists in NFS, it is possible to recreate the cluster without losing anything. See [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) in the Kubernetes doc.
+Component Pack uses persistent volumes for keeping important data. According to the Kubernetes documentation, persistent volumes are mapped to NFS, which means that, as long as the data exists in NFS, it is possible to recreate the cluster without losing anything. See [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) in the Kubernetes documentation.
 
 Persistent volumes are created statically for all Component Pack versions.
 
@@ -51,7 +51,7 @@ Once the process is complete, you have a second Kubernetes cluster pointing to t
 
 ![Two Component Pack clusters with second pointing to first Connections cluster](cp_install_side_by_side.jpg)
 
-## Different approches for migrating data {#section_hfp_vds_lpb .section}
+## Different approaches for migrating data {#section_hfp_vds_lpb .section}
 
 The most important thing for migration is to understand how your PV\(C\)s are configured, and what happens when you delete Helm charts.
 
@@ -63,9 +63,9 @@ Understanding how PV\(C\)s are configured
 Moving data between PVs
 :   There are two types of data that you eventually want to migrate: MongoDB and Elasticsearch.
 
-:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](migrating_data_mongodb_v3_v5.dita); for Elasticsearch, do the same with something like [elasticsearch-dump](cp_migrate_data_from_es7_to_opensearch.dita)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
+:   You can approach the move in two different ways: \(1\) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration \(for example, use mongodump to [export MongoDB data and import it later](migrating_data_mongodb_v3_v5.md); for Elasticsearch, do the same with something like [elasticsearch-dump](cp_migrate_data_from_es7_to_opensearch.md)\) , or \(2\) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.
 
-## Completing the migration {#section_fvq_p2s_lpb .section}
+## Completing the migration 
 
 The last two high-level steps to finalize migration are to do the following steps:
 
@@ -74,5 +74,5 @@ The last two high-level steps to finalize migration are to do the following step
 
 On the next restart/reload of your front-end proxy and IBM HTTP Server, you will be using the new cluster.
 
-**Parent topic:**[Installation and upgrade](../install/cp_install_upgrade_container.md)
+**Parent topic:** [Installation and upgrade](../install/cp_install_upgrade_container.md)
 

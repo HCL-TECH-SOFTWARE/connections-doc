@@ -1,4 +1,4 @@
-# Setting up a WAS proxy server for long polling {#setting_up_WASProxy_t .task}
+# Setting up a WAS proxy server for long polling 
 
 Long polling is a technique used to push updates to a web client. A connection is held open between the web client and the web server so that when the server has new information, it can push it to the client. That connection is then closed. A new connection is then established between the client and the server and the client then waits for another update from the server. A WebSphere® Application Server \(WAS\) proxy server is needed for long polling for a target of between 15,000 and 20,000 users.
 
@@ -15,8 +15,7 @@ You are configuring a proxy server to reside in front of the HTTP Server \(IHS\)
 
     1.  Install WebSphere 8.5.5.7 \(or later, if compatible\) onto the hardware that you are using for the proxy server.
 
-        Download and unzip the installer for the Installation Manager v1.8.3 and for WebSphere Network Deployment v8.5. The installation process is documented here: [WebSphere Application Server, Network Deployment \(Distributed platforms and Windows™\), Version 8.0 documentation](WebSphere Application
-        Server, Network Deployment (Distributed platforms and Windows), Version 8.0 documentationhttp://www-01.ibm.com/support/knowledgecenter/SSAW57_8.0.0/com.ibm.websphere.nd.doc/info/ae/ae/welcome_nd.dita). The relevant sections are: HCL Installation Manager 1.5.3 and WebSphere V8.0 Application Server Installation. The steps are the same for the newer versions of these items.
+        Download and unzip the installer for the Installation Manager v1.8.3 and for WebSphere Network Deployment v8.5. The installation process is documented here: [WebSphere Application Server, Network Deployment \(Distributed platforms and Windows™\), Version 8.0 documentation](https://www-01.ibm.com/support/knowledgecenter/SSAW57_8.0.0/com.ibm.websphere.nd.doc/info/ae/ae/welcome_nd.dita). The relevant sections are: HCL Installation Manager 1.5.3 and WebSphere V8.0 Application Server Installation. The steps are the same for the newer versions of these items.
 
     2.  Federate the node into deployment.
 
@@ -183,5 +182,5 @@ You are configuring a proxy server to reside in front of the HTTP Server \(IHS\)
     This ensures that the IHS does not handle any PushNotification requests. The steps to set up a separate ProxyCoreGroup can be found in [Setting up a new proxy core group](t_admin_setting_up_ProxyCoreGroup_t.md).
 
 
-**Parent topic:**[Setting up and configuring a WAS proxy server for long poll testing](../secure/t_admin_config_was_proxy.md)
+**Parent topic:** [Setting up and configuring a WAS proxy server for long poll testing](../secure/t_admin_config_was_proxy.md)
 

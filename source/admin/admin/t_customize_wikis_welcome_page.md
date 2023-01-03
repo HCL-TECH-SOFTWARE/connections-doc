@@ -33,10 +33,3 @@ For detailed information about editing property files, see the *Property file st
 4.  Copy the file to the customizationDir/strings directory. If necessary, confirm that you want to overwrite an existing file with the same name.
 
 
-**Parent topic:**[Customizing](../customize/c_customize_overview.md)
-
-**Related information**  
-
-
-[Property file strings](../customize/r_customize_properties_files.md)
-

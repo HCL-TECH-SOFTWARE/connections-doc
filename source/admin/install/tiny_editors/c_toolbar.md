@@ -1,4 +1,4 @@
-# Toolbar components and the toolbar definition {#toolbar .concept}
+# Toolbar components and the toolbar definition
 
 The toolbar is the main interface of the editor. This section covers how the components of the toolbar relate to the toolbar definition in the config.js.
 
@@ -32,8 +32,6 @@ Custom commands have an `id`, `text`, `icon` and `action` properties.
 
 **Related information**  
 
-
-[../../admin/install/tiny\_editors/t\_configure\_08-customize-toolbar-2.md](../../admin/install/tiny_editors/t_configure_08-customize-toolbar-2.md)
 
 [The default toolbar configuration](../../install/tiny_editors/r_toolbar-default.md)
 
