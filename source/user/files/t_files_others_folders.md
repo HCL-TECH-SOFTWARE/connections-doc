@@ -12,21 +12,17 @@ There are three primary levels of access for any folder: Owner, Editor, and Read
 
 To see what access you have for a folder, open the folder page and click the **Sharing** tab.
 
-|**Option**|Reader|**Editor**|**Owner**|
-|----------|------|----------|---------|
-|**Create and delete a subfolder****Note:** You must have Editor or Owner access to the top-level folder.
-
-|❌|✔|✔|
+|Option|Reader|Editor|Owner|
+|------|------|------|-----|
+|**Create and delete a subfolder** <br><br> **Note:** You must have Editor or Owner access to the top-level folder.|❌|✔|✔|
 |**Add files to a folder**|❌|✔|✔|
 |**Share a folder**|❌|✔|✔|
-|**Edit folder or subfolder properties****Note:** You must have Editor or Owner access to the top-level folder.
-
-|❌|✔|✔|
+|**Edit folder or subfolder properties** <br><br> **Note:** You must have Editor or Owner access to the top-level folder.|❌|✔|✔|
 |**Delete a folder**|❌|✔|✔|
 |**Move a folder**|❌|✔|✔|
 |**Follow a folder**|✔|✔|✔|
 
-**Parent topic:**[Collaborating on files and folders](../files/t_files_why_file_sharing_refresh.md)
+**Parent topic:** [Collaborating on files and folders](../files/t_files_why_file_sharing_refresh.md)
 
 **Related information**  
 

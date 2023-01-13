@@ -34937,7 +34937,7 @@
 <table>
 <thead>
 <tr>
-<th> </th>
+<th></th>
 <th>Notes 8.5.3</th>
 <th>Notes 9.0.1</th>
 </tr>
@@ -34945,13 +34945,16 @@
 <tbody>
 <tr>
 <td>Managed "LotusLive" account for Activities</td>
-<td></td>
-<td></td>
+<td>Supported. You can switch between Connections and Connections Cloud Activities from within the Activities sidebar</td>
+<td>Not supported. There is no option to switch within the Activities sidebar, even if such a managed account is in place.</td>
+</tr>
+<tr>
+<td>HCL Connections Cloud SAML support</td>
+<td>Not supported. Notes 8.5.3 does not support SAML.</td>
+<td>Supported. The Connections preference page has an option to switch between a Connections server and a Connections Cloud server.</td>
 </tr>
 </tbody>
 </table>
-<p>|Supported. You can switch between Connections and Connections Cloud Activities from within the Activities sidebar|Not supported. There is no option to switch within the Activities sidebar, even if such a managed account is in place.|
-|HCL Connections Cloud SAML support|Not supported. Notes 8.5.3 does not support SAML.|Supported. The Connections preference page has an option to switch between a Connections server and a Connections Cloud server.|</p>
 <p>Notes 9.01 offers a single-click Connect-to-Cloud experience, with these considerations.</p>
 <ul>
 <li>If you choose <strong>HCL Connections Cloud</strong> on the Connections preference page, you will be connected to the HCL Connections Cloud deployment (apps.na.collabserv.com) using SAML authentication. Based on your user ID, the related data center will be determined. If you have access to more than one data center, you will be prompted to choose one. You can go back to the preference page later and easily switch to another data center.</li>
@@ -34982,20 +34985,22 @@
 <tbody>
 <tr>
 <td><strong>Server URL</strong></td>
-<td>Type the Web address of the HCL Connections server, beginning with either https:// or http://For example: https://enterprise.example.com</td>
+<td>Type the Web address of the HCL Connections server, beginning with either <code>https://</code> or <code>http://</code>. <br><br> For example: <code>https://enterprise.example.com</code> <br><br> If you know that the server requires a secure, encrypted connection, begin the address with <code>https://</code> <br><br> Some administrators change the context roots that are used to access HCL Connections features. If the web address that you normally use to access the Activities feature has a value other than &lt;server_name>/activities, specify the server URL using a syntax similar to this: <code>http://enterprise.example.com/activities</code> <br><br> <strong>Note:</strong> Your administrator might have already provided a value for this field using an administrative policy. If so, do not change the value.</td>
+</tr>
+<tr>
+<td><strong>User name</strong></td>
+<td>Type your user name for logging in to the IBM® Connections server.</td>
+</tr>
+<tr>
+<td><strong>User password</strong></td>
+<td>Type the associated password.</td>
 </tr>
 </tbody>
 </table>
 </li>
-</ol>
-<p>If you know that the server requires a secure, encrypted connection, begin the address with https://</p>
-<p>Some administrators change the context roots that are used to access HCL Connections features. If the web address that you normally use to access the Activities feature has a value other than &lt;server_name>/activities, specify the server URL using a syntax similar to this: http://enterprise.example.com/activities</p>
-<p><strong>Note:</strong> Your administrator might have already provided a value for this field using an administrative policy. If so, do not change the value.</p>
-<p>|
-    |<strong>User name</strong>|Type your user name for logging in to the IBM® Connections server.|
-    |<strong>User password</strong>|Type the associated password.|</p>
-<ol>
-<li><strong>Only required if you are instructed to perform this step by your administrator</strong>: If SPNEGO, Tivoli® Access Manager or Computer Associates eTrust SiteMinder are configured in your environment, click <strong>Advanced</strong>, and then select the appropriate option.</li>
+<li>
+<p><strong>Only required if you are instructed to perform this step by your administrator</strong>: If SPNEGO, Tivoli® Access Manager or Computer Associates eTrust SiteMinder are configured in your environment, click <strong>Advanced</strong>, and then select the appropriate option.</p>
+</li>
 </ol>
 <p>The Activities sidebar should now display a list of your activities. Connecting to the Activities server also creates the necessary connection for the Files application on a Cloud server and the Files and Status Update applications on a Connections server.</p>
 <p>The next time you log in to Notes®, you are logged in to the Connections or Connections Cloud server automatically.</p>

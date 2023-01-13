@@ -25,7 +25,8 @@ You can search for a community from any page in Connections using the search box
 -   To open a community, click its name.
 -   You can also search for the following file types in a community:
 
-        |Most Microsoft Office file types|Including Microsoft Word \(.doc\), Microsoft PowerPoint \(.ppt\), Microsoft Excel \(.xls and .xlsx\)|
+    |Most Microsoft Office file types|Including Microsoft Word \(.doc\), Microsoft PowerPoint \(.ppt\), Microsoft Excel \(.xls and .xlsx\)|
+    |---------------------------|----------|
     |OpenDocument file types|Database \(.odb\), Formula \(.odf\), Graphics \(.odg\), Presentation \(.odp\), Spreadsheet \(.ods\), OpenDocument Text \(.odt\)|
     |Other file types|Adobe Acrobat \(.pdf\), Plain text \(.txt\), Rich Text Format \(.rtf\), HTML \(.html, .htm\), XML \(.xml\)|
 
