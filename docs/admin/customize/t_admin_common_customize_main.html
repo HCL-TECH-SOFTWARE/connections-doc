@@ -34974,47 +34974,38 @@ WAS_HOME/profiles/profile_name/installedApps/cell_name/application_name.ear/appl
 <tbody>
 <tr>
 <td>Cascading style sheets</td>
-<td>-   To add custom styles to the product, edit the following files:</td>
+<td><br><br> - To add custom styles to the product, edit the following files: <br><br> <strong>Note:</strong> If your users view the product in Arabic, Hebrew, or another right-to-left language, copy the defaultTheme_rtl.css file too. <br><br> - /nav/common/styles/defaultTheme/custom.css <br><br> - /nav/common/styles/defaultTheme/custom_rtl.css <br><br> For more information, see <a href="t_admin_navbar_change_style.html">Adding styles to the Connections style sheet</a>. <br><br> - To make extensive changes to the colors used in the product, edit the following file: /nav/common/styles/defaultTheme/defaultTheme.css <br><br> For more information, see <a href="t_admin_common_change_font_styles.html">Making extensive color and style changes</a>.</td>
+</tr>
+<tr>
+<td>Error page</td>
+<td>/nav/templates/error.jspFor more information, see <a href="t_customize_error_page.html">Customizing the error page</a>.</td>
+</tr>
+<tr>
+<td>Footer</td>
+<td>/nav/templates/footer.jspFor more information, see <a href="t_admin_common_add_footer_link.html">Customizing the footer</a>.</td>
+</tr>
+<tr>
+<td>Login page</td>
+<td>/nav/templates/login.jspFor more information, see <a href="t_admin_common_customize_login_screen.html">Customizing the login page</a>.</td>
+</tr>
+<tr>
+<td>Navigation bar</td>
+<td>/nav/templates/header.jspFor the menus available from the navigation bar: <br><br><code>/nav/templates/menu/people.jsp &lt;br&gt;&lt;br&gt; /nav/templates/menu/communities.jsp &lt;br&gt;&lt;br&gt; /nav/templates/menu/apps.jsp</code> <br><br> For more information, see <a href="t_admin_navbar_create_files.html">Customizing the navigation bar</a>.</td>
 </tr>
 </tbody>
 </table>
+<p>For example:</p>
+<ul>
+<li>
+<p>To edit the footer and have the same footer be displayed in all of the applications, store the updated footer file in the following directory:</p>
+<p>customizationDir/common/nav/templates/footer.jsp</p>
 </li>
-</ol>
-<p><strong>Note:</strong> If your users view the product in Arabic, Hebrew, or another right-to-left language, copy the defaultTheme_rtl.css file too.</p>
-<pre><code>    -   /nav/common/styles/defaultTheme/custom.css
-    -   /nav/common/styles/defaultTheme/custom\_rtl.css
-</code></pre>
-<p>For more information, see <a href="t_admin_navbar_change_style.html">Adding styles to the Connections style sheet</a>.</p>
-<pre><code>-   To make extensive changes to the colors used in the product, edit the following file: /nav/common/styles/defaultTheme/defaultTheme.css
-</code></pre>
-<p>For more information, see <a href="t_admin_common_change_font_styles.html">Making extensive color and style changes</a>.</p>
-<p>|
-    |Error page|/nav/templates/error.jspFor more information, see <a href="t_customize_error_page.html">Customizing the error page</a>.</p>
-<p>|
-    |Footer|/nav/templates/footer.jspFor more information, see <a href="t_admin_common_add_footer_link.html">Customizing the footer</a>.</p>
-<p>|
-    |Login page|/nav/templates/login.jspFor more information, see <a href="t_admin_common_customize_login_screen.html">Customizing the login page</a>.</p>
-<p>|
-    |Navigation bar|/nav/templates/header.jspFor the menus available from the navigation bar:</p>
-<pre><code>```
-</code></pre>
-<p>/nav/templates/menu/people.jsp
-/nav/templates/menu/communities.jsp
-/nav/templates/menu/apps.jsp
-    ```</p>
-<p>For more information, see <a href="t_admin_navbar_create_files.html">Customizing the navigation bar</a>.</p>
-<p>|</p>
-<pre><code>For example:
-
--   To edit the footer and have the same footer be displayed in all of the applications, store the updated footer file in the following directory:
-
-    customizationDir/common/nav/templates/footer.jsp
-
--   To change the login page of a single application, store the updated login page file in the directory where customizations that are specific to that application are stored. For example, to change the login page of the Files application only, store the login.jsp file in the files subdirectory instead of the common subdirectory:
-
-    customizationDir/files/nav/templates/login.jsp
-</code></pre>
-<ol>
+<li>
+<p>To change the login page of a single application, store the updated login page file in the directory where customizations that are specific to that application are stored. For example, to change the login page of the Files application only, store the login.jsp file in the files subdirectory instead of the common subdirectory:</p>
+<p>customizationDir/files/nav/templates/login.jsp</p>
+</li>
+</ul>
+</li>
 <li>
 <p>Edit the file in the customizationDir directory to make your changes.</p>
 </li>

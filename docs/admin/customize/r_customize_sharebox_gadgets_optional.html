@@ -35006,18 +35006,18 @@
 <tbody>
 <tr>
 <td><code>MessageTypeParam.ERROR</code></td>
+<td>Display message with Error styling as defined by the One UI standard.</td>
+</tr>
+<tr>
+<td><code>MessageTypeParam.SUCCESS</code>Display message with Success styling as defined by the One UI standard.</td>
 <td></td>
+</tr>
+<tr>
+<td><code>MessageTypeParam.WARNING</code></td>
+<td>Display message with Warning styling as defined by the One UI standard.</td>
 </tr>
 </tbody>
 </table>
-<p>|Display message with Error styling as defined by the One UI standard.</p>
-<p>|
-|<code>MessageTypeParam.SUCCESS</code></p>
-<p>|Display message with Success styling as defined by the One UI standard.</p>
-<p>|
-|<code>MessageTypeParam.WARNING</code></p>
-<p>|Display message with Warning styling as defined by the One UI standard.</p>
-<p>|</p>
 <h2 class="section" id="methods">Methods</h2>
 <table>
 <thead>
@@ -35028,64 +35028,32 @@
 </thead>
 <tbody>
 <tr>
-<td>close()</td>
-<td></td>
+<td>close() <br><br> Example: <br><br> <code>ibm.connections.sharedialog.close();</code></td>
+<td>This call tells the share dialog to close. This impacts all gadgets in the share dialog that have registered a close listener.</td>
+</tr>
+<tr>
+<td>displayMainPageMessage(messageType, message) <br><br> Example: <br><br><code>ibm.connections.sharedialog.displayMainPageMessag(</code> <br><br> <code>ibm.connections.sharedialog.MessageTypeParam.SUCCESS,</code> <br><br> <code>"The message was successfully posted.");</code></td>
+<td>This call specifies that a message be displayed outside of the Share dialog. <br><br> Message types to display are of the following format: <br><br> <code>ibm.connections.sharedialog.MessageTypeParam.SUCCESS</code> <br><br> <code>ibm.connections.sharedialog.MessageTypeParam.INFO</code> <br><br> <code>ibm.connections.sharedialog.MessageTypeParam.ERROR message</code></td>
+</tr>
+<tr>
+<td>registerCloseListener(listenerFunc) <br><br> Example: <br><br> <code>ibm.connections.sharedialog.registerCloseListener(function(){</code> <br><br> <code>//Clear gadget contents</code> <br><br> <code>});</code></td>
+<td>This call registers the functions to be called when the Share dialog is about to close. Specify the logic to return the gadget to the default state in the function registered.</td>
+</tr>
+<tr>
+<td>onActivityEntryAddition(itemId) <br><br> Example: <br><br> <code>ibm.connections.sharedialog.onActivityEntryAddition("d0bd18eb-b55c-46e3-b116-2a77c4344b44");</code></td>
+<td>This call indicates that a performed task will result in an activity entry of the specified item ID. <br><br> This enables the activity stream to refresh because there is potentially a new activity entry to display.</td>
+</tr>
+<tr>
+<td>setDirty(actionId, isDirty) <br><br> Example: <br><br> <code>ibm.connections.sharedialog.setDirty("actionId", true);</code> <br><br> <code>ibm.connections.sharedialog.setDirty("actionId", false);</code></td>
+<td>The gadget calls this when the dirty state has changed. <br><br> The <em>actionId</em> corresponds to the tab that is dirty. <br><br> Set to true when data has been entered in one or more fields in the gadget. Set to false when no changes from the user exist in the gadget. <br><br> <strong>Note:</strong> If the gadget dirty state is true, when a user tries to close the Share dialog by using means outside of the dirty gadget, they are prompted to confirm the current action and lose changes.</td>
+</tr>
+<tr>
+<td>setSubmitState(inProgress) <br><br> Example: <br><br> <code>ibm.connections.sharedialog.setSubmitState(true);</code> <br><br> <code>ibm.connections.sharedialog.setSubmitState(false);</code></td>
+<td>Gadget calls the share dialog whether or not the gadget is in a submit state. This is needed if the gadget can prevent the user from switching tabs while a submission is in process. <br><br> Set to true when the item in the submission state. Set to false when the item is not in the submit state. <br><br> <strong>Note:</strong> If set to true, then the user cannot switch to a different gadget tab.</td>
 </tr>
 </tbody>
 </table>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.close();
-</code></pre></div>
-<p>|This call tells the share dialog to close. This impacts all gadgets in the share dialog that have registered a close listener.</p>
-<p>|
-|displayMainPageMessage(messageType, message)</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.displayMainPageMessag(
-ibm.connections.sharedialog.MessageTypeParam.SUCCESS,
-&quot;The message was successfully posted.&quot;);
-</code></pre></div>
-<p>|This call specifies that a message be displayed outside of the Share dialog.</p>
-<p>Message types to display are of the following format:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.MessageTypeParam.SUCCESS
-ibm.connections.sharedialog.MessageTypeParam.INFO
-ibm.connections.sharedialog.MessageTypeParam.ERROR message
-</code></pre></div>
-<p>|
-|registerCloseListener(listenerFunc)</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.registerCloseListener(function(){
-   //Clear gadget contents
-});
-</code></pre></div>
-<p>|This call registers the functions to be called when the Share dialog is about to close. Specify the logic to return the gadget to the default state in the function registered.</p>
-<p>|
-|onActivityEntryAddition(itemId)</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.onActivityEntryAddition(&quot;d0bd18eb-b55c-46e3-b116-2a77c4344b44&quot;);
-</code></pre></div>
-<p>|This call indicates that a performed task will result in an activity entry of the specified item ID.</p>
-<p>This enables the activity stream to refresh because there is potentially a new activity entry to display.</p>
-<p>|
-|setDirty(actionId, isDirty)</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.setDirty(&quot;actionId&quot;, true);
-ibm.connections.sharedialog.setDirty(&quot;actionId&quot;, false);
-</code></pre></div>
-<p>|The gadget calls this when the dirty state has changed.</p>
-<p>The actionId corresponds to the tab that is dirty.</p>
-<p>Set to true when data has been entered in one or more fields in the gadget. Set to false when no changes from the user exist in the gadget.</p>
-<p><strong>Note:</strong> If the gadget dirty state is true, when a user tries to close the Share dialog by using means outside of the dirty gadget, they are prompted to confirm the current action and lose changes.</p>
-<p>|
-|setSubmitState(inProgress)</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ibm.connections.sharedialog.setSubmitState(true);
-ibm.connections.sharedialog.setSubmitState(false);
-</code></pre></div>
-<p>|Gadget calls the share dialog whether or not the gadget is in a submit state. This is needed if the gadget can prevent the user from switching tabs while a submission is in process.</p>
-<p>Set to true when the item in the submission state. Set to false when the item is not in the submit state.</p>
-<p><strong>Note:</strong> If set to true, then the user cannot switch to a different gadget tab.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="t_customize_sharebox_gadgets.html">Adding new ways to share content</a></p>
+<p><strong>Parent topic:</strong> <a href="t_customize_sharebox_gadgets.html">Adding new ways to share content</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_customize_sharebox_gadgets.html">Adding new ways to share content</a></p>
 

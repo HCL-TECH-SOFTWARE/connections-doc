@@ -670,57 +670,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#supported-and-unsupported-configurations" class="md-nav__link">
+    Supported and unsupported configurations
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#section_r4y_5nb_glb" class="md-nav__link">
-    Categories of Support
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_xrm_5nb_glb" class="md-nav__link">
-    Support for LDAP Servers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_dkt_gqb_glb" class="md-nav__link">
-    Support for Kubernetes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_swy_5vg_ynb" class="md-nav__link">
-    Support for Web Browsers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_jvp_2rb_glb" class="md-nav__link">
-    Support for Virtualization Environments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_i2k_hrb_glb" class="md-nav__link">
-    Restrictions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_fdb_2sb_glb" class="md-nav__link">
-    HCL Connections Support Statement Addendum - Custom Code
+  <a href="#categories-of-support" class="md-nav__link">
+    Categories of support
   </a>
   
 </li>
@@ -34997,57 +34955,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#supported-and-unsupported-configurations" class="md-nav__link">
+    Supported and unsupported configurations
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#section_r4y_5nb_glb" class="md-nav__link">
-    Categories of Support
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_xrm_5nb_glb" class="md-nav__link">
-    Support for LDAP Servers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_dkt_gqb_glb" class="md-nav__link">
-    Support for Kubernetes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_swy_5vg_ynb" class="md-nav__link">
-    Support for Web Browsers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_jvp_2rb_glb" class="md-nav__link">
-    Support for Virtualization Environments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_i2k_hrb_glb" class="md-nav__link">
-    Restrictions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section_fdb_2sb_glb" class="md-nav__link">
-    HCL Connections Support Statement Addendum - Custom Code
+  <a href="#categories-of-support" class="md-nav__link">
+    Categories of support
   </a>
   
 </li>
@@ -35073,115 +34989,29 @@
 
 
 <h1 class="reference" id="r_install_support_statements">HCL Connections support statement</h1>
-<p>The statement proposes revisions to the definition of "supported" and "unsupported" with respect to the various products on which HCL Connections™ depends for proper operation.</p>
-<h2 class="section" id="introduction">Introduction</h2>
-<p>HCL Connections requires the use of several collateral products for its normal operations. In particular, it requires IBM® WebSphere® Application Server, a database, a repository for user information (typically an LDAP repository), and other products depending on specific customer requirements.</p>
-<p>During the testing of a new release, HCL generally tests HCL Connections with a prescribed list of these collateral products. These products are designated as "Supported Products" in the documented hardware and software requirements for that release. Because the list of "Supported Products" cannot reasonably describe all possible configurations that a customer may need to use, this document is intended to provide clarification of the level of support that can be generally expected for the current release with various combinations of dependent products.</p>
-<p><strong>Note:</strong> Although the statements in this document reflect the general level of support that can be expected for HCL Connections, the terms and conditions of any specific support offering, license or other Agreement you might have with HCL will determine the actual delivered support for the product. Nothing herein shall be construed as supplementing, modifying or superseding the terms of your HCL license agreement for HCL Connections or any other agreement you might have with HCL, nor shall it create any obligation for HCL to deliver a level of support other than might be set forth in such Agreements.</p>
-<h2 class="section" id="section_r4y_5nb_glb">Categories of Support</h2>
-<p><strong>Supported Products</strong></p>
-<ol>
-<li>
-<p><strong>Supported Products</strong></p>
-<p>A "Supported Product" is a product (at a specified version, release and fix level) that was tested by HCL and is known to work with HCL Connections. The list of HCL Connections 7.0 supported products can be found in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL System Requirements</a>.</p>
-<p>Products in this category are supported as per the terms of your HCL Connections license agreement. Cases will be accepted by HCL Support (“Support”) in accordance with the conditions of the HCL Connections License Agreement.</p>
-</li>
-<li>
-<p><strong>Newer Versions and Releases of Supported Products</strong></p>
-<p>Many products outside the specific version(s), release(s) or fix pack(s) of the "Supported" version, (referenced in the documented hardware and software requirements) may not have been explicitly tested by HCL, yet can reasonably be expected to perform within the accepted bounds of reliability, function and performance by a customer, excluding those listed in the Restrictions section.</p>
-<p>Products that fall into this category are typically newer releases or fix levels of a product already in the "Supported Products" category or a product that adheres to a standard API that HCL Connections supports, such as an LDAP server. Some specific examples might include a newer operating system fix level, an IBM Java (JVM) fix pack, a new DB2 fix pack or an updated LDAP server.</p>
-<p>For products that fall into this category, support is as follows:</p>
-<ul>
-<li><em>Conditional support for HCL Sametime versions 10 and 11: At this time, Connections supports Sametime version 9. HCL Connections Development believes Sametime versions 10 and 11 should work with Connections 7.0, however these versions have not been tested. If a customer would like to deploy and test, HCL Support will help troubleshoot any problems encountered on a case-by-case basis. If minor issues are identified, we will investigate creating a fix. However, if a major issue is identified, a roll back to Sametime version 9 may be required.</em></li>
-<li><em>For IBM products, such as IBM Directory Server or Domino LDAP, and IBM JDKs (JVMs), HCL Connections will fully support fix-pack, release and version updates that do not significantly change interfaces or other underlying support that HCL Connections depends on for its functionality. If and when a newer release of one of these products is shipped that HCL Connections cannot accommodate, that fact will be noted as described in the next section entitled "Unsupported Products." Note that in order for HCL Connections to support an update to a database or LDAP product, WebSphere Application Server must support that update as well.</em></li>
-<li>
-<p><strong>Note:</strong> <em>HCL Connections has been tested extensively with the stated release version and fix pack release of WebSphere Application Server found in the HCL Connections Software requirements. The HCL Connections 7.0 System Requirements section will be updated when successfully completing testing of forward WebSphere Application Server fix packs as we continue to test. Upgrading to a new fix pack level of the WebSphere Application Server that is not listed in HCL Connections 7.0 System Requirements is not well tolerated and is treated as an </em><em>Unsupported Product</em><em> described below.</em></p>
-</li>
-<li>
-<p><em>If the Support organization for the untested product in question is unable to resolve the problem, Support will deem that version, release or fix pack level of the untested product in question to now be an "Unsupported Product."</em></p>
-</li>
-<li><strong>Unsupported Products</strong></li>
-</ul>
-<p>An "Unsupported Product" is a product (at a specified version, release and fix level) that is known to not work with HCL Connections and is therefore not supported. A product can be included in this category as a result of an explicit test effort by HCL or as a result of discovery from a prior customer problem. The HCL Connections team maintains a list, by HCL Connections release, of all products that need special consideration for deployment. They are published within this document in the <strong>Restrictions</strong> section.</p>
-</li>
-</ol>
-<h2 class="section" id="section_xrm_5nb_glb">Support for LDAP Servers</h2>
-<p>LDAP support spans two (2) categories. These are "Fully tested and supported LDAP servers" and "Untested LDAP servers." The support statement for each category follows:</p>
-<ol>
-<li>
-<p><strong>Fully tested and supported LDAP servers</strong></p>
-<p>The list of fully tested LDAP servers for each release of HCL Connections is documented in the detailed system requirements for each release. Support accepts problem reports for the appropriate HCL Connections releases using the tested directory servers. These problem reports receive high-priority attention. Features that are tested with these directories include relatively simple search and retrieval functions for user and group objects. HCL Connections Support encourages customers to work with their LDAP provider for additional support on these advanced features.</p>
-</li>
-<li>
-<p><strong>Untested LDAP servers</strong></p>
-<p>In general, HCL Connections Support makes a commercially reasonable effort to support directory servers that have not been tested with HCL Connections. This includes version numbers that differ from what is listed as tested in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL System Requirements</a>. Support accepts problem reports for the appropriate HCL Connections releases using untested directory servers. If Support can recreate the reported problem using a tested LDAP server, staff will attempt to fix the problem. If Support is not able to recreate the problem on a tested LDAP server, customers are referred to the LDAP provider for further assistance. Functions outside this scope, such as dynamic groups, referrals, or the Active Directory Global Catalog feature, are considered advanced features and have not been tested with HCL Connections.</p>
-</li>
-</ol>
-<h2 class="section" id="section_dkt_gqb_glb">Support for Kubernetes</h2>
-<p>HCL is committed to keeping the Kubernetes infrastructure that underlies Component Pack functionality on a supported release. Kubernetes fully supports their current release and the two previous releases. Starting with the HCL Connections 6.5 CR1 release, HCL Connections will update Kubernetes on a regular cadence to stay within the fully supported Kubernetes product lifecycle.</p>
-<p>Docker and Kubernetes are third party products. HCL support is available to assist in configuration and support related issues as it pertains to the HCL Connections product. If you require assistance with a full Kubernetes or Docker deployment, contact HCL services or one of our HCL Business Partners to inquire about professional services.</p>
-<h2 class="section" id="section_swy_5vg_ynb">Support for Web Browsers</h2>
-<p>Newer versions and releases of supported web browsers may not be explicitly tested by HCL for a given Connections release, but can generally be expected to perform as described in the "Newer Versions and Releases of Supported Products" section above. This same expectation also applies to completely new web browsers that adhere to accepted standards.</p>
-<p>HCL Connections Support will accept cases for both newer versions and releases of supported web browsers as well as new web browser products, and will make reasonable efforts to evaluate and resolve issues.</p>
-<p>Should HCL Connections Support be unable to reproduce an issue or find that an issue is not based in Connections code, customers will be referred to the respective web browser vendor for further assistance.</p>
-<h2 class="section" id="section_jvp_2rb_glb">Support for Virtualization Environments</h2>
-<p>If you submit a standard usage or defect-related service request and HCL Connections is running in a Virtual Environment that is not officially tested, HCL Connections Support will make reasonable efforts to resolve the problem. We will assume the issue is common to both native and virtual operating environments. If we suspect that a problem is the result of the virtualization technology, it may be necessary to recreate the issue in a native environment before providing continued defect support. This will guide subsequent ownership of the problem for further troubleshooting. HCL Connections Support will not provide support or assistance with the set up and/or configuration of Virtual Environments. Customers looking for support setting up Virtual Environments should consult their respective vendors.</p>
-<h2 class="section" id="section_i2k_hrb_glb">Restrictions</h2>
-<p>The following are restricted products where the HCL Connections team has a specific reason for supporting an exact match or for not supporting the product. This list may change, as our product and customer experiences continue to grow:</p>
-<ul>
-<li>Connections API Support: Connections API is supported in a similar way to LotusScript support in that we do not debug customer code. HCL Support will validate that the API request, as documented, returns a valid response. If there is a defect in the Connections API, HCL will support that.</li>
-<li>DB2 11.1 and 11.1 fix packs are supported, as specified in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL System Requirements</a>.</li>
-<li>
-<p>Exact match for supporting: WebSphere Application Server fix pack(s) specified in the in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL System Requirements</a>.</p>
-<p><strong>Note:</strong> As forward fix pack(s) are verified supporting HCL Connections 7.0, the HCL Connections 7.0 System Requirements will be updated with the additional supported version(s).</p>
-</li>
-<li>
-<p>Not currently supported: Integrating SPNEGO or IWA with the HCL Connections Activities sidebar and Business Card in the HCL Notes 9.0.x Client.</p>
-</li>
-<li>
-<p>The Connections UI only supports browsers in their default zoom settings. Any UI issues found with non-default settings (zoom in/out) are not supported.</p>
-<p>This document may be periodically updated as Restrictions are made known.</p>
-</li>
-</ul>
-<h2 class="section" id="section_fdb_2sb_glb">HCL Connections Support Statement Addendum - Custom Code</h2>
-<p><strong>Product Documentation</strong> This document describes the limits of HCL remote technical support available to you when implementing custom interface artifacts or applications in your HCL Connections environment.</p>
-<p><strong>Content</strong> When designing your own custom content for Connections, you write custom code and plug it into Connections. There may be occasions in which you require assistance with the coding of these customizations.</p>
-<p>Samples of coding customizations can be:</p>
-<ul>
-<li><em>User interface (UI)</em> - themes, skins, javascript modules, and other artifacts that affect the user experience of your clients.</li>
-<li><em>Applications</em> - opensocial gadgets, iwidgets, and other modules that provide some function to your HCL Connections users.</li>
-<li>
-<p><em>Other implementations of public plugpoints</em> - such as writing a custom API client, or a self-signup servlet provisioning the user in the Profiles database, or third-party implementations of other industry specifications.</p>
-<p>HCL Technical Support provides remote software support for documented customizations in Connections as referenced in the version's Help Center as well as other technical support materials available via the HCL Customer Support portal. This support might be limited to assisting with suspected or confirmed defects in the documentation and code as delivered, and would be subject to the same resolution criteria as a problem reported in the software as provided out of the box.</p>
-<p>In some cases, however, HCL Support may place limitations on the extent to which we will assist in troubleshooting a reported problem. These two conditions apply:</p>
-<ol>
-<li>HCL considers open source code and application frameworks installed by customers, either bundled as part of the application or as shared libraries, to be part of their application code.</li>
-<li>
-<p>If a problem is caused by the framework or the customer code relying on an unofficial interface or undocumented behavior, it is the responsibility of the customer or the framework owner to address the issue.
-Examples of when HCL does not provide support:</p>
-</li>
-<li>
-<p>Products or configurations referenced in section 3 <em>(Unsupported Product)</em> in the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL System Requirements</a>.</p>
-</li>
-<li>Customized themes, skins, screens and other UI artifacts beyond the samples and examples provided in the product itself, its documentation, or in materials made available from the product support page (unless otherwise specified in the documentation for such materials).</li>
-<li>Decompiled, rewritten or altered variations of HCL-provided code such as JSPs, opensocial gadgets or iwidgets that are customized beyond the intended, regularly available, and documented means available to configure the application as delivered.</li>
-<li>Questions and issues outside of the documented public API in the custom code, such as questions on APIs defined in the Java Standard or Enterprise Edition.</li>
-<li>Questions and issues regarding implementing third-party specifications in your Connections environment, for example <a href="http://myfaces.apache.org/">Apache MyFaces</a>, <a href="https://spring.io/">Java Spring Application Framework</a>, or <a href="http://hibernate.org/">Hibernate</a>.</li>
-<li>
-<p>Any code or module that violates the terms and conditions of the contractual agreements made when purchasing or downloading the software.
-HCL remote technical support will aid in the event your customization exposes what might be a defect in the product as provided. This may include unexpected results as follows:</p>
-</li>
-<li>
-<p>Making use of a documented API or configuration component (for opensocial gadgets, iwidgets or themes being customized).</p>
-</li>
-<li>Installing or deploying your custom content.</li>
-<li>Using Connections administrative interfaces and utilities to implement your customization.
-Administrators and users are encouraged to use the self-assistance information available on the <a href="https://support.hcltechsw.com/csm?id=connections_support">HCL Customer Support: Connections Resource site</a>. Many times, the problems encountered have already been reported and documented for your convenience.</li>
-</ol>
-<p>HCL remote technical support is not a replacement for education or experience in the technologies used in HCL Connections. HCL remote technical support is not the appropriate vehicle for making product enhancement requests. Each of these cases should be first brought to your HCL account representative who will have more information available on such topics. Additionally the <a href="https://connections-ideas.hcltechsw.com/?sort=recent">HCL Software Customer Idea Portal</a> may be used to submit product ideas and enhancement requests.</p>
-</li>
-</ul>
-<p><strong>Parent topic:</strong><a href="c_installation_overview.html">Planning</a></p>
+<p>HCL Software relies on a range of other commercial and non-commercial software (“Dependent Products”) to perform its function. This document describes the support that customers can expect for various configurations of HCL Connections and Dependent Products.</p>
+<h2 id="supported-and-unsupported-configurations">Supported and unsupported configurations</h2>
+<p>HCL tests HCL Connections with a defined list of Dependent Products during the development of a new release. However, we cannot reasonably describe all possible configurations that a customer might choose to use. HCL created this document to describe the level of support that customers can expect for various configurations of HCL Connections and Dependent Products.</p>
+<p>HCL only provides direct support for configuration and problem determination of Dependent Products that are explicitly supplied with HCL Products. In all other cases, it is your responsibility to obtain configuration assistance and support for Dependent Products yourself. In those cases, if HCL determines that a problem reported to HCL is caused by a Dependent Product, we will ask you to engage directly with your service provider to obtain support or assistance.</p>
+<p><strong>Note</strong>: The statements in this document reflect the general level of support that can be expected for HCL Connections. The terms and conditions of any specific support offering, license, or other agreements you might have with HCL will determine the actual delivered support for the product. Nothing in this document shall be construed as supplementing, modifying, or superseding the terms of your HCL license agreement for HCL Connections or any other agreement you might have with HCL, nor shall it create any obligation for HCL to deliver a level of support other than might be set forth in such agreements.</p>
+<h2 id="categories-of-support">Categories of support</h2>
+<p>For support purposes, we define three categories of configuration:</p>
+<p><strong>Supported Configurations</strong></p>
+<p>A “Supported Configuration” is a combination of HCL Software and other Dependent Products (usually at a specified version, release, fix, or specification level) that has been validated by HCL.</p>
+<p>HCL provides full support for configurations within this category. Support is provided under the terms of the product license to ensure that the product operates within its specifications.</p>
+<p><strong>Unsupported Configurations</strong></p>
+<p>An “Unsupported Configuration” is a combination of HCL Software and other Dependent Products (usually at a specified version, release, fix, or specification level) that is known to not work with HCL Connections and is therefore not supported.</p>
+<p>HCL does not provide support for Unsupported Configurations. Resolutions to deficiencies or incompatibilities found in Unsupported Configurations are not generally available.</p>
+<p>If business reasons warrant, customers can seek assistance on an additional fee basis from HCL services, from an HCL Business Partner, or from another service provider.</p>
+<p><strong>Other Configurations</strong></p>
+<p>Many configurations of HCL Products and other software exist that are not explicitly listed in “Supported Configurations” or “Unsupported Configurations”, but which can reasonably be expected to perform within the accepted bounds of reliability, function, and performance.</p>
+<p>Configurations that fall into this category typically substitute a Dependent Product listed in the “Supported Configuration” for similar software. This may be a newer fix level of the Dependent Product or another software product that adheres to a supported specification. For example, this could be a newer WebSphere® Application Server (WAS) fix pack, an LDAP server that adheres to that standard or an external security manager that integrates via public APIs.</p>
+<p>Customers may access HCL Support for “Other Configurations”. In these scenarios, HCL Support will use commercially reasonable efforts to provide the same level of support as that provided for a Supported Configuration.</p>
+<p>During problem determination, HCL Support will determine if the problem exists in a Supported Configuration, if a resolution can be provided, or if this is an Unsupported Configuration.</p>
+<p>Resources for problem determination are applied until HCL Support either provides a solution to the issue, determines that a solution is not commercially reasonable, or determines that the issue is caused by the substituted Dependent Product and does not exist in a Supported Configuration.</p>
+<p>If HCL Support is not able to resolve the problem on the customer configuration in question, then customers may choose to explore alternative solutions on an additional fee basis from HCL services, from an HCL Business Partner, or from another service provider.</p>
+<p>One possible outcome of a problem in this category is that HCL determines the configuration not to work, and will update the list of Unsupported Configurations accordingly.</p>
+<p><strong>Parent topic:</strong> <a href="c_installation_overview.html">Planning</a></p>
 
 
 

@@ -34953,61 +34953,30 @@
 <tr>
 <td>match: url</td>
 <td>A regular expression that is compared with the URL in the response to determine whether the modification should be applied. This provides a more fine-grained target than the path property by allowing you to apply your modification to specific pages with the component referred to in the path property. For more information, see the section on Refining the URL used in the "path"property later in this topic.</td>
-<td>```</td>
+<td><code>"match": {"url": "followedcommunities" }</code></td>
 </tr>
 <tr>
-<td>"match": {</td>
-<td></td>
-<td></td>
+<td>match: user-name</td>
+<td>String used to identify one or more users as the target for the customization. Not that user names are not guaranteed to be unique within an organization. To ensure a unique match, specify the user-id.</td>
+<td><code>"match": { "user-name":[ "Samantha Darryn", "Sam Curman" ] }</code></td>
 </tr>
 <tr>
-<td>"url": "followedcommunities"</td>
-<td></td>
-<td></td>
+<td>match: user-id</td>
+<td>String used to identify one or more users based on subscriber ID. This property value is unique within an organization.The term "user ID" is sometimes referred to as "subscriber ID" in the Connections documentation.</td>
+<td><code>"match": { "user-id": [ "20071635", "20071656" ] &lt;br&gt;&lt;br&gt; }</code></td>
 </tr>
 <tr>
-<td>}</td>
-<td></td>
-<td></td>
+<td>match: user-email</td>
+<td>String used to identify one or more users as the target for the customization. This property is unique within an organization.</td>
+<td><code>"match": { "user-email":\[ "Samantha.Darryn@renovations.com", "Sam.Curman@renovations.com" ] &lt;br&gt;&lt;br&gt; }</code></td>
 </tr>
 <tr>
-<td><div class="highlight"><pre><span></span><code>|
-|match: user-name|String used to identify one or more users as the target for the customization. Not that user names are not guaranteed to be unique within an organization. To ensure a unique match, specify the user-id.|```
-&quot;match&quot;: {
-  &quot;user-name&quot;:[
-  &quot;Samantha Darryn&quot;,
-  &quot;Sam Curman&quot;
-  ]
-}
-</code></pre></div></td>
-<td></td>
-<td></td>
+<td>include-files</td>
+<td>List of files to be inserted into the response for a matched page request. For more information, see the section on Managing file resources used in the "include-files" property later in this topic.</td>
+<td><code>"include-files": \[ "flipCard/commListCardsFlipStyle.user.js" ]</code></td>
 </tr>
 </tbody>
 </table>
-<p>|
-|match: user-id|String used to identify one or more users based on subscriber ID. This property value is unique within an organization.The term "user ID" is sometimes referred to as "subscriber ID" in the Connections documentation.</p>
-<p>|```
-"match": {
-  "user-id": [
-  "20071635",
-  "20071656"
-  ]
-}
-<div class="highlight"><pre><span></span><code>|
-|match: user-email|String used to identify one or more users as the target for the customization. This property is unique within an organization.|```
-&quot;match&quot;: {
-  &quot;user-email&quot;:[
-  &quot;Samantha.Darryn@renovations.com&quot;,
-  &quot;Sam.Curman@renovations.com&quot;
-  ]
-}
-</code></pre></div></p>
-<p>|
-|include-files|List of files to be inserted into the response for a matched page request. For more information, see the section on Managing file resources used in the "include-files" property later in this topic.|<code>"include-files": [
-  "flipCard/commListCardsFlipStyle.user.js"
-]</code></p>
-<p>|</p>
 <p><strong>Note:</strong> These are the only payload properties that are specific to Connections Customizer; your Customizer app can also use the general properties supported in Connections apps and extensions.</p>
 <ul>
 <li><strong><a href="custom_customizer_props_match_url.html">Using "match: url" to refine the "path" property</a></strong><br />
@@ -35015,7 +34984,7 @@ You can refine the extension's path property to target a specific portion of a c
 <li><strong><a href="custom_customizer_props_include_files.html">Managing file resources used in the "include-files" property</a></strong><br />
 The include-files payload property lists one or more files to be inserted into the response so that the display is modified when it is returned to the HCL Connections™ user.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="custom_customizer_create_app.html">Creating a Connections Customizer app</a></p>
+<p><strong>Parent topic:</strong> <a href="custom_customizer_create_app.html">Creating a Connections Customizer app</a></p>
 
 
 

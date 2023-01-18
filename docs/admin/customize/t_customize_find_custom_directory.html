@@ -35026,53 +35026,112 @@
 </thead>
 <tbody>
 <tr>
-<td>customizationDir/themes/&lt;theme_name>Theme/custom.css<strong>Note:</strong> Each theme, for example: "red", "green", "onyx", "gen4", "hikari", (the default theme) has a theme customization folder called customizationDir/themes/&lt;theme_name>Theme/. So the customization folder for the hikari theme is customizationDir/themes/hikariTheme/.</td>
-<td></td>
+<td>customizationDir/themes/&lt;theme_name>Theme/custom.css <br><br> <strong>Note:</strong> Each theme, for example: "red", "green", "onyx", "gen4", "hikari", (the default theme) has a theme customization folder called customizationDir/themes/&lt;theme_name>Theme/. So the customization folder for the hikari theme is customizationDir/themes/hikariTheme/.</td>
+<td>Customized styles</td>
+</tr>
+<tr>
+<td>customizationDir/themes/&lt;theme_name>Theme/defaultTheme.css</td>
+<td>Customized themes</td>
+</tr>
+<tr>
+<td>customizationDir/common/nav/templates/login.jsp</td>
+<td>Customized login page</td>
+</tr>
+<tr>
+<td>customizationDir/common/nav/templates/footer.jsp</td>
+<td>Customized footer file</td>
+</tr>
+<tr>
+<td>customizationDir/common/nav/templates/error.jsp</td>
+<td>Customized error page</td>
+</tr>
+<tr>
+<td>customizationDir/themes/images</td>
+<td>Customized images</td>
+</tr>
+</tbody>
+</table>
+<p>The following table identifies where to store application-specific versions of customized CSS files:</p>
+<table>
+<thead>
+<tr>
+<th>File name and file path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customizationDir/themes/theme/applications/activities.css</td>
+<td>Customized styles for Activities.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/blogs.css</td>
+<td>Customized styles for Blogs.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/dogear.css</td>
+<td>Customized styles for Bookmarks.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/bookmarklet.css</td>
+<td>Customized styles for the Bookmarklet.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/communities.css</td>
+<td>Customized styles for Communities.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/files.css</td>
+<td>Customized styles for Files.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/forums.css</td>
+<td>Customized styles for Forums.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/homepage.css</td>
+<td>Customized styles for the Home page.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/metrics.css</td>
+<td>Customized styles for Metrics.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/moderation.css</td>
+<td>Customized styles for Moderation.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/news.css</td>
+<td>Customized styles for News.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/profiles.css</td>
+<td>Customized styles for Profiles.</td>
+</tr>
+<tr>
+<td>customizationDir/themes/theme/applications/wikis.css</td>
+<td>Customized styles for Wikis.</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-</li>
-</ol>
-<p>|Customized styles|
-        |customizationDir/themes/&lt;theme_name>Theme/defaultTheme.css|Customized themes|
-        |customizationDir/common/nav/templates/login.jsp|Customized login page|
-        |customizationDir/common/nav/templates/footer.jsp|Customized footer file|
-        |customizationDir/common/nav/templates/error.jsp|Customized error page|
-        |customizationDir/themes/images|Customized images|</p>
-<pre><code>    The following table identifies where to store application-specific versions of customized CSS files:
-
-    |File name and file path|Description|
-    |-----------------------|-----------|
-    |customizationDir/themes/theme/applications/activities.css|Customized styles for Activities.|
-    |customizationDir/themes/theme/applications/blogs.css|Customized styles for Blogs.|
-    |customizationDir/themes/theme/applications/dogear.css|Customized styles for Bookmarks.|
-    |customizationDir/themes/theme/applications/bookmarklet.css|Customized styles for the Bookmarklet.|
-    |customizationDir/themes/theme/applications/communities.css|Customized styles for Communities.|
-    |customizationDir/themes/theme/applications/files.css|Customized styles for Files.|
-    |customizationDir/themes/theme/applications/forums.css|Customized styles for Forums.|
-    |customizationDir/themes/theme/applications/homepage.css|Customized styles for the Home page.|
-    |customizationDir/themes/theme/applications/metrics.css|Customized styles for Metrics.|
-    |customizationDir/themes/theme/applications/moderation.css|Customized styles for Moderation.|
-    |customizationDir/themes/theme/applications/news.css|Customized styles for News.|
-    |customizationDir/themes/theme/applications/profiles.css|Customized styles for Profiles.|
-    |customizationDir/themes/theme/applications/wikis.css|Customized styles for Wikis.|
-
-**Notes:**
-
--   Where theme is the name of the themes that are available for each application. For example: redTheme, goldTheme, and so on.
--   When you select the Coffee theme in the UI, the goldTheme is invoked. There is no coffeeTheme in the CSS files.
--   Right-to-left themes are specified in the applicationRTL.css files, where application represents one of the HCL Connections applications. For example: activitiesRTL.css.
--   For information about where to save customized application properties files, see the [Property file strings](r_customize_properties_files.md) topic.
--   For information about where to save customized JavaScript™ files, see the [JavaScript resource strings](r_customize_js_files.md) topic.
-</code></pre>
+<p><strong>Notes:</strong></p>
 <ul>
-<li><strong><a href="r_customize_war_osgi_file_locations.html">Application WAR files and OSGi bundles</a></strong><br />
-The following web application directories and OSGi bundles are packaged as part of HCL Connections.</li>
+<li>Where theme is the name of the themes that are available for each application. For example: redTheme, goldTheme, and so on.</li>
+<li>When you select the Coffee theme in the UI, the goldTheme is invoked. There is no coffeeTheme in the CSS files.</li>
+<li>Right-to-left themes are specified in the applicationRTL.css files, where application represents one of the HCL Connections applications. For example: activitiesRTL.css.</li>
+<li>For information about where to save customized application properties files, see the <a href="r_customize_properties_files.html">Property file strings</a> topic.</li>
+<li>For information about where to save customized JavaScript™ files, see the <a href="r_customize_js_files.html">JavaScript resource strings</a> topic.</li>
+</ul>
+</li>
+<li>
+<p><strong><a href="r_customize_war_osgi_file_locations.html">Application WAR files and OSGi bundles</a></strong><br />
+The following web application directories and OSGi bundles are packaged as part of HCL Connections.</p>
+</li>
 <li><strong><a href="r_customize_lang_codes.html">Language codes</a></strong><br />
 Use the language codes that are listed in the table to identify the language-specific version of the JavaScript or properties files that you want to customize.</li>
-</ul>
+</ol>
 <p><strong>Parent topic:</strong><a href="t_admin_common_customize_main.html">Customizing the user interface</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../admin/t_admin_common_change_was_env_variable.html">Changing WebSphere Application Server environment variables</a></p>
