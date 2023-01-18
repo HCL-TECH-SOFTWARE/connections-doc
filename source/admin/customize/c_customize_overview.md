@@ -4,7 +4,7 @@ Customize HCL Connections™ to fit your environment.
 
 Customize HCL Connections to fit your environment. This documentation is provided to help you customize your deployment ofConnections.**HCL Support can address questions about the customization process, but cannot address questions about the particulars of your customization.** If you customized an earlier version of Connections, there is no migration path provided for importing your changes into Connections 4.5 or later. Before upgrading, review and make a note of your existing customizations so that you can verify them post-migration and rework if necessary. In addition, customization work might no longer be valid if a customized file is updated with a subsequent fix pack or interim fix.
 
-Additional information about the CSS and HTML markup structure used in Connections is available in the Connections Developer Guide at: [https://ds\_infolib.hcltechsw.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=API%20Documentation](https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=API%20Documentation)
+Additional information about the CSS and HTML markup structure used in Connections is available in the [Connections Developer Guide](https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=API%20Documentation).
 
 Review these topics to help you customize Connections for your organization, or to help you build components that integrate with Connections.
 

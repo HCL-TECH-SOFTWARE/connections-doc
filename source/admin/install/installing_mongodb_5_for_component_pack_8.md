@@ -6,10 +6,10 @@ Install MongoDB 5 for Component Pack 8.
 
 Ensure you have the following:
 
--   A Component Pack machine that is ready to deploy infrastructure chart
--   Docker installed on the system \(to build an image from the Dockerfile\)
--   Helm to install MongoDB using a Helm chart
--   Access to the [HCL Mongo repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo5)
+-   A Component Pack machine that is ready to deploy infrastructure chart.
+-   The machine should have Helm to install MongoDB using a Helm chart.
+-   Access to the [HCL MongoDB repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo5).
+-   An internet-facing environment with Docker installed \(to build an image from the Dockerfile\). It does not need to be the Component Pack machine, but it should be internet-facing since building this MongoDB image requires access to external resources.
 
 ## Procedure {#section_cwf_p14_y5b .section}
 

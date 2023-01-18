@@ -6,12 +6,10 @@ Log into HCL Connections servers to access Connections content from the sidebar 
 
 The support for connecting to an HCL Connections Cloud server depends on whether you are using Notes 8.5.3 or Notes 9.0.1. The table shows the different Cloud support for the different versions.
 
-| |Notes 8.5.3|Notes 9.0.1|
-|--|-----------|-----------|
-|Managed "LotusLive" account for Activities
-
-|Supported. You can switch between Connections and Connections Cloud Activities from within the Activities sidebar|Not supported. There is no option to switch within the Activities sidebar, even if such a managed account is in place.|
-|HCL Connections Cloud SAML support|Not supported. Notes 8.5.3 does not support SAML.|Supported. The Connections preference page has an option to switch between a Connections server and a Connections Cloud server.|
+|            | Notes 8.5.3 | Notes 9.0.1 |
+| ----------- | --------- | --------- |
+| Managed "LotusLive" account for Activities | Supported. You can switch between Connections and Connections Cloud Activities from within the Activities sidebar | Not supported. There is no option to switch within the Activities sidebar, even if such a managed account is in place. |
+| HCL Connections Cloud SAML support | Not supported. Notes 8.5.3 does not support SAML. | Supported. The Connections preference page has an option to switch between a Connections server and a Connections Cloud server.|
 
 Notes 9.01 offers a single-click Connect-to-Cloud experience, with these considerations.
 
@@ -33,15 +31,7 @@ When you first open a Connections panel in the sidebar, if a connection to the s
 
     |Field|Description|
     |-----|-----------|
-    |**Server URL**|Type the Web address of the HCL Connections server, beginning with either https:// or http://For example: https://enterprise.example.com
-
-If you know that the server requires a secure, encrypted connection, begin the address with https://
-
-Some administrators change the context roots that are used to access HCL Connections features. If the web address that you normally use to access the Activities feature has a value other than <server\_name\>/activities, specify the server URL using a syntax similar to this: http://enterprise.example.com/activities
-
-**Note:** Your administrator might have already provided a value for this field using an administrative policy. If so, do not change the value.
-
-|
+    |**Server URL**|Type the Web address of the HCL Connections server, beginning with either `https://` or `http://`. <br><br> For example: `https://enterprise.example.com` <br><br> If you know that the server requires a secure, encrypted connection, begin the address with `https://` <br><br> Some administrators change the context roots that are used to access HCL Connections features. If the web address that you normally use to access the Activities feature has a value other than <server\_name\>/activities, specify the server URL using a syntax similar to this: `http://enterprise.example.com/activities` <br><br> **Note:** Your administrator might have already provided a value for this field using an administrative policy. If so, do not change the value. |
     |**User name**|Type your user name for logging in to the IBM® Connections server.|
     |**User password**|Type the associated password.|
 
@@ -52,7 +42,7 @@ The Activities sidebar should now display a list of your activities. Connecting 
 
 The next time you log in to Notes®, you are logged in to the Connections or Connections Cloud server automatically.
 
-These steps describe how a user can connect to a Connections server or a Connections cloud server. To provision this for a group of servers, use a policy. For more information, see the configuration article in the IBM Domino wiki: [Using INI settings to configure the HCL Connections features that are available in the IBM Lotus Notes client](http://www-10.lotus.com/ldd/lcwiki.nsf/dx/Using_NotesINI_settings_to_configure_Connections_integration) in the HCL Connections wiki.
+These steps describe how a user can connect to a Connections server or a Connections cloud server. To provision this for a group of servers, use a policy. For more information, see the configuration article in the IBM Domino wiki: [Using INI settings to configure the HCL Connections features that are available in the IBM Lotus Notes client](https://ds-infolib.hcltechsw.com/ldd/lcwiki.nsf/dx/Using_NotesINI_settings_to_configure_Connections_integration) in the HCL Connections wiki.
 
 For HCL Connections Cloud you need these settings:
 
@@ -71,7 +61,7 @@ For federated users, basic authentication against the IDP is used by default. Yo
 com.ibm.lconn.client.base/usebasicauth=false
 ```
 
-If you need to troubleshoot the plug-in, consult this wiki article on [data collection](http://www-10.lotus.com/ldd/lcwiki.nsf/dx/Notes_Integration#Data+Collection).
+If you need to troubleshoot the plug-in, consult this wiki article on [data collection](https://ds-infolib.hcltechsw.com/ldd/lcwiki.nsf/dx/Notes_Integration#Data+Collection).
 
 Enable client logging by adding the following lines to ...\\notes\\data\\workspace\\.config\\rcpinstall.properties:
 

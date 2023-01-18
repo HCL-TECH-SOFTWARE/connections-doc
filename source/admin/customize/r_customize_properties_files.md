@@ -56,13 +56,7 @@ The following tables list the application properties files that contain strings 
 
 |Description|Source location|Save customizations in|
 |-----------|---------------|----------------------|
-|Activities user interface strings|Most user interface strings are in strings.js. This file is in the Activities resource jar file in the PROVISION folder sample: <CONNECTIONS\_PROVISION\_PATH\>/webresources/com.ibm.lconn.activities.web.resources\_version.jar
-
-If you cannot find a string, check the Activities resource bundle in installedApps/<cell\_name\>/Activities.ear/oawebui.war/WEB-INF/lib/oawebui.jar: com/ibm/openactivities/web/coreui/resources/resources.properties
-
-**Note:** For more information, see [Customizing strings sourced in JavaScript](t_customize_strings_via_javascript.md).
-
-|customizationDir/strings/com.ibm.openactivities.web.coreui.resources.resources.properties|
+|Activities user interface strings|Most user interface strings are in strings.js. This file is in the Activities resource jar file in the PROVISION folder sample: <CONNECTIONS\_PROVISION\_PATH\>/webresources/com.ibm.lconn.activities.web.resources\_version.jar <br><br> If you cannot find a string, check the Activities resource bundle in installedApps/<cell\_name\>/Activities.ear/oawebui.war/WEB-INF/lib/oawebui.jar: com/ibm/openactivities/web/coreui/resources/resources.properties <br><br> **Note:** For more information, see [Customizing strings sourced in JavaScript](t_customize_strings_via_javascript.md).|customizationDir/strings/com.ibm.openactivities.web.coreui.resources.resources.properties|
 |Activities notification strings|Notification strings and some user interface strings are in  LotusConnections-config/notifications/activities/resources/nls/notification.properties where locale is the language code, for example notification \_en.properties. If no locale is specified, use notification.properties.|Edit and save the customized file in the source location.|
 
 ## Blogs { .section}
@@ -138,9 +132,7 @@ If you cannot find a string, check the Activities resource bundle in installedAp
 
 |Description|Source location|Save customizations in|
 |-----------|---------------|----------------------|
-|Template resource strings for use in activity stream event titles **Important:** Customized strings must have the same placeholders \(string of characters that are delimited by curly braces\) as the placeholders in the source string.
-
-|In installedApps/<cell\_name\>/News.ear/news.common.jar: com/ibm/lconn/news/nls/templatePlaceholders.properties|customizationDir/strings/com.ibm.lconn.news.nls.templatePlaceholders.properties|
+|Template resource strings for use in activity stream event titles <br><br> **Important:** Customized strings must have the same placeholders \(string of characters that are delimited by curly braces\) as the placeholders in the source string.|In installedApps/<cell\_name\>/News.ear/news.common.jar: com/ibm/lconn/news/nls/templatePlaceholders.properties|customizationDir/strings/com.ibm.lconn.news.nls.templatePlaceholders.properties|
 |JSP resources for email digest settings page|In installedApps/<cell\_name\>/News.ear/news.common.jar: com/ibm/lconn/news/nls/jsp\_resources.properties|customizationDir/strings/com.ibm.lconn.news.nls.jsp\_resources.properties|
 |Notification strings that are displayed in the Homepage|In installedApps/<cell\_name\>/News.ear/news.common.jar: com/ibm/lconn/news/nls/ui\_resources.properties|customizationDir/strings/com.ibm.lconn.news.nls.ui\_resources.properties|
 |Strings that are related to Homepage widgets, such as widget titles and the strings that are displayed in the customization palette|In installedApps/<cell\_name\>/News.ear/news.common.jar:com/ibm/lconn/news/nls/catalog/service/ui/CatalogServiceUIMessages.propertiess|customizationDir/strings/com.ibm.lconn.news.nls.catalog.service.ui.CatalogServiceUIMessages.properties|
@@ -150,15 +142,7 @@ If you cannot find a string, check the Activities resource bundle in installedAp
 |Description|Source location|Save customizations in|
 |-----------|---------------|----------------------|
 |Used in the Atom APIs for informational use only, not for the user|In installedApps/<cell\_name\>/Profiles.ear/lc.profiles.app.war/WEB-INF/lib/lc.profiles.web.app.jar: com/ibm/lconn/profiles/api/actions/resources.properties|customizationDir/strings/com.ibm.lconn.profiles.api.actions.resources.properties|
-|Main resource string file for user interface display in Profiles|In installedApps/<cell\_name\>/Profiles.ear/lc.profiles.app.war/WEB-INF/lib/lc.profiles.web.app.jar: com/ibm/lconn/profiles/strings/ui.properties**Note:** To update the Profiles user interface, you must change the appropriate template file. For example, profileDetails.ftl defines the custom section that is rendered when you view someone's profile. The business card template renders the same profile when you start someone's business card.
-
-The key to define a custom section to view a profile in profileDetails.ftl is as follows:
-
-`<nlsKey="label.displayName"/>`. Template files are in: <dmgr profilehome\>/config/cells/<cellname\>/LotusConnections-config/profiles/templates.
-
-**Note:** The Profiles advanced search page does not have a customization template. Update the advanced search page by using the strings folder customization directory. Create the following file: com.ibm.lconn.profiles.strings.uilabels.properties. Add, for example, the following property/string: `label.advanced.searchForm.attribute.telephoneNumber=Telephone:`.
-
-|customizationDir/strings/com.ibm.lconn.profiles.strings.ui.properties|
+|Main resource string file for user interface display in Profiles|In installedApps/<cell\_name\>/Profiles.ear/lc.profiles.app.war/WEB-INF/lib/lc.profiles.web.app.jar: com/ibm/lconn/profiles/strings/ui.properties**Note:** To update the Profiles user interface, you must change the appropriate template file. For example, profileDetails.ftl defines the custom section that is rendered when you view someone's profile. The business card template renders the same profile when you start someone's business card. <br><br> The key to define a custom section to view a profile in profileDetails.ftl is as follows: <br><br> `<nlsKey="label.displayName"/>`. Template files are in: <dmgr profilehome\>/config/cells/<cellname\>/LotusConnections-config/profiles/templates. <br><br> **Note:** The Profiles advanced search page does not have a customization template. Update the advanced search page by using the strings folder customization directory. Create the following file: com.ibm.lconn.profiles.strings.uilabels.properties. Add, for example, the following property/string: `label.advanced.searchForm.attribute.telephoneNumber=Telephone:`.|customizationDir/strings/com.ibm.lconn.profiles.strings.ui.properties|
 |Strings for profile field labels|In <dmgr profilehome\>: /config/cells/<cellname\>/LotusConnections-config/profiles/templates/template.properties|customizationDir/strings/com.ibm.lconn.profiles.strings.uilabels.properties|
 
 **Note:** To customize the Profile field labels take, the following steps:
@@ -192,7 +176,7 @@ The key to define a custom section to view a profile in profileDetails.ftl is as
 
 **Note:** These resource bundles contain most of the Wikis user interface strings, but the strings for the Communities widget are provided in JavaScript. See [Customizing strings sourced in JavaScript](t_customize_strings_via_javascript.md) for more information.
 
-**Parent topic:**[Customizing product strings](../customize/t_customize_strings_global.md)
+**Parent topic:** [Customizing product strings](../customize/t_customize_strings_global.md)
 
 **Related information**  
 

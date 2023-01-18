@@ -47,9 +47,7 @@ To determine the location of your customization directory, check the value of th
 
         |Directory path|Description|
         |--------------|-----------|
-        |customizationDir/themes/<theme\_name\>Theme/custom.css**Note:** Each theme, for example: "red", "green", "onyx", "gen4", "hikari", \(the default theme\) has a theme customization folder called customizationDir/themes/<theme\_name\>Theme/. So the customization folder for the hikari theme is customizationDir/themes/hikariTheme/.
-
-|Customized styles|
+        |customizationDir/themes/<theme\_name\>Theme/custom.css <br><br> **Note:** Each theme, for example: "red", "green", "onyx", "gen4", "hikari", \(the default theme\) has a theme customization folder called customizationDir/themes/<theme\_name\>Theme/. So the customization folder for the hikari theme is customizationDir/themes/hikariTheme/.|Customized styles|
         |customizationDir/themes/<theme\_name\>Theme/defaultTheme.css|Customized themes|
         |customizationDir/common/nav/templates/login.jsp|Customized login page|
         |customizationDir/common/nav/templates/footer.jsp|Customized footer file|

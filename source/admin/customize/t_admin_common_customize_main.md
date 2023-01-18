@@ -49,39 +49,11 @@ The style of theConnections user interface is based on the Collaboration Solutio
 
     |Feature|File location|
     |-------|-------------|
-    |Cascading style sheets|    -   To add custom styles to the product, edit the following files:
-
-**Note:** If your users view the product in Arabic, Hebrew, or another right-to-left language, copy the defaultTheme\_rtl.css file too.
-
-        -   /nav/common/styles/defaultTheme/custom.css
-        -   /nav/common/styles/defaultTheme/custom\_rtl.css
-For more information, see [Adding styles to the Connections style sheet](t_admin_navbar_change_style.md).
-
-    -   To make extensive changes to the colors used in the product, edit the following file: /nav/common/styles/defaultTheme/defaultTheme.css
-
-For more information, see [Making extensive color and style changes](t_admin_common_change_font_styles.md).
-
-|
-    |Error page|/nav/templates/error.jspFor more information, see [Customizing the error page](t_customize_error_page.md).
-
-|
-    |Footer|/nav/templates/footer.jspFor more information, see [Customizing the footer](t_admin_common_add_footer_link.md).
-
-|
-    |Login page|/nav/templates/login.jspFor more information, see [Customizing the login page](t_admin_common_customize_login_screen.md).
-
-|
-    |Navigation bar|/nav/templates/header.jspFor the menus available from the navigation bar:
-
-    ```
-/nav/templates/menu/people.jsp
-/nav/templates/menu/communities.jsp
-/nav/templates/menu/apps.jsp
-    ```
-
-For more information, see [Customizing the navigation bar](t_admin_navbar_create_files.md).
-
-|
+    |Cascading style sheets|<br><br> - To add custom styles to the product, edit the following files: <br><br> **Note:** If your users view the product in Arabic, Hebrew, or another right-to-left language, copy the defaultTheme\_rtl.css file too. <br><br> - /nav/common/styles/defaultTheme/custom.css <br><br> - /nav/common/styles/defaultTheme/custom\_rtl.css <br><br> For more information, see [Adding styles to the Connections style sheet](t_admin_navbar_change_style.md). <br><br> - To make extensive changes to the colors used in the product, edit the following file: /nav/common/styles/defaultTheme/defaultTheme.css <br><br> For more information, see [Making extensive color and style changes](t_admin_common_change_font_styles.md).|
+    |Error page|/nav/templates/error.jspFor more information, see [Customizing the error page](t_customize_error_page.md).|
+    |Footer|/nav/templates/footer.jspFor more information, see [Customizing the footer](t_admin_common_add_footer_link.md).|
+    |Login page|/nav/templates/login.jspFor more information, see [Customizing the login page](t_admin_common_customize_login_screen.md).|
+    |Navigation bar|/nav/templates/header.jspFor the menus available from the navigation bar: <br><br>```/nav/templates/menu/people.jsp <br><br> /nav/templates/menu/communities.jsp <br><br> /nav/templates/menu/apps.jsp``` <br><br> For more information, see [Customizing the navigation bar](t_admin_navbar_create_files.md).|
 
     For example:
 

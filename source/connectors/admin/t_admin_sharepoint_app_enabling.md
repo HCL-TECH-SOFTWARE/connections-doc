@@ -13,7 +13,7 @@ Linked references in the following procedure are to additional explanation in th
     **Note these steps:**
 
     -   Under **Supported account types**, select **Accounts in this organizational directory only \(your\_organizational\_directory\)**.
-    -   Under **Redirect URI \(optional\)**, select **Web** and add https://your\_connections\_host.spo.index.com as the URI for your Connections users to receive their authentication response.
+    -   Under **Redirect URI \(optional\)**, select **Web** and add https://your\_connections\_host.spo.index.html as the URI for your Connections users to receive their authentication response.
     -   Click **Register**.
 4.  From your app's **Overview** page in Azure, click **API permissions** and then click **Add a permission**.
 
