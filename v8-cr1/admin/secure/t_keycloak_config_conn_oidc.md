@@ -1,11 +1,14 @@
-# Configuring KeyCloak as an OIDC provider for Connections {#t_keycloak_config_conn_oidc .concept}
+# Configuring KeyCloak as an OIDC provider for Connections 
 
 Configuring Keycloak as the OIDC provider for Connections involves these steps.
 
 - Creating a realm
-- Configure the callback urls for the client within that realm create a client for the Connections web application
+- Within that realm create a client for the Connections web application
+
+    -   Configure the callback urls for the client
+
 - Configure hardcoded realmName claim through the client scope mapper property
-- Configure Keycloak connection to LDAP
+- Configure Keycloak connection to LDAP  
 - Create additional clients for Oauth applications mobile and desktop plugins
  
 The realm contains the Keycloak OIDC clients which provide the authentication for Connections entities. The main OIDC client is the client for the Connections web application.
@@ -41,5 +44,5 @@ The realm contains the Keycloak OIDC clients which provide the authentication fo
 
 </ol>
 
-**Parent topic:** [Enabling Keycloak as an OIDC provider for Connections](../secure/c_keycloak_oidc.md)
+**Parent topic:**  [Enabling Keycloak as an OIDC provider for Connections](../secure/c_keycloak_oidc.md)
 
