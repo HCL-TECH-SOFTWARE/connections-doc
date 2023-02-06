@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#t_keycloak_config_conn_oidc" class="md-skip">
+        <a href="#configuring-keycloak-as-an-oidc-provider-for-connections" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/cnx-mkdocs-test-repo/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to latest.</strong>
   </a>
 
@@ -35291,13 +35291,20 @@
   </a>
 
 
-<h1 class="concept" id="t_keycloak_config_conn_oidc">Configuring KeyCloak as an OIDC provider for Connections</h1>
+<h1 id="configuring-keycloak-as-an-oidc-provider-for-connections">Configuring KeyCloak as an OIDC provider for Connections</h1>
 <p>Configuring Keycloak as the OIDC provider for Connections involves these steps.</p>
 <ul>
 <li>Creating a realm</li>
-<li>Configure the callback urls for the client within that realm create a client for the Connections web application</li>
-<li>Configure hardcoded realmName claim through the client scope mapper property</li>
-<li>Configure Keycloak connection to LDAP</li>
+<li>
+<p>Within that realm create a client for the Connections web application</p>
+<ul>
+<li>Configure the callback urls for the client</li>
+</ul>
+</li>
+<li>
+<p>Configure hardcoded realmName claim through the client scope mapper property</p>
+</li>
+<li>Configure Keycloak connection to LDAP  </li>
 <li>Create additional clients for Oauth applications mobile and desktop plugins</li>
 </ul>
 <p>The realm contains the Keycloak OIDC clients which provide the authentication for Connections entities. The main OIDC client is the client for the Connections web application.</p>
@@ -35341,7 +35348,7 @@
 <li><strong>Outlook Add-in:</strong> <p>If you are enabling the Connections Outlook Add-in for your users, you will need to make updates to Keycloak to enable login from the add-in. Update the Mobile client (connections_social_mobile) with redirect URIs</p><p><ul><li>Add the Outlook Add-in redirect URL to the ‘Valid Redirect URIs’ field. The format should be <xref>https://(addin URI)/auth/callback </xref> For Example: <xref>https://my.server.com/outlook-addin/auth/callback</xref></li><li>Update the ‘Web Origins’ field to allow CORS origins from the redirect URIs. Either explicitly specify each redirect URI or specify ‘+’ to allow all the redirect URIs from the ‘Valid Redirect URIs’ field.</li><li>Update {realm} settings to make sure X-Frame-Options includes “frame-ancestors 'self’”. This allows the Outlook Add-in to be loaded into the iFrame.</ul></p></li>
 </ol>
 </ol>
-<p><strong>Parent topic:</strong> <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
+<p><strong>Parent topic:</strong>  <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
 
 
 
