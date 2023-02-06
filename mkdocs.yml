@@ -1,11 +1,11 @@
 #Project Information
-site_name: HCL Connections Help Center
+site_name: HCL Connections v8.0 Help Center
 site_description: >-
   A next-gen documentation site for HCL Connections.
 site_url: https://opensource.hcltechsw.com/connections
 use_directory_urls: false
-docs_dir: source
-site_dir: docs
+docs_dir: v8
+site_dir: docs/v8
 
 # Theme Configuration
 theme:
@@ -80,9 +80,11 @@ nav:
 # HCL Connections Documentation
       - Introducing Connections: index.md
 # What's New
-      - What&apos;s new in Connections&quest;: admin/overview/i_ovr_r_whats_new.md    
+      - What&apos;s new in Connections&quest;: 
+        - admin/overview/whats_new.md
+        - Connections 8.0: admin/overview/i_ovr_r_whats_new.md    
 # Administering
-      - Administering Connections 8: 
+      - Administering Connections 8.0: 
         - admin/welcome/welcome_admin.md
         - Product Overview:
           - admin/overview/c_lc4_product_overview.md
@@ -1438,7 +1440,7 @@ nav:
             - Search error messages: admin/troubleshoot/r_error_codes_search.md
             - User life cycle error messages: admin/troubleshoot/r_error_codes_user_life_cycle.md
 # Using Connections       
-      - Using Connections 8: 
+      - Using Connections 8.0: 
         - user/welcome/welcome_end_user.md
         - Accessibility features for Connections: user/common/ic_r_accessibility_features.md
         - What&apos;s new in Connections&quest;: user/eucommon/r_eucommon_whats_new.md
