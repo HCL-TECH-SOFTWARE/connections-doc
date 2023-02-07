@@ -5537,9 +5537,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Where additional customization is required, custom plugins can be loaded into TinyMCE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_configure_13-add-external-tinymce-plugins.html" class="md-nav__link md-nav__link--active">
         Where additional customization is required, custom plugins can be loaded into TinyMCE
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-extrnal-tinymce-plugins" class="md-nav__link">
+    Adding Extrnal TinyMCE Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hcl-connections-supported-tinymce-plugins" class="md-nav__link">
+    HCL Connections supported TinyMCE Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5956,9 +5994,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Where additional customization is required, custom plugins can be loaded into TinyMCE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_configure_13-add-external-tinymce-plugins.html" class="md-nav__link md-nav__link--active">
         Where additional customization is required, custom plugins can be loaded into TinyMCE
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-extrnal-tinymce-plugins" class="md-nav__link">
+    Adding Extrnal TinyMCE Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hcl-connections-supported-tinymce-plugins" class="md-nav__link">
+    HCL Connections supported TinyMCE Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -35249,6 +35325,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-extrnal-tinymce-plugins" class="md-nav__link">
+    Adding Extrnal TinyMCE Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hcl-connections-supported-tinymce-plugins" class="md-nav__link">
+    HCL Connections supported TinyMCE Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35269,10 +35367,11 @@
 
 <h1 class="task" id="setup-editors-configure-add-external-tinymce-plugins">Add External TinyMCE Plugins</h1>
 <p>Where additional customization is required, custom plugins can be loaded into TinyMCE.</p>
+<h2 id="adding-extrnal-tinymce-plugins">Adding Extrnal TinyMCE Plugins</h2>
 <ol>
 <li>
 <p>Using a plain text editor, open config/config.js in the extracted Tiny Editors for HCL Connections package.</p>
-<p><strong>Note:</strong> Use a plain text editor to avoid inserting invalid formatting or symbols into config.js. Do not use a rich text editor such as Microsoft Word for editing configuration files.</p>
+<p><strong>Note:</strong> Use a plain text editor to avoid inserting invalid formatting or symbols into <code>config.js</code>. Do not use a rich text editor such as Microsoft Word for editing configuration files.</p>
 </li>
 <li>
 <p>Locate the property <a href="r_config-js-sample.html#externalPlugins"><code>externalPlugins</code></a> and modify the array to customize the external plugin configuration using the following resources:</p>
@@ -35296,7 +35395,225 @@
 <p><a href="t_01-setup_03-editors_01-configure_00-summary.html">Continue configuring the Tiny Editors integration</a> or <a href="t_01-setup_03-editors_02-install_00-summary.html">continue with the installation</a>.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="t_01-setup_03-editors_01-configure_00-summary.html">Configuring the Tiny Editors integration</a></p>
+<h2 id="hcl-connections-supported-tinymce-plugins">HCL Connections supported TinyMCE Plugins</h2>
+<p>When enabling external plugins for the TinyMCE Editor, not every plugin has been tested with HCL Connections. In addition, some of the plugins have known issues. While we are always working to improve compatibility with third party products, only the plugins listed in the below table have been successfully tested and are available for support from HCL.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plugin - core</td>
+<td>Advanced List</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Anchor</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Autolink</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Autoresize</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>CharacterMap</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Code Sample</td>
+<td>Support added in Tiny Editors for HCL Connections Version: 4.2.0.29</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Directionality</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Emoticons</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Full Screen</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Help</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Horizontial Rule</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Image</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Insert Date/Time</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Link</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Lists</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Media</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Nonbreaking Space</td>
+<td>Only activatable by externalPlugins setting.Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Noneditable</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Preview</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Print</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Quick Tollbar</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Search and Replace</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Table</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Template</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Text Pattern</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Visual Blocks</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Visual Characters</td>
+<td>Only activatable by externalPlugins setting. Setting added in 4.2.0</td>
+</tr>
+<tr>
+<td>Plugin - core</td>
+<td>Word Count</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Accessibility Checker</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Advanced Code Editor</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Case Change</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Enhanced Media Embed</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Format Painter</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Link Checker</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Mentions</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Page Embed</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Permanent Pen</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>PowerPaste</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Spell Checker Pro</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>AutoCorrect</td>
+<td></td>
+</tr>
+<tr>
+<td>Plugin - Premium</td>
+<td>Advanced Tables</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parent topic:</strong> <a href="t_01-setup_03-editors_01-configure_00-summary.html">Configuring the Tiny Editors integration</a></p>
 
 
 
