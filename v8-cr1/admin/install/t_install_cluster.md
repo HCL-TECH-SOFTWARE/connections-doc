@@ -14,6 +14,7 @@ Consider the following guidelines for a successful installation:
 -   It is best that you change the SOAP Request Timeout in the soap.client.props file to com.ibm.SOAP.requestTimeout=0, to ensure that no requests time out during the installation.
 -   Make sure that the JVM heap size of your Deployment Manager is high enough to prevent your system from crashing with OutOfMemory errors during the upgrade. At least temporarily, modify the JVM heap size to an initial and maximum value of 2048.
 -   After making any of the modifications above, restart the Deployment Manager and start the HTTP services afterwards.
+-   HCL Connections 8.0 requires IBM Installation Manager 1.9 or above. If you are using an earlier version of IBM Installation Manager than 1.9 than you need to upgrade before installing Connections. The IBM Installation Manager 1.9.2 which can be found at `HCL_Connections_Install\IM\<operatingSystem>`
 
 Assuming you made any of the modifications suggested, restart the Deployment Manager and then start the HTTP services before you proceed to install Connections.
 
@@ -37,18 +38,18 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
     -   AIX or Linux: IBMIM
     -   Windows: IBMIM.exe
+    
     Repository:
 
     -   AIX or Linux: Connections set-up\\HCL\_Connections\_Install\\HCLConnections\\repository.config
     -   Windows: Connections set-up\\HCL\_Connections\_Install\\HCLConnections\\repository.config
-    **Note:** Installation Manager might ask you to upgrade the Installation Manager. Connections bundles only the 64-bit, version 1.8.5.1 Installation Manager.
+    
 
 5.  When IBM Installation Manager is launched, in the Select packages to install window, select the packages that you want to install, and then click **Next** to continue.
 
     **Notes:**
 
     -   Accept the default setting for **Show all versions**.
-    -   If you are using an earlier version of IBM Installation Manager than 1.8.5.1, the 1.8.5.1 package is selected in this window.
     -   Click **Check for Other Versions and Extensions** to search for updates to IBM Installation Manager.
 6.  Review and accept the license agreement by clicking **I accept the terms in the license agreements**. Click **Next**.
 
@@ -65,7 +66,10 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
         **Note:** If you install Communities and want users to be able to add the Rich Content app in a community, you must also install Wikis now.
 
     -   Install Metrics now so that your application data is captured from the moment that HCL Connections is deployed. If you install Metrics at a later stage, you will not have any data reports for the period before you installed Metrics.
-        |**HCL Connections 8.0 CR1**|Install all HCL Connections applications.|
+
+    |Section|Description|
+    |-------|-----------|
+    |**HCL Connections 8.0 CR1**|Install all HCL Connections applications.|
     |**Activities**|Collaborate with colleagues.|
     |**Blogs**|Write personal perspectives about projects.|
     |**Communities**|Interact with people on shared projects.|
@@ -402,6 +406,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
     -   Push Notification cluster
     -   Rich Text Editor cluster
     -   Widget Container cluster
+    
     The other features include.
 
     -   Activities cluster

@@ -24,7 +24,7 @@ Before you begin: The Tiny Editors Selector service must be installed.
 
     !["Initialize parameters for servlets" link](resource/was/prioritize_connectsix_01.png)
 
-6.  Set the **priority** value to either "Textbox.io", "TinyMCE", or both in any order separated by a comma then click **OK**.
+6.  Set the **priority** value to "TinyMCE" in any order separated by a comma then click **OK**.
 
     !["Initialize parameters for servlets" dialog](resource/was/prioritize_connectsix_02.png)
 

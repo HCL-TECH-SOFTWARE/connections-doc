@@ -13,3 +13,4 @@ Completely removes Tiny Editors for HCL Connections to restore HCL Connections t
 -   **[Common tasks, concepts and reference information](r_appendix.md)**  
 Common tasks, concepts and reference information.
 
+**Parent topic:** [Administering Connections 8.0](../../welcome/welcome_admin.md)

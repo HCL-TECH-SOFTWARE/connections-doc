@@ -11,7 +11,6 @@ This option is used to select the editor for HCL Connections™. If the [Tiny Ed
     |Value for `editor`|Effect|
     |------------------|------|
     |**`'TinyMCE'`**|All users will be shown the TinyMCE editor.|
-    |**`'textbox.io'`**|All users will be shown the Textbox.io editor.|
     |**`'CKEditor'`**|All users will be shown the default editor.|
     |**`'role-based'`**|The editor shown to users is set by [Configuring the Tiny Editors Selector roles](t_configure_01b-assign-users-1.md).|
 
