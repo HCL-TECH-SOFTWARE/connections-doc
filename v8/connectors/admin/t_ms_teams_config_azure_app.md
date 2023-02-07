@@ -1,6 +1,6 @@
 # Configuring an Azure app to support the Microsoft Teams app {#concept_jw1_tgf_vnb .concept}
 
-This task accomplished by using the App Studio app within Microsoft Teams.
+This task is accomplished using the Developer Portal app within Microsoft Teams.
 
 ## Before you begin: {#section_nrf_51g_vnb .section}
 
@@ -9,13 +9,15 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 ## Create the Azure bot and app registration {#section_pd1_rrf_vnb .section}
 
 1.  Log in as the Microsoft Teams administrator.
-2.  Navigate to Microsoft Teams and in the navigation select the **Apps catalog** and find the App Studio app from Microsoft. Add this app if needed and open it.
-3.  In the top navigation of the app, select **Manifest Editor**.
-4.  Choose the **Bot Management** button.
-5.  In the bot name field, pick a name for your HCL Connections app, such as "HCL Connections" and then click **Create**.
-6.  After the bot is successfully created, copy the bot ID and password to a text file to use later.
+2.  Navigate to Microsoft Teams and in the navigation, select the **Apps catalog** and find the Developer Portal app from Microsoft. Add this app if needed and open it.
+3.  In the top navigation of the app, select **Tools**.
+4.  Choose **Bot Management**, and click the **+ New Bot** button.
+5.  In the bot name field, pick a name for your HCL Connections app, such as "HCL Connections" and then click **Add**.
+6.  After the bot is successfully created, click the **< Bots** button and copy the bot ID to a text file to use later.
 7.  Select this bot from the **Existing bot registrations** list.
-8.  In the bot endpoint address field, enter the following URL, replacing connections.example.com with the host name for your environment:
+8.	Click the **Client secrets** tab. Then, click **Add a client secret for your bot**, copy the newly generated bot client secret to a text file for use later, and click **Okay**.
+19.	Next, click the **Configure** tab.
+10.	In the configure endpoint address field, enter the following URL, replacing *connections.example.com* with the host name for your environment:
 
     ```
     https://connections.example.com/teams-share-service/api/msteams/command
@@ -24,7 +26,7 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 
 ## Add single sign-on permissions to your Azure app {#section_t3f_trf_vnb .section}
 
-1.  Login to the Azure portal to complete the single sign on permissions, at https://portal.azure.com.
+1.  Log into the Azure portal to complete the single sign on permissions, at https://portal.azure.com.
 2.  Select or find **App Registrations** and then click on the Azure app that was just created.
 3.  Navigate to **Manage** \> **Authentication**. Under **Supported account types**, make sure that **Accounts in any organizational directory \(Any Azure AD Directory - Multitenant\)** is selected.
 4.  Navigate to **Manage** \> **API Permissions**.
@@ -45,7 +47,7 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 13. In the navigation, select **Manage** \> **Token configuration**.
 14. Select the option to add an optional claim, and choose the **Access** token. From the list of claims, select email and then click **Add**.
 
-## What to do next: {#section_w2g_3bg_vnb .section}
+## What to do next {#section_w2g_3bg_vnb .section}
 
-Deploy the microservices and configure IBM HTTP Server for Teams. See the *Set up Microsoft Teams integration* section in [Sample steps to install or upgrade to Component Pack 7](../../admin/install/cp_install_services_tasks.md).
+Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in [Steps to install or upgrade to Component Pack 8](../../admin/install/cp_install_services_tasks.md#teams_integ).
 

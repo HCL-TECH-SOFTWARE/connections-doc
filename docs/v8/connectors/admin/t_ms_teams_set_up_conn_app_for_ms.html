@@ -143,8 +143,8 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
-    <strong>Click here to go to latest.</strong>
+  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/cnx-mkdocs-test-repo/v8-cr1/"> 
+    <strong>Click here to go to the latest.</strong>
   </a>
 
             </div>
@@ -35021,7 +35021,7 @@
 <p>Make sure you've <a href="t_ms_teams_config_azure_app.html">configured an Azure app to support the Microsoft Teams app</a>.</p>
 <ol>
 <li>
-<p>Clone or download the https://github.com/hclcnx/global-samples repository and locate the microsoft-teams/App Manifests/sample/manifest.json file.</p>
+<p>Clone or download the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples">https://github.com/HCL-TECH-SOFTWARE/connections-samples</a> repository and locate the file <code>microsoft-teams/App Manifests/sample/manifest.json</code>.</p>
 </li>
 <li>
 <p>Edit the manifest.json file as follows:</p>
@@ -35035,7 +35035,7 @@
 </ol>
 </li>
 <li>
-<p>Package the microsoft teams app</p>
+<p>Package the Microsoft Teams app.</p>
 <p>The files can be zipped up using your favorite archive utility. Just ensure that there are no folders contained within the zip files. All files should be at the root level of the archive.</p>
 <p>If you are using a terminal on a Mac or Linux, use something similar to the following:</p>
 <div class="highlight"><pre><span></span><code>zip ConnectionsTeamsApp.zip *
@@ -35048,15 +35048,15 @@
 <p>Open Teams and visit the app store. Depending on the version of Teams, you may see an <strong>App Store</strong> button in Teams, or you can find the app store by visiting <strong>Apps</strong> > <strong>More Apps</strong> in the app rail.</p>
 </li>
 <li>
-<p>Install the app by clicking the <strong>Upload a custom app</strong> link in the app store.</p>
+<p>Click <strong>Manage your apps</strong> in the app store. Then, click <strong>Upload an app</strong> at the top of the page.</p>
 </li>
 <li>
-<p>Upload the manifest zip file created in step 2.</p>
+<p>Upload the zip file containing the <code>manifest.json</code> updated in step 2.</p>
 </li>
 </ol>
 </li>
 <li>
-<p>Add the app to a teams channel or chat.</p>
+<p>Add the app to a Teams channel or chat:</p>
 <ol>
 <li>
 <p>Open the Teams app store. Click on the <strong>Built for &lt;your org name></strong> section of the app store to view the installed apps.</p>
@@ -35071,6 +35071,7 @@
 </ol>
 </li>
 </ol>
+<p><strong>Related information</strong></p>
 <p><a href="../../admin/install/cp_install_services_tasks.html">Install/update Component Pack services with Microsoft Teams integration</a></p>
 
 
@@ -35107,61 +35108,6 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-    
-  
-
-
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-      
-      
-        
-        
-      
-      <li class="task-list-item">
-        <label class="task-list-control">
-          <input type="checkbox" name="github" checked>
-          <span class="task-list-indicator"></span>
-          GitHub
-        <label>
-      </li>
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     

@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-keycloak-as-an-oidc-provider-for-connections" class="md-skip">
+        <a href="#t_keycloak_config_conn_oidc" class="md-skip">
           Skip to content
         </a>
       
@@ -143,8 +143,8 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
-    <strong>Click here to go to latest.</strong>
+  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/cnx-mkdocs-test-repo/v8-cr1/"> 
+    <strong>Click here to go to the latest.</strong>
   </a>
 
             </div>
@@ -27099,6 +27099,8 @@
         
           
         
+          
+        
       
       
         
@@ -28811,6 +28813,20 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/communities/using_hcl_leap.html" class="md-nav__link">
+        Building and integrating HCL Leap applications into Connections
+      </a>
     </li>
   
 
@@ -35291,7 +35307,7 @@
   </a>
 
 
-<h1 id="configuring-keycloak-as-an-oidc-provider-for-connections">Configuring KeyCloak as an OIDC provider for Connections</h1>
+<h1 class="concept" id="t_keycloak_config_conn_oidc">Configuring KeyCloak as an OIDC provider for Connections</h1>
 <p>Configuring Keycloak as the OIDC provider for Connections involves these steps.</p>
 <ul>
 <li>Creating a realm</li>
@@ -35304,8 +35320,8 @@
 <li>
 <p>Configure hardcoded realmName claim through the client scope mapper property</p>
 </li>
-<li>Configure Keycloak connection to LDAP  </li>
-<li>Create additional clients for Oauth applications mobile and desktop plugins</li>
+<li>Configure Keycloak connection to LDAP</li>
+<li><strong>[Optional]</strong> Create additional clients for Oauth applications mobile and desktop plugins </li>
 </ul>
 <p>The realm contains the Keycloak OIDC clients which provide the authentication for Connections entities. The main OIDC client is the client for the Connections web application.</p>
 <h2 class="section" id="section_yyb_25x_bpb">Procedure</h2>
@@ -35327,9 +35343,8 @@
 </li>
 <li>
 <p>As part of the client, define the valid callback urls. 
-   <img alt="keycloak_config_oidc_prov_p2.jpg" src="keycloak_config_oidc_prov_p2.jpg" />
- <br />
-<p> **Note:** <filepath> oidcclient/keycloak </filepath> corresponds to property values from the WebSphere TAI referenced later. Specifically, oidcclient is the value of the property <codeph>provider_x.callbackServletContext</codeph> and keycloak is the value of the property <codeph>provider_x.identifier</codeph>. </p></p>
+   <img alt="keycloak_config_oidc_prov_p2.jpg" src="keycloak_config_oidc_prov_p2.jpg" /></p>
+<p><strong>Note:</strong>  <code>oidcclient/keycloak</code> corresponds to property values from the WebSphere TAI referenced later. Specifically, oidcclient is the value of the property <code>provider_x.callbackServletContext</code> and keycloak is the value of the property <code>provider_x.identifier</code>.</p>
 </li>
 <li>
 <p>Next create a Client Scope Mapper for realmName in the <strong>Keycloak admin portal</strong>. Go to <strong>{realm}</strong> &gt; <strong>Client Scopes</strong> &gt; <strong>roles</strong> &gt; <strong>Mappers</strong> &gt; <strong>Create</strong>.</p>
@@ -35344,11 +35359,11 @@
 <p>Configuring KeyCloak to connect to the enterprise’s LDAP enables Keycloak to provide authentication for the enterprise's users. Informing Keycloak about the users is simple. To do this, go to <strong>{realm}</strong> &gt; <strong>User Federation</strong> &gt; <strong>Add Provider</strong> in the <strong>Keycloak admin portal</strong> .</p>
 </li>
 <li>Choose ldap and complete the form like the following example. <img alt="keycloak_config_oidc_prov_p4.jpg" src="keycloak_config_oidc_prov_p4.jpg" /></li>
-<li>Create additional clients for the Connections mobile and desktop plugins applications. Similar to creating the main Connections client, in the <strong>Keycloak admin portal</strong> go to  <strong>Clients</strong> &gt; <strong>Create</strong>. Repeat for each client. <p> See the information and screenshots below for guidance. </p> <section><strong>Mobile Client</strong> </section> The following creates the Keycloak client for mobile, there is additional Connections configuration required to complete enabling mobile access (see later section). <p> Set the values for the following fields as indicated:</p><p><ol><li><strong>Client ID</strong> =  connections_social_mobile</li><li><strong>Enabled</strong> = On</li><li><strong>Client Protocol</strong> = openid-connect</li><li><strong>Access Type</strong> = public</li><li><strong>Standard Flow Enabled</strong> = On</li><li><strong>Implicit Flow Enabled</strong> = Off</li><li><strong>Direct Access Grants Enabled</strong> = Off</li><li><strong>Valid Redirect URIs</strong> = com.ibm.ibmscp://com.ibm.mobile.connections/token</li></ol></p><p>Under Advanced Settings, set:</p><ol><li><strong>Access Token Lifespan</strong> = 60</li><li><strong>Proof Key for Code Exchange Code Challenge Method</strong> = S256</li></ol><img alt="keycloak_config_oidc_prov_p5.jpg" src="keycloak_config_oidc_prov_p5.jpg" /><section><strong>Desktop Plugins</strong></section><p>Both Mac and Windows Desktop plugins use the same Keycloak client as the Mobile that is defined above (connections_social_mobile). Add the following redirect URI to the Valid Redirect URIs list of the Mobile client Valid Redirect URIs: <p><filepath>com.ibm.ibmscp://com.ibm.desktop.connections</filepath></p><p><strong>Note:</strong> If you are supporting older desktop plugins (pre-21.07): <p><ul><li> Add another Keycloak client with ClientID: conn-dsk-plugin </li><li>Other than ClientID, use the same settings as the mobile Keycloak client </li><li>Add this redirect URI to the Valid Redirect URIs list of the conn-dsk-plugin client: <p>Valid Redirect URIs: <filepath>'com.ibm.ibmscp://com.ibm.desktop.connections' </li></ul></p> </p></p> </p></li></li>
-<li><strong>Outlook Add-in:</strong> <p>If you are enabling the Connections Outlook Add-in for your users, you will need to make updates to Keycloak to enable login from the add-in. Update the Mobile client (connections_social_mobile) with redirect URIs</p><p><ul><li>Add the Outlook Add-in redirect URL to the ‘Valid Redirect URIs’ field. The format should be <xref>https://(addin URI)/auth/callback </xref> For Example: <xref>https://my.server.com/outlook-addin/auth/callback</xref></li><li>Update the ‘Web Origins’ field to allow CORS origins from the redirect URIs. Either explicitly specify each redirect URI or specify ‘+’ to allow all the redirect URIs from the ‘Valid Redirect URIs’ field.</li><li>Update {realm} settings to make sure X-Frame-Options includes “frame-ancestors 'self’”. This allows the Outlook Add-in to be loaded into the iFrame.</ul></p></li>
+<li><strong>[Optional]</strong> Create additional clients for the Connections mobile and desktop plugins applications. Similar to creating the main Connections client, in the <strong>Keycloak admin portal</strong> go to  <strong>Clients</strong> &gt; <strong>Create</strong>. Repeat for each client. <p> See the information and screenshots below for guidance. </p> <section><strong>Mobile Client</strong> </section> The following creates the Keycloak client for mobile, there is additional Connections configuration required to complete enabling mobile access (see later section). <p> Set the values for the following fields as indicated:</p><p><ol><li><strong>Client ID</strong> =  connections_social_mobile</li><li><strong>Enabled</strong> = On</li><li><strong>Client Protocol</strong> = openid-connect</li><li><strong>Access Type</strong> = public</li><li><strong>Standard Flow Enabled</strong> = On</li><li><strong>Implicit Flow Enabled</strong> = Off</li><li><strong>Direct Access Grants Enabled</strong> = Off</li><li><strong>Valid Redirect URIs</strong> = com.ibm.ibmscp://com.ibm.mobile.connections/token</li></ol></p><p>Under Advanced Settings, set:</p><ol><li><strong>Access Token Lifespan</strong> = 60</li><li><strong>Proof Key for Code Exchange Code Challenge Method</strong> = S256</li></ol><img alt="keycloak_config_oidc_prov_p5.jpg" src="keycloak_config_oidc_prov_p5.jpg" /><section><strong>Desktop Plugins</strong></section><p>Both Mac and Windows Desktop plugins use the same Keycloak client as the Mobile that is defined above (connections_social_mobile). Add the following redirect URI to the Valid Redirect URIs list of the Mobile client Valid Redirect URIs: <p><filepath>com.ibm.ibmscp://com.ibm.desktop.connections</filepath></p><p><strong>Note:</strong> If you are supporting older desktop plugins (pre-21.07): <p><ul><li> Add another Keycloak client with ClientID: conn-dsk-plugin </li><li>Other than ClientID, use the same settings as the mobile Keycloak client </li><li>Add this redirect URI to the Valid Redirect URIs list of the conn-dsk-plugin client: <p>Valid Redirect URIs: <filepath>'com.ibm.ibmscp://com.ibm.desktop.connections' </li></ul></p> </p></p> </p></li></li>
+<li><strong>Outlook Add-in:</strong> <p>If you are enabling the Connections Outlook Add-in for your users, you will need to make updates to Keycloak to enable login from the add-in. Update the Mobile client (connections_social_mobile) with redirect URIs</p><p><ul><li>Add the Outlook Add-in redirect URL to the ‘Valid Redirect URIs’ field. The format should be <xref>https://(addin URI)/auth/callback </xref> For Example: <xref>https://my.server.com/outlook-addin/auth/callback</xref></li><li>Update the ‘Web Origins’ field to allow CORS origins from the redirect URIs. Either explicitly specify each redirect URI or specify ‘+’ to allow all the redirect URIs from the ‘Valid Redirect URIs’ field.</li><li>Update {realm} settings to make sure X-Frame-Options includes “<em>frame-ancestors 'self’</em>”. This allows the Outlook Add-in to be loaded into the iFrame.</ul></p></li>
 </ol>
 </ol>
-<p><strong>Parent topic:</strong>  <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
+<p><strong>Parent topic:</strong> <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
 
 
 
@@ -35384,61 +35399,6 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-    
-  
-
-
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-      
-      
-        
-        
-      
-      <li class="task-list-item">
-        <label class="task-list-control">
-          <input type="checkbox" name="github" checked>
-          <span class="task-list-indicator"></span>
-          GitHub
-        <label>
-      </li>
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     

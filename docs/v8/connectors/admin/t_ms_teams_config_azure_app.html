@@ -143,8 +143,8 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
-    <strong>Click here to go to latest.</strong>
+  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/cnx-mkdocs-test-repo/v8-cr1/"> 
+    <strong>Click here to go to the latest.</strong>
   </a>
 
             </div>
@@ -34441,7 +34441,7 @@
       
         <li class="md-nav__item">
   <a href="#section_w2g_3bg_vnb" class="md-nav__link">
-    What to do next:
+    What to do next
   </a>
   
 </li>
@@ -35079,7 +35079,7 @@
       
         <li class="md-nav__item">
   <a href="#section_w2g_3bg_vnb" class="md-nav__link">
-    What to do next:
+    What to do next
   </a>
   
 </li>
@@ -35105,27 +35105,29 @@
 
 
 <h1 class="concept" id="concept_jw1_tgf_vnb">Configuring an Azure app to support the Microsoft Teams app</h1>
-<p>This task accomplished by using the App Studio app within Microsoft Teams.</p>
+<p>This task is accomplished using the Developer Portal app within Microsoft Teams.</p>
 <h2 class="section" id="section_nrf_51g_vnb">Before you begin:</h2>
 <p>Make sure you've completed the steps in <a href="t_ms_teams_update_websphere_for_sso.html">Updating WebSphere to support single sign-on with Connections for Microsoft Teams</a>.</p>
 <h2 class="section" id="section_pd1_rrf_vnb">Create the Azure bot and app registration</h2>
 <ol>
 <li>Log in as the Microsoft Teams administrator.</li>
-<li>Navigate to Microsoft Teams and in the navigation select the <strong>Apps catalog</strong> and find the App Studio app from Microsoft. Add this app if needed and open it.</li>
-<li>In the top navigation of the app, select <strong>Manifest Editor</strong>.</li>
-<li>Choose the <strong>Bot Management</strong> button.</li>
-<li>In the bot name field, pick a name for your HCL Connections app, such as "HCL Connections" and then click <strong>Create</strong>.</li>
-<li>After the bot is successfully created, copy the bot ID and password to a text file to use later.</li>
+<li>Navigate to Microsoft Teams and in the navigation, select the <strong>Apps catalog</strong> and find the Developer Portal app from Microsoft. Add this app if needed and open it.</li>
+<li>In the top navigation of the app, select <strong>Tools</strong>.</li>
+<li>Choose <strong>Bot Management</strong>, and click the <strong>+ New Bot</strong> button.</li>
+<li>In the bot name field, pick a name for your HCL Connections app, such as "HCL Connections" and then click <strong>Add</strong>.</li>
+<li>After the bot is successfully created, click the <strong>&lt; Bots</strong> button and copy the bot ID to a text file to use later.</li>
 <li>Select this bot from the <strong>Existing bot registrations</strong> list.</li>
+<li>Click the <strong>Client secrets</strong> tab. Then, click <strong>Add a client secret for your bot</strong>, copy the newly generated bot client secret to a text file for use later, and click <strong>Okay</strong>.</li>
+<li>Next, click the <strong>Configure</strong> tab.</li>
 <li>
-<p>In the bot endpoint address field, enter the following URL, replacing connections.example.com with the host name for your environment:</p>
+<p>In the configure endpoint address field, enter the following URL, replacing <em>connections.example.com</em> with the host name for your environment:</p>
 <div class="highlight"><pre><span></span><code>https://connections.example.com/teams-share-service/api/msteams/command
 </code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="section_t3f_trf_vnb">Add single sign-on permissions to your Azure app</h2>
 <ol>
-<li>Login to the Azure portal to complete the single sign on permissions, at https://portal.azure.com.</li>
+<li>Log into the Azure portal to complete the single sign on permissions, at https://portal.azure.com.</li>
 <li>Select or find <strong>App Registrations</strong> and then click on the Azure app that was just created.</li>
 <li>Navigate to <strong>Manage</strong> > <strong>Authentication</strong>. Under <strong>Supported account types</strong>, make sure that <strong>Accounts in any organizational directory (Any Azure AD Directory - Multitenant)</strong> is selected.</li>
 <li>Navigate to <strong>Manage</strong> > <strong>API Permissions</strong>.</li>
@@ -35150,8 +35152,8 @@
 <li>In the navigation, select <strong>Manage</strong> > <strong>Token configuration</strong>.</li>
 <li>Select the option to add an optional claim, and choose the <strong>Access</strong> token. From the list of claims, select email and then click <strong>Add</strong>.</li>
 </ol>
-<h2 class="section" id="section_w2g_3bg_vnb">What to do next:</h2>
-<p>Deploy the microservices and configure IBM HTTP Server for Teams. See the <em>Set up Microsoft Teams integration</em> section in <a href="../../admin/install/cp_install_services_tasks.html">Sample steps to install or upgrade to Component Pack 7</a>.</p>
+<h2 class="section" id="section_w2g_3bg_vnb">What to do next</h2>
+<p>Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in <a href="../../admin/install/cp_install_services_tasks.html#teams_integ">Steps to install or upgrade to Component Pack 8</a>.</p>
 
 
 
@@ -35187,61 +35189,6 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-    
-  
-
-
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-      
-      
-        
-        
-      
-      <li class="task-list-item">
-        <label class="task-list-control">
-          <input type="checkbox" name="github" checked>
-          <span class="task-list-indicator"></span>
-          GitHub
-        <label>
-      </li>
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
