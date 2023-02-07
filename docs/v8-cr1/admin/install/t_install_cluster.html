@@ -35270,6 +35270,7 @@
 <li>It is best that you change the SOAP Request Timeout in the soap.client.props file to com.ibm.SOAP.requestTimeout=0, to ensure that no requests time out during the installation.</li>
 <li>Make sure that the JVM heap size of your Deployment Manager is high enough to prevent your system from crashing with OutOfMemory errors during the upgrade. At least temporarily, modify the JVM heap size to an initial and maximum value of 2048.</li>
 <li>After making any of the modifications above, restart the Deployment Manager and start the HTTP services afterwards.</li>
+<li>HCL Connections 8.0 requires IBM Installation Manager 1.9 or above. If you are using an earlier version of IBM Installation Manager than 1.9 than you need to upgrade before installing Connections. The IBM Installation Manager 1.9.2 which can be found at <code>HCL_Connections_Install\IM\&lt;operatingSystem&gt;</code></li>
 </ul>
 <p>Assuming you made any of the modifications suggested, restart the Deployment Manager and then start the HTTP services before you proceed to install Connections.</p>
 <ol>
@@ -35300,15 +35301,12 @@
 <p>From the Installation Manager directory, run the file to start the Installation Manager and add the repository to it as follows:</p>
 <ul>
 <li>AIX or Linux: IBMIM</li>
-<li>
-<p>Windows: IBMIM.exe
-Repository:</p>
-</li>
-<li>
-<p>AIX or Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</p>
-</li>
-<li>Windows: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config
-<strong>Note:</strong> Installation Manager might ask you to upgrade the Installation Manager. Connections bundles only the 64-bit, version 1.8.5.1 Installation Manager.</li>
+<li>Windows: IBMIM.exe</li>
+</ul>
+<p>Repository:</p>
+<ul>
+<li>AIX or Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
+<li>Windows: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
 </ul>
 </li>
 <li>
@@ -35316,7 +35314,6 @@ Repository:</p>
 <p><strong>Notes:</strong></p>
 <ul>
 <li>Accept the default setting for <strong>Show all versions</strong>.</li>
-<li>If you are using an earlier version of IBM Installation Manager than 1.8.5.1, the 1.8.5.1 package is selected in this window.</li>
 <li>Click <strong>Check for Other Versions and Extensions</strong> to search for updates to IBM Installation Manager.</li>
 <li>Review and accept the license agreement by clicking <strong>I accept the terms in the license agreements</strong>. Click <strong>Next</strong>.</li>
 </ul>
@@ -35334,21 +35331,67 @@ Repository:</p>
 <p><strong>Note:</strong> If you install Communities and want users to be able to add the Rich Content app in a community, you must also install Wikis now.</p>
 </li>
 <li>
-<p>Install Metrics now so that your application data is captured from the moment that HCL Connections is deployed. If you install Metrics at a later stage, you will not have any data reports for the period before you installed Metrics.
-    |<strong>HCL Connections 8.0 CR1</strong>|Install all HCL Connections applications.|
-|<strong>Activities</strong>|Collaborate with colleagues.|
-|<strong>Blogs</strong>|Write personal perspectives about projects.|
-|<strong>Communities</strong>|Interact with people on shared projects.|
-|<strong>Bookmarks</strong>|Bookmark important websites.|
-|<strong>Feature Foundation</strong>|Install software that provides capabilities required for Community Templates* and Export to PDF|
-|<strong>Forums</strong>|Discuss projects and exchange information.|
-|<strong>Metrics</strong>|Identify and analyze usage and trends.|
-|<strong>Mobile</strong>|Access HCL Connections from mobile devices.|
-|<strong>Moderation</strong>|Forum and community owners can moderate the content of forums.|
-|<strong>Profiles</strong>|Find people in the organization.|
-|<strong>Wikis</strong>|Create content for your website.|</p>
+<p>Install Metrics now so that your application data is captured from the moment that HCL Connections is deployed. If you install Metrics at a later stage, you will not have any data reports for the period before you installed Metrics.</p>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HCL Connections 8.0 CR1</strong></td>
+<td>Install all HCL Connections applications.</td>
+</tr>
+<tr>
+<td><strong>Activities</strong></td>
+<td>Collaborate with colleagues.</td>
+</tr>
+<tr>
+<td><strong>Blogs</strong></td>
+<td>Write personal perspectives about projects.</td>
+</tr>
+<tr>
+<td><strong>Communities</strong></td>
+<td>Interact with people on shared projects.</td>
+</tr>
+<tr>
+<td><strong>Bookmarks</strong></td>
+<td>Bookmark important websites.</td>
+</tr>
+<tr>
+<td><strong>Feature Foundation</strong></td>
+<td>Install software that provides capabilities required for Community Templates* and Export to PDF</td>
+</tr>
+<tr>
+<td><strong>Forums</strong></td>
+<td>Discuss projects and exchange information.</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Identify and analyze usage and trends.</td>
+</tr>
+<tr>
+<td><strong>Mobile</strong></td>
+<td>Access HCL Connections from mobile devices.</td>
+</tr>
+<tr>
+<td><strong>Moderation</strong></td>
+<td>Forum and community owners can moderate the content of forums.</td>
+</tr>
+<tr>
+<td><strong>Profiles</strong></td>
+<td>Find people in the organization.</td>
+</tr>
+<tr>
+<td><strong>Wikis</strong></td>
+<td>Create content for your website.</td>
+</tr>
+</tbody>
+</table>
 <p>*Community Templates also requires Component Pack for HCL Connections.</p>
 </li>
 <li>
@@ -35700,13 +35743,11 @@ Repository:</p>
 <li>Files cluster</li>
 <li>Push Notification cluster</li>
 <li>Rich Text Editor cluster</li>
-<li>
-<p>Widget Container cluster
-The other features include.</p>
-</li>
-<li>
-<p>Activities cluster</p>
-</li>
+<li>Widget Container cluster</li>
+</ul>
+<p>The other features include.</p>
+<ul>
+<li>Activities cluster</li>
 <li>Blogs cluster</li>
 <li>Bookmarks cluster</li>
 <li>Communities cluster</li>
