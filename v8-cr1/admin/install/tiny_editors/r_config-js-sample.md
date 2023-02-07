@@ -33,25 +33,25 @@ define(
         // Content CSS used for both Tiny editors in 'lite' edit mode
         cssLite: dojo.moduleUrl('tiny.editors.connections', 'tiny-editors-lite.css'),
 
-        // Set to 'TinyMCE', 'textbox.io', 'CKEditor' or 'role-based'
+        // Set to 'TinyMCE', 'CKEditor' or 'role-based'
         editor: 'TinyMCE',
 
-        // URL for 'tiny-spelling' service which is used by in TinyMCE and Textbox.io
+        // URL for 'tiny-spelling' service which is used by in TinyMCE.
         // If empty, the integration will try to determine the URL automatically.
         spellingServiceUrl: '',
 
-        // Set to false to disable Tiny's spell checking service in TinyMCE and Textbox.io.
+        // Set to false to disable Tiny's spell checking service in TinyMCE.
         spellingServiceEnabled: true,
 
-        // URL for 'tiny-hyperlinking' service which is used by TinyMCE and Textbox.io.
+        // URL for 'tiny-hyperlinking' service which is used by TinyMCE.
         // If empty, the integration will try to determine the URL automatically.
         // This service is used to perform link validation and embedding.
         linkServiceUrl: '',
 
-        // Set to false to disable Tiny's link validation service in TinyMCE and Textbox.io
+        // Set to false to disable Tiny's link validation service in TinyMCE 
         linkValidationEnabled: true,
 
-        // Set to false to disable Tiny's link embed service in TinyMCE and Textbox.io
+        // Set to false to disable Tiny's link embed service in TinyMCE 
         linkEmbedEnabled: true,
 
         // See https://docs.ephox.com/display/tbio/toolbar for toolbar information.
@@ -61,13 +61,12 @@ define(
         //   conn-insert:    Insert commands that depend on the application
         //   conn-macros:    Macros menu
         //   conn-other:     Other HCL Connections commands
-        // TinyMCE specific items (will be removed for Textbox.io)
+        // TinyMCE specific items 
         //   codesample
         //   pageembed
         //
         // Any toolbar button or menu item prefixed with `tmce-` will be treated
-        // as a tinymce button without the prefix. These will also be removed
-        // when running Textbox.io.
+        // as a tinymce button without the prefix..
         //
         // Additionally an example of a custom button is given commented out below
         // which may be used as a starting point for your own custom functionality.
@@ -122,8 +121,6 @@ define(
         ],
 
         // See https://docs.ephox.com/display/tbio/fonts for information.
-        // Note that if the fonts list is empty or undefined then Textbox.io
-        // will use a default font list.
         //
         // An example of a custom font list is given commented out below.
         fonts: [
@@ -143,9 +140,7 @@ define(
 
         // See https://docs.ephox.com/display/tbio/colors for information.
         colors: {
-          // Note that color buttons list is left empty or is undefined then
-          // Textbox.io will use a default list similar to the commented out
-          // lines below.
+          
           buttons: [
             // { value: '#FFF', text: 'white' },
             // { value: '#000', text: 'black' },
@@ -229,7 +224,7 @@ define(
           // lineheight_formats: '1 1.1 1.2 1.3 1.4 1.5 2'
         },
 
-        // Loads external Tinymce plugins (ignored for Textbox.io)
+        // Loads external Tinymce plugins 
         // See https://www.tiny.cloud/docs/advanced/creating-a-plugin/
         // and https://www.tiny.cloud/docs/configure/integration-and-setup/#external_plugins
         // Each plugin has 2-5 properties:
@@ -275,9 +270,7 @@ define(
           //   settings: function() { return { example_prefix: 'Hello ', example_suffix: '!' }; }
           // }
         ],
-
-        // This function can be used to extend Textbox.io with custom javascript.
-        // TinyMCE also calls this function with a wrapped version of the editor
+        // TinyMCE calls this function with a wrapped version of the editor
         // mimicking the textbox.io API to be backwards compatible.
         postCreateTextboxio: function(editor) {
           // editor.macros.addSimpleMacro('[red]', '[/red]', function(match) {

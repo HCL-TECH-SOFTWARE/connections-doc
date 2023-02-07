@@ -1,6 +1,6 @@
-# Enabling single sign-on for Lotus Quickr
+# Enabling single sign-on for Lotus Quickr {#t_secure_sso_quickr .task}
 
-Before installing the HCL Connections™ Connector for Quickr®, enable single sign-on \(SSO\) between Connections and Quickr.
+Before installing the HCL Connections™ Connector for Quickr®, enable single sign-on \(SSO\) between Connections and Lotus® Quickr.
 
 -   This is an optional task.
 -   This task applies to Quickr J. For information about enabling single sign-on \(SSO\) for Quickr D, see the [Enabling single sign-on for Domino®](t_secure_domino.md) topic.
@@ -57,4 +57,14 @@ To allow SSO between Connections and Lotus Quickr, complete the following steps:
 4.  Restart the Deployment Manager.
 
 
+**Related information**  
+
+
+[Enabling users to publish file attachments to Lotus Quickr](../admin/t_admin_act_publish_to_quickr.md)
+
+[Enabling single sign-on for Domino](../secure/t_secure_domino.md)
+
+[Enabling single sign-on for standalone LDAP](../secure/t_setup_standalone_ldap.md)
+
+[Enabling single sign-on for Domino](../secure/t_secure_domino.md)
 

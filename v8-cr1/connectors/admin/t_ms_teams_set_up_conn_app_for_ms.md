@@ -4,7 +4,7 @@ This task involves packaging and installing the Connections app inside Microsoft
 
 Make sure you've [configured an Azure app to support the Microsoft Teams app](t_ms_teams_config_azure_app.md).
 
-1.  Clone or download the https://github.com/hclcnx/global-samples repository and locate the microsoft-teams/App Manifests/sample/manifest.json file.
+1.  Clone or download the [https://github.com/HCL-TECH-SOFTWARE/connections-samples](https://github.com/HCL-TECH-SOFTWARE/connections-samples) repository and locate the file `microsoft-teams/App Manifests/sample/manifest.json`.
 
 2.  Edit the manifest.json file as follows:
 
@@ -12,7 +12,7 @@ Make sure you've [configured an Azure app to support the Microsoft Teams app](t_
 
     2.  Replace %Connections\_AzureApplicationId%​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ with the Azure Application ID \(Bot ID\) of your Connections Azure application.
 
-3.  Package the microsoft teams app
+3.  Package the Microsoft Teams app.
 
     The files can be zipped up using your favorite archive utility. Just ensure that there are no folders contained within the zip files. All files should be at the root level of the archive.
 
@@ -26,11 +26,11 @@ Make sure you've [configured an Azure app to support the Microsoft Teams app](t_
 
     1.  Open Teams and visit the app store. Depending on the version of Teams, you may see an **App Store** button in Teams, or you can find the app store by visiting **Apps** \> **More Apps** in the app rail.
 
-    2.  Install the app by clicking the **Upload a custom app** link in the app store.
+    2.  Click **Manage your apps** in the app store. Then, click **Upload an app** at the top of the page.
 
-    3.  Upload the manifest zip file created in step 2.
+    3.  Upload the zip file containing the `manifest.json` updated in step 2.
 
-5.  Add the app to a teams channel or chat.
+5.  Add the app to a Teams channel or chat:
 
     1.  Open the Teams app store. Click on the **Built for <your org name\>** section of the app store to view the installed apps.
 
@@ -40,6 +40,7 @@ Make sure you've [configured an Azure app to support the Microsoft Teams app](t_
 
         **Note:** The **Set up a bot** action is required for the messaging extension component to work in a team or chat.
 
+**Related information**
 
 [Install/update Component Pack services with Microsoft Teams integration](../../admin/install/cp_install_services_tasks.md)
 

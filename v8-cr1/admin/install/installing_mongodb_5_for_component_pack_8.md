@@ -26,6 +26,13 @@ Ensure you have the following:
 
     -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
     -   `image_tag` is the user-defined tag for the image, for example `current timestamp` .
+    
+    Ensure you see following output after image is built:
+
+    ```
+    Successfully built <system generated docker image id>
+    Successfully tagged hclcr.io/cnx/middleware-mongodb5:{{ image_tag }}
+    ```
 
 3.  Save this image to a `tar` file:
 

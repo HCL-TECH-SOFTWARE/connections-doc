@@ -143,8 +143,8 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
-    <strong>Click here to go to latest.</strong>
+  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/cnx-mkdocs-test-repo/v8-cr1/"> 
+    <strong>Click here to go to the latest.</strong>
   </a>
 
             </div>
@@ -27106,6 +27106,8 @@
         
           
         
+          
+        
       
       
         
@@ -28818,6 +28820,20 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/communities/using_hcl_leap.html" class="md-nav__link">
+        Building and integrating HCL Leap applications into Connections
+      </a>
     </li>
   
 
@@ -35314,7 +35330,7 @@
 <li>
 <p>For every cluster, deploy WebSphereOIDCRP. To install the WebSphereOIDCRP application follow the instructions in the WebSphere documentation <a href="https://www.ibm.com/docs/en/was-nd/8.5.5?topic=users-configuring-openid-connect-relying-party">Configuring an OpenID Connect Relying Party</a> and follow <em>Step 1</em> in <em>“Install the OpenID Connect application“</em> . <p>In this example, the Connections applications are installed across the four clusters, AppsCluster, InfraCluster, PushCluster, and UtilCluster.</p></p>
 <p><img alt="WebSphere screen showing WebSphereOIDCRP associated with four cluster names" src="azure_websphere_example.jpg" /></p>
-<p><strong>Note:</strong> The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. </p>
+<p><strong>Note:</strong> The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running at least WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. </p>
 </li>
 <li>
 <p>Apply a unique context root to each of the clusters. For example, for the Apps cluster, go to <strong>Enterprise Applications</strong> > <strong>WebSphereOIDCRP_AppsCluster.ear</strong> > <strong>Context Root For Web Modules</strong>.</p>
@@ -35386,6 +35402,82 @@
 </tr>
 <tr>
 <td>provider_1.scope</td>
+<td>openid profile email</td>
+</tr>
+<tr>
+<td>provider_1.interceptedPathFilter</td>
+<td>/activities/.*,/blogs/.*,/dogear/.*,/files/.*,/forums/.*,/metrics/.*,/metricssc/*,/mobile/.*,/connections/filesync/.*,/connections/filediff/.*,/mobileAdmin/.*,/storageproxy/.*,/wikis/.*</td>
+</tr>
+<tr>
+<td>provider_1.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.<em>,/ibm/console,/ibm/console/.*,/profiles/dsx/.</em>,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.<em>,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.</em>,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.*,/connections/resources/ic/.*,/connections/opensocial/rpc,/xcc/js/.*,/xcc/templates/.*,/files/static/.*,/blogs/static/.*,/wikis/static/.*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos</td>
+</tr>
+<tr>
+<td>provider_1.authorizeEndpointUrl</td>
+<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth</td>
+</tr>
+<tr>
+<td>provider_1.tokenEndpointUrl</td>
+<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token</td>
+</tr>
+<tr>
+<td>provider_1.jwkEndpointUrl</td>
+<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs</td>
+</tr>
+<tr>
+<td>provider_1.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_1.issuerIdentifier</td>
+<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}</td>
+</tr>
+<tr>
+<td>provider_1.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_1.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_1.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_1.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.callbackServletContext</td>
+<td>/oidcclient_apps</td>
+</tr>
+<tr>
+<td>provider_2.identifier</td>
+<td>keycloak</td>
+</tr>
+<tr>
+<td>provider_2.clientId</td>
+<td>{client_id} Find this value in Keycloak realm configuration</td>
+</tr>
+<tr>
+<td>provider_2.clientSecret</td>
+<td>{client_secret} Find this value in Keycloak client configuration</td>
+</tr>
+<tr>
+<td>provider_2.signatureAlgorithm</td>
+<td>RS256</td>
+</tr>
+<tr>
+<td>provider_2.scope</td>
 <td>openid profile email</td>
 </tr>
 <tr>
@@ -35594,7 +35686,11 @@
 </tr>
 <tr>
 <td>provider_4.callbackServletContext</td>
-<td>/oidcclient_utiljndiCacheNameservices/cache/OpenidRpCache</td>
+<td>/oidcclient_util</td>
+</tr>
+<tr>
+<td>jndiCacheName</td>
+<td>services/cache/OpenidRpCache</td>
 </tr>
 </tbody>
 </table>
@@ -35647,7 +35743,7 @@
 <p>For the <strong>Port</strong> field, enter <strong>443</strong>.</p>
 </li>
 <li>
-<p>For the <strong>Alias</strong> field, enter <code>cnxoidccert</code>. (You will need to use this name as a value for <code>property provider_1.signVerifyAlias</code>. )</p>
+<p>For the <strong>Alias</strong> field, enter <code>cnxoidccert</code>. (You used this name as a value for <code>property provider_1.signVerifyAlias</code>. )</p>
 </li>
 <li>
 <p>Click <strong>Retrieve signer information</strong>.</p>
@@ -35676,7 +35772,7 @@
 <p>Restart the WebSphere server (Restart all Clusters) .</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_azure_oidc_container.html">Enabling single sign-on with OIDC for Microsoft Azure AD</a></p>
+<p><strong>Parent topic:</strong> <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
 
 
 
@@ -35712,61 +35808,6 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-  
-    
-  
-
-
-
-
-<h4>Cookie consent</h4>
-<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
-<div class="md-consent__settings">
-  <ul class="task-list">
-    
-      
-      
-        
-        
-      
-      <li class="task-list-item">
-        <label class="task-list-control">
-          <input type="checkbox" name="github" checked>
-          <span class="task-list-indicator"></span>
-          GitHub
-        <label>
-      </li>
-    
-  </ul>
-</div>
-<div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
-</div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
