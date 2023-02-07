@@ -66,19 +66,20 @@ Perform the following steps chronologically, in the order that they appear in th
 |6. [Uninstall k8s-psp, Infrastructure and if applicable, opensearch-master, opensearch-data, opensearch-client and kudos-boards-cp](cp_install_services_tasks.md#uninstall_charts_k8s125)| 6. [Set up Helm charts](cp_install_services_tasks.md#setup_helm) |
 |7. [Delete ingresses](cp_install_services_tasks.md#del_ingress) | 7. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc) |
 |8. Upgrade system to Kubernetes v1.25 | 8. [Run bootstrap](cp_install_services_tasks.md#bootstrap) |
-|9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env)[Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) | 9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) |
-|10. [Add Harbor Helm repository](cp_install_services_tasks.md#harbor_repo)| 10. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5) |
-|111.  [Set up Helm charts](cp_install_services_tasks.md#setup_helm)| 11.  [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) |
-|12. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc)| 12.  [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) |
-|13. [Run bootstrap](cp_install_services_tasks.md#bootstrap)| 13. [Install OpenSearch](cp_install_services_tasks.md#os_chart) |
-|14. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env)| 14. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) |
-|15. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5) | 15. [Set up Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) |
-|16. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) | 16. [Set up Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os) |
-|17. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo3) | 17. [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) |
-|18. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) | 18. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored) |
-|19. [Install OpenSearch](cp_install_services_tasks.md#os_chart)| 19. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) |
-|20. [Migrate ElasticSearch 7 data](cp_install_services_tasks.md#migrate_mongo3) | 20. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) |
-|21. [Reconfigure Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os)| 21. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) |
+|9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) |
+|10. [Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) | 10. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5) |
+|11. [Add Harbor Helm repository](cp_install_services_tasks.md#harbor_repo) | 11.  [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) |
+|12.  [Set up Helm charts](cp_install_services_tasks.md#setup_helm) | 12.  [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) |
+|13. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc)| 13. [Install OpenSearch](cp_install_services_tasks.md#os_chart) |
+|14. [Run bootstrap](cp_install_services_tasks.md#bootstrap) | 14. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) |
+|15. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 15. [Set up Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) |
+|16. [Build MongoDB 5 image](cp_install_services_tasks.md#inst_mongo5) | 16. [Set up Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os) |
+|17. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) | 17. [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) |
+|18. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo3) | 18. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored) |
+|19. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) | 19. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) |
+|20. [Install OpenSearch](cp_install_services_tasks.md#os_chart) | 20. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) |
+|21. [Migrate ElasticSearch 7 data](cp_install_services_tasks.md#migrate_mongo3) | 21. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) |
+|22. [Reconfigure Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os)||
 |22. [Reconfigure Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os)||
 |23. [Set up community ingress](cp_install_services_tasks.md#comm_ingress)||
 |24. [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ)||

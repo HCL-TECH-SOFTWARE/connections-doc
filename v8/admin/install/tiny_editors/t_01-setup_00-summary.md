@@ -11,5 +11,5 @@ The Tiny Editors Selector is a WebSphere application which allows the editor to 
 3.  [Installing the Tiny Editors integration](../../install/tiny_editors/t_01-setup_03-editors_00-summary.md)  
 This section covers the installation of the Tiny Editors for HCL Connections integration package, providing TinyMCE for HCL Connections.
 
-**Parent topic:**[Optional: Installing and configuring Tiny Editors for HCL Connections](../../install/tiny_editors/c_tiny-editors.md)
+**Parent topic:** [Optional: Installing and configuring Tiny Editors for HCL Connections](../../install/tiny_editors/c_tiny-editors.md)
 

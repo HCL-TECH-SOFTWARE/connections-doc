@@ -1,6 +1,6 @@
 # Modifying Tiny Editors for HCL Connections {#modify-summary .task}
 
-Modify the Tiny editors TinyMCE and Textbox.io to customize your editing experience.
+Modify the Tiny editors TinyMCE to customize your editing experience.
 
 -   **[Selecting an editor](t_configure_01-select-editor-1.md)**  
 This option is used to select the editor for HCL Connections™. If the [Tiny Editors Selector service](t_01-setup_01-selector_00-summary.md) is installed, you can choose to assign the editor based on user or security group.
