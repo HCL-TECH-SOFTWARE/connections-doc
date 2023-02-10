@@ -22,7 +22,7 @@ You will notice that we are going to use the same commands to install or upgrade
 
 ## Order of installation {#order_cp_install .section}
 
-Refer to the [HCL Connections System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525) for the Kubernetes versions and platforms tested with the Component Pack.
+Refer to the [HCL Connections System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) for the Kubernetes versions and platforms tested with the Component Pack.
 
 It is recommended to review all the steps first and perform a system backup before doing the installation/upgrade.
 
@@ -91,11 +91,16 @@ Perform the following steps chronologically, in the order that they appear in th
 For more information, see [Steps to install or upgrade to Component Pack 8 CR1](cp_install_services_tasks.md).
 
 -   **[Upgrade considerations for Component Pack 8 CR1](../install/upgrade_considerations.md)**  
+The upgrade path described in [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
 -   **[Upgrade considerations for side-by-side migration of data](../install/cp_upgrade_considerations_for_side_by_side_migration.md)**  
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.
+
 -   **[Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md)**  
 Use these steps to help you install Component Pack 8 CR1 or replace Component Pack 7 or 8 with 8 CR1.
+
+-   **[Installing Component Pack on OpenShift](../install/cp_openshift.md)**
+This document outlines the steps for OpenShift deployment.
 
 **Parent topic:** [Installing or upgrading Component Pack for Connections](../install/cp_install_config_intro.md)
 

@@ -309,7 +309,7 @@ Register the snapshot repository in Elasticsearch 7:
 
         If applicable, make sure that the firewall configuration does not block access to NFS. Adjustments might be needed for Component Pack 8 deployment compared to the Component Pack 7 setup.
 
-    4.  In /etc/exports, validate that the additional PVs are distributed properly.
+    3.  In /etc/exports, validate that the additional PVs are distributed properly.
 
 
 ## Uninstall charts before upgrading to Kubernetes v1.25  {#uninstall_charts_k8s125 .section}
@@ -326,17 +326,18 @@ kudos-boards-cp
 ```
 
 First, check if the chart is already deployed:
+
 ```
 helm ls --namespace connections | grep <chart name> | grep -i DEPLOYED
 ```
 
 If found, delete the chart using below command:
+
 ```
 helm uninstall <chart name> --namespace connections
 ```
 
 For more details, see [PodSecurityPolicy is removed](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable) in the Kubernetes changelog.
-
 
 ## Apply Pod security restrictions at the namespace level {#psa_namespace .section}
 
@@ -864,13 +865,13 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
         Where:
 
-        -   `KEYSTORE_FULL_PATH`: See the following example.
+        -   KEYSTORE\_FULL\_PATH: See the following example.
         
-        -   `SIGNER_CA_FULL_PATH`: See the following example.
+        -   SIGNER\_CA\_FULL\_PATH: See the following example.
                
-        -   `OpenSearch_CA_PASSWORD`: The password that was set while [setting up bootstrap charts](#bootstrap).
+        -   OpenSearch\_CA\_PASSWORD: The password that was set while [setting up bootstrap charts](#bootstrap).
         
-        -   `OpenSearch_HTTPS_PORT`: Find the port by running following command on the Component Pack System:
+        -   OpenSearch\_HTTPS\_PORT: Find the port by running following command on the Component Pack System:
 
             ``` {#codeblock_mrg_nmg_fvb}
             kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
@@ -886,7 +887,24 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         Disconnect from the wsadmin environment with **quit**.
 
     3.  Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
-    4.  Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.
+
+    4.  Download config\_blue\_metrics.py from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
+
+    5.  Run the following script on the Connections Component Pack system. This will set highway settings for Connections to connect to OpenSearch:
+
+        ``` {#codeblock_cmj_11p_fvb}
+        /usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost <<hostname>> --namespace connections
+        ```
+
+        Where:
+
+        -   `--skipSslCertCheck`: Set to true. Use on systems that use self-signed SSL certificates.
+
+        -   `--pinkhost`: Set to the fully qualified domain name \(FQDN\) of the Kubernetes master. This would be the fronting Kubernetes master load balancer or virtual IP in a HA environment.
+        
+        -   `--namespace`: Set to `connections`
+
+    6.  Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.
 
         Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:
 
@@ -902,17 +920,13 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
         For information on running SearchService commands, see [SearchService commands](../admin/r_admin_searchservice_commands.md).
 
-    5.  Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder.
-
-        Add the following statement to the `<properties>` section of the file:
+    7.  Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder. Add the following statement to the `<properties>` section of the file:
 
         ``` {#pre_mtz_ydp_fvb}
         `<genericProperty name="quickResultsEnabled">true</genericProperty>`
         ```
 
-    6.  Update the search-config.xml file in the Deployment Manager profile configuration folder.
-
-        Add the following statements to the `<propertySettings>`:
+    8.  Update the search-config.xml file in the Deployment Manager profile configuration folder. Add the following statements to the `<propertySettings>`:
 
         ``` {#codeblock_apx_g2p_fvb}
         <property name="quickResults">
@@ -924,25 +938,9 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         </property>
         ```
 
-    7.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
+    9.  Synchronize the nodes and then restart the servers or clusters that are running the Search and common applications \(including the Deployment Manager and nodes\).
 
 6.  To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the **/metrics** URL.
-
-7.  Download config\_blue\_metrics.py from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
-
-8.  Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Metrics using OpenSearch.
-
-    ``` {#codeblock_cmj_11p_fvb}
-    /usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost <<hostname>> --namespace connections
-    ```
-
-    Where you must:
-
-    -   --skipSslCertCheck: Set to true. Use on systems that use self-signed SSL certificates.
-    
-    -   --pinkhost: Set to the fully qualified domain name \(FQDN\) of the Kubernetes master. This would be the fronting Kubernetes master load balancer or virtual IP in a HA environment.
-    
-    -   --namespace: Set to `connections`.
 
 **Configuring Metrics**
 
