@@ -3,6 +3,10 @@
     font-weight: 600;
 }
 
+.md-grid {
+    max-width: 70rem;
+}
+
 .md-tabs__link {
     opacity: 1;
 	
@@ -26,12 +30,15 @@
 }
 
 
+.md-banner__inner {
+    color: white;
+}
+
 .md-banner {
     height: 50px;
     background-color: black;  
 	overflow: hidden;
 }
-
 
 .md-header{
     background-color: #212121;

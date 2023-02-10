@@ -35921,6 +35921,26 @@ enableSslForESSearch(&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;, &#39;pa
 <p>Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.</p>
 </li>
 <li>
+<p>Download config_blue_metrics.py from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py">HCL Connections deployment automation Git repository</a>. This script sets the OpenSearch server base URL in Metrics.</p>
+</li>
+<li>
+<p>Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Connections to connect to  OpenSearch:</p>
+<div id="codeblock_cmj_11p_fvb" class="highlight"><pre><span></span><code>/usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost &lt;&lt;hostname&gt;&gt; --namespace connections
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li>
+<p><code>--skipSslCertCheck</code>: Set to true. Use on systems that use self-signed SSL certificates.</p>
+</li>
+<li>
+<p><code>--pinkhost</code>: Set to the fully qualified domain name (FQDN) of the Kubernetes master. This would be the fronting Kubernetes master load balancer or virtual IP in a HA environment.</p>
+</li>
+<li>
+<p><code>--namespace</code>: Set to <code>connections</code></p>
+</li>
+</ul>
+</li>
+<li>
 <p>Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.</p>
 <p>Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:</p>
 <div id="codeblock_d3h_fvw_fvb" class="highlight"><pre><span></span><code>cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
@@ -35932,14 +35952,12 @@ execfile(&#39;searchAdmin.py&#39;)
 <p>For information on running SearchService commands, see <a href="../admin/r_admin_searchservice_commands.html">SearchService commands</a>.</p>
 </li>
 <li>
-<p>Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder:</p>
-<p>Add the following statement to the <code>&lt;properties&gt;</code> section of the file:</p>
+<p>Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder. Add the following statement to the <code>&lt;properties&gt;</code> section of the file:</p>
 <div id="pre_mtz_ydp_fvb" class="highlight"><pre><span></span><code>`&lt;genericProperty name=&quot;quickResultsEnabled&quot;&gt;true&lt;/genericProperty&gt;`
 </code></pre></div>
 </li>
 <li>
-<p>Update the search-config.xml file in the Deployment Manager profile configuration folder.</p>
-<p>Add the following statements to the <code>&lt;propertySettings&gt;</code>:</p>
+<p>Update the search-config.xml file in the Deployment Manager profile configuration folder. Add the following statements to the <code>&lt;propertySettings&gt;</code>:</p>
 <div id="codeblock_apx_g2p_fvb" class="highlight"><pre><span></span><code>&lt;property name=&quot;quickResults&quot;&gt;
      &lt;propertyField name=&quot;quick.results.elasticsearch.indexing.enabled&quot; value=&quot;true&quot;/&gt;
      &lt;propertyField name=&quot;quick.results.solr.indexing.enabled&quot; value=&quot;false&quot;/&gt;
@@ -35956,20 +35974,6 @@ execfile(&#39;searchAdmin.py&#39;)
 </li>
 <li>
 <p>To validate your OpenSearch and Metrics integration after system is up and running again, open a browser window and authenticate with a user account that has appropriate rights for Metrics. Navigate to the <strong>/metrics</strong> URL.</p>
-</li>
-<li>
-<p>Download config_blue_metrics.py from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py">HCL Connections deployment automation Git repository</a>. This script sets the OpenSearch server base URL in Metrics.</p>
-</li>
-<li>
-<p>Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Metrics using OpenSearch.</p>
-<div id="codeblock_cmj_11p_fvb" class="highlight"><pre><span></span><code>/usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost &lt;&lt;hostname&gt;&gt; --namespace connections
-</code></pre></div>
-<p>Where you must:</p>
-<ul>
-<li>--skipSslCertCheck: Set to true. Use on systems that use self-signed SSL certificates.</li>
-<li>--pinkhost: Set to the fully qualified domain name (FQDN) of the Kubernetes master. This would be the fronting Kubernetes master load balancer or virtual IP in a HA environment.</li>
-<li>--namespace: Set to <code>connections</code>.</li>
-</ul>
 </li>
 </ol>
 <p><strong>Configuring Metrics</strong></p>
