@@ -4,7 +4,7 @@ Configure IBM Security Directory Integrator to synchronize and exchange informat
 
 Before you attempt to configure Security Directory Integrator, complete the following prerequisite steps:
 
-1.  Ensure that you have installed all the required [System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525), including Security Directory Integrator, a database server, and an LDAP directory.
+1.  Ensure that you have installed all the required [System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654), including Security Directory Integrator, a database server, and an LDAP directory.
 
     **Attention:**
 

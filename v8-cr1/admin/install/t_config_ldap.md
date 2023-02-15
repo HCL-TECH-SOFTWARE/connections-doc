@@ -2,7 +2,7 @@
 
 Determine which Lightweight Directory Access Protocol \(LDAP\) attributes you want to use as the identifiers for HCL Connections users.
 
-Ensure that you have installed a supported LDAP directory. For more information about supported LDAP directories, see [Detailed System Requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+Ensure that you have installed a supported LDAP directory. For more information about supported LDAP directories, see [Detailed System Requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 To ensure that the Profiles population wizard can return the maximum number of records from your LDAP directory, set the Size Limit parameter in your LDAP configuration to match the number of users in the directory. For example, if your directory has 100,000 users, set this parameter to 100000. For more information, see the documentation for your LDAP directory. If you cannot set the Size Limit parameter, you could run the wizard multiple times. Alternatively, you could write a JavaScript™ function to split the original LDAP search filter, then run the collect\_dns\_iterate.bat file, and finally run the populate\_from\_dns\_files.bat file.
 

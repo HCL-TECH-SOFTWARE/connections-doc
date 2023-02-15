@@ -22,37 +22,17 @@ Single sign-on is accomplished by setting up a trust relationship between the Co
 
 4.  Add the following properties and values:
 
-    |Property|Value|
-    |--------|-----|
-    |provider\_1.useJwtFromRequest|required|
-    |provider\_1.identifier|cnx\_azureThis must be a unique name of an OIDC provider on this instance. Any name is usable as long as it does not conflict with other OIDC provider names.
-
-|
-    |provider\_1.issuerIdentifier|    ```
-https://login.microsoftonline.net/{​​​teams_tenant_id}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/v2.0
-    ```
-
- This must match the "iss" claim from the JWT.​​​​​​​
-
-|
-    |provider\_1.jwkEndpointUrl|    ```
-https://login.microsoftonline.com/{​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​teams_tenant_id}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/discovery/v2.0/keys
-    ```
-
- Find this value using the Microsoft OIDC configuration endpoint for your tenant:
-
-    ```
-https://login.microsoftonline.com/{​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​tenant}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/v2.0/.well-known/openid-configuration
-    ```
-
-|
-    |provider\_1.interceptedPathFilter|/profiles/oidc/session|
-    |provider\_1.audiences|ALL\_AUDIENCES|
-    |provider\_1.setLtpaCookie|true|
-    |provider\_1.userIdentifier|emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.
-
-|
-    |provider\_1.useRealm|defaultWIMFileBasedRealm|
+|Property|Value|
+|--------|-----|
+|provider\_1.useJwtFromRequest|required|
+|provider\_1.identifier|cnx\_azure <br></br> This must be a unique name of an OIDC provider on this instance. Any name is usable as long as it does not conflict with other OIDC provider names.|
+|provider\_1.issuerIdentifier|`https://login.microsoftonline.net/{teams_tenant_id}/v2.0` <br></br> This must match the "iss" claim from the JWT.​​​​​​​|
+|provider\_1.jwkEndpointUrl|`https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys` <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration`|
+|provider\_1.interceptedPathFilter|/profiles/oidc/session|
+|provider\_1.audiences|ALL\_AUDIENCES|
+|provider\_1.setLtpaCookie|true|
+|provider\_1.userIdentifier|emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.|
+|provider\_1.useRealm|defaultWIMFileBasedRealm|
 
 5.  Add the OpenID Connect Relying Party TAI class to com.ibm.websphere.security.InvokeTAIbeforeSSO:
 

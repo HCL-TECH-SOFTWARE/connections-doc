@@ -60,8 +60,6 @@ To allow SSO between Connections and Lotus Quickr, complete the following steps:
 **Related information**  
 
 
-[Enabling users to publish file attachments to Lotus Quickr](../admin/t_admin_act_publish_to_quickr.md)
-
 [Enabling single sign-on for Domino](../secure/t_secure_domino.md)
 
 [Enabling single sign-on for standalone LDAP](../secure/t_setup_standalone_ldap.md)

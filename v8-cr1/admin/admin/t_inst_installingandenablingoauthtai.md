@@ -2,7 +2,7 @@
 
 You need to install and enable the OAuth TAI in HCL Connections.
 
-1.  Before installing HCL Connections, be sure to [install](../install/t_install_was.md) the [supported](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525) version of IBM WebSphere Application Server.
+1.  Before installing HCL Connections, be sure to [install](../install/t_install_was.md) the [supported]https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) version of IBM WebSphere Application Server.
 
 2.  Export customizable OAuth provider properties using the import/export commands `AdminTask.exportOAuthProps providerName fileName` and `AdminTask.importOAuthProps providerName fileName`.
 
