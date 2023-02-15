@@ -35279,6 +35279,8 @@
 </li>
 <li>
 <p>Add the following properties and values:</p>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -35293,29 +35295,38 @@
 </tr>
 <tr>
 <td>provider_1.identifier</td>
-<td>cnx_azureThis must be a unique name of an OIDC provider on this instance. Any name is usable as long as it does not conflict with other OIDC provider names.</td>
+<td>cnx_azure <br></br> This must be a unique name of an OIDC provider on this instance. Any name is usable as long as it does not conflict with other OIDC provider names.</td>
+</tr>
+<tr>
+<td>provider_1.issuerIdentifier</td>
+<td><code>https://login.microsoftonline.net/{teams_tenant_id}/v2.0</code> <br></br> This must match the "iss" claim from the JWT.​​​​​​​</td>
+</tr>
+<tr>
+<td>provider_1.jwkEndpointUrl</td>
+<td><code>https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys</code> <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: <code>https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration</code></td>
+</tr>
+<tr>
+<td>provider_1.interceptedPathFilter</td>
+<td>/profiles/oidc/session</td>
+</tr>
+<tr>
+<td>provider_1.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_1.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.userIdentifier</td>
+<td>emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.</td>
+</tr>
+<tr>
+<td>provider_1.useRealm</td>
+<td>defaultWIMFileBasedRealm</td>
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
-<p>|
-    |provider_1.issuerIdentifier|    <code>https://login.microsoftonline.net/{​​​teams_tenant_id}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/v2.0</code></p>
-<p>This must match the "iss" claim from the JWT.​​​​​​​</p>
-<p>|
-    |provider_1.jwkEndpointUrl|    <code>https://login.microsoftonline.com/{​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​teams_tenant_id}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/discovery/v2.0/keys</code></p>
-<p>Find this value using the Microsoft OIDC configuration endpoint for your tenant:</p>
-<pre><code>```
-</code></pre>
-<p>https://login.microsoftonline.com/{​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​tenant}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/v2.0/.well-known/openid-configuration
-    ```</p>
-<p>|
-    |provider_1.interceptedPathFilter|/profiles/oidc/session|
-    |provider_1.audiences|ALL_AUDIENCES|
-    |provider_1.setLtpaCookie|true|
-    |provider_1.userIdentifier|emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.</p>
-<p>|
-    |provider_1.useRealm|defaultWIMFileBasedRealm|</p>
 <ol>
 <li>
 <p>Add the OpenID Connect Relying Party TAI class to com.ibm.websphere.security.InvokeTAIbeforeSSO:</p>

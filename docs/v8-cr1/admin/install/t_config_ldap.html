@@ -35253,7 +35253,7 @@
 
 <h1 class="task" id="t_config_ldap">Preparing to configure the LDAP directory</h1>
 <p>Determine which Lightweight Directory Access Protocol (LDAP) attributes you want to use as the identifiers for HCL Connections users.</p>
-<p>Ensure that you have installed a supported LDAP directory. For more information about supported LDAP directories, see <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0102525">Detailed System Requirements for HCL Connections</a>.</p>
+<p>Ensure that you have installed a supported LDAP directory. For more information about supported LDAP directories, see <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">Detailed System Requirements for HCL Connections</a>.</p>
 <p>To ensure that the Profiles population wizard can return the maximum number of records from your LDAP directory, set the Size Limit parameter in your LDAP configuration to match the number of users in the directory. For example, if your directory has 100,000 users, set this parameter to 100000. For more information, see the documentation for your LDAP directory. If you cannot set the Size Limit parameter, you could run the wizard multiple times. Alternatively, you could write a JavaScript™ function to split the original LDAP search filter, then run the collect_dns_iterate.bat file, and finally run the populate_from_dns_files.bat file.</p>
 <p>To prepare to configure your LDAP directory with IBM® WebSphere® Application Server, complete the following steps:</p>
 <ol>

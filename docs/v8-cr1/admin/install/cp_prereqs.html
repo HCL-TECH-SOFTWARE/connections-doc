@@ -35282,7 +35282,7 @@
 -   One machine with kubectl, and Helm installed and configured. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.</p>
 </li>
 </ul>
-<p>For the supported versions of Kubernetes, Helm, and so on, see <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0102525">HCL Connections 8.0 CR1 System Requirements</a>.</p>
+<p>For the supported versions of Kubernetes, Helm, and so on, see <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 CR1 System Requirements</a>.</p>
 <p>If you are new to Component Pack, and doing your first installation, you can choose to defer to the HCL-provided Ansible automation for setting up Component Pack and all its dependencies. For information on the automation, see HCL's open-source GitHub for the documents <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md">Quickstart for setting up HCL Connections and Component Pack using Ansible automation</a> and <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md">HCL Connections and Component Pack automation scripts</a>.</p>
 <h2 class="section" id="section_harbor_registry">HCL Harbor repository</h2>
 <p>Component Pack is now deployed through Harbor, an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.</p>
@@ -35296,7 +35296,7 @@
 <p>Component Pack for Connections was tested using containerd as the container runtime for Kubernetes. See the Kubernetes documentation for the <a href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/">installation instructions for containerd</a>.</p>
 <p>If you are setting up the cluster yourself, see <a href="https://containerd.io/releases/#kubernetes-support">which containerd versions are supported by which version of Kubernetes</a> in the Kubernetes documentation.</p>
 <p><strong>Supported Kubernetes versions</strong></p>
-<p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0102525">HCL Connections 8.0 CR1 System Requirements</a>. Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.</p>
+<p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 CR1 System Requirements</a>. Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.</p>
 <p><strong>Note:</strong> Applications on which Component Pack relies, such as community ingress, have their own Kubernetes support pattern, and should be double-checked before beginning a Component Pack install or upgrade.</p>
 <p><strong>Supported Kubernetes flavors</strong></p>
 <p>Component Pack is designed to work with Kubernetes platforms that are using containerd as the container runtime. To ensure compatibility, all development and testing is done internally on the vanilla Kubernetes installations, without preference for any specific provider.</p>

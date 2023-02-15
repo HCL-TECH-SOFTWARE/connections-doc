@@ -35412,11 +35412,11 @@
 <p>Watch out for the --network-plugin flag. You will need to remove it from /var/lib/kubelet/kubeadm-flags.env, otherwise kublet won't start after upgrading to v1.24. For details, view the <a href="https://github.com/kubernetes/website/issues/33640">GitHub issue</a>.</p>
 <p><strong>Note:</strong> Since we switched the container runtime from Docker to containerd, there is a possibility that all pods will show status as 'ImagePullBackOff'.</p>
 <h2 class="section" id="section_avm_v5x_bvb">Kubernetes</h2>
-<p>If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8.0 CR1. Refer to <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0102525">HCL Connections 8.0 CR1 System Requirements</a>.</p>
+<p>If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8.0 CR1. Refer to <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 CR1 System Requirements</a>.</p>
 <h2 class="section" id="section_ay1_5vx_bvb">Kubernetes-based services</h2>
 <p>During the installation scenario, we will upgrade our Kubernetes stack to the newest Connections Component Pack release. This will impact the cpmaster.example.com machine, which runs the containerized modules.</p>
 <h2 class="section" id="section_bqv_2vx_bvb">Helm</h2>
-<p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0102525">HCL Connections 8.0 CR1 System Requirements</a>.</p>
+<p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 CR1 System Requirements</a>.</p>
 <h2 class="section" id="section_wsm_gvx_bvb">OpenSearch</h2>
 <p>Connections 8.0 CR1 defines OpenSearch 1.3.0 as the default backend for Orient Me, search and Metrics – this is what we'll deploy and configure in our installation scenario. Previous Connections releases used an older Elasticsearch 7 version, which is no longer needed.</p>
 <p><strong>Note:</strong> In case you already have Metrics deployed and its data collected, and you do not want to start Metrics from scratch, you will have to migrate these data into the new release. <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> covers both scenarios.</p>
