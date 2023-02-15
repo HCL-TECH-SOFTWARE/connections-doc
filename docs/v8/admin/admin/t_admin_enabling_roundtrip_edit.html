@@ -35025,7 +35025,7 @@
 <p>To ensure that round-trip editing is enabled, perform the following steps:</p>
 <ol>
 <li>
-<p>Locate the <code>restrictions</code> section in the files-config.xml file, and add the following code after <code>&lt;/restrictions&gt;</code>:</p>
+<p>Locate the <code>restrictions</code> section in the files-config.xml file, and verify that the following code is already present. If not, add the code after <code>&lt;/restrictions&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code>&lt;roundTripEditing&gt;
         &lt;extensions&gt;
        &lt;extension&gt;.ppt&lt;/extension&gt;
@@ -35042,12 +35042,12 @@
 </code></pre></div>
 </li>
 <li>
-<p>Locate the files-config.xsd file, and add the following code to the <code>&lt;xsd:element name="file"&gt;</code> section after <code>xsd:element name="renditions" type="tns:renditions" minOccurs="1" maxOccurs="1"/&gt;</code>:</p>
+<p>In the files-config.xsd file, verify that the following code is already present. If not, add the code to the <code>&lt;xsd:element name="file"&gt;</code> section after <code>xsd:element name="renditions" type="tns:renditions" minOccurs="1" maxOccurs="1"/&gt;</code>:</p>
 <div class="highlight"><pre><span></span><code>&lt;xsd:element ref=&quot;tns:roundTripEditing&quot; minOccurs=&quot;1&quot; maxOccurs=&quot;1&quot;/&gt;
 </code></pre></div>
 </li>
 <li>
-<p>Add the following code after the <code>autoVersioning</code> definition:</p>
+<p>Verify that the following code is already present. If not, add the code after the <code>autoVersioning</code> definition:</p>
 <div class="highlight"><pre><span></span><code>&lt;xsd:element name=&quot;roundTripEditing&quot;&gt;
         &lt;xsd:complexType&gt;
             &lt;xsd:all&gt;
@@ -35062,17 +35062,21 @@
 </li>
 <li>
 <ol>
-<li>Identify the WebSphere® variable CONNECTIONS_CONFIGURATION_PATH.</li>
-</ol>
+<li>
+<p>Identify the WebSphere® variable CONNECTIONS_CONFIGURATION_PATH.</p>
 </li>
-<li>Navigate to the directory found in the value of CONNECTIONS_CONFIGURATION_PATH and then navigate to the update subdirectory.</li>
-<li>In the update subdirectory, create a file named 00000000-0000-0000-0000-000000000000.json.</li>
+<li>
+<p>Navigate to the directory found in the value of CONNECTIONS_CONFIGURATION_PATH and then navigate to the update subdirectory.</p>
+</li>
+<li>
+<p>In the update subdirectory, create a file named 00000000-0000-0000-0000-000000000000.json.</p>
+</li>
 <li>
 <p>Paste the following contents into 00000000-0000-0000-0000-000000000000.json:</p>
 <div class="highlight"><pre><span></span><code>{
-             &quot;organisation&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-              &quot;settings&quot;: [
-                     {
+            &quot;organisation&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+            &quot;settings&quot;: [
+                    {
                             &quot;id&quot;: &quot;5a019ee0-eb0a-47b9-b812-6d09c2fd7611&quot;,
                             &quot;name&quot;: &quot;files.roundTripEditingEnabled&quot;,
                             &quot;title&quot;: &quot;Enable or disable round trip editing&quot;,
@@ -35083,33 +35087,35 @@
                             &quot;validation&quot;: {
                                     &quot;type&quot;: &quot;boolean&quot;,
                                     &quot;details&quot;: &quot;&quot;
-                             },
-                             &quot;values&quot;: {
+                            },
+                            &quot;values&quot;: {
                                     &quot;___default_role___&quot;: {
                                             &quot;isFile&quot;: false,
-                                         &quot;content&quot;: true
+                                        &quot;content&quot;: true
                                     }
                             }
                     }
-             ]
+            ]
         }
 </code></pre></div>
 </li>
+</ol>
+</li>
 <li>
-<p>Ensure that the Connections server is started. Use wsadmin commands to update the settings in the database to match the filesystem.</p>
+<p>Ensure that the Connections server is started. Use <strong>wsadmin</strong> commands to update the settings in the database to match the filesystem.</p>
 <div class="highlight"><pre><span></span><code>./wsadmin.sh -lang jython -username wasadmin -password wasadmin
 execfile(&quot;highwayAdmin.py&quot;)
 HighwayService.updateSettingsFromFile()
 </code></pre></div>
 </li>
 <li>
-<p>A new file is in the configuration directory /opt/IBM/Connections/data/configuration/update with the following naming structure: <code>&lt;orgId&gt;._[UPDATED]_.&lt;dateTimeStamp&gt;</code>. You can also view the updated settings in the HOMEPAGE.MT_CFG_SETTINGS table in the database.</p>
+<p>A new file is in the configuration directory /opt/IBM/Connections/data/configuration/update with the following naming structure: <code>&lt;orgId&gt;._[UPDATED]_.&lt;dateTimeStamp&gt;</code>. You can also view the updated settings in the <strong>HOMEPAGE.MT_CFG_SETTINGS</strong> table in the database.</p>
 </li>
 <li>
 <p>Restart the application servers and clear the browser cache in order to see the updated settings.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_files_overview.html">Administering Files</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_files_overview.html">Administering Files</a></p>
 
 
 
