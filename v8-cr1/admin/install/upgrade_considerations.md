@@ -34,7 +34,7 @@ Watch out for the --network-plugin flag. You will need to remove it from /var/li
 
 ## Kubernetes {#section_avm_v5x_bvb .section}
 
-If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8.0 CR1. Refer to [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+If your Component Pack services run on an unsupported Kubernetes version, upgrade to a supported version before moving to Connections 8.0 CR1. Refer to [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 ## Kubernetes-based services {#section_ay1_5vx_bvb .section}
 
@@ -42,7 +42,7 @@ During the installation scenario, we will upgrade our Kubernetes stack to the ne
 
 ## Helm {#section_bqv_2vx_bvb .section}
 
-See [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+See [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 ## OpenSearch {#section_wsm_gvx_bvb .section}
 

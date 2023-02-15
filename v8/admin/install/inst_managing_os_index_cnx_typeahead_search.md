@@ -35,7 +35,7 @@ By default, the quickresults index replicas is set to 2. To modify this value, f
 
 ## Changing the number of shards for the OpenSearch quickresults index {#section_ipf_z32_1lb .section}
 
-By default, the quickresults index replicas is set to 2. To modify this value, follow these steps:
+By default, the quickresults index shard count is set to 8. To modify this value, follow these steps:
 
 -   No index created
 -   Existing index

@@ -4,7 +4,7 @@ Register the IBM DB2® product license key for DB2 11.5.6, provided by HCL in th
 
 Install IBM DB2 before beginning this task but do not create any application databases until after you have completed this task.
 
-For supported versions of DB2, see the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+For supported versions of DB2, see the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 1.  Navigate to the [HCL Software License & Download Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do?logoff=true) and log in.
 

@@ -6,7 +6,7 @@ Record your installation and configuration data.
 
 While installing and configuring HCL Connections™, it can be difficult to remember all the user IDs, passwords, server names, and other information that you need during and after installation. Print out and use this worksheet to record that data.
 
-Refer to the [Detailed system requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525) to find the latest, supported versions of software included in the following tables.
+Refer to the [Detailed system requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) to find the latest, supported versions of software included in the following tables.
 
 ## LDAP server details { .section}
 

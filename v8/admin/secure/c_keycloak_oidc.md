@@ -19,8 +19,8 @@ Enabling Keycloak as an OIDC Provider for Connections in Connections involves co
 Configuring Keycloak as the OIDC provider for Connections involves a set of configurations that need to be carried out.
 -   **[Updating WebSphere to support Keycloak OIDC Authentication for Connections](../secure/t_keycloak_oidc_websphere.md)**  
 Single sign-on is accomplished by setting up a trust relationship between the Connections server and Keycloak using the WebSphere OpenID Connect Relying Party Trust Association Interceptor (OIDC Relying Party TAI).
--   **[Configuring Connections to support Keycloak OIDC Authentication](../secure/t_keycloack_config_auth_oidc.md)**  
+-   **[Configuring Connections to support Keycloak OIDC Authentication](../secure/t_keycloak_config_auth_oidc.md)**  
 Update HCL Connections configuration files to add the properties needed to support Keycloak OIDC authentication.
 
-**Parent topic:**[Configuring single sign-on](../secure/c_sec_config_sso.md)
+**Parent topic:** [Configuring single sign-on](../secure/c_sec_config_sso.md)
 

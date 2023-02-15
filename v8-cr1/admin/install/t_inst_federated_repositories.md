@@ -32,7 +32,7 @@ To set up federated repositories in WebSphere Application Server, complete the f
 
 8.  Specify the LDAP directory that you are using in the **Directory type** field.
 
-    For more information about supported directory products, see [Detailed system requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+    For more information about supported directory products, see [Detailed system requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 9.  Type the host name of the primary LDAP directory server in the **Primary host name** field. The host name is either an IP address or a domain name service \(DNS\) name.
 

@@ -10,7 +10,7 @@ On a very high level, to install and successfully run HCL Component Pack, you wi
     Customers with credentials to access Connections in the HCL Software License & Download portal may apply those credentials to access Harbor.
 -   One machine with kubectl, and Helm installed and configured. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.
 
-For the supported versions of Kubernetes, Helm, and so on, see [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+For the supported versions of Kubernetes, Helm, and so on, see [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
 If you are new to Component Pack, and doing your first installation, you can choose to defer to the HCL-provided Ansible automation for setting up Component Pack and all its dependencies. For information on the automation, see HCL's open-source GitHub for the documents [Quickstart for setting up HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md) and [HCL Connections and Component Pack automation scripts](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md).
 
@@ -38,7 +38,7 @@ If you are setting up the cluster yourself, see [which containerd versions are s
 
 **Supported Kubernetes versions**
 
-See [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525). Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.
+See [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654). Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.
 
  **Note:** Applications on which Component Pack relies, such as community ingress, have their own Kubernetes support pattern, and should be double-checked before beginning a Component Pack install or upgrade.
 

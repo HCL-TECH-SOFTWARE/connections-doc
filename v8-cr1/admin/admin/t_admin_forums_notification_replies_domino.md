@@ -2,7 +2,7 @@
 
 Configure HCL Domino® to direct email notification replies to a dedicated mailbox.
 
-Install and configure an HCL Domino server. See the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525) for supported Domino versions.
+Install and configure an HCL Domino server. See the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) for supported Domino versions.
 
 The steps in this topic are required to configure Forums so that users can reply to forum topics by email. When a reply is added to a forum topic, an email is sent to followers of that forum and that topic. Users receiving that email can respond by email. The content of that response is added as a new reply in the forum, after the original.
 

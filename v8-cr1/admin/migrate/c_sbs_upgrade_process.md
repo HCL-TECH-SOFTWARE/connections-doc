@@ -11,7 +11,7 @@ These are some key tasks before installing version 8.0 of Connections in the new
 To review all tasks that typically precede a Connections installation, see the [Pre-installation tasks](../install/c_preinstall_actions.md) section in this product documentation.
 
 1.  Prepare to install software:
-    -   Review the [software and hardware requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525) for the system that will host Connections 8.0.
+    -   Review the [software and hardware requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) for the system that will host Connections 8.0.
     -   Download Connections 8 and WebSphere Application Server v8.5.5 and fixpack 19 from the HCL Software License and Download Portal.
     -   Make sure that your servers contain enough free disk space for unpacking the installation files as well as keeping the platform operational.
 2.  [Install IBM Security Directory Integrator](../install/t_prof_tdi_new_deploy.md), which is used to synchronize your LDAP information with Connections profiles.

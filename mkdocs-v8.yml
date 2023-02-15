@@ -1,11 +1,11 @@
 #Project Information
-site_name: HCL Connections 8.0 CR1 Help Center 
+site_name: HCL Connections v8.0 Help Center
 site_description: >-
   A next-gen documentation site for HCL Connections.
 site_url: https://opensource.hcltechsw.com/connections
 use_directory_urls: false
-docs_dir: v8-cr1
-site_dir: docs/v8-cr1
+docs_dir: v8
+site_dir: docs/v8
 
 # Theme Configuration
 theme:
@@ -50,16 +50,6 @@ extra:
       link: https://github.com/HCL-TECH-SOFTWARE
   version:
     provider: mike
-#  consent:
-#    title: Cookie consent
-#    description: >- 
-#      We use cookies to recognize your repeated visits and preferences, as well
-#      as to measure the effectiveness of our documentation and whether users
-#      find what they're searching for. With your consent, you're helping us to
-#      make our documentation better.
-#    actions:
-#      - accept
-#      - manage
 
 # Repository
 repo_url: https://github.com/HCL-TECH-SOFTWARE/connections-doc
@@ -82,8 +72,7 @@ nav:
 # What's New
       - What&apos;s new in Connections&quest;: 
         - admin/overview/whats_new.md
-        - Connections 8.0 CR1: admin/overview/i_ovr_r_whats_new_cr1.md        
-        - Connections 8.0: https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html
+        - Connections 8.0: admin/overview/i_ovr_r_whats_new.md    
 # Administering
       - Administering Connections 8.0: 
         - admin/welcome/welcome_admin.md
@@ -91,12 +80,13 @@ nav:
           - admin/overview/c_lc4_product_overview.md
           - What is HCL Connections: admin/overview/c_what_is_lc.md
           - Supported languages: admin/overview/i_ovr_c_supported_langs.md
+          - Accessibility features: admin/overview/ic_r_accessibility_features.md
         - Planning: 
           - admin/plan/c_installation_overview.md
           - Audience: admin/plan/c_audience.md
           - Directory path conventions: admin/plan/i_ovr_r_directory_conventions.md
           - Deployment options: admin/plan/c_planning_the_installation.md
-          - Deployment requirements for supporting Connections 8.0 CR1 functionality: admin/plan/supported_features.md
+          - Deployment requirements for supporting Connections 8 functionality: admin/plan/supported_features.md
           - HCL Connections system requirements: admin/plan/r_install_prerqs.md
           - HCL Connections support statement: admin/plan/r_install_support_statements.md
           - Worksheet for installing HCL Connections: admin/plan/r_worksheet_installation.md
@@ -201,7 +191,7 @@ nav:
           - Installing HCL Connections:
             - admin/install/c_installing_overview.md
             - Installing as a non-root user: admin/install/t_non-root_install.md
-            - Installing HCL Connections 8.0: admin/install/t_install_cluster.md
+            - Installing HCL Connections 8: admin/install/t_install_cluster.md
             - Installing in console mode: admin/install/t_install_console-mode.md
             - Installing silently:
               - admin/install/c_install_silent.md
@@ -313,10 +303,10 @@ nav:
                - admin/install/inst_tasearch_intro.md
                - Managing the OpenSearch index for Connections type-ahead search: admin/install/inst_managing_os_index_cnx_typeahead_search.md
                - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
-             - Installing Customizer Lite:
-               - admin/install/cp_install_customizer_lite.md
-               - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
-               - Configuring the NGINX proxy server for Customizer Lite HA: admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.md
+#            - Installing Customizer Lite:
+#              - admin/install/cp_install_customizer_lite.md
+#              - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
+#              - Configuring the NGINX proxy server for Customizer Lite HA: admin/install/cp_install_customizer_lite_nginx_proxy_server_config_ha.md
              - Configuring Share Application:
                - admin/install/c_install_share_application.md
                - Setting up share dialog: admin/install/c_install_share_dialog.md
@@ -482,7 +472,7 @@ nav:
             - Informing users of an upgrade or update: admin/migrate/t_bring_down_4_maintenance.md
             - Backing up Connections: admin/migrate/t_back-up.md
             - Saving your customizations: admin/migrate/c_configuration_changes_after_update.md
-          - Ways to upgrade to Connections 8.0: admin/migrate/c_3_ways_to_upgrade.md
+          - Ways to upgrade to Connections 8: admin/migrate/c_3_ways_to_upgrade.md
           - Side-by-side upgrades: 
             - admin/migrate/c_sbs_upgrade_container.md
             - Considerations for a side-by-side upgrade: admin/migrate/c_sbs_upgrade_considerations.md
@@ -497,8 +487,8 @@ nav:
               - Updating Db2 databases: admin/migrate/t_update_3.0.1_DB2_manual.md
               - Updating Oracle databases: admin/migrate/t_update_3.0.1_ORA_manual.md
               - Updating SQL Server databases: admin/migrate/t_update_3.0.1_SQL-Server_manual.md
-          - Enabling the Connections 8.0 user experience: admin/migrate/enabling_cnx8_ux.md
-          - Updating Connections 8.0 with the latest fixes: 
+          - Enabling the Connections 8 user experience: admin/migrate/enabling_cnx8_ux.md
+          - Updating Connections 8 with the latest fixes: 
             - admin/migrate/c_updating_interim_fixes.md
             - Installing fixes as a non-root user: admin/migrate/t_non-root_install_fixes.md
             - Downloading fixes: admin/migrate/t_downloading_fixes.md
@@ -512,10 +502,6 @@ nav:
               - admin/migrate/c_update_uninstall.md
               - Uninstalling fixes in interactive mode: admin/migrate/t_uninstall_interim-fix_interactive-mode.md
               - Uninstalling fixes in silent mode: admin/migrate/t_uninstall_interim-fix_silent-mode.md
-          - Updating HCL Connections 8.0 with the latest Cumulative Refresh (CR): 
-            - admin/migrate/c_installing_fix-packs.md
-            - Updating Connnections 8.0 with the latest Cumulative Refresh: admin/migrate/t_install_fixpack.md
-            - Downloading the latest Cumulative Refresh (CR) and related updates: admin/migrate/t_downloading_cr.md
           - Synchronizing nodes: 
             - admin/migrate/t_synch_updates.md
             - Enabling and disabling synchronization: admin/migrate/t_enable_synchronization.md
@@ -1308,11 +1294,6 @@ nav:
               - Updating WebSphere to support Azure AD OIDC authentication for Connections: admin/secure/t_azure_oidc_websphere.md
               - Configuring Connections to support Azure OIDC single sign-on: admin/secure/t_azure_config_conn_oidc.md
               - Supporting Azure SSO for mobile clients: admin/secure/t_azure_sso_for_mobile.md
-            - Enabling Keycloak as an OIDC provider for Connections:
-              - admin/secure/c_keycloak_oidc.md    
-              - Configuring KeyCloak as an OIDC provider for Connections:  admin/secure/t_keycloak_config_conn_oidc.md
-              - Updating WebSphere to support Keycloak OIDC Authentication for Connections:  admin/secure/t_keycloak_oidc_websphere.md
-              - Configuring Connections to support Keycloak OIDC Authentication: admin/secure/t_keycloak_config_auth_oidc.md             
             - Enabling single sign-on for Security Verify Access: 
               - admin/secure/t_secure_with_tam.md
               - Using WebSEAL for server to server communication: admin/secure/t_secure_with_tam_s2s.md
@@ -1451,6 +1432,7 @@ nav:
 # Using Connections       
       - Using Connections 8.0: 
         - user/welcome/welcome_end_user.md
+        - Accessibility features for Connections: user/common/ic_r_accessibility_features.md
         - What&apos;s new in Connections&quest;: user/eucommon/r_eucommon_whats_new.md
         - Overview:
           - user/eucommon/euframe.md
@@ -1660,7 +1642,6 @@ nav:
                 - user/communities/c_com_customizing_highlights.md
                 - Adding apps and widgets to the Highlights page: user/communities/c_com_highlights_widgets.md
                 - Managing apps and widgets on the Highlights page: user/communities/working_with_apps.md
-          - Building and integrating HCL Leap applications into Connections: user/communities/using_hcl_leap.md
         - Blogs: 
           - user/blogs/bframe.md
           - Contributing to a blog: 
@@ -2024,5 +2005,5 @@ nav:
         - guide_me/guide_me.md
         - How to guides:
           - guide_me/how_to_guides/how_to_guides.md
-          - Connections 8.0 CR1 Sizing Guide: guide_me/how_to_guides/connections8_sizing_guide.pdf
-          - Connections 8.0 CR1 Troubleshooting Component Pack: guide_me/how_to_guides/troubleshooting_cnx_cp.pdf
+          - Connections 8 Sizing Guide: guide_me/how_to_guides/connections8_sizing_guide.pdf
+          - Connections 8 Troubleshooting Component Pack: guide_me/how_to_guides/troubleshooting_cnx_cp.pdf

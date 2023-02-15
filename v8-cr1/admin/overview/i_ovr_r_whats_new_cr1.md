@@ -13,10 +13,10 @@ Find out about features that are new or updated in this release of HCL Connectio
 **Technical optimization**
 
 -   **System requirements**
-    -   Refer to the [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+    -   Refer to the [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
     -   For Component Pack 8 CR1, see [Prerequisites for Component Pack](../install/cp_prereqs.md).
 -   **Component Pack**
-    -   For supported versions of components, for example Kubernetes and Helm, refer to the table in the [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0102525).
+    -   For supported versions of components, for example Kubernetes and Helm, refer to the table in the [HCL Connections 8.0 CR1 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
         -   Support for Kubernetes 1.25: PodSecurityPolicy was removed, as this has been deprecated in Kubernetes 1.25.
     -   Customizer Lite is available for Connections 8.0 CR1. Customers can choose to pull images from the Harbor repository, rather than import from .tar file archives. To install, check out [Installing Customizer Lite](../install/cp_install_customizer_lite.md).
     -   Miscellaneous bug fixes, as follows:
