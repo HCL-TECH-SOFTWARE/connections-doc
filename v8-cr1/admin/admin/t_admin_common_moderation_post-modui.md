@@ -33,7 +33,9 @@ Follow these steps to review flagged content and take action.
 
 3.  Review a flagged entry and choose one of these actions:
 
-        |**Dismiss**|Dismiss the flag. The content remains available.|
+    |Option|Description|
+    |--|--|
+    |**Dismiss**|Dismiss the flag. The content remains available.|
     |**Quarantine**|This option turns the post in question to a draft and removes it to a quarantine area so it is not available to readers. This option prompts you to send notification to the posting author explaining your reason for removing the post and providing a link so the author can revise the content. Quarantined content can be restored or deleted.|
     |**Delete**|Permanently remove the content.|
 
@@ -42,7 +44,7 @@ Follow these steps to review flagged content and take action.
     -   Click **Restore** to dismiss the flag and restore the content to a published state.
     -   Click **Delete** to permanently remove the content.
 
-**Parent topic:**[Managing content moderation and flagged content](../admin/t_admin_blogs_flag_inappropriate.md)
+**Parent topic:** [Managing content moderation and flagged content](../admin/t_admin_blogs_flag_inappropriate.md)
 
 **Related information**  
 
