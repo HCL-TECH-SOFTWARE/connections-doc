@@ -15,6 +15,7 @@ You can change the values of the properties in either one of the following ways:
     **Note:** This method of editing properties is more error-prone than using the wsadmin client because you might inadvertently edit other content in the file.
 
 
+
 -   **[Properties that you can edit by using the wsadmin client](../admin/r_admin_common_props_wsadmin.md)**  
 Common configuration properties for HCL Connections that you can change by using the wsadmin client.
 -   **[Properties that you can change only by editing the XML file](../admin/r_admin_common_props_edit-xml.md)**  

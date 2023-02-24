@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
+  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35379,31 +35379,23 @@
 </tr>
 <tr>
 <td><strong>message</strong></td>
-<td>Defines a comma-separated array of React text components, which is shown to the user concatenated. Enter simple messages such as the following:```</td>
+<td>Defines a comma-separated array of React text components, which is shown to the user concatenated. Enter simple messages such as the following: <br></br> <code>['This is my message.']</code> <br></br> Or complex messages that contain text formatting, for example: <br></br> ```</td>
 </tr>
 <tr>
-<td>['This is my message.']</td>
+<td>message={['A message with ', '<strong>bold</strong>', ' and ', '<i>italic</i>', ' text']}``` <br></br> This component internally evaluates the given HTML and turns it into the corresponding elements. <br></br> <strong>Note:</strong> Although this method is implemented to be XSS-safe and to prevent script execution, it is intended only for simple HTML. Complex HTML should work, but use it at your own discretion.</td>
 <td></td>
 </tr>
 <tr>
-<td><div class="highlight"><pre><span></span><code>Or complex messages that contain text formatting, for example:```
-message={[&#39;A message with &#39;, &#39;&lt;strong&gt;bold&lt;/strong&gt;&#39;, &#39; and &#39;, &#39;&lt;i&gt;italic&lt;/i&gt;&#39;, &#39; text&#39;]}
-</code></pre></div></td>
-<td></td>
+<td><strong>severity</strong></td>
+<td>Defines how your message looks on the banner based on your selection from the following types: <br></br> -    <strong>Info</strong>: Shows an info icon, with a violet background <br></br> -   <strong>Success</strong>: Shows a check icon, with a green background <br></br> -   <strong>Warning</strong>: Shows an attention or warning icon, with a yellow background <br></br> -   <strong>Error</strong>: Shows an exclamation icon, with a red background</td>
+</tr>
+<tr>
+<td><strong>cacheExpiration</strong></td>
+<td>Defines whether the payload of the request should be cached by the frontend. By default, the payload is not cached and fetched each time the page loads. This allows changes to the configuration to reflect immediately, but adds more load while the page renders. <br></br> To cache the configuration for a given time interval, enter a time in milliseconds. For example, if you want it to cache every 5 minutes, enter 300000 milliseconds.</td>
 </tr>
 </tbody>
 </table>
-<p>This component internally evaluates the given HTML and turns it into the corresponding elements.<strong>Note:</strong> Although this method is implemented to be XSS-safe and to prevent script execution, it is intended only for simple HTML. Complex HTML should work, but use it at your own discretion.</p>
-<p>|
-|<strong>severity</strong>|Defines how your message looks on the banner based on your selection from the following types:-   <strong>Info</strong>: Shows an info icon, with a violet background
--   <strong>Success</strong>: Shows a check icon, with a green background
--   <strong>Warning</strong>: Shows an attention or warning icon, with a yellow background
--   <strong>Error</strong>: Shows an exclamation icon, with a red background</p>
-<p>|
-|<strong>cacheExpiration</strong>|Defines whether the payload of the request should be cached by the frontend. By default, the payload is not cached and fetched each time the page loads. This allows changes to the configuration to reflect immediately, but adds more load while the page renders.</p>
-<p>To cache the configuration for a given time interval, enter a time in milliseconds. For example, if you want it to cache every 5 minutes, enter 300000 milliseconds.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="admin_banner_onprem.html">Administering the display of a site-wide banner</a></p>
+<p><strong>Parent topic:</strong> <a href="admin_banner_onprem.html">Administering the display of a site-wide banner</a></p>
 
 
 

@@ -28,12 +28,14 @@ Follow these steps to review content and take action.
 
 3.  Review an item and choose one of these actions:
 
-        |**Approve**|Publish the content.|
+    |Option|Description|
+    |--|--|
+    |**Approve**|Publish the content.|
     |**Reject**|The content is moved to the Rejected tab where you can later approve it or delete it. Blog content that is rejected can be revised by the author and resubmitted for approval.|
     |**Delete**|Permanently remove the content.|
 
 
-**Parent topic:**[Managing content moderation and flagged content](../admin/t_admin_blogs_flag_inappropriate.md)
+**Parent topic:** [Managing content moderation and flagged content](../admin/t_admin_blogs_flag_inappropriate.md)
 
 **Related information**  
 

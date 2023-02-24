@@ -12,11 +12,13 @@ For complete information about starting and stopping WebSphere applications, see
 
 4.  Click **Start** or **Stop**:
 
-        |**Start**|Runs the application and changes the state of the application to **Started**. If not all servers on which the application is deployed are running, the status is changed to partially started .|
+    |Option|Description|
+    |--|--|
+    |**Start**|Runs the application and changes the state of the application to **Started**. If not all servers on which the application is deployed are running, the status is changed to partially started .|
     |**Stop**|Stops the processing of the application and changes the state of the application to **Stopped**.|
 
     To restart a running application, select the application that you want to restart, click **Stop**, and then click **Start**.
 
 
-**Parent topic:**[Administration tools](../admin/c_admin_common_tools.md)
+**Parent topic:** [Administration tools](../admin/c_admin_common_tools.md)
 
