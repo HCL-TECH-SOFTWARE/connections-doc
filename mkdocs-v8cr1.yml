@@ -38,7 +38,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.keys
   - attr_list
+  - def_list
   - md_in_html
 
 extra:
@@ -81,6 +83,7 @@ nav:
           - admin/overview/c_lc4_product_overview.md
           - What is HCL Connections: admin/overview/c_what_is_lc.md
           - Supported languages: admin/overview/i_ovr_c_supported_langs.md
+          - Accessibility features for HCL Connections: admin/overview/ic_r_accessibility_features.md
         - Planning: 
           - admin/plan/c_installation_overview.md
           - Audience: admin/plan/c_audience.md
