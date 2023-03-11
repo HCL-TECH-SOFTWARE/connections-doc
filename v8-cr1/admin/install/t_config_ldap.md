@@ -4,7 +4,7 @@ Determine which Lightweight Directory Access Protocol \(LDAP\) attributes you wa
 
 Ensure that you have installed a supported LDAP directory. For more information about supported LDAP directories, see [Detailed System Requirements for HCL Connections](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
-To ensure that the Profiles population wizard can return the maximum number of records from your LDAP directory, set the Size Limit parameter in your LDAP configuration to match the number of users in the directory. For example, if your directory has 100,000 users, set this parameter to 100000. For more information, see the documentation for your LDAP directory. If you cannot set the Size Limit parameter, you could run the wizard multiple times. Alternatively, you could write a JavaScript™ function to split the original LDAP search filter, then run the collect\_dns\_iterate.bat file, and finally run the populate\_from\_dns\_files.bat file.
+To ensure that the Profiles population wizard can return the maximum number of records from your LDAP directory, set the Size Limit parameter in your LDAP configuration to match the number of users in the directory. For example, if your directory has 100,000 users, set this parameter to 100000. For more information, see the documentation for your LDAP directory. If you cannot set the Size Limit parameter, you could run the wizard multiple times. Alternatively, you could write a JavaScript™ function to split the original LDAP search filter, then run the `collect_dns_iterate.bat` file, and finally run the `populate_from_dns_files.bat` file.
 
 To prepare to configure your LDAP directory with IBM® WebSphere® Application Server, complete the following steps:
 
@@ -16,7 +16,8 @@ To prepare to configure your LDAP directory with IBM® WebSphere® Application S
     Log in
     :   Determine which attribute or attributes you want people to be able to use to log in to HCL Connections. For example: uid. See *Choosing login values* for important considerations when deciding which attributes to use.
 
-        **Note:** The values of the login name attribute must be unique in the LDAP directory.
+    !!! note
+        The values of the login name attribute must be unique in the LDAP directory.
 
     Messaging
     :   \(Optional.\) Determine which attribute to use to define the email address of a person. The email address must be unique in the LDAP directory. If a person does not have an email address and does not have an LDAP attribute that represents the email address, that person cannot receive notifications.

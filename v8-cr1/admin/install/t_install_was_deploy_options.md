@@ -6,7 +6,8 @@ Determine the deployment option and the number of systems you need for your depl
 
 -   Deployment Manager and one node on the same system
 
-    **Note:** You can deploy one node on the same system as the DM but you must use separate systems for all other nodes in a cluster.
+    !!! note
+        You can deploy one node on the same system as the DM but you must use separate systems for all other nodes in a cluster.
 
 -   Deployment Manager and nodes on separate systems
 
