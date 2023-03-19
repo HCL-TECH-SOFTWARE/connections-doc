@@ -14,15 +14,15 @@ To enable MS Teams to work within the Connectios Share feature, perform the foll
 
 1.  Register the extensions
 
-    1.  For the Customizer to insert this customization, place all the files present in this [folder](https://git.cwp.pnp-hcl.com/connections/deploy-services/tree/master/microservices/hybridcloud/doc/samples/share-extensions/ms-teams) in the Connections environment in /pv-connections/customizations/share-extensions/ms-teams directory
+    1.  For the Customizer to insert this customization, place all the files present in this [folder](https://git.cwp.pnp-hcl.com/connections/deploy-services/tree/master/microservices/hybridcloud/doc/samples/share-extensions/ms-teams) in the Connections environment in `/pv-connections/customizations/share-extensions/ms-teams` directory
 
 2.  Setup the Appregistry Extension
 
-    1.  Launch the appregistry UI at /appreg/apps URL \(requires admin access\) or navigate to your Connections URL. Example: https://yourConnectionsUrl.com/appreg/apps.
+    1.  Launch the appregistry UI at `/appreg/apps` URL \(requires admin access\) or navigate to your Connections URL. Example: https://yourConnectionsUrl.com/appreg/apps.
 
     2.  In the **Apps manager**, click **New App**.
 
-    3.  On the **Code Editor**page, either clear the default outline json that is created by default and then paste in the json \(if already copied to clipboard from the appropriate json file\) or click **Import**, browse for the JSON file containing the application, and select the file. The code that you import is validated and error messages display in the editing pane, where you can make corrections if needed.
+    3.  On the **Code Editor** page, either clear the default outline json that is created by default and then paste in the json \(if already copied to clipboard from the appropriate json file\) or click **Import**, browse for the JSON file containing the application, and select the file. The code that you import is validated and error messages display in the editing pane, where you can make corrections if needed.
 
     4.  Copy/Import the content of the JSON file in the appreg.
 

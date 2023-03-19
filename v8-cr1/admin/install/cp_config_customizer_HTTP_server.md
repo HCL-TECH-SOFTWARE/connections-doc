@@ -1,22 +1,22 @@
 # Configuring the HTTP server for the App Registry {#cp_config_customizer_HTTP_server .task}
-
+!!!
 Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.
 
 If you already configured Orient Me, then this task is not needed for Customizer.
 
 If you have not configured Orient Me, then complete this task to ensure that the HTTP server redirects users to the App Registry when they log in to Connections.
 
-1.  Log in to the HTTP server as the root user \(AIX®, Linux®\) or the administrator \(Windows™\).
+1.  Log in to the HTTP server as the root user (AIX®, Linux®) or the administrator (Windows™).
 
-2.  Backup the current httpd.conf.
+2.  Backup the current `httpd.conf`.
 
 3.  Open the http.conf file in a text editor.
 
-    The http.conf file is typically stored in the following location:
+    The `httpd.conf` file is typically stored in the following location:
 
-    -   AIX: /opt2/IBM/HTTPServer/
-    -   Linux: /opt/IBM/HTTPServer/conf/
-    -   Windows: D:\\IBM\\HTTPServer\\conf\\
+    -   AIX: `/opt2/IBM/HTTPServer/`
+    -   Linux: `/opt/IBM/HTTPServer/conf/`
+    -   Windows: `D:IBMHTTPServerconf`
 4.  In the file, verify that the following modules are listed and that the lines are not commented out:
 
     ```
@@ -36,19 +36,19 @@ If you have not configured Orient Me, then complete this task to ensure that the
 
     ```
     ProxyPreserveHost On
-    ProxyPass "/social" "http://master\_node\_host\_name:32080/social" 
-    ProxyPassReverse "/social" "http://master\_node\_host\_name:32080/social" 
-    ProxyPass "/itm" "http://master\_node\_host\_name:32080/itm" 
-    ProxyPassReverse "/itm" "http://master\_node\_host\_name:32080/itm"
-    ProxyPass "/community_suggestions/api/recommend/communities" "http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities"
-    ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities"
-    ProxyPass "/appreg" "http://master\_node\_host\_name:32080/appreg/"
-    ProxyPassReverse "/appreg" "http://master\_node\_host\_name:32080/appreg/"
-    ProxyPass "/appregistry" "http://master\_node\_host\_name:32080/appregistry" 
-    ProxyPassReverse "/appregistry" "http://master\_node\_host\_name:32080/appregistry"
+    ProxyPass "/social" "http://master_node_host_name:32080/social" 
+    ProxyPassReverse "/social" "http://master_node_host_name:32080/social" 
+    ProxyPass "/itm" "http://master_node_host_name:32080/itm" 
+    ProxyPassReverse "/itm" "http://master_node_host_name:32080/itm"
+    ProxyPass "/community_suggestions/api/recommend/communities" "http://master_node_host_name:32080/community_suggestions/api/recommend/communities"
+    ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://master_node_host_name:32080/community_suggestions/api/recommend/communities"
+    ProxyPass "/appreg" "http://master_node_host_name:32080/appreg/"
+    ProxyPassReverse "/appreg" "http://master_node_host_name:32080/appreg/"
+    ProxyPass "/appregistry" "http://master_node_host_name:32080/appregistry" 
+    ProxyPassReverse "/appregistry" "http://master_node_host_name:32080/appregistry"
     ```
 
-    For high availability deployments, replace `master\_node\_host\_name` with the load balancer DNS of the HA cluster \(Must be FQHN\).
+    For high availability deployments, replace `master_node_host_name` with the load balancer DNS of the HA cluster (Must be FQHN).
 
     **Note:** 32080 is the port of the Ingress Controller, so make sure that is deployed and running before making these changes. Take note of the new appreg URL when using Ingress.
 
