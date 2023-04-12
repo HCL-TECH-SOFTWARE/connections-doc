@@ -14,7 +14,7 @@ If you are already using the Connections Activities sidebar application, the pre
 
 If you know that the server requires a secure, encrypted connection, begin the address with https://
 
-Some administrators change the context roots that are used to access Connections features. If the Web address that you normally use to access the Activities feature has a value other than <server\_name\>/activities, specify the server URL using a syntax similar to this: http://enterprise.example.com/activities
+<!--Some administrators change the context roots that are used to access Connections features.--> If the Web address that you normally use to access the Activities feature has a value other than <server\_name\>/activities, specify the server URL using a syntax similar to this: http://enterprise.example.com/activities
 
 **Note:** Your administrator might have already provided a value for this field using an administrative policy. If so, do not change the value.
 

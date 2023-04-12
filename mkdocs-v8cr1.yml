@@ -73,7 +73,7 @@ nav:
       - What&apos;s new in Connections&quest;: 
         - admin/overview/whats_new.md
         - Connections 8.0 CR1: admin/overview/i_ovr_r_whats_new_cr1.md        
-        - Connections 8.0: https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html
+        - Connections 8.0: admin/overview/i_ovr_r_whats_new.md
 # Administering
       - Administering Connections 8.0: 
         - admin/welcome/welcome_admin.md
@@ -227,6 +227,8 @@ nav:
               - Installing MongoDB 5 for Component Pack 8: admin/install/installing_mongodb_5_for_component_pack_8.md
               - Migrating data from MongoDB 3 to 5: admin/install/migrating_data_mongodb_v3_v5.md
               - Migrating data from Elasticsearch 7 to OpenSearch: admin/install/cp_migrate_data_from_es7_to_opensearch.md             
+            - Installing Component Pack on OpenShift: admin/install/cp_openshift.md
+            - Installing Component Pack using EKS: admin/install/cp_eks.md
           - Configuring the Component Pack:
             - admin/install/cp_config_intro.md
             - Configuring the HTTP server: admin/install/cp_config_proxy_rules.md
@@ -655,7 +657,6 @@ nav:
                 - Hiding email addresses: admin/admin/t_admin_common_hide_email_using_script.md
                 - Exposing email addresses: admin/admin/t_admin_common_expose_email_using_script.md
                 - Enabling users to set a language preference: admin/admin/t_admin_common_enable_lang_change.md
-                - Changing application URLs: admin/admin/t_admin_common_change_context_root.md
                 - Adding Sametime awareness though the Sametime client: admin/admin/t_admin_common_add_st_awareness.md
                 - Adding Sametime awareness through the Sametime server: admin/admin/t_admin_common_add_st_awareness_via_proxy.md
                 - Disabling applications: admin/admin/t_admin_common_turning_off.md
@@ -1855,6 +1856,7 @@ nav:
                     - Migrating a database: connectors/icec/cec-inst-database-migration.md
                   - Installing: 
                     - connectors/icec/cec-inst-installing.md
+                    - Installing Connections Engagement Center: connectors/icec/cec-install.md
                     - Enable trace logs to analyze errors &#40;(optional)&#41;: connectors/icec/cec-inst-enable-trace-logs.md
                     - Mapping security roles: connectors/icec/cec-inst-tmap-security-roles.md
                   - Configuring: 

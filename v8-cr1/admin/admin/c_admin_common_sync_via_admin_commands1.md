@@ -73,138 +73,155 @@ The application\_name variable represents the name of the application. The follo
 -   Wikis
 -   Metrics
 
-application\_nameMemberService.syncAllMembersByExtId\( \{"updateOnEmailLoginMatch": \["true" \| "false"\] \} \)
-:   This command checks to see whether the external ID found in the member database table is present in the configured directory:
+**application\_nameMemberService.syncAllMembersByExtId\( \{"updateOnEmailLoginMatch": \["true" \| "false"\] \} \)**
 
-    -   If the external ID is present, then the command gets the display name, email address, and login names from the configured directory and updates the application database tables with the values from the directory, if they are different. This refresh update operation is not logged to the output file.
-    -   If a match for the user's external ID is not found in the directory, then the command uses the email address and login names that are contained in the application database tables to continue to search for the user. If none of the credentials match, the user is inactivated. How the command works when a match on the login names or email address is found differs depending on the parameter that you specified with the command:
+This command checks to see whether the external ID found in the member database table is present in the configured directory:
 
-        Parameter: updateOnEmailLoginMatch: String. Options are true or false. The default is false.
+-   If the external ID is present, then the command gets the display name, email address, and login names from the configured directory and updates the application database tables with the values from the directory, if they are different. This refresh update operation is not logged to the output file.
+-   If a match for the user's external ID is not found in the directory, then the command uses the email address and login names that are contained in the application database tables to continue to search for the user. If none of the credentials match, the user is inactivated. How the command works when a match on the login names or email address is found differs depending on the parameter that you specified with the command:
 
-        true
-        :   Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is automatically updated with the external ID in the configured directory.
+Parameter: **updateOnEmailLoginMatch**: String. Options are true or false. The default is false.
 
-        false
-        :   Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is written to the application\_nameUIcSyncCmd.log file. You can manually make the update after confirming that the change should be made.
+**true**
 
-    -   If a match for the user's external ID is not found in the configured directory, nor is a match found for the user's email address and login names, then the state of the user is changed to inactive in the application database.
+Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is automatically updated with the external ID in the configured directory.
 
-    **Note:** When none of the credentials match, the Boolean \(true or false\) parameter is ignored; the user is always inactivated.
+**false**
 
-application\_nameMemberService.syncMemberByExtId\("currentExternalId"\[, \{"newExtId" : "id-string" \[, "allowExtIdSwap" : \["true" \| "false"\] \] \} \] \)
-:   This determines whether the user identified by the first parameter, which is an eternal ID, should be is active or inactive by checking the configured directory for the external ID. The main purpose of this command is to reactivate a user.
+Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is written to the application\_nameUIcSyncCmd.log file. You can manually make the update after confirming that the change should be made.
 
-    **Note:** This is a complicated command that should be used carefully, particularly when swap is allowed.
+-   If a match for the user's external ID is not found in the configured directory, nor is a match found for the user's email address and login names, then the state of the user is changed to inactive in the application database.
 
-    You can perform the following tasks with this command:
+**Note:** When none of the credentials match, the Boolean \(true or false\) parameter is ignored; the user is always inactivated.
 
-    -   When only currentExternalId parameter is provided, the intent is to correct the state information for that user in the application database.
+**application\_nameMemberService.syncMemberByExtId\("currentExternalId"\[, \{"newExtId" : "id-string" \[, "allowExtIdSwap" : \["true" \| "false"\] \] \} \] \)**
 
-        Parameters:
+This determines whether the user identified by the first parameter, which is an eternal ID, should be is active or inactive by checking the configured directory for the external ID. The main purpose of this command is to reactivate a user.
 
-        currentExternalId
-        :   String. Unique external ID that represents a user. The command looks for this external ID in the application member table. If it does not find the ID, an error is generated. If the member is found, but is currently defined as inactive, an attempt is made to activate the member. To do so, the command looks up whether the member exists in the configured directory, and if so, then the member is activated in the application member table and the associated display name, email and login values for that member are restored. When this action is taken, the update is logged in the applicationUIcSyncCmd.log file. If the member is found and is currently defined as "active" in the application database, the code first looks up currentExternalId in the configured directory. If currentExternalId is not found, the command attempts to find the member by email or login value. If this succeeds, the external ID is updated along with a refresh of display name, email, and logins, and the change is logged. If this does not succeed, then the user is inactivated and the change is logged.
+**Note:** This is a complicated command that should be used carefully, particularly when swap is allowed.
 
-        Example:
+You can perform the following tasks with this command:
 
-        ```
-        CommunitiesMemberService.syncMemberByExtId("F8E59CA4-7FE1-4195-AA96-A49CE5F8E17F")
-        ```
+-   When only currentExternalId parameter is provided, the intent is to correct the state information for that user in the application database.
 
-    -   When multiple parameters are provided, the intent is to activate the user identified by currentExternalId with the identity of the user defined by the newExtId. This command might be used when a user has application content, such as a Community, on the server but then leaves the company. The user is removed from the LDAP and the user's state is set to inactive in the application database tables. However, if that person is rehired by the company, the person is added back into LDAP and is assigned a new external ID. For this person to gain access to their old content, you can use the following command to swap their external IDs.
+    Parameters:
 
-        Parameters:
-
-        currentExternalId
-        :   String. Unique ID that represents a user.
-
-        newExtId
-        :   **Optional.** String. If you provide this parameter:
-
-            1.  The same person is being represented by two different external IDs: the currentExternalId is in the application database where the member is marked as inactive and the newExtId, is stored in the configured directory.
-            2.  The newExtId updates that person's external ID in the application database and the person is marked active.
-            **Important:** Only use this command when you are sure that the two IDs represent the same person.
-
-        allowExtIdSwap
-        :   **Optional.** String. Accepts the values true or false. The default value is false. Specifies whether to swap the new and current ID of the user in the two records that represent the same person. This parameter is only needed if the user was previously employed by the organization and existed in the application member tables with the current ID, departed the organization, and was given a new ID upon returning. After that person logs in to an application for the first time with their new ID, the new ID is added to the application member tables. If you want this new user to have access to the content that she created previously using the current ID, provide this parameter and set it to true. However, be sure to run this command soon after the person returns because once the IDs are swapped, the user is not able to access any new content that she created using the new ID, just her previous content. You cannot merge the data associated with the current and new IDs. If you provide this parameter and set it to false, an error message is displayed in the wsadmin client that indicates that the command could not complete because the newExtId already exists.
-
-        Example:
-
-        ```
-        CommunitiesMemberService.syncMemberByExtId("7d71d8b2-7de511df-80b6c81b-5330ca0e", 
-         {"newExtId": "7d71d8b3-7de511df-80b6c81b-5330ca0e", "allowExtIdSwap": "true"})
-        ```
-
-
-application\_nameMemberService.previewSyncAllMembersByExtId\( \{"updateOnEmailLoginMatch": \["true" \| "false" \]\[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["false" \| "true"\] \] \}\] \)
-:   The preview command reports the action the corresponding syncAllMembersByExtId command would take \(or not take\) depending on the updateOnEmailLoginMatch parameter value. The results are placed in the application\_nameUlcSyncCmd.log file.
-
-    There are two optional parameters, multiLine and verbose, both of which take a Boolean string value. The default value is true for multiLine and false for verbose. If multiLine is true, each action report is broken into multiple short lines to make it easier to read. If multiline is false, each action report is a single line for ease of searching the file programmatically, for example with a grep utility. If verbose is false, only out of sync results are reported independent of the value of updateOnEmailLoginMatch. This includes members that would simply be refreshed. A member is refreshed if the member is active and the external ID is a match, but the display name, email, or the logins don't match. If verbose is true, all members are reported, including active and inactive members.
-
-    The format of each reported action is timestamp, action code, action data and action message. The code is a four letter code, listed at the end of this section. At the end of the file five numbers are reported. These are also explained at the end of this section. At the very end of the file is a number that is the total actionable items found.
-
-application\_nameMemberService.inactivateMemberByEmail\("email-address"\)
-:   This marks the person identified by email-address as inactive in the application's membership database tables, for example it changes the state of the specified user to inactive. In addition, the email address and login names for this user are removed from the application's database tables. The user's external ID and Display Name are not modified. The command also writes a status message to the application\_nameUlcSyncCmd.log file indicating that the user has been deactivated.
-
-    Parameter:
-
-    email-address
-    :   String. Email address of the user you want to mark as inactive in the application membership database tables.
-
-application\_nameMemberService.inactivateMemberByExtId\("externalID"\)
-:   This marks the person identified by external ID as inactive in the application's membership database tables. This command changes the state of the specified user to inactive. In addition, the email address and login names for this user are removed from the application's database tables. The user's external ID and Display Name are not modified. The command also writes a status message to the application\_nameUlcSyncCmd.log file indicating that the user has been deactivated.
-
-    Parameter:
-
-    externalID
-    :   String. Unique ID that represents the user you want to mark as inactive in the application membership database tables.
-
-application\_nameMemberService.getMemberExtIdByEmail\("email"\)
-:   This retrieves the external ID of the person identified in the email parameter and returns it to the wsadmin console. The external ID returned from this command can be used as input to some of the other wsadmin commands that require the user's external ID as an input parameter.
-
-    Parameter:
-
-    email
-    :   String. Email address of the user whose external ID you want to retrieve.
+    **currentExternalId**
+    
+    String. Unique external ID that represents a user. The command looks for this external ID in the application member table. If it does not find the ID, an error is generated. If the member is found, but is currently defined as inactive, an attempt is made to activate the member. To do so, the command looks up whether the member exists in the configured directory, and if so, then the member is activated in the application member table and the associated display name, email and login values for that member are restored. When this action is taken, the update is logged in the applicationUIcSyncCmd.log file. If the member is found and is currently defined as "active" in the application database, the code first looks up currentExternalId in the configured directory. If currentExternalId is not found, the command attempts to find the member by email or login value. If this succeeds, the external ID is updated along with a refresh of display name, email, and logins, and the change is logged. If this does not succeed, then the user is inactivated and the change is logged.
 
     Example:
 
-    -   Command:
+    ```
+    CommunitiesMemberService.syncMemberByExtId("F8E59CA4-7FE1-4195-AA96-A49CE5F8E17F")
+    ```
 
-        ```
-        wsadmin>CommunitiesMemberService.getMemberExtIdByEmail("userB@example.com")
-        
-        ```
+-   When multiple parameters are provided, the intent is to activate the user identified by currentExternalId with the identity of the user defined by the newExtId. This command might be used when a user has application content, such as a Community, on the server but then leaves the company. The user is removed from the LDAP and the user's state is set to inactive in the application database tables. However, if that person is rehired by the company, the person is added back into LDAP and is assigned a new external ID. For this person to gain access to their old content, you can use the following command to swap their external IDs.
 
-    -   Result:
+    Parameters:
 
-        ```
-        510b99c0-0101-102e-8923-f78755f7e0ed
-        ```
+    **currentExternalId**
+    
+    String. Unique ID that represents a user.
 
+    **newExtId**
+    
+    **Optional.** String. If you provide this parameter:
 
-application\_nameMemberService.getMemberExtIdByLogin\("login"\)
-:   This retrieves the external ID of the person identified in the login parameter and returns it to the wsadmin console. The external ID returned from this command can be used as input to some of the other wsadmin commands that require the user's external ID as an input parameter.
+        1.  The same person is being represented by two different external IDs: the currentExternalId is in the application database where the member is marked as inactive and the newExtId, is stored in the configured directory.
+        2.  The newExtId updates that person's external ID in the application database and the person is marked active.
+        **Important:** Only use this command when you are sure that the two IDs represent the same person.
 
-    Parameter:
-
-    login
-    :   String. Login name of the user whose external ID you want to retrieve.
+    **allowExtIdSwap**
+    
+    **Optional.** String. Accepts the values true or false. The default value is false. Specifies whether to swap the new and current ID of the user in the two records that represent the same person. This parameter is only needed if the user was previously employed by the organization and existed in the application member tables with the current ID, departed the organization, and was given a new ID upon returning. After that person logs in to an application for the first time with their new ID, the new ID is added to the application member tables. If you want this new user to have access to the content that she created previously using the current ID, provide this parameter and set it to true. However, be sure to run this command soon after the person returns because once the IDs are swapped, the user is not able to access any new content that she created using the new ID, just her previous content. You cannot merge the data associated with the current and new IDs. If you provide this parameter and set it to false, an error message is displayed in the wsadmin client that indicates that the command could not complete because the newExtId already exists.
 
     Example:
 
-    -   Command:
+    ```
+    CommunitiesMemberService.syncMemberByExtId("7d71d8b2-7de511df-80b6c81b-5330ca0e", 
+        {"newExtId": "7d71d8b3-7de511df-80b6c81b-5330ca0e", "allowExtIdSwap": "true"})
+    ```
 
-        ```
-        wsadmin>CommunitiesMemberService.getMemberExtIdByLogin("User A")
-        
-        ```
 
-    -   Result:
+**application\_nameMemberService.previewSyncAllMembersByExtId\( \{"updateOnEmailLoginMatch": \["true" \| "false" \]\[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["false" \| "true"\] \] \}\] \)**
 
-        ```
-        806edb40-e8ba-102e-91cd-d74ea1c96b51
-        ```
+The preview command reports the action the corresponding syncAllMembersByExtId command would take \(or not take\) depending on the updateOnEmailLoginMatch parameter value. The results are placed in the application\_nameUlcSyncCmd.log file.
+
+There are two optional parameters, multiLine and verbose, both of which take a Boolean string value. The default value is true for multiLine and false for verbose. If multiLine is true, each action report is broken into multiple short lines to make it easier to read. If multiline is false, each action report is a single line for ease of searching the file programmatically, for example with a grep utility. If verbose is false, only out of sync results are reported independent of the value of updateOnEmailLoginMatch. This includes members that would simply be refreshed. A member is refreshed if the member is active and the external ID is a match, but the display name, email, or the logins don't match. If verbose is true, all members are reported, including active and inactive members.
+
+The format of each reported action is timestamp, action code, action data and action message. The code is a four letter code, listed at the end of this section. At the end of the file five numbers are reported. These are also explained at the end of this section. At the very end of the file is a number that is the total actionable items found.
+
+**application\_nameMemberService.inactivateMemberByEmail\("email-address"\)**
+
+This marks the person identified by email-address as inactive in the application's membership database tables, for example it changes the state of the specified user to inactive. In addition, the email address and login names for this user are removed from the application's database tables. The user's external ID and Display Name are not modified. The command also writes a status message to the application\_nameUlcSyncCmd.log file indicating that the user has been deactivated.
+
+Parameter:
+
+**email-address**
+
+String. Email address of the user you want to mark as inactive in the application membership database tables.
+
+**application\_nameMemberService.inactivateMemberByExtId\("externalID"\)**
+
+This marks the person identified by external ID as inactive in the application's membership database tables. This command changes the state of the specified user to inactive. In addition, the email address and login names for this user are removed from the application's database tables. The user's external ID and Display Name are not modified. The command also writes a status message to the application\_nameUlcSyncCmd.log file indicating that the user has been deactivated.
+
+Parameter:
+
+**externalID**
+
+String. Unique ID that represents the user you want to mark as inactive in the application membership database tables.
+
+**application\_nameMemberService.getMemberExtIdByEmail\("email"\)**
+
+This retrieves the external ID of the person identified in the email parameter and returns it to the wsadmin console. The external ID returned from this command can be used as input to some of the other wsadmin commands that require the user's external ID as an input parameter.
+
+Parameter:
+
+**email**
+
+String. Email address of the user whose external ID you want to retrieve.
+
+Example:
+
+-   Command:
+
+    ```
+    wsadmin>CommunitiesMemberService.getMemberExtIdByEmail("userB@example.com")
+    
+    ```
+
+-   Result:
+
+    ```
+    510b99c0-0101-102e-8923-f78755f7e0ed
+    ```
+
+
+**application\_nameMemberService.getMemberExtIdByLogin\("login"\)**
+
+This retrieves the external ID of the person identified in the login parameter and returns it to the wsadmin console. The external ID returned from this command can be used as input to some of the other wsadmin commands that require the user's external ID as an input parameter.
+
+Parameter:
+
+**login**
+
+String. Login name of the user whose external ID you want to retrieve.
+
+Example:
+
+-   Command:
+
+    ```
+    wsadmin>CommunitiesMemberService.getMemberExtIdByLogin("User A")
+    
+    ```
+
+-   Result:
+
+    ```
+    806edb40-e8ba-102e-91cd-d74ea1c96b51
+    ```
 
 
 ## Additional administrative commands { .section}

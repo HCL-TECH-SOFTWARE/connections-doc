@@ -1,6 +1,6 @@
 #Project Information
 site_name: HCL Connections v8.0 Help Center
-site_description: >-
+site_description: >
   A next-gen documentation site for HCL Connections.
 site_url: https://opensource.hcltechsw.com/connections
 use_directory_urls: false
@@ -651,7 +651,6 @@ nav:
                 - Hiding email addresses: admin/admin/t_admin_common_hide_email_using_script.md
                 - Exposing email addresses: admin/admin/t_admin_common_expose_email_using_script.md
                 - Enabling users to set a language preference: admin/admin/t_admin_common_enable_lang_change.md
-                - Changing application URLs: admin/admin/t_admin_common_change_context_root.md
                 - Adding Sametime awareness though the Sametime client: admin/admin/t_admin_common_add_st_awareness.md
                 - Adding Sametime awareness through the Sametime server: admin/admin/t_admin_common_add_st_awareness_via_proxy.md
                 - Disabling applications: admin/admin/t_admin_common_turning_off.md
@@ -1846,6 +1845,7 @@ nav:
                     - Migrating a database: connectors/icec/cec-inst-database-migration.md
                   - Installing: 
                     - connectors/icec/cec-inst-installing.md
+                    - Installing Connections Engagement Center: connectors/icec/cec-install.md
                     - Enable trace logs to analyze errors &#40;(optional)&#41;: connectors/icec/cec-inst-enable-trace-logs.md
                     - Mapping security roles: connectors/icec/cec-inst-tmap-security-roles.md
                   - Configuring: 

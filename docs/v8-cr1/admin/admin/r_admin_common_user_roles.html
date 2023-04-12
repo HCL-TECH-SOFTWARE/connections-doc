@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -10920,8 +10952,6 @@
         
           
         
-          
-        
       
       
         
@@ -10978,20 +11008,6 @@
     <li class="md-nav__item">
       <a href="t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -32367,6 +32383,8 @@
         
           
         
+          
+        
       
       
         
@@ -32386,6 +32404,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35283,70 +35315,28 @@
 <p>The global content administrator access for Libraries is configured in the FileNet® domain and object store. For more information, see the <em>Setting an LDAP group to be domain administrator instead of specific user</em> topic.</p>
 <p>For information about assigning roles, see the <em>Assigning people to Java™ EE roles</em> topic.</p>
 <h2 class="section" id="application-roles">Application roles</h2>
-<table>
-<thead>
-<tr>
-<th>Java EE Role</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>admin</td>
-<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
-</tr>
-</tbody>
-</table>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
-<table>
-<thead>
-<tr>
-<th>Java EE Role</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>admin</td>
-<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
-</tr>
-</tbody>
-</table>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
+<p>Table 1. Activities roles
+|Java EE Role|Description|
+|------------|-----------|
+|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
+|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
+|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
+|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
+|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
+|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
+|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
+<p>Table 2. Blogs roles
+|Java EE Role|Description|
+|------------|-----------|
+|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
+|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
+|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.|
+|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
+|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
+|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
+|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
+|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
+<p>Table 3. Bookmarks roles</p>
 <table>
 <thead>
 <tr>
@@ -35357,21 +35347,74 @@
 <tbody>
 <tr>
 <td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes.</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4. Common roles</p>
+<table>
+<thead>
+<tr>
+<th>Java EE Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
+</tr>
+<tr>
+<td>allAuthenticated</td>
+<td>All authenticated users in the application server's security domain.</td>
+</tr>
+<tr>
+<td>everyone</td>
 <td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</td>
 </tr>
+<tr>
+<td>global-moderator</td>
+<td>To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</td>
+</tr>
+<tr>
+<td>invite-only</td>
+<td>When the invite guest option is enabled in the product UI, users with this role can invite external users to join Connections through a self-registration mechanism. Also verify that the default value <code>invite-only</code> in selfregistration-config.xml has not been modified.</td>
+</tr>
+<tr>
+<td>mail-user</td>
+<td>User who are mapped to this role can view the mail and calendar applications.</td>
+</tr>
+<tr>
+<td>metrics-report-run</td>
+<td>Grants users the authority to view and interact with global metrics. Other than administrators, only the users that are assigned to the metrics-report-run role can access global metrics. Whenever a user with this authorization level views global metrics, the report information is updated automatically. For best results, limit access to a small set of users whose jobs require them to view the most recent metrics. Granting this level of access to many users might slow performance because update requests are processed in sequence</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</td>
+</tr>
 </tbody>
 </table>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes.</p>
-<p>|</p>
+<p>Table 5. Communities roles</p>
 <table>
 <thead>
 <tr>
@@ -35384,59 +35427,49 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>communities-metrics-run</td>
+<td>Other than administrators, only the community owners who are assigned to the community-metrics-run role can access community metrics. Users with this level of access see static reports of community metrics, which can be refreshed by clicking <strong>Update</strong> in the Metrics user interface. You can map this role to all users or to a subset of the user population. For example, you can gradually provide the community metrics feature to users by mapping this role to a small group and adding more users later. <br></br> <strong>Attention:</strong> This role and the community-metrics-run role for Metrics must be mapped to the same users.</td>
+</tr>
+<tr>
+<td>community-creator</td>
+<td>Users with this role can create communities. By default, this role is mapped to the Everyone group but can be changed to a more restricted group if necessary.A user must be mapped to this role to create a subcommunity. In addition, the user must be an owner of the parent community.</td>
+</tr>
+<tr>
+<td>dsx-admin</td>
+<td>Used by the Communities directory service extension to read both public and private data. Do not map real users to this role.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can see the moderation link on the navigation bar in communities. To access the moderation user interface, they must also be mapped to the Moderation global-moderator role. To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Users with this role can view the general statistics for the Communities application by clicking the <strong>Server Metrics</strong> link in the standard footer.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can create communities, join a public community, or request to join a moderated community. Only users with this role can create or update the Communities Atom API.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|allAuthenticated|All authenticated users in the application server's security domain.</p>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>|
-|global-moderator|To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</p>
-<p>|
-|invite-only|When the invite guest option is enabled in the product UI, users with this role can invite external users to join Connections through a self-registration mechanism. Also verify that the default value <code>invite-only</code> in selfregistration-config.xml has not been modified.|
-|mail-user|User who are mapped to this role can view the mail and calendar applications.</p>
-<p>|
-|metrics-report-run|Grants users the authority to view and interact with global metrics. Other than administrators, only the users that are assigned to the metrics-report-run role can access global metrics. Whenever a user with this authorization level views global metrics, the report information is updated automatically. For best results, limit access to a small set of users whose jobs require them to view the most recent metrics. Granting this level of access to many users might slow performance because update requests are processed in sequence</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>|</p>
-<table>
-<thead>
-<tr>
-<th>Java EE Role</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>admin</td>
-<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
-</tr>
-</tbody>
-</table>
-<p>|
-|communities-metrics-run|Other than administrators, only the community owners who are assigned to the community-metrics-run role can access community metrics. Users with this level of access see static reports of community metrics, which can be refreshed by clicking <strong>Update</strong> in the Metrics user interface. You can map this role to all users or to a subset of the user population. For example, you can gradually provide the community metrics feature to users by mapping this role to a small group and adding more users later.</p>
-<p><strong>Attention:</strong> This role and the community-metrics-run role for Metrics must be mapped to the same users.</p>
-<p>|
-|community-creator|Users with this role can create communities. By default, this role is mapped to the Everyone group but can be changed to a more restricted group if necessary.A user must be mapped to this role to create a subcommunity. In addition, the user must be an owner of the parent community.</p>
-<p>|
-|dsx-admin|Used by the Communities directory service extension to read both public and private data. Do not map real users to this role.|
-|everyone|Not used.|
-|global-moderator|Users with this role can see the moderation link on the navigation bar in communities. To access the moderation user interface, they must also be mapped to the Moderation global-moderator role. To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</p>
-<p>|
-|metrics-reader|Users with this role can view the general statistics for the Communities application by clicking the <strong>Server Metrics</strong> link in the standard footer.|
-|person|Users with this role can create communities, join a public community, or request to join a moderated community. Only users with this role can create or update the Communities Atom API.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
+<p>Table 6. ConnectionsProxy</p>
 <table>
 <thead>
 <tr>
@@ -35449,13 +35482,21 @@
 <td>allAuthenticated</td>
 <td>All authenticated users in the application server's security domain.</td>
 </tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Logical role for read/write access to the application. Mapped to allAuthenticated by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Logical role for read-only access to the application. Mapped to everyone by default.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>|
-|person|Logical role for read/write access to the application. Mapped to allAuthenticated by default.|
-|reader|Logical role for read-only access to the application. Mapped to everyone by default.|</p>
+<p>Table 7. FileNet® Collaboration Services (libraries)</p>
 <table>
 <thead>
 <tr>
@@ -35474,6 +35515,7 @@
 </tr>
 </tbody>
 </table>
+<p>Table 8. Files roles</p>
 <table>
 <thead>
 <tr>
@@ -35486,30 +35528,45 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>everyone</td>
+<td>By default, this role is mapped to the Everyone group. Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>everyone-authenticated</td>
+<td>Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</td>
+</tr>
+<tr>
+<td>files-owner</td>
+<td>Users with this role have the privileges as the person role. They also have a personal file stream when they log in to Files. If a user is removed from this role after they already logged in to files, they continue to have a personal file library. However, the library is hidden from the main personal files user interface for them. If you change this role, or change members of groups in the role, use administrative commands to browse and delete applicable personal libraries. This role does not affect who can upload files to community file libraries. It is mapped to the All Authenticated in Application's Realm group by default. You can apply this role to a subset of users in the group to limit who can upload files.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, and delete community files and comments that are already approved. They can reject or approve community files and comments that are awaiting approval. They can also quarantine content, restore or delete quarantined content, and close flags on content.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group. <br></br> <strong>Remember:</strong> If the reader role is mapped to a group other than Everyone, the person role must have the same mappings.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|everyone|By default, this role is mapped to the Everyone group. Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|everyone-authenticated|Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</p>
-<p>|
-|files-owner|Users with this role have the privileges as the person role. They also have a personal file stream when they log in to Files. If a user is removed from this role after they already logged in to files, they continue to have a personal file library. However, the library is hidden from the main personal files user interface for them. If you change this role, or change members of groups in the role, use administrative commands to browse and delete applicable personal libraries. This role does not affect who can upload files to community file libraries. It is mapped to the All Authenticated in Application's Realm group by default. You can apply this role to a subset of users in the group to limit who can upload files.</p>
-<p>|
-|global-moderator|Users with this role can moderate content. They can read, edit, and delete community files and comments that are already approved. They can reject or approve community files and comments that are awaiting approval. They can also quarantine content, restore or delete quarantined content, and close flags on content.|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p><strong>Remember:</strong> If the reader role is mapped to a group other than Everyone, the person role must have the same mappings.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
+<p>Table 9. Forums roles</p>
 <table>
 <thead>
 <tr>
@@ -35522,29 +35579,45 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>forum-creator</td>
+<td>Users with this role can create forums. By default, this role is mapped to the Everyone group, but it can be changed to a more restricted group if necessary.</td>
+</tr>
+<tr>
+<td>discussThis-user</td>
+<td>If Discuss This is enabled on Forums, users can see the <strong>Discuss This</strong>link in a topic page if they are members of a group that includes the discussThis-user role. By default, the role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|forum-creator|Users with this role can create forums. By default, this role is mapped to the Everyone group, but it can be changed to a more restricted group if necessary.|
-|discussThis-user|If Discuss This is enabled on Forums, users can see the <strong>Discuss This</strong>link in a topic page if they are members of a group that includes the discussThis-user role. By default, the role is mapped to the Everyone group.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
+<p>Table 10. Home page roles</p>
 <table>
 <thead>
 <tr>
@@ -35557,22 +35630,25 @@
 <td>admin</td>
 <td>This role is used to protect the Home page administrative user interface, which allows administrators to register new widgets and to enable and disable widgets. Users with this role can see a <strong>Server metrics</strong> link in the Home page footer. By default, this role is not mapped to any users. You must map specific administrator user IDs to the role, but do not map the role to the Everyone or All Authenticated in Application's Realm groups.</td>
 </tr>
+<tr>
+<td>everyone</td>
+<td>This role applies to the Home page login page and the service configuration APIs only. The role allows users to access these resources without authentication. By default, the role is mapped to the Everyone group. Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>This role is used to secure the Home page user interface. By default, this role is mapped to the All Authenticated in Application's Realm group, which means that all authenticated users can access the Home page. Users must authenticate to access the Home page so, this role must not be mapped to the Everyone group. If you must restrict access to a smaller set of users, modify the mapping of this role as necessary.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group. <br></br> <strong>Notes:</strong> <br></br> -    The Home page application uses this role to access the Search APIs. <br></br> -   Modifying this role has no effect on the Home page.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|everyone|This role applies to the Home page login page and the service configuration APIs only. The role allows users to access these resources without authentication. By default, the role is mapped to the Everyone group. Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|This role is used to secure the Home page user interface. By default, this role is mapped to the All Authenticated in Application's Realm group, which means that all authenticated users can access the Home page. Users must authenticate to access the Home page so, this role must not be mapped to the Everyone group. If you must restrict access to a smaller set of users, modify the mapping of this role as necessary.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>The Home page application uses this role to access the Search APIs.</li>
-<li>Modifying this role has no effect on the Home page.</li>
-</ul>
-<p>|</p>
+<p>Table 11. Metrics roles</p>
 <table>
 <thead>
 <tr>
@@ -35585,23 +35661,33 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>community-metrics-run</td>
+<td>Other than administrators, only the community owners who are assigned to the community-metrics-run role can access community metrics. Users with this level of access see static reports of community metrics, which can be refreshed by clicking <strong>Update</strong> in the Metrics user interface. You can map this role to all users or to a subset of the user population. For example, you can gradually provide the community metrics feature to users by mapping this role to a small group and adding more users later. <br></br> <strong>Attention:</strong> This role and the community-metrics-run role for Communities must be mapped to the same users.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>everyone-authenticated</td>
+<td>Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</td>
+</tr>
+<tr>
+<td>metrics-report-run</td>
+<td>Grants users the authority to view and interact with global metrics. Other than administrators, only the users that are assigned to the metrics-report-run role can access global metrics. Whenever a user with this authorization level views global metrics, the report information is updated automatically. For best results, limit access to a small set of users whose jobs require them to view the most recent metrics. Granting this level of access to many users might slow performance because update requests are processed in sequence</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|community-metrics-run|Other than administrators, only the community owners who are assigned to the community-metrics-run role can access community metrics. Users with this level of access see static reports of community metrics, which can be refreshed by clicking <strong>Update</strong> in the Metrics user interface. You can map this role to all users or to a subset of the user population. For example, you can gradually provide the community metrics feature to users by mapping this role to a small group and adding more users later.</p>
-<p><strong>Attention:</strong> This role and the community-metrics-run role for Communities must be mapped to the same users.</p>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|everyone-authenticated|Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</p>
-<p>|
-|metrics-report-run|Grants users the authority to view and interact with global metrics. Other than administrators, only the users that are assigned to the metrics-report-run role can access global metrics. Whenever a user with this authorization level views global metrics, the report information is updated automatically. For best results, limit access to a small set of users whose jobs require them to view the most recent metrics. Granting this level of access to many users might slow performance because update requests are processed in sequence</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|</p>
+<p>Table 12. Mobile roles</p>
 <table>
 <thead>
 <tr>
@@ -35618,12 +35704,17 @@
 <td>everyone</td>
 <td>Applies to the Mobile page login page API. This role allows users to access these resources without any authentication. By default, the role is mapped to the Everyone group.Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
 </tr>
+<tr>
+<td>person</td>
+<td>Used to secure all Mobile pages other than the login page. By default, this role is mapped to the All Authenticated in Application's Realm group so that all authenticated users can access the Mobile pages. If you want to restrict access to a smaller set of users, modify the mapping of this role. However, do not map this role to the Everyone group because the Mobile application must not be available to unauthenticated users.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|person|Used to secure all Mobile pages other than the login page. By default, this role is mapped to the All Authenticated in Application's Realm group so that all authenticated users can access the Mobile pages. If you want to restrict access to a smaller set of users, modify the mapping of this role. However, do not map this role to the Everyone group because the Mobile application must not be available to unauthenticated users.|
-|reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|</p>
+<p>Table 13. Moderation roles</p>
 <table>
 <thead>
 <tr>
@@ -35636,18 +35727,21 @@
 <td>everyone-authenticated</td>
 <td>Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</td>
 </tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content. <br></br> To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Used to secure the Atom APIs for "top stories" or "saved stories" and to secure the Email preferences page. Users must authenticate to access the New APIs and preferences page. By default, this role is mapped to the All Authenticated in Application's Realm group. If you want to restrict access to a smaller set of users, modify the mapping of this role. Do not map this role to the Everyone group because the email preferences page must not be available to unauthenticated users.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Applies to public Atom APIs. Modifying this role limits access to the public APIs. <br></br> Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</p>
-<p>To moderate content, users must be mapped to the global-moderator role in the Blogs, Forums, or Files applications. For example, a user who wants to moderate Blogs in a community must be mapped to the global-moderator role in Communities, Moderation, and Blogs.</p>
-<p>|
-|person|Used to secure the Atom APIs for "top stories" or "saved stories" and to secure the Email preferences page. Users must authenticate to access the New APIs and preferences page. By default, this role is mapped to the All Authenticated in Application's Realm group. If you want to restrict access to a smaller set of users, modify the mapping of this role. Do not map this role to the Everyone group because the email preferences page must not be available to unauthenticated users.</p>
-<p>|
-|reader|Applies to public Atom APIs. Modifying this role limits access to the public APIs.</p>
-<p>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|</p>
+<p>Table 14. News roles</p>
 <table>
 <thead>
 <tr>
@@ -35658,30 +35752,39 @@
 <tbody>
 <tr>
 <td>admin</td>
-<td>Defined in the news repository but, by default, this role is not mapped to any users. Changing the mapping of this role has no effect on the news repository.</td>
+<td>Defined in the news repository but, by default, this role is not mapped to any users. Changing the mapping of this role has no effect on the news repository. <br></br> To delete items posted by the microblogging APIs, a user must be mapped to this role. These items include status updates such as comments, recommendations, and third-party OpenSocial APIs. A user in this role can view any Community feed.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Used to secure the Atom APIs for "top stories" or "saved stories" and to secure the Email preferences page. Users must authenticate to access the New APIs and preferences page. By default, this role is mapped to the All Authenticated in Application's Realm group. If you want to restrict access to a smaller set of users, modify the mapping of this role. Do not map this role to the Everyone group because the email preferences page must not be available to unauthenticated users.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Applies to public Atom APIs. Modifying this role limits access to the public APIs. <br></br> Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>sharebox-reader</td>
+<td>Allows read/write access to sharebox resources. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
 </tr>
 </tbody>
 </table>
-<p>To delete items posted by the microblogging APIs, a user must be mapped to this role. These items include status updates such as comments, recommendations, and third-party OpenSocial APIs. A user in this role can view any Community feed.</p>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Used to secure the Atom APIs for "top stories" or "saved stories" and to secure the Email preferences page. Users must authenticate to access the New APIs and preferences page. By default, this role is mapped to the All Authenticated in Application's Realm group. If you want to restrict access to a smaller set of users, modify the mapping of this role. Do not map this role to the Everyone group because the email preferences page must not be available to unauthenticated users.</p>
-<p>|
-|reader|Applies to public Atom APIs. Modifying this role limits access to the public APIs.</p>
-<p>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</p>
-<p>|
-|sharebox-reader|Allows read/write access to sharebox resources. By default, this role is mapped to the Everyone group.|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|</p>
+<p>Table 15. Profiles roles</p>
 <table>
 <thead>
 <tr>
@@ -35694,24 +35797,37 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>allAuthenticated</td>
+<td>This role is used to secure the login-redirect page. The role is needed to correctly redirect users back to the page that they were attempting to access before the login procedure began. <br></br> The role is mapped to the All Authenticated in Application's Realm group by default. Do not change the default mappings for this role because it is used internally by HCL Connections. Changing the role might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>dsx-admin</td>
+<td>Used by the Profiles directory service extension to read both public and private data. This role secures the directory service communication when email addresses are hidden.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|allAuthenticated|This role is used to secure the login-redirect page. The role is needed to correctly redirect users back to the page that they were attempting to access before the login procedure began.</p>
-<p>The role is mapped to the All Authenticated in Application's Realm group by default. Do not change the default mappings for this role because it is used internally by HCL Connections. Changing the role might affect the ability to log in to the application.|
-|dsx-admin|Used by the Profiles directory service extension to read both public and private data. This role secures the directory service communication when email addresses are hidden.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes.</p>
-<p>|</p>
+<p>Table 16. Search roles</p>
 <table>
 <thead>
 <tr>
@@ -35732,18 +35848,25 @@
 <td>everyone-authenticated</td>
 <td>Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</td>
 </tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Restricts access to the user interface for the Search application and personal Atom API searches (/atom/mysearch). By default, this role is mapped to the Everyone group but this mapping can be changed to a more restricted group if needed.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Used to protect the Atom APIs, except for /atom/mysearch. Modifying this role limits access to the public APIs. Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Restricts access to the user interface for the Search application and personal Atom API searches (/atom/mysearch). By default, this role is mapped to the Everyone group but this mapping can be changed to a more restricted group if needed.|
-|reader|Used to protect the Atom APIs, except for /atom/mysearch. Modifying this role limits access to the public APIs. Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p>|
-|search-admin|This role is used for two purposes:-   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies.
--   For validating the configuration of the Search application by granting access to the Search status page.</p>
-<p>|</p>
+<p>Table 17. WidgetContainer roles</p>
 <table>
 <thead>
 <tr>
@@ -35760,23 +35883,37 @@
 <td>allAuthenticated</td>
 <td>All authenticated users in the application server's security domain.</td>
 </tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</td>
+</tr>
+<tr>
+<td>mail-user</td>
+<td>User who are mapped to this role can view the mail and calendar applications.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</td>
+</tr>
+<tr>
+<td>trustedExternalApplication</td>
+<td>Used to distribute third-party events on behalf of other users. This role supports targeting to individual users and Communities and the impersonation of existing users for OpenSocial POST APIs. Connections Content Manager uses this role to publish events to the Connections activity stream.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</p>
-<p>|
-|mail-user|User who are mapped to this role can view the mail and calendar applications.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>|
-|trustedExternalApplication|Used to distribute third-party events on behalf of other users. This role supports targeting to individual users and Communities and the impersonation of existing users for OpenSocial POST APIs. Connections Content Manager uses this role to publish events to the Connections activity stream.|</p>
+<p>Table 18. Wikis roles</p>
 <table>
 <thead>
 <tr>
@@ -35789,35 +35926,45 @@
 <td>admin</td>
 <td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
 </tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>everyone-authenticated</td>
+<td>Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default. <br></br> <strong>Remember:</strong> The default mapping for this role is All Authenticated in Application's Realm.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group. <br></br> <strong>Remember:</strong> If this role is mapped to a group other than Everyone, the person role must have the same mappings.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
+<tr>
+<td>wiki-creator</td>
+<td>Users with this role can create wikis outside of communities. By default, the role is mapped to the All Authenticated in Application's Realm group. This role does not determine whether users can create wikis in communities.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access.</p>
-<p>Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</p>
-<p>|
-|everyone-authenticated|Mapped by default to the All Authenticated in Application's Realm group. Do not modify this mapping.</p>
-<p>|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</p>
-<p>|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</p>
-<p><strong>Remember:</strong> The default mapping for this role is All Authenticated in Application's Realm.</p>
-<p>|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.</p>
-<p>This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</p>
-<p><strong>Remember:</strong> If this role is mapped to a group other than Everyone, the person role must have the same mappings.</p>
-<p>|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</p>
-<p>|
-|widget-admin|Used by widget containers to alert widget applications about container changes.</p>
-<p>The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application.</p>
-<p>The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</p>
-<p>|
-|wiki-creator|Users with this role can create wikis outside of communities. By default, the role is mapped to the All Authenticated in Application's Realm group. This role does not determine whether users can create wikis in communities.|</p>
 <ul>
 <li><strong><a href="t_admin_common_user_roles_assign.html">Assigning people to Java EE roles</a></strong><br />
 Assign roles for HCL Connections users on WebSphere Application Server.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_admin_common_managing_access.html">Managing access</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_managing_access.html">Managing access</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="r_admin_common_superusers.html">Administering application content</a></p>
 

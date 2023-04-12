@@ -47,50 +47,52 @@ HCL Connections provides a plug-in point for defining and using custom IBM Secur
 
 6.  Set the following properties in the file:
 
-    sync\_updates\_double\_check
-    :   Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.
+    **sync\_updates\_double\_check**
 
-        For example:
+    Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.
 
-        ```
-        sync_updates_double_check=true
-        ```
+    For example:
 
-    sync\_check\_if\_remove
-    :   Specifies the name of your checking assembly line:
+    ```
+    sync_updates_double_check=true
+    ```
 
-        ```
-        sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
-        ```
+    **sync\_check\_if\_remove**
 
-        By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
+    Specifies the name of your checking assembly line:
 
-        For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
+    ```
+    sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
+    ```
 
-        ```
-        sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
-        ```
+    By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
 
-    sync\_delete\_or\_inactivate
-    :   Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:
+    For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
 
-        -   delete. Specifies that the user record is deleted.
-        -   inactivate. Specifies that the user record is inactivated.
+    ```
+    sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
+    ```
 
-            The inactive status is propagated to the member and login tables for all the applications. An event is generated for each of the following: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application by removing the user from the login tables and setting the user's status to 1 in all member tables.
+    **sync\_delete\_or\_inactivate**
+    Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:
 
-        These values are case-sensitive so type them with care. The default value is inactivate.
+    -   delete. Specifies that the user record is deleted.
+    -   inactivate. Specifies that the user record is inactivated.
 
-        For example:
+        The inactive status is propagated to the member and login tables for all the applications. An event is generated for each of the following: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application by removing the user from the login tables and setting the user's status to 1 in all member tables.
 
-        ```
-        sync_delete_or_inactivate=inactivate
-        ```
+    These values are case-sensitive so type them with care. The default value is inactivate.
 
-7.  Save your changes to the profiles\_tdi.properties file.
+    For example:
+
+    ```
+    sync_delete_or_inactivate=inactivate
+    ```
+
+7.  Save your changes to the `profiles\_tdi.properties` file.
 
 
-**Parent topic:**[Managing user data using Tivoli Directory Integrator Solution scripts](../admin/c_admin_profiles_updating_ldap.md)
+**Parent topic:** [Managing user data using Tivoli Directory Integrator Solution scripts](../admin/c_admin_profiles_updating_ldap.md)
 
 **Related information**  
 

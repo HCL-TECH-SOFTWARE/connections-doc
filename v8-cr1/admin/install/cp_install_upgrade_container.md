@@ -28,7 +28,7 @@ It is recommended to review all the steps first and perform a system backup befo
 
 Perform the following steps chronologically, in the order that they appear in the list, to get your Component Pack deployment up and running:
 
-**For a fresh installation:**
+### For a fresh installation {#cp_install_table .section}
 
 |Installing Component Pack 8 CR1|
 |-----|
@@ -54,7 +54,7 @@ Perform the following steps chronologically, in the order that they appear in th
 |20. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) |
 |21. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) |
 
-**For an upgrade:**
+### For an upgrade
 
 |Upgrading Component Pack 7 to 8 CR1|Upgrading Component Pack 8 to 8 CR1|
 |-------------------------------|-------------------------------|
@@ -90,6 +90,14 @@ Perform the following steps chronologically, in the order that they appear in th
 
 For more information, see [Steps to install or upgrade to Component Pack 8 CR1](cp_install_services_tasks.md).
 
+### For OpenShift deployment
+
+Refer to [Installing Component Pack on OpenShift](cp_openshift.md) for details.
+
+### For EKS deployment
+
+Refer to [Installing Component Pack using EKS](cp_eks.md) for details.
+
 -   **[Upgrade considerations for Component Pack 8 CR1](../install/upgrade_considerations.md)**  
 The upgrade path described in [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
@@ -99,8 +107,11 @@ If your Connections upgrade strategy requires a side-by-side migration, understa
 -   **[Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md)**  
 Use these steps to help you install Component Pack 8 CR1 or replace Component Pack 7 or 8 with 8 CR1.
 
--   **[Installing Component Pack on OpenShift](../install/cp_openshift.md)**
+-   **[Installing Component Pack on OpenShift](../install/cp_openshift.md)**  
 This document outlines the steps for OpenShift deployment.
+
+-   **[Installing Component Pack using EKS](../install/cp_eks.md)**  
+This document outlines the steps for EKS deployment.
 
 **Parent topic:** [Installing or upgrading Component Pack for Connections](../install/cp_install_config_intro.md)
 

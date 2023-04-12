@@ -15,33 +15,13 @@ This is an optional procedure.
 
 4.  Click the alias name to edit it. Refer to the following tables for alias information.
 
+    Table 1. DB2 database user IDs and aliases
+
     |Database user ID|Description|Alias|
     |----------------|-----------|-----|
-    |LCUSER|User ID of the user with a limited set of administrative privileges to access all of the application tables in the DB2 database.|`activitiesJAASAuth`
+    |LCUSER|User ID of the user with a limited set of administrative privileges to access all of the application tables in the DB2 database.|`activitiesJAASAuth` <br></br> `blogsJAASAuth` <br></br> `communitiesJAASAuth` <br></br> `dogearJAASAuth` <br></br> `filesJAASAuth` <br></br> `forumJAASAuth` <br></br> `homepageJAASAuth` <br></br> `metricsJAASAuth` <br></br> `newsJAASAuth` <br></br> `profilesJAASAuth` <br></br> `searchJAASAuth` <br></br> `wikisJAASAuth`|
 
-`blogsJAASAuth`
-
-`communitiesJAASAuth`
-
-`dogearJAASAuth`
-
-`filesJAASAuth`
-
-`forumJAASAuth`
-
-`homepageJAASAuth`
-
-`metricsJAASAuth`
-
-`newsJAASAuth`
-
-`profilesJAASAuth`
-
-`searchJAASAuth`
-
-`wikisJAASAuth`
-
-|
+    Table 2. Oracle database user IDs and aliases
 
     |Database user ID|Description|Alias|
     |----------------|-----------|-----|
@@ -49,18 +29,14 @@ This is an optional procedure.
     |DFUSER|User ID of the user with a limited set of administrative privileges to access the Forums table in the Oracle database.|`forumJAASAuth`|
     |DOGEARUSER|User ID of the user with a limited set of administrative privileges to access the Bookmarks table in the SQL Server and Oracle databases.|`dogearJAASAuth`|
     |FILESUSER|User ID of the user with a limited set of administrative privileges to access the Files table in the SQL Server and Oracle databases.|`filesJAASAuth`|
-    |HOMEPAGEUSER|User ID of the user with a limited set of administrative privileges to access the Home page table in the Oracle database. The same user ID administers the Home page, Search, and Updates services.|`homepageJAASAuth`
-
-`newsJAASAuth`
-
-`searchJAASAuth`
-
-|
+    |HOMEPAGEUSER|User ID of the user with a limited set of administrative privileges to access the Home page table in the Oracle database. The same user ID administers the Home page, Search, and Updates services.|`homepageJAASAuth` <br></br> `newsJAASAuth` <br></br> `searchJAASAuth`|
     |METRICSUSER|User ID of the user with a limited set of administrative privileges to access the Metrics table in the SQL Server and Oracle databases.|`metricsJAASAuth`|
     |OAUSER|User ID of the user with a limited set of administrative privileges to access the Activities table in the SQL Server and Oracle databases.|`activitiesJAASAuth`|
     |PROFUSER|User ID of the user with a limited set of administrative privileges to access the Profiles table in the SQL Server and Oracle databases.|`profilesJAASAuth`|
     |SNCOMMUSER|User ID of the user with a limited set of administrative privileges to access the Communities table in the SQL Server and Oracle databases.|`communitiesJAASAuth`|
     |WIKISUSER|User ID of the user with a limited set of administrative privileges to access the Wikis table in the SQL Server and Oracle databases.|`wikisJAASAuth`|
+
+    Table 3. SQL Server database user IDs and aliases
 
     |Database user ID|Description|Alias|
     |----------------|-----------|-----|
@@ -68,13 +44,7 @@ This is an optional procedure.
     |DFUSER|User ID of the user with a limited set of administrative privileges to access the Forums table in the SQL Server database.|`forumJAASAuth`|
     |DOGEARUSER|User ID of the user with a limited set of administrative privileges to access the Bookmarks table in the SQL Server and Oracle databases.|`dogearJAASAuth`|
     |FILESUSER|User ID of the user with a limited set of administrative privileges to access the Files table in the SQL Server and Oracle databases.|`filesJAASAuth`|
-    |HOMEPAGEUSER|User ID of the user with a limited set of administrative privileges to access the Home page table in the SQL Server database. The same user ID administers the Home page, Search, and Updates services.|`homepageJAASAuth`
-
-`newsJAASAuth`
-
-`searchJAASAuth`
-
-|
+    |HOMEPAGEUSER|User ID of the user with a limited set of administrative privileges to access the Home page table in the SQL Server database. The same user ID administers the Home page, Search, and Updates services.|`homepageJAASAuth` <br></br> `newsJAASAuth` <br></br> `searchJAASAuth`|
     |METRICSUSER|User ID of the user with a limited set of administrative privileges to access the Metrics table in the SQL Server and Oracle databases.|`metricsJAASAuth`|
     |OAUSER|User ID of the user with a limited set of administrative privileges to access the Activities table in the SQL Server and Oracle databases.|`activitiesJAASAuth`|
     |PROFUSER|User ID of the user with a limited set of administrative privileges to access the Profiles table in the SQL Server and Oracle databases.|`profilesJAASAuth`|
@@ -88,5 +58,5 @@ This is an optional procedure.
 7.  Restart the servers hosting HCL Connections.
 
 
-**Parent topic:**[Managing stored credentials](../admin/c_admin_common_change_passwords.md)
+**Parent topic:** [Managing stored credentials](../admin/c_admin_common_change_passwords.md)
 

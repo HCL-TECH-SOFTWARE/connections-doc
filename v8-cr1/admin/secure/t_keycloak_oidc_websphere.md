@@ -51,11 +51,11 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
     |provider_1.scope|openid profile email|
     |provider_1.interceptedPathFilter|/activities/.\*,/blogs/.\*,/dogear/.\*,/files/.\*,/forums/.\*,/metrics/.\*,/metricssc/\*,/mobile/.\*,/connections/filesync/.\*,/connections/filediff/.\*,/mobileAdmin/.\*,/storageproxy/.\*,/wikis/.\*|
     |provider_1.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*,/connections/resources/ic/.\*,/connections/opensocial/rpc,/xcc/js/.\*,/xcc/templates/.\*,/files/static/.\*,/blogs/static/.\*,/wikis/static/.\*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_1.authorizeEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_1.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_1.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_1.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_1.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_1.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certss|
     |provider_1.signVerifyAlias|cnxoidccert|
-    |provider_1.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}|
+    |provider_1.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_1.userIdentifier|email|
     |provider_1.useJwtFromRequest|ifPresent|
     |provider_1.createSession|true|
@@ -70,11 +70,11 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
     |provider_2.scope|openid profile email|
     |provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth/.\*,/connections/resources/.\*,/connections/config/.\*,/communities/.\*,/connections/proxy/.\*,/help/.\*,/xcc/.\*,/selfservice/.\*,/news/.\*,/profiles/.\*,/search/.\*,/socialsidebar/.\*,/touchpoint/.\*,/connections/thumbnail/.\*,/connections/opengraph/.\*,/oauth2/.\*,/connections/opensocial/.\*|
     |provider_2.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*, /connections/resources/ic/.* ,/connections/opensocial/rpc,/xcc/js/.* ,/xcc/templates/.* ,/files/static/.* ,/blogs/static/.* ,/wikis/static/.* ,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_2.authorizeEndpointUrl| https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_2.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_2.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_2.authorizeEndpointUrl| https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_2.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_2.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_2.signVerifyAlias|cnxoidccert|
-    |provider_2.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm|
+    |provider_2.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_2.userIdentifier|email|
     |provider_2.useJwtFromRequest|ifPresent|
     |provider_2.createSession|true|
@@ -89,11 +89,11 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
     |provider_3.scope|openid profile email|
     |provider_3.interceptedPathFilter|/push/.\*|
     |provider_3.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*,/connections/resources/ic/.\*,/connections/opensocial/rpc,/xcc/js/.\*,/xcc/templates/.\*,/files/static/.\*,/blogs/static/.\*,/wikis/static/.\*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_3.authorizeEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_3.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_3.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_3.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_3.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/tokenn|
+    |provider_3.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_3.signVerifyAlias|cnxoidccert|
-    |provider_3.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}|
+    |provider_3.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_3.userIdentifier|email|
     |provider_3.useJwtFromRequest|ifPresent|
     |provider_3.createSession|true|
@@ -108,11 +108,11 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
     |provider_4.scope|openid profile email|
     |provider_4.interceptedPathFilter|/homepage/.\*,/moderation/.\*,/connections/rte/.\*,/connections/webeditors/.\*, /homepage/login/.\*|
     |provider_4.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\* ,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\* ,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver, /mobile/homepage/SecurityConfiguration,/connections/resources/web/.* ,/connections/resources/ic/.*,/connections/opensocial/rpc,/xcc/js/.* ,/xcc/templates/.* ,/files/static/.*,/blogs/static/.*,/wikis/static/.* ,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_4.authorizeEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_4.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_4.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_4.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_4.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_4.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_4.signVerifyAlias|cnxoidccert|
-    |provider_4.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}|
+    |provider_4.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_4.userIdentifier|email|
     |provider_4.useJwtFromRequest|ifPresent
     |provider_4.createSession|true|

@@ -51,7 +51,7 @@ Users visiting Connections for the first time, in general or since upgrading to 
 
 Check out the App Store for iOS or Google Play for Android for the latest information and release. Refer to [HCL Connections Mobile](https://help.hcltechsw.com/connectionsmobile/index.html) product documentation for additional information.
 
-**What's new for end users**
+**What's new for end users** 
 
 For more information about new end-user features and functions in HCL Connections 8.0 CR1, see [What's new in HCL Connections?](../../user/eucommon/r_eucommon_whats_new.md)
 
