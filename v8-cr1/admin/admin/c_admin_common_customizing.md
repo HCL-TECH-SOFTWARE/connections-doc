@@ -8,8 +8,6 @@ Configure HCL Connections to prevent email addresses from being displayed in the
 Allow email addresses to be displayed in HCL Connections.
 -   **[Enabling users to set a language preference](../admin/t_admin_common_enable_lang_change.md)**  
 By default, the HCL Connections user interface \(UI\) is displayed in the language that is identified in the locale settings of the web browser. You can set it up to allow users to explicitly select the language in which the product is displayed.
--   **[Changing application URLs](../admin/t_admin_common_change_context_root.md)**  
-Change the context root of URLs that point to HCL Connections applications.
 -   **[Adding Sametime awareness though the Sametime client](../admin/t_admin_common_add_st_awareness.md)**  
 If you have an Sametime® 8.5.2 client or later and the Profiles application deployed, you can enable Sametime® awareness in HCL Connections.
 -   **[Adding Sametime awareness through the Sametime server](../admin/t_admin_common_add_st_awareness_via_proxy.md)**  

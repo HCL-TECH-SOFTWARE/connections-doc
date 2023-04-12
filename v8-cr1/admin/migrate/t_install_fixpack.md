@@ -1,6 +1,6 @@
-# Updating Connnections 8.0 with the latest Cumulative Refresh {#t_install_fixpack .task}
+# Updating Connections 8.0 with the latest Cumulative Refresh 
 
-Update to the latest a Cumulative Refresh (CR) for HCL Connections 8.0.
+Update to the latest Cumulative Refresh (CR) for HCL Connections 8.0.
 
 ## Before you begin
 
@@ -66,9 +66,6 @@ If you are updating a newly installed or migrated deployment, you only need to u
 
 20. Start the Connections server
 
-## Results
-
-Your Connections deployment has been updated. To check the logs, go to the [connections\_root](../plan/i_ovr_r_directory_conventions.md)/logs directory and open the applicationUpdate.log file, where application is the name of an Connections application. If you added new applications, check the applicationInstall.log file as well.
 
 **Note:** If your deployment includes Component Pack, complete the steps in [Upgrading Component Pack Services](../install/cp_install_upgrade_container.md).
 

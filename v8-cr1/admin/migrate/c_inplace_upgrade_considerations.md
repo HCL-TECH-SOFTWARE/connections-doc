@@ -4,7 +4,7 @@ Both the in-place and hybrid approach use the Update function in IBM Installatio
 
 Alternatively, your deployment and needs might best align with a side-by-side upgrade. See [Considerations for a side-by-side upgrade](c_sbs_upgrade_considerations.md) to learn more.
 
-**Note:** If you are on a release prior to7.0 and planning an in-place or hybrid upgrade, refer to the Knowledge Article [**Road map for Upgrading Connections**](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0076286) for guidance on first upgrading to 7.0. .
+**Note:** If you are on a release prior to 7.0, use the side-by-side method to upgrade to Connections 8.0 CR1. In such cases, additional database schema updates would be required. Refer to [Side-by-side upgrades](c_sbs_upgrade_container.md) for more information.
 
 ## Planning an in-place upgrade {#section_gtv_3cm_qqb .section}
 

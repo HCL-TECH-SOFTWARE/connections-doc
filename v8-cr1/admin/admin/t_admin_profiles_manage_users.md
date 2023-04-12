@@ -32,62 +32,65 @@ When you set a user's status to inactive, that user's name is displayed in itali
 
 3.  Use the following commands to manage the user life cycle:
 
-    |Command|Description|
-    |-------|-----------|
-    |ProfilesService.inactivateUser\(String user\_email\_addr\)|Inactivates the user with the specified email address.After you run this command, the user is no longer active in the system. The email address is removed from all member tables and the status of the user changes from active \(0\) to inactive \(1\). All the user's login values are removed from the login tables and the login values associated with the user in the PROFILE\_LOGIN table are removed. An event is created in which Profiles propagates these changes to the member and login tables of all installed applications to make sure the user's information is updated consistently across the application databases. The status of inactive users can be reactivated at a later time using the ProfilesService.activateUserByUserId command.
-
-For example:
-
+    **ProfilesService.inactivateUser\(String user\_email\_addr\)**
+    
+    Inactivates the user with the specified email address.After you run this command, the user is no longer active in the system. The email address is removed from all member tables and the status of the user changes from active \(0\) to inactive \(1\). All the user's login values are removed from the login tables and the login values associated with the user in the PROFILE\_LOGIN table are removed. An event is created in which Profiles propagates these changes to the member and login tables of all installed applications to make sure the user's information is updated consistently across the application databases. The status of inactive users can be reactivated at a later time using the ProfilesService.activateUserByUserId command.
+    
+    For example:
+    
     ```
-ProfilesService.inactivateUser("john.smith@example.com")
-    ```
-
-|
-    |ProfilesService.inactivateUserByUserId\(String userID\)|Inactivates the user with the specified user ID. This command has the same behavior as the ProfilesService.inactivateUser command, except that it takes a user ID instead of an email address as an argument.After you run this command, the user is no longer active in the system. The email address is removed from all member tables and the status of the user changes from active \(0\) to inactive \(1\). All the user's login values are removed from the login tables and the login values associated with the user in the PROFILE\_LOGIN table are removed. An event is created in which Profiles propagates these changes to the member and login tables of all installed applications to make sure the user's information is updated consistently across the application databases. The status of inactive users can be reactivated at a later time using the ProfilesService.activateUserByUserId command.
-
-**Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
-
-For example:
-
-    ```
-ProfilesService.inactivateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4")
+    ProfilesService.inactivateUser("john.smith@example.com")
     ```
 
-|
-    |ProfilesService.activateUserByUserId\(String user\_external\_id, updated\_properties\_list\)|Activates the user with the specified external ID with new properties, which are passed as parameters using updated\_properties\_list. The default status of any user in IBM Connections is active.The user\_external\_id parameter is the unique ID defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the Profiles database.
+    **ProfilesService.inactivateUserByUserId\(String userID\)**
+    
+    Inactivates the user with the specified user ID. This command has the same behavior as the ProfilesService.inactivateUser command, except that it takes a user ID instead of an email address as an argument.After you run this command, the user is no longer active in the system. The email address is removed from all member tables and the status of the user changes from active \(0\) to inactive \(1\). All the user's login values are removed from the login tables and the login values associated with the user in the PROFILE\_LOGIN table are removed. An event is created in which Profiles propagates these changes to the member and login tables of all installed applications to make sure the user's information is updated consistently across the application databases. The status of inactive users can be reactivated at a later time using the ProfilesService.activateUserByUserId command.
+    
+    **Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
+    
+    For example:
+    
+    ```
+    ProfilesService.inactivateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4")
+    ```
 
-The valid properties for updated\_properties\_list are:
-
+    **ProfilesService.activateUserByUserId\(String user\_external\_id, updated\_properties\_list\)**
+    
+    Activates the user with the specified external ID with new properties, which are passed as parameters using updated\_properties\_list. The default status of any user in IBM Connections is active.The user\_external\_id parameter is the unique ID defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the Profiles database.
+    
+    The valid properties for updated\_properties\_list are: 
+    
     -   uid
     -   email
     -   loginId. The value stored in the PROF\_LOGIN field in the EMPLOYEE table.
     -   logins. The list of logins stored in the PROFILE\_LOGIN table.
     -   displayName
     -   directoryId \(guid\). The value stored in the PROF\_GUID field in the EMPLOYEE table.
-You should specify at least one of the properties that will allow the user to log in, and it must be specified using a name-value pair.
-
-The status change and all property updates are propagated to all the installed IBM Connections applications.
-
-Examples:
-
+    
+    You should specify at least one of the properties that will allow the user to log in, and it must be specified using a name-value pair.
+    
+    The status change and all property updates are propagated to all the installed IBM Connections applications.
+    
+    Examples:
+    
     ```
-ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
-   email="jsmith@example.com", loginId="jsmith")
+    ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
+    email="jsmith@example.com", loginId="jsmith")
+    ``` 
+    
+    ```ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
+    email="ajretired1@example.com", logins=["alanjones1","ajonesRetired1"])
     ```
-
+    
     ```
-ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
-   email="ajretired1@example.com", logins=["alanjones1","ajonesRetired1"])
+    ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
+    email="speters_Retired1@example.com")
     ```
-
-    ```
-ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
-   email="speters_Retired1@example.com")
-    ```
-
-|
-    |ProfilesService.updateUser\(String user\_email\_addr, updated\_properties\_list\)|Replaces the existing properties for the user with the specified email address with new properties, which are passed as parameters using updated\_properties\_list.The valid properties for updated\_properties\_list are:
-
+    
+    **ProfilesService.updateUser\(String user\_email\_addr, updated\_properties\_list\)**
+    
+    Replaces the existing properties for the user with the specified email address with new properties, which are passed as parameters using updated\_properties\_list. The valid properties for updated\_properties\_list are:
+    
     -   uid
     -   email
     -   displayName
@@ -95,87 +98,97 @@ ProfilesService.activateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4",
     -   loginId. The value stored in the PROF\_LOGIN field in the EMPLOYEE table.
     -   logins. The list of logins stored in the PROFILE\_LOGIN table. The list must be passed using the format: `["login1", "login2"]`
     -   uid
-The properties are all optional and they must be specified using name-value pairs. The updated values are pushed out to all the applications in IBM Connections using a platform command.
-
-For example, the following command updates the email address and the login for the user john.smith@example.com.
-
+    
+    The properties are all optional and they must be specified using name-value pairs. The updated values are pushed out to all the applications in IBM Connections using a platform command.
+    
+    For example, the following command updates the email address and the login for the user john.smith@example.com.
+    
     ```
-ProfilesService.updateUser("john.smith@example.com", 
-   email="update_email@example.com", loginId="updated_login")
-    ```
-
-The following command replaces the existing list of logins with the new one, \("login1", "login2"\).
-
-    ```
-ProfilesService.updateUser("john.smith@example.com", 
-   logins=["login1, "login2"])
-    ```
-
-|
-    |ProfilesService.updateUserByUserId\(String userID, updated\_properties\_list\)|Replaces the existing properties for the user with the specified user ID with new properties, which are passed as parameters using updated\_properties\_list. This command has the same behavior as the ProfilesService.updateUser command, but it takes a user ID instead of an email address as an argument.The valid properties for updated\_properties\_list are:
-
-    -   uid
-    -   email
-    -   displayName
-    -   directoryId \(guid\). The value stored in the PROF\_GUID field in the EMPLOYEE table.
-    -   loginId. The value stored in the PROF\_LOGIN field in the EMPLOYEE table.
-    -   logins. The list of logins stored in the PROFILE\_LOGIN table. The list must be passed using the format: `["login1", "login2"]`
-    -   uid
-The properties are all optional and they must be specified using name-value pairs. The updated values are pushed out to all the applications in IBM Connections using a platform command.
-
-**Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
-
-For example:
-
-    ```
-ProfilesService.updateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
+    ProfilesService.updateUser("john.smith@example.com", 
     email="update_email@example.com", loginId="updated_login")
     ```
+    
+    The following command replaces the existing list of logins with the new one, \("login1", "login2"\).
+    
+    ```
+    ProfilesService.updateUser("john.smith@example.com", 
+    logins=["login1, "login2"])
+    ```
+    
+    **ProfilesService.updateUserByUserId\(String userID, updated\_properties\_list\)**
+    
+    Replaces the existing properties for the user with the specified user ID with new properties, which are passed as parameters using updated\_properties\_list. This command has the same behavior as the ProfilesService.updateUser command, but it takes a user ID instead of an email address as an argument.The valid properties for updated\_properties\_list are:
 
-|
-    |ProfilesService.swapUserAccessByUserId\(String userToActivate, String userToInactivate\)|Associates the following properties of the external ID assigned to the person returning to the organization with the external ID used by the person before leaving the organization:    -   email
+    -   uid
+    -   email
+    -   displayName
+    -   directoryId \(guid\). The value stored in the PROF\_GUID field in the EMPLOYEE table.
+    -   loginId. The value stored in the PROF\_LOGIN field in the EMPLOYEE table.
+    -   logins. The list of logins stored in the PROFILE\_LOGIN table. The list must be passed using the format: `["login1", "login2"]`
+    -   uid
+
+    The properties are all optional and they must be specified using name-value pairs. The updated values are pushed out to all the applications in IBM Connections using a platform command.
+    
+    **Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
+    
+    For example: 
+    
+    ```
+    ProfilesService.updateUserByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4", 
+    email="update_email@example.com", loginId="updated_login")
+    ```
+    
+    **ProfilesService.swapUserAccessByUserId\(String userToActivate, String userToInactivate\)**
+    
+    Associates the following properties of the external ID assigned to the person returning to the organization with the external ID used by the person before leaving the organization:    
+    
+    -   email
     -   uid. The value stored in the PROF\_UID field in the EMPLOYEE table.
     -   guid. The value stored in the PROF\_GUID field in the EMPLOYEE table.
     -   loginId. The value stored in the PROF\_LOGIN field in the EMPLOYEE table.
     -   logins. The list of logins stored in the PROFILE\_LOGIN table. The list must be passed using the format: `["login1", "login2"]`
-The displayName property is not changed; it is assumed to be the same. Users can have access to the data associated with one or the other ID only. When you swap IDs to give a person access to the data associated with an old ID, he loses access to any data he created using the new ID. Run this command soon after the user returns to the organization to limit the amount of new data he can create and subsequently lose access to as a result of the swap.
 
-The following parameters are required.
+    The displayName property is not changed; it is assumed to be the same. Users can have access to the data associated with one or the other ID only. When you swap IDs to give a person access to the data associated with an old ID, he loses access to any data he created using the new ID. Run this command soon after the user returns to the organization to limit the amount of new data he can create and subsequently lose access to as a result of the swap.
 
-Parameters:
+    The following parameters are required.
 
-userToActivate
-    :   Current user ID of the person before leaving the organization and had his user state set to inactivate. Data that was created by this person and that is associated with this ID exists in the HCL Connections™ databases and you want the person to be able to regain access to it.
+    Parameters:
 
-userToInactivate
-    :   New user ID that was assigned to the person upon his return to the organization.
+    **userToActivate**
+        
+    Current user ID of the person before leaving the organization and had his user state set to inactivate. Data that was created by this person and that is associated with this ID exists in the HCL Connections™ databases and you want the person to be able to regain access to it.
 
-Example: `ProfilesService.swapUserAccessByUserId("DRcuidk001rehired13","DRcuidk001retired25")`
+    **userToInactivate**
+    New user ID that was assigned to the person upon his return to the organization.
 
-These changes are propagated across all the installed applications in IBM Connections.|
-    |ProfilesService.publishUserData\(String user\_email\_addr\)|Publishes an update command to all the IBM Connections applications for the user with the specified email address.The command publishes the data that is currently stored for the user in the Profiles database \(email, displayName, logins, directoryId\). If one of the applications misses an update event for some reason and the incorrect email address or name is displaying for a user, for example, you can use this command to force all the applications to resynchronize their data.
+    Example: `ProfilesService.swapUserAccessByUserId("DRcuidk001rehired13","DRcuidk001retired25")`
 
-For example:
+    These changes are propagated across all the installed applications in IBM Connections.|
+    
+    **ProfilesService.publishUserData\(String user\_email\_addr\)**
+    
+    Publishes an update command to all the IBM Connections applications for the user with the specified email address.The command publishes the data that is currently stored for the user in the Profiles database \(email, displayName, logins, directoryId\). If one of the applications misses an update event for some reason and the incorrect email address or name is displaying for a user, for example, you can use this command to force all the applications to resynchronize their data.
 
-    ```
-ProfilesService.publishUserData("john.smith@example.com")
-    ```
-
-|
-    |ProfilesService.publishUserDataByUserId\(String userID\)|Publishes an update command to all the IBM Connections applications for the user with the specified user ID. This command has the same behavior as the ProfilesService.publishUserData command, except that it takes a user ID instead of an email address as an argument.The command publishes the data that is currently stored for the user in the Profiles database \(email, displayName, logins, directoryId\). If one of the applications misses an update event for some reason and the incorrect email address or name is displaying for a user, for example, you can use this command to force all the applications to resynchronize their data.
-
-**Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
-
-For example:
+    For example:
 
     ```
-ProfilesService.publishUserDataByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4")
+    ProfilesService.publishUserData("john.smith@example.com")
     ```
 
-|
+    **ProfilesService.publishUserDataByUserId\(String userID\)**
+    
+    Publishes an update command to all the IBM Connections applications for the user with the specified user ID. This command has the same behavior as the ProfilesService.publishUserData command, except that it takes a user ID instead of an email address as an argument.The command publishes the data that is currently stored for the user in the Profiles database \(email, displayName, logins, directoryId\). If one of the applications misses an update event for some reason and the incorrect email address or name is displaying for a user, for example, you can use this command to force all the applications to resynchronize their data.
+
+    **Note:** The userID parameter is defined in the profiles-config.xml file by the lconnUserIdField tag. The default value is guid, which is stored in Prof\_guid in the profiles database. The values for Prof\_guid must match the values for UserID.
+
+    For example:
+
+    ```
+    ProfilesService.publishUserDataByUserId("ec8a89c0-f41d-102c-9b60-f225bc6c4af4")
+    ```
 
 
-**Parent topic:**[Managing users when the Profiles application is installed](../admin/c_admin_common_user_life_cycle_with_profiles.md)
+**Parent topic:** [Managing users when the Profiles application is installed](../admin/c_admin_common_user_life_cycle_with_profiles.md)
 
 **Related information**  
 

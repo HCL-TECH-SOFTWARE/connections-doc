@@ -6,27 +6,31 @@ Administrators can register gadgets for the Home page, and register widgets for 
 
 You must be logged in as an administrator to register a new gadget or widget. Connections provides two mechanisms for registration:
 
-Administration view
-:   The Administration view provides a form-based mechanism for registering gadgets and widgets. To use this method, you must have the Home page application installed. For information, see [Configuring Home page widgets](t_admin_homepage_add_widgets.md).
+**Administration view**
 
-NewsWidgetCatalogService commands
-:   The NewsWidgetCatalogService command allows you to register a gadget or widget from a command window. This method does not require you to install the Home page application. For more information, continue reading this topic.
+The Administration view provides a form-based mechanism for registering gadgets and widgets. To use this method, you must have the Home page application installed. For information, see [Configuring Home page widgets](t_admin_homepage_add_widgets.md).
+
+**NewsWidgetCatalogService commands**
+
+The NewsWidgetCatalogService command allows you to register a gadget or widget from a command window. This method does not require you to install the Home page application. For more information, continue reading this topic.
 
 ## Flag constants used for widget policy settings { .section}
 
-GadgetFlags
-:   TRUSTED use to indicate that a gadget is 'trusted' and should be granted access to the non-base gadget features.
+**GadgetFlags**
 
-:   SSO indicates that a particular gadget is granted access to the SSO feature.
+TRUSTED use to indicate that a gadget is 'trusted' and should be granted access to the non-base gadget features.
 
-WidgetContexts
-:   UPDATE indicates that this widget is applicable to the updates page of the Homepage.
+SSO indicates that a particular gadget is granted access to the SSO feature.
 
-:   WIDGET indicates that this widget is applicable to the widgets page of the Homepage.
+**WidgetContexts**
 
-:   SHAREDIALOG indicates that this gadget is applicable to the share dialog.
+UPDATE indicates that this widget is applicable to the updates page of the Homepage.
 
-:   EMBEDXP indicates that this gadget is provides an embedded experience.
+WIDGET indicates that this widget is applicable to the widgets page of the Homepage.
+
+SHAREDIALOG indicates that this gadget is applicable to the share dialog.
+
+EMBEDXP indicates that this gadget is provides an embedded experience.
 
 ## Settings available for widgets { .section}
 
@@ -56,162 +60,177 @@ Before using any NewsWidgetCatalogService commands, be sure to run `newsAdmin.py
 
 ## Constants for enablement { .section}
 
-Enablement
-:   ALL returns both enabled and disabled widgets
+**Enablement**
 
-:   ENABLED returns only enabled widgets
+ALL returns both enabled and disabled widgets
 
-:   DISABLED returns only disabled widgets
+ENABLED returns only enabled widgets
+
+DISABLED returns only disabled widgets
 
 ## Constants for True and False { .section}
 
-Constant for True
-:   TRUE=1
+**Constant for True**
 
-Constant for False
-:   FALSE=0
+TRUE=1
+
+**Constant for False**
+
+FALSE=0
 
 ## Unbounded page size constant { .section}
 
-PAGE\_SIZE\_UNBOUNDED = -1
+**PAGE\_SIZE\_UNBOUNDED = -1**
 :   ## Constants for ProxyPolicy {#ConstantsForProxyPolicy .section}
 
-ProxyPolicy
-:   INTRANET\_ACCESS All server access.
+## Constants for ProxyPolicy { .section}
 
-:   EXTERNAL\_ONLY Only servers outside of the SSO domain.
+**ProxyPolicy**
 
-:   `CUSTOM` No access. Access will be defined by the proxy-policy.dynamic file.
+INTRANET\_ACCESS All server access.
 
-:   For more information about the proxy-policy.dynamic file, refer to [Configuring per-host proxy access rules for OpenSocial gadgets](t_admin_common_cre11_conn_security_proxy.md).
+EXTERNAL\_ONLY Only servers outside of the SSO domain.
+
+`CUSTOM` No access. Access will be defined by the proxy-policy.dynamic file.
+
+For more information about the proxy-policy.dynamic file, refer to [Configuring per-host proxy access rules for OpenSocial gadgets](t_admin_common_cre11_conn_security_proxy.md).
 
 ## NewsWidgetCatalogService { .section}
 
-NewsWidgetCatalogService.browseWidgets\(enablement = Enablement.ALL, pageSize = PAGE\_SIZE\_UNBOUNDED, pageNumber = 1\)
-:   Browse the widgets in the widget catalog.
+**NewsWidgetCatalogService.browseWidgets\(enablement = Enablement.ALL, pageSize = PAGE\_SIZE\_UNBOUNDED, pageNumber = 1\)**
 
-:   Uses the parameter for enablement \(Refer to Enablement\).
+Browse the widgets in the widget catalog.
 
-:   Uses the parameter for pageSize.
+Uses the parameter for enablement \(Refer to Enablement\).
 
-:   Uses the parameter for pageNumber.
+Uses the parameter for pageSize.
 
-:   Returns a list of Widget objects.
+Uses the parameter for pageNumber.
 
-:   ```
+Returns a list of Widget objects.
+
+```
 wsadmin>NewsWidgetCatalogService.browseWidgets(Enablement.ALL, 1, 1)
 ```
+**NewsWidgetCatalogService.clearWidgetCaches\(\)**
 
-NewsWidgetCatalogService.clearWidgetCaches\(\)
-:   Clears cached widget.xml files from your server without needing to restart your system. If a gadget or iWidget.xml has been updated and you want to force it to be reread by the system, simply call this command.
+Clears cached widget.xml files from your server without needing to restart your system. If a gadget or iWidget.xml has been updated and you want to force it to be reread by the system, simply call this command.
 
-NewsWidgetCatalogService.countWidgets\(enablement = Enablement.ALL\)
-:   Count the widgets in the widget catalog.
+**NewsWidgetCatalogService.countWidgets\(enablement = Enablement.ALL\)**
 
-:   \* Uses the parameter for enablement \(Refer to Enablement\).
+Count the widgets in the widget catalog.
 
-:   \* Returns a count of the number of widgets in the catalog.
+* Uses the parameter for enablement \(Refer to Enablement\).
 
-NewsWidgetCatalogService.findWidgetById\(WidgetId\)
-:   Find a widget by id.
+* Returns a count of the number of widgets in the catalog.
 
-:   Uses the parameter for widgetId.
+**NewsWidgetCatalogService.findWidgetById\(WidgetId\)**
 
-:   Returns the matching widget or null if no matching widget is found.
+Find a widget by id.
 
-:   For example:
+Uses the parameter for widgetId.
 
-    ```
-    wsadmin>NewsWidgetCatalogService.findWidgetById("405a4f26-fa08-4cef-a995-7d90fbe2634f")
-    
-    ```
+Returns the matching widget or null if no matching widget is found.
 
-NewsWidgetCatalogService.findWidgetByUrl\(widgetUrl\)
-:   Find a widget by Url.
+For example:
 
-:   Uses the parameter for url.
+```
+wsadmin>NewsWidgetCatalogService.findWidgetById("405a4f26-fa08-4cef-a995-7d90fbe2634f")
 
-:   Returns the matching widget or null if no matching widget is found.
+```
 
-NewsWidgetCatalogService.listShareGadgets\(enablement = Enablement.ALL\)
-:   List out the share gadgets. By design, paging is not supported.
+**NewsWidgetCatalogService.findWidgetByUrl\(widgetUrl\)**
 
-:   Uses the parameter for enablement \(Refer to Enablement\).
+Find a widget by Url.
 
-:   Returns the share gadgets.
+Uses the parameter for url.
 
-:   For example:
+Returns the matching widget or null if no matching widget is found.
 
-    ```
-    wsadmin>NewsWidgetCatalogService.listShareGadgets(Enablement.ALL)
-    ```
+**NewsWidgetCatalogService.listShareGadgets\(enablement = Enablement.ALL\)**
 
-NewsWidgetCatalogService.updateWidgetShareOrder\(widgetId, orderAfterWidgetId\)
-:   Place the widget marked in a widgetId after a second widget in widget ordering.
+List out the share gadgets. By design, paging is not supported.
 
-:   widgetId The id of the widget you wish to move.
+Uses the parameter for enablement \(Refer to Enablement\).
 
-:   orderAfterWidgetId The id of the widget you want to place the gadget after. If this is null, the widget will be placed first in the ordering.
+Returns the share gadgets.
 
-NewsWidgetCatalogService.addWidget\(\*\*widget\)
-:   Add a widget to the widget catalog.
+For example:
 
-:   \*\* widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
+```
+wsadmin>NewsWidgetCatalogService.listShareGadgets(Enablement.ALL)
+```
 
-:   Returns the ID of the newly created widget.
+**NewsWidgetCatalogService.updateWidgetShareOrder\(widgetId, orderAfterWidgetId\)**
 
-:   The following example creates a sample EE gadget that has 'trusted' access policies. This gadget depends on the Profiles component.
+Place the widget marked in a widgetId after a second widget in widget ordering.
 
-    ```
-    
-    NewsWidgetCatalogService.addWidget(title="Sample gadget title", text="Sample gadget description.", url="http://www.to.my.gadget.com/gadget.xml", categoryName='sample' isGadget=TRUE,appContexts=[WidgetContexts.EMBEDXP], policyFlags=[GadgetPolicyFlags.TRUSTED], prereqs=["profiles"])
-    
-    ```
+widgetId: The id of the widget you wish to move.
 
-NewsWidgetCatalogService.updateWidget\(widgetId, \*\*widget\)
-:   Update an existing widget in the widget catalog.
+orderAfterWidgetId: The id of the widget you want to place the gadget after. If this is null, the widget will be placed first in the ordering.
 
-:   Uses the parameter for widgetId.
+**NewsWidgetCatalogService.addWidget\(\*\*widget\)**
 
-:   \*\* widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
+Add a widget to the widget catalog.
 
-:   ```
+** widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
+
+Returns the ID of the newly created widget.
+
+The following example creates a sample EE gadget that has 'trusted' access policies. This gadget depends on the Profiles component.
+
+```
+NewsWidgetCatalogService.addWidget(title="Sample gadget title", text="Sample gadget description.", url="http://www.to.my.gadget.com/gadget.xml", categoryName='sample' isGadget=TRUE,appContexts=[WidgetContexts.EMBEDXP], policyFlags=[GadgetPolicyFlags.TRUSTED], prereqs=["profiles"])
+```
+**NewsWidgetCatalogService.updateWidget\(widgetId, \*\*widget\)**
+
+Update an existing widget in the widget catalog.
+
+Uses the parameter for widgetId.
+
+** widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
+
+```
 wsadmin>NewsWidgetCatalogService.updateWidget("1bf9ad75-a634-4301-88c6-ce493eb03cc9", title="test", text="test")
 ```
 
-NewsWidgetCatalogService.removeWidget\(widgetId\)
-:   Remove a widget matching the widgetId entered.
+**NewsWidgetCatalogService.removeWidget\(widgetId\)**
 
-:   For example:
+Remove a widget matching the widgetId entered.
 
-    ```
-    wsadmin>NewsWidgetCatalogService.removeWidget("405a4f26-fa08-4cef-a995-7d90fbe2634f") 
-    ```
+For example:
 
-NewsWidgetCatalogService.enableWidget\(widgetId\)
-:   Returns the following output:
+```
+wsadmin>NewsWidgetCatalogService.removeWidget("405a4f26-fa08-4cef-a995-7d90fbe2634f") 
+```
 
-    ```
-    CLFRQXXXXI: Widget {0} is now enabled.
-    ```
+**NewsWidgetCatalogService.enableWidget\(widgetId\)**
 
-NewsWidgetCatalogService.disableWidget\(widgetId\)
-:   Returns the following output:
+Returns the following output:
 
-    ```
-    CLFRQXXXXI: Widget {0} is now disabled.
-    ```
+```
+CLFRQXXXXI: Widget {0} is now enabled.
+```
 
-NewsWidgetCatalogService.ProxyPolicy
-:   Specify the server proxy policy.
+**NewsWidgetCatalogService.disableWidget\(widgetId\)**
 
-:   INTRANET\_ACCESS May access intranet sites.
+Returns the following output:
 
-:   EXTERNAL\_ONLY May access external \(non-intranet\) sites only.
+```
+CLFRQXXXXI: Widget {0} is now disabled.
+```
 
-:   CUSTOM Uses rules in the rule manager configuration.
+**NewsWidgetCatalogService.ProxyPolicy**
 
-**Parent topic:**[Administering the Widget container](../admin/t_admin_common_widget_container.md)
+Specify the server proxy policy.
+
+INTRANET\_ACCESS May access intranet sites.
+
+EXTERNAL\_ONLY May access external \(non-intranet\) sites only.
+
+CUSTOM Uses rules in the rule manager configuration.
+
+**Parent topic:** [Administering the Widget container](../admin/t_admin_common_widget_container.md)
 
 **Related information**  
 

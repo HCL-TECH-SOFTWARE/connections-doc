@@ -4,14 +4,10 @@ System Requirements for HCL Connections Add-in for Microsoft Outlook.
 
 The HCL Connections Add-in for Microsoft Outlook standalone docker image supports the following Outlook rich clients:
 
-**Note:** Alternatively, the Outlook Add-in is available in Component Pack for HCL Connections 7.0.
+**Note:** Alternatively, the Outlook Add-in is available in Component Pack for HCL Connections 8.0.
 
 |**Client**|**Supported versions**|
-|Microsoft Outlook for Windows|Component pack: Outlook 2016 or later
-
- Standalone docker: Outlook 2013 or later
-
-|
+|Microsoft Outlook for Windows|Component pack: Outlook 2016 or later <br></br> Standalone docker: Outlook 2013 or later|
 |Microsoft Outlook for Mac|Outlook 2016 or later|
 
 The HCL Connections Add-in for Microsoft Outlook supports the Outlook browser client on the following web browsers. Current versions are preferred.
@@ -25,10 +21,10 @@ The HCL Connections Add-in for Microsoft Outlook supports the Outlook browser cl
 
 The HCL Connections Add-in for Microsoft Outlook supports the following Connections server versions:
 
--   HCL Connections 5.5
 -   HCL Connections 6.0
 -   HCL Connections 6.5
 -   HCL Connections 7.0
+-   HCL Connections 8.0
 
 The HCL Connections Add-in for Microsoft Outlook requires the following version of Microsoft Exchange or later:
 
@@ -40,5 +36,5 @@ Deployment Notes
 -   OAuth is the only supported authentication type.
 -   End user problem determination logs may be collected from within the Connections Add-in for Outlook UI on the Support panel.
 
-**Parent topic:**[HCL Connections Add-in for Microsoft® Outlook](../../connectors/admin/c_outlook_connector.md)
+**Parent topic:** [HCL Connections Add-in for Microsoft® Outlook](../../connectors/admin/c_outlook_connector.md)
 
