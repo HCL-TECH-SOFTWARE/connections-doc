@@ -6,6 +6,8 @@ If you already configured Orient Me, then this task is not needed for Customizer
 
 If you have not configured Orient Me, then complete this task to ensure that the HTTP server redirects users to the App Registry when they log in to Connections.
 
+Using the sample deployment described in [Steps to install or upgrade to Component Pack](cp_install_services_tasks.md#section_awd_rwp_tnb), the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).
+
 1.  Log in to the HTTP server as the root user \(AIX®, Linux®\) or the administrator \(Windows™\).
 
 2.  Backup the current httpd.conf.
@@ -17,6 +19,7 @@ If you have not configured Orient Me, then complete this task to ensure that the
     -   AIX: /opt2/IBM/HTTPServer/
     -   Linux: /opt/IBM/HTTPServer/conf/
     -   Windows: D:\\IBM\\HTTPServer\\conf\\
+    
 4.  In the file, verify that the following modules are listed and that the lines are not commented out:
 
     ```
@@ -36,19 +39,17 @@ If you have not configured Orient Me, then complete this task to ensure that the
 
     ```
     ProxyPreserveHost On
-    ProxyPass "/social" "http://master\_node\_host\_name:32080/social" 
-    ProxyPassReverse "/social" "http://master\_node\_host\_name:32080/social" 
-    ProxyPass "/itm" "http://master\_node\_host\_name:32080/itm" 
-    ProxyPassReverse "/itm" "http://master\_node\_host\_name:32080/itm"
-    ProxyPass "/community_suggestions/api/recommend/communities" "http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities"
-    ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities"
-    ProxyPass "/appreg" "http://master\_node\_host\_name:32080/appreg/"
-    ProxyPassReverse "/appreg" "http://master\_node\_host\_name:32080/appreg/"
-    ProxyPass "/appregistry" "http://master\_node\_host\_name:32080/appregistry" 
-    ProxyPassReverse "/appregistry" "http://master\_node\_host\_name:32080/appregistry"
+    ProxyPass "/social" "http://cpmaster.internal.example.com:32080/social" 
+    ProxyPassReverse "/social" "http://cpmaster.internal.example.com:32080/social" 
+    ProxyPass "/itm" "http://cpmaster.internal.example.com:32080/itm" 
+    ProxyPassReverse "/itm" "http://cpmaster.internal.example.com:32080/itm"
+    ProxyPass "/community_suggestions/api/recommend/communities" "http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities"
+    ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities"
+    ProxyPass "/appreg" "http://cpmaster.internal.example.com:32080/appreg/"
+    ProxyPassReverse "/appreg" "http://cpmaster.internal.example.com:32080/appreg/"
+    ProxyPass "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry" 
+    ProxyPassReverse "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry"
     ```
-
-    For high availability deployments, replace `master\_node\_host\_name` with the load balancer DNS of the HA cluster \(Must be FQHN\).
 
     **Note:** 32080 is the port of the Ingress Controller, so make sure that is deployed and running before making these changes. Take note of the new appreg URL when using Ingress.
 
@@ -56,10 +57,10 @@ If you have not configured Orient Me, then complete this task to ensure that the
 
     ```
          ProxyPreserveHost On
-         ProxyPass /appreg http://master_node_host_name:32080/appreg/
-         ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-         ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-         ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+         ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+         ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+         ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+         ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
     
     LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
     <IfModule mod_ibm_ssl.c>
@@ -67,10 +68,10 @@ If you have not configured Orient Me, then complete this task to ensure that the
     <VirtualHost *:443>
          ServerName HTTPServerHostname.com
          ProxyPreserveHost On
-         ProxyPass /appreg http://master_node_host_name:32080/appreg/
-         ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-         ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-         ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+         ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+         ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+         ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+         ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
     
          #DocumentRoot /opt/IBM/HTTPServer/htdocs
          SSLEnable
@@ -89,8 +90,8 @@ If you have not configured Orient Me, then complete this task to ensure that the
 
 8.  To verify the proxy, complete the following steps.
 
-    -   Open a browser to http://httpserver.domain.com/appreg.
-    -   Log into Connections. The appreg homepage displays, where you can add new apps.
+    -   Open a browser to https://nginx.example.com/appreg.
+    -   Log in to Connections. The appreg homepage displays, where you can add new apps.
 
-**Parent topic:**[Configuring the Customizer component](../install/cp_config_customizer_intro.md)
+**Parent topic:** [Configuring the Customizer component](../install/cp_config_customizer_intro.md)
 

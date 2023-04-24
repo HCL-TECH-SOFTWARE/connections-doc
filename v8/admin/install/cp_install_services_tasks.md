@@ -19,14 +19,14 @@ Before starting the steps, note the following:
 
 -   Access to the [Harbor repository](https://hclcr.io/harbor/projects/15/repositories).
 
-**Let's make a few assumptions about the environment:** We are installing an environment which will be available behind web1.cnx-dev.net. However, this is just a public domain.
+**Let's make a few assumptions about the environment:** We are installing an environment which will be available behind nginx.example.com. However, this is just a public domain.
 
 All the nodes are available using their FQDNs and are in a different domain:
 
--   Connections, with WebSphere and IHS is on connections1.internal.cnx-dev.net
--   DB2 is on db1.internal.cnx-dev.net
--   Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net
--   NFS master is collocated with cp1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/
+-   Connections, with WebSphere and IHS is on connections.internal.example.com
+-   DB2 is on db1.internal.example.com
+-   Kubernetes cluster is just a single node, and it is on cpmaster.internal.example.com
+-   NFS master is collocated with connections.internal.example.com and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/
 
 **Network configuration**
 
@@ -56,7 +56,7 @@ This document uses the preceding assumptions to walk you through the below steps
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
-We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections1.internal.cnx-dev.net, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
+We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
 
 Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.
 
@@ -70,7 +70,7 @@ These guidelines and sample files describe how to set up all of the persistent v
 
 1.  Perform these steps on NFS master:
 
-    1.  Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700
+    1.  Create /pv-connections folder on connections.internal.example.com with permissions 0700
 
     2.  Inside that folder, create this set of subfolders:
         -   /pv-connections/customizations with permissions 0005
@@ -289,7 +289,7 @@ Register the snapshot repository in Elasticsearch 7:
     mkdir -p /pv-connections/opensearchbackup
     ```
 
-    Connections 8 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: Without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
+    Connections 8.0 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: Without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
 
 3.  Similarly with MongoDB 5, you need PVs for all the replicas of mongo5 pod. So, create additional MongoDB volumes on the NFS master node:
 
@@ -357,7 +357,7 @@ Register the snapshot repository in Elasticsearch 7:
 
 ## Set up Helm charts {#setup_helm .section}
 
-Install or upgrade to the Connections 8 Kubernetes by deploying the Helm charts delivered with Component Pack 8.
+Install or upgrade to the Connections 8.0 Kubernetes by deploying the Helm charts delivered with Component Pack 8.
 
 The [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) includes a set of templates to override the default values to values that are appropriate to your environment. The resulting files are the ones used by the following Helm upgrade commands using the -f option.
 
@@ -640,7 +640,7 @@ Perform the steps in [Migrating data from Elasticsearch 7 to OpenSearch](cp_migr
 
 ## Set up Orient Me for OpenSearch {#orientme_os .section}
 
-With Connections 8, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.
+Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.
 
 **Prerequisites**
 
@@ -709,7 +709,7 @@ Learn more about configuring Orient Me in [Configuring the Orient Me component](
 
 **Before you begin**
 
-Component Pack for HCL Connections 8 comes with OpenSearch enabled by default – this is the only backend for Metrics in Connections 8. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8.
+Component Pack for HCL Connections 8.0 comes with OpenSearch enabled by default – this is the only backend for Metrics in Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8.
 
 If you are on HCL Connections 6.5.0.1 or earlier, and using ElasticSearch 5, there are two options:
 

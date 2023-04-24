@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35150,18 +35150,19 @@
 
 
 <h1 class="concept" id="proxy_rules">Configuring the HTTP server</h1>
-<p>Set up proxy rules for Customizer, Orient Me, Microsoft Teams integration, Tailored Experience for Communities, Activities Plus, and the Microsoft Outlook add-in for Connections 8.</p>
+<p>Set up proxy rules for Customizer, Orient Me, Microsoft Teams integration, Tailored Experience for Communities, Activities Plus, and the Microsoft Outlook add-in for Connections 8.0.</p>
+<p>Using the sample deployment described in <a href="cp_install_services_tasks.html#section_awd_rwp_tnb">Steps to install or upgrade to Component Pack</a>, the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).</p>
 <h2 class="section" id="section_ahf_j45_hvb">Infrastructure</h2>
 <p>Add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_jzt_5wk_gvb" class="highlight"><pre><span></span><code># jsonapi
-ProxyPass &quot;/jsonapi&quot; &quot;http://master_node_host_name:32080/jsonapi&quot;
-ProxyPassReverse &quot;/jsonapi&quot; &quot;http://master_node_host_name:32080/jsonapi&quot;
+ProxyPass &quot;/jsonapi&quot; &quot;http://cpmaster.internal.example.com:32080/jsonapi&quot;
+ProxyPassReverse &quot;/jsonapi&quot; &quot;http://cpmaster.internal.example.com:32080/jsonapi&quot;
 </code></pre></div>
 <h2 class="section" id="section_w2v_j3j_gvb">Nginx</h2>
 <p>After setting up Customizer (see <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a>), set up your reverse proxy to forward some traffic to the customizer by sending it to KUBERNETES:30301. For Nginx, it would look like this:</p>
 <div id="codeblock_bbd_l3j_gvb" class="highlight"><pre><span></span><code>location ~      ^/(files/customizer|files/app|communities/service/html|forums/html|search/web|homepage/web|social/home|mycontacts|wikis/home|blogs|news|activities/service/html|profiles/html|viewer)  { 
 
-            proxy_pass http://cp1.internal.cnx-dev.net:30301; 
+            proxy_pass http://cpmaster.internal.example.com:30301; 
 
 }
 </code></pre></div>
@@ -35170,28 +35171,28 @@ ProxyPassReverse &quot;/jsonapi&quot; &quot;http://master_node_host_name:32080/j
 <p>Add the rewrites to your httpd.conf on the IBM HTTP Server, and then restart the service:</p>
 <div id="codeblock_nvr_p3j_gvb" class="highlight"><pre><span></span><code># OrientMe Config 
 ProxyPreserveHost On 
-ProxyPass &quot;/social&quot; &quot;http://cp1.internal.cnx-dev.net:32080/social&quot; 
-ProxyPassReverse &quot;/social&quot; &quot;http://cp1.internal.cnx-dev.net:32080/social&quot; 
-ProxyPass &quot;/itm&quot; &quot;http://cp1.internal.cnx-dev.net:32080/itm&quot; 
-ProxyPassReverse &quot;/itm&quot; &quot;http://cp1.internal.cnx-dev.net:32080/itm&quot; 
-ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cp1.internal.cnx-dev.net:32080/community_suggestions/api/recommend/communities&quot; 
-ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cp1.internal.cnx-dev.net:32080/community_suggestions/api/recommend/communities&quot; 
-ProxyPass &quot;/appreg&quot; &quot;http://cp1.internal.cnx-dev.net:32080/appreg/&quot; 
-ProxyPassReverse &quot;/appreg&quot; &quot;http://cp1.internal.cnx-dev.net:32080/appreg/&quot; 
-ProxyPass &quot;/appregistry&quot; &quot;http://cp1.internal.cnx-dev.net:32080/appregistry&quot; 
-ProxyPassReverse &quot;/appregistry&quot; &quot;http://cp1.internal.cnx-dev.net:32080/appregistry&quot;
+ProxyPass &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPassReverse &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPass &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot; 
+ProxyPassReverse &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot; 
+ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot; 
+ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot; 
+ProxyPass &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot; 
+ProxyPassReverse &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot; 
+ProxyPass &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot; 
+ProxyPassReverse &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot;
 </code></pre></div>
 <h2 class="section" id="section_b3p_r3j_gvb">Microsoft Teams integration</h2>
 <p>Once the microservices are installed and running for Microsoft Teams integration (see <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a>), add the following rules to your httpd.conf on your IBM HTTP Server and restart the server:</p>
 <div id="codeblock_ugh_53j_gvb" class="highlight"><pre><span></span><code># teams-tab-ui
-ProxyPass &quot;/teams-tab&quot; &quot;http://master_node_host_name:32080/teams-tab&quot; 
-ProxyPassReverse &quot;/teams-tab&quot; &quot;http://master_node_host_name:32080/teams-tab&quot;    
+ProxyPass &quot;/teams-tab&quot; &quot;http://cpmaster.internal.example.com:32080/teams-tab&quot; 
+ProxyPassReverse &quot;/teams-tab&quot; &quot;http://cpmaster.internal.example.com:32080/teams-tab&quot;    
 # teams-share-service 
-ProxyPass &quot;/teams-share-service&quot; &quot;http://master_node_host_name:32080/teams-share-service&quot; 
-ProxyPassReverse &quot;/teams-share-service&quot; &quot;http://master_node_host_name:32080/teams-share-service&quot;
+ProxyPass &quot;/teams-share-service&quot; &quot;http://cpmaster.internal.example.com:32080/teams-share-service&quot; 
+ProxyPassReverse &quot;/teams-share-service&quot; &quot;http://cpmaster.internal.example.com:32080/teams-share-service&quot;
 # teams-share-ui 
-ProxyPass &quot;/teams-share-ui&quot; &quot;http://master_node_host_name:32080/teams-share-ui&quot; 
-ProxyPassReverse &quot;/teams-share-ui&quot; &quot;http://master_node_host_name:32080/teams-share-ui&quot;
+ProxyPass &quot;/teams-share-ui&quot; &quot;http://cpmaster.internal.example.com:32080/teams-share-ui&quot; 
+ProxyPassReverse &quot;/teams-share-ui&quot; &quot;http://cpmaster.internal.example.com:32080/teams-share-ui&quot;
 </code></pre></div>
 <div id="codeblock_ufb_v3j_gvb" class="highlight"><pre><span></span><code># Teams SameSite Fix
 # Add SameSite property to all server-side set-cookie response headers
@@ -35204,33 +35205,33 @@ Header always set Content-Security-Policy &quot;frame-ancestors &#39;self&#39; t
 <h2 class="section" id="section_ad5_bjj_gvb">Tailored Experience</h2>
 <p>After setting up Tailored Experience features (see <a href="cp_install_services_tasks.html#comm_tailored">Set up Tailored Experience features for communities</a>), add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_ohb_djj_gvb" class="highlight"><pre><span></span><code># proxy rules for admin-portal
-ProxyPass &quot;/cnxadmin&quot; &quot;http://cp1.internal.cnx-dev.net:32080/cnxadmin&quot;  
-ProxyPassReverse &quot;/cnxadmin&quot; &quot;http://cp1.internal.cnx-dev.net:32080/cnxadmin&quot;
+ProxyPass &quot;/cnxadmin&quot; &quot;http://cpmaster.internal.example.com:32080/cnxadmin&quot;  
+ProxyPassReverse &quot;/cnxadmin&quot; &quot;http://cpmaster.internal.example.com:32080/cnxadmin&quot;
 # proxy rules for community-template-service
-ProxyPass &quot;/comm-template&quot; &quot;http://cp1.internal.cnx-dev.net:32080/comm-template/templates&quot; 
-ProxyPassReverse &quot;/comm-template&quot; &quot;http://cp1.internal.cnx-dev.net:32080/comm-template/templates&quot;
+ProxyPass &quot;/comm-template&quot; &quot;http://cpmaster.internal.example.com:32080/comm-template/templates&quot; 
+ProxyPassReverse &quot;/comm-template&quot; &quot;http://cpmaster.internal.example.com:32080/comm-template/templates&quot;
 # proxy rules for te-creation-wizard
-ProxyPass &quot;/te-creation-wizard/&quot; &quot;http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/&quot; 
-ProxyPassReverse &quot;/te-creation-wizard/&quot; &quot;http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/&quot;
+ProxyPass &quot;/te-creation-wizard/&quot; &quot;http://cpmaster.internal.example.com:32080/te-creation-wizard/&quot; 
+ProxyPassReverse &quot;/te-creation-wizard/&quot; &quot;http://cpmaster.internal.example.com:32080/te-creation-wizard/&quot;
 </code></pre></div>
 <h2 class="section" id="section_jz1_2jj_gvb">Activities Plus</h2>
 <p>After setting up Activities Plus (see <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a>), add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_q4b_fjj_gvb" class="highlight"><pre><span></span><code># proxy rules for activities plus 
 RewriteRule ^/activities/service/html/(.*)$ /boards/activities/service/html/$1 [R] 
-ProxyPass &quot;/boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/boards&quot; 
-ProxyPassReverse &quot;/boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/boards&quot; 
-ProxyPass &quot;/api-boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/api-boards&quot; 
-ProxyPassReverse &quot;/api-boards&quot; http://cp1.internal.cnx-dev.net:32080/api-boards&quot;
+ProxyPass &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
+ProxyPassReverse &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
+ProxyPass &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot; 
+ProxyPassReverse &quot;/api-boards&quot; http://cpmaster.internal.example.com:32080/api-boards&quot;
 </code></pre></div>
 <p>Starting with Connections 7, be sure that you have websockets enabled on your front proxy server.</p>
 <h2 class="section" id="section_tcv_3jj_gvb">Microsoft Outlook add-in</h2>
 <p>After setting up the Connections add-in for Microsoft Outlook (see <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a>), add the following rules to httpd.conf for your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_ryx_jjj_gvb" class="highlight"><pre><span></span><code># proxy rules for outlook add-in
 Redirect &quot;/outlook-addin&quot; &quot;/outlook-addin/&quot; 
-ProxyPass &quot;/outlook-addin/&quot; &quot;http://cp1.internal.cnx-dev.net:32080/&quot; 
-ProxyPassReverse &quot;/outlook-addin/&quot; &quot;http://cp1.internal.cnx-dev.net:32080/&quot;
+ProxyPass &quot;/outlook-addin/&quot; &quot;http://cpmaster.internal.example.com:32080/&quot; 
+ProxyPassReverse &quot;/outlook-addin/&quot; &quot;http://cpmaster.internal.example.com:32080/&quot;
 </code></pre></div>
-<p><strong>Parent topic:</strong><a href="cp_config_intro.html">Configuring the Component Pack</a></p>
+<p><strong>Parent topic:</strong> <a href="cp_config_intro.html">Configuring the Component Pack</a></p>
 
 
 

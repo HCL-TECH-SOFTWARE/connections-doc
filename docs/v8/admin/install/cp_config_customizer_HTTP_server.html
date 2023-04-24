@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35025,6 +35025,7 @@
 <p>Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.</p>
 <p>If you already configured Orient Me, then this task is not needed for Customizer.</p>
 <p>If you have not configured Orient Me, then complete this task to ensure that the HTTP server redirects users to the App Registry when they log in to Connections.</p>
+<p>Using the sample deployment described in <a href="cp_install_services_tasks.html#section_awd_rwp_tnb">Steps to install or upgrade to Component Pack</a>, the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).</p>
 <ol>
 <li>
 <p>Log in to the HTTP server as the root user (AIX®, Linux®) or the administrator (Windows™).</p>
@@ -35039,8 +35040,10 @@
 <li>AIX: /opt2/IBM/HTTPServer/</li>
 <li>Linux: /opt/IBM/HTTPServer/conf/</li>
 <li>Windows: D:\IBM\HTTPServer\conf\</li>
-<li>In the file, verify that the following modules are listed and that the lines are not commented out:</li>
 </ul>
+</li>
+<li>
+<p>In the file, verify that the following modules are listed and that the lines are not commented out:</p>
 <div class="highlight"><pre><span></span><code>LoadModule proxy_module modules/mod_proxy.so 
 LoadModule proxy_connect_module modules/mod_proxy_connect.so 
 LoadModule proxy_ftp_module modules/mod_proxy_ftp.so 
@@ -35056,25 +35059,24 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 Statements to insert:</li>
 </ul>
 <div class="highlight"><pre><span></span><code>ProxyPreserveHost On
-ProxyPass &quot;/social&quot; &quot;http://master\_node\_host\_name:32080/social&quot; 
-ProxyPassReverse &quot;/social&quot; &quot;http://master\_node\_host\_name:32080/social&quot; 
-ProxyPass &quot;/itm&quot; &quot;http://master\_node\_host\_name:32080/itm&quot; 
-ProxyPassReverse &quot;/itm&quot; &quot;http://master\_node\_host\_name:32080/itm&quot;
-ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities&quot;
-ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities&quot;
-ProxyPass &quot;/appreg&quot; &quot;http://master\_node\_host\_name:32080/appreg/&quot;
-ProxyPassReverse &quot;/appreg&quot; &quot;http://master\_node\_host\_name:32080/appreg/&quot;
-ProxyPass &quot;/appregistry&quot; &quot;http://master\_node\_host\_name:32080/appregistry&quot; 
-ProxyPassReverse &quot;/appregistry&quot; &quot;http://master\_node\_host\_name:32080/appregistry&quot;
+ProxyPass &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPassReverse &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPass &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot; 
+ProxyPassReverse &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot;
+ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot;
+ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot;
+ProxyPass &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot;
+ProxyPassReverse &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot;
+ProxyPass &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot; 
+ProxyPassReverse &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot;
 </code></pre></div>
-<p>For high availability deployments, replace <code>master\_node\_host\_name</code> with the load balancer DNS of the HA cluster (Must be FQHN).</p>
 <p><strong>Note:</strong> 32080 is the port of the Ingress Controller, so make sure that is deployed and running before making these changes. Take note of the new appreg URL when using Ingress.</p>
 <p>For example, after inserting the above statements, your code block will look like the following snippet:</p>
 <div class="highlight"><pre><span></span><code>     ProxyPreserveHost On
-     ProxyPass /appreg http://master_node_host_name:32080/appreg/
-     ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-     ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-     ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+     ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+     ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
 
 LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 &lt;IfModule mod_ibm_ssl.c&gt;
@@ -35082,10 +35084,10 @@ LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 &lt;VirtualHost *:443&gt;
      ServerName HTTPServerHostname.com
      ProxyPreserveHost On
-     ProxyPass /appreg http://master_node_host_name:32080/appreg/
-     ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-     ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-     ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+     ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+     ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
 
      #DocumentRoot /opt/IBM/HTTPServer/htdocs
      SSLEnable
@@ -35105,12 +35107,12 @@ LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 <li>
 <p>To verify the proxy, complete the following steps.</p>
 <ul>
-<li>Open a browser to http://httpserver.domain.com/appreg.</li>
-<li>Log into Connections. The appreg homepage displays, where you can add new apps.</li>
+<li>Open a browser to https://nginx.example.com/appreg.</li>
+<li>Log in to Connections. The appreg homepage displays, where you can add new apps.</li>
 </ul>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="cp_config_customizer_intro.html">Configuring the Customizer component</a></p>
+<p><strong>Parent topic:</strong> <a href="cp_config_customizer_intro.html">Configuring the Customizer component</a></p>
 
 
 

@@ -13,7 +13,9 @@ For more on configuring OAuth applications providers for Connections, see the [C
     ${WEBSPHERE_INSTALLATION_FOLDER}/Appserver/profiles/Dmgr01/bin/
     ```
 
-3.  Create a file called register\_oauth\_for\_outlook\_addin and include the following content. Substitute appropriate values for items in brackets. For example, <variable\> In the following command, for example, you would replace "https://<CONNECTIONS\_URL\>/<CONTEXT\_ROOT\>/auth/callback" with something like "https://web1.cnx-dev.net/outlook-addin/auth/callback"
+3.  Create a file called register\_oauth\_for\_outlook\_addin and include the following content. 
+
+    Substitute appropriate values for items in brackets. For example, <variable\> In the following command, for example, you would replace "https://<CONNECTIONS\_URL\>/<CONTEXT\_ROOT\>/auth/callback" with something like "https://nginx.example.com/outlook-addin/auth/callback".
 
     ```
     batchMode=1
