@@ -66,7 +66,7 @@ If your cluster is in two different CIDR ranges or VPCs, ensure the following:
 1.  Get SSH to Jumpserver EC2 instance:
 
     ```
-	$ ssh <user>@jump2eks.internal.cnx-dev.net
+	$ ssh <user>@jump2eks.internal.example.com
     ```
 
 2.  Install python3:
@@ -473,7 +473,7 @@ Parameters:
 
     Default: Z01006642BLCW3SWF09H8
 
-    Description: Hosted Zone ID for 'internal.cnx-dev.net' domain
+    Description: Hosted Zone ID for 'internal.example.com' domain
   
 Mappings:
 

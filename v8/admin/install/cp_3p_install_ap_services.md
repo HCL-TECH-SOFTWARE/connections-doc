@@ -4,11 +4,13 @@ Activities Plus in Connections Component Pack uses the existing Component Pack i
 
 Prerequisites for installing Activities Plus are:
 
--   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The OAuth secret and license key can be copied from your previous YAML file in [Set up Helm charts](cp_install_services_tasks.md#setup_helm).
+-   As of January 2023, image hosting for Activities Plus (kudosboard/huddoboards) has moved to Quay.io. Refer to [Using latest releases directly from Huddo](https://docs.huddo.com/boards/images/) to configure your Kubernetes with access to huddoboards images hosted in Quay.io. There are new [Huddo charts](https://docs.huddo.com/boards/helm-charts/) to utilize these images.
+
+-   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The value for 'imagePullSecret' is the one which was noted in step 3d of [Using latest releases directly from Huddo](https://docs.huddo.com/boards/images/) in the Huddo documentation.
 
 -   Get a free license key from the ISW site.
 
--   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.md) in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.
+-   Register it with Connections as described in [Registering an OAuth application with a provider](cp_3p_config_ap_oauth.md). Follow the Huddo documentation to generate the OAuth secret. In case of Activities Plus upgrade, the OAuth secret and license key can be copied from your previous YAML file in [Set up Helm charts](cp_install_services_tasks.md#setup_helm).
 
 ## Procedure
 
@@ -30,31 +32,19 @@ Prerequisites for installing Activities Plus are:
     kubectl -n connections delete po $(kubectl -n connections get po | grep kudos | awk '{print $1}')
     ```
 
-4.  Get chart and version:
+4.  Install chart:
 
-    ``` {#codeblock_kdr_45r_bvb}
-    helm search repo v-connections-helm --devel | grep huddo-boards-cp | grep -v activ | awk {'print $2'}
-    ```
+    Follow the instructions in [Deploy Boards Helm Chart](https://docs.huddo.com/boards/cp/#deploy-boards-helm-chart) of the Huddo documentation. Make sure to replace or override the file name of boards-cp.yaml with kudosboard.yml in the `helm upgrade` command.
 
-    ``` {#codeblock_ajz_4fh_dvb}
-    o/p: 3.1.1-20221007-134453
-    ```
-
-5.  Install chart:
-
-    ``` {#codeblock_ldr_45r_bvb}
-    helm upgrade kudos-boards-cp v-connections-helm/huddo-boards-cp -i --version 3.1.1-20221007-134453 -f kudosboards.yml --namespace connections --wait
-    ```
-
-6.  Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service:
+5.  Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service:
 
     ``` {#codeblock_sbn_1np_fvb}
     # proxy rules for activities plus 
     RewriteRule ^/activities/service/html/(.*)$ /boards/activities/service/html/$1 [R] 
-    ProxyPass "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
-    ProxyPassReverse "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
-    ProxyPass "/api-boards" "http://cp1.internal.cnx-dev.net:32080/api-boards" 
-    ProxyPassReverse "/api-boards" http://cp1.internal.cnx-dev.net:32080/api-boards"
+    ProxyPass "/boards" "http://cpmaster.internal.example.com:32080/boards" 
+    ProxyPassReverse "/boards" "http://cpmaster.internal.example.com:32080/boards" 
+    ProxyPass "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards" 
+    ProxyPassReverse "/api-boards" http://cpmaster.internal.example.com:32080/api-boards"
     ```
 
 

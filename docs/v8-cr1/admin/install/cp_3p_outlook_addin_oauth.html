@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35305,7 +35305,8 @@
 </code></pre></div>
 </li>
 <li>
-<p>Create a file called register_oauth_for_outlook_addin and include the following content. Substitute appropriate values for items in brackets. For example, &lt;variable> In the following command, for example, you would replace "https://&lt;CONNECTIONS_URL>/&lt;CONTEXT_ROOT>/auth/callback" with something like "https://web1.cnx-dev.net/outlook-addin/auth/callback"</p>
+<p>Create a file called register_oauth_for_outlook_addin and include the following content. </p>
+<p>Substitute appropriate values for items in brackets. For example, &lt;variable> In the following command, for example, you would replace "https://&lt;CONNECTIONS_URL>/&lt;CONTEXT_ROOT>/auth/callback" with something like "https://nginx.example.com/outlook-addin/auth/callback".</p>
 <div class="highlight"><pre><span></span><code>batchMode=1
 execfile(&#39;oauthAdmin.py&#39;)
  OAuthApplicationRegistrationService.addApplication(&quot;connections-outlook-desktop&quot;,&quot;HCL Connections Outlook Addin&quot;,&quot;https://&lt;CONNECTIONS_URL&gt;/&lt;CONTEXT_ROOT&gt;/auth/callback&quot;)

@@ -2,14 +2,16 @@
 
 Set up proxy rules for Customizer, Orient Me, Microsoft Teams integration, Tailored Experience for Communities, Activities Plus, and the Microsoft Outlook add-in for Connections 8.0 CR1.
 
+Using the sample deployment described in [Steps to install or upgrade to Component Pack](cp_install_services_tasks.md#section_awd_rwp_tnb), the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).
+
 ## Infrastructure {#section_ahf_j45_hvb .section}
 
 Add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
 
 ``` {#codeblock_jzt_5wk_gvb}
 # jsonapi
-ProxyPass "/jsonapi" "http://master_node_host_name:32080/jsonapi"
-ProxyPassReverse "/jsonapi" "http://master_node_host_name:32080/jsonapi"
+ProxyPass "/jsonapi" "http://cpmaster.internal.example.com:32080/jsonapi"
+ProxyPassReverse "/jsonapi" "http://cpmaster.internal.example.com:32080/jsonapi"
 ```
 
 ## Nginx {#section_w2v_j3j_gvb .section}
@@ -19,7 +21,7 @@ After setting up Customizer \(see [Set up Customizer](cp_install_services_tasks.
 ``` {#codeblock_bbd_l3j_gvb}
 location ~      ^/(files/customizer|files/app|communities/service/html|forums/html|search/web|homepage/web|social/home|mycontacts|wikis/home|blogs|news|activities/service/html|profiles/html|viewer)  { 
 
-            proxy_pass http://cp1.internal.cnx-dev.net:30301; 
+            proxy_pass http://cpmaster.internal.example.com:30301; 
 
 }
 ```
@@ -33,16 +35,16 @@ Add the rewrites to your httpd.conf on the IBM HTTP Server, and then restart the
 ``` {#codeblock_nvr_p3j_gvb}
 # OrientMe Config 
 ProxyPreserveHost On 
-ProxyPass "/social" "http://cp1.internal.cnx-dev.net:32080/social" 
-ProxyPassReverse "/social" "http://cp1.internal.cnx-dev.net:32080/social" 
-ProxyPass "/itm" "http://cp1.internal.cnx-dev.net:32080/itm" 
-ProxyPassReverse "/itm" "http://cp1.internal.cnx-dev.net:32080/itm" 
-ProxyPass "/community_suggestions/api/recommend/communities" "http://cp1.internal.cnx-dev.net:32080/community_suggestions/api/recommend/communities" 
-ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://cp1.internal.cnx-dev.net:32080/community_suggestions/api/recommend/communities" 
-ProxyPass "/appreg" "http://cp1.internal.cnx-dev.net:32080/appreg/" 
-ProxyPassReverse "/appreg" "http://cp1.internal.cnx-dev.net:32080/appreg/" 
-ProxyPass "/appregistry" "http://cp1.internal.cnx-dev.net:32080/appregistry" 
-ProxyPassReverse "/appregistry" "http://cp1.internal.cnx-dev.net:32080/appregistry"
+ProxyPass "/social" "http://cpmaster.internal.example.com:32080/social" 
+ProxyPassReverse "/social" "http://cpmaster.internal.example.com:32080/social" 
+ProxyPass "/itm" "http://cpmaster.internal.example.com:32080/itm" 
+ProxyPassReverse "/itm" "http://cpmaster.internal.example.com:32080/itm" 
+ProxyPass "/community_suggestions/api/recommend/communities" "http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities" 
+ProxyPassReverse "/community_suggestions/api/recommend/communities" "http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities" 
+ProxyPass "/appreg" "http://cpmaster.internal.example.com:32080/appreg/" 
+ProxyPassReverse "/appreg" "http://cpmaster.internal.example.com:32080/appreg/" 
+ProxyPass "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry" 
+ProxyPassReverse "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry"
 ```
 
 ## Microsoft Teams integration {#section_b3p_r3j_gvb .section}
@@ -51,14 +53,14 @@ Once the microservices are installed and running for Microsoft Teams integration
 
 ``` {#codeblock_ugh_53j_gvb}
 # teams-tab-ui
-ProxyPass "/teams-tab" "http://master_node_host_name:32080/teams-tab" 
-ProxyPassReverse "/teams-tab" "http://master_node_host_name:32080/teams-tab"    
+ProxyPass "/teams-tab" "http://cpmaster.internal.example.com:32080/teams-tab" 
+ProxyPassReverse "/teams-tab" "http://cpmaster.internal.example.com:32080/teams-tab"    
 # teams-share-service 
-ProxyPass "/teams-share-service" "http://master_node_host_name:32080/teams-share-service" 
-ProxyPassReverse "/teams-share-service" "http://master_node_host_name:32080/teams-share-service"
+ProxyPass "/teams-share-service" "http://cpmaster.internal.example.com:32080/teams-share-service" 
+ProxyPassReverse "/teams-share-service" "http://cpmaster.internal.example.com:32080/teams-share-service"
 # teams-share-ui 
-ProxyPass "/teams-share-ui" "http://master_node_host_name:32080/teams-share-ui" 
-ProxyPassReverse "/teams-share-ui" "http://master_node_host_name:32080/teams-share-ui"
+ProxyPass "/teams-share-ui" "http://cpmaster.internal.example.com:32080/teams-share-ui" 
+ProxyPassReverse "/teams-share-ui" "http://cpmaster.internal.example.com:32080/teams-share-ui"
 ```
 
 ``` {#codeblock_ufb_v3j_gvb}
@@ -79,14 +81,14 @@ After setting up Tailored Experience features \(see [Set up Tailored Experience 
 
 ``` {#codeblock_ohb_djj_gvb}
 # proxy rules for admin-portal
-ProxyPass "/cnxadmin" "http://cp1.internal.cnx-dev.net:32080/cnxadmin"  
-ProxyPassReverse "/cnxadmin" "http://cp1.internal.cnx-dev.net:32080/cnxadmin"
+ProxyPass "/cnxadmin" "http://cpmaster.internal.example.com:32080/cnxadmin"  
+ProxyPassReverse "/cnxadmin" "http://cpmaster.internal.example.com:32080/cnxadmin"
 # proxy rules for community-template-service
-ProxyPass "/comm-template" "http://cp1.internal.cnx-dev.net:32080/comm-template/templates" 
-ProxyPassReverse "/comm-template" "http://cp1.internal.cnx-dev.net:32080/comm-template/templates"
+ProxyPass "/comm-template" "http://cpmaster.internal.example.com:32080/comm-template/templates" 
+ProxyPassReverse "/comm-template" "http://cpmaster.internal.example.com:32080/comm-template/templates"
 # proxy rules for te-creation-wizard
-ProxyPass "/te-creation-wizard/" "http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/" 
-ProxyPassReverse "/te-creation-wizard/" "http://cp1.internal.cnx-dev.net:32080/te-creation-wizard/"
+ProxyPass "/te-creation-wizard/" "http://cpmaster.internal.example.com:32080/te-creation-wizard/" 
+ProxyPassReverse "/te-creation-wizard/" "http://cpmaster.internal.example.com:32080/te-creation-wizard/"
 ```
 
 ## Activities Plus {#section_jz1_2jj_gvb .section}
@@ -96,10 +98,10 @@ After setting up Activities Plus \(see [Set up Activities Plus](cp_install_servi
 ``` {#codeblock_q4b_fjj_gvb}
 # proxy rules for activities plus 
 RewriteRule ^/activities/service/html/(.*)$ /boards/activities/service/html/$1 [R] 
-ProxyPass "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
-ProxyPassReverse "/boards" "http://cp1.internal.cnx-dev.net:32080/boards" 
-ProxyPass "/api-boards" "http://cp1.internal.cnx-dev.net:32080/api-boards" 
-ProxyPassReverse "/api-boards" http://cp1.internal.cnx-dev.net:32080/api-boards"
+ProxyPass "/boards" "http://cpmaster.internal.example.com:32080/boards" 
+ProxyPassReverse "/boards" "http://cpmaster.internal.example.com:32080/boards" 
+ProxyPass "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards" 
+ProxyPassReverse "/api-boards" http://cpmaster.internal.example.com:32080/api-boards"
 ```
 
 Starting with Connections 7, be sure that you have websockets enabled on your front proxy server.
@@ -111,8 +113,8 @@ After setting up the Connections add-in for Microsoft Outlook \(see [Set up Conn
 ``` {#codeblock_ryx_jjj_gvb}
 # proxy rules for outlook add-in
 Redirect "/outlook-addin" "/outlook-addin/" 
-ProxyPass "/outlook-addin/" "http://cp1.internal.cnx-dev.net:32080/" 
-ProxyPassReverse "/outlook-addin/" "http://cp1.internal.cnx-dev.net:32080/"
+ProxyPass "/outlook-addin/" "http://cpmaster.internal.example.com:32080/" 
+ProxyPassReverse "/outlook-addin/" "http://cpmaster.internal.example.com:32080/"
 ```
 
 **Parent topic:** [Configuring the Component Pack](../install/cp_config_intro.md)

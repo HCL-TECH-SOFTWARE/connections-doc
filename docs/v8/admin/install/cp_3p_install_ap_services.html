@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35072,13 +35072,16 @@
 <p>Prerequisites for installing Activities Plus are:</p>
 <ul>
 <li>
-<p>Download the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2">kudosboard.yml file</a> and modify it according to your environment. The OAuth secret and license key can be copied from your previous YAML file in <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a>.</p>
+<p>As of January 2023, image hosting for Activities Plus (kudosboard/huddoboards) has moved to Quay.io. Refer to <a href="https://docs.huddo.com/boards/images/">Using latest releases directly from Huddo</a> to configure your Kubernetes with access to huddoboards images hosted in Quay.io. There are new <a href="https://docs.huddo.com/boards/helm-charts/">Huddo charts</a> to utilize these images.</p>
+</li>
+<li>
+<p>Download the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2">kudosboard.yml file</a> and modify it according to your environment. The value for 'imagePullSecret' is the one which was noted in step 3d of <a href="https://docs.huddo.com/boards/images/">Using latest releases directly from Huddo</a> in the Huddo documentation.</p>
 </li>
 <li>
 <p>Get a free license key from the ISW site.</p>
 </li>
 <li>
-<p>Register it with Connections as described in <a href="cp_3p_config_ap_oauth.html">Registering an OAuth application with a provider</a> in the Integrating Activities Plus section. Follow the Huddo documentation to generate the OAuth secret.</p>
+<p>Register it with Connections as described in <a href="cp_3p_config_ap_oauth.html">Registering an OAuth application with a provider</a>. Follow the Huddo documentation to generate the OAuth secret. In case of Activities Plus upgrade, the OAuth secret and license key can be copied from your previous YAML file in <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a>.</p>
 </li>
 </ul>
 <h2 id="procedure">Procedure</h2>
@@ -35099,25 +35102,17 @@
 </code></pre></div>
 </li>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_kdr_45r_bvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep huddo-boards-cp | grep -v activ | awk {&#39;print $2&#39;}
-</code></pre></div>
-<div id="codeblock_ajz_4fh_dvb" class="highlight"><pre><span></span><code>o/p: 3.1.1-20221007-134453
-</code></pre></div>
-</li>
-<li>
 <p>Install chart:</p>
-<div id="codeblock_ldr_45r_bvb" class="highlight"><pre><span></span><code>helm upgrade kudos-boards-cp v-connections-helm/huddo-boards-cp -i --version 3.1.1-20221007-134453 -f kudosboards.yml --namespace connections --wait
-</code></pre></div>
+<p>Follow the instructions in <a href="https://docs.huddo.com/boards/cp/#deploy-boards-helm-chart">Deploy Boards Helm Chart</a> of the Huddo documentation. Make sure to replace or override the file name of boards-cp.yaml with kudosboard.yml in the <code>helm upgrade</code> command.</p>
 </li>
 <li>
 <p>Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_sbn_1np_fvb" class="highlight"><pre><span></span><code># proxy rules for activities plus 
 RewriteRule ^/activities/service/html/(.*)$ /boards/activities/service/html/$1 [R] 
-ProxyPass &quot;/boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/boards&quot; 
-ProxyPassReverse &quot;/boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/boards&quot; 
-ProxyPass &quot;/api-boards&quot; &quot;http://cp1.internal.cnx-dev.net:32080/api-boards&quot; 
-ProxyPassReverse &quot;/api-boards&quot; http://cp1.internal.cnx-dev.net:32080/api-boards&quot;
+ProxyPass &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
+ProxyPassReverse &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
+ProxyPass &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot; 
+ProxyPassReverse &quot;/api-boards&quot; http://cpmaster.internal.example.com:32080/api-boards&quot;
 </code></pre></div>
 </li>
 </ol>

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35513,26 +35513,26 @@
 <p>Access to the <a href="https://hclcr.io/harbor/projects/15/repositories">Harbor repository</a>.</p>
 </li>
 </ul>
-<p><strong>Let's make a few assumptions about the environment:</strong> We are installing an environment which will be available behind web1.cnx-dev.net. However, this is just a public domain.</p>
+<p><strong>Let's make a few assumptions about the environment:</strong> We are installing an environment which will be available behind nginx.example.com. However, this is just a public domain.</p>
 <p>All the nodes are available using their FQDNs and are in a different domain:</p>
 <ul>
-<li>Connections, with WebSphere and IHS is on connections1.internal.cnx-dev.net</li>
-<li>DB2 is on db1.internal.cnx-dev.net</li>
-<li>Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net</li>
-<li>NFS master is collocated with connections1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/</li>
+<li>Connections, with WebSphere and IHS is on connections.internal.example.com</li>
+<li>DB2 is on db1.internal.example.com</li>
+<li>Kubernetes cluster is just a single node, and it is on cpmaster.internal.example.com</li>
+<li>NFS master is collocated with connections.internal.example.com and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/</li>
 </ul>
 <p><strong>Network configuration</strong></p>
 <p>All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which in our case can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:</p>
-<pre><code>-   connections.example.com:
+<pre><code>-   connections.internal.example.com:
     -   443 from nginx.example.com
-    -   443 from cpmaster.example.com
--   cpmaster.example.com:
-    -   30301 from connections.example.com \(Customizer\)
+    -   443 from cpmaster.internal.example.com
+-   cpmaster.internal.example.com:
+    -   30301 from connections.internal.example.com \(Customizer\)
     -   30301 from nginx.example.com \(Customizer\)
-    -   30098 from connections.example.com \(Elasticsearch 7 – Connections 7 only\)
-    -   30099 from connections.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
-    -   32080 from connections.example.com \(Ingress Controller\)
-    -   31810 from connections.example.com \(Microsoft Outlook add-in – Connections 7 only\)
+    -   30098 from connections.internal.example.com \(Elasticsearch 7 – Connections 7 only\)
+    -   30099 from connections.internal.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
+    -   32080 from connections.internal.example.com \(Ingress Controller\)
+    -   31810 from connections.internal.example.com \(Microsoft Outlook add-in – Connections 7 only\)
 -   nginx.example.com:
     -   443 from everywhere
     -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
@@ -35542,7 +35542,7 @@
 <h2 class="section" id="section_v5r_1dj_dvb">Installation vs. upgrade steps</h2>
 <p>This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8 CR1. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to 8 CR1. Some of the following steps apply only to one scenario (install <em>or</em> upgrade), while others apply to both (install <em>and</em> upgrade). Refer to <a href="cp_install_upgrade_container.html#order_cp_install">Order of installation</a> for the complete list of steps for each scenario.</p>
 <h2 class="section" id="section_e4p_jrp_tnb">Set up NFS</h2>
-<p>We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections1.internal.cnx-dev.net, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.</p>
+<p>We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.</p>
 <p>Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.</p>
 <p><strong>Requirements for persistent volumes</strong></p>
 <p>These guidelines and sample files describe how to set up all of the persistent volumes required for a full installation of Component Pack. In a high availability configuration, the best practice is to maintain persistent storage away from the Kubernetes masters and worker nodes themselves, on a separate machine that all masters and workers can access.</p>
@@ -35553,7 +35553,7 @@
 <p>Perform these steps on NFS master:</p>
 <ol>
 <li>
-<p>Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700.  You may set the ownership to your desired owner and group.</p>
+<p>Create /pv-connections folder on connections.internal.example.com with permissions 0700.  You may set the ownership to your desired owner and group.</p>
 </li>
 <li>
 <p>Create a user with ID 1000 and another user with 1001, if not existing already, for OpenSearch and MongoDB to generate data.</p>
@@ -36055,7 +36055,7 @@ Then run <code>sudo sysctl -p</code> to reload configurarions.</p>
 <h2 class="section" id="migrate-elasticsearch-data">Migrate ElasticSearch data</h2>
 <p>Perform the steps in <a href="cp_migrate_data_from_es7_to_opensearch.html">Migrating data from Elasticsearch 7 to OpenSearch</a>.</p>
 <h2 class="section" id="orientme_os">Set up Orient Me for OpenSearch</h2>
-<p>With Connections 8.0 CR1, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.</p>
+<p>Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.</p>
 <p><strong>Prerequisites</strong></p>
 <ul>
 <li>Infrastructure charts need to be already installed and all pods scheduled.</li>

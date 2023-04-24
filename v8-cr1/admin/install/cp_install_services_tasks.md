@@ -20,29 +20,29 @@ Before starting the steps, note the following:
 
 -   Access to the [Harbor repository](https://hclcr.io/harbor/projects/15/repositories).
 
-**Let's make a few assumptions about the environment:** We are installing an environment which will be available behind web1.cnx-dev.net. However, this is just a public domain.
+**Let's make a few assumptions about the environment:** We are installing an environment which will be available behind nginx.example.com. However, this is just a public domain.
 
 All the nodes are available using their FQDNs and are in a different domain:
 
--   Connections, with WebSphere and IHS is on connections1.internal.cnx-dev.net
--   DB2 is on db1.internal.cnx-dev.net
--   Kubernetes cluster is just a single node, and it is on cp1.internal.cnx-dev.net
--   NFS master is collocated with connections1.internal.cnx-dev.net and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/
+-   Connections, with WebSphere and IHS is on connections.internal.example.com
+-   DB2 is on db1.internal.example.com
+-   Kubernetes cluster is just a single node, and it is on cpmaster.internal.example.com
+-   NFS master is collocated with connections.internal.example.com and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/
 
 **Network configuration**
 
 All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which in our case can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
     
-    -   connections.example.com:
+    -   connections.internal.example.com:
         -   443 from nginx.example.com
-        -   443 from cpmaster.example.com
-    -   cpmaster.example.com:
-        -   30301 from connections.example.com \(Customizer\)
+        -   443 from cpmaster.internal.example.com
+    -   cpmaster.internal.example.com:
+        -   30301 from connections.internal.example.com \(Customizer\)
         -   30301 from nginx.example.com \(Customizer\)
-        -   30098 from connections.example.com \(Elasticsearch 7 – Connections 7 only\)
-        -   30099 from connections.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
-        -   32080 from connections.example.com \(Ingress Controller\)
-        -   31810 from connections.example.com \(Microsoft Outlook add-in – Connections 7 only\)
+        -   30098 from connections.internal.example.com \(Elasticsearch 7 – Connections 7 only\)
+        -   30099 from connections.internal.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
+        -   32080 from connections.internal.example.com \(Ingress Controller\)
+        -   31810 from connections.internal.example.com \(Microsoft Outlook add-in – Connections 7 only\)
     -   nginx.example.com:
         -   443 from everywhere
         -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
@@ -57,7 +57,7 @@ This document uses the preceding assumptions to walk you through the below steps
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
-We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections1.internal.cnx-dev.net, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
+We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
 
 Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.
 
@@ -71,7 +71,7 @@ These guidelines and sample files describe how to set up all of the persistent v
 
 1.  Perform these steps on NFS master:
 
-    1.  Create /pv-connections folder on connections1.internal.cnx-dev.net with permissions 0700.  You may set the ownership to your desired owner and group.
+    1.  Create /pv-connections folder on connections.internal.example.com with permissions 0700.  You may set the ownership to your desired owner and group.
 
     2.  Create a user with ID 1000 and another user with 1001, if not existing already, for OpenSearch and MongoDB to generate data.
 
@@ -678,7 +678,7 @@ Perform the steps in [Migrating data from Elasticsearch 7 to OpenSearch](cp_migr
 
 ## Set up Orient Me for OpenSearch {#orientme_os .section}
 
-With Connections 8.0 CR1, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.
+Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so you need to update orientme and switch from Elasticsearch 7 to OpenSearch.
 
 **Prerequisites**
 
