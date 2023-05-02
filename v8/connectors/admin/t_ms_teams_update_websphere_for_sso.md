@@ -16,7 +16,7 @@ Single sign-on is accomplished by setting up a trust relationship between the Co
 
 1.  As the WebSphere administrator, in the administrative console, click **Security** \> **Global security** \> **Web and SIP security ** \> **Trust association** .
 
-2.  Click **Interceptors** \> **New to add an interceptor** .
+2.  Click **Interceptors** \> **New** to add an interceptor.
 
 3.  For the interceptor class name, enter com.ibm.ws.security.oidc.client.RelyingParty
 
@@ -27,11 +27,11 @@ Single sign-on is accomplished by setting up a trust relationship between the Co
 |provider\_1.useJwtFromRequest|required|
 |provider\_1.identifier|cnx\_azure <br></br> This must be a unique name of an OIDC provider on this instance. Any name is usable as long as it does not conflict with other OIDC provider names.|
 |provider\_1.issuerIdentifier|`https://login.microsoftonline.net/{teams_tenant_id}/v2.0` <br></br> This must match the "iss" claim from the JWT.​​​​​​​|
-|provider\_1.jwkEndpointUrl|`https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys` <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration`|
+|provider\_1.jwkEndpointUrl|`https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys` <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: `https://login.microsoftonline.com/{teams_tenant_id}/v2.0/.well-known/openid-configuration`|
 |provider\_1.interceptedPathFilter|/profiles/oidc/session|
 |provider\_1.audiences|ALL\_AUDIENCES|
 |provider\_1.setLtpaCookie|true|
-|provider\_1.userIdentifier|emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.|
+|provider\_1.userIdentifier|email<br />This forces the connections server to use the email claim from the JWT as the identifier of the user.|
 |provider\_1.useRealm|defaultWIMFileBasedRealm|
 
 5.  Add the OpenID Connect Relying Party TAI class to com.ibm.websphere.security.InvokeTAIbeforeSSO:
@@ -64,7 +64,7 @@ Single sign-on is accomplished by setting up a trust relationship between the Co
 
     3.  In the Related Items section, click **Trusted authentication realms - inbound** \> **Add External Realm**.
 
-    4.  In the External realm name field, enter the issuer name that is used by the JWT.
+    4.  In the External realm name field, enter the issuer name that is used by the JWT (same as provider_1.issuerIdentifier above).
 
     5.  Click **OK**.
 
