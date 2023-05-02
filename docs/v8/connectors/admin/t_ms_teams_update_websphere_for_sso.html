@@ -30052,7 +30052,7 @@
   
     <li class="md-nav__item">
       <a href="../icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -35032,7 +35032,7 @@
 <p>As the WebSphere administrator, in the administrative console, click <strong>Security</strong> > <strong>Global security</strong> > <strong>Web and SIP security </strong> > <strong>Trust association</strong> .</p>
 </li>
 <li>
-<p>Click <strong>Interceptors</strong> > <strong>New to add an interceptor</strong> .</p>
+<p>Click <strong>Interceptors</strong> > <strong>New</strong> to add an interceptor.</p>
 </li>
 <li>
 <p>For the interceptor class name, enter com.ibm.ws.security.oidc.client.RelyingParty</p>
@@ -35063,7 +35063,7 @@
 </tr>
 <tr>
 <td>provider_1.jwkEndpointUrl</td>
-<td><code>https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys</code> <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: <code>https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration</code></td>
+<td><code>https://login.microsoftonline.com/{teams_tenant_id}/discovery/v2.0/keys</code> <br></br> Find this value using the Microsoft OIDC configuration endpoint for your tenant: <code>https://login.microsoftonline.com/{teams_tenant_id}/v2.0/.well-known/openid-configuration</code></td>
 </tr>
 <tr>
 <td>provider_1.interceptedPathFilter</td>
@@ -35079,7 +35079,7 @@
 </tr>
 <tr>
 <td>provider_1.userIdentifier</td>
-<td>emailThis forces the connections server to use the email claim from the JWT as the identifier of the user.</td>
+<td>email<br />This forces the connections server to use the email claim from the JWT as the identifier of the user.</td>
 </tr>
 <tr>
 <td>provider_1.useRealm</td>
@@ -35136,7 +35136,7 @@
 <p>In the Related Items section, click <strong>Trusted authentication realms - inbound</strong> > <strong>Add External Realm</strong>.</p>
 </li>
 <li>
-<p>In the External realm name field, enter the issuer name that is used by the JWT.</p>
+<p>In the External realm name field, enter the issuer name that is used by the JWT (same as provider_1.issuerIdentifier above).</p>
 </li>
 <li>
 <p>Click <strong>OK</strong>.</p>
