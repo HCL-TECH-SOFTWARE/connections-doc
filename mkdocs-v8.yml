@@ -1724,7 +1724,7 @@ nav:
                   - connectors/icec/cec-introduction_top.md
                   - Get started: connectors/icec/cec_getstarted.md
                   - Roles: connectors/icec/cec-roles.md
-                  - Adding the Communities widget to your organization Adding the Engagement Center widget to a Community: connectors/icec/cec-communities.md
+                  - Adding the Engagement Center widget to a Community: connectors/icec/cec-communities.md
                   - Admin dashboard: 
                       - connectors/icec/cec-admin_dashboard.md
                       - Caching for Admins: connectors/icec/cec-admin-caching.md
