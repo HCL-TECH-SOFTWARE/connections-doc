@@ -4,19 +4,11 @@ Verify that all necessary prerequisite conditions are complete before installing
 
 ## Prerequisites 
 
-**Important:** If Feature Foundation is included in your HCL Connections 8.0 CR2 installation then both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](../migrate/t_back-up.md) for details. You can use this backup to restore your existing deployment if the migration or update fails.
+**Important:** If Feature Foundation is included in your HCL Connections 8.0 installation then both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to [Backing up HCL Connections](../migrate/t_back-up.md) for details. You can use this backup to restore your existing deployment if the migration or update fails.
 
 1.  Refer to the [What's New in HCL Connections](../overview/i_ovr_r_whats_new.md) to review the latest new features in a release, gather download links, look over the latest fix list and update strategy information.
 2.  Install all the required fixes for WebSphere® Application Server that are listed in the [HCL Connections Software Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) web page. If you are migrating from an earlier release or updating a release, verify that you have upgraded to the supported versions of all required software and all required fixes. Requirements have changed since the previous release.
-3.  Upgrade to the 64-bit, version 1.9.x of IBM Install Manager. Connections 8.0 will not install with IIM 1.8.x. To upgrade the IBM Install Manager 1.8.x to 1.9.x, perform the steps below:
-
-    1.  Ensure that the install manager is not running.
-    2.  Open the terminal or the command prompt and go to where the Connections 8.0 package was extracted. Go to the folder `HCL_Connections_Install/IM/<OperatingSystem>/tools`.
-    3.  Execute the following command:
-       
-        ``./imcl install com.ibm.cic.agent -repositories <extracted_Connections_dir>/IM/<operatingSystem>/repository.config -preferences offering.service.repositories.areUsed=false -acceptLicense``
-    
-    4.  Start the install manger and check version.
+3.  Upgrade to the 64-bit, version 1.9.1 of IBM Install Manager. Connections 8 will not install with IIM 1.8.x.
 
     **Note:** Use the same user account to install IBM® Installation Manager and HCL Connections.
 

@@ -1,4 +1,4 @@
-# Adding the Engagement Center widget to a Community {#id_name .reference}
+# Adding the Communities widget to your organizationAdding the Engagement Center widget to a Community {#id_name .reference}
 
 Organization administrators must first add the Connections Engagement Center extension for Communities to their organization. The extension makes the Connections Engagement Center widget available so that Community owners can add it to a Community. Community owners can add the Connections Engagement Center widget to a Community in the same way they would add any other widget or app by using the **Community Actions** menu.
 

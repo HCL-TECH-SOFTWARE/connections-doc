@@ -30,7 +30,7 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 2.  Select or find **App Registrations** and then click on the Azure app that was just created.
 3.  Navigate to **Manage** \> **Authentication**. Under **Supported account types**, make sure that **Accounts in any organizational directory \(Any Azure AD Directory - Multitenant\)** is selected.
 4.  Navigate to **Manage** \> **API Permissions**.
-5.  Click **Add a permission** and select **Microsoft Graph** \> **Delegated permissions**.
+5.  Click **Add a permission** and select **Microsoft Graph APIs** \> **Delegated permissions**.
 6.  Select the check box for these Openid permissions:
     -   email
     -   offline\_access
@@ -41,12 +41,13 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 9.  In the navigation, select **Manage** \> **Expose an API**.
 10. If your Application ID URI is not set, click **Set** and update the URI. Add your Connections server hostname between api:// and the \{appID\}. For example: api://connections.example.com/\{​​​​​​appID\}​​​​​​.
 11. Add a scope and give it a scope name of access\_as\_user. Your API URL should look like this: api://connections.example.com/\{​​​​​​appID\}​​​​​​/access\_as\_user. In the "who can consent" step, enable it for **Admins and users**. Make sure it is set to **enabled**.
-12. Next, add two client applications that are allowed to access this API. Make sure the api scope is checked. These are for the Microsoft Teams desktop client and the Microsoft Teams mobile client:
+12. Next, add two client applications that are allowed to access this API. These are for the Microsoft Teams desktop client and the Microsoft Teams mobile client:
     -   5e3ce6c0-2b1f-4285-8d4b-75ee78787346
     -   1fec8e78-bce4-4aaf-ab1b-5451cc387264
 13. In the navigation, select **Manage** \> **Token configuration**.
 14. Select the option to add an optional claim, and choose the **Access** token. From the list of claims, select email and then click **Add**.
 
 ## What to do next {#section_w2g_3bg_vnb .section}
-[Setting up the Connections app for the Microsoft Teams client](#t_ms_teams_set_up_conn_app_for_ms.task)
+
+Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in [Steps to install or upgrade to Component Pack 8](../../admin/install/cp_install_services_tasks.md#teams_integ).
 

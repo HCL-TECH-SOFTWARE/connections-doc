@@ -4,21 +4,29 @@ Extensions that can be loaded into app registry are available to enable chat wit
 
 Some of the Microsoft Teams integration use cases rely on the app registry service to deliver extensions that enable and define how the integrations behave. To that end, a functional app registry client and service are necessary requirements to support all of the use cases that follow.
 
-The app registry service is installed or updated with the required extensions when you **set up the infrastructure charts** during the [Connections Component Pack installation or upgrade](../../admin/install/cp_install_services_tasks.md) \(the final task in this section on Microsoft Teams\).
+The app registry service is installed or updated with ther required extensions when you **set up the infrastructure charts** during the [Connections Component Pack installation or upgrade](../../admin/install/cp_install_services_tasks.md) \(the final task in this section on Microsoft Teams\).
 
 The JSON extension definitions and custom JS files required for this task are available in multiple places:
 
--   Because the 1-1 chat use cases \(from bizcard, profile and important to me bubble\) require only an app registry extension, they can be used without any additional component installation. In that case, simply download the extension JSON from [https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Chat%20Integration](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Chat%20Integration).
--   If you already have Customizer deployed, the Share to Teams custom files and extension can be found at [https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0).
--   If you have downloaded the Component Pack zip package and are installing or upgrading the Component Pack services, the JSON extension definition and custom JS files can be located under the extracted location at microservices\_connections/hybridcloud/support/ms-teams/appregistry and microservices\_connections/hybridcloud/support/ms-teams/customizations/ms-teams respectively.
+-   Because the 1-1 chat use cases \(from bizcard, profile and important to me bubble\) require only an app registry extension, they can be used without any additional component installation. In that case, simply download the extension JSON from [https://github.com/hclcnx/global-samples/tree/master/microsoft-teams/Chat%20Integration](https://github.com/hclcnx/global-samples/tree/master/microsoft-teams/Chat%20Integration).
+-   If you already have Customizer deployed, the Share to Teams custom files and extension can be found at [https://github.com/hclcnx/global-samples/tree/master/microsoft-teams/Share%20to%20Teams](https://github.com/hclcnx/global-samples/tree/master/microsoft-teams/Share%20to%20Teams).
+-   If you have download the Component Pack zip package and are installing or upgrading the Component Pack services, the JSON extension definition and custom JS files can be located under the extracted location at microservices\_connections/hybridcloud/support/ms-teams/appregistry and microservices\_connections/hybridcloud/support/ms-teams/customizations/ms-teams respectively.
 
 The following table identifies the purpose of each JSON file.
 
 |File Name|Description|
 |---------|-----------|
 |ms-teams-profile-bizcard.json|Contains a single extension used by both bizcard \(chat link\) and profiles \(chat button\). Enabling or disabling this single extension affects both bizcard and profile page rendering of the chat link / button.|
-|ms-teams-itm.json|Contains 3 custom actions, only one of which is enabled by default.<br />By default, clicking the ITM teams chat button will launch the https link and a user can choose to use either browser or Teams desktop client.<br />By default, clicking the ITM teams chat button will launch the https link and a user can choose to use either browser or Teams desktop client. There is an action that uses msteams: protocol handler which will invoke whichever app is installed and configured to handle that protocol. If all users prefer desktop app, then this may be preferable than using the https link. If so, enable this action and disable the https: link action.<br />The last action uses the sip: procotol handler, which can be used to render a call button, however, at time of writing the Teams desktop client does not support it and just launches the chat UI instead.|
-|ms-teams-share.json|Customizer extension that injects the Share to Teams button on Connections content pages. See the samples README for further instructions [https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0)
+|ms-teams-itm.json|Contains 3 custom actions, only one of which is enabled by default.
+
+ By default, clicking the ITM teams chat button will launch the https link and a user can choose to use either browser or Teams desktop client.
+
+ By default, clicking the ITM teams chat button will launch the https link and a user can choose to use either browser or Teams desktop client. There is an action that uses msteams: protocol handler which will invoke whichever app is installed and configured to handle that protocol. If all users prefer desktop app, then this may be preferable than using the https link. If so, enable this action and disable the https: link action.
+
+ The last action uses the sip: procotol handler, which can be used to render a call button, however, at time of writing the Teams desktop client does not support it and just launches the chat UI instead.
+
+|
+|ms-teams-share.json|Customizer extension that injects the Share to Teams button on Connections content pages. Requires the corresponding custom files found in microservices\_connections/hybridcloud/support/ms-teams/customizations/ms-teams/teamsshare.|
 
 **Note:**
 
@@ -40,7 +48,7 @@ Making updates to app registry extension definitions can only be done by someone
 
 7.  Go to Connections and hover over a user name to see their bizcard and see the **Chat** link in the bottom left or open a user profile page to see **Chat** button. Go to the social homepage and hover over an ITM user bubble to see the **Teams chat** action.
 
-8.  If setting up the **Share to Teams** extension, see the samples README for further instructions [https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/Share%20to%20Teams%20for%20CNX%208.0)
+8.  If setting up the **Share to Teams** extension, copy all of the microservices\_connections/hybridcloud/support/ms-teams/customizations/\* content into /pv-connections/customizations/.
 
 9.  Go to any Connections page and verify that the round Teams button is displayed in the top right-hand corner of the page.
 
