@@ -10,7 +10,8 @@ To install and configure WebSphere Application Server on the Deployment Manager 
 
     For more information, see [Installing WebSphere Application Server](http://www.ibm.com/support/knowledgecenter/en/SSAW57_8.5.5/com.ibm.websphere.installation.nd.doc/ae/tins_install.html) in the *WebSphere Application Server Network Deployment Knowledge Center*.
 
-    **Note:** Enable security when the installation wizard requests it. The administrative user ID that you create must be unique and must not exist in the LDAP repository that you plan to federate.
+    !!! note
+        Enable security when the installation wizard requests it. The administrative user ID that you create must be unique and must not exist in the LDAP repository that you plan to federate.
 
 3.  Apply the available fix packs.
 
@@ -18,12 +19,13 @@ To install and configure WebSphere Application Server on the Deployment Manager 
 
 4.  Configure WebSphere Application Server to communicate with the LDAP directory. For more information, see the *Setting up federated repositories* topic.
 
-    **Note:**
+    !!! note
+        Perform this step on the Deployment Manager Integrated Solutions Console.
 
-    -   Perform this step on the Deployment Manager Integrated Solutions Console.
 5.  Configure Application Security after you have completely installed WebSphere Application Server Network Deployment. For more information, refer to [Securing your environment after installation](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/tsec_postinstall.html) in the *WebSphere Application Server Network Deployment Knowledge Center*.
 
-    **Note:** Perform this step on the Deployment Manager Integrated Solutions Console.
+    !!! note
+        Perform this step on the Deployment Manager Integrated Solutions Console.
 
 6.  Add further nodes, if required, to the cell. Complete the following steps for each node that you want to add to the cell:
 
@@ -31,14 +33,14 @@ To install and configure WebSphere Application Server on the Deployment Manager 
 
     2.  Enter the following command:
 
-        addNode.sh\|bat DM\_host DM\_SoapPort -username AdminUserId -password AdminPwd
+        `addNode.sh|bat DM_host DM_SoapPort -username AdminUserId -password AdminPwd`
 
         where:
 
-        -   DM\_host is the host name of the Deployment Manager
-        -   DM\_SoapPort is the SOAP port number of the Deployment Manager
-        -   AdminUserId is the user ID for the Deployment Manager
-        -   AdminPwd is the password for the Deployment Manager
+        -   `DM_host` is the host name of the Deployment Manager
+        -   `DM_SoapPort` is the SOAP port number of the Deployment Manager
+        -   `AdminUserId` is the user ID for the Deployment Manager
+        -   `AdminPwd` is the password for the Deployment Manager
     3.  Repeat this step for each additional node that your want to add to the cell.
 
     4.  Synchronize all the nodes.

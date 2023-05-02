@@ -2,7 +2,8 @@
 
 The following steps provide information on registering the OAuth application provider for the HCL Connections Add-in for Microsoft Outlook when this add-in is deployed as part of Compoent Pack for Connections.
 
-**Note:** You need to registering the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.
+!!! note
+    You need to registering the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.
 
 For more on configuring OAuth applications providers for Connections, see the [Configuring the HCL Connections OAuth provider](https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html) section of the admin guide.
 
@@ -26,11 +27,11 @@ For more on configuring OAuth applications providers for Connections, see the [C
     
     ```
 
-4.  Save the file, and execute with: ./wsadmin.sh -lang jython –port 8879 –username YOUR\_WAS\_ADMIN\_USERNAME –password YOUR\_WAS\_ADMIN\_PASSWORD -f register\_oauth\_for\_outlook\_addin
+4.  Save the file, and execute with: `./wsadmin.sh -lang jython –port 8879 –username YOUR_WAS_ADMIN_USERNAME –password YOUR_WAS_ADMIN_PASSWORD -f register_oauth_for_outlook_addin`
 5.  Save the secret that will be generated here, and update it in your value file that you will use with Helm install, for example
 
     ```
-    component\_pack\_installation\_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
+    component_pack_installation_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
     ```
 
 6.  To allow a more seamless user experience, HCL Connections supports automatic authorization of trusted OAuth clients. Users will not be prompted to authorize a trusted OAuth client app the first time that it tries to access their Connections data.
@@ -40,8 +41,8 @@ For more on configuring OAuth applications providers for Connections, see the [C
         /opt/IBM/WebSphere/AppServer/profiles/profileName/config/cells/cellName/oauth20/connectionsProvider.xml
         ```
 
-    -   Locate the parameter named oauth20.allow.public.clients and add the app id of the Outlook add-in connections-outlook-desktop to the values list.
-7.  Recreate the OAuth provider configuration ./wsadmin.sh -lang jython -conntype SOAP -c "print AdminTask.createOAuthProvider\('-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/\_profileName\_/config/cells/\_cellName\_/oauth20/connectionsProvider.xml'\)" -user <wasadmin\> -password <pwd\>
+    -   Locate the parameter named `oauth20.allow.public.clients` and add the app id of the Outlook add-in connections-outlook-desktop to the values list.
+7.  Recreate the OAuth provider configuration `./wsadmin.sh -lang jython -conntype SOAP -c “print AdminTask.createOAuthProvider(’-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/_profileName_/config/cells/_cellName_/oauth20/connectionsProvider.xml’)” -user <wasadmin> -password <pwd>`
 
 **Parent topic:**[Integrating with Connections Outlook Add-in for Microsoft Outlook](../install/cp_3p_outlook_addin_container.md)
 

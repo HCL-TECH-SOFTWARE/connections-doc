@@ -10,8 +10,8 @@ To specify which types of files to compress, complete the following steps:
 
 1.  Using a text editor, open the httpd.conf file. The file is stored in the following directory by default:
 
-    -   AIX®: /usr/IBM/HTTPServer/conf
-    -   Linux®: /opt/IBM/HTTPServer/conf
+    -   AIX®: `/usr/IBM/HTTPServer/conf`
+    -   Linux®: `/opt/IBM/HTTPServer/conf`
     -   Microsoft® Windows®: `C:\IBM\HTTPServer\conf`
 2.  Find the following entry in the configuration file:
 
@@ -61,8 +61,6 @@ To specify which types of files to compress, complete the following steps:
 
     ```
     LoadModule headers_module modules/mod_headers.so
-    
-    
     ```
 
 6.  In order to retain access to ACCE \(the web client administrative tool for FileNet\), add the following statement to exclude the entire /acce from compression:
