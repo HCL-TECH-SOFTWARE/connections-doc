@@ -30052,7 +30052,7 @@
   
     <li class="md-nav__item">
       <a href="../icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -35132,7 +35132,7 @@
 <li>Select or find <strong>App Registrations</strong> and then click on the Azure app that was just created.</li>
 <li>Navigate to <strong>Manage</strong> > <strong>Authentication</strong>. Under <strong>Supported account types</strong>, make sure that <strong>Accounts in any organizational directory (Any Azure AD Directory - Multitenant)</strong> is selected.</li>
 <li>Navigate to <strong>Manage</strong> > <strong>API Permissions</strong>.</li>
-<li>Click <strong>Add a permission</strong> and select <strong>Microsoft Graph APIs</strong> > <strong>Delegated permissions</strong>.</li>
+<li>Click <strong>Add a permission</strong> and select <strong>Microsoft Graph</strong> > <strong>Delegated permissions</strong>.</li>
 <li>Select the check box for these Openid permissions:<ul>
 <li>email</li>
 <li>offline_access</li>
@@ -35145,7 +35145,7 @@
 <li>In the navigation, select <strong>Manage</strong> > <strong>Expose an API</strong>.</li>
 <li>If your Application ID URI is not set, click <strong>Set</strong> and update the URI. Add your Connections server hostname between api:// and the {appID}. For example: api://connections.example.com/{​​​​​​appID}​​​​​​.</li>
 <li>Add a scope and give it a scope name of access_as_user. Your API URL should look like this: api://connections.example.com/{​​​​​​appID}​​​​​​/access_as_user. In the "who can consent" step, enable it for <strong>Admins and users</strong>. Make sure it is set to <strong>enabled</strong>.</li>
-<li>Next, add two client applications that are allowed to access this API. These are for the Microsoft Teams desktop client and the Microsoft Teams mobile client:<ul>
+<li>Next, add two client applications that are allowed to access this API. Make sure the api scope is checked. These are for the Microsoft Teams desktop client and the Microsoft Teams mobile client:<ul>
 <li>5e3ce6c0-2b1f-4285-8d4b-75ee78787346</li>
 <li>1fec8e78-bce4-4aaf-ab1b-5451cc387264</li>
 </ul>
@@ -35154,7 +35154,7 @@
 <li>Select the option to add an optional claim, and choose the <strong>Access</strong> token. From the list of claims, select email and then click <strong>Add</strong>.</li>
 </ol>
 <h2 class="section" id="section_w2g_3bg_vnb">What to do next</h2>
-<p>Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in <a href="../../admin/install/cp_install_services_tasks.html#teams_integ">Steps to install or upgrade to Component Pack 8</a>.</p>
+<p><a href="#t_ms_teams_set_up_conn_app_for_ms.task">Setting up the Connections app for the Microsoft Teams client</a></p>
 
 
 

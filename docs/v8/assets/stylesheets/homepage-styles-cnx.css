@@ -15,10 +15,6 @@
     flex-wrap: wrap;
 }
 
-.md-banner__inner {
-    color: white;
-}
-
 .align-top {
     align-items: top;
 }
