@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3132,6 +3132,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3264,6 +3268,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -10916,8 +10948,6 @@
         
           
         
-          
-        
       
       
         
@@ -10974,20 +11004,6 @@
     <li class="md-nav__item">
       <a href="../admin/t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../admin/t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30312,7 +30328,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32363,6 +32379,8 @@
         
           
         
+          
+        
       
       
         
@@ -32382,6 +32400,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35263,6 +35295,40 @@
     Order of installation
   </a>
   
+    <nav class="md-nav" aria-label="Order of installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cp_install_table" class="md-nav__link">
+    For a fresh installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-an-upgrade" class="md-nav__link">
+    For an upgrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-openshift-deployment" class="md-nav__link">
+    For OpenShift deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-eks-deployment" class="md-nav__link">
+    For EKS deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -35300,7 +35366,7 @@
 <p>Refer to the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections System Requirements</a> for the Kubernetes versions and platforms tested with the Component Pack.</p>
 <p>It is recommended to review all the steps first and perform a system backup before doing the installation/upgrade.</p>
 <p>Perform the following steps chronologically, in the order that they appear in the list, to get your Component Pack deployment up and running:</p>
-<p><strong>For a fresh installation:</strong></p>
+<h3 class="section" id="cp_install_table">For a fresh installation</h3>
 <table>
 <thead>
 <tr>
@@ -35373,7 +35439,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>For an upgrade:</strong></p>
+<h3 id="for-an-upgrade">For an upgrade</h3>
 <table>
 <thead>
 <tr>
@@ -35501,6 +35567,10 @@
 </tbody>
 </table>
 <p>For more information, see <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR1</a>.</p>
+<h3 id="for-openshift-deployment">For OpenShift deployment</h3>
+<p>Refer to <a href="cp_openshift.html">Installing Component Pack on OpenShift</a> for details.</p>
+<h3 id="for-eks-deployment">For EKS deployment</h3>
+<p>Refer to <a href="cp_eks.html">Installing Component Pack using EKS</a> for details.</p>
 <ul>
 <li>
 <p><strong><a href="upgrade_considerations.html">Upgrade considerations for Component Pack 8 CR1</a></strong><br />
@@ -35515,8 +35585,12 @@ If your Connections upgrade strategy requires a side-by-side migration, understa
 Use these steps to help you install Component Pack 8 CR1 or replace Component Pack 7 or 8 with 8 CR1.</p>
 </li>
 <li>
-<p><strong><a href="cp_openshift.html">Installing Component Pack on OpenShift</a></strong>
+<p><strong><a href="cp_openshift.html">Installing Component Pack on OpenShift</a></strong><br />
 This document outlines the steps for OpenShift deployment.</p>
+</li>
+<li>
+<p><strong><a href="cp_eks.html">Installing Component Pack using EKS</a></strong><br />
+This document outlines the steps for EKS deployment.</p>
 </li>
 </ul>
 <p><strong>Parent topic:</strong> <a href="cp_install_config_intro.html">Installing or upgrading Component Pack for Connections</a></p>

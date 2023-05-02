@@ -7,7 +7,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A next-gen documentation site for HCL Connections.">
+        <meta name="description" content="A next-gen documentation site for HCL Connections.
+">
       
       
       
@@ -143,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -10760,8 +10761,6 @@
         
           
         
-          
-        
       
       
         
@@ -10818,20 +10817,6 @@
     <li class="md-nav__item">
       <a href="../../admin/admin/t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../admin/admin/t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30067,7 +30052,7 @@
   
     <li class="md-nav__item">
       <a href="../icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32118,6 +32103,8 @@
         
           
         
+          
+        
       
       
         
@@ -32137,6 +32124,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -34408,9 +34409,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setting up the Connections app for the Microsoft Teams client
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_ms_teams_set_up_conn_app_for_ms.html" class="md-nav__link md-nav__link--active">
         Setting up the Connections app for the Microsoft Teams client
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#related-info" class="md-nav__link">
+    Related info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section_w2g_3bg_vnb" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -34998,6 +35037,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#related-info" class="md-nav__link">
+    Related info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section_w2g_3bg_vnb" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35020,17 +35081,21 @@
 <p>This task involves packaging and installing the Connections app inside Microsoft Teams.</p>
 <p>Make sure you've <a href="t_ms_teams_config_azure_app.html">configured an Azure app to support the Microsoft Teams app</a>.</p>
 <ol>
+<li>Clone or download the connections-samples repo:<a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples/">https://github.com/HCL-TECH-SOFTWARE/connections-samples/</a>.</li>
 <li>
-<p>Clone or download the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples">https://github.com/HCL-TECH-SOFTWARE/connections-samples</a> repository and locate the file <code>microsoft-teams/App Manifests/sample/manifest.json</code>.</p>
+<p>Open the App Manifests folder: <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/App%20Manifests">https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/microsoft-teams/App%20Manifests/</a> and locate the file <code>manifest.json</code>.</p>
 </li>
 <li>
-<p>Edit the manifest.json file as follows:</p>
+<p>Edit the manifest.json file as follows (more details in the README in the App Manifests folder above):</p>
 <ol>
 <li>
-<p>Replace %Connections_Hostname%​​​​​​​​ with the hostname and domain of your Connections server.</p>
+<p>Replace <code>%Connections\_Hostname%</code>​​​​​​​​ with the hostname and domain of your Connections server.</p>
 </li>
 <li>
-<p>Replace %Connections_AzureApplicationId%​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ with the Azure Application ID (Bot ID) of your Connections Azure application.</p>
+<p>Replace <code>%Connections\_AzureApplicationId%​​​​​​​​​​​​​</code>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ with the Azure Application ID (Bot ID) of your recently created Connections Azure application.</p>
+</li>
+<li>
+<p>Make any other desired changes to manifest.</p>
 </li>
 </ol>
 </li>
@@ -35044,14 +35109,19 @@
 <li>
 <p>Install in Teams:</p>
 <ol>
+<li>Open the Microsoft Teams admin center and login as an admin user: <a href="https://admin.teams.microsoft.com/">https://admin.teams.microsoft.com/</a> </li>
+<li>Open <strong>Teams Apps</strong> -&gt; <strong>Manage Apps</strong> from the navigation sidebar pane.</li>
 <li>
-<p>Open Teams and visit the app store. Depending on the version of Teams, you may see an <strong>App Store</strong> button in Teams, or you can find the app store by visiting <strong>Apps</strong> > <strong>More Apps</strong> in the app rail.</p>
+<p>Click <strong>Upload an app</strong> at the top of the page.</p>
 </li>
 <li>
-<p>Click <strong>Manage your apps</strong> in the app store. Then, click <strong>Upload an app</strong> at the top of the page.</p>
+<p>Upload the zip file containing the <code>manifest.json</code> from step 2.</p>
 </li>
 <li>
-<p>Upload the zip file containing the <code>manifest.json</code> updated in step 2.</p>
+<p>Follow the link to manage your newly created app and verify the information on the <strong>About</strong> tab.</p>
+</li>
+<li>
+<p>Open the <strong>Permissions</strong> tab. From here, an admin can choose to accept the application permissions for all users.</p>
 </li>
 </ol>
 </li>
@@ -35059,20 +35129,30 @@
 <p>Add the app to a Teams channel or chat:</p>
 <ol>
 <li>
-<p>Open the Teams app store. Click on the <strong>Built for &lt;your org name></strong> section of the app store to view the installed apps.</p>
+<p>From your Teams UI, open the Teams app store. You may be be able to click on the <strong>Built for &lt;your org name></strong> section of the app store to view the installed apps.</p>
 </li>
 <li>
-<p>Click on your Connections Azure application. Then click <strong>Select</strong> and select to add the app to either a team or chat.</p>
+<p>Find your newly created Connections Azure application. If the application is not showing, type the app name into the search bar. </p>
+</li>
+<li>
+<p>Then click <strong>Select</strong> and select to add the app to either a team or chat.</p>
 </li>
 <li>
 <p>Enter the team channel or chat that you want to add the app to and click <strong>Set up</strong> to enable both the Tab app and Messaging Extension app. You can also select either <strong>Set up a tab</strong> or <strong>Set up a bot</strong> from the <strong>Set up</strong> list to add each component individually.</p>
 <p><strong>Note:</strong> The <strong>Set up a bot</strong> action is required for the messaging extension component to work in a team or chat.</p>
+<h2 id="related-info">Related info</h2>
+<p>The following information may also be useful for reference when working with Microsoft Teams application manifests:</p>
 </li>
 </ol>
 </li>
 </ol>
-<p><strong>Related information</strong></p>
-<p><a href="../../admin/install/cp_install_services_tasks.html">Install/update Component Pack services with Microsoft Teams integration</a></p>
+<p>Teams App Overview and Prereqs: https://docs.microsoft.com/en-us/microsoftteams/platform/build-your-first-app/build-first-app-overview</p>
+<p>Manifest Schema: https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema</p>
+<p>Localization File JSON Schema: https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/localization-schema</p>
+<p>Create an App Package for your Microsoft Teams App: https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/apps-package</p>
+<p>Publish a Custom App by Uploading an App Package: https://docs.microsoft.com/en-us/MicrosoftTeams/upload-custom-apps</p>
+<h2 class="section" id="section_w2g_3bg_vnb">What to do next</h2>
+<p>Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in <a href="../../admin/install/cp_install_services_tasks.html#teams_integ">Steps to install or upgrade to Component Pack 8</a>.</p>
 
 
 

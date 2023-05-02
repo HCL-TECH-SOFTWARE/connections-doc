@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -11078,8 +11110,6 @@
         
           
         
-          
-        
       
       
         
@@ -11136,20 +11166,6 @@
     <li class="md-nav__item">
       <a href="../admin/t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../admin/t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30474,7 +30490,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32525,6 +32541,8 @@
         
           
         
+          
+        
       
       
         
@@ -32544,6 +32562,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35570,122 +35602,84 @@
 <li><a href="#PurgingAllTokens">Purging all tokens</a></li>
 </ul>
 <h2 class="section" id="CountingProviders">Counting providers</h2>
-<p>NewsOAuth2ConsumerService.countProvider()
-:   Returns the total number of OAuth 2.0 providers registered with the consumer proxy. There are no parameters.</p>
-<pre><code>Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.countProvider()
+<p><strong>NewsOAuth2ConsumerService.countProvider()</strong></p>
+<p>Returns the total number of OAuth 2.0 providers registered with the consumer proxy. There are no parameters.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.countProvider()
 
 20
-```
-</code></pre>
+</code></pre></div>
 <h2 class="section" id="ReturningAListOfProviders">Returning a list of providers</h2>
-<p>NewsOAuth2ConsumerService.browseProvider(int pageSize, int pageNumber)
-:   Returns a list of Map objects that represent each OAuth 2.0 provider registered with the consumer proxy, in ascending ordered by provider name. The following information is returned for each map object in the returned list:</p>
-<pre><code>-   authHeader: "true" or "false"
--   authUrl: the authentication url endpoint for the provider
--   clientAuth: the client authentication method in use
--   name: the name of the provider
--   tokenUrl: the token url endpoint for the provider
--   urlParam: "true" or "false"
-
-pageSize
-:   The maximum number of providers to list per page. The default value is 20. This parameter is optional.
-
-pageNumber
-:   The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.browseProvider(50, 1)
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.browseProvider(int pageSize, int pageNumber)</strong></p>
+<p>Returns a list of Map objects that represent each OAuth 2.0 provider registered with the consumer proxy, in ascending ordered by provider name. The following information is returned for each map object in the returned list:</p>
+<ul>
+<li>authHeader: "true" or "false"</li>
+<li>authUrl: the authentication url endpoint for the provider</li>
+<li>clientAuth: the client authentication method in use</li>
+<li>name: the name of the provider</li>
+<li>tokenUrl: the token url endpoint for the provider</li>
+<li>urlParam: "true" or "false"</li>
+</ul>
+<p><strong>pageSize</strong></p>
+<p>The maximum number of providers to list per page. The default value is 20. This parameter is optional.</p>
+<p><strong>pageNumber</strong></p>
+<p>The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.browseProvider(50, 1)
+</code></pre></div>
 <h2 class="section" id="ReturningASingleProvider">Returning a single provider</h2>
-<p>NewsOAuth2ConsumerService.findProvider(string providerName)
-:   Returns a Map with information about the registered OAuth 2.0 provider with the specified name.</p>
-<pre><code>providerName
-:   The unique provider name.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.findProvider("provider123")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.findProvider(string providerName)</strong></p>
+<p>Returns a Map with information about the registered OAuth 2.0 provider with the specified name.</p>
+<p><strong>providerName</strong></p>
+<p>The unique provider name.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.findProvider(&quot;provider123&quot;)
+</code></pre></div>
 <h2 class="section" id="RegisteringOrUpatingAProvider">Registering or updating a provider</h2>
-<p>NewsOAuth2ConsumerService.registerProvider(string providerName, string clientAuth, string authHeader, string urlParam, string authUrl, string tokenUrl)
-:   Registers or updates an existing OAuth 2.0 provider by name with the associated parameters.</p>
-<pre><code>providerName
-:   The unique provider name.
-
-clientAuth
-:   The client authentication method for accessing this provider. Supported values out of the box are "standard" and "basic" per the specification.
-
-authHeader
-:   Value of "true" if credentials must be encoded in the authorization header, otherwise "false".
-
-urlParam
-:   Value of "true" if credentials must be specified as query parameters on the URI, otherwise "false".
-
-authUrl
-:   The authentication endpoint for the provider.
-
-tokenUrl
-:   The token endpoint for the provider.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.registerProvider("provider123", "standard", "true", "false", "???", "???")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.registerProvider(string providerName, string clientAuth, string authHeader, string urlParam, string authUrl, string tokenUrl)</strong></p>
+<p>Registers or updates an existing OAuth 2.0 provider by name with the associated parameters.</p>
+<p><strong>providerName</strong></p>
+<p>The unique provider name.</p>
+<p><strong>clientAuth</strong></p>
+<p>The client authentication method for accessing this provider. Supported values out of the box are "standard" and "basic" per the specification.</p>
+<p><strong>authHeader</strong></p>
+<p>Value of "true" if credentials must be encoded in the authorization header, otherwise "false".</p>
+<p><strong>urlParam</strong></p>
+<p>Value of "true" if credentials must be specified as query parameters on the URI, otherwise "false".</p>
+<p><strong>authUrl</strong></p>
+<p>The authentication endpoint for the provider.</p>
+<p><strong>tokenUrl</strong></p>
+<p>The token endpoint for the provider.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.registerProvider(&quot;provider123&quot;, &quot;standard&quot;, &quot;true&quot;, &quot;false&quot;, &quot;???&quot;, &quot;???&quot;)
+</code></pre></div>
 <h2 class="section" id="DeletingAProvider">Deleting a provider</h2>
-<p>NewsOAuth2ConsumerService.deleteProvider(string providerName)
-:   Deletes a provider by name if it exists, and has no existing associated clients or gadget bindings.</p>
-<pre><code>providerName
-:   The unique provider name.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.deleteProvider("provider123")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.deleteProvider(string providerName)</strong></p>
+<p>Deletes a provider by name if it exists, and has no existing associated clients or gadget bindings.</p>
+<p><strong>providerName</strong></p>
+<p>The unique provider name.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.deleteProvider(&quot;provider123&quot;)
+</code></pre></div>
 <h2 class="section" id="CountingClients">Counting clients</h2>
-<p>NewsOAuth2ConsumerService.countClient(string providerName)
-:   Returns the total number of OAuth 2.0 clients registered with the consumer proxy.</p>
-<pre><code>providerName
-:   An optional filter to only count clients associated with the specified provider.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.countClient("provider123")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.countClient(string providerName)</strong></p>
+<p>Returns the total number of OAuth 2.0 clients registered with the consumer proxy.</p>
+<p><strong>providerName</strong></p>
+<p>An optional filter to only count clients associated with the specified provider.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.countClient(&quot;provider123&quot;)
+</code></pre></div>
 <h2 class="section" id="ReturningASingleClient">Returning a single client</h2>
-<p>NewsOAuth2ConsumerService.findClient(string clientName)
-:   Returns a Map with information about the registered OAuth 2.0 client with the specified name.</p>
-<pre><code>providerName
-:   The client name.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.findClient("client123")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.findClient(string clientName)</strong></p>
+<p>Returns a Map with information about the registered OAuth 2.0 client with the specified name.</p>
+<p><strong>providerName</strong></p>
+<p>The client name.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.findClient(&quot;client123&quot;)
+</code></pre></div>
 <h2 class="section" id="ReturningAListOfClients">Returning a list of clients</h2>
-<p>NewsOAuth2ConsumerService.browseClient(string providerName, int pageSize, int pageNumber)
-:   Returns a list of Map objects that represent each OAuth 2.0 clients registered with the consumer proxy, in ascending ordered by provider name. The following information is returned for each map object in the returned list:</p>
+<p><strong>NewsOAuth2ConsumerService.browseClient(string providerName, int pageSize, int pageNumber)</strong></p>
+<p>Returns a list of Map objects that represent each OAuth 2.0 clients registered with the consumer proxy, in ascending ordered by provider name. The following information is returned for each map object in the returned list:</p>
 <pre><code>-   clientId: the identifier issued by the authorization server when registering your client
 -   clientSecret: the secret issued by the authorization server when registering your client
 -   ctype: the client type, "confidential" or "public" are the supported values per the [specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-23#section-2.1)
@@ -35693,182 +35687,122 @@ wsadmin&gt;NewsOAuth2ConsumerService.findClient("client123")
 -   name: the name of the client
 -   providerName: the name of the associated provider that was previously registered
 -   redirectUri: the client redirection uri
-
-providerName
-:   An optional filter to only browse clients associated with the specified provider.
-
-pageSize
-:   The maximum number of clients to list per page. The default value is 20. This parameter is optional.
-
-pageNumber
-:   The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.browseClient("provider123", 50, 1)
-
-```
 </code></pre>
+<p><strong>providerName</strong></p>
+<p>An optional filter to only browse clients associated with the specified provider.</p>
+<p><strong>pageSize</strong></p>
+<p>The maximum number of clients to list per page. The default value is 20. This parameter is optional.</p>
+<p><strong>pageNumber</strong></p>
+<p>The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.browseClient(&quot;provider123&quot;, 50, 1)
+</code></pre></div>
 <h2 class="section" id="RegisteringOrUpdatingAClient">Registering or updating a client</h2>
-<p>NewsOAuth2ConsumerService.registerClient(string clientName, string providerName, string ctype, string grantType, string clientId, string clientSecret, string redirectUri)
-:   Registers or updates an existing OAuth 2.0 client by name with the associated parameters. For more information, see <a href="../admin/t_admin_registeroauthclientwprovider.html">Registering an OAuth client with a provider</a>.</p>
-<pre><code>clientName
-:   The name to associate with the client that must be unique in a deployment.
-
-providerName
-:   The name of the registered provider to associate with this client.
-
-ctype
-:   The client type. Supported values are "confidential" or "public".
-
-grantType
-:   The authorization grant type. Supported values are "code" or "client\_credentials".
-
-clientID
-:   The identifier issued by the authorization server when registering your client.
-
-clientSecret
-:   The secret issued by the authorization server when registering your client.
-
-redirectUri
-:   The client redirection URI.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.registerClient("client123", "provider123", "confidential", "code", "my-client", "my-secret", "https://{opensocial}/gadgets/oauth2callback")
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.registerClient(string clientName, string providerName, string ctype, string grantType, string clientId, string clientSecret, string redirectUri)</strong></p>
+<p>Registers or updates an existing OAuth 2.0 client by name with the associated parameters. For more information, see <a href="../admin/t_admin_registeroauthclientwprovider.html">Registering an OAuth client with a provider</a>.</p>
+<p><strong>clientName</strong></p>
+<p>The name to associate with the client that must be unique in a deployment.</p>
+<p><strong>providerName</strong></p>
+<p>The name of the registered provider to associate with this client.</p>
+<p><strong>ctype</strong></p>
+<p>The client type. Supported values are "confidential" or "public".</p>
+<p><strong>grantType</strong></p>
+<p>The authorization grant type. Supported values are "code" or "client_credentials".</p>
+<p><strong>clientID</strong></p>
+<p>The identifier issued by the authorization server when registering your client.</p>
+<p><strong>clientSecret</strong></p>
+<p>The secret issued by the authorization server when registering your client.</p>
+<p><strong>redirectUri</strong></p>
+<p>The client redirection URI.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.registerClient(&quot;client123&quot;, &quot;provider123&quot;, &quot;confidential&quot;, &quot;code&quot;, &quot;my-client&quot;, &quot;my-secret&quot;, &quot;https://{opensocial}/gadgets/oauth2callback&quot;)
+</code></pre></div>
 <h2 class="section" id="DeletingAClient">Deleting a client</h2>
-<p>NewsOAuth2ConsumerService.deleteClient(string clientName)
-:   Deletes a client by name if it exists, and has no existing associated gadget bindings that leverage this client.</p>
-<pre><code>clientName
-:   The name of the client to remove.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.deleteClient("client123")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.deleteClient(string clientName)</strong></p>
+<p>Deletes a client by name if it exists, and has no existing associated gadget bindings that leverage this client.</p>
+<p><strong>clientName</strong></p>
+<p>The name of the client to remove.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.deleteClient(&quot;client123&quot;)
+</code></pre></div>
 <h2 class="section" id="BindingAGadget">Binding a gadget</h2>
-<p>NewsOAuth2ConsumerService.bindGadget(string widgetId, string serviceName, string clientName, string allowModuleOverride)
-:   Binds a gadget to a client with the specified service name and client name.</p>
-<pre><code>widgetId
-:   The id of the widget.
-
-serviceName
-:   The name to associate with the gadget. The widgetId and service name must create a unique composite key for the deployment.
-
-clientName
-:   The name of the client to associate with this gadget.
-
-allowModuleOverride
-:   Value is "true" if the gadget overrides the provider default endpoint urls, else "false".
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.bindGadget("aad20aa1-c0fa-48ef-bd05-8abe630c0012", "connections_service", "client123", "false")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.bindGadget(string widgetId, string serviceName, string clientName, string allowModuleOverride)</strong></p>
+<p>Binds a gadget to a client with the specified service name and client name.</p>
+<p><strong>widgetId</strong></p>
+<p>The id of the widget.</p>
+<p><strong>serviceName</strong></p>
+<p>The name to associate with the gadget. The widgetId and service name must create a unique composite key for the deployment.</p>
+<p><strong>clientName</strong></p>
+<p>The name of the client to associate with this gadget.</p>
+<p><strong>allowModuleOverride</strong></p>
+<p>Value is "true" if the gadget overrides the provider default endpoint urls, else "false".</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.bindGadget(&quot;aad20aa1-c0fa-48ef-bd05-8abe630c0012&quot;, &quot;connections_service&quot;, &quot;client123&quot;, &quot;false&quot;)
+</code></pre></div>
 <h2 class="section" id="DeletingABinding">Deleting a binding</h2>
-<p>NewsOAuth2ConsumerService.unbindGadget(string widgetId, string serviceName)
-:   Deletes a gadget binding by widgetId and serviceName.</p>
-<pre><code>widgetId
-:   The id of the widget.
-
-serviceName
-:   The name to associate with the gadget. The widgetId and service name must create a unique composite key for the deployment.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.unbindGadget("aad20aa1-c0fa-48ef-bd05-8abe630c0012", "connections_service")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.unbindGadget(string widgetId, string serviceName)</strong></p>
+<p>Deletes a gadget binding by widgetId and serviceName.</p>
+<p><strong>widgetId</strong></p>
+<p>The id of the widget.</p>
+<p><strong>serviceName</strong></p>
+<p>The name to associate with the gadget. The widgetId and service name must create a unique composite key for the deployment.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.unbindGadget(&quot;aad20aa1-c0fa-48ef-bd05-8abe630c0012&quot;, &quot;connections_service&quot;)
+</code></pre></div>
 <h2 class="section" id="ReturningBindings">Returning bindings</h2>
-<p>NewsOAuth2ConsumerService.browseGadgetBinding(string widgetId, string clientName, int pageSize, int pageNumber)
-:   Returns a list of Map objects that represent each OAuth 2.0 gadget bindings registered with the consumer proxy ordered by service name ascending. The following information is returned for each map entry in the returned list:</p>
+<p><strong>NewsOAuth2ConsumerService.browseGadgetBinding(string widgetId, string clientName, int pageSize, int pageNumber)</strong></p>
+<p>Returns a list of Map objects that represent each OAuth 2.0 gadget bindings registered with the consumer proxy ordered by service name ascending. The following information is returned for each map entry in the returned list:</p>
 <pre><code>-   clientName: the name of the associated client
 -   allowModuleOverride: "true" or "false"
 -   serviceName: the name of the associated service
 -   uri: the gadget uri
-
-widgetId
-:   An optional filter to browse bindings only associated with a specific widget.
-
-clientName
-:   An optional filter to browse gadgets only associated with the specified client.
-
-pageSize
-:   The maximum number of bindings to list per page. The default value is 20. This parameter is optional.
-
-pageNumber
-:   The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.browseGadgetBinding("aad20aa1-c0fa-48ef-bd05-8abe630c0012", "client123", 50, 2)
-
-```
 </code></pre>
+<p><strong>widgetId</strong></p>
+<p>An optional filter to browse bindings only associated with a specific widget.</p>
+<p><strong>clientName</strong></p>
+<p>An optional filter to browse gadgets only associated with the specified client.</p>
+<p><strong>pageSize</strong></p>
+<p>The maximum number of bindings to list per page. The default value is 20. This parameter is optional.</p>
+<p><strong>pageNumber</strong></p>
+<p>The number of the page to display. For example, if you specify in the pageSize parameter that each page will have 50 items, page 1 will contain items 1-50. The default value is 1. This parameter is optional.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.browseGadgetBinding(&quot;aad20aa1-c0fa-48ef-bd05-8abe630c0012&quot;, &quot;client123&quot;, 50, 2)
+</code></pre></div>
 <h2 class="section" id="CountingBindings">Counting bindings</h2>
-<p>NewsOAuth2ConsumerService.countGadgetBinding(string widgetId, string clientName)
-:   Returns the total number of OAuth 2.0 bindings registered with the consumer proxy.</p>
-<pre><code>string widgetId, string clientName
-:   widgetId is an optional filter to count only bindings associated with a specific widget.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.countGadgetBinding("aad20aa1-c0fa-48ef-bd05-8abe630c0012", "connections_servicex")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.countGadgetBinding(string widgetId, string clientName)</strong></p>
+<p>Returns the total number of OAuth 2.0 bindings registered with the consumer proxy.</p>
+<p><strong>string widgetId, string clientName</strong></p>
+<p>widgetId is an optional filter to count only bindings associated with a specific widget.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.countGadgetBinding(&quot;aad20aa1-c0fa-48ef-bd05-8abe630c0012&quot;, &quot;connections_servicex&quot;)
+</code></pre></div>
 <h2 class="section" id="ReturningASingleBinding">Returning a single binding by gadgetUri</h2>
-<p>NewsOAuth2ConsumerService.findGadgetBindingByUri(string gadgetUri, string serviceName)
-:   Returns a Map with information about the registered OAuth 2.0 gadget bindings with the specified gadgetUri and service name.</p>
-<pre><code>gadgetUri
-:   The uri for the gadget.
-
-serviceName
-:   The name associated with the gadget. A gadgetUri and service name create a unique composite key for a gadget in the deployment.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.findGadgetBindingByUri("http://www.acme.com/mygadget", "connections_service")
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.findGadgetBindingByUri(string gadgetUri, string serviceName)</strong></p>
+<p>Returns a Map with information about the registered OAuth 2.0 gadget bindings with the specified gadgetUri and service name.</p>
+<p><strong>gadgetUri</strong></p>
+<p>The uri for the gadget.</p>
+<p><strong>serviceName</strong></p>
+<p>The name associated with the gadget. A gadgetUri and service name create a unique composite key for a gadget in the deployment.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.findGadgetBindingByUri(&quot;http://www.acme.com/mygadget&quot;, &quot;connections_service&quot;)
+</code></pre></div>
 <h2 class="section" id="ReturningASingleBindingByWidgetId">Returning a single binding by widgetId</h2>
-<p>NewsOAuth2ConsumerService.findGadgetBindingByWidgetId(string widgetId, string serviceName)
-:   Returns a Map with information about the registered OAuth 2.0 gadget bindings with the specified widget id and service name.</p>
-<pre><code>widgetId
-:   The id of the widget.
-
-serviceName
-:   The name associated with the gadget. A widgetId and service name create a unique composite key for a gadget in the deployment.
-
-Example:
-
-```
-wsadmin&gt;NewsOAuth2ConsumerService.findGadgetBinding("aad20aa1-c0fa-48ef-bd05-8abe630c0012", "connections_service")
-
-```
-</code></pre>
+<p><strong>NewsOAuth2ConsumerService.findGadgetBindingByWidgetId(string widgetId, string serviceName)</strong></p>
+<p>Returns a Map with information about the registered OAuth 2.0 gadget bindings with the specified widget id and service name.</p>
+<p><strong>widgetId</strong></p>
+<p>The id of the widget.</p>
+<p><strong>serviceName</strong></p>
+<p>The name associated with the gadget. A widgetId and service name create a unique composite key for a gadget in the deployment.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.findGadgetBinding(&quot;aad20aa1-c0fa-48ef-bd05-8abe630c0012&quot;, &quot;connections_service&quot;)
+</code></pre></div>
 <h2 class="section" id="PurgingAllTokens">Purging all tokens</h2>
-<p>NewsOAuth2ConsumerService.purgeAllTokens()
-:   Purges all tokens persisted in the repository. This operation should be executed if the underlying encryption method has been modified.</p>
+<p><strong>NewsOAuth2ConsumerService.purgeAllTokens()</strong></p>
+<p>Purges all tokens persisted in the repository. This operation should be executed if the underlying encryption method has been modified.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>wsadmin&gt;NewsOAuth2ConsumerService.purgeAllTokens()
 </code></pre></div>
-<p><strong>Parent topic:</strong><a href="../admin/t_admin_common_widget_container.html">Administering the Widget container</a></p>
+<p><strong>Parent topic:</strong> <a href="../admin/t_admin_common_widget_container.html">Administering the Widget container</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../admin/t_admin_common_edit_admin_props.html">Running administrative commands</a></p>
 <p><a href="../admin/t_admin_registeroauthclientwprovider.html">Registering an OAuth client with a provider</a></p>

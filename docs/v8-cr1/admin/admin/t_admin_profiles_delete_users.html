@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -10311,9 +10343,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deleting or inactivating users in the Profiles database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_admin_profiles_delete_users.html" class="md-nav__link md-nav__link--active">
         Deleting or inactivating users in the Profiles database
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -10934,8 +10997,6 @@
         
           
         
-          
-        
       
       
         
@@ -10992,20 +11053,6 @@
     <li class="md-nav__item">
       <a href="t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30330,7 +30377,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32381,6 +32428,8 @@
         
           
         
+          
+        
       
       
         
@@ -32400,6 +32449,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35249,6 +35312,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35271,8 +35349,9 @@
 <p>You can use an IBM® Tivoli® Directory Integrator command to delete or inactivate users in the Connections Profiles database.</p>
 <p>Use the delete_or_inactivate_employees command to either delete or inactivate users from the Profiles database. When you delete users, only their data that's in the Profiles database is removed; their data in other Connections applications is not removed. When you inactivate users, their Profile is flagged as inactive, and only their email address and login ids are removed from the Profiles database. In both cases, whether delete or inactivate, users are marked as inactivated in the other Connections applications.</p>
 <p><strong>Note:</strong> When you use the delete_or_inactivate_employees command, remember that the user data is still in LDAP or other sources. You must remove that data otherwise the users will be re-populated in Profiles at the next synchronization.</p>
+<h2 id="procedure">Procedure</h2>
+<p>To delete or inactivate specific users from the Profiles database:</p>
 <ol>
-<li>To delete or inactivate specific users from the Profiles database:</li>
 <li>
 <p>Create a text file named delete_or_inactivate_employees.in that contains the distinguished names and user IDs for the users that you want to delete from the database. Use the following format to represent a user:</p>
 <div class="highlight"><pre><span></span><code>$dn:user\_dn
@@ -35302,6 +35381,7 @@ uid:Amy Jones8
 <li>
 <p>Run the delete_or_inactivate_employees command to delete or inactivate the users from the database.</p>
 <p>The following table shows the properties that are used by the command and their default values. These properties can be found in the profiles_tdi.properties file.</p>
+<p>Table 1. Properties used with the delete_or_inactivate_employees command</p>
 <table>
 <thead>
 <tr>
@@ -35316,21 +35396,13 @@ uid:Amy Jones8
 </tr>
 <tr>
 <td>sync_delete_or_inactivate</td>
-<td>Specifies whether to delete or inactivate the people listed in the file specified using the delete_or_inactivate_employees_simple_file property. The options are: delete</td>
-</tr>
-<tr>
-<td>:   Deletes users from the Profiles database Their data in the Profiles database is removed.</td>
-<td></td>
+<td>Specifies whether to delete or inactivate the people listed in the file specified using the delete_or_inactivate_employees_simple_file property. The options are: <br></br> <strong>delete</strong>:   Deletes users from the Profiles database Their data in the Profiles database is removed. <br></br> <strong>inactivate</strong>:   Sets the person's status to inactive in the Profiles database. In addition, the user's email address and login ids are removed from the Profiles database. When you inactivate users, you can reinstate them later. See <em>Managing user data using Profiles administrative commands</em> for more details. An inactive person is identifiable in the product user interface because the person's name is dimmed. An inactive person’s name is not included in searches and membership selection fields. <br></br> The default value is inactivate.</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ol>
-<p>inactivate
-    :   Sets the person's status to inactive in the Profiles database. In addition, the user's email address and login ids are removed from the Profiles database. When you inactivate users, you can reinstate them later. See <em>Managing user data using Profiles administrative commands</em> for more details. An inactive person is identifiable in the product user interface because the person's name is dimmed. An inactive person’s name is not included in searches and membership selection fields.</p>
-<p>The default value is inactivate.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_profiles_manage_users.html">Managing user data using Profiles administrative commands</a></p>
 <p><a href="../install/r_TDI_batch_files.html">Batch files for processing Profiles data</a></p>

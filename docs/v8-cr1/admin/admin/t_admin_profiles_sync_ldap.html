@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -10926,8 +10958,6 @@
         
           
         
-          
-        
       
       
         
@@ -10984,20 +11014,6 @@
     <li class="md-nav__item">
       <a href="t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30322,7 +30338,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32373,6 +32389,8 @@
         
           
         
+          
+        
       
       
         
@@ -32392,6 +32410,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35248,6 +35280,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-employee-tables" class="md-nav__link">
     Example employee tables
   </a>
@@ -35294,86 +35333,81 @@
 <p>When the sync_updates_show_summary_only property is set to true, no changes are made.</p>
 <p>Like the other TDI tasks, the sync_all_dns command writes log information to the log file ibmdi.log in the TDI\logs directory. You can check the log to see whether the command finishes successfully, and look for error information if necessary.</p>
 <p>For more information about how the sync_all_dns command works, see <em>Understanding how the sync_all_dns process works</em>.</p>
+<h2 id="procedure">Procedure</h2>
+<p>To synchronize LDAP directory changes with Profiles:</p>
 <ol>
-<li>To synchronize LDAP directory changes with Profiles:</li>
-<li>Use the properties in the following table to control the synchronization process.<pre><code>|**sync\_updates\_hash\_field
-</code></pre>
+<li>
+<p>Use the properties in the following table to control the synchronization process.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sync_updates_hash_field</strong></td>
+<td>sync_updates_hash_field is a key property. This property specifies the field that is used to match a user record in the Profiles database with the corresponding user information in the source. The supported fields are uid, guid, and email. The default is uid. <br></br> It is critical that you choose a field that does not ordinarily change over time, so that the match will remain intact. If the value in the field in the source does change, the match is broken, and the existing database information for this person could be deleted. <br></br> If the value of the hash field in the source does change, you must set this property to a different field that has not changed, for at least one run of sync_all_dns. For example, if the value for uid changes in the source, you must set the property to either guid or email. After one run of sync_all_dns, you can change the property back to uid. <br></br> <strong>Note:</strong> If the value is guid and you change LDAP providers, you must change the value to uid or email temporarily because guid is LDAP-specific.</td>
+</tr>
+<tr>
+<td><strong>perform_deletion_or_inactivate_for_sync</strong></td>
+<td>The default value is true. Set this property to false when you don't want to delete or mark as inactive those users who are no longer in the LDAP directory. <br></br> The sync_all_dns command checks the value of the property and acts by using the following logic: <br></br> -   If the value is true, look at the sync_delete_or_inactivate property to determine which action to take. The action is either delete or inactivate. <br></br> -   If the value is false, perform neither the delete action nor the inactivate action.</td>
+</tr>
+<tr>
+<td><strong>sync_delete_or_inactivate</strong></td>
+<td>Controls what happens to a user record when it is not found in the LDAP directory. The value must be either delete or inactivate, and is case-sensitive. Inactivate is basically a soft delete. By default, the property is set to inactivate. The inactive state is propagated to all the other Connections applications independent of whether the user is deleted or inactivated. <br></br> For information about hard deleting users who have been inactive for some time, see <em>Using supplied scripts to delete inactive users based on inactivity length</em>.</td>
+</tr>
+<tr>
+<td><strong>source_ldap_iterate_with_filter</strong></td>
+<td>The default value is false. When set to true, the source_ldap_iterate_with_filter_functions_file property is used to locate the file that contains the JavaScript code that affects chunking. This is needed when there is a limit to the number of users that can be obtained with an LDAP query. <br></br> For more information about how to use this property, see <em>Populating a large user set</em>. <br></br> This property is not configurable when you are using the population wizard.</td>
+</tr>
+<tr>
+<td><strong>source_ldap_iterate_with_filter_functions_file</strong></td>
+<td>Used only when source_ldap_iterate_with_filter is set to true. <br></br> Set this property to the name of a JavaScript file that contains the filter code that affects chunking. <br></br> Use when the size of the data to be retrieved from LDAP exceeds the search limit of the LDAP or exceeds the memory capacity of the TDI LDAP connector. For example, if your search parameters would return 250 K records but your LDAP only allows 10K to be returned at a time, you can use this property. <br></br> For more information about how to use this property, see <em>Populating a large user set</em>. <br></br> This property is not configurable when using the population wizard.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_double_check</strong></td>
+<td>The default value is false. When set to true, the assembly line that is defined by the sync_check_if_remove property runs. <br></br> <strong>Note:</strong> This property applies to delete/inactivate only.</td>
+</tr>
+<tr>
+<td><strong>sync_check_if_remove</strong></td>
+<td>Used only when sync_updates_double_check is set to true. <br></br> Specifies the name of an assembly line in profiles_tdi.xml that verifies the delete operation or the inactivate operation. <br></br> By default, the name of the assembly line is set to sync_all_dns_check_if_remove. The sync_all_dns_check_if_remove assembly line looks up the distinguished name of the about-to-be-deleted user in the LDAP directory. If the user is found, sync_all_dns_check_if_remove returns a status that causes the main assembly to bypass the delete or inactivate action. <br></br> For more information about this property, see <em>Customizing the logic used for the delete operation</em>.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_clean_temp_files</strong></td>
+<td>The default value is true. When set to false, temporary files are not deleted until the next time that sync_all_dns is run.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_hash_partitions</strong></td>
+<td>Number of partitions to divide the temporary files into. The default of 10 is sufficient in most cases. If problems develop, you can increase the value. The typical problem is running out of memory during the update phase because all the data related to all users in a partition is held in memory during the update, delete, and add phases. For more information about partitions, see <em>Understanding how the sync_all_dns process works</em>.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_show_summary_only</strong></td>
+<td>The default value is false. When set to true, the employee.* files in the TDI solution directory contain the records that are changed, but no changes are made.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_working_directory</strong></td>
+<td>The directory where the working files are stored. The path can be relative to the TDI solution directory or an absolute path. The default value is sync_updates, which is a relative path.</td>
+</tr>
+<tr>
+<td><strong>sync_updates_size_model</strong></td>
+<td>The default value is single. This property is used for enhancing the performance of the sync_all_dns command. Possible values are single, multi4, multi6, or multi8. For more information about this property, see <em>Improving the performance of the sync_all_dns command</em></td>
+</tr>
+<tr>
+<td><strong>sync_updates_use_ldap_timestamp</strong></td>
+<td>The default value is false. This property is used for enhancing the performance of the sync_all_dns command. For more information about this property, see <em>Improving the performance of the sync_all_dns command</em>.</td>
+</tr>
+</tbody>
+</table>
 </li>
-</ol>
-<p>**|sync_updates_hash_field is a key property. This property specifies the field that is used to match a user record in the Profiles database with the corresponding user information in the source. The supported fields are uid, guid, and email. The default is uid.</p>
-<p>It is critical that you choose a field that does not ordinarily change over time, so that the match will remain intact. If the value in the field in the source does change, the match is broken, and the existing database information for this person could be deleted.</p>
-<p>If the value of the hash field in the source does change, you must set this property to a different field that has not changed, for at least one run of sync_all_dns. For example, if the value for uid changes in the source, you must set the property to either guid or email. After one run of sync_all_dns, you can change the property back to uid.</p>
-<p><strong>Note:</strong> If the value is guid and you change LDAP providers, you must change the value to uid or email temporarily because guid is LDAP-specific.</p>
-<p>|
-    |**perform_deletion_or_inactivate_for_sync</p>
-<p>**|The default value is true. Set this property to false when you don't want to delete or mark as inactive those users who are no longer in the LDAP directory.</p>
-<p>The sync_all_dns command checks the value of the property and acts by using the following logic:</p>
-<pre><code> -   If the value is true, look at the sync\_delete\_or\_inactivate property to determine which action to take. The action is either delete or inactivate.
--   If the value is false, perform neither the delete action nor the inactivate action.
-</code></pre>
-<p>|
-    |**sync_delete_or_inactivate</p>
-<p>**|Controls what happens to a user record when it is not found in the LDAP directory. The value must be either delete or inactivate, and is case-sensitive. Inactivate is basically a soft delete. By default, the property is set to inactivate. The inactive state is propagated to all the other Connections applications independent of whether the user is deleted or inactivated.</p>
-<p>For information about hard deleting users who have been inactive for some time, see <em>Using supplied scripts to delete inactive users based on inactivity length</em>.</p>
-<p>|
-    |**source_ldap_iterate_with_filter</p>
-<p>**|The default value is false. When set to true, the source_ldap_iterate_with_filter_functions_file property is used to locate the file that contains the JavaScript code that affects chunking. This is needed when there is a limit to the number of users that can be obtained with an LDAP query.</p>
-<p>For more information about how to use this property, see <em>Populating a large user set</em>.</p>
-<p>This property is not configurable when you are using the population wizard.</p>
-<p>|
-    |**source_ldap_iterate_with_filter_functions_file</p>
-<p>**|Used only when source_ldap_iterate_with_filter is set to true.</p>
-<p>Set this property to the name of a JavaScript file that contains the filter code that affects chunking.</p>
-<p>Use when the size of the data to be retrieved from LDAP exceeds the search limit of the LDAP or exceeds the memory capacity of the TDI LDAP connector. For example, if your search parameters would return 250 K records but your LDAP only allows 10K to be returned at a time, you can use this property.</p>
-<p>For more information about how to use this property, see <em>Populating a large user set</em>.</p>
-<p>This property is not configurable when using the population wizard.</p>
-<p>|
-    |**sync_updates_double_check</p>
-<p>**|The default value is false. When set to true, the assembly line that is defined by the sync_check_if_remove property runs.</p>
-<p><strong>Note:</strong> This property applies to delete/inactivate only.</p>
-<p>|
-    |**sync_check_if_remove</p>
-<p>**|Used only when sync_updates_double_check is set to true.</p>
-<p>Specifies the name of an assembly line in profiles_tdi.xml that verifies the delete operation or the inactivate operation.</p>
-<p>By default, the name of the assembly line is set to sync_all_dns_check_if_remove. The sync_all_dns_check_if_remove assembly line looks up the distinguished name of the about-to-be-deleted user in the LDAP directory. If the user is found, sync_all_dns_check_if_remove returns a status that causes the main assembly to bypass the delete or inactivate action.</p>
-<p>For more information about this property, see <em>Customizing the logic used for the delete operation</em>.</p>
-<p>|
-    |<strong>sync_updates_clean_temp_files</strong>|The default value is true. When set to false, temporary files are not deleted until the next time that sync_all_dns is run.</p>
-<p>|
-    |**sync_updates_hash_partitions</p>
-<p><em><em>|Number of partitions to divide the temporary files into. The default of 10 is sufficient in most cases. If problems develop, you can increase the value. The typical problem is running out of memory during the update phase because all the data related to all users in a partition is held in memory during the update, delete, and add phases. For more information about partitions, see </em>Understanding how the sync_all_dns process works</em>.</p>
-<p>|
-    |**sync_updates_show_summary_only</p>
-<p>**|The default value is false. When set to true, the employee.* files in the TDI solution directory contain the records that are changed, but no changes are made.</p>
-<p>|
-    |**sync_updates_working_directory</p>
-<p>**|The directory where the working files are stored. The path can be relative to the TDI solution directory or an absolute path. The default value is sync_updates, which is a relative path.</p>
-<p>|
-    |**sync_updates_size_model</p>
-<p><em><em>|The default value is single. This property is used for enhancing the performance of the sync_all_dns command. Possible values are single, multi4, multi6, or multi8. For more information about this property, see </em>Improving the performance of the sync_all_dns command</em></p>
-<p>|
-    |**sync_updates_use_ldap_timestamp</p>
-<p><em><em>|The default value is false. This property is used for enhancing the performance of the sync_all_dns command. For more information about this property, see </em>Improving the performance of the sync_all_dns command</em>.</p>
-<p>|</p>
-<ol>
 <li>
 <p>If you are storing data from multiple LDAP branches or multiple LDAP directories in the same Profiles database, you must synchronize each LDAP branch or LDAP directory separately. To accomplish this task, you can set the following properties in the profiles_tdi.properties file.</p>
 <p><strong>Note:</strong> These properties can only be used with the sync_all_dns command. They cannot be used with the process_tds_changes and process_ad_changes commands.</p>
-<pre><code>|**sync\_source\_url\_enforce
-</code></pre>
+<p>|<strong>sync_source_url_enforce</strong>|The default value is false. When set to true, synchronizes only those users where the stored source URL matches the current source URL. The current source URL is the concatenation of the source_ldap_url, source_ldap_search_base, and source_ldap_search_filter properties. That is, it limits the scope of the set of data in the database, and skips the records that do not match the current source URL.|
+|<strong>sync_source_url_override</strong>|The default value is false. This property is effective only when sync_source_url_enforce is true. When sync_source_url_enforce is true and sync_source_url_override is false, records where the current source URL and the stored source URL do not match are skipped. <br></br> When sync_source_url_override is true, the records that would have been skipped are checked for a match of the hash field in the current LDAP branch or LDAP directory. If there is a match and at least one field needs to be updated, the record is updated, and the source URL is set to the current value. If no fields are updated, which would be very unusual in the cases where you would use this override, no change is made. For example, the major use case is switching LDAP directories, and in this case the guid is sure to change. <br></br> This property should be clearly understood before setting it to true. See the last example later in this document to see it in action.|
+|<strong>sync_store_source_url</strong>|The default value is true. Stores the source LDAP URL in the prof_source_url field in the database. The source LDAP URL is needed to determine the source of the data to correctly synchronize it when there is more than one LDAP branch or LDAP directory. Even if there is only one LDAP, it is best to leave this property set to true.|</p>
 </li>
-</ol>
-<p>**|The default value is false. When set to true, synchronizes only those users where the stored source URL matches the current source URL. The current source URL is the concatenation of the source_ldap_url, source_ldap_search_base, and source_ldap_search_filter properties. That is, it limits the scope of the set of data in the database, and skips the records that do not match the current source URL.</p>
-<p>|
-    |**sync_source_url_override</p>
-<p>**|The default value is false. This property is effective only when sync_source_url_enforce is true. When sync_source_url_enforce is true and sync_source_url_override is false, records where the current source URL and the stored source URL do not match are skipped.</p>
-<p>When sync_source_url_override is true, the records that would have been skipped are checked for a match of the hash field in the current LDAP branch or LDAP directory. If there is a match and at least one field needs to be updated, the record is updated, and the source URL is set to the current value. If no fields are updated, which would be very unusual in the cases where you would use this override, no change is made. For example, the major use case is switching LDAP directories, and in this case the guid is sure to change.</p>
-<p>This property should be clearly understood before setting it to true. See the last example later in this document to see it in action.</p>
-<p>|
-    |**sync_store_source_url</p>
-<p>**|The default value is true. Stores the source LDAP URL in the prof_source_url field in the database. The source LDAP URL is needed to determine the source of the data to correctly synchronize it when there is more than one LDAP branch or LDAP directory. Even if there is only one LDAP, it is best to leave this property set to true.</p>
-<p>|</p>
-<ol>
 <li>
 <p>Run the sync_all_dns command. The command name is either sync_all_dns.sh or sync_all_dns.bat, depending on your operating system.</p>
 <p><strong>Note:</strong> When the sync_all_dns command runs, a lock file is created in the TDI solution directory. The lock file prevents others from starting a sync_all_dns process in the same TDI solution directory. The name of the lock file is sync_all_dns.lck. The lock file is deleted after the sync_all_dns command completes. If the command does not complete, the lock file is not deleted. You can delete it yourself, or you can run the clearLock.sh or the clearLock.bat script, located in the TDI solution directory.</p>
@@ -35396,6 +35430,7 @@ sync_source_url_override=false
 <div class="highlight"><pre><span></span><code>source_ldap_search_base=cn=users,location=westford,dc=zetabank,dc=com
 </code></pre></div>
 <p>After running collect_dns and populate_from_dn_file in each of the two TDI solution directories, the EMPLOYEE table contains the following data:</p>
+<p>Table 1. Example employee table after running collect_dns and populate_from_dn_file in each TDI solution directory.</p>
 <table>
 <thead>
 <tr>
@@ -35438,6 +35473,7 @@ sync_source_url_override=false
 <p>An update is required because the location value in the PROF_SOURCE_URL column is different than the location value in ABC/profiles_tdi.properties. To correctly update the value in PROF_SOURCE_URL, in ABC/profiles_tdi.properties set sync_source_url_override to true and then run sync_all_dns in the ABC TDI solution directory.</p>
 <p>As a safety precaution, the PROF_SOURCE_URL is not updated if it is the only attribute that changes. Also, you should set sync_source_url_override to false after running sync_all_dns.</p>
 <p>After the command completes, the EMPLOYEE table contains the following data:</p>
+<p>Table 2. Example employee table after running collect_dns in the ABC TDI solution directory.</p>
 <table>
 <thead>
 <tr>
@@ -35482,7 +35518,7 @@ Use the sync_all_dns process to keep your Connections Profiles database synchron
 <li><strong><a href="c_admin_profiles_improving_sync_performance.html">Improving the performance of the sync_all_dns command</a></strong><br />
 Significantly improve the performance of the Connections Profiles sync_all_dns command by enabling two properties in the profiles_tdi.properties file.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_common_add_j2c_auth.html">Switching to unique administrator IDs for system level communication</a></p>
 <p><a href="t_admin_profiles_ldap_branch.html">Use an LDAP branch to store external users</a></p>

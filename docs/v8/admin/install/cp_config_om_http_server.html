@@ -7,7 +7,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A next-gen documentation site for HCL Connections.">
+        <meta name="description" content="A next-gen documentation site for HCL Connections.
+">
       
       
       
@@ -143,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -10778,8 +10779,6 @@
         
           
         
-          
-        
       
       
         
@@ -10836,20 +10835,6 @@
     <li class="md-nav__item">
       <a href="../admin/t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../admin/t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30083,7 +30068,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32134,6 +32119,8 @@
         
           
         
+          
+        
       
       
         
@@ -32153,6 +32140,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35023,6 +35024,7 @@
 <h1 class="task" id="cp_config_om_http_server">Configuring the HTTP server for Orient Me</h1>
 <p>Configure the IBM® HTTP Server to redirect users from the HCL Connections™ home page to the Orient Me home page.</p>
 <p>Complete this task to ensure that the HTTP server redirects users to the Orient Me home page when they log in to Connections.</p>
+<p>Using the sample deployment described in <a href="cp_install_services_tasks.html#section_awd_rwp_tnb">Steps to install or upgrade to Component Pack</a>, the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).</p>
 <ol>
 <li>
 <p>Log in to the HTTP server as the root user (AIX®, Linux™) or the administrator (Windows™).</p>
@@ -35037,8 +35039,10 @@
 <li>AIX: /opt2/IBM/HTTPServer/</li>
 <li>Linux: /opt/IBM/HTTPServer/conf/</li>
 <li>Windows: D:\IBM\HTTPServer\conf\</li>
-<li>In the file, verify that the following modules are listed and that the lines are not commented out:</li>
 </ul>
+</li>
+<li>
+<p>In the file, verify that the following modules are listed and that the lines are not commented out:</p>
 <div class="highlight"><pre><span></span><code>LoadModule proxy_module modules/mod_proxy.so 
 LoadModule proxy_connect_module modules/mod_proxy_connect.so 
 LoadModule proxy_ftp_module modules/mod_proxy_ftp.so 
@@ -35054,31 +35058,30 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 Statements to insert:</li>
 </ul>
 <div class="highlight"><pre><span></span><code>ProxyPreserveHost On
-ProxyPass &quot;/social&quot; &quot;http://master\_node\_host\_name:32080/social&quot; 
-ProxyPassReverse &quot;/social&quot; &quot;http://master\_node\_host\_name:32080/social&quot; 
-ProxyPass &quot;/itm&quot; &quot;http://master\_node\_host\_name:32080/itm&quot; 
-ProxyPassReverse &quot;/itm&quot; &quot;http://master\_node\_host\_name:32080/itm&quot;
-ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities&quot;
-ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://master\_node\_host\_name:32080/community_suggestions/api/recommend/communities&quot;
-ProxyPass &quot;/appreg&quot; &quot;http://master\_node\_host\_name:32080/appreg/&quot;
-ProxyPassReverse &quot;/appreg&quot; &quot;http://master\_node\_host\_name:32080/appreg/&quot;
-ProxyPass &quot;/appregistry&quot; &quot;http://master\_node\_host\_name:32080/appregistry&quot; 
-ProxyPassReverse &quot;/appregistry&quot; &quot;http://master\_node\_host\_name:32080/appregistry&quot;
+ProxyPass &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPassReverse &quot;/social&quot; &quot;http://cpmaster.internal.example.com:32080/social&quot; 
+ProxyPass &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot; 
+ProxyPassReverse &quot;/itm&quot; &quot;http://cpmaster.internal.example.com:32080/itm&quot;
+ProxyPass &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot;
+ProxyPassReverse &quot;/community_suggestions/api/recommend/communities&quot; &quot;http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities&quot;
+ProxyPass &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot;
+ProxyPassReverse &quot;/appreg&quot; &quot;http://cpmaster.internal.example.com:32080/appreg/&quot;
+ProxyPass &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot; 
+ProxyPassReverse &quot;/appregistry&quot; &quot;http://cpmaster.internal.example.com:32080/appregistry&quot;
 </code></pre></div>
-<p>For high availability deployments, replace <code>master\_node\_host\_name</code> with the load balancer DNS of the HA cluster (Must be FQHN).</p>
 <p><strong>Note:</strong> 32080 is the port of the Ingress Controller, so make sure that is deployed and running before making these changes. Take note of the new appreg URL when using Ingress.</p>
 <p>For example, after inserting the above statements, your code block will look like the following snippet:</p>
 <div class="highlight"><pre><span></span><code>     ProxyPreserveHost On
-     ProxyPass /social http://master_node_host_name:32080/social
-     ProxyPassReverse /social http://master_node_host_name:32080/social
-     ProxyPass /itm http://master_node_host_name:32080/itm
-     ProxyPassReverse /itm http://master_node_host_name:32080/itm
-     ProxyPass /community_suggestions/api/recommend/communities http://master_node_host_name:32080/community_suggestions/api/recommend/communities
-     ProxyPassReverse /community_suggestions/api/recommend/communities http://master_node_host_name:32080/community_suggestions/api/recommend/communities
-     ProxyPass /appreg http://master_node_host_name:32080/appreg/
-     ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-     ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-     ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+     ProxyPass /social http://cpmaster.internal.example.com:32080/social
+     ProxyPassReverse /social http://cpmaster.internal.example.com:32080/social
+     ProxyPass /itm http://cpmaster.internal.example.com:32080/itm
+     ProxyPassReverse /itm http://cpmaster.internal.example.com:32080/itm
+     ProxyPass /community_suggestions/api/recommend/communities http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities
+     ProxyPassReverse /community_suggestions/api/recommend/communities http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities
+     ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+     ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
 
 LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 &lt;IfModule mod_ibm_ssl.c&gt;
@@ -35086,16 +35089,16 @@ LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 &lt;VirtualHost *:443&gt;
      ServerName HTTPServerHostname.com
      ProxyPreserveHost On
-     ProxyPass /social http://master_node_host_name:32080/social
-     ProxyPassReverse /social http:/master_node_host_name:32080/social
-     ProxyPass /itm http://master_node_host_name:32080/itm
-     ProxyPassReverse /itm http://master_node_host_name:32080/itm
-     ProxyPass /community_suggestions/api/recommend/communities http://master_node_host_name:32080/community_suggestions/api/recommend/communities
-     ProxyPassReverse /community_suggestions/api/recommend/communities http://master_node_host_name:32080/community_suggestions/api/recommend/communities
-     ProxyPass /appreg http://master_node_host_name:32080/appreg/
-     ProxyPassReverse /appreg http://master_node_host_name:32080/appreg/
-     ProxyPass /appregistry http://master_node_host_name:32080/appregistry
-     ProxyPassReverse /appregistry http://master_node_host_name:32080/appregistry 
+     ProxyPass /social http://cpmaster.internal.example.com:32080/social
+     ProxyPassReverse /social http:/cpmaster.internal.example.com:32080/social
+     ProxyPass /itm http://cpmaster.internal.example.com:32080/itm
+     ProxyPassReverse /itm http://cpmaster.internal.example.com:32080/itm
+     ProxyPass /community_suggestions/api/recommend/communities http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities
+     ProxyPassReverse /community_suggestions/api/recommend/communities http://cpmaster.internal.example.com:32080/community_suggestions/api/recommend/communities
+     ProxyPass /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPassReverse /appreg http://cpmaster.internal.example.com:32080/appreg/
+     ProxyPass /appregistry http://cpmaster.internal.example.com:32080/appregistry
+     ProxyPassReverse /appregistry http://cpmaster.internal.example.com:32080/appregistry 
 
      #DocumentRoot /opt/IBM/HTTPServer/htdocs
      SSLEnable
@@ -35113,7 +35116,7 @@ LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
 </code></pre></div>
 </li>
 <li>
-<p>To verify the proxy, open a browser to http://httpserver.domain.com/social/views/login.html and make sure you get the Orient-Me POC login screen. Do it again to https://httpserver.domain.com/social/views/login.html</p>
+<p>To verify the proxy, open a browser to https://nginx.example.com/social/views/login.html and make sure you get the Orient-Me POC login screen. Do it again to https://nginx.example.com/social/views/login.html</p>
 </li>
 </ol>
 <p><strong>Parent topic:</strong><a href="cp_config_om_intro.html">Configuring the Orient Me component</a></p>

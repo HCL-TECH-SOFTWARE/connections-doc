@@ -7,7 +7,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A next-gen documentation site for HCL Connections.">
+        <meta name="description" content="A next-gen documentation site for HCL Connections.
+">
       
       
       
@@ -143,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -10821,8 +10822,6 @@
         
           
         
-          
-        
       
       
         
@@ -10879,20 +10878,6 @@
     <li class="md-nav__item">
       <a href="../admin/t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../admin/t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30126,7 +30111,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32177,6 +32162,8 @@
         
           
         
+          
+        
       
       
         
@@ -32196,6 +32183,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35093,15 +35094,15 @@
 
 
 <h1 id="sample-roadmap-for-a-side-by-side-upgrade">Sample roadmap for a side-by-side upgrade</h1>
-<p>The following roadmap is a guide to upgrading to HCL Connections 8.0 by installing it in a new environment and then migrating data from your existing environment. In this example, the existing environment is Connections 7.0.</p>
-<p>This approach can also be applied to upgrading to Connections 8.0 from versions earlier than 7.0, in which case additional database schema updates would be required.</p>
+<p>The following roadmap is a guide to upgrading to HCL Connections 8.0 and to the latest CR by installing it in a new environment and then migrating data from your existing environment. In this example, the existing environment is Connections 7.0.</p>
+<p>This approach can also be applied to upgrading to Connections 8.0 and to the latest CR from versions earlier than 7.0, in which case additional database schema updates would be required.</p>
 <h2 id="pre-installation-tasks">Pre-installation tasks</h2>
 <p>These are some key tasks before installing version 8.0 of Connections in the new environment. For more detail on these tasks, plus some that are optional, see the whitepaper.</p>
 <p>To review all tasks that typically precede a Connections installation, see the <a href="../install/c_preinstall_actions.html">Pre-installation tasks</a> section in this product documentation.</p>
 <ol>
 <li>Prepare to install software:<ul>
 <li>Review the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">software and hardware requirements</a> for the system that will host Connections 8.0.</li>
-<li>Download Connections 8 and WebSphere Application Server v8.5.5 and fixpack 19 from the HCL Software License and Download Portal.</li>
+<li>Download Connections 8 and WebSphere Application Server v8.5.5 and the latest fixpack from the HCL Software License and Download Portal.</li>
 <li>Make sure that your servers contain enough free disk space for unpacking the installation files as well as keeping the platform operational.</li>
 </ul>
 </li>
@@ -35110,8 +35111,8 @@
 <li><a href="../install/c_install_db_over.html">Create databases for Connections, XCC, and ESSAPPS (IC360)</a>.</li>
 <li><a href="../install/t_install_was.html">Install IBM WebSphere Application Server</a>.</li>
 <li>
-<p>Configure WebSphere security by choosing the LDAP and SSO settings that you used for Connections 6.5 as you follow the steps in <a href="../install/t_inst_federated_repositories.html">Setting up federated repositories</a>.</p>
-<p><strong>Note:</strong> If you are making significant changes between your Connections 6.5 CR1 and Connections 7 security configuration, consider the dependencies described in <a href="c_sbs_upgrade_considerations.html">Considerations for a side-by-side upgrade</a>.</p>
+<p>Configure WebSphere security by choosing the LDAP and SSO settings that you used for Connections 7.0 as you follow the steps in <a href="../install/t_inst_federated_repositories.html">Setting up federated repositories</a>.</p>
+<p><strong>Note:</strong> If you are making significant changes between your Connections 7.0 and Connections 8.0 security configuration, consider the dependencies described in <a href="c_sbs_upgrade_considerations.html">Considerations for a side-by-side upgrade</a>.</p>
 </li>
 <li>
 <p><a href="../install/t_create_webserver1_node.html">Install and configure IBM HTTP Server</a>.</p>
@@ -35121,7 +35122,7 @@
 <p>See <a href="../install/t_install_cluster.html">Installing HCL Connections 8.0</a>, taking care to read the suggestions under <em>About this task</em>.</p>
 <h2 id="post-installation-tasks">Post-installation tasks</h2>
 <ol>
-<li><a href="t_sbs_migrate_data.html">Migrate 6.5 databases and update the database schema</a>.</li>
+<li><a href="t_sbs_migrate_data.html">Migrate 7.0 databases and update the database schema</a> (<strong>if needed</strong>).</li>
 <li>Use the sample steps in the whitepaper to guide you as you complete the remaining post-installation tasks that apply to your organization. These include the following tasks:<ul>
 <li>Export and import Connections customizations and content shares</li>
 <li>Re-run synchronization of the Profiles database</li>

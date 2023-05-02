@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -10934,8 +10966,6 @@
         
           
         
-          
-        
       
       
         
@@ -10992,20 +11022,6 @@
     <li class="md-nav__item">
       <a href="t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30330,7 +30346,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32381,6 +32397,8 @@
         
           
         
+          
+        
       
       
         
@@ -32400,6 +32418,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35318,49 +35350,38 @@ checkingResult.setValue(&quot;updated&quot;);
 </li>
 <li>
 <p>Set the following properties in the file:</p>
-<p>sync_updates_double_check
-:   Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.</p>
-<pre><code>For example:
-
-```
-sync_updates_double_check=true
-```
-</code></pre>
-<p>sync_check_if_remove
-:   Specifies the name of your checking assembly line:</p>
-<pre><code>```
-sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
-```
-
-By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
-
-For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
-
-```
-sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
-```
-</code></pre>
-<p>sync_delete_or_inactivate
-:   Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:</p>
-<pre><code>-   delete. Specifies that the user record is deleted.
--   inactivate. Specifies that the user record is inactivated.
-
-    The inactive status is propagated to the member and login tables for all the applications. An event is generated for each of the following: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application by removing the user from the login tables and setting the user's status to 1 in all member tables.
-
-These values are case-sensitive so type them with care. The default value is inactivate.
-
-For example:
-
-```
-sync_delete_or_inactivate=inactivate
-```
-</code></pre>
+<p><strong>sync_updates_double_check</strong></p>
+<p>Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>sync_updates_double_check=true
+</code></pre></div>
+<p><strong>sync_check_if_remove</strong></p>
+<p>Specifies the name of your checking assembly line:</p>
+<div class="highlight"><pre><span></span><code>sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
+</code></pre></div>
+<p>By default, the assembly line's name is set tosync_all_dns_check_if_remove.</p>
+<p>For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example_check_if_user_really_deleted, use the following statement to set this property:</p>
+<div class="highlight"><pre><span></span><code>sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
+</code></pre></div>
+<p><strong>sync_delete_or_inactivate</strong>
+Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:</p>
+<ul>
+<li>delete. Specifies that the user record is deleted.</li>
+<li>
+<p>inactivate. Specifies that the user record is inactivated.</p>
+<p>The inactive status is propagated to the member and login tables for all the applications. An event is generated for each of the following: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News (which includes both Home page and Search). These events inactivate the user in every application by removing the user from the login tables and setting the user's status to 1 in all member tables.</p>
+</li>
+</ul>
+<p>These values are case-sensitive so type them with care. The default value is inactivate.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>sync_delete_or_inactivate=inactivate
+</code></pre></div>
 </li>
 <li>
-<p>Save your changes to the profiles_tdi.properties file.</p>
+<p>Save your changes to the <code>profiles\_tdi.properties</code> file.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_profiles_updating_ldap.html">Managing user data using Tivoli Directory Integrator Solution scripts</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="c_admin_profiles_sync_ldap_understanding.html">Understanding how the sync_all_dns process works</a></p>
 <p><a href="t_admin_profiles_sync_ldap.html">Synchronizing the Profiles database with your organization's user data</a></p>

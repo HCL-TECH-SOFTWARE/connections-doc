@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -443,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new.html" class="md-nav__link">
+      <a href="../overview/i_ovr_r_whats_new.html" class="md-nav__link">
         Connections 8.0
       </a>
     </li>
@@ -3128,6 +3128,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -3260,6 +3264,34 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_openshift.html" class="md-nav__link">
+        Installing Component Pack on OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/cp_eks.html" class="md-nav__link">
+        Installing Component Pack using EKS
+      </a>
     </li>
   
 
@@ -9754,6 +9786,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#constants-for-proxypolicy" class="md-nav__link">
+    Constants for ProxyPolicy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#newswidgetcatalogservice" class="md-nav__link">
     NewsWidgetCatalogService
   </a>
@@ -11001,8 +11040,6 @@
         
           
         
-          
-        
       
       
         
@@ -11059,20 +11096,6 @@
     <li class="md-nav__item">
       <a href="t_admin_common_enable_lang_change.html" class="md-nav__link">
         Enabling users to set a language preference
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="t_admin_common_change_context_root.html" class="md-nav__link">
-        Changing application URLs
       </a>
     </li>
   
@@ -30397,7 +30420,7 @@
   
     <li class="md-nav__item">
       <a href="../../connectors/icec/cec-communities.html" class="md-nav__link">
-        Adding the Communities widget to your organization Adding the Engagement Center widget to a Community
+        Adding the Engagement Center widget to a Community
       </a>
     </li>
   
@@ -32448,6 +32471,8 @@
         
           
         
+          
+        
       
       
         
@@ -32467,6 +32492,20 @@
           Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/icec/cec-install.html" class="md-nav__link">
+        Installing Connections Engagement Center
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -35365,6 +35404,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#constants-for-proxypolicy" class="md-nav__link">
+    Constants for ProxyPolicy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#newswidgetcatalogservice" class="md-nav__link">
     NewsWidgetCatalogService
   </a>
@@ -35395,19 +35441,19 @@
 <p>Administrators can register gadgets for the Home page, and register widgets for the Communities, and Profiles applications, using the NewsWidgetCatalogService commands or the Administration view on the Home page.</p>
 <h2 class="section" id="methods-for-registering-new-widgets">Methods for registering new widgets</h2>
 <p>You must be logged in as an administrator to register a new gadget or widget. Connections provides two mechanisms for registration:</p>
-<p>Administration view
-:   The Administration view provides a form-based mechanism for registering gadgets and widgets. To use this method, you must have the Home page application installed. For information, see <a href="t_admin_homepage_add_widgets.html">Configuring Home page widgets</a>.</p>
-<p>NewsWidgetCatalogService commands
-:   The NewsWidgetCatalogService command allows you to register a gadget or widget from a command window. This method does not require you to install the Home page application. For more information, continue reading this topic.</p>
+<p><strong>Administration view</strong></p>
+<p>The Administration view provides a form-based mechanism for registering gadgets and widgets. To use this method, you must have the Home page application installed. For information, see <a href="t_admin_homepage_add_widgets.html">Configuring Home page widgets</a>.</p>
+<p><strong>NewsWidgetCatalogService commands</strong></p>
+<p>The NewsWidgetCatalogService command allows you to register a gadget or widget from a command window. This method does not require you to install the Home page application. For more information, continue reading this topic.</p>
 <h2 class="section" id="flag-constants-used-for-widget-policy-settings">Flag constants used for widget policy settings</h2>
-<p>GadgetFlags
-:   TRUSTED use to indicate that a gadget is 'trusted' and should be granted access to the non-base gadget features.</p>
-<p>:   SSO indicates that a particular gadget is granted access to the SSO feature.</p>
-<p>WidgetContexts
-:   UPDATE indicates that this widget is applicable to the updates page of the Homepage.</p>
-<p>:   WIDGET indicates that this widget is applicable to the widgets page of the Homepage.</p>
-<p>:   SHAREDIALOG indicates that this gadget is applicable to the share dialog.</p>
-<p>:   EMBEDXP indicates that this gadget is provides an embedded experience.</p>
+<p><strong>GadgetFlags</strong></p>
+<p>TRUSTED use to indicate that a gadget is 'trusted' and should be granted access to the non-base gadget features.</p>
+<p>SSO indicates that a particular gadget is granted access to the SSO feature.</p>
+<p><strong>WidgetContexts</strong></p>
+<p>UPDATE indicates that this widget is applicable to the updates page of the Homepage.</p>
+<p>WIDGET indicates that this widget is applicable to the widgets page of the Homepage.</p>
+<p>SHAREDIALOG indicates that this gadget is applicable to the share dialog.</p>
+<p>EMBEDXP indicates that this gadget is provides an embedded experience.</p>
 <h2 class="section" id="settings-available-for-widgets">Settings available for widgets</h2>
 <p>Before using any NewsWidgetCatalogService commands, be sure to run <code>newsAdmin.py</code> as described in the first two steps of the topic <a href="t_admin_homepage_access_news_config.html">Accessing the News configuration file</a>. The following table describes the settings available for widgets:</p>
 <table>
@@ -35497,133 +35543,99 @@
 </tbody>
 </table>
 <h2 class="section" id="constants-for-enablement">Constants for enablement</h2>
-<p>Enablement
-:   ALL returns both enabled and disabled widgets</p>
-<p>:   ENABLED returns only enabled widgets</p>
-<p>:   DISABLED returns only disabled widgets</p>
+<p><strong>Enablement</strong></p>
+<p>ALL returns both enabled and disabled widgets</p>
+<p>ENABLED returns only enabled widgets</p>
+<p>DISABLED returns only disabled widgets</p>
 <h2 class="section" id="constants-for-true-and-false">Constants for True and False</h2>
-<p>Constant for True
-:   TRUE=1</p>
-<p>Constant for False
-:   FALSE=0</p>
+<p><strong>Constant for True</strong></p>
+<p>TRUE=1</p>
+<p><strong>Constant for False</strong></p>
+<p>FALSE=0</p>
 <h2 class="section" id="unbounded-page-size-constant">Unbounded page size constant</h2>
-<p>PAGE_SIZE_UNBOUNDED = -1
+<p><strong>PAGE_SIZE_UNBOUNDED = -1</strong>
 :   ## Constants for ProxyPolicy {#ConstantsForProxyPolicy .section}</p>
-<p>ProxyPolicy
-:   INTRANET_ACCESS All server access.</p>
-<p>:   EXTERNAL_ONLY Only servers outside of the SSO domain.</p>
-<p>:   <code>CUSTOM</code> No access. Access will be defined by the proxy-policy.dynamic file.</p>
-<p>:   For more information about the proxy-policy.dynamic file, refer to <a href="t_admin_common_cre11_conn_security_proxy.html">Configuring per-host proxy access rules for OpenSocial gadgets</a>.</p>
+<h2 class="section" id="constants-for-proxypolicy">Constants for ProxyPolicy</h2>
+<p><strong>ProxyPolicy</strong></p>
+<p>INTRANET_ACCESS All server access.</p>
+<p>EXTERNAL_ONLY Only servers outside of the SSO domain.</p>
+<p><code>CUSTOM</code> No access. Access will be defined by the proxy-policy.dynamic file.</p>
+<p>For more information about the proxy-policy.dynamic file, refer to <a href="t_admin_common_cre11_conn_security_proxy.html">Configuring per-host proxy access rules for OpenSocial gadgets</a>.</p>
 <h2 class="section" id="newswidgetcatalogservice">NewsWidgetCatalogService</h2>
-<p>NewsWidgetCatalogService.browseWidgets(enablement = Enablement.ALL, pageSize = PAGE_SIZE_UNBOUNDED, pageNumber = 1)
-:   Browse the widgets in the widget catalog.</p>
-<p>:   Uses the parameter for enablement (Refer to Enablement).</p>
-<p>:   Uses the parameter for pageSize.</p>
-<p>:   Uses the parameter for pageNumber.</p>
-<p>:   Returns a list of Widget objects.</p>
-<p>:   ```
-wsadmin&gt;NewsWidgetCatalogService.browseWidgets(Enablement.ALL, 1, 1)
-<div class="highlight"><pre><span></span><code>NewsWidgetCatalogService.clearWidgetCaches\(\)
-:   Clears cached widget.xml files from your server without needing to restart your system. If a gadget or iWidget.xml has been updated and you want to force it to be reread by the system, simply call this command.
-
-NewsWidgetCatalogService.countWidgets\(enablement = Enablement.ALL\)
-:   Count the widgets in the widget catalog.
-
-:   \* Uses the parameter for enablement \(Refer to Enablement\).
-
-:   \* Returns a count of the number of widgets in the catalog.
-
-NewsWidgetCatalogService.findWidgetById\(WidgetId\)
-:   Find a widget by id.
-
-:   Uses the parameter for widgetId.
-
-:   Returns the matching widget or null if no matching widget is found.
-
-:   For example:
-
-    ```
-    wsadmin&gt;NewsWidgetCatalogService.findWidgetById(&quot;405a4f26-fa08-4cef-a995-7d90fbe2634f&quot;)
-
-    ```
-
-NewsWidgetCatalogService.findWidgetByUrl\(widgetUrl\)
-:   Find a widget by Url.
-
-:   Uses the parameter for url.
-
-:   Returns the matching widget or null if no matching widget is found.
-
-NewsWidgetCatalogService.listShareGadgets\(enablement = Enablement.ALL\)
-:   List out the share gadgets. By design, paging is not supported.
-
-:   Uses the parameter for enablement \(Refer to Enablement\).
-
-:   Returns the share gadgets.
-
-:   For example:
-
-    ```
-    wsadmin&gt;NewsWidgetCatalogService.listShareGadgets(Enablement.ALL)
-    ```
-
-NewsWidgetCatalogService.updateWidgetShareOrder\(widgetId, orderAfterWidgetId\)
-:   Place the widget marked in a widgetId after a second widget in widget ordering.
-
-:   widgetId The id of the widget you wish to move.
-
-:   orderAfterWidgetId The id of the widget you want to place the gadget after. If this is null, the widget will be placed first in the ordering.
-
-NewsWidgetCatalogService.addWidget\(\*\*widget\)
-:   Add a widget to the widget catalog.
-
-:   \*\* widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
-
-:   Returns the ID of the newly created widget.
-
-:   The following example creates a sample EE gadget that has &#39;trusted&#39; access policies. This gadget depends on the Profiles component.
-
-    ```
-
-    NewsWidgetCatalogService.addWidget(title=&quot;Sample gadget title&quot;, text=&quot;Sample gadget description.&quot;, url=&quot;http://www.to.my.gadget.com/gadget.xml&quot;, categoryName=&#39;sample&#39; isGadget=TRUE,appContexts=[WidgetContexts.EMBEDXP], policyFlags=[GadgetPolicyFlags.TRUSTED], prereqs=[&quot;profiles&quot;])
-
-    ```
-
-NewsWidgetCatalogService.updateWidget\(widgetId, \*\*widget\)
-:   Update an existing widget in the widget catalog.
-
-:   Uses the parameter for widgetId.
-
-:   \*\* widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.
-
-:   ```
-wsadmin&gt;NewsWidgetCatalogService.updateWidget(&quot;1bf9ad75-a634-4301-88c6-ce493eb03cc9&quot;, title=&quot;test&quot;, text=&quot;test&quot;)
-</code></pre></div></p>
-<p>NewsWidgetCatalogService.removeWidget(widgetId)
-:   Remove a widget matching the widgetId entered.</p>
-<p>:   For example:</p>
-<pre><code>```
-wsadmin&gt;NewsWidgetCatalogService.removeWidget("405a4f26-fa08-4cef-a995-7d90fbe2634f") 
-```
-</code></pre>
-<p>NewsWidgetCatalogService.enableWidget(widgetId)
-:   Returns the following output:</p>
-<pre><code>```
-CLFRQXXXXI: Widget {0} is now enabled.
-```
-</code></pre>
-<p>NewsWidgetCatalogService.disableWidget(widgetId)
-:   Returns the following output:</p>
-<pre><code>```
-CLFRQXXXXI: Widget {0} is now disabled.
-```
-</code></pre>
-<p>NewsWidgetCatalogService.ProxyPolicy
-:   Specify the server proxy policy.</p>
-<p>:   INTRANET_ACCESS May access intranet sites.</p>
-<p>:   EXTERNAL_ONLY May access external (non-intranet) sites only.</p>
-<p>:   CUSTOM Uses rules in the rule manager configuration.</p>
-<p><strong>Parent topic:</strong><a href="t_admin_common_widget_container.html">Administering the Widget container</a></p>
+<p><strong>NewsWidgetCatalogService.browseWidgets(enablement = Enablement.ALL, pageSize = PAGE_SIZE_UNBOUNDED, pageNumber = 1)</strong></p>
+<p>Browse the widgets in the widget catalog.</p>
+<p>Uses the parameter for enablement (Refer to Enablement).</p>
+<p>Uses the parameter for pageSize.</p>
+<p>Uses the parameter for pageNumber.</p>
+<p>Returns a list of Widget objects.</p>
+<p><div class="highlight"><pre><span></span><code>wsadmin&gt;NewsWidgetCatalogService.browseWidgets(Enablement.ALL, 1, 1)
+</code></pre></div>
+<strong>NewsWidgetCatalogService.clearWidgetCaches()</strong></p>
+<p>Clears cached widget.xml files from your server without needing to restart your system. If a gadget or iWidget.xml has been updated and you want to force it to be reread by the system, simply call this command.</p>
+<p><strong>NewsWidgetCatalogService.countWidgets(enablement = Enablement.ALL)</strong></p>
+<p>Count the widgets in the widget catalog.</p>
+<ul>
+<li>
+<p>Uses the parameter for enablement (Refer to Enablement).</p>
+</li>
+<li>
+<p>Returns a count of the number of widgets in the catalog.</p>
+</li>
+</ul>
+<p><strong>NewsWidgetCatalogService.findWidgetById(WidgetId)</strong></p>
+<p>Find a widget by id.</p>
+<p>Uses the parameter for widgetId.</p>
+<p>Returns the matching widget or null if no matching widget is found.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsWidgetCatalogService.findWidgetById(&quot;405a4f26-fa08-4cef-a995-7d90fbe2634f&quot;)
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.findWidgetByUrl(widgetUrl)</strong></p>
+<p>Find a widget by Url.</p>
+<p>Uses the parameter for url.</p>
+<p>Returns the matching widget or null if no matching widget is found.</p>
+<p><strong>NewsWidgetCatalogService.listShareGadgets(enablement = Enablement.ALL)</strong></p>
+<p>List out the share gadgets. By design, paging is not supported.</p>
+<p>Uses the parameter for enablement (Refer to Enablement).</p>
+<p>Returns the share gadgets.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsWidgetCatalogService.listShareGadgets(Enablement.ALL)
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.updateWidgetShareOrder(widgetId, orderAfterWidgetId)</strong></p>
+<p>Place the widget marked in a widgetId after a second widget in widget ordering.</p>
+<p>widgetId: The id of the widget you wish to move.</p>
+<p>orderAfterWidgetId: The id of the widget you want to place the gadget after. If this is null, the widget will be placed first in the ordering.</p>
+<p><strong>NewsWidgetCatalogService.addWidget(**widget)</strong></p>
+<p>Add a widget to the widget catalog.</p>
+<p>** widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.</p>
+<p>Returns the ID of the newly created widget.</p>
+<p>The following example creates a sample EE gadget that has 'trusted' access policies. This gadget depends on the Profiles component.</p>
+<p><div class="highlight"><pre><span></span><code>NewsWidgetCatalogService.addWidget(title=&quot;Sample gadget title&quot;, text=&quot;Sample gadget description.&quot;, url=&quot;http://www.to.my.gadget.com/gadget.xml&quot;, categoryName=&#39;sample&#39; isGadget=TRUE,appContexts=[WidgetContexts.EMBEDXP], policyFlags=[GadgetPolicyFlags.TRUSTED], prereqs=[&quot;profiles&quot;])
+</code></pre></div>
+<strong>NewsWidgetCatalogService.updateWidget(widgetId, **widget)</strong></p>
+<p>Update an existing widget in the widget catalog.</p>
+<p>Uses the parameter for widgetId.</p>
+<p>** widget indicates that this is a free form set of key=value properties. The keys/values map to the Settings available for widgets table previously described.</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsWidgetCatalogService.updateWidget(&quot;1bf9ad75-a634-4301-88c6-ce493eb03cc9&quot;, title=&quot;test&quot;, text=&quot;test&quot;)
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.removeWidget(widgetId)</strong></p>
+<p>Remove a widget matching the widgetId entered.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;NewsWidgetCatalogService.removeWidget(&quot;405a4f26-fa08-4cef-a995-7d90fbe2634f&quot;) 
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.enableWidget(widgetId)</strong></p>
+<p>Returns the following output:</p>
+<div class="highlight"><pre><span></span><code>CLFRQXXXXI: Widget {0} is now enabled.
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.disableWidget(widgetId)</strong></p>
+<p>Returns the following output:</p>
+<div class="highlight"><pre><span></span><code>CLFRQXXXXI: Widget {0} is now disabled.
+</code></pre></div>
+<p><strong>NewsWidgetCatalogService.ProxyPolicy</strong></p>
+<p>Specify the server proxy policy.</p>
+<p>INTRANET_ACCESS May access intranet sites.</p>
+<p>EXTERNAL_ONLY May access external (non-intranet) sites only.</p>
+<p>CUSTOM Uses rules in the rule manager configuration.</p>
+<p><strong>Parent topic:</strong> <a href="t_admin_common_widget_container.html">Administering the Widget container</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="r_admin_news_admin_props.html">News administrative commands</a></p>
 

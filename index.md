@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <title>Redirecting</title>
   <noscript>
-    <meta http-equiv="refresh" content="1; url=../v8_cr1/" />
+    <meta http-equiv="refresh" content="1; url=../v8/" />
   </noscript>
   <script>
     window.location.replace("../v8_cr1/" + window.location.hash);
-  </script>
+  </script>	
+  </noscript>
   <script>
     window.location.replace("../v8/" + window.location.hash);
   </script>

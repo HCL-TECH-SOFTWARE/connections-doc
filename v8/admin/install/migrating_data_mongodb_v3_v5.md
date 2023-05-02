@@ -75,7 +75,7 @@ Before migrating your data, check the verification section below to understand h
         This command returns the following output:
 
         ``` {#codeblock_jwm_q1q_bvb}
-        o/p: Using MongoDB:        5.0.9
+        o/p: Using MongoDB:        5.0.14
         Using Mongosh:        1.6.0
         ```
 
