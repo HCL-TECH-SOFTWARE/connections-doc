@@ -2,7 +2,7 @@
 
 Configure installation properties and run the installation program to deploy the Connections Engagement Center (CEC).
 
-1.  Popular the `install80.properties` file with values from your server.
+1.  Populate the `install80.properties` file with values from your server.
 
     If installing in a single-node server, make sure to populate **serverName** and **nodeName**.
 

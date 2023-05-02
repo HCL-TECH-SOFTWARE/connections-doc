@@ -4,16 +4,23 @@ The default list of fonts used by the Tiny editors' font picker.
 
 ```
   fonts: [
+    'Andale Mono',
     'Arial',
+    'Arial Black',
+    'Book Antiqua',
     'Comic Sans MS',
-    'Consolas',
-    'Courier',
+    'Courier New',
     'Georgia',
+    'Helvetica',
     'Impact',
+    'Symbol',
     'Tahoma',
+    'Terminal',
     'Times New Roman',
-    'Trebuchet MS',
-    'Verdana'
+    'Trebuchet',
+    'Verdana',
+    'Webdings',
+    'Wingdings'
   ],
 ```
 
