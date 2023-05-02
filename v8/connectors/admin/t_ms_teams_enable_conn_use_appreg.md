@@ -10,20 +10,20 @@ By default, Connections applications do not try to make requests to the app regi
 
 2.  Locate the `sloc:serviceReference` section where serviceName="extensionRegistry" in the file.
 
-3.  Check that both the enabled and ssl\_enabled properties are true.
+3.  Check that both the `enabled` and `ssl_enabled` properties are present and set to true.
 
 4.  If they are not true, update the configuration file so the section looks as follows \(where httpserver.domain.com is the host name used to connect to Connections\):
 
     ```
-    <sloc:serviceReference bootstrapHost="admin\_replace" bootstrapPort="admin\_replace" clusterName="" enabled="true" serviceName="extensionRegistry" ssl_enabled="true">
+    <sloc:serviceReference bootstrapHost="admin replace" bootstrapPort="admin replace" clusterName="" enabled="true" serviceName="extensionRegistry" ssl_enabled="true">
         <sloc:href>
           <sloc:hrefPathPrefix>/appregistry</sloc:hrefPathPrefix>
-          <sloc:static href="admin\_replace" ssl_href="admin\_replace"/>
-          <sloc:interService href="admin\_replace"/>
+          <sloc:static href="admin replace" ssl_href="admin replace"/>
+          <sloc:interService href="admin replace"/>
         </sloc:href>
       </sloc:serviceReference>
     ```
 
 5.  If you made changes, restart the server.
 
-
+[Updating WebSphere to support single sign-on with Connections for Microsoft Teams](t_ms_teams_update_websphere_for_sso.md)
