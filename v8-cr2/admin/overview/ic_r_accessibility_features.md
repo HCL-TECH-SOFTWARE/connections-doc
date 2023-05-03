@@ -25,7 +25,7 @@ For JAWS users: To activate buttons in the user interface, press the **Enter** k
 
 In the HCL Connections banner, **Profiles**, **Communities**, **Apps**, and the user image launch dialogs. Use the **Tab** key to navigate through the options.
 
-Hiding block quotes in forums
+**Hiding block quotes in forums**
 :   In a Connections forum, you can adjust the way automatic block quotes appear, and avoid having to navigate past block quotes. Click the **Conversations** button in the Topic Navigation region on the forum topic page to rearrange forum posts by reply thread and hide the automatic block quotes.
 
 ## Interface information { .section}

@@ -11,7 +11,7 @@ You can add the Activities Plus app \(Docker widget\) to communities and the hom
     CommunitiesConfigService.checkOutWidgetsConfig("/tmp//LCCheckedOut", AdminControl.getCell())
     ```
 
-2.  Edit the widgets-config.xml file. Find the resource element with the type of community \(<resource ... type="community" ... \>\), then under <widgets\>, then within <definitions\> add the following lines, replacing \[BOARDS\_URL\] with your URL:
+2.  Edit the `widgets-config.xml` file. Find the resource element with the type of community \(<resource … type=“community” … \>\), then under <widgets\>, then within <definitions\> add the following lines, replacing \[BOARDS\_URL\] with your URL:
 
     ```
     <!-- Kudos Boards -->
@@ -26,7 +26,7 @@ You can add the Activities Plus app \(Docker widget\) to communities and the hom
     <!-- END Kudos Boards -->
     ```
 
-3.  Check in the widgets-config.xml file:
+3.  Check in the `widgets-config.xml` file:
 
     ```
     CommunitiesConfigService.checkInWidgetConfig()

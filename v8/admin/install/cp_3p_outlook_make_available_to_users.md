@@ -16,9 +16,9 @@ User-deployed \(sideloaded\) from within Outlook
 
 -   Select **Get add-ins** from ribbon or overflow menu
 -   Enter the manifest URL or upload the manifest file
-    -   Manifest URL: https://<CONNECTIONS\_URL\>/<CONTEXT\_ROOT\>/manifest.xml
+    -   -   Manifest URL: https://<CONNECTIONS\_URL\>/<CONTEXT\_ROOT\>/manifest.xml
 -   For example: Micorsoft Outllook Add-in manifest.xml
-    -   Refer to [Microsoft's detailed instructions on sideloading add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing) for additional information.
+    -   -   Refer to [Microsoft’s detailed instructions on sideloading add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing) for additional information.
 
-**Parent topic:** [Integrating with Connections Outlook Add-in for Microsoft Outlook](../install/cp_3p_outlook_addin_container.md)
+**Parent topic:**[Integrating with Connections Outlook Add-in for Microsoft Outlook](../install/cp_3p_outlook_addin_container.md)
 

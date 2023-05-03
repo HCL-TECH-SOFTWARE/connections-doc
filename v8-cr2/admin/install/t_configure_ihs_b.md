@@ -38,48 +38,32 @@ To configure IBM HTTP Server for encrypted connections, complete the following s
 
 7.  Add the following text to the end of the configuration file:
 
-    LoadModule ibm\_ssl\_module modules/mod\_ibm\_ssl.so
-
-    <IfModule mod\_ibm\_ssl.c\>
-
-    Listen 0.0.0.0:443
-
-    <VirtualHost \*:443\>
-
-    ServerName server\_name
-
-    SSLEnable
-
-    </VirtualHost\>
-
-    </IfModule\>
-
+    ```
+    LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
+    <IfModule mod_ibm_ssl.c>
+      Listen 0.0.0.0:443
+      <VirtualHost *:443>
+        ServerName server_name
+        SSLEnable
+      </VirtualHost>
+    </IfModule>
     SSLDisable
-
-    Keyfile "path\_to\_key\_file"
-
-    SSLStashFile "path\_to\_stash\_file"
+    Keyfile "path_to_key_file"
+    ```
 
     where
 
-    -   server\_name is the host name of the IBM HTTP Server.
-    -   path\_to\_key\_file is the path to the key file that you created with the iKeyman utility.
-    -   path\_to\_stash\_file is the path to the associated stash file.
+    -   `server_name` is the host name of the IBM HTTP Server.
+    -   `path_to_key_file` is the path to the key file that you created with the iKeyman utility.
     For example:
-
     -   AIX®:
-        -   Keyfile "/usr/IBM/keyfiles/key\_file.kdb"
-        -   SSLStashFile "/usr/IBM/keyfiles/key\_file.sth"
+        -   `Keyfile "/usr/IBM/keyfiles/key_file.kdb"`
     -   Linux™:
-        -   Keyfile "/opt/IBM/keyfiles/key\_file.kdb"
-        -   SSLStashFile "/opt/IBM/keyfiles/key\_file.sth"
+        -   `Keyfile "/opt/IBM/keyfiles/key_file.kdb"`
     -   Microsoft™ Windows™:
-
         Use forward slashes in the httpd.conf file on Windows.
-
-        -   Keyfile "C:/IBM/keyfiles/key\_file.kdb"
-        -   SSLStashFile "C:/IBM/keyfiles/key\_file.sth"
-    where key\_file is the name that you have given to your key file and stash file.
+        -   `Keyfile "C:/IBM/keyfiles/key_file.kdb"`
+    where `key_file` is the name that you have given to your key file and stash file.
 
 8.  Click **Apply** and then click **OK**.
 

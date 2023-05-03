@@ -2,7 +2,7 @@
 
 Find out about features that are new or updated in this release of HCL Connections.
 
--   See the article Update Strategy for HCL Connections 8.0 CR1 on the HCL Support site to obtain the latest updates for both Connections Server and Component Pack, including required critical updates.
+-   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
 -   **Download** Connections 8.0 CR1 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 CR1 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 

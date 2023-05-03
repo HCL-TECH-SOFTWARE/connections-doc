@@ -12,9 +12,9 @@ To define IBM HTTP Server, complete the following steps:
 
     -   AIX® or Linux®:
         1.  Open a command prompt and navigate to the following directory:
-            -   AIX: /usr/IBM/HTTPServer/bin
-            -   Linux: /opt/IBM/HTTPServer/bin
-        2.  Enter the following command: ./adminctl start
+            -   AIX: `/usr/IBM/HTTPServer/bin`
+            -   Linux: `/opt/IBM/HTTPServer/bin`
+        2.  Enter the following command: `./adminctl start`
     -   Windows®:
         1.  Open the Services window in the Windows Control Panel.
         2.  Verify that the IBM HTTP Administration Server service is started. If this service is not running, start it
@@ -85,11 +85,11 @@ Complete the steps in the [Configuring IBM HTTP Server for an encrypted connecti
 
 Configure IBM HTTP Server to handle file downloads from the Activities, Files, Libraries, Mobile, and Wikis applications. For information on this configuration, refer to *Configuring file downloads through IBM HTTP Server*.
 
-If IBM HTTP Server does not load the plug-in, check whether the httpd.conf points to the file in ../IBM/WebSphere/Plugins/config/webserver1, which is an incorrect path. If so, comment out this configuration and replace it with the following IBM HTTP Server directory. For example:
+If IBM HTTP Server does not load the plug-in, check whether the httpd.conf points to the file in `../IBM/WebSphere/Plugins/config/webserver1`, which is an incorrect path. If so, comment out this configuration and replace it with the following IBM HTTP Server directory. For example:
 
 ```
-# WebSpherePluginConfig "C:\IBM\**WebSphere**\Plugins\config\webserver1\plugin-cfg.xml" 
-WebSpherePluginConfig "C:\IBM\**HTTPServer**\Plugins\config\webserver1\plugin-cfg.xml" 
+# WebSpherePluginConfig "C:\IBM\WebSphere\Plugins\config\webserver1\plugin-cfg.xml" 
+WebSpherePluginConfig "C:\IBM\HTTPServer\Plugins\config\webserver1\plugin-cfg.xml" 
 ```
 
 -   **[Installing IBM HTTP Server and web server plug-ins](../install/t_install_http.md)**  
