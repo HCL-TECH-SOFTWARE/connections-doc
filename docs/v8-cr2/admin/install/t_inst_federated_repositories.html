@@ -35341,7 +35341,10 @@
 </li>
 <li>
 <p>If installing HCL Connections Content Manager, set the realm name to defaultWIMFileBasedRealm.</p>
-<p><strong>Note:</strong> After installation has completed, you can change the realm name as you prefer. When changing realms names, the logs might show LTPA errors, and as such the scheduled tasks list should be cleared to avoid errors in the logs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After installation has completed, you can change the realm name as you prefer. When changing realms names, the logs might show LTPA errors, and as such the scheduled tasks list should be cleared to avoid errors in the logs.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Add repositories</strong> and then, on the Repository reference page, click <strong>New Repository</strong> > <strong>LDAP repository</strong>.</p>
@@ -35362,7 +35365,10 @@
 <li>
 <p>Specify the login attribute or attributes that you want to use for authentication in the <strong>Login properties</strong> field. Separate multiple attributes with a semicolon. For example: uid;mail.</p>
 <p>See <a href="c_install_choose_login.html">Choosing login values</a> for information about the types of login values that can be used.</p>
-<p><strong>Note:</strong> If you are using Active Directory and you use an email address as the login, specify <strong>mail</strong> as the value for this property. If you use the <strong>samAccountName</strong> attribute as the login, specify uid as the value for this property.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using Active Directory and you use an email address as the login, specify <strong>mail</strong> as the value for this property. If you use the <strong>samAccountName</strong> attribute as the login, specify uid as the value for this property.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
@@ -35370,13 +35376,14 @@
 <li>
 <p>On the Repository reference page, the following fields represent the LDAP attribute type and value pairs for the base element in the realm and the LDAP repository. (The type and value pair are separated by an equal sign (=), for example: o=example. These can be the same value when a single LDAP repository is configured for the realm or can be different in a multiple LDAP repository configuration.)</p>
 <p><strong>Distinguished name of a base entry that uniquely identifies this set of entries in the realm</strong>
-:   Identifies entries in the realm. For example, on an IBM Directory Server or Active Directory, the base entry is dc=example, dc=com.</p>
-<pre><code>**Tip:** If you are using Domino LDAP, set this field to root. By using "root," you ensure that WebSphere does not use a base entry when searching this repository. The reason that you do this has to do with how groups work in Domino LDAP: by default Domino uses flat groups, and therefore they do not belong to a base certifier. If you set the **Distinguished name of a base entry that uniquely identifies this set of entries in the realm** field to root, no base is used when searching this directory, and all users and groups from the directory are found.
-</code></pre>
+:   Identifies entries in the realm. For example, on an IBM Directory Server or Active Directory, the base entry is <code>dc=example, dc=com</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using Domino LDAP, set this field to <code>root</code>. By using <code>root</code>, you ensure that WebSphere does not use a base entry when searching this repository. The reason that you do this has to do with how groups work in Domino LDAP: by default Domino uses flat groups, and therefore they do not belong to a base certifier. If you set the <strong>Distinguished name of a base entry that uniquely identifies this set of entries in the realm</strong> field to root, no base is used when searching this directory, and all users and groups from the directory are found.</p>
+</div>
 <p><strong>Distinguished name of a base entry in this repository</strong>
-:   Identifies entries in the LDAP directory. Leave this field blank.</p>
-<pre><code>This value defines the location in the LDAP directory information tree from which the LDAP search begins. The entries beneath it in the tree can also be accessed by the LDAP search. In other words, the search base entry is the top node of a subtree which consists of many possible entries beneath it.
-</code></pre>
+: Identifies entries in the LDAP directory. Leave this field blank.</p>
+<p>: This value defines the location in the LDAP directory information tree from which the LDAP search begins. The entries beneath it in the tree can also be accessed by the LDAP search. In other words, the search base entry is the top node of a subtree which consists of many possible entries beneath it.</p>
 </li>
 <li>
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
@@ -35392,14 +35399,20 @@
 </li>
 <li>
 <p>Click the <strong>Group</strong> entity type and modify the object classes mapping. You can also edit the <strong>Search bases</strong> and <strong>Search filters</strong> fields, if necessary. Enter LDAP parameters that are suitable for your LDAP directory.</p>
-<p><strong>Note:</strong> You can accept the default object classes value for Group. However, if you are using Domino, change the value to dominoGroup.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can accept the default object classes value for Group. However, if you are using Domino, change the value to dominoGroup.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
 </li>
 <li>
 <p>Click the <strong>PersonAccount</strong> entity type and modify the default object classes mapping. You can also edit the <strong>Search bases</strong> and <strong>Search filters</strong> fields, if necessary. Enter LDAP parameters that are suitable for your LDAP directory. Click <strong>Apply</strong>, and then click <strong>Save</strong> to save this setting.</p>
-<p><strong>Note:</strong> If you are using a Domino LDAP, replace the default mapping with dominoPerson object classes for person accounts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a Domino LDAP, replace the default mapping with dominoPerson object classes for person accounts.</p>
+</div>
 </li>
 <li>
 <p>In the navigation links at the beginning of the page, click the name of the repository that you have just modified to return to the Repository page.</p>
@@ -35420,14 +35433,15 @@
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
 </li>
 </ol>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
 <li>If you have already accepted the default <strong>groupOfNames</strong> value for Group, then you can also accept the default value for <strong>Member</strong>.</li>
 <li>If you changed objectclass for Group to dominoGroup <a href="t_inst_federated_repositories.html#ClickTheGroupEntityTypeAndModifyThe-53A9C6FC">earlier</a>, you must add dominoGroup to the definition of <strong>Member</strong>.</li>
 <li>If you do not configure the group membership attribute, then the group member attribute is used when you search group membership. If you need to enable searches of nested group membership, then you must configure the group membership attribute.</li>
 <li>Consider an example of group membership attribute for using Activities: the Member attribute type is used by the <strong>groupOfNames</strong> object class, and the <strong>uniqueMember</strong>attribute type is used by <strong>groupOfUniqueNames.</strong></li>
-<li>
-<p>Here are the required Objectclass/Attribute pairings broken out by LDAP directory type:</p>
+<li>Here are the required Objectclass/Attribute pairings broken out by LDAP directory type:</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -35439,43 +35453,42 @@
 <tbody>
 <tr>
 <td>IBM Tivoli Directory Security Server 6.4</td>
-<td>attribute: uniquemember</td>
-<td></td>
+<td>attribute: uniquemember<br>objectclass: groupOfUniqueNames<br> nested attribute: ibm-membershipGroup<br>nested objectclass: ibm-nestedGroup<br></td>
+<td>ibm-allGroups</td>
+</tr>
+<tr>
+<td>Active Directory 2012 R2 and 2016</td>
+<td>attribute: member<br>objectclass: group</td>
+<td>memberOf</td>
+</tr>
+<tr>
+<td>IBM Domino 8.5.3, 9.0.1</td>
+<td>attribute: member<br>objectclass: dominoGroup</td>
+<td>DominoAccessGroups</td>
+</tr>
+<tr>
+<td>Oracle Directory Server Enterprise 11.1.2</td>
+<td>attribute:uniquemember<br> objectclass: groupOfUniqueNames</td>
+<td>isMemberOf</td>
+</tr>
+<tr>
+<td>Novell eDirectory 8.8 SP8</td>
+<td>attribute: member<br>objectclass: groupOfNames</td>
+<td>groupMembership</td>
 </tr>
 </tbody>
 </table>
-</li>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Select a <strong>Scope</strong> option based on LDAP type.</p>
+<ul>
+<li>Select Nested for IBM Tivoli Directory Security Server and IBM Domino directories. Nested contains only immediate members of the group without members of subgroups.</li>
+<li>Select Direct for Active Directory. Direct contains direct members and members nested within subgroups of this group.</li>
 </ul>
+</div>
+<p>For more information about making nested group memberships available, refer to <a href="http://www-01.ibm.com/support/knowledgecenter/SSEQTP_8.5.5/com.ibm.websphere.base.doc/ae/tsec_directindirectldap.html?cp=SSEQTP_8.5.5%2F1-8-2-31-2-1-1-2">Locating user group memberships in a Lightweight Directory Access Protocol registry</a> for IBM Directory Server and Domino and to<a href="http://www-01.ibm.com/support/knowledgecenter/SSEQTP_8.5.5/com.ibm.websphere.base.doc/ae/csec_was_ad.html?cp=SSEQTP_8.5.5%2F1-8-2-31-2-19-0">Authentication using Microsoft™ Active Directory</a> for Active Directory.</p>
 </li>
-</ol>
-<p>objectclass: groupOfUniqueNames</p>
-<p>nested attribute: ibm-membershipGroup</p>
-<p>nested objectclass: ibm-nestedGroup</p>
-<p>|ibm-allGroups</p>
-<p>|
-        |Active Directory 2012 R2 and 2016|attribute: member</p>
-<p>objectclass: group</p>
-<p>|memberOf</p>
-<p>|
-        |IBM Domino 8.5.3, 9.0.1|attribute: member</p>
-<p>objectclass: dominoGroup</p>
-<p>|DominoAccessGroups</p>
-<p>|
-        |Oracle Directory Server Enterprise 11.1.2|attribute:uniquemember</p>
-<p>objectclass: groupOfUniqueNames</p>
-<p>|isMemberOf</p>
-<p>|
-        |Novell eDirectory 8.8 SP8|attribute: member</p>
-<p>objectclass: groupOfNames</p>
-<p>|groupMembership</p>
-<p>|</p>
-<pre><code>**Note:** Select a **Scope** option based on LDAP type.
-
--   Select Nested for IBM Tivoli Directory Security Server and IBM Domino directories. Nested contains only immediate members of the group without members of subgroups.
--   Select Direct for Active Directory. Direct contains direct members and members nested within subgroups of this group.
-For more information about making nested group memberships available, refer to [Locating user group memberships in a Lightweight Directory Access Protocol registry](http://www-01.ibm.com/support/knowledgecenter/SSEQTP_8.5.5/com.ibm.websphere.base.doc/ae/tsec_directindirectldap.html?cp=SSEQTP_8.5.5%2F1-8-2-31-2-1-1-2) for IBM Directory Server and Domino and to[Authentication using Microsoft™ Active Directory](http://www-01.ibm.com/support/knowledgecenter/SSEQTP_8.5.5/com.ibm.websphere.base.doc/ae/csec_was_ad.html?cp=SSEQTP_8.5.5%2F1-8-2-31-2-19-0) for Active Directory.
-</code></pre>
-<ol>
 <li>
 <p>You will generally achieve best LDAP performance by enabling Context Pooling. To enable Context Pooling, follow these steps:</p>
 <ol>
@@ -35523,7 +35536,10 @@ For more information about making nested group memberships available, refer to [
 </li>
 <li>
 <p>Select <strong>Enabled</strong>, <strong>Interoperability Mode</strong> (optional) and <strong>web inbound security attribute propagation</strong>.</p>
-<p><strong>Note:</strong> You must click Apply before continuing to the next step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must click Apply before continuing to the next step.</p>
+</div>
 </li>
 <li>
 <p>Return to the Global security page and click <strong>web and SIP security</strong> > <strong>General settings</strong>.</p>
@@ -35535,7 +35551,10 @@ For more information about making nested group memberships available, refer to [
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
 </li>
 </ol>
-<p><strong>Note:</strong> For more information about SSO security, see <a href="../secure/c_sec_config_sso.html">Configuring single sign-on</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about SSO security, see <a href="../secure/c_sec_config_sso.html">Configuring single sign-on</a>.</p>
+</div>
 </li>
 <li>
 <p>Create an administrator for WebSphere Application Server:</p>
@@ -35565,12 +35584,14 @@ For more information about making nested group memberships available, refer to [
 <p>Log into the DM using the new administrator credentials.</p>
 </li>
 </ol>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>Ensure that this user ID does not have spaces in the name.</li>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that this user ID does not have spaces in the name.</p>
+</div>
+</li>
 <li>
 <p>Set a primary administrative user:</p>
-</li>
+<ol>
 <li>
 <p>Click <strong>Security</strong> > <strong>Global Security</strong>.</p>
 </li>
@@ -35583,7 +35604,7 @@ For more information about making nested group memberships available, refer to [
 <li>
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>
 </li>
-</ul>
+</ol>
 </li>
 <li>
 <p>Log out of the DM and restart WebSphere Application Server.</p>

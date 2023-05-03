@@ -35026,44 +35026,57 @@
 <h1 class="task" id="t_inst_deploy_nested_in_was_for_tdi">Deploying nested LDAP groups in WAS for IBM Security Directory Integrator server</h1>
 <p>If WebSphere Application Server has been configured with the IBM Security Directory Integrator server LDAP repository and WebSphere has been enabled for nested groups, you must configure the Membership and Member attributes in a special way to take advantage of nested groups.</p>
 <p>The Security Directory Integrator LDAP directory must have been configured to contain nested group entries using the auxiliary <strong>objectclass</strong> ibm-nestedGroup. For top-level groups that contain nested groups, the <strong>ibm-memberGroup</strong> attribute for each member (that is a group) must be used to denote the nested group member inside its parent group. Groups must be deployed with both the LDAP operational attributes as well as the standard LDAP groups.</p>
-<p><strong>Note:</strong> If WAS has been configured to use the Security Directory Integrator with nested groups, HCL Connections uses the most effective group membership operational attribute. Specific configuration in both WAS and the Security Directory Integrator LDAP directory must be in place that requires a specific set of Attribute/Objectclass pairings to be deployed in the LDAP directory Most other LDAP directories do not require special deployment for membership.</p>
-<p><strong>Note:</strong> The Connections/WAS administrator might not be the same person as the LDAP administrator.</p>
-<p><strong>Note:</strong> If an admin wants to use nested groups, verify that their LDAP Administrator has indeed deployed groups using the LDAP Operational attributes (as this is not the default). Connections relies on using the LDAP Operational attributes to ensure they do not Overload the LDAP server and cause performance issues when nested groups are deployed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If WAS has been configured to use the Security Directory Integrator with nested groups, HCL Connections uses the most effective group membership operational attribute. Specific configuration in both WAS and the Security Directory Integrator LDAP directory must be in place that requires a specific set of Attribute/Objectclass pairings to be deployed in the LDAP directory Most other LDAP directories do not require special deployment for membership.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Connections/WAS administrator might not be the same person as the LDAP administrator.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an admin wants to use nested groups, verify that their LDAP Administrator has indeed deployed groups using the LDAP Operational attributes (as this is not the default). Connections relies on using the LDAP Operational attributes to ensure they do not Overload the LDAP server and cause performance issues when nested groups are deployed.</p>
+</div>
 <p>The following example of a nested group uses <strong>bold</strong> highlighting to indicate the member atrribute/objectclass pairing and <em>italic</em> highlighting to indicate the nested membership operational attribute and nested member/object class pairing:</p>
-<div class="highlight"><pre><span></span><code>cn=NorthAmericanSalesMembership,cn=Groups,o=ibm,dc=com
-objectClass=Top
-**objectClass=groupOfUniqueNames**
-*objectClass=ibm-nestedGroup
-ibm-memberGroup=cn=CanadianSales Membership,o=ibm,dc=com
-ibm-memberGroup=cn=UnitedStatesSales Membership,o=ibm,dc=com*
-cn=NorthAmericanSales Membership
-description=Top Level 3 Levels
-uniquemember=cn=Jane Smith45,cn=Users,o=ibm,dc=com
-**uniquemember=cn=CanadianSales Membership,cn=Groups,o=ibm,dc=com**
-uniquemember=cn=UnitedStatesSales Membership,cn=Groups,o=ibm,dc=com
-
-cn=CanadianSales Membership,cn=Groups,o=ibm,dc=com
-objectClass=Top**
-objectClass=groupOfUniqueNames***
-objectClass=ibm-nestedGroup
-ibm-memberGroup=cn=AlbertaSales Membership,o=ibm,dc=com
-ibm-memberGroup=cn=QuebecSales Membership,o=ibm,dc=com
-ibm-memberGroup=cn=OntarioSales Membership,o=ibm,dc=com*
-cn=CanadianSales Membership
-description=second level in North America
-uniquemember=cn=Jane Smith55,cn=Users,o=ibm,dc=com
-**uniquemember=cn=AlbertaSales Membership,cn=Groups,o=ibm,dc=com**
-uniquemember=cn=QuebecSales Membership,cn=Groups,o=ibm,dc=com
-uniquemember=cn=OntarioSales Membership,cn=Groups,o=ibm,dc=com
-
-cn=QuebecSales Membership,cn=Groups,o=ibm,dc=com
-objectClass=Top
-**objectClass=groupOfUniqueNames***
-objectClass=ibm-nestedGroup*
-cn=QuebecSales Membership
-description=3rd level in North America**
-uniquemember=cn=Frank Ouelette,cn=Users,o=ibm,dc=com**
+<div class="highlight"><pre><span></span><code><span class="na">cn</span><span class="o">=</span><span class="s">NorthAmericanSalesMembership,cn=Groups,o=ibm,dc=com</span>
+<span class="na">objectClass</span><span class="o">=</span><span class="s">Top</span>
+<span class="hll"><span class="na">objectClass</span><span class="o">=</span><span class="s">groupOfUniqueNames</span><span class="w"> </span><span class="c1">;(1)!</span>
+</span><span class="hll"><span class="na">objectClass</span><span class="o">=</span><span class="s">ibm-nestedGroup</span><span class="w"> </span><span class="c1">;(2)!</span>
+</span><span class="hll"><span class="na">ibm-memberGroup</span><span class="o">=</span><span class="s">cn=CanadianSales Membership,o=ibm,dc=com</span><span class="w"> </span><span class="c1">;(2)!</span>
+</span><span class="hll"><span class="na">ibm-memberGroup</span><span class="o">=</span><span class="s">cn=UnitedStatesSales Membership,o=ibm,dc=com</span><span class="w"> </span><span class="c1">;(2)!</span>
+</span><span class="na">cn</span><span class="o">=</span><span class="s">NorthAmericanSales Membership</span>
+<span class="na">description</span><span class="o">=</span><span class="s">Top Level 3 Levels</span>
+<span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=Jane Smith45,cn=Users,o=ibm,dc=com</span>
+</span><span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=CanadianSales Membership,cn=Groups,o=ibm,dc=com</span><span class="w"> </span><span class="c1">;(1)!</span>
+</span><span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=UnitedStatesSales Membership,cn=Groups,o=ibm,dc=com</span>
+</span>
+<span class="na">cn</span><span class="o">=</span><span class="s">CanadianSales Membership,cn=Groups,o=ibm,dc=com</span>
+<span class="na">objectClass</span><span class="o">=</span><span class="s">Top</span>
+<span class="hll"><span class="na">** objectClass</span><span class="o">=</span><span class="s">groupOfUniqueNames**</span>
+</span><span class="hll"><span class="na">*objectClass</span><span class="o">=</span><span class="s">ibm-nestedGroup</span>
+</span><span class="hll"><span class="na">ibm-memberGroup</span><span class="o">=</span><span class="s">cn=AlbertaSales Membership,o=ibm,dc=com</span>
+</span><span class="hll"><span class="na">ibm-memberGroup</span><span class="o">=</span><span class="s">cn=QuebecSales Membership,o=ibm,dc=com</span>
+</span><span class="hll"><span class="na">ibm-memberGroup</span><span class="o">=</span><span class="s">cn=OntarioSales Membership,o=ibm,dc=com*</span>
+</span><span class="na">cn</span><span class="o">=</span><span class="s">CanadianSales Membership</span>
+<span class="na">description</span><span class="o">=</span><span class="s">second level in North America</span>
+<span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=Jane Smith55,cn=Users,o=ibm,dc=com</span>
+</span><span class="hll"><span class="na">**uniquemember</span><span class="o">=</span><span class="s">cn=AlbertaSales Membership,cn=Groups,o=ibm,dc=com**</span>
+</span><span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=QuebecSales Membership,cn=Groups,o=ibm,dc=com</span>
+</span><span class="hll"><span class="na">uniquemember</span><span class="o">=</span><span class="s">cn=OntarioSales Membership,cn=Groups,o=ibm,dc=com</span>
+</span>
+<span class="na">cn</span><span class="o">=</span><span class="s">QuebecSales Membership,cn=Groups,o=ibm,dc=com</span>
+<span class="na">objectClass</span><span class="o">=</span><span class="s">Top</span>
+<span class="na">**objectClass</span><span class="o">=</span><span class="s">groupOfUniqueNames***</span>
+<span class="na">objectClass</span><span class="o">=</span><span class="s">ibm-nestedGroup</span>
+<span class="na">*cn</span><span class="o">=</span><span class="s">QuebecSales Membership*</span>
+<span class="na">description</span><span class="o">=</span><span class="s">3rd level in North America</span>
+<span class="na">** uniquemember</span><span class="o">=</span><span class="s">cn=Frank Ouelette,cn=Users,o=ibm,dc=com**</span>
 </code></pre></div>
+<ol>
+<li>member attribute/objectclass pairing</li>
+<li>indicate the nested membership operational atrribute and member/objectclass pairing</li>
+</ol>
 <p>Where:</p>
 <ul>
 <li><strong>ibm-nestedGroup</strong> is an auxiliary class that allows the optional ibm-memberGroup attribute that can be used with a structural class such as groupOfNames to enable subgroups to be nested within the parent group.</li>
@@ -35080,14 +35093,20 @@ uniquemember=cn=Frank Ouelette,cn=Users,o=ibm,dc=com**
 <li>Click <strong>Apply</strong> and then <strong>OK</strong>.</li>
 <li>Specify the <strong>Member</strong> attribute as follows:</li>
 </ol>
-<p><strong>Note:</strong> The Security Directory Integrator LDAP directory also should have groups deployed using the standard supported default attribute/objectclass pairings: uniquemember/groupOfUniqueNames as described in <a href="r_inst_ldap_object_class_attribute_pairings.html">LDAP objectclass/attribute pairings for nested groups</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Security Directory Integrator LDAP directory also should have groups deployed using the standard supported default attribute/objectclass pairings: uniquemember/groupOfUniqueNames as described in <a href="r_inst_ldap_object_class_attribute_pairings.html">LDAP objectclass/attribute pairings for nested groups</a>.</p>
+</div>
 <ol>
 <li>Navigate to <strong>Global Security</strong> > <strong>Federated repositories</strong> > <strong>ITDS</strong> > <strong>Group Attribute definition</strong> > <strong>Member attributes</strong>.</li>
 <li>Under <strong>General Properties</strong>, add uniquemember in the <strong>Name of members attribute</strong> field.</li>
 <li>Add groupOfUniqueNames for the <strong>Object class</strong> field.</li>
 <li>
 <p>Select Direct for the <strong>Scope</strong> field.</p>
-<p><strong>Note:</strong> Selecting Direct is appropriate in most cases. Refer to <a href="https://www.ibm.com/docs/was-nd/8.5.5?topic=ldap-default-configuration-mapping-based-server-type">Default LDAP configuration mapping based on LDAP server type</a> in the WebSphere Application Server documentation to understand all scope options for your LDAP directory service provider.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Selecting Direct is appropriate in most cases. Refer to <a href="https://www.ibm.com/docs/was-nd/8.5.5?topic=ldap-default-configuration-mapping-based-server-type">Default LDAP configuration mapping based on LDAP server type</a> in the WebSphere Application Server documentation to understand all scope options for your LDAP directory service provider.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Apply</strong> and then <strong>OK</strong>.</p>

@@ -35022,11 +35022,11 @@
 <ul>
 <li>AIX® or Linux®:<ol>
 <li>Open a command prompt and navigate to the following directory:<ul>
-<li>AIX: /usr/IBM/HTTPServer/bin</li>
-<li>Linux: /opt/IBM/HTTPServer/bin</li>
+<li>AIX: <code>/usr/IBM/HTTPServer/bin</code></li>
+<li>Linux: <code>/opt/IBM/HTTPServer/bin</code></li>
 </ul>
 </li>
-<li>Enter the following command: ./adminctl start</li>
+<li>Enter the following command: <code>./adminctl start</code></li>
 </ol>
 </li>
 <li>Windows®:<ol>
@@ -35111,9 +35111,9 @@
 </ol>
 <p>Complete the steps in the <a href="t_configure_ihs.html">Configuring IBM HTTP Server for an encrypted connection</a> topic.</p>
 <p>Configure IBM HTTP Server to handle file downloads from the Activities, Files, Libraries, Mobile, and Wikis applications. For information on this configuration, refer to <em>Configuring file downloads through IBM HTTP Server</em>.</p>
-<p>If IBM HTTP Server does not load the plug-in, check whether the httpd.conf points to the file in ../IBM/WebSphere/Plugins/config/webserver1, which is an incorrect path. If so, comment out this configuration and replace it with the following IBM HTTP Server directory. For example:</p>
-<div class="highlight"><pre><span></span><code># WebSpherePluginConfig &quot;C:\IBM\**WebSphere**\Plugins\config\webserver1\plugin-cfg.xml&quot; 
-WebSpherePluginConfig &quot;C:\IBM\**HTTPServer**\Plugins\config\webserver1\plugin-cfg.xml&quot; 
+<p>If IBM HTTP Server does not load the plug-in, check whether the httpd.conf points to the file in <code>../IBM/WebSphere/Plugins/config/webserver1</code>, which is an incorrect path. If so, comment out this configuration and replace it with the following IBM HTTP Server directory. For example:</p>
+<div class="highlight"><pre><span></span><code># WebSpherePluginConfig &quot;C:\IBM\WebSphere\Plugins\config\webserver1\plugin-cfg.xml&quot; 
+WebSpherePluginConfig &quot;C:\IBM\HTTPServer\Plugins\config\webserver1\plugin-cfg.xml&quot; 
 </code></pre></div>
 <ul>
 <li><strong><a href="t_install_http.html">Installing IBM HTTP Server and web server plug-ins</a></strong><br />

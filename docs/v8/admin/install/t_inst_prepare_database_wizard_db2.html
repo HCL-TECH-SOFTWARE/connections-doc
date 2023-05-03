@@ -35038,8 +35038,11 @@
 </li>
 <li>
 <p>(AIX only) Download and install the following packages from the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html">AIX Toolbox for Linux Applications</a> webpage:</p>
-<p>gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32, and libtiff-3.8.2</p>
-<p><strong>Note:</strong> Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.</p>
+<p><code>gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32,</code> and <code>libtiff-3.8.2</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.</p>
+</div>
 </li>
 </ul>
 <p>To prepare the database wizard, complete the following steps:</p>
@@ -35049,47 +35052,67 @@
 </li>
 <li>
 <p>(AIX and Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
-<p>xhost + // Grant display authority to other users</p>
-<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.</p>
-<p>echo $DISPLAY // Echo the value of DISPLAY under the root user</p>
-</li>
-<li>
-<p>(AIX and Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
+<p><code>xhost + // Grant display authority to other users</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.</p>
+</div>
+<p><code>echo $DISPLAY // Echo the value of DISPLAY under the root user</code>
+3.  (AIX and Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
 <ul>
 <li>
 <p>DB2</p>
-<p>su - db2inst1 // db2inst1 is the default DB2 administrator</p>
-<p>export DISPLAY=hostname:displaynumber.screennumber</p>
-<p>where hostname:displaynumber.screennumber represents the client system, monitor number, and window number. For example: localhost:0.0</p>
-<p>xclock // Display the clock, confirming that the current user has display authority and can run the wizard</p>
-<p>// Press Ctrl + C to close the clock and return to the command prompt</p>
+<p><div class="highlight"><pre><span></span><code>su - db2inst1 // db2inst1 is the default DB2 administrator
+
+export DISPLAY=hostname:displaynumber.screennumber
+</code></pre></div>
+where <code>hostname:displaynumber.screennumber</code> represents the client system, monitor number, and window number. For example: <code>localhost:0.0</code></p>
+<div class="highlight"><pre><span></span><code>xclock // Display the clock, confirming that the current user has display authority and can run the wizard
+
+// Press Ctrl + C to close the clock and return to the command prompt
+</code></pre></div>
 </li>
 </ul>
-<p><strong>Note:</strong> If you can see the xclock application running after issuing the xclock command, then you have permission to run the database wizard. If you cannot see the xclock application, run the xhost + command as root user and then run the su command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you can see the <code>xclock</code> application running after issuing the <code>xclock</code> command, then you have permission to run the database wizard. If you cannot see the <code>xclock</code> application, run the <code>xhost +</code> command as <code>root</code> user and then run the <code>su</code> command.</p>
+</div>
 </li>
 <li>
 <p>Start the database instance:</p>
-<p><strong>Note:</strong> Run the database commands under the user account that has administrative access to the database.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Run the database commands under the user account that has administrative access to the database.</p>
+</div>
 <ul>
 <li>
 <p>AIX or Linux:</p>
 <ul>
 <li>
 <p>DB2</p>
-<p>db2start // Start the current DB2 instance</p>
-<p><strong>Note:</strong> For more information about starting a DB2 instance, see <a href="https://www.ibm.com/docs/db2/11.1?topic=commands-db2start-start-db2">db2start - Start DB2 command</a> in the DB2 documentation.</p>
+<p><code>db2start // Start the current DB2 instance</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about starting a DB2 instance, see <a href="https://www.ibm.com/docs/db2/11.1?topic=commands-db2start-start-db2">db2start - Start DB2 command</a> in the DB2 documentation.</p>
+</div>
 </li>
 </ul>
 </li>
 <li>
 <p>Microsoft™ Windows™:</p>
-<p><strong>Note:</strong> Windows registers most database instances as a service. You can start or stop a database service manually if necessary.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Windows registers most database instances as a service. You can start or stop a database service manually if necessary.</p>
+</div>
 <ul>
 <li>DB2<ul>
 <li>
 <p>DB2</p>
-<p>db2start // Start the current DB2 instance</p>
-<p><strong>Note:</strong> For more information about starting a DB2 instance, see <a href="https://www.ibm.com/docs/db2/11.1?topic=commands-db2start-start-db2">db2start - Start DB2 command</a> in the DB2documentation.</p>
+<p><code>db2start // Start the current DB2 instance</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about starting a DB2 instance, see <a href="https://www.ibm.com/docs/db2/11.1?topic=commands-db2start-start-db2">db2start - Start DB2 command</a> in the DB2documentation.</p>
+</div>
 </li>
 </ul>
 </li>
@@ -35099,12 +35122,11 @@
 </li>
 <li>
 <p>Copy the Wizards directory in the HCL Connections installation media to the system that hosts the database server.</p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>If you have more instances, exit from the current instance and repeat this step for each instance.</li>
-<li>(AIX and Linux only) Ensure that users other than <code>root</code> have permission to access the HCL Connections Wizards directory.</li>
-<li>For more information about working with multiple instances, see the <a href="https://www.ibm.com/docs/en/db2/11.1?topic=srev-setting-instance-level-variables-in-partitioned-database-environment">Setting variables at the instance level in a partitioned database environment</a> topic in the DB2 documentation.</li>
-</ul>
+<p>!!! note “Notes” </p>
+<pre><code>- If you have more instances, exit from the current instance and repeat this step for each instance.
+- \(AIX and Linux only\) Ensure that users other than `root` have permission to access the HCL Connections Wizards directory.
+- For more information about working with multiple instances, see the [Setting variables at the instance level in a partitioned database environment](https://www.ibm.com/docs/en/db2/11.1?topic=srev-setting-instance-level-variables-in-partitioned-database-environment) topic in the DB2 documentation.
+</code></pre>
 </li>
 </ol>
 <p><strong>Parent topic:</strong><a href="c_inst_create_database_db2.html">Creating DB2 databases</a></p>

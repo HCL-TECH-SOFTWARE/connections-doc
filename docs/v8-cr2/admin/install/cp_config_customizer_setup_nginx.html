@@ -35328,25 +35328,27 @@
 <h1 id="configuring-the-nginx-proxy-server-for-customizer">Configuring the NGINX proxy server for Customizer</h1>
 <p>A reverse proxy server is required to forward HTTP requests to mw-proxy for customizations to be applied with the HCL Connections™ Customizer component. Any reverse proxy application with the appropriate configuration rules can be used. The following sample guide provides steps on how to configure an NGINX proxy server to function as a reverse proxy server for the Connections Customizer component.</p>
 <p>Customizer supports all URLs across Connections but it is best to optimize your NGINX config to only send traffic from the pages you want to customize, so that the NGINX server will then redirect to <code>mw-proxy</code>. At a minimum, you need the files/customizer path so that <code>mw-proxy</code> can resolve injections to the page you want to customize. The following list shows example paths for different Connections apps where you can customize pages:</p>
-<p>/files/customizer (required)<br />
- /files/app<br />
- /communities/service/html<br />
- /forums/html<br />
- /search/web<br />
- /homepage/web<br />
- /social/home<br />
- /mycontacts<br />
- /wikis/home<br />
- /blogs<br />
- /news<br />
- /activities/service/html<br />
- /profiles/html<br />
- /viewer</p>
+<ul>
+<li>/files/customizer (required)  </li>
+<li>/files/app  </li>
+<li>/communities/service/html  </li>
+<li>/forums/html  </li>
+<li>/search/web  </li>
+<li>/homepage/web  </li>
+<li>/social/home  </li>
+<li>/mycontacts  </li>
+<li>/wikis/home  </li>
+<li>/blogs  </li>
+<li>/news  </li>
+<li>/activities/service/html  </li>
+<li>/profiles/html  </li>
+<li>/viewer</li>
+</ul>
 <p>There are two general approaches for setting up NGINX as a reverse proxy server for Customizer select the approach that best suits your needs:</p>
 <ul>
 <li>
 <p>Install NGINX on a stand-alone server and point it at Connections Customizer (mw-proxy service), which in turn points to the IBM® HTTP Server (Connections).</p>
-<p>With this configuration, all other micro services go directly to IHS, bypassing Customizer; however, when using Customizer, the "Connections" URL would now be the address of the NGINX server.</p>
+<p>With this configuration, all other micro services go directly to IHS, bypassing Customizer; however, when using Customizer, the “Connections” URL would now be the address of the NGINX server.</p>
 </li>
 <li>
 <p>Install NGINX on the same server as IBM HTTP Server.</p>
@@ -35358,14 +35360,19 @@
 </li>
 <li>
 <p>Update the Connections dynamic host with NGINX server.</p>
-<p><strong>Note:</strong> Keep in mind that you must add the <code>isExternal</code> attribute to the Sametime configuration in LotusConnections-config.xml if you configured Sametime awareness through the Sametime server as described in <a href="../admin/t_admin_common_add_st_awareness_via_proxy.html">Adding Sametime awareness through the Sametime server</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep in mind that you must add the <code>isExternal</code> attribute to the Sametime configuration in LotusConnections-config.xml if you configured Sametime awareness through the Sametime server as described in <a href="../admin/t_admin_common_add_st_awareness_via_proxy.html">Adding Sametime awareness through the Sametime server</a>.</p>
+</div>
 <p>If you will use NGINX as a stand-alone server, then first you must update the <code>dynamicHosts</code> attribute in the LotusConnections-config.xml file to reflect the URL of the proxy server. On the Deployment Manager, update the LotusConnections-config.xml file with the following setting:</p>
 <div class="highlight"><pre><span></span><code>&lt;dynamicHosts enabled=&quot;true&quot;&gt;
 &lt;host href=&quot;http://proxy.example.com&quot; ssl_href=&quot;https://proxy.example.com&quot;/&gt;
 &lt;/dynamicHosts&gt;
 </code></pre></div>
 <p>where <code>proxy.example.com</code> is the host name of your reverse proxy server.</p>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
 <ul>
 <li>The dynamic hosts settings does not affect interservice URLs. Therefore, even when the proxy server is enabled, Connections still routes internal communication between the applications through their own interservice URLs. You can force this internal traffic to be routed over the proxy server by updating the interservice URLs to use the proxy server, running a helm upgrade of the connections-env chart, and setting <code>ic.internal</code> to the FQDN of the proxy server.</li>
 <li>Each <code>href</code> attribute in the LotusConnections-config.xml file is case-sensitive and must specify a fully-qualified domain name.</li>
@@ -35379,24 +35386,27 @@
 </li>
 <li>
 <p>On the NGINX server, create an SSL certificate directory.</p>
-<p>The directory might already exist; if it does not exist, create it now. For example, the following command creates a directory called etc/nginx/ssl below the NGINX_INSTALL_DIR directory.</p>
+<p>The directory might already exist; if it does not exist, create it now. For example, the following command creates a directory called <code>etc/nginx/ssl</code> below the <code>NGINX_INSTALL_DIR</code> directory.</p>
 <div class="highlight"><pre><span></span><code>$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx-selfsigned.key -out /etc/nginx/ssl/nginx-selfsigned.crt
 </code></pre></div>
 </li>
 <li>
-<p>Edit the NGINX_INSTALL_DIR/conf/nginx.conf file and replace the <code>[MW_PROXY_SERVICE]:[MW_PROXY_PORT]</code> values with the host name and port that mw-proxy is listening on.</p>
+<p>Edit the <code>NGINX_INSTALL_DIR/conf/nginx.conf</code> file and replace the <code>[MW_PROXY_SERVICE]:[MW_PROXY_PORT]</code> values with the host name and port that mw-proxy is listening on.</p>
 <ol>
 <li>
 <p>On your Master, determine the port value by running the following command:</p>
 <div class="highlight"><pre><span></span><code>kubectl get services -n connections | grep mw-proxy
 </code></pre></div>
-<p>The default MW_PROXY_PORT is 30301.</p>
+<p>The default <code>MW_PROXY_PORT</code> is <code>30301</code>.</p>
 </li>
 <li>
-<p>Update the nginx.conf file and add the MW_PROXY_SERVICE and MW_PROXY_PORT values as shown in the following example.</p>
+<p>Update the <code>nginx.conf</code> file and add the <code>MW_PROXY_SERVICE</code> and <code>MW_PROXY_PORT</code> values as shown in the following example.</p>
 </li>
 </ol>
-<p><strong>Note:</strong> If you are using HA, then <code>MW_PROXY_SERVICE</code> represents the fronting Kubernetes master address (for example, the load balancer or a virtual IP address). Otherwise, it represents the IP address of the Master node.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using HA, then <code>MW_PROXY_SERVICE</code> represents the fronting Kubernetes master address (for example, the load balancer or a virtual IP address). Otherwise, it represents the IP address of the Master node.</p>
+</div>
 <div class="highlight"><pre><span></span><code>worker_processes  1;
 
 events {
@@ -35441,8 +35451,8 @@ http {
         server {
             listen      443 ssl;
             server_name 127.0.0.1;  
-            ssl_certificate Path\_to\_NGINX-self-signed/nginx-selfsigned.crt;
-            ssl_certificate_key Path\_to\_NGINX-self-signed/nginx-selfsigned.key;
+            ssl_certificate Path_to_NGINX-self-signed/nginx-selfsigned.crt;
+            ssl_certificate_key Path_to_NGINX-self-signed/nginx-selfsigned.key;
             ssl_session_cache    shared:SSL:1m;
             ssl_session_timeout  5m;
 
@@ -35451,7 +35461,7 @@ http {
 
             location / {
                 #Points to the master with mw-proxy. Port should be as below
-                proxy_pass http://**MW\_PROXY\_SERVICE:MW\_PROXY\_PORT**;
+                proxy_pass http://**MW_PROXY_SERVICE:MW_PROXY_PORT**;
             }
         }
 
@@ -35459,7 +35469,7 @@ http {
 </code></pre></div>
 </li>
 <li>
-<p>To only route required Customizer URLs to mw-proxy and filter out all other requests directly to IHS, create a nested location or locations in the nginx.conf file as follows:</p>
+<p>To only route required Customizer URLs to <code>mw-proxy</code> and filter out all other requests directly to IHS, create a nested location or locations in the <code>nginx.conf</code> file as follows:</p>
 <div class="highlight"><pre><span></span><code>location / {
     location ~ ^/(files/app|files/customizer|communities/service/html/|forums/html|search/web/) {
         proxy_pass http://[MW_PROXY_SERVICE]:[MW_PROXY_PORT];
@@ -35472,7 +35482,7 @@ http {
 
     # Explicitly exclude some known high traffic requests that should not be routed via mw-proxy service
     # Add others if you are aware of additional examples in your Connections environment
-    location ~ /(profiles/dsx|communities/dsx|profiles/photo.*\.do) {
+    location ~ /(profiles/dsx|communities/dsx|profiles/photo.*.do) {
         proxy_pass https://IHS_SERVER;
     }
     proxy_pass https://IHS_SERVER;

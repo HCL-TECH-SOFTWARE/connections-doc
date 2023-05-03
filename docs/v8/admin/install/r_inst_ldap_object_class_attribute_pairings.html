@@ -35075,7 +35075,10 @@
 <li>You should have a basic understanding of the depth and breadth (numbers and layers of nested groups) existing in your LDAP directory so you can estimate the performance impact that queries that expand nested groups will have on your configured LDAP server.</li>
 <li>
 <p>Verify that the LDAP directory has been deployed using Nested groups.</p>
-<p><strong>Note:</strong> In some cases, such as IBM Security Directory Server, the LDAP administrator had to have created nested groups with specific Nested Group Objectclasses. Refer to the IBM Security Directory Server documentation for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases, such as IBM Security Directory Server, the LDAP administrator had to have created nested groups with specific Nested Group Objectclasses. Refer to the IBM Security Directory Server documentation for more information.</p>
+</div>
 </li>
 <li>
 <p>The attribute pairings listed in Table 1 are the standard defaults for particular LDAP Directories. As always, consult your LDAP documentation and LDAP administrator to ensure that your deployed LDAP uses those defaults before configuring WebSphere Application Server.</p>
@@ -35101,34 +35104,35 @@
 <tbody>
 <tr>
 <td>IBM® Directory Security Server 6.2</td>
-<td>attribute: uniquemember</td>
-<td></td>
+<td>attribute: uniquemember<br>objectclass: groupOfUniqueNames<br>nested attribute: ibm-membershipGroup<br>nested objectclass: ibm-nestedGroup</td>
+<td>ibm-allGroups</td>
+</tr>
+<tr>
+<td>Active Directory 2008</td>
+<td>attribute: member<br>objectclass: group<br><strong>Note:</strong> Active Directory does not expand nested groups automatically. WAS requires special configuration for group expansion.</td>
+<td>memberOf</td>
+</tr>
+<tr>
+<td>IBM Domino® 9.0.x</td>
+<td>attribute: member<br>objectclass: dominoGroup<br></td>
+<td>DominoAccessGroups</td>
+</tr>
+<tr>
+<td>Sun Directory Server 7</td>
+<td>attribute:uniquemember<br>objectclass: groupOfUniqueNames</td>
+<td>isMemberOf</td>
+</tr>
+<tr>
+<td>Novell eDirectory 5.8.8</td>
+<td>attribute: member<br>objectclass: groupOfNames</td>
+<td>groupMembership</td>
 </tr>
 </tbody>
 </table>
-<p>objectclass: groupOfUniqueNames</p>
-<p>nested attribute: ibm-membershipGroup</p>
-<p>nested objectclass: ibm-nestedGroup</p>
-<p>|ibm-allGroups</p>
-<p>|
-|Active Directory 2008|attribute: member</p>
-<p>objectclass: group</p>
-<p><strong>Note:</strong> Active Directory does not expand nested groups automatically. WAS requires special configuration for group expansion.</p>
-<p>|memberOf</p>
-<p>|
-|IBM Domino® 9.0.x|attribute: member</p>
-<p>objectclass: dominoGroup</p>
-<p>|DominoAccessGroups</p>
-<p>|
-|Sun Directory Server 7|attribute:uniquemember</p>
-<p>objectclass: groupOfUniqueNames</p>
-<p>|isMemberOf</p>
-<p>|
-|Novell eDirectory 5.8.8|attribute: member</p>
-<p>objectclass: groupOfNames</p>
-<p>|groupMembership</p>
-<p>|</p>
-<p><strong>Note:</strong> To take advantage of nested groups for Active Directory, Connections 5.0 CR1 or higher must be deployed. Also, a specific JVM must be set on the system that runs WAS and Connections. Add the following JVM to the Generic JVM argument: <code>Dcom.ibm.connections.recursively.search.membership=true</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To take advantage of nested groups for Active Directory, Connections 5.0 CR1 or higher must be deployed. Also, a specific JVM must be set on the system that runs WAS and Connections. Add the following JVM to the Generic JVM argument: <code>Dcom.ibm.connections.recursively.search.membership=true</code>.</p>
+</div>
 <p><strong>Parent topic:</strong><a href="t_config_ldap.html">Preparing to configure the LDAP directory</a></p>
 
 

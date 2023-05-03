@@ -35331,27 +35331,30 @@
 <ul>
 <li>
 <p>IBM® Security Directory Server:</p>
-<p>ibm-entryUUID</p>
+<p><code>ibm-entryUUID</code></p>
 </li>
 <li>
 <p>Microsoft™ Active Directory:</p>
-<p>objectGUID</p>
+<p><code>objectGUID</code></p>
 <p>If you are using Active Directory, remember that the samAccountName attribute has a 20 character limit; other IDs used by HCL Connections have a 256 character limit.</p>
 </li>
 <li>
 <p>HCL Domino® Enterprise Server:</p>
-<p>dominoUNID</p>
-<p><strong>Note:</strong> If the bind ID for the Domino LDAP does not have sufficient manager access to the Domino directory, the Virtual Member Manager (VMM) does not return the correct attribute type for the Domino schema query; DN is returned as the VMM ID. To override VMM's default ID setting, add the following line to the &lt;config:attributeConfiguration> section of the wimconfig.xml file:</p>
-<p>&lt;config:externalIdAttributes</p>
-<p>name="dominoUNID"/></p>
+<p><code>dominoUNID</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the bind ID for the Domino LDAP does not have sufficient manager access to the Domino directory, the Virtual Member Manager (VMM) does not return the correct attribute type for the Domino schema query; DN is returned as the VMM ID. To override VMM’s default ID setting, add the following line to the <code>&lt;config:attributeConfiguration&gt;</code> section of the <code>wimconfig.xml</code> file:</p>
+</div>
+<div class="highlight"><pre><span></span><code>&lt;config:externalIdAttributes name=&quot;dominoUNID&quot;/&gt;
+</code></pre></div>
 </li>
 <li>
 <p>Sun Java™ System Directory Server:</p>
-<p>nsuniqueid</p>
+<p><code>nsuniqueid</code></p>
 </li>
 <li>
 <p>eNovell Directory Server:</p>
-<p>GUID</p>
+<p><code>GUID</code></p>
 </li>
 <li>
 <p>Custom ID:</p>
@@ -35360,12 +35363,15 @@
 </ul>
 <p>The wimconfig.xml file is stored in the following location:</p>
 <p>AIX®
-:   /usr/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config</p>
+:   <code>/usr/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config</code></p>
 <p>Linux™
-:   /opt/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config</p>
+:   <code>/opt/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config</code></p>
 <p>Microsoft Windows™
-:   drive:\IBM\WebSphere\AppServer\profiles\profile_name\config\cells\cell_name\wim\config</p>
-<p><strong>Note:</strong> HCL recommends that you do not allow the GUID of a user to change. If you change the GUID, the user will not have access to their data unless you re-synchronize the LDAP and Profiles database with the new GUID. When you change the GUID and run the sync_all_dns batch file, the user's GUID is initially changed in the Profiles database, and then propagated to the other components using the user life cycle commands. Be sure when you are running sync_all_dns that an unchanged field is used as the hash. See the <em>Synchronizing source changes such as LDAP with Profiles</em> and <em>Managing user data using Profiles administrative commands</em> topics for more information.</p>
+:   <code>drive:\\IBM\\WebSphere\\AppServer\\profiles\\profile_name\\config\\cells\\cell_name\\wim\\config</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HCL recommends that you do not allow the <code>GUID</code> of a user to change. If you change the <code>GUID</code>, the user will not have access to their data unless you re-synchronize the LDAP and Profiles database with the new <code>GUID</code>. When you change the <code>GUID</code> and run the sync_all_dns batch file, the user’s <code>GUID</code> is initially changed in the Profiles database, and then propagated to the other components using the user life cycle commands. Be sure when you are running <code>sync_all_dns</code> that an unchanged field is used as the hash. See the <em>Synchronizing source changes such as LDAP with Profiles</em> and <em>Managing user data using Profiles administrative commands</em> topics for more information.</p>
+</div>
 <p><strong>Parent topic:</strong><a href="t_prof_install_profiles_db.html">Populating the Profiles database</a></p>
 
 

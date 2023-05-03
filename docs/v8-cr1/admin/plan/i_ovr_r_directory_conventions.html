@@ -35294,7 +35294,7 @@
 <p><strong>Notes:</strong></p>
 <ul>
 <li>The term Linux in this documentation includes the Linux for System z® platform, unless otherwise specified.</li>
-<li>Many examples of directory and file paths in this documentation use the UNIX™ '/' separator to denote AIX, Linux, and Windows path separators, even though the Windows convention is to use the '\' separator. Where applicable, substitute the '\' separator for the '/' separator.</li>
+<li>Many examples of directory and file paths in this documentation use the UNIX™ <code>/</code> separator to denote AIX, Linux, and Windows path separators, even though the Windows convention is to use the <code>\</code> separator. Where applicable, substitute the <code>\</code> separator for the <code>/</code> separator.</li>
 </ul>
 <table>
 <thead>
@@ -35305,50 +35305,43 @@
 </thead>
 <tbody>
 <tr>
-<td>app_server_rootIBM WebSphere® Application Server installation directory</td>
-<td></td>
+<td><code>app_server_root</code><br>IBM WebSphere® Application Server installation directory</td>
+<td>AIX: <code>/usr/IBM/WebSphere/AppServer</code> <br> Linux: <code>/opt/IBM/WebSphere/AppServer</code> <br> Windows: <code>drive:\Program Files\IBM\WebSphere\AppServer</code><br><br><em>where drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>profile_root</code><br>WebSphere Application Server profile / Deployment Manager profile directory</td>
+<td>AIX: <code>/usr/IBM/WebSphere/AppServer/profiles/profile_name</code><br>Linux: <code>/opt/IBM/WebSphere/AppServer/profiles/profile_name</code><br>Windows: <code>drive:\Program Files\IBM\WebSphere\AppServer\profiles\profile_name</code><br><br><em>where <code>profile_name</code> is the name of the profile on which the application is installed or the profile name of the deployment manager.<br>drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>ibm_http_server_root</code><br>HTTP Server installation directory</td>
+<td>AIX: <code>/usr/IBM/HTTPServer</code><br>Linux: <code>/opt/IBM/HTTPServer</code><br>Windows: <code>drive:\Program Files\IBM\HTTPServer</code><br><br><em>where drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>connections_root</code><br>Connections installation directory</td>
+<td>AIX or Linux: <code>/opt/IBM/Connections</code><br>Windows: <code>drive:\Program Files\IBM\Connections</code><br><br><em>where drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>IM_root</code><br>Installation Manager installation directory</td>
+<td>AIX: <code>/opt/IBM/InstallationManager</code><br>Linux: <code>/opt/IBM/InstallationManager</code><br>Windows: <code>drive:\Program Files\IBM\Installation Manager</code><br><br> <em>where drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>shared_resources_root</code><br>Shared resources directory</td>
+<td>AIX or Linux: <code>/opt/IBM/IMShared</code><br>Windows: <code>drive:\Program Files(x86)\IBM\IMShared</code><br><br><em>where drive is the system drive on which the file directory is stored. For example: C or D.</em></td>
+</tr>
+<tr>
+<td><code>db2_root</code><br>DB2® database installation directory</td>
+<td>AIX: <code>/usr/IBM/db2/version</code><br>Linux: <code>/opt/ibm/db2/version</code><br>Windows: <code>drive:\Program Files\IBM\SQLLIB\version</code><br><br><em>where drive is the system drive on which the file directory is stored, for example: C or D, and version is the version of DB2 installed, for example: V9.5 or V9.7.</em></td>
+</tr>
+<tr>
+<td><code>oracle_root</code><br>Oracle database installation directory</td>
+<td>AIX or Linux: <code>/home/oracle/oracle/product/version/db_1</code><br>Windows: <code>drive:\oracle\product\version\db_1</code><br><br>i_where version is the supported Oracle number and drive is the system drive on which the file directory is stored. For example: C or D._</td>
+</tr>
+<tr>
+<td><code>sql_server_root</code><br>Microsoft SQL Server database installation directory</td>
+<td>Windows: <code>drive:\Program Files\Microsoft SQL Server</code><br><br><em>where drive is the system drive on which the file directory is stored, for example: C or D.</em></td>
 </tr>
 </tbody>
 </table>
-<p>|AIX:/usr/IBM/WebSphere/AppServer</p>
-<p>Linux:/opt/IBM/WebSphere/AppServer</p>
-<p>Windows: drive:\Program Files\IBM\WebSphere\AppServer</p>
-<p>where drive is the system drive on which the file directory is stored. For example: C or D.|
-|profile_rootWebSphere Application Server profile/ Deployment Manager profile directory</p>
-<p>|AIX:/usr/IBM/WebSphere/AppServer/profiles/profile_name</p>
-<p>Linux:/opt/IBM/WebSphere/AppServer/profiles/profile_name</p>
-<p>Windows: drive:\Program Files\IBM\WebSphere\AppServer\profiles\profile_name</p>
-<p>where profile_name is the name of the profile on which the application is installed or the profile name of the deployment manager.drive is the system drive on which the file directory is stored. For example: C or D.|
-|ibm_http_server_rootHTTP Server installation directory</p>
-<p>|AIX:/usr/IBM/HTTPServer</p>
-<p>Linux:/opt/IBM/HTTPServer</p>
-<p>Windows: drive:\Program Files\IBM\HTTPServer</p>
-<p>where drive is the system drive on which the file directory is stored. For example: C or D.|
-|connections_rootConnections installation directory</p>
-<p>|AIX or Linux:/opt/IBM/Connections</p>
-<p>Windows: drive:\Program Files\IBM\Connections</p>
-<p>where drive is the system drive on which the file directory is stored. For example: C or D.|
-|IM_rootInstallation Manager installation directory</p>
-<p>|AIX:/opt/IBM/InstallationManager</p>
-<p>Linux:/opt/IBM/InstallationManager</p>
-<p>Windows:drive:\Program Files\IBM\Installation Manager</p>
-<p>where drive is the system drive on which the file directory is stored. For example: C or D.|
-|shared_resources_rootShared resources directory</p>
-<p>|AIX or Linux:/opt/IBM/IMShared</p>
-<p>Windows:drive:\Program Files(x86)\IBM\IMShared</p>
-<p>where drive is the system drive on which the file directory is stored. For example: C or D.|
-|db2_rootDB2® database installation directory</p>
-<p>|AIX:/usr/IBM/db2/version</p>
-<p>Linux:/opt/ibm/db2/version</p>
-<p>Windows: drive:\Program Files\IBM\SQLLIB\version</p>
-<p>where drive is the system drive on which the file directory is stored, for example: C or D, and version is the version of DB2 installed, for example: V9.5 or V9.7.|
-|oracle_rootOracle database installation directory</p>
-<p>|AIX or Linux:/home/oracle/oracle/product/version/db_1</p>
-<p>Windows: drive:\oracle\product\version\db_1</p>
-<p>where version is the supported Oracle number and drive is the system drive on which the file directory is stored. For example: C or D.|
-|sql_server_rootMicrosoft SQL Server database installation directory</p>
-<p>|Windows: drive:\Program Files\Microsoft SQL Server</p>
-<p>where drive is the system drive on which the file directory is stored, for example: C or D.|</p>
 <p><strong>Parent topic:</strong><a href="c_installation_overview.html">Planning</a></p>
 
 
