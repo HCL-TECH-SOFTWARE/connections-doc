@@ -149,9 +149,7 @@ Refer to the [Detailed system requirements for HCL Connections](https://support.
 |jobResp|null|PROF\_JOBRESPONSIBILITIES|
 |loginId|employeenumber|PROF\_LOGIN and PROF\_LOGIN\_LOWER|
 |logins|mail|PROF\_LOGIN|
-|managerUid|$manager\_uid **Note:** This attribute represents a lookup of the UID of a manager using DN in the manager field.
-
-|PROF\_MANAGER\_UID|
+|managerUid|$manager\_uid<br>**Note:** This attribute represents a lookup of the UID of a manager using DN in the manager field.|PROF\_MANAGER\_UID|
 |mobileNumber|mobile|PROF\_MOBILE|
 |nativeFirstName|null|PROF\_NATIVE\_FIRST\_NAME|
 |nativeLastName|null|PROF\_NATIVE\_LAST\_NAME|
@@ -165,9 +163,7 @@ Refer to the [Detailed system requirements for HCL Connections](https://support.
 |preferredLanguage|preferredlanguage|PROF\_PREFERRED\_LANGUAGE|
 |preferredLastName|null|PROF\_PROF\_PREFERRED\_LAST\_NAME|
 |profileType|null|PROF\_TYPE|
-|secretaryUid|$secretaryUid**Note:** This attribute represents a lookup of the UID of a secretary using DN in the secretary field.
-
-|PROF\_SECRETARY\_UID|
+|secretaryUid|$secretaryUid<br>**Note:** This attribute represents a lookup of the UID of a secretary using DN in the secretary field. |PROF\_SECRETARY\_UID|
 |shift|null|PROF\_SHIFT|
 |surname|sn|PROF\_SURNAME|
 |surnames|sn|PROF\_SURNAME|
@@ -193,9 +189,7 @@ Refer to the [Detailed system requirements for HCL Connections](https://support.
 |User name and password for that server| |
 |Connections administrative user \(not connectionsAdmin user role, but admin user role for Blogs, Files, CCM, Wikis \)| |
 |global moderator| |
-|URL and ports for admin and user access**Note:** You can look up the URLs for each application in the text files that the installation wizard generates. These files are located under the [connections\_root](i_ovr_r_directory_conventions.md) directory.
-
-| |
+|URL and ports for admin and user access<br>**Note:** You can look up the URLs for each application in the text files that the installation wizard generates. These files are located under the [`connections_root`](i_ovr_r_directory_conventions.md) directory.  | |
 |Activities server name| |
 |Activities cluster member name| |
 |Activities URL For example: http://www.example.com:9080/activities| |

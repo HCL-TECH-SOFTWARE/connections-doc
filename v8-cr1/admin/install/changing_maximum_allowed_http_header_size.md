@@ -4,7 +4,7 @@ The Nodejs server code enforces a maximum HTTP header size on requests. In Nodej
 
 Perform this task only if requests to the HCL Connections environment are being routed via the Customizer related microservices \(*appregistry-client*, *appregistry-service*, and *mw-proxy*\), and if the requests also contain sufficient HTTP header content that the headers exceed the maximum default size of 16 KB in total. For details on the command line parameter, see the [Node.js command line](https://nodejs.org/docs/latest-v12.x/api/cli.html#cli_max_http_header_size_size) documentation.
 
-By default, the maximum HTTP header size is set in the Helm charts of the *appregistry-client*, *appregistry-service*, and *mw-proxy*microservices to 16,384 bytes \(16 KB\) to match the default Nodejs allowed maximum size, since the images are built with Nodejs v14 or later.
+By default, the maximum HTTP header size is set in the Helm charts of the *appregistry-client*, *appregistry-service*, and *mw-proxy* microservices to 16,384 bytes \(16 KB\) to match the default Nodejs allowed maximum size, since the images are built with Nodejs v14 or later.
 
 The value is passed in a deployment environment variable called NODE\_MAX\_HEADER\_SIZE, which is used at container startup by including `--max-http-header-size=${NODE_MAX_HEADER_SIZE}` in the command.
 

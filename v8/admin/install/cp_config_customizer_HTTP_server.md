@@ -1,5 +1,5 @@
 # Configuring the HTTP server for the App Registry {#cp_config_customizer_HTTP_server .task}
-
+!!!
 Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.
 
 If you already configured Orient Me, then this task is not needed for Customizer.
@@ -10,16 +10,16 @@ Using the sample deployment described in [Steps to install or upgrade to Compone
 
 1.  Log in to the HTTP server as the root user \(AIX®, Linux®\) or the administrator \(Windows™\).
 
-2.  Backup the current httpd.conf.
+2.  Backup the current `httpd.conf`.
 
 3.  Open the http.conf file in a text editor.
 
-    The http.conf file is typically stored in the following location:
+    The `httpd.conf` file is typically stored in the following location:
 
     -   AIX: /opt2/IBM/HTTPServer/
     -   Linux: /opt/IBM/HTTPServer/conf/
     -   Windows: D:\\IBM\\HTTPServer\\conf\\
-
+    
 4.  In the file, verify that the following modules are listed and that the lines are not commented out:
 
     ```
@@ -50,7 +50,7 @@ Using the sample deployment described in [Steps to install or upgrade to Compone
     ProxyPass "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry" 
     ProxyPassReverse "/appregistry" "http://cpmaster.internal.example.com:32080/appregistry"
     ```
-
+    
     **Note:** 32080 is the port of the Ingress Controller, so make sure that is deployed and running before making these changes. Take note of the new appreg URL when using Ingress.
 
     For example, after inserting the above statements, your code block will look like the following snippet:

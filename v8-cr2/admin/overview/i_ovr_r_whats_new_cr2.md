@@ -2,7 +2,7 @@
 
 Find out about features that are new or updated in this release of HCL Connections.
 
--   See the article Update Strategy for HCL Connections 8.0 CR2 on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
+-   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
 -   **Download** Connections 8.0 CR2 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 CR2 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
@@ -13,6 +13,7 @@ Also, updates have been made to HCL Support Statement. For details, see the [HCL
 ## What's New in HCL Connections 8.0 CR2 and Component Pack 8 CR2 {#section_hgz_3dy_clb .section}
 
 **System requirements**
+
 -   Refer to the [HCL Connections 8.0 CR2 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104521).
 -   For Component Pack 8 CR2, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr2/admin/install/cp_prereqs.html).
 

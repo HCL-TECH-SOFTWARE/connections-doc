@@ -14,7 +14,8 @@ The Share functionality is based on the OpenSocial API. It uses Activity Stream 
 
 Which Share Dialog window that is displayed upon clicking the Share icon consists of three \(3\) elements: A member or Community name picker, an optional message which appears in the notification as well as a corresponding link either to the Connections page or to specific content.
 
-**Note:** Sharing a link to restricted connections content will not automatically enable users access to content and the access would need to be manually enabled.
+!!! note
+    Sharing a link to restricted connections content will not automatically enable users access to content and the access would need to be manually enabled.
 
 Users are notified in corresponding Activity Streams like Top Updates and Latest Updates, on the Homepage and on the Community page and they are alerted in the Notification panel on the left side navigation.
 
@@ -30,7 +31,7 @@ The key functionality is implemented using the OpenSocial API which provides the
 
 The OpenSocial API , by default, only supports users posting against its own activity stream. So, to enable the dedicated Share functionality we uses the ICXT proxy API. This API impersonates the authenticated user and executes the XHR request against the OpenSocial API in the name of a pre-configured connections admin user. The Admin user is configured by default during the ICXT installation, so there is no additional step required on the Share functionality side.
 
-To view or modify this user, you can go to Connections admin console **Resource environment entries** \> **ic360** \> **Custom properties** and configure ***"http.auth.admin.user"*** property.
+To view or modify this user, you can go to Connections admin console **Resource environment entries** \> **ic360** \> **Custom properties** and configure ***“http.auth.admin.user”*** property.
 
 Payload is calculated on the client side and passed through to the OpenSocial API by ICXT back-end code . This is the reason you will not see any requests against the OpenSocial API in browser network console. Client Side of Share Dialog code is only interacting with ICXT proxy API
 

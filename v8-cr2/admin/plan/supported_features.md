@@ -1,4 +1,4 @@
-# Deployment requirements for supporting 8.0 CR1 functionality {#installation_options .concept}
+# Deployment requirements for supporting 8.0 CR2 functionality {#installation_options .concept}
 
 Learn which new features and functionalities are supported in your Connections 8.0 CR2 deployment, depending on whether or not you install Component Pack.
 

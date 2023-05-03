@@ -6,7 +6,7 @@ These components are required for moderation.
 
 1.  Install the Moderation application as part of the Connections installation or migration.
 2.  Assign users to the role of global moderator so they can moderate content from a central interface.
-3.  Configure moderation in the contentreview-config.xml file if you want to enable moderation features such as owner moderation or assign content reviewers for flagged content.
+3.  Configure moderation in the `contentreview-config.xml` file if you want to enable moderation features such as owner moderation or assign content reviewers for flagged content.
 
 
 
