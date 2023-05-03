@@ -35370,43 +35370,59 @@
 <h1 class="concept" id="c_install_choose_login">Choosing login values</h1>
 <p>Determine which LDAP attribute or attributes you want to use to log in to HCL Connections™.</p>
 <p>The following scenarios are supported:</p>
-<p>Single LDAP attribute with a single value
-:   For example: uid=jsmith.</p>
-<p>Multiple LDAP attributes, each with a single value
-:   To specify multiple attributes, separate them with a semicolon when you enter them in the <strong>Login properties</strong> field (while adding the repository to IBM® WebSphere® Application Server). For example, where uid=jsmith and mail=jsmith@example.com, you would enter: uid; mail.</p>
-<p>Single LDAP attribute with multiple values
-:   For example, mail is the login attribute and it accepts two different email addresses: an intranet address and an extranet address. For example: mail=jsmith@myCompany.com or mail=jsmith@example.com.</p>
-<p>Multiple LDAP attributes, each with multiple values
-:   For example: uid=jsmith or uid=john_smith and mail=jsmith@example.com or mail=john_smith@example.com or mail=jsmith@MyCompany.com.</p>
-<p>Multiple LDAP directories
-:   For example: One LDAP directory uses uid as the login attribute and the other uses mail. You must repeat the steps in <em>Setting up federated repositories</em> for each LDAP directory.</p>
+<p><strong>Single LDAP attribute with a single value</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>uid=jsmith</code> </p>
+</div>
+<p><strong>Multiple LDAP attributes, each with a single value</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To specify multiple attributes, separate them with a semicolon when you enter them in the <strong>Login properties</strong> field (while adding the repository to IBM® WebSphere® Application Server). For example, where <code>uid=jsmith</code> and <code>mail=jsmith@example.com</code>, you would enter: <code>uid; mail</code>.</p>
+</div>
+<p><strong>Single LDAP attribute with multiple values</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Mail is the login attribute and it accepts two different email addresses: an intranet address and an extranet address.
+For example: <code>mail=jsmith@myCompany.com</code> or <code>mail=jsmith@example.com</code>.</p>
+</div>
+<p><strong>Multiple LDAP attributes, each with multiple values</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>For example: <code>uid=jsmith</code> or <code>uid=john_smith</code> and <code>mail=jsmith@example.com</code> or <code>mail=john_smith@example.com</code> or <code>mail=jsmith@MyCompany.com</code>.</p>
+</div>
+<p><strong>Multiple LDAP directories</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>One LDAP directory uses <code>uid</code> as the login attribute and the other uses <code>mail</code>. You must repeat the steps in <em>Setting up federated repositories</em> for each LDAP directory.</p>
+</div>
 <h2 class="section" id="multi-valued-attributes">Multi-valued attributes</h2>
 <p>You can map multiple values to common attributes such as uid or mail.</p>
 <p>If, for example, you mapped the following attributes for a user called Sample User, all three values for the user are populated in the PROFILE_LOGIN table in the Profiles database:</p>
 <ul>
-<li>mail=suser@example.com</li>
-<li>mail=sample_user@example.com</li>
-<li>mail=user_sample@example.com</li>
+<li><code>mail=suser@example.com</code></li>
+<li><code>mail=sample\_user@example.com</code></li>
+<li><code>mail=user\_sample@example.com</code></li>
 </ul>
 <p>A similar example for the uid property would have the following attributes:</p>
 <ul>
-<li>uid=suser</li>
-<li>uid=sampleuser</li>
-<li>uid=user_sample</li>
+<li><code>uid=suser</code></li>
+<li><code>uid=sampleuser</code></li>
+<li><code>uid=user_sample</code></li>
 </ul>
-<p>By default, the population wizard only allows you to choose one attribute for logins, so you can't select mail and uid. You can, however, write a custom function to union multiple attributes.</p>
+<p>By default, the population wizard only allows you to choose one attribute for logins, so you can't select <code>mail</code> and <code>uid</code>. You can, however, write a custom function to union multiple attributes.</p>
 <h2 class="section" id="custom-attributes">Custom attributes</h2>
-<p>The Profiles population wizard populates uid and mail during the population process but maps the loginID attribute to null. You can specify a custom attribute if your directory uses a unique login attribute other than, for example, uid or mail. The login value can be based on any attribute that you have defined in your repository. You can specify that attribute by setting loginID=attribute when you populate the Profiles database.</p>
-<p>The following sample extract from the profiles-config.xml file shows the standard login attributes:</p>
+<p>The Profiles population wizard populates <code>uid</code> and <code>mail</code> during the population process but maps the loginID attribute to null. You can specify a custom attribute if your directory uses a unique login attribute other than, for example, <code>uid</code> or <code>mail</code>. The login value can be based on any attribute that you have defined in your repository. You can specify that attribute by setting loginID=attribute when you populate the Profiles database.</p>
+<p>The following sample extract from the <code>profiles-config.xml</code> file shows the standard login attributes:</p>
 <div class="highlight"><pre><span></span><code>&lt;loginAttributes&gt; 
 &lt;loginAttribute&gt;uid&lt;/loginAttribute&gt; 
 &lt;loginAttribute&gt;email&lt;/loginAttribute&gt; 
 &lt;loginAttribute&gt;loginId&lt;/loginAttribute&gt; 
 &lt;/loginAttributes&gt; 
 </code></pre></div>
-<p>The value for the loginID attribute is stored in the Prof_Login column of the Employee table in the Profiles database. For more information, see the <em>Mapping fields manually</em> topic.</p>
+<p>The value for the loginID attribute is stored in the <code>Prof_Login</code> column of the Employee table in the Profiles database. For more information, see the <em>Mapping fields manually</em> topic.</p>
 <h2 class="section" id="using-profiles-or-ldap-as-the-repository">Using Profiles or LDAP as the repository</h2>
-<p>If you change the default HCL Connections configuration to use the LDAP directory as the user repository, WebSphere Application Server maps uid as the login default.</p>
+<p>If you change the default HCL Connections configuration to use the LDAP directory as the user repository, WebSphere Application Server maps <code>uid</code> as the login default.</p>
 <p><strong>Parent topic:</strong><a href="t_inst_federated_repositories.html">Setting up federated repositories</a></p>
 
 

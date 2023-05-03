@@ -35295,21 +35295,21 @@
 <p>On all operating systems, ensure that you have 6 GB of temporary disk space. On AIX® and Linux™, set the Open File Descriptor limit to at least 40000 before installing HCL Connections.</p>
 <ol>
 <li>
-<p>Check that the /tmp folder on UNIX/Linux systems or the %TEMP% folder on Windows™ systems has at least 6 GB before installing Connections Content Manager. If there is not sufficient disk space, then set the environment variable IATEMPDIR to point to the location where there is at least 6 GB. To update the IATEMPDIR environment variable:</p>
+<p>Check that the <code>/tmp</code> folder on UNIX/Linux systems or the <code>%TEMP%</code> folder on Windows™ systems has at least 6 GB before installing Connections Content Manager. If there is not sufficient disk space, then set the environment variable <code>IATEMPDIR</code> to point to the location where there is at least 6 GB. To update the <code>IATEMPDIR</code> environment variable:</p>
 <ul>
 <li>On Windows:<ol>
 <li>Navigate to <strong>Control Panel</strong> > <strong>System and Security</strong> > <strong>System</strong> > <strong>Advanced System Properties</strong> > <strong>Advanced tab</strong> > <strong>Environment variables</strong>.</li>
 <li>Click <strong>New</strong> in the <strong>System variables</strong> section.</li>
-<li>Enter IATEMPDIR for the variable name; and then enter the desired location in the variable value field.</li>
+<li>Enter <code>IATEMPDIR</code> for the variable name; and then enter the desired location in the variable value field.</li>
 <li>Click <strong>OK</strong> twice.</li>
 </ol>
 </li>
 <li>On AIX/Linux:<ol>
 <li>
-<p>Edit the /etc/profile file and add in the following line to the end of the file:</p>
-<div class="highlight"><pre><span></span><code> export IATEMPDIR=&lt;new location\&gt; 
+<p>Edit the <code>/etc/profile</code> file and add in the following line to the end of the file:</p>
+<div class="highlight"><pre><span></span><code>export IATEMPDIR=&lt;new location&gt; 
 </code></pre></div>
-<p>where &lt;new location> is a location on your machine that has enough free space (at least 6 GB, preferably more).</p>
+<p>where <code>&lt;new location&gt;</code> is a location on your machine that has enough free space (at least 6 GB, preferably more).</p>
 </li>
 </ol>
 </li>
@@ -35328,14 +35328,17 @@
 <p>If you are installing as the root user, add the following line to the user's profile file and save the file:</p>
 <div class="highlight"><pre><span></span><code>ulimit -n 40000
 </code></pre></div>
-<p>If you are using a non-root user account to install HCL Connections, ask the administrator to add the following line to the /etc/security/limits.conf file:</p>
-<div class="highlight"><pre><span></span><code>non-root\_account hard nofile 40000
+<p>If you are using a non-root user account to install HCL Connections, ask the administrator to add the following line to the <code>/etc/security/limits.conf</code> file:</p>
+<div class="highlight"><pre><span></span><code>non-root_account hard nofile 40000
 </code></pre></div>
 </li>
 </ul>
-<p><strong>Note:</strong> On small deployments were the database server is on the same machine, the limit might need to be higher as specified by the database's requirements.</p>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On small deployments where the database server is on the same machine, the limit might need to be higher, as specified by the database's requirements.</p>
+</div>
 <p><strong>Parent topic:</strong><a href="c_preinstall_actions.html">Pre-installation tasks</a></p>
 
 

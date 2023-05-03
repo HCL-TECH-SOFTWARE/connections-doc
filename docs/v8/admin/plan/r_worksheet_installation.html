@@ -35709,35 +35709,121 @@
 </tr>
 <tr>
 <td>managerUid</td>
-<td>$manager_uid <strong>Note:</strong> This attribute represents a lookup of the UID of a manager using DN in the manager field.</td>
-<td></td>
+<td>$manager_uid<br><strong>Note:</strong> This attribute represents a lookup of the UID of a manager using DN in the manager field.</td>
+<td>PROF_MANAGER_UID</td>
+</tr>
+<tr>
+<td>mobileNumber</td>
+<td>mobile</td>
+<td>PROF_MOBILE</td>
+</tr>
+<tr>
+<td>nativeFirstName</td>
+<td>null</td>
+<td>PROF_NATIVE_FIRST_NAME</td>
+</tr>
+<tr>
+<td>nativeLastName</td>
+<td>null</td>
+<td>PROF_NATIVE_LAST_NAME</td>
+</tr>
+<tr>
+<td>officeName</td>
+<td>physicaldeliveryofficename</td>
+<td>PROF_PHYSICAL_DELIVERY_OFFICE</td>
+</tr>
+<tr>
+<td>orgId</td>
+<td>ou</td>
+<td>PROF_ORGANIZATION_IDENTIFIER</td>
+</tr>
+<tr>
+<td>pagerId</td>
+<td>null</td>
+<td>PROF_PAGER_ID</td>
+</tr>
+<tr>
+<td>pagerNumber</td>
+<td>null</td>
+<td>PROF_PAGER</td>
+</tr>
+<tr>
+<td>pagerServiceProvider</td>
+<td>null</td>
+<td>PROF_PAGER_SERVICE_PROVIDER</td>
+</tr>
+<tr>
+<td>pagerType</td>
+<td>null</td>
+<td>PROF_PAGER_TYPE</td>
+</tr>
+<tr>
+<td>preferredFirstName</td>
+<td>null</td>
+<td>PROF_PREFERRED_FIRST_NAME</td>
+</tr>
+<tr>
+<td>preferredLanguage</td>
+<td>preferredlanguage</td>
+<td>PROF_PREFERRED_LANGUAGE</td>
+</tr>
+<tr>
+<td>preferredLastName</td>
+<td>null</td>
+<td>PROF_PROF_PREFERRED_LAST_NAME</td>
+</tr>
+<tr>
+<td>profileType</td>
+<td>null</td>
+<td>PROF_TYPE</td>
+</tr>
+<tr>
+<td>secretaryUid</td>
+<td>$secretaryUid<br><strong>Note:</strong> This attribute represents a lookup of the UID of a secretary using DN in the secretary field.</td>
+<td>PROF_SECRETARY_UID</td>
+</tr>
+<tr>
+<td>shift</td>
+<td>null</td>
+<td>PROF_SHIFT</td>
+</tr>
+<tr>
+<td>surname</td>
+<td>sn</td>
+<td>PROF_SURNAME</td>
+</tr>
+<tr>
+<td>surnames</td>
+<td>sn</td>
+<td>PROF_SURNAME</td>
+</tr>
+<tr>
+<td>telephoneNumber</td>
+<td>telephonenumber</td>
+<td>PROF_TELEPHONE_NUMBER</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>null</td>
+<td>PROF_TIMEZONE</td>
+</tr>
+<tr>
+<td>title</td>
+<td>null</td>
+<td>PROF_TITLE</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>(Javascript function - {func_map_to_db_UID})</td>
+<td>PROF_UID</td>
+</tr>
+<tr>
+<td>workLocationCode</td>
+<td>postallocation</td>
+<td>PROF_WORK_LOCATION</td>
 </tr>
 </tbody>
 </table>
-<p>|PROF_MANAGER_UID|
-|mobileNumber|mobile|PROF_MOBILE|
-|nativeFirstName|null|PROF_NATIVE_FIRST_NAME|
-|nativeLastName|null|PROF_NATIVE_LAST_NAME|
-|officeName|physicaldeliveryofficename|PROF_PHYSICAL_DELIVERY_OFFICE|
-|orgId|ou|PROF_ORGANIZATION_IDENTIFIER|
-|pagerId|null|PROF_PAGER_ID|
-|pagerNumber|null|PROF_PAGER|
-|pagerServiceProvider|null|PROF_PAGER_SERVICE_PROVIDER|
-|pagerType|null|PROF_PAGER_TYPE|
-|preferredFirstName|null|PROF_PREFERRED_FIRST_NAME|
-|preferredLanguage|preferredlanguage|PROF_PREFERRED_LANGUAGE|
-|preferredLastName|null|PROF_PROF_PREFERRED_LAST_NAME|
-|profileType|null|PROF_TYPE|
-|secretaryUid|$secretaryUid<strong>Note:</strong> This attribute represents a lookup of the UID of a secretary using DN in the secretary field.</p>
-<p>|PROF_SECRETARY_UID|
-|shift|null|PROF_SHIFT|
-|surname|sn|PROF_SURNAME|
-|surnames|sn|PROF_SURNAME|
-|telephoneNumber|telephonenumber|PROF_TELEPHONE_NUMBER|
-|timezone|null|PROF_TIMEZONE|
-|title|null|PROF_TITLE|
-|uid|(Javascript function - {func_map_to_db_UID})|PROF_UID|
-|workLocationCode|postallocation|PROF_WORK_LOCATION|</p>
 <h2 class="section" id="connections-details">Connections details</h2>
 <table>
 <thead>
@@ -35796,70 +35882,243 @@
 <td> </td>
 </tr>
 <tr>
-<td>URL and ports for admin and user access<strong>Note:</strong> You can look up the URLs for each application in the text files that the installation wizard generates. These files are located under the <a href="i_ovr_r_directory_conventions.html">connections_root</a> directory.</td>
-<td></td>
+<td>URL and ports for admin and user access<br><strong>Note:</strong> You can look up the URLs for each application in the text files that the installation wizard generates. These files are located under the <a href="i_ovr_r_directory_conventions.html"><code>connections_root</code></a> directory.</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities URL For example: http://www.example.com:9080/activities</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities secure URL For example: https://www.example.com:9446/activities</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities statistics files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Activities content files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blogs server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blogs cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blogs URL For example: http://www.example.com:9080/blogs</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blogs secure URL For example: https://www.example.com:9446/blogs</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blogs upload files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Bookmarks server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Bookmarks cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Bookmarks URL For example: http://www.example.com:9080/dogear</td>
+<td> </td>
+</tr>
+<tr>
+<td>Bookmarks secure URL For example: https://www.example.com:9446/dogear</td>
+<td> </td>
+</tr>
+<tr>
+<td>Bookmarks favicon files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities URL For example: http://www.example.com:9080/communities</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities secure URL For example: https://www.example.com:9446/communities</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities statistics files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Communities discussion forum content directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Files server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Files cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Files URL For example: http://www.example.com:9080/files</td>
+<td> </td>
+</tr>
+<tr>
+<td>Files secure URL For example: https://www.example.com:9446/files</td>
+<td> </td>
+</tr>
+<tr>
+<td>Files content store directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Forums server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Forums cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Forums URL For example: http://www.example.com:9080/forums</td>
+<td> </td>
+</tr>
+<tr>
+<td>Forums secure URL For example: https://www.example.com:9446/forums</td>
+<td> </td>
+</tr>
+<tr>
+<td>Forums content store directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Home page server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Home page cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Home page URL For example: http://www.example.com:9080/homepage</td>
+<td> </td>
+</tr>
+<tr>
+<td>Home page secure URL For example: https://www.example.com:9446/homepage</td>
+<td> </td>
+</tr>
+<tr>
+<td>Home page content store directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Metrics server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Metrics cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Moderation server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Moderation cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Moderation URL For example: http://www.example.com:9080/moderation</td>
+<td> </td>
+</tr>
+<tr>
+<td>Moderation secure URL For example: https://www.example.com:9446/moderation</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles URL For example: http://www.example.com:9080/profiles</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles secure URL For example: https://www.example.com:9446/profiles</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles statistics files directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Profiles cache directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Search server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Search cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Search dictionary directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Search index directory path</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wikis server name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wikis cluster member name</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wikis URL For example: http://www.example.com:9080/wikis</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wikis secure URL For example: https://www.example.com:9446/wikis</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wikis content directory path</td>
+<td> </td>
 </tr>
 </tbody>
 </table>
-<p>| |
-|Activities server name| |
-|Activities cluster member name| |
-|Activities URL For example: http://www.example.com:9080/activities| |
-|Activities secure URL For example: https://www.example.com:9446/activities| |
-|Activities statistics files directory path| |
-|Activities content files directory path| |
-|Blogs server name| |
-|Blogs cluster member name| |
-|Blogs URL For example: http://www.example.com:9080/blogs| |
-|Blogs secure URL For example: https://www.example.com:9446/blogs| |
-|Blogs upload files directory path| |
-|Bookmarks server name| |
-|Bookmarks cluster member name| |
-|Bookmarks URL For example: http://www.example.com:9080/dogear| |
-|Bookmarks secure URL For example: https://www.example.com:9446/dogear| |
-|Bookmarks favicon files directory path| |
-|Communities server name| |
-|Communities cluster member name| |
-|Communities URL For example: http://www.example.com:9080/communities| |
-|Communities secure URL For example: https://www.example.com:9446/communities| |
-|Communities statistics files directory path| |
-|Communities discussion forum content directory path| |
-|Files server name| |
-|Files cluster member name| |
-|Files URL For example: http://www.example.com:9080/files| |
-|Files secure URL For example: https://www.example.com:9446/files| |
-|Files content store directory path| |
-|Forums server name| |
-|Forums cluster member name| |
-|Forums URL For example: http://www.example.com:9080/forums| |
-|Forums secure URL For example: https://www.example.com:9446/forums| |
-|Forums content store directory path| |
-|Home page server name| |
-|Home page cluster member name| |
-|Home page URL For example: http://www.example.com:9080/homepage| |
-|Home page secure URL For example: https://www.example.com:9446/homepage| |
-|Home page content store directory path| |
-|Metrics server name| |
-|Metrics cluster member name| |
-|Moderation server name| |
-|Moderation cluster member name| |
-|Moderation URL For example: http://www.example.com:9080/moderation| |
-|Moderation secure URL For example: https://www.example.com:9446/moderation| |
-|Profiles server name| |
-|Profiles cluster member name| |
-|Profiles URL For example: http://www.example.com:9080/profiles| |
-|Profiles secure URL For example: https://www.example.com:9446/profiles| |
-|Profiles statistics files directory path| |
-|Profiles cache directory path| |
-|Search server name| |
-|Search cluster member name| |
-|Search dictionary directory path| |
-|Search index directory path| |
-|Wikis server name| |
-|Wikis cluster member name| |
-|Wikis URL For example: http://www.example.com:9080/wikis| |
-|Wikis secure URL For example: https://www.example.com:9446/wikis| |
-|Wikis content directory path| |</p>
 <h2 class="section" id="http-server">HTTP Server</h2>
 <table>
 <thead>

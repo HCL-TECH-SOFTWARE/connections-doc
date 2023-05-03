@@ -35337,7 +35337,10 @@
 <li>
 <p>Install WebSphere Application Server Network Deployment.</p>
 <p>For more information, see <a href="http://www.ibm.com/support/knowledgecenter/en/SSAW57_8.5.5/com.ibm.websphere.installation.nd.doc/ae/tins_install.html">Installing WebSphere Application Server</a> in the <em>WebSphere Application Server Network Deployment Knowledge Center</em>.</p>
-<p><strong>Note:</strong> Enable security when the installation wizard requests it. The administrative user ID that you create must be unique and must not exist in the LDAP repository that you plan to federate.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Enable security when the installation wizard requests it. The administrative user ID that you create must be unique and must not exist in the LDAP repository that you plan to federate.</p>
+</div>
 </li>
 <li>
 <p>Apply the available fix packs.</p>
@@ -35345,12 +35348,17 @@
 </li>
 <li>
 <p>Configure WebSphere Application Server to communicate with the LDAP directory. For more information, see the <em>Setting up federated repositories</em> topic.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>Perform this step on the Deployment Manager Integrated Solutions Console.</li>
-<li>Configure Application Security after you have completely installed WebSphere Application Server Network Deployment. For more information, refer to <a href="http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/tsec_postinstall.html">Securing your environment after installation</a> in the <em>WebSphere Application Server Network Deployment Knowledge Center</em>.</li>
-</ul>
-<p><strong>Note:</strong> Perform this step on the Deployment Manager Integrated Solutions Console.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Perform this step on the Deployment Manager Integrated Solutions Console.</p>
+</div>
+</li>
+<li>
+<p>Configure Application Security after you have completely installed WebSphere Application Server Network Deployment. For more information, refer to <a href="http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/tsec_postinstall.html">Securing your environment after installation</a> in the <em>WebSphere Application Server Network Deployment Knowledge Center</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Perform this step on the Deployment Manager Integrated Solutions Console.</p>
+</div>
 </li>
 <li>
 <p>Add further nodes, if required, to the cell. Complete the following steps for each node that you want to add to the cell:</p>
@@ -35360,13 +35368,13 @@
 </li>
 <li>
 <p>Enter the following command:</p>
-<p>addNode.sh|bat DM_host DM_SoapPort -username AdminUserId -password AdminPwd</p>
+<p><code>addNode.sh|bat DM_host DM_SoapPort -username AdminUserId -password AdminPwd</code></p>
 <p>where:</p>
 <ul>
-<li>DM_host is the host name of the Deployment Manager</li>
-<li>DM_SoapPort is the SOAP port number of the Deployment Manager</li>
-<li>AdminUserId is the user ID for the Deployment Manager</li>
-<li>AdminPwd is the password for the Deployment Manager<ol>
+<li><code>DM_host</code> is the host name of the Deployment Manager</li>
+<li><code>DM_SoapPort</code> is the SOAP port number of the Deployment Manager</li>
+<li><code>AdminUserId</code> is the user ID for the Deployment Manager</li>
+<li><code>AdminPwd</code> is the password for the Deployment Manager<ol>
 <li>Repeat this step for each additional node that your want to add to the cell.</li>
 </ol>
 </li>

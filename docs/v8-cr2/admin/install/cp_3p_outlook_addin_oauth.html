@@ -35327,20 +35327,21 @@
 
 <h1 class="concept" id="cp_3p_outlook_addin_oauth">Registering the Connections Add-in for Outlook OAuth application provider</h1>
 <p>The following steps provide information on registering the OAuth application provider for the HCL Connections Add-in for Microsoft Outlook when this add-in is deployed as part of Compoent Pack for Connections.</p>
-<p><strong>Note:</strong> You need to register the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.</p>
-<p>For more on configuring OAuth applications providers for Connections, refer to <a href="https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html">Configuring the HCL Connections OAuth provider</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to registering the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.</p>
+</div>
+<p>For more on configuring OAuth applications providers for Connections, see the <a href="https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html">Configuring the HCL Connections OAuth provider</a> section of the admin guide.</p>
 <ol>
+<li>SSH to your Deployment Manager</li>
 <li>
-<p>SSH to your Deployment Manager.</p>
-</li>
-<li>
-<p>Navigate to:</p>
+<p>Navigate to</p>
 <div class="highlight"><pre><span></span><code>${WEBSPHERE_INSTALLATION_FOLDER}/Appserver/profiles/Dmgr01/bin/
 </code></pre></div>
 </li>
 <li>
-<p>Create a file called <strong>register_oauth_for_outlook_addin</strong> and include the following content. </p>
-<p>Substitute appropriate values for items in brackets. For instance, &lt;variable>. In the following command, for example, you would replace "https://&lt;CONNECTIONS_URL>/&lt;CONTEXT_ROOT>/auth/callback" with something like "https://nginx.example.com/outlook-addin/auth/callback".</p>
+<p>Create a file called register_oauth_for_outlook_addin and include the following content. </p>
+<p>Substitute appropriate values for items in brackets. For example, &lt;variable> In the following command, for example, you would replace "https://&lt;CONNECTIONS_URL>/&lt;CONTEXT_ROOT>/auth/callback" with something like "https://nginx.example.com/outlook-addin/auth/callback".</p>
 <div class="highlight"><pre><span></span><code>batchMode=1
 execfile(&#39;oauthAdmin.py&#39;)
  OAuthApplicationRegistrationService.addApplication(&quot;connections-outlook-desktop&quot;,&quot;HCL Connections Outlook Addin&quot;,&quot;https://&lt;CONNECTIONS_URL&gt;/&lt;CONTEXT_ROOT&gt;/auth/callback&quot;)
@@ -35349,35 +35350,29 @@ execfile(&#39;oauthAdmin.py&#39;)
 </code></pre></div>
 </li>
 <li>
-<p>Save the file, and execute with:</p>
-<div class="highlight"><pre><span></span><code>./wsadmin.sh -lang jython –port 8879 –username YOUR\_WAS\_ADMIN\_USERNAME –password YOUR\_WAS\_ADMIN\_PASSWORD -f register\_oauth\_for\_outlook\_addin
-</code></pre></div>
+<p>Save the file, and execute with: <code>./wsadmin.sh -lang jython –port 8879 –username YOUR_WAS_ADMIN_USERNAME –password YOUR_WAS_ADMIN_PASSWORD -f register_oauth_for_outlook_addin</code></p>
 </li>
 <li>
-<p>Save the secret that will be generated here, and update it in the value file that you will use with Helm install, for example:</p>
-<div class="highlight"><pre><span></span><code>component\_pack\_installation\_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
+<p>Save the secret that will be generated here, and update it in your value file that you will use with Helm install, for example</p>
+<div class="highlight"><pre><span></span><code>component_pack_installation_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
 </code></pre></div>
 </li>
 <li>
 <p>To allow a more seamless user experience, HCL Connections supports automatic authorization of trusted OAuth clients. Users will not be prompted to authorize a trusted OAuth client app the first time that it tries to access their Connections data.</p>
 <ul>
 <li>
-<p>Edit the <code>connectionsProvider.xml</code> file, which can be found in the oauth20 directory beneath the IBM WebSphere® Application Server (WAS) cell configuration. For example,</p>
+<p>Edit the connectionsProvider.xml file which can be found in the oauth20 directory beneath the IBM WebSphere® Application Server (WAS) cell configuration. For example,</p>
 <div class="highlight"><pre><span></span><code>/opt/IBM/WebSphere/AppServer/profiles/profileName/config/cells/cellName/oauth20/connectionsProvider.xml
 </code></pre></div>
 </li>
 <li>
-<p>Locate the parameter named <strong>oauth20.allow.public.clients</strong> and add the app id of the Outlook add-in connections-outlook-desktop to the values list.</p>
+<p>Locate the parameter named <code>oauth20.allow.public.clients</code> and add the app id of the Outlook add-in connections-outlook-desktop to the values list.</p>
 </li>
+<li>Recreate the OAuth provider configuration <code>./wsadmin.sh -lang jython -conntype SOAP -c “print AdminTask.createOAuthProvider(’-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/_profileName_/config/cells/_cellName_/oauth20/connectionsProvider.xml’)” -user &lt;wasadmin&gt; -password &lt;pwd&gt;</code></li>
 </ul>
 </li>
-<li>
-<p>Recreate the OAuth provider configuration:</p>
-<div class="highlight"><pre><span></span><code> ./wsadmin.sh -lang jython -conntype SOAP -c &quot;print AdminTask.createOAuthProvider\(&#39;-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/\_profileName\_/config/cells/\_cellName\_/oauth20/connectionsProvider.xml&#39;\)&quot; -user &lt;wasadmin\&gt; -password &lt;pwd\&gt;
-</code></pre></div>
-</li>
 </ol>
-<p><strong>Parent topic:</strong> <a href="cp_3p_outlook_addin_container.html">Integrating with Connections Outlook Add-in for Microsoft Outlook</a></p>
+<p><strong>Parent topic:</strong><a href="cp_3p_outlook_addin_container.html">Integrating with Connections Outlook Add-in for Microsoft Outlook</a></p>
 
 
 

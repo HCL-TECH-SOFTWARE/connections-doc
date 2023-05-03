@@ -35336,7 +35336,7 @@
 <p>Navigate to the <a href="https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do?logoff=true">HCL Software License &amp; Download Portal</a> and log in.</p>
 </li>
 <li>
-<p>Find the DB2_ESE_AUSI_Activation_11.5.zip file (IBM DB2 Enterprise Server Edition - Authorized User Single Install Option - Activation 11.5 for Linux, UNIX and Windows Multilingual).</p>
+<p>Find the <code>DB2_ESE_AUSI_Activation_11.5.zip</code> file (IBM DB2 Enterprise Server Edition - Authorized User Single Install Option - Activation 11.5 for Linux, UNIX and Windows Multilingual).</p>
 </li>
 <li>
 <p>Download and unpack the file, making a note of the location you unpacked to.</p>
@@ -35346,33 +35346,38 @@
 </li>
 <li>
 <p>Update the IBM DB2 license.</p>
-<p>The db2ese_u.lic file is the license file for the Authorized User Single Install option. For other license options, see the <a href="https://www.ibm.com/docs/db2/11.5">IBM Db2 Version 11.5 Knowledge Center</a>.</p>
+<p>The <code>db2ese_u.lic</code> file is the license file for the Authorized User Single Install option. For other license options, see the <a href="https://www.ibm.com/docs/db2/11.5">IBM Db2 Version 11.5 Knowledge Center</a>.</p>
 <ol>
 <li>
-<p>Open a command prompt and change to the following directory: db2_install_dir/bin</p>
-<p>where db2_install_dir/bin is the directory to which you installed IBM DB2.</p>
+<p>Open a command prompt and change to the following directory: <code>db2_install_dir/bin</code></p>
+<p>where <code>db2_install_dir/bin</code> is the directory to which you installed IBM DB2.</p>
 </li>
 <li>
 <p>Run the following command to update the license:</p>
-<div class="highlight"><pre><span></span><code>db2licm -a path\_to\_lic\_file/db2ese_u.lic
+<div class="highlight"><pre><span></span><code>db2licm -a path_to_lic_file/db2ese_u.lic
 </code></pre></div>
-<p><strong>Note:</strong> For more information about using the license management tool command, see <a href="https://www.ibm.com/docs/db2/11.1?topic=licenses-db2licm-license-management-tool-command">db2licm</a> in the IBM Db2 documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about using the license management tool command, see <a href="https://www.ibm.com/docs/db2/11.1?topic=licenses-db2licm-license-management-tool-command">db2licm</a> in the IBM Db2 documentation.</p>
+</div>
 </li>
 </ol>
 </li>
 <li>
 <p>Verify that the license is registered by running the following command:</p>
-<p>db2_install_dir/bin/db2licm -l</p>
+<div class="highlight"><pre><span></span><code>db2_install_dir/bin/db2licm -l
+</code></pre></div>
 <p>If the license is correctly registered, the details of your IBM DB2 installation are displayed similar to those in the following table.</p>
-<p>|Product name:|"DB2 Enterprise Server Edition"|
-|License type:|"Authorized User Single Install"|
-|Expiry date:|"Permanent"|
-|Product identifier:|"db2ese"|
-|Version information:|"11.5"|
-|Enforcement policy:|"Soft Stop"|
-|Number of licensed authorized users:|"25"|
-|Features| |
-|IBM DB2 Performance Management Offering|Not licensed|</p>
+<div class="highlight"><pre><span></span><code>Product name:                                “DB2 Enterprise Server Edition” 
+License type:                                “Authorized User Single Install”
+Expiry date:                                 “Permanent”                     
+Product identifier:                          “db2ese”                        
+Version information:                         “11.5”                          
+Enforcement policy:                          “Soft Stop”                     
+Number of licensed authorized users:         “25”                            
+Features                                                                     
+IBM DB2 Performance Management Offering:      Not licensed                    
+</code></pre></div>
 </li>
 <li>
 <p>Restart IBM DB2.</p>

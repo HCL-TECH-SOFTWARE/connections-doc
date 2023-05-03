@@ -35366,7 +35366,7 @@ CommunitiesConfigService.checkOutWidgetsConfig(&quot;/tmp//LCCheckedOut&quot;, A
 </code></pre></div>
 </li>
 <li>
-<p>Edit the widgets-config.xml file. Find the resource element with the type of community (&lt;resource ... type="community" ... >), then under &lt;widgets>, then within &lt;definitions> add the following lines, replacing [BOARDS_URL] with your URL:</p>
+<p>Edit the <code>widgets-config.xml</code> file. Find the resource element with the type of community (&lt;resource … type=“community” … >), then under &lt;widgets>, then within &lt;definitions> add the following lines, replacing [BOARDS_URL] with your URL:</p>
 <div class="highlight"><pre><span></span><code>&lt;!-- Kudos Boards --&gt;
 &lt;widgetDef defId=&quot;Kudos Boards&quot; modes=&quot;view fullpage&quot; url=&quot;{webresourcesSvcRef}/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml&quot; themes=&quot;wpthemeNarrow wpthemeWide wpthemeBanner&quot; uniqueInstance=&quot;true&quot;&gt;
   &lt;itemSet&gt;
@@ -35380,7 +35380,7 @@ CommunitiesConfigService.checkOutWidgetsConfig(&quot;/tmp//LCCheckedOut&quot;, A
 </code></pre></div>
 </li>
 <li>
-<p>Check in the widgets-config.xml file:</p>
+<p>Check in the <code>widgets-config.xml</code> file:</p>
 <div class="highlight"><pre><span></span><code>CommunitiesConfigService.checkInWidgetConfig()
 </code></pre></div>
 </li>

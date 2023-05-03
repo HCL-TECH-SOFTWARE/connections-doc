@@ -35295,7 +35295,10 @@
 
 <h1 class="concept" id="cp_3p_outlook_addin_oauth">Registering the Connections Add-in for Outlook OAuth application provider</h1>
 <p>The following steps provide information on registering the OAuth application provider for the HCL Connections Add-in for Microsoft Outlook when this add-in is deployed as part of Compoent Pack for Connections.</p>
-<p><strong>Note:</strong> You need to registering the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to registering the Connections Outlook Add-in OAuth application provider before you install or upgrade a Component Pack deployment that includes the Outlook Add-in.</p>
+</div>
 <p>For more on configuring OAuth applications providers for Connections, see the <a href="https://help.hcltechsw.com/connections/v7/admin/install/cp_install_services_tasks.html">Configuring the HCL Connections OAuth provider</a> section of the admin guide.</p>
 <ol>
 <li>SSH to your Deployment Manager</li>
@@ -35315,11 +35318,11 @@ execfile(&#39;oauthAdmin.py&#39;)
 </code></pre></div>
 </li>
 <li>
-<p>Save the file, and execute with: ./wsadmin.sh -lang jython –port 8879 –username YOUR_WAS_ADMIN_USERNAME –password YOUR_WAS_ADMIN_PASSWORD -f register_oauth_for_outlook_addin</p>
+<p>Save the file, and execute with: <code>./wsadmin.sh -lang jython –port 8879 –username YOUR_WAS_ADMIN_USERNAME –password YOUR_WAS_ADMIN_PASSWORD -f register_oauth_for_outlook_addin</code></p>
 </li>
 <li>
 <p>Save the secret that will be generated here, and update it in your value file that you will use with Helm install, for example</p>
-<div class="highlight"><pre><span></span><code>component\_pack\_installation\_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
+<div class="highlight"><pre><span></span><code>component_pack_installation_folder/hybridcloud/examples/multi_domain_environment/outlook-addin.yml
 </code></pre></div>
 </li>
 <li>
@@ -35331,9 +35334,9 @@ execfile(&#39;oauthAdmin.py&#39;)
 </code></pre></div>
 </li>
 <li>
-<p>Locate the parameter named oauth20.allow.public.clients and add the app id of the Outlook add-in connections-outlook-desktop to the values list.</p>
+<p>Locate the parameter named <code>oauth20.allow.public.clients</code> and add the app id of the Outlook add-in connections-outlook-desktop to the values list.</p>
 </li>
-<li>Recreate the OAuth provider configuration ./wsadmin.sh -lang jython -conntype SOAP -c "print AdminTask.createOAuthProvider('-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/_profileName_/config/cells/_cellName_/oauth20/connectionsProvider.xml')" -user &lt;wasadmin> -password &lt;pwd></li>
+<li>Recreate the OAuth provider configuration <code>./wsadmin.sh -lang jython -conntype SOAP -c “print AdminTask.createOAuthProvider(’-providerName connectionsProvider -fileName /opt/IBM/WebSphere/AppServer/profiles/_profileName_/config/cells/_cellName_/oauth20/connectionsProvider.xml’)” -user &lt;wasadmin&gt; -password &lt;pwd&gt;</code></li>
 </ul>
 </li>
 </ol>

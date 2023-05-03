@@ -35294,7 +35294,8 @@
 
 
 <h1 class="task" id="cp_config_customizer_HTTP_server">Configuring the HTTP server for the App Registry</h1>
-<p>Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.</p>
+<p>!!!
+Configure the IBM® HTTP Server to redirect users to the App Registry, where they can add customizations.</p>
 <p>If you already configured Orient Me, then this task is not needed for Customizer.</p>
 <p>If you have not configured Orient Me, then complete this task to ensure that the HTTP server redirects users to the App Registry when they log in to Connections.</p>
 <p>Using the sample deployment described in <a href="cp_install_services_tasks.html#section_awd_rwp_tnb">Steps to install or upgrade to Component Pack</a>, the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).</p>
@@ -35303,11 +35304,11 @@
 <p>Log in to the HTTP server as the root user (AIX®, Linux®) or the administrator (Windows™).</p>
 </li>
 <li>
-<p>Backup the current httpd.conf.</p>
+<p>Backup the current <code>httpd.conf</code>.</p>
 </li>
 <li>
 <p>Open the http.conf file in a text editor.</p>
-<p>The http.conf file is typically stored in the following location:</p>
+<p>The <code>httpd.conf</code> file is typically stored in the following location:</p>
 <ul>
 <li>AIX: /opt2/IBM/HTTPServer/</li>
 <li>Linux: /opt/IBM/HTTPServer/conf/</li>

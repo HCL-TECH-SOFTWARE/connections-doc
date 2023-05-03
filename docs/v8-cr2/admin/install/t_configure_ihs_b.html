@@ -35377,44 +35377,34 @@
 </li>
 <li>
 <p>Add the following text to the end of the configuration file:</p>
-<p>LoadModule ibm_ssl_module modules/mod_ibm_ssl.so</p>
-<p>&lt;IfModule mod_ibm_ssl.c></p>
-<p>Listen 0.0.0.0:443</p>
-<p>&lt;VirtualHost *:443></p>
-<p>ServerName server_name</p>
-<p>SSLEnable</p>
-<p>&lt;/VirtualHost></p>
-<p>&lt;/IfModule></p>
-<p>SSLDisable</p>
-<p>Keyfile "path_to_key_file"</p>
-<p>SSLStashFile "path_to_stash_file"</p>
+<div class="highlight"><pre><span></span><code>LoadModule ibm_ssl_module modules/mod_ibm_ssl.so
+&lt;IfModule mod_ibm_ssl.c&gt;
+  Listen 0.0.0.0:443
+  &lt;VirtualHost *:443&gt;
+    ServerName server_name
+    SSLEnable
+  &lt;/VirtualHost&gt;
+&lt;/IfModule&gt;
+SSLDisable
+Keyfile &quot;path_to_key_file&quot;
+</code></pre></div>
 <p>where</p>
 <ul>
-<li>server_name is the host name of the IBM HTTP Server.</li>
-<li>path_to_key_file is the path to the key file that you created with the iKeyman utility.</li>
-<li>
-<p>path_to_stash_file is the path to the associated stash file.
-For example:</p>
-</li>
-<li>
-<p>AIX®:</p>
-<ul>
-<li>Keyfile "/usr/IBM/keyfiles/key_file.kdb"</li>
-<li>SSLStashFile "/usr/IBM/keyfiles/key_file.sth"</li>
+<li><code>server_name</code> is the host name of the IBM HTTP Server.</li>
+<li><code>path_to_key_file</code> is the path to the key file that you created with the iKeyman utility.
+For example:</li>
+<li>AIX®:<ul>
+<li><code>Keyfile "/usr/IBM/keyfiles/key_file.kdb"</code></li>
 </ul>
 </li>
 <li>Linux™:<ul>
-<li>Keyfile "/opt/IBM/keyfiles/key_file.kdb"</li>
-<li>SSLStashFile "/opt/IBM/keyfiles/key_file.sth"</li>
+<li><code>Keyfile "/opt/IBM/keyfiles/key_file.kdb"</code></li>
 </ul>
 </li>
-<li>
-<p>Microsoft™ Windows™:</p>
-<p>Use forward slashes in the httpd.conf file on Windows.</p>
-<ul>
-<li>Keyfile "C:/IBM/keyfiles/key_file.kdb"</li>
-<li>SSLStashFile "C:/IBM/keyfiles/key_file.sth"
-    where key_file is the name that you have given to your key file and stash file.</li>
+<li>Microsoft™ Windows™:
+    Use forward slashes in the httpd.conf file on Windows.<ul>
+<li><code>Keyfile "C:/IBM/keyfiles/key_file.kdb"</code>
+where <code>key_file</code> is the name that you have given to your key file and stash file.</li>
 </ul>
 </li>
 </ul>
