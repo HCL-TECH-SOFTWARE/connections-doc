@@ -22,9 +22,7 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
 
     |Property|Value|
     |--------|-----|
-    |com.ibm.websphere.security.disableGetTokenFromMBean**Note:** If this property doesn't exist, add it.
-
-|false|
+    |com.ibm.websphere.security.disableGetTokenFromMBean<br>**Note:** If this property doesn't exist, add it.|false|
     |com.ibm.websphere.security.DeferTAItoSSO|com.ibm.ws.security.oidc.client.RelyingParty|
 
 5.  As the WebSphere administrator, in the administrative console, click **Security** \> **Global security** \> **Web and SIP security** \> **Trust association**.
@@ -44,26 +42,8 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
     |provider\_1.clientSecret|\{client\_secret\}|
     |provider\_1.signatureAlgorithm|RS256|
     |provider\_1.scope|openid profile email api://\{client\_id\}/default|
-    |provider\_1.interceptedPathFilter|/activities/.\*,/blogs/.\*,/dogear/.\*,/files/.\*,/forums/.\*,/metrics/.\*,/metricssc/\*,/mobile/.\*,/connections/filesync/.\*,
-
-/connections/filediff/.\*,/mobileAdmin/.\*,/storageproxy/.\*,/wikis/.\*
-
-|
-    |provider\_1.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,
-
-/communities/dsx/.\*,/dm,/dm/atom/seedlist,
-
-/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,
-
-/communities/recomm/handleEvent,/communities/calendar/handleEvent,
-
-/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,
-
-/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,
-
-/news/seedlist/myserver,/communities/calendar/seedlist/myserver
-
-|
+    |provider\_1.interceptedPathFilter|/activities/.\*,/blogs/.\*,/dogear/.\*,/files/.\*,/forums/.\*,/metrics/.\*,/metricssc/\*,/mobile/.\*,/connections/filesync/.\*,/connections/filediff/.\*,/mobileAdmin/.\*,/storageproxy/.\*,/wikis/.\*|
+    |provider\_1.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver|
     |provider\_1.authorizeEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/authorize|
     |provider\_1.tokenEndpointUrl|https://login.microsoftlonline.com/\{tenant\}/oauth2/v2.0/token|
     |provider\_1.jwkEndpointUrl|https://login.microsoftonline.com/\{tenant\}/discovery/v2.0/keys|
@@ -81,30 +61,8 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
     |provider\_2.clientSecret|\{client\_secret\}|
     |provider\_2.signatureAlgorithm|RS256|
     |provider\_2.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
-    |provider\_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth/.\*,/connections/resources/.\*,/connections/config/.\*,/communities/.\*,/connections/proxy/.\*,
-
-/help/.\*,/xcc/.\*,/selfservice/.\*,/news/.\*,/profiles/.\*,/search/.\*,
-
-/socialsidebar/.\*,/touchpoint/.\*,/connections/thumbnail/.\*,
-
-/connections/opengraph/.\*,/oauth2/.\*,/connections/opensocial/.\*
-
-|
-    |provider\_2.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,
-
-/dm,/dm/atom/seedlist,/dm/atom/communities/feed,
-
-/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,
-
-/communities/calendar/handleEvent,/profiles/seedlist/myserver,
-
-/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,
-
-/dogear/seedlist/myserver,/news/seedlist/myserver,
-
-/communities/calendar/seedlist/myserver
-
-|
+    |provider\_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth/.\*,/connections/resources/.\*,/connections/config/.\*,/communities/.\*,/connections/proxy/.\*,/help/.\*,/xcc/.\*,/selfservice/.\*,/news/.\*,/profiles/.\*,/search/.\*,/socialsidebar/.\*,/touchpoint/.\*,/connections/thumbnail/.\*,/connections/opengraph/.\*,/oauth2/.\*,/connections/opensocial/.\*|
+    |provider\_2.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver|
     |provider\_2.authorizeEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/authorize|
     |provider\_2.tokenEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/token|
     |provider\_2.jwkEndpointUrl|https://login.microsoftonline.com/\{tenant\}/discovery/v2.0/keys|
@@ -123,21 +81,7 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
     |provider\_3.signatureAlgorithm|RS256|
     |provider\_3.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
     |provider\_3.interceptedPathFilter|/push/.\*|
-    |provider\_3.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,
-
-/dm,/dm/atom/seedlist,/dm/atom/communities/feed,
-
-/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,
-
-/communities/calendar/handleEvent,/profiles/seedlist/myserver,
-
-/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,
-
-/dogear/seedlist/myserver,/news/seedlist/myserver,
-
-/communities/calendar/seedlist/myserver
-
-|
+    |provider\_3.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver|
     |provider\_3.authorizeEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/authorize|
     |provider\_3.tokenEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/token|
     |provider\_3.jwkEndpointUrl|https://login.microsoftonline.com/\{tenant\}/discovery/v2.0/keys|
@@ -156,21 +100,7 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
     |provider\_4.signatureAlgorithm|RS256|
     |provider\_4.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
     |provider\_4.interceptedPathFilter|/homepage/.\*,/moderation/.\*,/connections/rte/.\*,/connections/webeditors/.\*|
-    |provider\_4.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,
-
-/dm,/dm/atom/seedlist,/dm/atom/communities/feed,
-
-/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,
-
-/communities/calendar/handleEvent,/profiles/seedlist/myserver,
-
-/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,
-
-/dogear/seedlist/myserver,/news/seedlist/myserver,
-
-/communities/calendar/seedlist/myserver
-
-|
+    |provider\_4.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver|
     |provider\_4.authorizeEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/authorize|
     |provider\_4.tokenEndpointUrl|https://login.microsoftonline.com/\{tenant\}/oauth2/v2.0/token|
     |provider\_4.jwkEndpointUrl|https://login.microsoftonline.com/\{tenant\}/discovery/v2.0/keys|

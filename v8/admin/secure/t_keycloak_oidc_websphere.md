@@ -12,7 +12,7 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
 
     ![WebSphere screen showing WebSphereOIDCRP associated with four cluster names](azure_websphere_example.jpg)
 
-    **Note:** The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. 
+    **Note:** The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running at least WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. 
 
 2.  Apply a unique context root to each of the clusters. For example, for the Apps cluster, go to **Enterprise Applications** \> **WebSphereOIDCRP\_AppsCluster.ear** \> **Context Root For Web Modules**.
 
@@ -26,7 +26,7 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
 
     |Property|Value|
     |--------|-----|
-    |com.ibm.websphere.security.disableGetTokenFromMBean   **Note:** If this property doesn't exist, add it.     |false|
+    |com.ibm.websphere.security.disableGetTokenFromMBean<br>**Note:** If this property doesn't exist, add it.     |false|
     |com.ibm.websphere.security.DeferTAItoSSO | com.ibm.ws.security.oidc.client.RelyingParty|
     
 
@@ -49,13 +49,32 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
     |provider_1.clientSecret|{client_secret} Find this value in Keycloak client configuration|
     |provider_1.signatureAlgorithm|RS256|
     |provider_1.scope|openid profile email|
-provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth/.\*,/connections/resources/.\*,/connections/config/.\*,/communities/.\*,/connections/proxy/.\*,/help/.\*,/xcc/.\*,/selfservice/.\*,/news/.\*,/profiles/.\*,/search/.\*,/socialsidebar/.\*,/touchpoint/.\*,/connections/thumbnail/.\*,/connections/opengraph/.\*,/oauth2/.\*,/connections/opensocial/.\*|
-  |provider_2.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*, /connections/resources/ic/.* ,/connections/opensocial/rpc,/xcc/js/.* ,/xcc/templates/.* ,/files/static/.* ,/blogs/static/.* ,/wikis/static/.* ,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_2.authorizeEndpointUrl| https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_2.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_2.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_1.interceptedPathFilter|/activities/.\*,/blogs/.\*,/dogear/.\*,/files/.\*,/forums/.\*,/metrics/.\*,/metricssc/\*,/mobile/.\*,/connections/filesync/.\*,/connections/filediff/.\*,/mobileAdmin/.\*,/storageproxy/.\*,/wikis/.\*|
+    |provider_1.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*,/connections/resources/ic/.\*,/connections/opensocial/rpc,/xcc/js/.\*,/xcc/templates/.\*,/files/static/.\*,/blogs/static/.\*,/wikis/static/.\*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
+    |provider_1.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_1.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_1.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certss|
+    |provider_1.signVerifyAlias|cnxoidccert|
+    |provider_1.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
+    |provider_1.userIdentifier|email|
+    |provider_1.useJwtFromRequest|ifPresent|
+    |provider_1.createSession|true|
+    |provider_1.verifyIssuerInIat|true|
+    |provider_1.audiences|ALL_AUDIENCES|
+    |provider_1.setLtpaCookie|true|
+    |provider_1.callbackServletContext|/oidcclient_apps|
+    |provider_2.identifier|keycloak|
+    |provider_2.clientId|{client_id} Find this value in Keycloak realm configuration|
+    |provider_2.clientSecret|{client_secret} Find this value in Keycloak client configuration|
+    |provider_2.signatureAlgorithm|RS256|
+    |provider_2.scope|openid profile email|
+    |provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth/.\*,/connections/resources/.\*,/connections/config/.\*,/communities/.\*,/connections/proxy/.\*,/help/.\*,/xcc/.\*,/selfservice/.\*,/news/.\*,/profiles/.\*,/search/.\*,/socialsidebar/.\*,/touchpoint/.\*,/connections/thumbnail/.\*,/connections/opengraph/.\*,/oauth2/.\*,/connections/opensocial/.\*|
+    |provider_2.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*, /connections/resources/ic/.* ,/connections/opensocial/rpc,/xcc/js/.* ,/xcc/templates/.* ,/files/static/.* ,/blogs/static/.* ,/wikis/static/.* ,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
+    |provider_2.authorizeEndpointUrl| https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_2.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_2.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_2.signVerifyAlias|cnxoidccert|
-    |provider_2.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm|
+    |provider_2.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_2.userIdentifier|email|
     |provider_2.useJwtFromRequest|ifPresent|
     |provider_2.createSession|true|
@@ -70,11 +89,11 @@ provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth
     |provider_3.scope|openid profile email|
     |provider_3.interceptedPathFilter|/push/.\*|
     |provider_3.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.\*,/connections/resources/ic/.\*,/connections/opensocial/rpc,/xcc/js/.\*,/xcc/templates/.\*,/files/static/.\*,/blogs/static/.\*,/wikis/static/.\*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_3.authorizeEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_3.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_3.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_3.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_3.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/tokenn|
+    |provider_3.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_3.signVerifyAlias|cnxoidccert|
-    |provider_3.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}|
+    |provider_3.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_3.userIdentifier|email|
     |provider_3.useJwtFromRequest|ifPresent|
     |provider_3.createSession|true|
@@ -89,18 +108,19 @@ provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth
     |provider_4.scope|openid profile email|
     |provider_4.interceptedPathFilter|/homepage/.\*,/moderation/.\*,/connections/rte/.\*,/connections/webeditors/.\*, /homepage/login/.\*|
     |provider_4.excludedPathFilter|/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\* ,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.\*,/survey/.\*,/surveys/.\*,/ibm/console,/ibm/console/.\*,/profiles/dsx/.\*,/communities/dsx/.\*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.\* ,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver, /mobile/homepage/SecurityConfiguration,/connections/resources/web/.* ,/connections/resources/ic/.*,/connections/opensocial/rpc,/xcc/js/.* ,/xcc/templates/.* ,/files/static/.*,/blogs/static/.*,/wikis/static/.* ,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos|
-    |provider_4.authorizeEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth|
-    |provider_4.tokenEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token|
-    |provider_4.jwkEndpointUrl|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs|
+    |provider_4.authorizeEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth|
+    |provider_4.tokenEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token|
+    |provider_4.jwkEndpointUrl|https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs|
     |provider_4.signVerifyAlias|cnxoidccert|
-    |provider_4.issuerIdentifier|https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}|
+    |provider_4.issuerIdentifier|https://{keycloak_server}/auth/realms/{realm}|
     |provider_4.userIdentifier|email|
     |provider_4.useJwtFromRequest|ifPresent
     |provider_4.createSession|true|
     |provider_4.verifyIssuerInIat|true|
     |provider_4.audiences|ALL_AUDIENCES|
     |provider_4.setLtpaCookie|true|
-    |provider_4.callbackServletContext|/oidcclient_utiljndiCacheNameservices/cache/OpenidRpCache|
+    |provider_4.callbackServletContext|/oidcclient_util|
+    |jndiCacheName|services/cache/OpenidRpCache|
 
 10.  Configure the Keycloak realm as a trusted realm:<ol><li>Click **Security** \> **Global security** \> **RMI/IIOP security** \> **CSIv2 inbound communications** \> **Trusted authentication realms - inbound**.</li><li>In the **Realms** section, click **Add External Realm**.</li><li>For the **External realm name** field, enter the value for \{realm\}.</li><li>Click **OK**.</li></ol>
 
@@ -137,7 +157,7 @@ provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth
 
     6.  For the **Port** field, enter **443**.
 
-    7.  For the **Alias** field, enter `cnxoidccert`. \(You will need to use this name as a value for `property provider_1.signVerifyAlias`. \)
+    7.  For the **Alias** field, enter `cnxoidccert`. \(You used this name as a value for `property provider_1.signVerifyAlias`. \)
 
     8.  Click **Retrieve signer information**.
 
@@ -157,5 +177,5 @@ provider_2.interceptedPathFilter|/connections/bookmarklet/.\*,/connections/oauth
 
 
 
-**Parent topic:**[Enabling single sign-on with OIDC for Microsoft Azure AD](../secure/c_azure_oidc_container.md)
+**Parent topic:** [Enabling Keycloak as an OIDC provider for Connections](../secure/c_keycloak_oidc.md)
 

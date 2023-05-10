@@ -3,6 +3,10 @@
     font-weight: 600;
 }
 
+.md-grid {
+    max-width: 70rem;
+}
+
 .md-tabs__link {
     opacity: 1;
 	
