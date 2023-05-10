@@ -15,6 +15,10 @@
     flex-wrap: wrap;
 }
 
+.md-banner__inner {
+    color: white;
+}
+
 .align-top {
     align-items: top;
 }
@@ -278,11 +282,6 @@
 .academy-hero__image img {
     width: 495px;
     height: 326px;
-}
-
-.dx-academy-logo img {
-    width: 189px;
-    height: 30px;
 }
 
 .academy-hero__content {
