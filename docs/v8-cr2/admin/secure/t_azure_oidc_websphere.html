@@ -112,7 +112,7 @@
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
-  <a href="https://academy.hcltechsw.com" target="_blank">Software Academy</a>
+  <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
   <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
 
 </div>
@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35353,16 +35353,16 @@
 </thead>
 <tbody>
 <tr>
-<td>com.ibm.websphere.security.disableGetTokenFromMBean<strong>Note:</strong> If this property doesn't exist, add it.</td>
-<td></td>
+<td>com.ibm.websphere.security.disableGetTokenFromMBean<br><strong>Note:</strong> If this property doesn't exist, add it.</td>
+<td>false</td>
+</tr>
+<tr>
+<td>com.ibm.websphere.security.DeferTAItoSSO</td>
+<td>com.ibm.ws.security.oidc.client.RelyingParty</td>
 </tr>
 </tbody>
 </table>
 </li>
-</ol>
-<p>|false|
-    |com.ibm.websphere.security.DeferTAItoSSO|com.ibm.ws.security.oidc.client.RelyingParty|</p>
-<ol>
 <li>
 <p>As the WebSphere administrator, in the administrative console, click <strong>Security</strong> > <strong>Global security</strong> > <strong>Web and SIP security</strong> > <strong>Trust association</strong>.</p>
 </li>
@@ -35405,122 +35405,311 @@
 </tr>
 <tr>
 <td>provider_1.interceptedPathFilter</td>
-<td>/activities/.*,/blogs/.*,/dogear/.*,/files/.*,/forums/.*,/metrics/.*,/metricssc/*,/mobile/.*,/connections/filesync/.*,</td>
+<td>/activities/.*,/blogs/.*,/dogear/.*,/files/.*,/forums/.*,/metrics/.*,/metricssc/*,/mobile/.*,/connections/filesync/.*,/connections/filediff/.*,/mobileAdmin/.*,/storageproxy/.*,/wikis/.*</td>
+</tr>
+<tr>
+<td>provider_1.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver</td>
+</tr>
+<tr>
+<td>provider_1.authorizeEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize</td>
+</tr>
+<tr>
+<td>provider_1.tokenEndpointUrl</td>
+<td>https://login.microsoftlonline.com/{tenant}/oauth2/v2.0/token</td>
+</tr>
+<tr>
+<td>provider_1.jwkEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys</td>
+</tr>
+<tr>
+<td>provider_1.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_1.issuerIdentifier</td>
+<td>https://login.microsoftonline.com/{tenant}/v2.0</td>
+</tr>
+<tr>
+<td>provider_1.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_1.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_1.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_1.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.callbackServletContext</td>
+<td>/oidcclient_apps</td>
+</tr>
+<tr>
+<td>provider_2.identifier</td>
+<td>azuread</td>
+</tr>
+<tr>
+<td>provider_2.clientId</td>
+<td>{client_id}</td>
+</tr>
+<tr>
+<td>provider_2.clientSecret</td>
+<td>{client_secret}</td>
+</tr>
+<tr>
+<td>provider_2.signatureAlgorithm</td>
+<td>RS256</td>
+</tr>
+<tr>
+<td>provider_2.scope</td>
+<td>openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default</td>
+</tr>
+<tr>
+<td>provider_2.interceptedPathFilter</td>
+<td>/connections/bookmarklet/.*,/connections/oauth/.*,/connections/resources/.*,/connections/config/.*,/communities/.*,/connections/proxy/.*,/help/.*,/xcc/.*,/selfservice/.*,/news/.*,/profiles/.*,/search/.*,/socialsidebar/.*,/touchpoint/.*,/connections/thumbnail/.*,/connections/opengraph/.*,/oauth2/.*,/connections/opensocial/.*</td>
+</tr>
+<tr>
+<td>provider_2.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver</td>
+</tr>
+<tr>
+<td>provider_2.authorizeEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize</td>
+</tr>
+<tr>
+<td>provider_2.tokenEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token</td>
+</tr>
+<tr>
+<td>provider_2.jwkEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys</td>
+</tr>
+<tr>
+<td>provider_2.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_2.issuerIdentifier</td>
+<td>https://login.microsoftonline.com/{tenant}/v2.0</td>
+</tr>
+<tr>
+<td>provider_2.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_2.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_2.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_2.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_2.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_2.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_2.callbackServletContext</td>
+<td>/oidcclient_infra</td>
+</tr>
+<tr>
+<td>provider_3.identifier</td>
+<td>azuread</td>
+</tr>
+<tr>
+<td>provider_3.clientId</td>
+<td>{client_id}</td>
+</tr>
+<tr>
+<td>provider_3.clientSecret</td>
+<td>{client_secret}</td>
+</tr>
+<tr>
+<td>provider_3.signatureAlgorithm</td>
+<td>RS256</td>
+</tr>
+<tr>
+<td>provider_3.scope</td>
+<td>openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default</td>
+</tr>
+<tr>
+<td>provider_3.interceptedPathFilter</td>
+<td>/push/.*</td>
+</tr>
+<tr>
+<td>provider_3.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver</td>
+</tr>
+<tr>
+<td>provider_3.authorizeEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize</td>
+</tr>
+<tr>
+<td>provider_3.tokenEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token</td>
+</tr>
+<tr>
+<td>provider_3.jwkEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys</td>
+</tr>
+<tr>
+<td>provider_3.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_3.issuerIdentifier</td>
+<td>https://login.microsoftonline.com/{tenant}/v2.0</td>
+</tr>
+<tr>
+<td>provider_3.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_3.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_3.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_3.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_3.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_3.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_3.callbackServletContext</td>
+<td>/oidcclient_push</td>
+</tr>
+<tr>
+<td>provider_4.identifier</td>
+<td>azuread</td>
+</tr>
+<tr>
+<td>provider_4.clientId</td>
+<td>{client_id}</td>
+</tr>
+<tr>
+<td>provider_4.clientSecret</td>
+<td>{client_secret}</td>
+</tr>
+<tr>
+<td>provider_4.signatureAlgorithm</td>
+<td>RS256</td>
+</tr>
+<tr>
+<td>provider_4.scope</td>
+<td>openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default</td>
+</tr>
+<tr>
+<td>provider_4.interceptedPathFilter</td>
+<td>/homepage/.*,/moderation/.*,/connections/rte/.*,/connections/webeditors/.*</td>
+</tr>
+<tr>
+<td>provider_4.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver</td>
+</tr>
+<tr>
+<td>provider_4.authorizeEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize</td>
+</tr>
+<tr>
+<td>provider_4.tokenEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token</td>
+</tr>
+<tr>
+<td>provider_4.jwkEndpointUrl</td>
+<td>https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys</td>
+</tr>
+<tr>
+<td>provider_4.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_4.issuerIdentifier</td>
+<td>https://login.microsoftonline.com/{tenant}/v2.0</td>
+</tr>
+<tr>
+<td>provider_4.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_4.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_4.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_4.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_4.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_4.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_4.callbackServletContext</td>
+<td>/oidcclient_util</td>
+</tr>
+<tr>
+<td>provider_1.realmIdentifier</td>
+<td>tid</td>
+</tr>
+<tr>
+<td>provider_2.realmIdentifier</td>
+<td>tid</td>
+</tr>
+<tr>
+<td>provider_3.realmIdentifier</td>
+<td>tid</td>
+</tr>
+<tr>
+<td>provider_4.realmIdentifier</td>
+<td>tid</td>
+</tr>
+<tr>
+<td>JndiCacheName</td>
+<td>services/cache/OpenidRpCache</td>
 </tr>
 </tbody>
 </table>
 </li>
-</ol>
-<p>/connections/filediff/.*,/mobileAdmin/.*,/storageproxy/.*,/wikis/.*</p>
-<p>|
-    |provider_1.excludedPathFilter|/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,</p>
-<p>/communities/dsx/.*,/dm,/dm/atom/seedlist,</p>
-<p>/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,</p>
-<p>/communities/recomm/handleEvent,/communities/calendar/handleEvent,</p>
-<p>/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,</p>
-<p>/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,</p>
-<p>/news/seedlist/myserver,/communities/calendar/seedlist/myserver</p>
-<p>|
-    |provider_1.authorizeEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize|
-    |provider_1.tokenEndpointUrl|https://login.microsoftlonline.com/{tenant}/oauth2/v2.0/token|
-    |provider_1.jwkEndpointUrl|https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys|
-    |provider_1.signVerifyAlias|cnxoidccert|
-    |provider_1.issuerIdentifier|https://login.microsoftonline.com/{tenant}/v2.0|
-    |provider_1.userIdentifier|email|
-    |provider_1.useJwtFromRequest|ifPresent|
-    |provider_1.createSession|true|
-    |provider_1.verifyIssuerInIat|true|
-    |provider_1.audiences|ALL_AUDIENCES|
-    |provider_1.setLtpaCookie|true|
-    |provider_1.callbackServletContext|/oidcclient_apps|
-    |provider_2.identifier|azuread|
-    |provider_2.clientId|{client_id}|
-    |provider_2.clientSecret|{client_secret}|
-    |provider_2.signatureAlgorithm|RS256|
-    |provider_2.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
-    |provider_2.interceptedPathFilter|/connections/bookmarklet/.*,/connections/oauth/.*,/connections/resources/.*,/connections/config/.*,/communities/.*,/connections/proxy/.*,</p>
-<p>/help/.*,/xcc/.*,/selfservice/.*,/news/.*,/profiles/.*,/search/.*,</p>
-<p>/socialsidebar/.*,/touchpoint/.*,/connections/thumbnail/.*,</p>
-<p>/connections/opengraph/.*,/oauth2/.*,/connections/opensocial/.*</p>
-<p>|
-    |provider_2.excludedPathFilter|/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,</p>
-<p>/dm,/dm/atom/seedlist,/dm/atom/communities/feed,</p>
-<p>/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,</p>
-<p>/communities/calendar/handleEvent,/profiles/seedlist/myserver,</p>
-<p>/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,</p>
-<p>/dogear/seedlist/myserver,/news/seedlist/myserver,</p>
-<p>/communities/calendar/seedlist/myserver</p>
-<p>|
-    |provider_2.authorizeEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize|
-    |provider_2.tokenEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token|
-    |provider_2.jwkEndpointUrl|https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys|
-    |provider_2.signVerifyAlias|cnxoidccert|
-    |provider_2.issuerIdentifier|https://login.microsoftonline.com/{tenant}/v2.0|
-    |provider_2.userIdentifier|email|
-    |provider_2.useJwtFromRequest|ifPresent|
-    |provider_2.createSession|true|
-    |provider_2.verifyIssuerInIat|true|
-    |provider_2.audiences|ALL_AUDIENCES|
-    |provider_2.setLtpaCookie|true|
-    |provider_2.callbackServletContext|/oidcclient_infra|
-    |provider_3.identifier|azuread|
-    |provider_3.clientId|{client_id}|
-    |provider_3.clientSecret|{client_secret}|
-    |provider_3.signatureAlgorithm|RS256|
-    |provider_3.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
-    |provider_3.interceptedPathFilter|/push/.*|
-    |provider_3.excludedPathFilter|/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,</p>
-<p>/dm,/dm/atom/seedlist,/dm/atom/communities/feed,</p>
-<p>/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,</p>
-<p>/communities/calendar/handleEvent,/profiles/seedlist/myserver,</p>
-<p>/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,</p>
-<p>/dogear/seedlist/myserver,/news/seedlist/myserver,</p>
-<p>/communities/calendar/seedlist/myserver</p>
-<p>|
-    |provider_3.authorizeEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize|
-    |provider_3.tokenEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token|
-    |provider_3.jwkEndpointUrl|https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys|
-    |provider_3.signVerifyAlias|cnxoidccert|
-    |provider_3.issuerIdentifier|https://login.microsoftonline.com/{tenant}/v2.0|
-    |provider_3.userIdentifier|email|
-    |provider_3.useJwtFromRequest|ifPresent|
-    |provider_3.createSession|true|
-    |provider_3.verifyIssuerInIat|true|
-    |provider_3.audiences|ALL_AUDIENCES|
-    |provider_3.setLtpaCookie|true|
-    |provider_3.callbackServletContext|/oidcclient_push|
-    |provider_4.identifier|azuread|
-    |provider_4.clientId|{client_id}|
-    |provider_4.clientSecret|{client_secret}|
-    |provider_4.signatureAlgorithm|RS256|
-    |provider_4.scope|openid profile email api://c270bc0a-0097-48d6-8e65-1728143c5c9e/default|
-    |provider_4.interceptedPathFilter|/homepage/.*,/moderation/.*,/connections/rte/.*,/connections/webeditors/.*|
-    |provider_4.excludedPathFilter|/activities/service/downloadExtended/.*,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,</p>
-<p>/dm,/dm/atom/seedlist,/dm/atom/communities/feed,</p>
-<p>/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,</p>
-<p>/communities/calendar/handleEvent,/profiles/seedlist/myserver,</p>
-<p>/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,</p>
-<p>/dogear/seedlist/myserver,/news/seedlist/myserver,</p>
-<p>/communities/calendar/seedlist/myserver</p>
-<p>|
-    |provider_4.authorizeEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize|
-    |provider_4.tokenEndpointUrl|https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token|
-    |provider_4.jwkEndpointUrl|https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys|
-    |provider_4.signVerifyAlias|cnxoidccert|
-    |provider_4.issuerIdentifier|https://login.microsoftonline.com/{tenant}/v2.0|
-    |provider_4.userIdentifier|email|
-    |provider_4.useJwtFromRequest|ifPresent|
-    |provider_4.createSession|true|
-    |provider_4.verifyIssuerInIat|true|
-    |provider_4.audiences|ALL_AUDIENCES|
-    |provider_4.setLtpaCookie|true|
-    |provider_4.callbackServletContext|/oidcclient_util|
-    |provider_1.realmIdentifier|tid|
-    |provider_2.realmIdentifier|tid|
-    |provider_3.realmIdentifier|tid|
-    |provider_4.realmIdentifier|tid|
-    |JndiCacheName|services/cache/OpenidRpCache|</p>
-<ol>
 <li>
 <p>Configure the Azure tenant as a trusted realm:</p>
 <ol>

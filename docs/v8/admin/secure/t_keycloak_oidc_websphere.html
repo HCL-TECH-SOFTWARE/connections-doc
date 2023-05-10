@@ -113,7 +113,7 @@
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
-  <a href="https://academy.hcltechsw.com" target="_blank">Software Academy</a>
+  <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
   <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
 
 </div>
@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr1/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35032,7 +35032,7 @@
 <li>
 <p>For every cluster, deploy WebSphereOIDCRP. To install the WebSphereOIDCRP application follow the instructions in the WebSphere documentation <a href="https://www.ibm.com/docs/en/was-nd/8.5.5?topic=users-configuring-openid-connect-relying-party">Configuring an OpenID Connect Relying Party</a> and follow <em>Step 1</em> in <em>“Install the OpenID Connect application“</em> . <p>In this example, the Connections applications are installed across the four clusters, AppsCluster, InfraCluster, PushCluster, and UtilCluster.</p></p>
 <p><img alt="WebSphere screen showing WebSphereOIDCRP associated with four cluster names" src="azure_websphere_example.jpg" /></p>
-<p><strong>Note:</strong> The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. </p>
+<p><strong>Note:</strong> The OIDC Replying Party TAI code is shipped as part of WebSphere Application Server. It is recommended that you are running at least WebSphere 8.5.5.18 which contains all required fixes. However, if you are running an earlier version of WebSphere, you must install at least version 1.3.0 of the OIDC jar. Find the latest version from https://www.ibm.com/support/pages/node/290565. </p>
 </li>
 <li>
 <p>Apply a unique context root to each of the clusters. For example, for the Apps cluster, go to <strong>Enterprise Applications</strong> > <strong>WebSphereOIDCRP_AppsCluster.ear</strong> > <strong>Context Root For Web Modules</strong>.</p>
@@ -35053,7 +35053,7 @@
 </thead>
 <tbody>
 <tr>
-<td>com.ibm.websphere.security.disableGetTokenFromMBean   <strong>Note:</strong> If this property doesn't exist, add it.</td>
+<td>com.ibm.websphere.security.disableGetTokenFromMBean<br><strong>Note:</strong> If this property doesn't exist, add it.</td>
 <td>false</td>
 </tr>
 <tr>
@@ -35107,6 +35107,82 @@
 <td>openid profile email</td>
 </tr>
 <tr>
+<td>provider_1.interceptedPathFilter</td>
+<td>/activities/.*,/blogs/.*,/dogear/.*,/files/.*,/forums/.*,/metrics/.*,/metricssc/*,/mobile/.*,/connections/filesync/.*,/connections/filediff/.*,/mobileAdmin/.*,/storageproxy/.*,/wikis/.*</td>
+</tr>
+<tr>
+<td>provider_1.excludedPathFilter</td>
+<td>/activities/service/downloadExtended/.*,/survey/.*,/surveys/.<em>,/ibm/console,/ibm/console/.*,/profiles/dsx/.</em>,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.*,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/activities/service/downloadExtended/.<em>,/survey/.*,/surveys/.*,/ibm/console,/ibm/console/.*,/profiles/dsx/.*,/communities/dsx/.*,/dm,/dm/atom/seedlist,/dm/atom/communities/feed,/activities/service/atom2/forms/communityEvent,/communities/recomm/handleEvent,/communities/calendar/handleEvent,/profiles/seedlist/myserver,/activities/service/atom2/forms/communityEvent,/news/web/statusUpdateEE.</em>,/dogear/seedlist/myserver,/news/seedlist/myserver,/communities/calendar/seedlist/myserver,/mobile/homepage/SecurityConfiguration,/connections/resources/web/.*,/connections/resources/ic/.*,/connections/opensocial/rpc,/xcc/js/.*,/xcc/templates/.*,/files/static/.*,/blogs/static/.*,/wikis/static/.*,/communities/calendar/Calendar.xml,/homepage/web/itemSetPersistence.action/repos</td>
+</tr>
+<tr>
+<td>provider_1.authorizeEndpointUrl</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth</td>
+</tr>
+<tr>
+<td>provider_1.tokenEndpointUrl</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token</td>
+</tr>
+<tr>
+<td>provider_1.jwkEndpointUrl</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certss</td>
+</tr>
+<tr>
+<td>provider_1.signVerifyAlias</td>
+<td>cnxoidccert</td>
+</tr>
+<tr>
+<td>provider_1.issuerIdentifier</td>
+<td>https://{keycloak_server}/auth/realms/{realm}</td>
+</tr>
+<tr>
+<td>provider_1.userIdentifier</td>
+<td>email</td>
+</tr>
+<tr>
+<td>provider_1.useJwtFromRequest</td>
+<td>ifPresent</td>
+</tr>
+<tr>
+<td>provider_1.createSession</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.verifyIssuerInIat</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.audiences</td>
+<td>ALL_AUDIENCES</td>
+</tr>
+<tr>
+<td>provider_1.setLtpaCookie</td>
+<td>true</td>
+</tr>
+<tr>
+<td>provider_1.callbackServletContext</td>
+<td>/oidcclient_apps</td>
+</tr>
+<tr>
+<td>provider_2.identifier</td>
+<td>keycloak</td>
+</tr>
+<tr>
+<td>provider_2.clientId</td>
+<td>{client_id} Find this value in Keycloak realm configuration</td>
+</tr>
+<tr>
+<td>provider_2.clientSecret</td>
+<td>{client_secret} Find this value in Keycloak client configuration</td>
+</tr>
+<tr>
+<td>provider_2.signatureAlgorithm</td>
+<td>RS256</td>
+</tr>
+<tr>
+<td>provider_2.scope</td>
+<td>openid profile email</td>
+</tr>
+<tr>
 <td>provider_2.interceptedPathFilter</td>
 <td>/connections/bookmarklet/.*,/connections/oauth/.*,/connections/resources/.*,/connections/config/.*,/communities/.*,/connections/proxy/.*,/help/.*,/xcc/.*,/selfservice/.*,/news/.*,/profiles/.*,/search/.*,/socialsidebar/.*,/touchpoint/.*,/connections/thumbnail/.*,/connections/opengraph/.*,/oauth2/.*,/connections/opensocial/.*</td>
 </tr>
@@ -35116,15 +35192,15 @@
 </tr>
 <tr>
 <td>provider_2.authorizeEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth</td>
 </tr>
 <tr>
 <td>provider_2.tokenEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token</td>
 </tr>
 <tr>
 <td>provider_2.jwkEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs</td>
 </tr>
 <tr>
 <td>provider_2.signVerifyAlias</td>
@@ -35132,7 +35208,7 @@
 </tr>
 <tr>
 <td>provider_2.issuerIdentifier</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm</td>
+<td>https://{keycloak_server}/auth/realms/{realm}</td>
 </tr>
 <tr>
 <td>provider_2.userIdentifier</td>
@@ -35192,15 +35268,15 @@
 </tr>
 <tr>
 <td>provider_3.authorizeEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth</td>
 </tr>
 <tr>
 <td>provider_3.tokenEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/tokenn</td>
 </tr>
 <tr>
 <td>provider_3.jwkEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs</td>
 </tr>
 <tr>
 <td>provider_3.signVerifyAlias</td>
@@ -35208,7 +35284,7 @@
 </tr>
 <tr>
 <td>provider_3.issuerIdentifier</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}</td>
+<td>https://{keycloak_server}/auth/realms/{realm}</td>
 </tr>
 <tr>
 <td>provider_3.userIdentifier</td>
@@ -35268,15 +35344,15 @@
 </tr>
 <tr>
 <td>provider_4.authorizeEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/auth</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/auth</td>
 </tr>
 <tr>
 <td>provider_4.tokenEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/token</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/token</td>
 </tr>
 <tr>
 <td>provider_4.jwkEndpointUrl</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/kcoidc/protocol/openid-connect/certs</td>
+<td>https://{keycloak_server}/auth/realms/{realm}/protocol/openid-connect/certs</td>
 </tr>
 <tr>
 <td>provider_4.signVerifyAlias</td>
@@ -35284,7 +35360,7 @@
 </tr>
 <tr>
 <td>provider_4.issuerIdentifier</td>
-<td>https://keycloak.cnx.cwp.pnp-hcl.com/auth/realms/{realm}</td>
+<td>https://{keycloak_server}/auth/realms/{realm}</td>
 </tr>
 <tr>
 <td>provider_4.userIdentifier</td>
@@ -35312,7 +35388,11 @@
 </tr>
 <tr>
 <td>provider_4.callbackServletContext</td>
-<td>/oidcclient_utiljndiCacheNameservices/cache/OpenidRpCache</td>
+<td>/oidcclient_util</td>
+</tr>
+<tr>
+<td>jndiCacheName</td>
+<td>services/cache/OpenidRpCache</td>
 </tr>
 </tbody>
 </table>
@@ -35365,7 +35445,7 @@
 <p>For the <strong>Port</strong> field, enter <strong>443</strong>.</p>
 </li>
 <li>
-<p>For the <strong>Alias</strong> field, enter <code>cnxoidccert</code>. (You will need to use this name as a value for <code>property provider_1.signVerifyAlias</code>. )</p>
+<p>For the <strong>Alias</strong> field, enter <code>cnxoidccert</code>. (You used this name as a value for <code>property provider_1.signVerifyAlias</code>. )</p>
 </li>
 <li>
 <p>Click <strong>Retrieve signer information</strong>.</p>
@@ -35394,7 +35474,7 @@
 <p>Restart the WebSphere server (Restart all Clusters) .</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_azure_oidc_container.html">Enabling single sign-on with OIDC for Microsoft Azure AD</a></p>
+<p><strong>Parent topic:</strong> <a href="c_keycloak_oidc.html">Enabling Keycloak as an OIDC provider for Connections</a></p>
 
 
 
