@@ -26,7 +26,7 @@ Complete the steps in [Configuring KeyCloak as an OIDC provider for Connections]
 
     |Property|Value|
     |--------|-----|
-    |com.ibm.websphere.security.disableGetTokenFromMBean   **Note:** If this property doesn't exist, add it.     |false|
+    |com.ibm.websphere.security.disableGetTokenFromMBean<br>**Note:** If this property doesn't exist, add it.     |false|
     |com.ibm.websphere.security.DeferTAItoSSO | com.ibm.ws.security.oidc.client.RelyingParty|
     
 
