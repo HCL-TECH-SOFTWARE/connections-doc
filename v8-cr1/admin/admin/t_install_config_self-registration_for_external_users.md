@@ -34,6 +34,7 @@ Set properties that make it possible for people outside of your company to self-
         -   localhost is the domain name where LDAP can be found
         -   `389` and `636` are the default values for the LDAP ports
         -   `no` is the default encryption value; other possible values are `ssl`, and `starttsl | no`
+
     4.  Add the LDAP bind username for the user who has read and write access to the LDAP repository:
 
         ```
@@ -121,5 +122,5 @@ Set properties that make it possible for people outside of your company to self-
 -   **[Customizing notifications for self-registering users](../admin/c_admin_customize_self-registration_notifications.md)**  
 You can customize the content of the email notifications related to the self-registration feature by copying the relevant source files, saving them in the appropriate customization directory, and editing the files that correspond to notifications you want to change. As the source files are provided in different languages, you can also customize the notifications in those languages.
 
-**Parent topic:**[Managing external user access](../admin/c_admin_common_manage_ext_user.md)
+**Parent topic:** [Managing external user access](../admin/c_admin_common_manage_ext_user.md)
 

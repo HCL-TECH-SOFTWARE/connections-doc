@@ -2,9 +2,13 @@
 
 Activities are moved to the Completed view for two reasons, inactivity and the passing of a Due Date. The following help is about how to configure an inactive Activity.
 
+**Before you begin**
+
 When an activity is marked complete, it moves from the My Activities view to the Completed view. The default interval is 90 days. Configuration property settings can be edited to disable the removal of inactive activities from the My Activities view, to change the amount of time an activity must be inactive before it is marked complete by the server, or to disable the warning notification that is sent to activity owners before an activity is marked complete. Before starting this procedure, determine the amount of time that you want to allow an idle activity to remain in the active views before it is marked complete and moved to the Completed view.
 
 To edit configuration files, you must use the wsadmin client. See [Starting the wsadmin client](t_admin_wsadmin_starting.md) for details.
+
+**About this task**
 
 If email notifications are enabled, Activities warns the owner of an activity that has not been modified in the specified time frame that the activity will be marked complete. This allows the owner to modify the activity to keep it active and prevent it from being marked complete. You can enable and disable this email notification application. If you do not want to automatically move activities into the Completed view, you can also disable this job.
 
@@ -62,11 +66,9 @@ To remove an activity that is not being used, complete the following steps:
 
     From the returned list, look at the current values of the settings that begin with **jobs.AutoComplete** and determine which property values you want to change:
 
-    jobs.AutoComplete.autoCompletionPeriod
-    :   Defines the number of days of inactivity that must pass before an activity is automatically marked complete. Specify the value in days. The default value is 90.
+    **jobs.AutoComplete.autoCompletionPeriod**:   Defines the number of days of inactivity that must pass before an activity is automatically marked complete. Specify the value in days. The default value is 90.
 
-    jobs.AutoComplete.prenotification
-    :   Defines whether or not to send an email to the activity owners to warn them that the activity will be marked complete if no modifications are made to it. This property accepts the following values: true or false. The default value is true. This setting requires that email notifications are enabled.
+    **jobs.AutoComplete.prenotification**:   Defines whether or not to send an email to the activity owners to warn them that the activity will be marked complete if no modifications are made to it. This property accepts the following values: true or false. The default value is true. This setting requires that email notifications are enabled.
 
 3.  To change the property values, use the following command:
 
@@ -103,6 +105,7 @@ To remove an activity that is not being used, complete the following steps:
 
 6.  After making changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. See *Applying property changes* for details.
 
+**Example**
 
 When making configuration changes to the ActivityAutoCompleteJob scheduled job, you are modifying settings in the oa-config.xml file. The following XML sample of oa-config.xml file content defines a job that runs weekly \(Saturdays at 11 PM\) and marks complete any activities on the server that have not been modified in 100 days. Because prenotification is set to false, the activity owners will not get an email notification that the activities will be marked complete. The ActivityAutoCompleteJob task sets the last **updated by** field in the Activities interface to Activities Administrator.
 
@@ -131,11 +134,7 @@ When making configuration changes to the ActivityAutoCompleteJob scheduled job, 
 </scheduledTasks>
 ```
 
-**Parent topic:**[Changing Activities configuration property values](../admin/t_admin_act_changing_config.md)
-
-**Previous topic:**[Managing uploaded files](../admin/t_admin_act_manage_uploads.md)
-
-**Next topic:**[Emptying the Activities trash on a schedule](../admin/t_admin_act_trash_removal.md)
+**Parent topic:** [Changing Activities configuration property values](../admin/t_admin_act_changing_config.md)
 
 **Related information**  
 

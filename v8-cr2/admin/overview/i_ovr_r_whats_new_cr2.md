@@ -2,7 +2,7 @@
 
 Find out about features that are new or updated in this release of HCL Connections.
 
--   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
+-   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates to the Connections Server, including required critical updates.
 
 -   **Download** Connections 8.0 CR2 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 CR2 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
@@ -39,7 +39,7 @@ A new release of TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is 
 
 ## Connections Engagement Center in HCL Connections {#cec .section}
 
-Updated the installation instructions for the Connections Engagement Center to work with HCL Connections 8.0. This will allow customers to view Connections Engagement Center 8.0 in FlexNet when they purchased. Refer to [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) for details.
+Updated the installation instructions for the Connections Engagement Center to work with HCL Connections 8.0. This will allow customers to view the Connections Engagement Center 8.0 in the HCL Software License & Download Portal when they purchase. Refer to [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) for details.
 
 **Interested in Connections Mobile?**
 

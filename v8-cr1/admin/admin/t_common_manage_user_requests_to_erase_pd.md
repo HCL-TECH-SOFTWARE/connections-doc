@@ -11,13 +11,14 @@ The user requesting to be erased is still listed as active in Connections and st
 
     1.  See [Running administrative commands](https://help.hcltechsw.com/connections/v7/admin/admin/t_admin_common_edit_admin_props.html) to start the wsadmin client and initiate the Search service.
     2.  Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:
-        -   ```
-SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
-```
 
         -   ```
-SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
-```
+            SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
+            ```
+
+        -   ```
+            SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
+            ```
 
     3.  Run this command to change the user's email address to a pseudonymised email address:
 
@@ -34,20 +35,23 @@ SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
 The user asking to be erased was marked inactive in LDAP, and TDI synchronization has inactivated them in Connections \("inactive" is displayed beside the user's name wherever it is displayed \).
 
 1.  The Administrator User can use the [update profile Admin UI](https://ds-infolib.hcltechsw.com/ldd/lcwiki.nsf/xpAPIViewer.xsp?lookupName=IBM+Connections+6.0+API+Documentation#action=openDocument&res_title=Updating_a_profile_using_the_Administration_API_ic60&content=apicontent) to complete the following steps:
+
     1.  Reactivate the user.
     2.  Change the name of the user to a pseudonym, for example "User124." Running the API propagates the name change throughout all components.
     3.  Deactivate the user.
+
 2.  Use wsadmin commands to pseudonymise the user's name and email address in the databases for the Home app and Search and News app, as follows:
 
     1.  See [Running administrative commands](https://help.hcltechsw.com/connections/v7/admin/admin/t_admin_common_edit_admin_props.html) to start the wsadmin client and initiate the Search service.
     2.  Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:
-        -   ```
-SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
-```
 
         -   ```
-SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
-```
+            SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
+            ```
+
+        -   ```
+            SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
+            ```
 
     3.  Run this command to change the user's email address to a pseudonymised email address:
 
@@ -68,13 +72,14 @@ If the user was removed from LDAP and TDI synchronization has inactivated them i
 
     1.  See [Running administrative commands](https://help.hcltechsw.com/connections/v7/admin/admin/t_admin_common_edit_admin_props.html) to start the wsadmin client and initiate the Search service.
     2.  Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:
-        -   ```
-SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
-```
 
         -   ```
-SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
-```
+            SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
+            ```
+
+        -   ```
+            SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
+            ```
 
     3.  Run this command to change the user's email address to a pseudonymised email address:
 
@@ -97,13 +102,14 @@ If the LDAP Administrator has removed the user from LDAP, and TDI synchronizatio
 
     1.  See [Running administrative commands](https://help.hcltechsw.com/connections/v7/admin/admin/t_admin_common_edit_admin_props.html) to start the wsadmin client and initiate the Search service.
     2.  Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:
-        -   ```
-SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
-```
 
         -   ```
-SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
-```
+            SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")
+            ```
+
+        -   ```
+            SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")
+            ```
 
     3.  Run this command to change the user's email address to a pseudonymised email address:
 
@@ -140,5 +146,5 @@ What the user cannot change on their own:
 -   @mentions in Connections by another user, or personal data in body text added by another user. The user can ask the Administrator to change the content. Note that the Administrator cannot find @mentions unless the user requesting erasure provides the names of current subscribers who mentioned them, or some other means such as the name of a file containing the @mention. See [Deleting or correcting user PI](t_common_erase_or_correct_data_in_body_text.md) for information on how the Administrator can delete PI that cannot be pseudonymised.
 -   Download history
 
-**Parent topic:**[Managing personal information in accordance with PI laws](../admin/c_common_manage_personal_data_for_gdpr.md)
+**Parent topic:** [Managing personal information in accordance with PI laws](../admin/c_common_manage_personal_data_for_gdpr.md)
 

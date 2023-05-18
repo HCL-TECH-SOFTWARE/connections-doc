@@ -14,6 +14,7 @@ To move the content store, complete the following steps:
 
     -   File path to a network share directory in Universal Naming Convention \(UNC\) format. For example: `\\server_name\share_name`. Specify the same directory on each node to which Activities is installed.
     -   WebSphere Application Server environment variable which contains the file path information. For example: `${ACTIVITIES_CONTENT_DIR}`
+
 2.  **If the file path is defined in UNC format only**: You must edit the oa-config.xml configuration file. Use the wsadmin client to access and check out the configuration files.
 
     1.  Use the following command to access the Activities configuration file:
@@ -61,8 +62,7 @@ To move the content store, complete the following steps:
 
     4.  Find the existing <store\> element, which defines the current content store location. Edit the following property of the <store\> element to point to the new directory location:
 
-        root.directory property
-        :   Edit the value of the property to reflect the file path of the new file system location.
+        **root.directory property**:   Edit the value of the property to reflect the file path of the new file system location.
 
         **Note:** Do not change the value of the <id\> element. Activities relies on the <id\> element to map to the content store configuration.
 
@@ -89,7 +89,7 @@ To move the content store, complete the following steps:
 7.  After the content store is successfully copied to the new location, you can remove the original content store.
 
 
-**Parent topic:**[Managing uploaded files](../admin/t_admin_act_manage_uploads.md)
+**Parent topic:** [Managing uploaded files](../admin/t_admin_act_manage_uploads.md)
 
 **Related information**  
 

@@ -14,23 +14,12 @@ By default, internal users cannot create content that is visible to external use
 
     You can identify the user with an email address or with an external ID.
 
-        |**ProfilesService.setRole\(String user\_email\_addr, String role\)**|Set the role using an email address.    ```
-ProfilesService.setRole("ajones277@example.com", EMPLOYEE_EXTENDED)
-setRole Command processed user role 'employee.extended' for user ajones277@example.com
-    ```
-
-|
-    |**ProfilesService.setRoleByUserId\(String user\_external\_id, String role\)**|Set the role using an external ID.     ```
-ProfilesService.setRoleByUserId("8e88c240", EMPLOYEE_EXTENDED)
-setRole Command processed user role 'employee.extended' for user 8e88c240
-
-    ```
-
-**Notes:**
-
-    1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*
-    2.  Although the ID is shown here as an 8 digit hexadecimal number, an ID can be any format, such as a GUID. For example, "ec8a89c0-f41d-102c-9b60-f225bc6c4af4".
-|
+    |**Option**|**Description**|
+    |----------|---------------|
+    |**ProfilesService.setRole\(String user\_email\_addr, String role\)**|Set the role using an email address.<br>```ProfilesService.setRole("ajones277@example.com", EMPLOYEE_EXTENDED)
+setRole Command processed user role 'employee.extended' for user ajones277@example.com```|
+    |**ProfilesService.setRoleByUserId\(String user\_external\_id, String role\)**|Set the role using an external ID.<br>```ProfilesService.setRoleByUserId("8e88c240", EMPLOYEE_EXTENDED)
+setRole Command processed user role 'employee.extended' for user 8e88c240```<br>**Notes:**<br>1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*<br>2.  Although the ID is shown here as an 8 digit hexadecimal number, an ID can be any format, such as a GUID. For example, "ec8a89c0-f41d-102c-9b60-f225bc6c4af4".|
 
 -   Set the same role for multiple users.
 
@@ -41,38 +30,20 @@ setRole Command processed user role 'employee.extended' for user 8e88c240
 
         **Note:** If you are processing several hundreds of users, create several files and run them in separate commands.
 
-        |**ProfilesService.setBatchRole\(String role, String filename\)**|Assign the specified role to each user whose email address is listed in the text file. The text file must contain one valid email address per line.    ```
-ProfilesService.setBatchRole(EMPLOYEE_EXTENDED, "profiles-roles-by-email.txt")
-setBatchRole request processed
- Command processed user role 'employee.extended' for users
-[ JonesA377@example.com, JohnSmith4@example.com, JaneR@example.com ]
-
-    ```
-
-|
-    |**ProfilesService.setBatchRoleByUserId\(String role, String filename\)**|Assign the specified role to each user whose ID is listed in the text file. The text file must contain one valid user ID per line.    ```
-ProfilesService.setBatchRoleByUserId(EMPLOYEE_EXTENDED, "profiles-roles-by-userid.txt")
-setBatchRole request processed
- Command processed user role 'employee.extended' for users
-[ 8d579540, 110f82c0, 5876de62, 5426de62 ]
-    ```
-
-**Notes:**
-
-    1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*
-    2.  Although the IDs are shown here as 8 digit hexadecimal numbers, an ID can be any format, such as a GUID. For example, ec8a89c0-f41d-102c-9b60-f225bc6c4af4.
-|
+        |**Option**|**Description**|
+        |----------|---------------|
+        |**ProfilesService.setBatchRole\(String role, String filename\)**|Assign the specified role to each user whose email address is listed in the text file. The text file must contain one valid email address per line.<br>```ProfilesService.setBatchRole(EMPLOYEE_EXTENDED, "profiles-roles-by-email.txt") setBatchRole request processed Command processed user role 'employee.extended' for users [ JonesA377@example.com, JohnSmith4@example.com, JaneR@example.com ]```|
+        |**ProfilesService.setBatchRoleByUserId\(String role, String filename\)**|Assign the specified role to each user whose ID is listed in the text file. The text file must contain one valid user ID per line.<br>```ProfilesService.setBatchRoleByUserId(EMPLOYEE_EXTENDED, "profiles-roles-by-userid.txt") setBatchRole request processed Command processed user role 'employee.extended' for users [ 8d579540, 110f82c0, 5876de62, 5426de62 ]```<br>**Notes:**<br>1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*<br>2.  Although the IDs are shown here as 8 digit hexadecimal numbers, an ID can be any format, such as a GUID. For example, ec8a89c0-f41d-102c-9b60-f225bc6c4af4.|
 
 
+## What to do next
 Run one of the following commands to find out which role is assigned to a user.
 
 -   Retrieve the role that is associated with a user's email address by running the command `ProfilesService.getRoles(String user_email_addr)`.
 
     ```
-    
     ProfilesService.getRoles("aalain@example.com")
     [employee]
-    
     ```
 
 -   Retrieve the role that is associated with a user's directory ID by running the command `ProfilesService.getRolesByUserId(String user_external_id)`.
@@ -84,7 +55,7 @@ Run one of the following commands to find out which role is assigned to a user.
     ```
 
 
-**Parent topic:**[Managing external user access](../admin/c_admin_common_manage_ext_user.md)
+**Parent topic:** [Managing external user access](../admin/c_admin_common_manage_ext_user.md)
 
 **Related information**  
 

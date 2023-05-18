@@ -80,15 +80,15 @@ This command checks to see whether the external ID found in the member database 
 -   If the external ID is present, then the command gets the display name, email address, and login names from the configured directory and updates the application database tables with the values from the directory, if they are different. This refresh update operation is not logged to the output file.
 -   If a match for the user's external ID is not found in the directory, then the command uses the email address and login names that are contained in the application database tables to continue to search for the user. If none of the credentials match, the user is inactivated. How the command works when a match on the login names or email address is found differs depending on the parameter that you specified with the command:
 
-Parameter: **updateOnEmailLoginMatch**: String. Options are true or false. The default is false.
+    Parameter: updateOnEmailLoginMatch: String. Options are true or false. The default is false.
 
-**true**
+    **true**
 
-Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is automatically updated with the external ID in the configured directory.
+    Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is automatically updated with the external ID in the configured directory.
 
-**false**
-
-Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is written to the application\_nameUIcSyncCmd.log file. You can manually make the update after confirming that the change should be made.
+    **false**
+    
+    Specifies that when a match is found in the configured directory based on the login names or email address of the user, the external ID in the application database is written to the application\_nameUIcSyncCmd.log file. You can manually make the update after confirming that the change should be made.
 
 -   If a match for the user's external ID is not found in the configured directory, nor is a match found for the user's email address and login names, then the state of the user is changed to inactive in the application database.
 
@@ -129,6 +129,7 @@ You can perform the following tasks with this command:
     **Optional.** String. If you provide this parameter:
 
         1.  The same person is being represented by two different external IDs: the currentExternalId is in the application database where the member is marked as inactive and the newExtId, is stored in the configured directory.
+
         2.  The newExtId updates that person's external ID in the application database and the person is marked active.
         **Important:** Only use this command when you are sure that the two IDs represent the same person.
 
@@ -247,126 +248,142 @@ The application\_name variable represents the name of the application. The follo
 
 **Note:** The application\_nameMemberService.syncAllMemberExtIds\(\) command was deprecated in version 3.
 
-application\_nameMemberService.syncBatchMemberExtIdsByLogin\("loginFile" \[, \{"allowInactivate" : \["true" \| "false"\] \} \] \)
-:   The command application\_nameMemberService.syncBatchMemberExtIds\(filename\) was deprecated in version 2.5. Use this command or the application\_nameMemberService.syncBatchMemberExtIdsByEmail\(emailFile\) command instead.
+**application\_nameMemberService.syncBatchMemberExtIdsByLogin\("loginFile" \[, \{"allowInactivate" : \["true" \| "false"\] \} \] \)**
 
-    This synchronizes a list of users contained in the specified text file. The text file must define one login name per line. For each login name, if a match is found the command checks the external ID in the application member table against the value in the configured directory to see if it matches. If the external ID matches, then the user's email address and display name and any additional login names are refreshed if needed so that they match those in the configured directory. The refresh operation is not logged.
+The command application\_nameMemberService.syncBatchMemberExtIds\(filename\) was deprecated in version 2.5. Use this command or the application\_nameMemberService.syncBatchMemberExtIdsByEmail\(emailFile\) command instead.
 
-    If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table in the application database is updated with the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false \(see the following explanation of the two flags\).
+This synchronizes a list of users contained in the specified text file. The text file must define one login name per line. For each login name, if a match is found the command checks the external ID in the application member table against the value in the configured directory to see if it matches. If the external ID matches, then the user's email address and display name and any additional login names are refreshed if needed so that they match those in the configured directory. The refresh operation is not logged.
 
-    Parameters:
+If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table in the application database is updated with the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false \(see the following explanation of the two flags\).
 
-    loginFile
-    :   String. Path and name of a text file that contains one user login name entry per line.
+Parameters:
 
-    allowInactivate
-    :   String. Options are true or false. Specify one of these values to allow changes to the state of the user.
+**loginFile**
 
-    :   If true, the user is inactivated in the member table of the application database if there is no match. The user's email and login names are deleted from the table and the state flag is set to inactive.
+String. Path and name of a text file that contains one user login name entry per line.
 
-    :   If false or null, the user is not made inactive. Instead, a log message is written to the log file.
+**allowInactivate**
 
-    This command does not return anything.
+String. Options are true or false. Specify one of these values to allow changes to the state of the user.
 
-    For example:
+If true, the user is inactivated in the member table of the application database if there is no match. The user's email and login names are deleted from the table and the state flag is set to inactive.
 
-    ```
-    ActivitiesMemberService.syncBatchMemberExtIdsByLogin("c:/apps/activities/login_sync_file.txt", 
-     { "allowInactivate":"false"})
-    ```
+If false or null, the user is not made inactive. Instead, a log message is written to the log file.
 
-application\_nameMemberService.syncBatchMemberExtIdsByEmail\("emailFile" \[, \{"allowInactivate" : \["true" \| "false"\] \} \] \)
-:   The command application\_nameMemberService.syncBatchMemberExtIds\(filename\) was deprecated in version 2.5. Use this command or the syncBatchMemberExtIdsByLogin\(loginFile\) command instead.
+This command does not return anything.
 
-    This synchronizes a list of users contained in the specified text file. The text file must define one email address per line. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's display name and any additional login names are refreshed if needed, so that they match those in the configured directory. The refresh operation is not logged.
+For example:
 
-    If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table is updated with the external ID in the configured directory. Also, the user's display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the following allowInactivate input parameter is set to true or false.
+```
+ActivitiesMemberService.syncBatchMemberExtIdsByLogin("c:/apps/activities/login_sync_file.txt", 
+    { "allowInactivate":"false"})
+```
 
-    Parameters:
+**application\_nameMemberService.syncBatchMemberExtIdsByEmail\("emailFile" \[, \{"allowInactivate" : \["true" \| "false"\] \} \] \)**
 
-    emailFile
-    :   String. Path and name of text file that contains one entry per line of user email addresses \(jdoe@example.com\).
+The command application\_nameMemberService.syncBatchMemberExtIds\(filename\) was deprecated in version 2.5. Use this command or the syncBatchMemberExtIdsByLogin\(loginFile\) command instead.
 
-    allowInactivate
-    :   String. Options are true or false. Specify one of these values to allow changes to the state of the user.
+This synchronizes a list of users contained in the specified text file. The text file must define one email address per line. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's display name and any additional login names are refreshed if needed, so that they match those in the configured directory. The refresh operation is not logged.
 
-    :   If true, the user is inactivated in the member table of the application database if there is no match. The user's email and login names are deleted from the table and the state flag is set to inactive.
+If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table is updated with the external ID in the configured directory. Also, the user's display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the following allowInactivate input parameter is set to true or false.
 
-    :   If false or null, the user is not made inactive. Instead, a log message is written to the log file.
+Parameters:
 
-    For example:
+**emailFile**
 
-    ```
-    ActivitiesMemberService.syncBatchMemberExtIdsByEmail("c:/apps/activities/my_sync_file.txt", 
-     { "allowInactivate":"true"})
-    ```
+String. Path and name of text file that contains one entry per line of user email addresses \(jdoe@example.com\).
 
-application\_nameMemberService.previewSyncBatchMemberExtIdsByEmail\("emailFile"\[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)
-:   See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+**allowInactivate**
 
-application\_nameMemberService.previewSyncBatchMemberExtIdsByLogin\("loginFile" \[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)
-:   See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+String. Options are true or false. Specify one of these values to allow changes to the state of the user.
 
-application\_nameMemberService.syncMemberExtIdByEmail\("email" \[, \{ "allowInactivate": \["true" \| "false"\] \} \]\)
-:   The command application\_nameMemberService.syncMemberExtId\(java.lang.String key\) was deprecated in version 2.5. Use this command or the syncMemberExtIdByLogin\(java.lang.String loginName\) command instead.
+If true, the user is inactivated in the member table of the application database if there is no match. The user's email and login names are deleted from the table and the state flag is set to inactive.
 
-    This synchronizes the member record in the application member table identified by the member's email address parameter. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's email address and display name and any additional login names are refreshed as needed so that they match those in the configured directory. The refresh operation is not logged.
+If false or null, the user is not made inactive. Instead, a log message is written to the log file.
 
-    If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table is updated with the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false \(see the following explanation of the two flags\).
+For example:
 
-    Parameters:
+```
+ActivitiesMemberService.syncBatchMemberExtIdsByEmail("c:/apps/activities/my_sync_file.txt", 
+    { "allowInactivate":"true"})
+```
 
-    email
-    :   String. A user's email address.
+**application\_nameMemberService.previewSyncBatchMemberExtIdsByEmail\("emailFile"\[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)**
 
-    allowInactivate
-    :   String. Options are true or false. Specify one of these values to allow changes to the state of the user.
+See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
 
-    :   If true, the user is inactivated in the member table of the application database if there is not match. The user's email and login names are deleted from the table and the state flag is set to inactive.
+**application\_nameMemberService.previewSyncBatchMemberExtIdsByLogin\("loginFile" \[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)**
 
-    :   If false or null, the user is not made inactive. Instead, a log message is written to the log file.
+See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
 
-    For example:
+**application\_nameMemberService.syncMemberExtIdByEmail\("email" \[, \{ "allowInactivate": \["true" \| "false"\] \} \]\)**
 
-    ```
-    ActivitiesMemberService.syncMemberExtIdByEmail("jdoe@example.com", 
-     {"allowInactivate":"false"})
-    ```
+The command application\_nameMemberService.syncMemberExtId\(java.lang.String key\) was deprecated in version 2.5. Use this command or the syncMemberExtIdByLogin\(java.lang.String loginName\) command instead.
 
-application\_nameMemberService.previewSyncMemberExtIdByEmail\("emailAddr" \[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)
-:   See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+This synchronizes the member record in the application member table identified by the member's email address parameter. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's email address and display name and any additional login names are refreshed as needed so that they match those in the configured directory. The refresh operation is not logged.
 
-application\_nameMemberService.syncMemberExtIdByLogin\("name" \[, \{"allowInactivate": \["true" \| "false"\] \} \]\)
-:   The command application\_nameMemberService.syncMemberExtId\(java.lang.String key\) was deprecated in version 2.5. Use this command or the application\_nameMemberService.syncMemberExtIdByEmail\(java.lang.String emailAddress\) command instead.
+If the external ID is not found in the configured directory, then a synchronize operation is performed based on the email and login values and the user's external ID in the member table is updated with the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false \(see the following explanation of the two flags\).
 
-    This synchronizes the member record in the application member table identified by the user login name parameter. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's email address and display name and any additional login names are updated so that they match those in the configured directory. The refresh operation is not logged.
+Parameters:
 
-    If the external ID is not found n the configured directory, then a synchronize operation is performed and the user's external ID in the member table is updated with that of the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false.
+**email**
 
-    Parameters:
+String. A user's email address.
 
-    name
-    :   String. User login name.
+**allowInactivate**
 
-    allowInactivate
-    :   String. Options are true or false. Specify one of these values to allow changes to the state of the user.
+String. Options are true or false. Specify one of these values to allow changes to the state of the user.
 
-    :   If true, the user is inactivated in the member table of the application database if there is not match. The user's email and login names are deleted from the table and the state flag is set to inactive.
+If true, the user is inactivated in the member table of the application database if there is not match. The user's email and login names are deleted from the table and the state flag is set to inactive.
 
-    :   If false or null, the user is not made inactive. Instead, a log message is written to the log file.
+If false or null, the user is not made inactive. Instead, a log message is written to the log file.
 
-    For example:
+For example:
 
-    ```
-    ActivitiesMemberService.syncMemberExtIdByLogin("jdoe", {"allowInactivate":"true"})
-    ```
+```
+ActivitiesMemberService.syncMemberExtIdByEmail("jdoe@example.com", 
+    {"allowInactivate":"false"})
+```
 
-    To understand the 'preview' version of the command see the explanation of preview under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+**application\_nameMemberService.previewSyncMemberExtIdByEmail\("emailAddr" \[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \] \)**
 
-application\_nameMemberService.previewSyncMemberExtIdByLogin\("name"\[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \]\)
-:   See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
 
-**Parent topic:**[Managing users when the Profiles application is not installed](../admin/c_admin_common_user_life_cycle_without_profiles.md)
+**application\_nameMemberService.syncMemberExtIdByLogin\("name" \[, \{"allowInactivate": \["true" \| "false"\] \} \]\)**
+
+The command application\_nameMemberService.syncMemberExtId\(java.lang.String key\) was deprecated in version 2.5. Use this command or the application\_nameMemberService.syncMemberExtIdByEmail\(java.lang.String emailAddress\) command instead.
+
+This synchronizes the member record in the application member table identified by the user login name parameter. If a match is found, for example the email address identifies a member, the command retrieves the external ID in the application member table and looks it up in the configured directory. If the external ID is found, then the user's email address and display name and any additional login names are updated so that they match those in the configured directory. The refresh operation is not logged.
+
+If the external ID is not found n the configured directory, then a synchronize operation is performed and the user's external ID in the member table is updated with that of the external ID in the configured directory. Also, the user's email, display name, and any additional login names are refreshed. Each user that is synchronized by this operation is logged in the log file. If the user cannot be found in the configured directory by any means \(external ID, login names, or email\) then the user may be inactive. The command can do one of two things in this situation, depending on whether the allowInactivate input parameter is set to true or false.
+
+Parameters:
+
+**name**
+
+String. User login name.
+
+**allowInactivate**
+
+String. Options are true or false. Specify one of these values to allow changes to the state of the user.
+
+If true, the user is inactivated in the member table of the application database if there is not match. The user's email and login names are deleted from the table and the state flag is set to inactive.
+
+If false or null, the user is not made inactive. Instead, a log message is written to the log file.
+
+For example:
+
+```
+ActivitiesMemberService.syncMemberExtIdByLogin("jdoe", {"allowInactivate":"true"})
+```
+
+To understand the 'preview' version of the command see the explanation of preview under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+
+**application\_nameMemberService.previewSyncMemberExtIdByLogin\("name"\[, \{ "allowInactivate" : \["true" \| "false"\] \[, "multiLine" : \["true" \| "false"\] \] \[, "verbose" : \["true" \| " false"\] \] \} \]\)**
+
+See the description of preview commands under the previewSyncAllMembersByExtId\(\) command at the beginning of this section. Note that the default value for the verbose parameter is true.
+
+**Parent topic:** [Managing users when the Profiles application is not installed](../admin/c_admin_common_user_life_cycle_without_profiles.md)
 
 **Related information**  
 
