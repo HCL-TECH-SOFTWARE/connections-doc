@@ -10903,9 +10903,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setting user roles for external collaboration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_admin_profiles_set_roles.html" class="md-nav__link md-nav__link--active">
         Setting user roles for external collaboration
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-next" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -35277,6 +35308,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-next" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35305,25 +35351,33 @@
 <li>
 <p>Set a role for an individual user.</p>
 <p>You can identify the user with an email address or with an external ID.</p>
-<pre><code>|**ProfilesService.setRole\(String user\_email\_addr, String role\)**|Set the role using an email address.    ```
-</code></pre>
-<p>ProfilesService.setRole("ajones277@example.com", EMPLOYEE_EXTENDED)
-setRole Command processed user role 'employee.extended' for user ajones277@example.com
-```</p>
+<table>
+<thead>
+<tr>
+<th><strong>Option</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ProfilesService.setRole(String user_email_addr, String role)</strong></td>
+<td>Set the role using an email address.<br>```ProfilesService.setRole("ajones277@example.com", EMPLOYEE_EXTENDED)</td>
+</tr>
+<tr>
+<td>setRole Command processed user role 'employee.extended' for user ajones277@example.com```</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ProfilesService.setRoleByUserId(String user_external_id, String role)</strong></td>
+<td>Set the role using an external ID.<br>```ProfilesService.setRoleByUserId("8e88c240", EMPLOYEE_EXTENDED)</td>
+</tr>
+<tr>
+<td>setRole Command processed user role 'employee.extended' for user 8e88c240```<br><strong>Notes:</strong><br>1.  You can use the getMemberExtIdByEmail("email") or getMemberExtIdByLogin("login") commands to retrieve the external ID of a user. For more information about these commands, see <em>Synchronizing user data using administrative commands</em><br>2.  Although the ID is shown here as an 8 digit hexadecimal number, an ID can be any format, such as a GUID. For example, "ec8a89c0-f41d-102c-9b60-f225bc6c4af4".</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </li>
-</ul>
-<p>|
-    |<strong>ProfilesService.setRoleByUserId(String user_external_id, String role)</strong>|Set the role using an external ID.     ```
-ProfilesService.setRoleByUserId("8e88c240", EMPLOYEE_EXTENDED)
-setRole Command processed user role 'employee.extended' for user 8e88c240</p>
-<pre><code>```
-</code></pre>
-<p><strong>Notes:</strong></p>
-<pre><code>1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*
-2.  Although the ID is shown here as an 8 digit hexadecimal number, an ID can be any format, such as a GUID. For example, "ec8a89c0-f41d-102c-9b60-f225bc6c4af4".
-</code></pre>
-<p>|</p>
-<ul>
 <li>
 <p>Set the same role for multiple users.</p>
 <p>Assign the same role to a set of users by listing either user IDs or email addresses in a text file.</p>
@@ -35332,26 +35386,29 @@ setRole Command processed user role 'employee.extended' for user 8e88c240</p>
 <li>
 <p>filename: The name of the text file that contains the list of users. The file must be locally accessible from the client environment.</p>
 <p><strong>Note:</strong> If you are processing several hundreds of users, create several files and run them in separate commands.</p>
-<p>|<strong>ProfilesService.setBatchRole(String role, String filename)</strong>|Assign the specified role to each user whose email address is listed in the text file. The text file must contain one valid email address per line.    ```
-ProfilesService.setBatchRole(EMPLOYEE_EXTENDED, "profiles-roles-by-email.txt")
-setBatchRole request processed
- Command processed user role 'employee.extended' for users
-[ JonesA377@example.com, JohnSmith4@example.com, JaneR@example.com ]</p>
+<table>
+<thead>
+<tr>
+<th><strong>Option</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ProfilesService.setBatchRole(String role, String filename)</strong></td>
+<td>Assign the specified role to each user whose email address is listed in the text file. The text file must contain one valid email address per line.<br><code>ProfilesService.setBatchRole(EMPLOYEE_EXTENDED, "profiles-roles-by-email.txt") setBatchRole request processed Command processed user role 'employee.extended' for users [ JonesA377@example.com, JohnSmith4@example.com, JaneR@example.com ]</code></td>
+</tr>
+<tr>
+<td><strong>ProfilesService.setBatchRoleByUserId(String role, String filename)</strong></td>
+<td>Assign the specified role to each user whose ID is listed in the text file. The text file must contain one valid user ID per line.<br><code>ProfilesService.setBatchRoleByUserId(EMPLOYEE_EXTENDED, "profiles-roles-by-userid.txt") setBatchRole request processed Command processed user role 'employee.extended' for users [ 8d579540, 110f82c0, 5876de62, 5426de62 ]</code><br><strong>Notes:</strong><br>1.  You can use the getMemberExtIdByEmail("email") or getMemberExtIdByLogin("login") commands to retrieve the external ID of a user. For more information about these commands, see <em>Synchronizing user data using administrative commands</em><br>2.  Although the IDs are shown here as 8 digit hexadecimal numbers, an ID can be any format, such as a GUID. For example, ec8a89c0-f41d-102c-9b60-f225bc6c4af4.</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
-<p>```</p>
 </li>
 </ul>
-<p>|
-    |<strong>ProfilesService.setBatchRoleByUserId(String role, String filename)</strong>|Assign the specified role to each user whose ID is listed in the text file. The text file must contain one valid user ID per line.    <code>ProfilesService.setBatchRoleByUserId(EMPLOYEE_EXTENDED, "profiles-roles-by-userid.txt")
-setBatchRole request processed
- Command processed user role 'employee.extended' for users
-[ 8d579540, 110f82c0, 5876de62, 5426de62 ]</code></p>
-<p><strong>Notes:</strong></p>
-<pre><code>1.  You can use the getMemberExtIdByEmail\("email"\) or getMemberExtIdByLogin\("login"\) commands to retrieve the external ID of a user. For more information about these commands, see *Synchronizing user data using administrative commands*
-2.  Although the IDs are shown here as 8 digit hexadecimal numbers, an ID can be any format, such as a GUID. For example, ec8a89c0-f41d-102c-9b60-f225bc6c4af4.
-</code></pre>
-<p>|</p>
+<h2 id="what-to-do-next">What to do next</h2>
 <p>Run one of the following commands to find out which role is assigned to a user.</p>
 <ul>
 <li>
@@ -35367,7 +35424,7 @@ setBatchRole request processed
 </code></pre></div>
 </li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_admin_common_manage_ext_user.html">Managing external user access</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_manage_ext_user.html">Managing external user access</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a></p>
 <p><a href="r_admin_profiles_admin_props.html">Profiles administrative commands</a></p>

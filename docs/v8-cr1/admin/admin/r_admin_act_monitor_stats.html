@@ -35381,32 +35381,23 @@
 </ul>
 <p>Activities runs scheduled tasks that save current statistics values. The jobs are defined in the oa-config.xml file. You can edit this file to change the time intervals of the jobs or to change the start times of the jobs.</p>
 <p>Activities runs the following scheduled jobs:</p>
-<p>DatabaseRuntimeStats
-:   Runs once per hour by default. Its function is to query the Activities database for database related statistics, such as the number of Activities, or number of members.</p>
-<p>30MinStats
-:   Runs once every half hour by default. Its function is to maintain the current values of the Activities statistics specified in the &lt;stats> element of oa-config.xml to disk.</p>
-<p>DailyStats
-:   Runs once a day at 11:00 AM by default. Its function is to maintain the current values of the Activities statistics specified in the &lt;stats> element of oa-config.xml to disk.</p>
+<p><strong>DatabaseRuntimeStats</strong>:   Runs once per hour by default. Its function is to query the Activities database for database related statistics, such as the number of Activities, or number of members.</p>
+<p><strong>30MinStats</strong>:   Runs once every half hour by default. Its function is to maintain the current values of the Activities statistics specified in the &lt;stats> element of oa-config.xml to disk.</p>
+<p><strong>DailyStats</strong>:   Runs once a day at 11:00 AM by default. Its function is to maintain the current values of the Activities statistics specified in the &lt;stats> element of oa-config.xml to disk.</p>
 <p>By default, the statistics jobs capture some standard statistics that are defined in the oa-config.xml file. You can edit this file to collect the statistics that best suit your implementation. Activities saves the collected data into files whose names are composed by combining the job name with the following names:</p>
-<p>AddedData.txt
-:   Collects the number of bytes of data added to the system.</p>
-<p>Average.txt
-:   Collects the average time required to process a request to a particular Activities service in milliseconds.</p>
-<p>ContentStore.txt
-:   Collects the content store activity: uploads, downloads, and deletions.</p>
-<p>Counts.txt
-:   Collects the number of times that a particular service was accessed.</p>
-<p>Current®.txt
-:   Collects information about aspects of the currently running system.</p>
-<p>Events.txt
-:   Collects the number of errors being reported by the system.</p>
-<p>Totals.txt
-:   Collects the number of objects in the system.</p>
+<p><strong>AddedData.txt</strong>:   Collects the number of bytes of data added to the system.</p>
+<p><strong>Average.txt</strong>:   Collects the average time required to process a request to a particular Activities service in milliseconds.</p>
+<p><strong>ContentStore.txt</strong>:   Collects the content store activity: uploads, downloads, and deletions.</p>
+<p><strong>Counts.txt</strong>:   Collects the number of times that a particular service was accessed.</p>
+<p><strong>Current®.txt</strong>:   Collects information about aspects of the currently running system.</p>
+<p><strong>Events.txt</strong>:   Collects the number of errors being reported by the system.</p>
+<p><strong>Totals.txt</strong>:   Collects the number of objects in the system.</p>
 <p>For example, the 30MinStats scheduled job maintains files named 30MinStatsAddedData.txt, 30MinStatsAverage.txt, and so on. The DailyStats job maintains files named DailyStatsAddedData.txt, DailyStatsAverage.txt, an so on. Additionally, each file maintained by Activities has an associated delta file that tracks the difference between the previous value of the statistic and the current value. For example: Delta30MinStatsAddedData.txt and DeltaDailyStatsAddedData.txt. There are also average delta files, which track the average time required to process the requests within the collection interval. These are named as follows: Delta30MinStatsAverage.txt and DeltaDailyStatsAverage.txt.</p>
 <p>Statistics text files use a comma separated value (CSV) format. This format enables you to import the files into a spreadsheet, and then compute and chart the values.</p>
 <p>All of the files into which Activities stores data are in the directory referenced by the ACTIVITIES_STATS_DIR WebSphere® Application Server variable. The files for the statistics for each server are located in the ACTIVITIES_STATS_DIR/{nodeName}/{serverName} directory. To edit the variable, access the websphere Application Server Integrated Solutions Console, navigate to <strong>Environment</strong> > <strong>WebSphere Variables</strong>, and search in the server scope. You can view the current value of the ACTIVITIES_STATS_DIR variable and modify it, if necessary.</p>
 <h2 class="section" id="the-statistics-and-what-they-measure">The statistics and what they measure</h2>
 <p>The following tables list the statistics available and describe what each statistic represents.</p>
+<p>Table 1. Statistics in jobName Totals.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35419,13 +35410,17 @@
 <td>activities.data.totals.activities</td>
 <td>Number of activities in the database.</td>
 </tr>
+<tr>
+<td>activities.data.totals.entries</td>
+<td>Number of activity entries (for example standard entries, to-do items) in the database.</td>
+</tr>
+<tr>
+<td>activities.data.totals.members</td>
+<td>Number of activity members in the database.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.data.totals.entries|Number of activity entries (for example standard entries, to-do items) in the database.</p>
-<p>|
-|activities.data.totals.members|Number of activity members in the database.</p>
-<p>|</p>
+<p>Table 2. Statistics in jobName Current®.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35438,15 +35433,21 @@
 <td>activites.requests.concurrent.max</td>
 <td>Maximum number of simultaneous requests processed by the Activities application since the application was started.</td>
 </tr>
+<tr>
+<td>activities.service.eventqueue.entries.current</td>
+<td>Current number of events waiting to be processed.</td>
+</tr>
+<tr>
+<td>activities.users.active.current</td>
+<td>Number of users that have accessed the Activities application within the last five minutes.</td>
+</tr>
+<tr>
+<td>activities.users.active.max</td>
+<td>Maximum number of users that have accessed the Activities application within a five minute window since the application was started.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.service.eventqueue.entries.current|Current number of events waiting to be processed.</p>
-<p>|
-|activities.users.active.current|Number of users that have accessed the Activities application within the last five minutes.</p>
-<p>|
-|activities.users.active.max|Maximum number of users that have accessed the Activities application within a five minute window since the application was started.</p>
-<p>|</p>
+<p>Table 3. Statistics in jobName Events.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35459,17 +35460,25 @@
 <td>activities.fatals</td>
 <td>Number of fatal errors reported by the Activities application since the application was started.</td>
 </tr>
+<tr>
+<td>activities.errors</td>
+<td>Number of non-fatal errors reported by the Activities application since the application was started.</td>
+</tr>
+<tr>
+<td>activities.warnings</td>
+<td>Number of warnings reported by the Activities application since the application was started.</td>
+</tr>
+<tr>
+<td>activities.service.virus.scan.found.count</td>
+<td>Number of viruses removed from content by the virus scanning software configured for the Activities application since the application was started. If virus scanning is not enabled, then zeros (0) are collected for this statistic.</td>
+</tr>
+<tr>
+<td>activities.service.acf.badcontent.found</td>
+<td>Number of instances of active content removed by the Activities application since the application was started. If active content filtering is not enabled for Activities, then zeros (0) are collected for this statistic.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.errors|Number of non-fatal errors reported by the Activities application since the application was started.</p>
-<p>|
-|activities.warnings|Number of warnings reported by the Activities application since the application was started.</p>
-<p>|
-|activities.service.virus.scan.found.count|Number of viruses removed from content by the virus scanning software configured for the Activities application since the application was started. If virus scanning is not enabled, then zeros (0) are collected for this statistic.</p>
-<p>|
-|activities.service.acf.badcontent.found|Number of instances of active content removed by the Activities application since the application was started. If active content filtering is not enabled for Activities, then zeros (0) are collected for this statistic.</p>
-<p>|</p>
+<p>Table 4. Statistics in jobName Average.txt file (Average time in milliseconds required to process a request to a particular Activities service</p>
 <table>
 <thead>
 <tr>
@@ -35482,17 +35491,25 @@
 <td>activities.service.db.totals.Average</td>
 <td>Average time to complete a database request.</td>
 </tr>
+<tr>
+<td>activities.service.api.totals.Average</td>
+<td>Average time to complete a service request.</td>
+</tr>
+<tr>
+<td>activities.service.directoryprofile.totals.Average</td>
+<td>Average time to complete a directory lookup request.</td>
+</tr>
+<tr>
+<td>activities.service.smtp.totals.Average</td>
+<td>Average time to deposit mail to the SMTP server. If SMTP is not enabled, then zeros (0) are collected for this statistic.</td>
+</tr>
+<tr>
+<td>activities.service.trash.totals.Average</td>
+<td>Average time to purge an activity or activity entry from the trash.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.service.api.totals.Average|Average time to complete a service request.</p>
-<p>|
-|activities.service.directoryprofile.totals.Average|Average time to complete a directory lookup request.</p>
-<p>|
-|activities.service.smtp.totals.Average|Average time to deposit mail to the SMTP server. If SMTP is not enabled, then zeros (0) are collected for this statistic.</p>
-<p>|
-|activities.service.trash.totals.Average|Average time to purge an activity or activity entry from the trash.</p>
-<p>|</p>
+<p>Table 5. Statistics in jobName Counts.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35505,17 +35522,25 @@
 <td>activities.service.db.totals.Count</td>
 <td>Number of database requests made since the application was started.</td>
 </tr>
+<tr>
+<td>activities.service.api.totals.Count</td>
+<td>Number of service requests made since the application was started.</td>
+</tr>
+<tr>
+<td>activities.service.directoryprofile.totals.Count</td>
+<td>Number of directory lookups made since the application was started.</td>
+</tr>
+<tr>
+<td>activities.service.smtp.totals.Count</td>
+<td>Number of SMTP requests made since the application was started. If SMTP is not enabled, then zeros (0) are collected for this statistic.</td>
+</tr>
+<tr>
+<td>activities.service.trash.totals.Count</td>
+<td>Number of activities or activity entries purged from the trash since the application was started.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.service.api.totals.Count|Number of service requests made since the application was started.</p>
-<p>|
-|activities.service.directoryprofile.totals.Count|Number of directory lookups made since the application was started.</p>
-<p>|
-|activities.service.smtp.totals.Count|Number of SMTP requests made since the application was started. If SMTP is not enabled, then zeros (0) are collected for this statistic.</p>
-<p>|
-|activities.service.trash.totals.Count|Number of activities or activity entries purged from the trash since the application was started.</p>
-<p>|</p>
+<p>Table 6. Statistics in jobName AddedData.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35530,7 +35555,7 @@
 </tr>
 </tbody>
 </table>
-<p>|</p>
+<p>Table 7. Statistics in "jobName"ContentStore.txt file</p>
 <table>
 <thead>
 <tr>
@@ -35543,13 +35568,16 @@
 <td>activities.service.contentstore.filesystem.upload.Count</td>
 <td>Number of files uploaded to Activities since the application was started.</td>
 </tr>
+<tr>
+<td>activities.service.contentstore.filesystem.download.Count</td>
+<td>Number of files downloaded from Activities since the application was started.</td>
+</tr>
+<tr>
+<td>activities.service.contentstore.filesystem.remove.Count</td>
+<td>Number of files removed from Activities since the application was started.</td>
+</tr>
 </tbody>
 </table>
-<p>|
-|activities.service.contentstore.filesystem.download.Count|Number of files downloaded from Activities since the application was started.</p>
-<p>|
-|activities.service.contentstore.filesystem.remove.Count|Number of files removed from Activities since the application was started.</p>
-<p>|</p>
 <h2 class="section" id="examples-of-activities-configuration-files">Examples of Activities configuration files</h2>
 <p>The following example demonstrates the data that Activities collects by default:</p>
 <div class="highlight"><pre><span></span><code>&lt;stats&gt;
@@ -35639,7 +35667,7 @@
         &lt;/stat&gt;
       &lt;/stats&gt;
 </code></pre></div>
-<p><strong>Parent topic:</strong><a href="t_admin_act_collecting_statistics.html">Monitoring statistics and metrics</a></p>
+<p><strong>Parent topic:</strong> <a href="t_admin_act_collecting_statistics.html">Monitoring statistics and metrics</a></p>
 
 
 

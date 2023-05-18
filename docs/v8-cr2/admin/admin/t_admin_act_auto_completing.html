@@ -711,7 +711,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Deployment requirements for supporting Connections 8.0 CR1 functionality
+        Deployment requirements for supporting Connections 8.0 CR2 functionality
       </a>
     </li>
   
@@ -35253,7 +35253,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/connections8_sizing_guide.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Sizing Guide
+        Connections 8.0 CR2 Sizing Guide
       </a>
     </li>
   
@@ -35267,7 +35267,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/troubleshooting_cnx_cp.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Troubleshooting Component Pack
+        Connections 8.0 CR2 Troubleshooting Component Pack
       </a>
     </li>
   
@@ -35327,8 +35327,10 @@
 
 <h1 class="task" id="t_admin_act_auto_completing">Completing activities that are not being used</h1>
 <p>Activities are moved to the Completed view for two reasons, inactivity and the passing of a Due Date. The following help is about how to configure an inactive Activity.</p>
+<p><strong>Before you begin</strong></p>
 <p>When an activity is marked complete, it moves from the My Activities view to the Completed view. The default interval is 90 days. Configuration property settings can be edited to disable the removal of inactive activities from the My Activities view, to change the amount of time an activity must be inactive before it is marked complete by the server, or to disable the warning notification that is sent to activity owners before an activity is marked complete. Before starting this procedure, determine the amount of time that you want to allow an idle activity to remain in the active views before it is marked complete and moved to the Completed view.</p>
 <p>To edit configuration files, you must use the wsadmin client. See <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
+<p><strong>About this task</strong></p>
 <p>If email notifications are enabled, Activities warns the owner of an activity that has not been modified in the specified time frame that the activity will be marked complete. This allows the owner to modify the activity to keep it active and prevent it from being marked complete. You can enable and disable this email notification application. If you do not want to automatically move activities into the Completed view, you can also disable this job.</p>
 <p>To remove an activity that is not being used, complete the following steps:</p>
 <ol>
@@ -35378,10 +35380,8 @@
 <div class="highlight"><pre><span></span><code>ActivitiesConfigService.showConfig() 
 </code></pre></div>
 <p>From the returned list, look at the current values of the settings that begin with <strong>jobs.AutoComplete</strong> and determine which property values you want to change:</p>
-<p>jobs.AutoComplete.autoCompletionPeriod
-:   Defines the number of days of inactivity that must pass before an activity is automatically marked complete. Specify the value in days. The default value is 90.</p>
-<p>jobs.AutoComplete.prenotification
-:   Defines whether or not to send an email to the activity owners to warn them that the activity will be marked complete if no modifications are made to it. This property accepts the following values: true or false. The default value is true. This setting requires that email notifications are enabled.</p>
+<p><strong>jobs.AutoComplete.autoCompletionPeriod</strong>:   Defines the number of days of inactivity that must pass before an activity is automatically marked complete. Specify the value in days. The default value is 90.</p>
+<p><strong>jobs.AutoComplete.prenotification</strong>:   Defines whether or not to send an email to the activity owners to warn them that the activity will be marked complete if no modifications are made to it. This property accepts the following values: true or false. The default value is true. This setting requires that email notifications are enabled.</p>
 </li>
 <li>
 <p>To change the property values, use the following command:</p>
@@ -35409,6 +35409,7 @@ ActivitiesConfigService.updateConfig(&quot;jobs.AutoComplete.prenotification&quo
 <p>After making changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. See <em>Applying property changes</em> for details.</p>
 </li>
 </ol>
+<p><strong>Example</strong></p>
 <p>When making configuration changes to the ActivityAutoCompleteJob scheduled job, you are modifying settings in the oa-config.xml file. The following XML sample of oa-config.xml file content defines a job that runs weekly (Saturdays at 11 PM) and marks complete any activities on the server that have not been modified in 100 days. Because prenotification is set to false, the activity owners will not get an email notification that the activities will be marked complete. The ActivityAutoCompleteJob task sets the last <strong>updated by</strong> field in the Activities interface to Activities Administrator.</p>
 <div class="highlight"><pre><span></span><code>&lt;scheduledTasks&gt;
   &lt;!-- cluster scoped jobs --&gt;
@@ -35433,9 +35434,7 @@ ActivitiesConfigService.updateConfig(&quot;jobs.AutoComplete.prenotification&quo
   ...
 &lt;/scheduledTasks&gt;
 </code></pre></div>
-<p><strong>Parent topic:</strong><a href="t_admin_act_changing_config.html">Changing Activities configuration property values</a></p>
-<p><strong>Previous topic:</strong><a href="t_admin_act_manage_uploads.html">Managing uploaded files</a></p>
-<p><strong>Next topic:</strong><a href="t_admin_act_trash_removal.html">Emptying the Activities trash on a schedule</a></p>
+<p><strong>Parent topic:</strong> <a href="t_admin_act_changing_config.html">Changing Activities configuration property values</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="c_admin_common_was_scheduler.html">Scheduling tasks</a></p>
 <p><a href="t_admin_act_checkout_config_file.html">Checking out the Activities configuration files</a></p>

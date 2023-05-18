@@ -35029,6 +35029,7 @@
 </li>
 <li>
 <p>Using the parameters that are outlined in table 1, edit the file that is located in the working_dir.</p>
+<p>Table 1. Configuration file sections</p>
 <table>
 <thead>
 <tr>
@@ -35042,37 +35043,126 @@
 <tr>
 <td>retriever.httpclient</td>
 <td>totalConnections</td>
-<td>Maximum number of simultaneous open connections while fetching resources.<strong>Note:</strong> Ensure that the value of this setting does not exceed the number of threads in the web container thread pool on the cluster where the URL Preview (oembed.ear) application is located (Common by default).</td>
-<td></td>
+<td>Maximum number of simultaneous open connections while fetching resources.<br><strong>Note:</strong> Ensure that the value of this setting does not exceed the number of threads in the web container thread pool on the cluster where the URL Preview (oembed.ear) application is located (Common by default).<br>For more information, see <em>URL preview security</em>.</td>
+<td>20</td>
+</tr>
+<tr>
+<td> </td>
+<td>redirects</td>
+<td> </td>
+<td>true</td>
+</tr>
+<tr>
+<td> </td>
+<td>userAgent</td>
+<td>User-agent header string for HTTP get requests.</td>
+<td>IC OpenGraph Crawler 4.5 (proprietary)</td>
+</tr>
+<tr>
+<td> </td>
+<td>timeout</td>
+<td>Timeout in milliseconds on waiting for any server response.</td>
+<td>5000</td>
+</tr>
+<tr>
+<td> </td>
+<td>cookiesCollector</td>
+<td>Indicates whether cookies need to be preserved.</td>
+<td>true</td>
+</tr>
+<tr>
+<td> </td>
+<td>fetchAttempts</td>
+<td>Number of attempts to fetch particular resources in case of exception.</td>
+<td>2</td>
+</tr>
+<tr>
+<td>retriever.proxy</td>
+<td>enabled</td>
+<td>Indicates whether proxy configuration must be in place. For more information, see <em>Deploying URL preview</em>.</td>
+<td>false</td>
+</tr>
+<tr>
+<td> </td>
+<td>type</td>
+<td>Type of proxy: http, socks4, or socks5</td>
+<td>http</td>
+</tr>
+<tr>
+<td> </td>
+<td>host</td>
+<td>DNS name/alias for proxy server.</td>
+<td>localhost</td>
+</tr>
+<tr>
+<td> </td>
+<td>port</td>
+<td>Proxy server port number.</td>
+<td>1080</td>
+</tr>
+<tr>
+<td> </td>
+<td>password</td>
+<td>Proxy server password.</td>
+<td>pa88word</td>
+</tr>
+<tr>
+<td>retriever.parser</td>
+<td>provider</td>
+<td>Internal html snippets parser engine: jsoup or jtidy is supporte.d</td>
+<td>jsoup</td>
+</tr>
+<tr>
+<td>service</td>
+<td>rewriteImageUrl</td>
+<td>Format string that is used to rewrite image URL to point it to proxy image service; this must be an absolute URl with placeholder to keep service deployment details.<br><strong>Note:</strong> Do not change rewriteImageUrl unless instructed by IBM® support.</td>
+<td>/api/imageProxy?url={0}</td>
+</tr>
+<tr>
+<td>security</td>
+<td>htmlPageMaxSize</td>
+<td>Maximum acceptable size for parsing html header (everything between<code>&lt;head&gt; &lt;/head&gt;</code>) in bytes.</td>
+<td>1048576</td>
+</tr>
+<tr>
+<td> </td>
+<td>imageMaxSize</td>
+<td>Maximum size of proxied images in bytes.</td>
+<td>3145728</td>
+</tr>
+<tr>
+<td> </td>
+<td>anonymousAccess</td>
+<td>If caching IC resources requires explicit server login. For more information, see <em>Deploying URL preview</em>.</td>
+<td>false</td>
+</tr>
+<tr>
+<td> </td>
+<td>jaasOembedAuthAlias</td>
+<td>WebSphere® security alias with appropriate credentials that is used to perform server login. Works with the anonymousAccess parameter. Authentication and authorization mechanisms are based on Sonata IC library. For more information, see <em>Deploying URL preview</em>.</td>
+<td>oembedJAASAuth</td>
+</tr>
+<tr>
+<td>persistence.thumbnails</td>
+<td>maxDiskSpace</td>
+<td>Maximum Disk space (in MB). A negative value disables purging.0: sets no disk limit and allows running the purging task.</td>
+<td>0</td>
+</tr>
+<tr>
+<td> </td>
+<td>maxUsagePercent</td>
+<td>Maximum disk usage allowed (in percent).</td>
+<td>70</td>
+</tr>
+<tr>
+<td> </td>
+<td>purgingPercent</td>
+<td>Volume of thumbnails (in Percentage) to discard when maxUsagePercent is reached.</td>
+<td>20</td>
 </tr>
 </tbody>
 </table>
 </li>
-</ol>
-<p>For more information, see <em>URL preview security</em>.|20|
-    | |redirects| |true|
-    | |userAgent|User-agent header string for HTTP get requests.|IC OpenGraph Crawler 4.5 (proprietary)|
-    | |timeout|Timeout in milliseconds on waiting for any server response.|5000|
-    | |cookiesCollector|Indicates whether cookies need to be preserved.|true|
-    | |fetchAttempts|Number of attempts to fetch particular resources in case of exception.|2|
-    |retriever.proxy|enabled|Indicates whether proxy configuration must be in place. For more information, see <em>Deploying URL preview</em>.|false|
-    | |type|Type of proxy: http, socks4, or socks5|http|
-    | |host|DNS name/alias for proxy server.|localhost|
-    | |port|Proxy server port number.|1080|
-    | |password|Proxy server password.|pa88word|
-    |retriever.parser|provider|Internal html snippets parser engine: jsoup or jtidy is supporte.d|jsoup|
-    |service|rewriteImageUrl|Format string that is used to rewrite image URL to point it to proxy image service; this must be an absolute URl with placeholder to keep service deployment details.<strong>Note:</strong> Do not change rewriteImageUrl unless instructed by IBM® support.</p>
-<p>|/api/imageProxy?url={0}|
-    |security|htmlPageMaxSize|Maximum acceptable size for parsing html header (everything between<code>&lt;head&gt; &lt;/head&gt;</code>) in bytes.|1048576|
-    | |imageMaxSize|Maximum size of proxied images in bytes.|3145728</p>
-<p>|
-    | |anonymousAccess|If caching IC resources requires explicit server login. For more information, see <em>Deploying URL preview</em>.|false|
-    | |jaasOembedAuthAlias|WebSphere® security alias with appropriate credentials that is used to perform server login. Works with the anonymousAccess parameter. Authentication and authorization mechanisms are based on Sonata IC library. For more information, see <em>Deploying URL preview</em>.|oembedJAASAuth|
-    |persistence.thumbnails|maxDiskSpace|Maximum Disk space (in MB). A negative value disables purging.0: sets no disk limit and allows running the purging task.</p>
-<p>|0|
-    | |maxUsagePercent|Maximum disk usage allowed (in percent).|70|
-    | |purgingPercent|Volume of thumbnails (in Percentage) to discard when maxUsagePercent is reached.|20|</p>
-<ol>
 <li>
 <p>Do a full sync of all the nodes.</p>
 </li>
@@ -35083,7 +35173,7 @@
 <p>Restart HCL Connections.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_news_url_preview.html">URL Preview</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_news_url_preview.html">URL Preview</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="c_admin_news_url_preview_security.html">URL preview security</a></p>
 
