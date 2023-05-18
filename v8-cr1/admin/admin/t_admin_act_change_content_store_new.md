@@ -70,11 +70,9 @@ With release 4, the Java object that is used to define the content store changed
 
 7.  Modify the new <store\> to point to the new file system location.
 
-    <id\>
-    :   Activities relies on this element to map to the content store configuration. Do not change the value of the <id\> element after the system is in use. Specify a unique name for the file system. The maximum character limit for <id\> is 32 characters.
+    **<id\>**:   Activities relies on this element to map to the content store configuration. Do not change the value of the <id\> element after the system is in use. Specify a unique name for the file system. The maximum character limit for <id\> is 32 characters.
 
-    root.directory property
-    :   Specify the file path of the new file system location.
+    **root.directory property**:   Specify the file path of the new file system location.
 
         -   Use the Universal Naming Convention \(UNC\) format to set the file path to a network share directory. For example:
             -   Full path configured in oa-config.xml
@@ -98,6 +96,7 @@ With release 4, the Java object that is used to define the content store changed
 
 8.  Save and close the oa-config.xml file.
 
+**Example**
 
 The following sample shows two content stores. The second <store\> is the active store and is where new content or revisions of existing content are uploaded to. It uses the new implementation. The first content store uses the old implementation and is inactive. The two implementations can coexist, but should reside in a mapped disk location that is separate from each other.
 
@@ -121,11 +120,12 @@ The following sample shows two content stores. The second <store\> is the active
 </store>
 ```
 
+**What to do next**
 Check in the updated configuration files. The check-in must be done during the same wsadmin session in which you checked them out for the changes to take effect. See *Applying property changes* for details. Restart the Activities server and review the WebSphere Application Server SystemOut.log file to ensure that the Activities application was able to initialize with the modified configuration.
 
 .
 
-**Parent topic:**[Managing uploaded files](../admin/t_admin_act_manage_uploads.md)
+**Parent topic:** [Managing uploaded files](../admin/t_admin_act_manage_uploads.md)
 
 **Related information**  
 

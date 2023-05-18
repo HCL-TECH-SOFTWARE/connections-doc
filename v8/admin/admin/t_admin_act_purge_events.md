@@ -53,11 +53,9 @@ Customize how the log is purged by specifying the maxNumberOfDeletionPerCall and
 
     Use the command `ActivitiesConfigService.showConfig()` to display a list of properties. Find the following properties from the EventLogPurgeJob task:
 
-    maxNumberOfDeletionPerCall
-    :   The maximum number of log entries to delete per scheduled call. By default, 1000 entries are deleted each time that a purge runs. If invalid values are entered, the default value is used instead. If this value is blank, the default value is used.
+    **maxNumberOfDeletionPerCall**:   The maximum number of log entries to delete per scheduled call. By default, 1000 entries are deleted each time that a purge runs. If invalid values are entered, the default value is used instead. If this value is blank, the default value is used.
 
-    retentionInDays
-    :   The minimum age of the entries to be deleted. By default, entries older than 365 days are deleted. The minimum value that is allowed for this property is 90 days. If a number less than 90 is entered, then the value that is used is the default of 90 days.
+    **retentionInDays**:   The minimum age of the entries to be deleted. By default, entries older than 365 days are deleted. The minimum value that is allowed for this property is 90 days. If a number less than 90 is entered, then the value that is used is the default of 90 days.
 
 3.  Change the property values with the following command:
 

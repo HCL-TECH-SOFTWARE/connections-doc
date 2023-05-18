@@ -36,7 +36,7 @@ Prerequisites for installing Activities Plus are:
 
     Follow the instructions in [Deploy Boards Helm Chart](https://docs.huddo.com/boards/cp/#deploy-boards-helm-chart) of the Huddo documentation. Make sure to replace or override the file name of boards-cp.yaml with kudosboard.yml in the `helm upgrade` command.
 
-5.  Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service:
+5.  Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service: 
 
     ``` {#codeblock_sbn_1np_fvb}
     # proxy rules for activities plus 
@@ -44,7 +44,10 @@ Prerequisites for installing Activities Plus are:
     ProxyPass "/boards" "http://cpmaster.internal.example.com:32080/boards" 
     ProxyPassReverse "/boards" "http://cpmaster.internal.example.com:32080/boards" 
     ProxyPass "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards" 
-    ProxyPassReverse "/api-boards" http://cpmaster.internal.example.com:32080/api-boards"
+    ProxyPassReverse "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards"
+    # If used in Connections 8.0, don't allow loading of Connections 7.0 header
+    RewriteCond %{HTTP_REFERER} /boards/
+    RewriteRule ^/homepage/web/pageHeader - [L,F]
     ```
 
 

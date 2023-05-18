@@ -47,50 +47,52 @@ To strengthen your Tivoli Directory Integrator solution, define and use a custom
 
 6.  Set the following properties in the file:
 
-    sync\_updates\_double\_check
-    :   Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.
+    **sync\_updates\_double\_check**
+    
+    Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.
 
-        For example:
+    For example:
 
-        ```
-        sync_updates_double_check=true
-        ```
+    ```
+    sync_updates_double_check=true
+    ```
 
-    sync\_check\_if\_remove
-    :   Specifies the name of your checking assembly line:
+    **sync\_check\_if\_remove**
+    Specifies the name of your checking assembly line:
 
-        ```
-        sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
-        ```
+    ```
+    sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
+    ```
 
-        By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
+    By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
 
-        For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
+    For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
 
-        ```
-        sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
-        ```
+    ```
+    sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
+    ```
 
-    sync\_delete\_or\_inactivate
-    :   Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:
+    **sync\_delete\_or\_inactivate**
+    
+    Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:
 
-        -   delete - Specifies that the user record is deleted.
-        -   inactivate - Specifies that the user record is inactivated.
+    -   delete - Specifies that the user record is deleted.
+    -   inactivate - Specifies that the user record is inactivated.
 
-            The inactive status is propagated to the member and login tables for all the applications, regardless of the value of sync\_delete\_or\_inactivate, because applications do not delete users. An event is generated for each of the following applications: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application.
+        The inactive status is propagated to the member and login tables for all the applications, regardless of the value of sync\_delete\_or\_inactivate, because applications do not delete users. An event is generated for each of the following applications: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application.
 
-        These values are case-sensitive. The default value is inactivate.
+    These values are case-sensitive. The default value is inactivate.
 
-        For example:
+    For example:
 
-        ```
-        sync_delete_or_inactivate=inactivate
-        ```
+    ```
+    sync_delete_or_inactivate=inactivate
+    ```
 
 7.  Save your changes to the profiles\_tdi.properties file.
 
 
-**Parent topic:**[Sample user management scenarios](../admin/c_admin_common_managing_user_scenarios.md)
+**Parent topic:** [Sample user management scenarios](../admin/c_admin_common_managing_user_scenarios.md)
 
 **Related information**  
 

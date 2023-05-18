@@ -46,6 +46,7 @@ The help system enables users to navigate from the help for one application to a
         -   wikis
         -   icmail
         -   ibmdocs
+        
     For example, if you installed all the applications except Wikis and Connections Mail, you can run the following command to include all sections but Wikis and Connections Mail in the help system:
 
     ```

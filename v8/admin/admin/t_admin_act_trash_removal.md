@@ -59,13 +59,11 @@ To schedule the permanent removal of activities or entries from the Trash view, 
 
     From the returned list, look for the settings that begin with **jobs.TrashAutoPurge**; these control trash deletion. Determine which property values you want to change:
 
-    jobs.TrashAutoPurge.daysRetention
-    :   Number of days after which you would like activities and their entries removed from the Trash view. Specify the value in days. The default value is 90.
+    **jobs.TrashAutoPurge.daysRetention**:   Number of days after which you would like activities and their entries removed from the Trash view. Specify the value in days. The default value is 90.
 
         **Note:** Do not set this value to 0. When it is set to 0, activities and their entries are not removed from the Trash view.
 
-    **jobs.TrashAutoPurge.interval**
-    :   Frequency with which the job to check for expired content runs. See *Scheduling tasks* for information about the format to use to specify the interval. The default value is `0 0 2 ? * SUN`, which specifies that the job should run weekly at 2 AM on Sunday.
+    **jobs.TrashAutoPurge.interval**:   Frequency with which the job to check for expired content runs. See *Scheduling tasks* for information about the format to use to specify the interval. The default value is `0 0 2 ? * SUN`, which specifies that the job should run weekly at 2 AM on Sunday.
 
 3.  To change the property values, use the following command:
 
