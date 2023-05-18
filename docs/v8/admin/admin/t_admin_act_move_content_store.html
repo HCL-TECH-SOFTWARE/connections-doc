@@ -35035,9 +35035,11 @@
 <ul>
 <li>File path to a network share directory in Universal Naming Convention (UNC) format. For example: <code>\\server_name\share_name</code>. Specify the same directory on each node to which Activities is installed.</li>
 <li>WebSphere Application Server environment variable which contains the file path information. For example: <code>${ACTIVITIES_CONTENT_DIR}</code></li>
+</ul>
+</li>
 <li>
 <p><strong>If the file path is defined in UNC format only</strong>: You must edit the oa-config.xml configuration file. Use the wsadmin client to access and check out the configuration files.</p>
-</li>
+<ol>
 <li>
 <p>Use the following command to access the Activities configuration file:</p>
 <div class="highlight"><pre><span></span><code>execfile(&quot;activitiesAdmin.py&quot;)
@@ -35079,8 +35081,7 @@
 </li>
 <li>
 <p>Find the existing &lt;store> element, which defines the current content store location. Edit the following property of the &lt;store> element to point to the new directory location:</p>
-<p>root.directory property
-:   Edit the value of the property to reflect the file path of the new file system location.</p>
+<p><strong>root.directory property</strong>:   Edit the value of the property to reflect the file path of the new file system location.</p>
 <p><strong>Note:</strong> Do not change the value of the &lt;id> element. Activities relies on the &lt;id> element to map to the content store configuration.</p>
 </li>
 <li>
@@ -35089,7 +35090,7 @@
 <li>
 <p>After making changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. See <em>Applying property changes</em> for details.</p>
 </li>
-</ul>
+</ol>
 </li>
 <li>
 <p><strong>If the file path is defined using a WebSphere Application Server environment variable</strong>: Edit the value of the variable by completing the following steps:</p>
@@ -35121,7 +35122,7 @@
 <p>After the content store is successfully copied to the new location, you can remove the original content store.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="t_admin_act_manage_uploads.html">Managing uploaded files</a></p>
+<p><strong>Parent topic:</strong> <a href="t_admin_act_manage_uploads.html">Managing uploaded files</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_act_change_content_store_new.html">Defining multiple content stores for Activities</a></p>
 

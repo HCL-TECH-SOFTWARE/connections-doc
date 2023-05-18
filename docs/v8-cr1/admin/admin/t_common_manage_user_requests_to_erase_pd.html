@@ -35426,11 +35426,12 @@
 <li>
 <p>Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:</p>
 <ul>
-<li>```
-SearchService.updatePersonNameInDatabase("org_id","email","pseudonym")
-<div class="highlight"><pre><span></span><code>        -   ```
-SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&quot;,&quot;pseudonym&quot;)
-</code></pre></div></li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")</code></p>
+</li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -35448,7 +35449,9 @@ SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&qu
 <h2 class="section" id="pseudonymising-pi-on-a-former-user-with-an-inactive-profile-but-who-is-still-in-ldap">Pseudonymising PI on a former user with an inactive profile but who is still in LDAP</h2>
 <p>The user asking to be erased was marked inactive in LDAP, and TDI synchronization has inactivated them in Connections ("inactive" is displayed beside the user's name wherever it is displayed ).</p>
 <ol>
-<li>The Administrator User can use the <a href="https://ds-infolib.hcltechsw.com/ldd/lcwiki.nsf/xpAPIViewer.xsp?lookupName=IBM+Connections+6.0+API+Documentation#action=openDocument&amp;res_title=Updating_a_profile_using_the_Administration_API_ic60&amp;content=apicontent">update profile Admin UI</a> to complete the following steps:<ol>
+<li>
+<p>The Administrator User can use the <a href="https://ds-infolib.hcltechsw.com/ldd/lcwiki.nsf/xpAPIViewer.xsp?lookupName=IBM+Connections+6.0+API+Documentation#action=openDocument&amp;res_title=Updating_a_profile_using_the_Administration_API_ic60&amp;content=apicontent">update profile Admin UI</a> to complete the following steps:</p>
+<ol>
 <li>Reactivate the user.</li>
 <li>Change the name of the user to a pseudonym, for example "User124." Running the API propagates the name change throughout all components.</li>
 <li>Deactivate the user.</li>
@@ -35461,11 +35464,12 @@ SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&qu
 <li>
 <p>Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:</p>
 <ul>
-<li>```
-SearchService.updatePersonNameInDatabase("org_id","email","pseudonym")
-<div class="highlight"><pre><span></span><code>        -   ```
-SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&quot;,&quot;pseudonym&quot;)
-</code></pre></div></li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")</code></p>
+</li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -35491,11 +35495,12 @@ SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&qu
 <li>
 <p>Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:</p>
 <ul>
-<li>```
-SearchService.updatePersonNameInDatabase("org_id","email","pseudonym")
-<div class="highlight"><pre><span></span><code>        -   ```
-SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&quot;,&quot;pseudonym&quot;)
-</code></pre></div></li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")</code></p>
+</li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -35523,11 +35528,12 @@ SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&qu
 <li>
 <p>Depending on whether you know the user's original email address or their user ID, run one of the following commands to change their name to a pseudonym:</p>
 <ul>
-<li>```
-SearchService.updatePersonNameInDatabase("org_id","email","pseudonym")
-<div class="highlight"><pre><span></span><code>        -   ```
-SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&quot;,&quot;pseudonym&quot;)
-</code></pre></div></li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabase("org\_id","email","pseudonym")</code></p>
+</li>
+<li>
+<p><code>SearchService.updatePersonNameInDatabaseById("org\_id","userID","pseudonym")</code></p>
+</li>
 </ul>
 </li>
 <li>
@@ -35563,7 +35569,7 @@ SearchService.updatePersonNameInDatabaseById(&quot;org\_id&quot;,&quot;userID&qu
 <li>@mentions in Connections by another user, or personal data in body text added by another user. The user can ask the Administrator to change the content. Note that the Administrator cannot find @mentions unless the user requesting erasure provides the names of current subscribers who mentioned them, or some other means such as the name of a file containing the @mention. See <a href="t_common_erase_or_correct_data_in_body_text.html">Deleting or correcting user PI</a> for information on how the Administrator can delete PI that cannot be pseudonymised.</li>
 <li>Download history</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_common_manage_personal_data_for_gdpr.html">Managing personal information in accordance with PI laws</a></p>
+<p><strong>Parent topic:</strong> <a href="c_common_manage_personal_data_for_gdpr.html">Managing personal information in accordance with PI laws</a></p>
 
 
 

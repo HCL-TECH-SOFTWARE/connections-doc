@@ -711,7 +711,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Deployment requirements for supporting Connections 8.0 CR1 functionality
+        Deployment requirements for supporting Connections 8.0 CR2 functionality
       </a>
     </li>
   
@@ -35253,7 +35253,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/connections8_sizing_guide.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Sizing Guide
+        Connections 8.0 CR2 Sizing Guide
       </a>
     </li>
   
@@ -35267,7 +35267,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/troubleshooting_cnx_cp.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Troubleshooting Component Pack
+        Connections 8.0 CR2 Troubleshooting Component Pack
       </a>
     </li>
   
@@ -35377,12 +35377,10 @@
 <div class="highlight"><pre><span></span><code>ActivitiesConfigService.showConfig() 
 </code></pre></div>
 <p>From the returned list, look for the settings that begin with <strong>jobs.TrashAutoPurge</strong>; these control trash deletion. Determine which property values you want to change:</p>
-<p>jobs.TrashAutoPurge.daysRetention
-:   Number of days after which you would like activities and their entries removed from the Trash view. Specify the value in days. The default value is 90.</p>
+<p><strong>jobs.TrashAutoPurge.daysRetention</strong>:   Number of days after which you would like activities and their entries removed from the Trash view. Specify the value in days. The default value is 90.</p>
 <pre><code>**Note:** Do not set this value to 0. When it is set to 0, activities and their entries are not removed from the Trash view.
 </code></pre>
-<p><strong>jobs.TrashAutoPurge.interval</strong>
-:   Frequency with which the job to check for expired content runs. See <em>Scheduling tasks</em> for information about the format to use to specify the interval. The default value is <code>0 0 2 ? * SUN</code>, which specifies that the job should run weekly at 2 AM on Sunday.</p>
+<p><strong>jobs.TrashAutoPurge.interval</strong>:   Frequency with which the job to check for expired content runs. See <em>Scheduling tasks</em> for information about the format to use to specify the interval. The default value is <code>0 0 2 ? * SUN</code>, which specifies that the job should run weekly at 2 AM on Sunday.</p>
 </li>
 <li>
 <p>To change the property values, use the following command:</p>

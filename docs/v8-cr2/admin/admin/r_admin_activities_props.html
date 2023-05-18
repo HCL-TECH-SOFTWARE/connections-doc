@@ -711,7 +711,7 @@
   
     <li class="md-nav__item">
       <a href="../plan/supported_features.html" class="md-nav__link">
-        Deployment requirements for supporting Connections 8.0 CR1 functionality
+        Deployment requirements for supporting Connections 8.0 CR2 functionality
       </a>
     </li>
   
@@ -35333,7 +35333,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/connections8_sizing_guide.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Sizing Guide
+        Connections 8.0 CR2 Sizing Guide
       </a>
     </li>
   
@@ -35347,7 +35347,7 @@
   
     <li class="md-nav__item">
       <a href="../../guide_me/how_to_guides/troubleshooting_cnx_cp.pdf" class="md-nav__link">
-        Connections 8.0 CR1 Troubleshooting Component Pack
+        Connections 8.0 CR2 Troubleshooting Component Pack
       </a>
     </li>
   
@@ -35472,83 +35472,52 @@
 <h1 class="reference" id="r_admin_activities_props">Activities configuration properties</h1>
 <p>Edit Activities configuration properties to change the default behavior of the activities that are created by your users.</p>
 <h2 class="section" id="filtering-active-content">Filtering active content</h2>
-<p>activeContentFilter.enabled
-:   When enabled prevents the addition of active content (JavaScript™, for example) in any text input field.</p>
+<p><strong>activeContentFilter.enabled</strong>: When enabled prevents the addition of active content (JavaScript™, for example) in any text input field.</p>
 <pre><code>This property accepts the following String values: true or false.
 
 Note: Disabling this filter introduces vulnerability to cross-site scripting \(XSS\) and other types of malicious attacks. For more information, see *Securing applications from malicious attack*.
 </code></pre>
 <h2 class="section" id="scheduling-activities-statistics-collection">Scheduling Activities statistics collection</h2>
-<p>jobs.30MinStats.enabled
-:   Specifies whether to run the job that saves statistics for Activities to disk every 30 minutes. This property accepts the following String values: true or false.</p>
-<p>jobs.30MinStats.interval
-:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
-<p>jobs.DailyStats.enabled
-:   Specifies whether to run the job that saves statistics for Activities to disk daily. This property accepts the following String values: true or false.</p>
-<p>jobs.DailyStats.interval
-:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
-<p>jobs.DatabaseRuntimeStats.enabled
-:   Specifies whether to run the job that periodically collects database statistics for Activities. This property accepts the following String values: true or false.</p>
-<p>jobs.DatabaseRuntimeStats.interval
-:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.30MinStats.enabled</strong>:   Specifies whether to run the job that saves statistics for Activities to disk every 30 minutes. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.30MinStats.interval</strong>:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.DailyStats.enabled</strong>:   Specifies whether to run the job that saves statistics for Activities to disk daily. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.DailyStats.interval</strong>:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.DatabaseRuntimeStats.enabled</strong>:   Specifies whether to run the job that periodically collects database statistics for Activities. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.DatabaseRuntimeStats.interval</strong>:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
 <h2 class="section" id="completing-activities-that-are-not-being-used">Completing activities that are not being used</h2>
-<p>jobs.AutoComplete.autoCompletionPeriod
-:   Specifies the time period in days that an activity must be inactive before it is automatically completed. This property accepts a number value that is specified as a String.</p>
-<p>jobs.AutoComplete.enabled
-:   Specifies whether to run the job that automatically completes inactive activities. This property accepts the following String values: true or false.</p>
-<p>jobs.AutoComplete.interval
-:   Specifies the frequency with which to run the job that automatically completes inactive activities. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
-<p>jobs.AutoComplete.prenotification
-:   Specifies whether an activity owner is notified before an inactive activity is automatically completed. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.AutoComplete.autoCompletionPeriod</strong>:   Specifies the time period in days that an activity must be inactive before it is automatically completed. This property accepts a number value that is specified as a String.</p>
+<p><strong>jobs.AutoComplete.enabled</strong>:   Specifies whether to run the job that automatically completes inactive activities. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.AutoComplete.interval</strong>:   Specifies the frequency with which to run the job that automatically completes inactive activities. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.AutoComplete.prenotification</strong>:   Specifies whether an activity owner is notified before an inactive activity is automatically completed. This property accepts the following String values: true or false.</p>
 <h2 class="section" id="emptying-the-activities-trash-on-a-schedule">Emptying the Activities trash on a schedule</h2>
-<p>jobs.TrashAutoPurge.daysRetention
-:   Specifies how many days to retain deleted data before it is purged. This property accepts a number value that is specified as a String.</p>
-<p>jobs.TrashAutoPurge.enabled
-:   Specifies whether to run the job that permanently removes content from the Activities trash. This property accepts the following String values: true or false.</p>
-<p>jobs.TrashAutoPurge.interval
-:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.TrashAutoPurge.daysRetention</strong>:   Specifies how many days to retain deleted data before it is purged. This property accepts a number value that is specified as a String.</p>
+<p><strong>jobs.TrashAutoPurge.enabled</strong>:   Specifies whether to run the job that permanently removes content from the Activities trash. This property accepts the following String values: true or false.</p>
+<p><strong>jobs.TrashAutoPurge.interval</strong>:   Specifies the frequency with which to run the scheduled job. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
 <h2 class="section" id="customizing-content-stores">Customizing content stores</h2>
-<p>objectStore.id
-:   This property cannot be modified by the Administrator with the ActivitiesConfigService.updateConfig command. It is configured initially during installation, and its value is displayed with the ActivitiesConfigService.showConfig command.</p>
-<pre><code>This property displays a String value of filesystem, which cannot be changed.
-</code></pre>
-<p>objectStore.maxConcurrentDownloads
-:   Specifies the number of threads that are simultaneously dedicated to servicing file download requests in the Activities server.</p>
-<pre><code>This property accepts a number value that is specified as a String.
-</code></pre>
-<p>objectStore.formFileUploadSizeLimit
-:   If you are not using a browser that supports file upload through the IBM HTTP Server, this property specifies the maximum file size in bytes. This property is necessary if you configured your system for Activities using <em>Configuring file downloads and uploads through IBM HTTP Server</em>.</p>
+<p><strong>objectStore.id</strong>:   This property cannot be modified by the Administrator with the ActivitiesConfigService.updateConfig command. It is configured initially during installation, and its value is displayed with the ActivitiesConfigService.showConfig command.</p>
+<p>This property displays a String value of filesystem, which cannot be changed.</p>
+<p><strong>objectStore.maxConcurrentDownloads</strong>:   Specifies the number of threads that are simultaneously dedicated to servicing file download requests in the Activities server.</p>
+<p>This property accepts a number value that is specified as a String.</p>
+<p><strong>objectStore.formFileUploadSizeLimit</strong>:   If you are not using a browser that supports file upload through the IBM HTTP Server, this property specifies the maximum file size in bytes. This property is necessary if you configured your system for Activities using <em>Configuring file downloads and uploads through IBM HTTP Server</em>.</p>
 <h2 class="section" id="purging-the-events-log">Purging the events log</h2>
 <p>The following list identifies the Activities configuration properties that you can edit directly in the checked-out file. The events log is used to generate the Recent Updates view. Apply settings to control what updates are seen and when they are purged.</p>
-<p>jobs.EventLogPurgeJob.enabled
-:   Specifies whether this task runs.</p>
-<p>jobs.EventLogPurgeJob.interval
-:   Specifies when this task runs. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
-<p>jobs.EventLogPurgeJob.maxNumberOfDeletionPerCall
-:   Specifies the maximum number of entries that are deleted at one time.</p>
-<p>jobs.EventLogPurgeJob.retentionInDays
-:   Specifies how old an entry must be before it can be deleted.</p>
+<p><strong>jobs.EventLogPurgeJob.enabled</strong>:   Specifies whether this task runs.</p>
+<p><strong>jobs.EventLogPurgeJob.interval</strong>:   Specifies when this task runs. This property accepts a chronological expression that is specified as a String. For more information on the format for the chronological value, see <em>Scheduling tasks</em>.</p>
+<p><strong>jobs.EventLogPurgeJob.maxNumberOfDeletionPerCall</strong>:   Specifies the maximum number of entries that are deleted at one time.</p>
+<p><strong>jobs.EventLogPurgeJob.retentionInDays</strong>:   Specifies how old an entry must be before it can be deleted.</p>
 <h2 class="section" id="changing-the-save-frequency-of-entries">Changing the save frequency of entries</h2>
 <p>As users create or edit entries, their work is automatically saved every 5 minutes, unless you change the interval. If users leave an entry in an unsaved state when they accidentally close their browser, the next time they log in, a notification appears in the My Activities view reminding them that they have an unsaved entry. Autosave is not meant for backing up activities. This feature is provided to help you recover from unexpected events.</p>
 <p>Edit the <code>&lt;Autosave interval="5"/&gt;</code> element in oa-config.xml to set how frequently entries are automatically saved. The save interval is in minutes.</p>
 <p>Deleting this element does not turn off the autosave feature. If you delete the element, entries are saved at the default interval of 5 minutes.</p>
 <h2 class="section" id="assigning-tasks-to-multiple-people">Assigning tasks to multiple people</h2>
-<p>feature.multiAssignment.enabled
-:   You can assign tasks within an activity to multiple people. A task is marked as completed when all assigned users mark the item complete. An activity owner can also mark the activity complete; In this case, the owner sees the following message:</p>
-<pre><code>```
-Are you sure you want to mark this To Do Item as complete? If you are an assignee and want to complete 
+<p><strong>feature.multiAssignment.enabled</strong>:   You can assign tasks within an activity to multiple people. A task is marked as completed when all assigned users mark the item complete. An activity owner can also mark the activity complete; In this case, the owner sees the following message:</p>
+<div class="highlight"><pre><span></span><code>Are you sure you want to mark this To Do Item as complete? If you are an assignee and want to complete 
 your own status, you can click the checkbox before your name under this To Do Item
-```
-
-To enable this feature, uncomment the following line in opt/IBM/WebSphere/AppServer/profiles/Dmgr01/config/cells/connectionsCell/LotusConnections-config/oa-config.xml and set the value to true:
-
-```
-&lt;property name="feature.multiAssignment.enabled"&gt;true&lt;/property&gt;"
-```
-</code></pre>
-<p><strong>Parent topic:</strong><a href="t_admin_act_changing_config.html">Changing Activities configuration property values</a></p>
-<p><strong>Previous topic:</strong><a href="t_admin_act_checkout_config_file.html">Checking out the Activities configuration files</a></p>
-<p><strong>Next topic:</strong><a href="t_admin_act_save_changes.html">Applying property changes in Activities</a></p>
+</code></pre></div>
+<p>To enable this feature, uncomment the following line in opt/IBM/WebSphere/AppServer/profiles/Dmgr01/config/cells/connectionsCell/LotusConnections-config/oa-config.xml and set the value to true:</p>
+<div class="highlight"><pre><span></span><code>&lt;property name=&quot;feature.multiAssignment.enabled&quot;&gt;true&lt;/property&gt;&quot;
+</code></pre></div>
+<p><strong>Parent topic:</strong> <a href="t_admin_act_changing_config.html">Changing Activities configuration property values</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a></p>
 <p><a href="t_admin_common_save_changes.html">Applying common configuration property changes</a></p>

@@ -35078,49 +35078,38 @@ checkingResult.setValue(&quot;updated&quot;);
 </li>
 <li>
 <p>Set the following properties in the file:</p>
-<p>sync_updates_double_check
-:   Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.</p>
-<pre><code>For example:
-
-```
-sync_updates_double_check=true
-```
-</code></pre>
-<p>sync_check_if_remove
-:   Specifies the name of your checking assembly line:</p>
-<pre><code>```
-sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
-```
-
-By default, the assembly line's name is set tosync\_all\_dns\_check\_if\_remove.
-
-For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example\_check\_if\_user\_really\_deleted, use the following statement to set this property:
-
-```
-sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
-```
-</code></pre>
-<p>sync_delete_or_inactivate
-:   Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:</p>
-<pre><code>-   delete - Specifies that the user record is deleted.
--   inactivate - Specifies that the user record is inactivated.
-
-    The inactive status is propagated to the member and login tables for all the applications, regardless of the value of sync\_delete\_or\_inactivate, because applications do not delete users. An event is generated for each of the following applications: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News \(which includes both Home page and Search\). These events inactivate the user in every application.
-
-These values are case-sensitive. The default value is inactivate.
-
-For example:
-
-```
-sync_delete_or_inactivate=inactivate
-```
-</code></pre>
+<p><strong>sync_updates_double_check</strong></p>
+<p>Specifies whether your checking assembly line is used. When set to true, your deletion-checking assembly line is used. When set to false, the checking operation is not performed. The default value is false.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>sync_updates_double_check=true
+</code></pre></div>
+<p><strong>sync_check_if_remove</strong>
+Specifies the name of your checking assembly line:</p>
+<div class="highlight"><pre><span></span><code>sync_check_if_remove=name\_of\_your\_adapter\_xml\_file:/AssemblyLines/name\_of\_your\_assemblyline
+</code></pre></div>
+<p>By default, the assembly line's name is set tosync_all_dns_check_if_remove.</p>
+<p>For example, if you publish the assembly line with the file name deleteCheckRoutines and the assembly line is example_check_if_user_really_deleted, use the following statement to set this property:</p>
+<div class="highlight"><pre><span></span><code>sync_check_if_remove=deleteCheckRoutines:/AssemblyLines/example_check_if_user_really_deleted
+</code></pre></div>
+<p><strong>sync_delete_or_inactivate</strong></p>
+<p>Controls what happens to a user record when the delete action is performed. This property can be set to one of the following values:</p>
+<ul>
+<li>delete - Specifies that the user record is deleted.</li>
+<li>
+<p>inactivate - Specifies that the user record is inactivated.</p>
+<p>The inactive status is propagated to the member and login tables for all the applications, regardless of the value of sync_delete_or_inactivate, because applications do not delete users. An event is generated for each of the following applications: Activities, Blogs, Bookmarks, Communities, Files, Forums, Profiles, Wikis, and News (which includes both Home page and Search). These events inactivate the user in every application.</p>
+</li>
+</ul>
+<p>These values are case-sensitive. The default value is inactivate.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>sync_delete_or_inactivate=inactivate
+</code></pre></div>
 </li>
 <li>
 <p>Save your changes to the profiles_tdi.properties file.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_common_managing_user_scenarios.html">Sample user management scenarios</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_managing_user_scenarios.html">Sample user management scenarios</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_profiles_config_tdi_dev_environment.html">Setting up your development environment</a></p>
 

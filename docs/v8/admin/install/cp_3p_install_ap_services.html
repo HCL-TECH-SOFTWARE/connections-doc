@@ -35106,13 +35106,16 @@
 <p>Follow the instructions in <a href="https://docs.huddo.com/boards/cp/#deploy-boards-helm-chart">Deploy Boards Helm Chart</a> of the Huddo documentation. Make sure to replace or override the file name of boards-cp.yaml with kudosboard.yml in the <code>helm upgrade</code> command.</p>
 </li>
 <li>
-<p>Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service:</p>
+<p>Once this is all set, add the following rules to the httpd.conf on your IBM HTTP servers and restart the service: </p>
 <div id="codeblock_sbn_1np_fvb" class="highlight"><pre><span></span><code># proxy rules for activities plus 
 RewriteRule ^/activities/service/html/(.*)$ /boards/activities/service/html/$1 [R] 
 ProxyPass &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
 ProxyPassReverse &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
 ProxyPass &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot; 
-ProxyPassReverse &quot;/api-boards&quot; http://cpmaster.internal.example.com:32080/api-boards&quot;
+ProxyPassReverse &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot;
+# If used in Connections 8.0, don&#39;t allow loading of Connections 7.0 header
+RewriteCond %{HTTP_REFERER} /boards/
+RewriteRule ^/homepage/web/pageHeader - [L,F]
 </code></pre></div>
 </li>
 </ol>

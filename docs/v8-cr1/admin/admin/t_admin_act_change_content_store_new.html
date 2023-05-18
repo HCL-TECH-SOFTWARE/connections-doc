@@ -35365,10 +35365,8 @@
 </li>
 <li>
 <p>Modify the new &lt;store> to point to the new file system location.</p>
-<p>&lt;id>
-:   Activities relies on this element to map to the content store configuration. Do not change the value of the &lt;id> element after the system is in use. Specify a unique name for the file system. The maximum character limit for &lt;id> is 32 characters.</p>
-<p>root.directory property
-:   Specify the file path of the new file system location.</p>
+<p><strong>&lt;id></strong>:   Activities relies on this element to map to the content store configuration. Do not change the value of the &lt;id> element after the system is in use. Specify a unique name for the file system. The maximum character limit for &lt;id> is 32 characters.</p>
+<p><strong>root.directory property</strong>:   Specify the file path of the new file system location.</p>
 <pre><code>-   Use the Universal Naming Convention \(UNC\) format to set the file path to a network share directory. For example:
     -   Full path configured in oa-config.xml
 
@@ -35394,6 +35392,7 @@ Specify the same value on each node to which you install Activities.
 <p>Save and close the oa-config.xml file.</p>
 </li>
 </ul>
+<p><strong>Example</strong></p>
 <p>The following sample shows two content stores. The second &lt;store> is the active store and is where new content or revisions of existing content are uploaded to. It uses the new implementation. The first content store uses the old implementation and is inactive. The two implementations can coexist, but should reside in a mapped disk location that is separate from each other.</p>
 <div class="highlight"><pre><span></span><code>&lt;store 
   default=&quot;false&quot; 
@@ -35413,9 +35412,10 @@ Specify the same value on each node to which you install Activities.
     &lt;property name=&quot;root.directory&quot;&gt;${ACTIVITIES_CONTENT_DIR}&lt;/property&gt;
 &lt;/store&gt;
 </code></pre></div>
-<p>Check in the updated configuration files. The check-in must be done during the same wsadmin session in which you checked them out for the changes to take effect. See <em>Applying property changes</em> for details. Restart the Activities server and review the WebSphere Application Server SystemOut.log file to ensure that the Activities application was able to initialize with the modified configuration.</p>
+<p><strong>What to do next</strong>
+Check in the updated configuration files. The check-in must be done during the same wsadmin session in which you checked them out for the changes to take effect. See <em>Applying property changes</em> for details. Restart the Activities server and review the WebSphere Application Server SystemOut.log file to ensure that the Activities application was able to initialize with the modified configuration.</p>
 <p>.</p>
-<p><strong>Parent topic:</strong><a href="t_admin_act_manage_uploads.html">Managing uploaded files</a></p>
+<p><strong>Parent topic:</strong> <a href="t_admin_act_manage_uploads.html">Managing uploaded files</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_act_move_content_store.html">Moving the content store</a></p>
 <p><a href="t_admin_act_save_changes.html">Applying property changes in Activities</a></p>

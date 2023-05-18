@@ -35342,10 +35342,8 @@
 <li>
 <p>Display the current Activities configuration settings.</p>
 <p>Use the command <code>ActivitiesConfigService.showConfig()</code> to display a list of properties. Find the following properties from the EventLogPurgeJob task:</p>
-<p>maxNumberOfDeletionPerCall
-:   The maximum number of log entries to delete per scheduled call. By default, 1000 entries are deleted each time that a purge runs. If invalid values are entered, the default value is used instead. If this value is blank, the default value is used.</p>
-<p>retentionInDays
-:   The minimum age of the entries to be deleted. By default, entries older than 365 days are deleted. The minimum value that is allowed for this property is 90 days. If a number less than 90 is entered, then the value that is used is the default of 90 days.</p>
+<p><strong>maxNumberOfDeletionPerCall</strong>:   The maximum number of log entries to delete per scheduled call. By default, 1000 entries are deleted each time that a purge runs. If invalid values are entered, the default value is used instead. If this value is blank, the default value is used.</p>
+<p><strong>retentionInDays</strong>:   The minimum age of the entries to be deleted. By default, entries older than 365 days are deleted. The minimum value that is allowed for this property is 90 days. If a number less than 90 is entered, then the value that is used is the default of 90 days.</p>
 </li>
 <li>
 <p>Change the property values with the following command:</p>
