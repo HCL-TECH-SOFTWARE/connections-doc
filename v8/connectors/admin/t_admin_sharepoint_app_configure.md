@@ -9,15 +9,12 @@ Make sure you've completed all the steps in [Configuring the Sharepoint app in M
 2.  Search for the app's definition with `defId="SharepointLibrary"` to see the following:
 
     ```
-    <!--BEGIN SHAREPOINT ONLINE WIDGET DEF--> 
-    <widgetDef defId="SharepointLibrary" modes="view edit fullpage" themes="wpthemeNarrow wpthemeWide wpthemeBanner wpthemeThin"  uniqueInstance="true"> 
+    <widgetDef defId="SharepointLibrary" modes="view edit fullpage" themes="wpthemeNarrow wpthemeWide wpthemeBanner wpthemeThin" uniqueInstance="true" url="\{webresourcesSvcRef}/../../spo/SharepointWidget.xml"> 
         <itemSet> 
             <item name="clientId" value="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"/> 
             <item name="tenant" value="your\_organization\_url.onmicrosoft.com"/>
         </itemSet> 
     </widgetDef>  
-    <!--END SHAREPOINT ONLINE WIDGET DEF-->
-    
     ```
 
 3.  Set the `client ID` to the string that you copied for the application \(client\) ID in the [previous task](t_admin_sharepoint_app_enabling.md).
