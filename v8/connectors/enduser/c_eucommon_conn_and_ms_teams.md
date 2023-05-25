@@ -33,11 +33,15 @@ Whether you're in Connections or Teams, it's easy to share links to Connections 
 
 ## Add a Connections community app to a Teams tab 
 
-In organizations that have deployed services for Microsoft Teams, you can add any of the following community apps as a channel tab: Files, Wiki, Blog, Forums, Recent Updates, or Highlights.
+In organizations that have deployed services for Microsoft Teams, you can add any of the following community apps as a channel tab: Files, Wikis, Blogs, Forums, Recent Updates, Activities, or Highlights.
 
-**Note:** Team Channel members must also be members of the Community in order to see the content in a Connections App tab.
+!!! Note
+
+    -   Team Channel members must also be members of the Community in order to see the content in a Connections App tab.
+    -   If you are adding the Activities app from a community to a Teams channel, the option to start a new activity will not be available. However, you can still edit and view activities to which you have access.
 
 1.  In Teams, click **Teams** in the navigation, and then click the channel to which you want to add an app from a Connections community that you belong to.
+
 2.  Click **Add a tab** 
 
     ![](teams_add_a_tab_icon.png)
@@ -47,7 +51,9 @@ In organizations that have deployed services for Microsoft Teams, you can add an
     ![Add a tab window](teams_add_a_tab_window.png)
 
 4.  Find and select your Connections community, and then select an app from the list \(you can add only one app per Teams tab\). Unless you customize it, the new tab's name will be in the format "Community name - App name."
-5.  To add another app as a tab in the channel, repeat steps 2 to 4
+
+5.  To add another app as a tab in the channel, repeat steps 2 to 4.
+
 6.  Click **Save**.
 
 ## Start a Teams chat from Connections
