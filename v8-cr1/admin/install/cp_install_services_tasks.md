@@ -859,7 +859,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     2.  Merge the Signer certificate into the opensearch-metrics.p12 keystore:
 
         ``` {#codeblock_krg_nmg_fvb}
-        execfile('esSecurityAdmin.py')    
+        execfile('esSearchAdmin.py')    
         enableSslForESSearch('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
         ```
 
