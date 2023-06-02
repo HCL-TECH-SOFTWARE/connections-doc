@@ -20483,9 +20483,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Changing the HCL Connections logo
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_customize_change_logo.html" class="md-nav__link md-nav__link--active">
         Changing the HCL Connections logo
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -35309,6 +35347,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35328,81 +35388,14 @@
 
 
 <h1 class="task" id="t_customize_change_logo">Changing the HCL Connections logo</h1>
-<p>To customize HCL Connections™ to reflect the look and feel of your organization, specify a CSS override that replaces the HCL Connections logo with your company logo.</p>
-<p>Two HCL logos display in the product by default. The first logo contains the text "Connections" and second logo is the graphical HCL logo. You can replace both logos with your company logo.</p>
-<ol>
-<li>
-<p>Turn on the customization debugging capability. For more information, see <a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a>.</p>
-</li>
-<li>
-<p>Create a CSS file that is named custom.css and store it in the following subdirectory of the customization directory: customizationDir/themes/&lt;theme_name>Theme.</p>
-<p><strong>Note:</strong> Each theme, for example: "red", "green", "onyx", "gen4", "hikari", (the default theme) has a theme customization folder called customizationDir/themes/&lt;theme_name>Theme/. So the customization folder for the hikari theme is customizationDir/themes/hikariTheme/.</p>
-<p>For information about how to find out where your customizationDir directory is located, see <a href="t_customize_find_custom_directory.html">Determining where to save your customizations</a>.</p>
-</li>
-<li>
-<p>Save your company logo in the following directories:</p>
-<div class="highlight"><pre><span></span><code>customizationDir/javascript/com/ibm/lconn/core/styles/images/logo.png
-customizationDir/javascript/com/ibm/oneui3/styles/imageLibrary/Branding/Logos/ibmLogoOpaque16.png
-</code></pre></div>
-</li>
-<li>
-<p>Open the CSS file in a text editor and add the following lines:</p>
-<ul>
-<li>
-<p>To replace the Connections text-based logo <img alt="&lt;img class=&quot;image&quot; alt=&quot;&quot; src=&quot;logo1.png&quot;&gt;" src="logo1.png" /> with your company logo, add the following lines to the file:</p>
-<div class="highlight"><pre><span></span><code>.lotusui30 .lotusBanner .lotusLogo {
- background-image: url(&quot;/com.ibm.lconn.core.styles/images/logo.png&quot;);
- height: image\_heightpx;
- width: image\_widthpx; 
-} 
-.lotusui30 .lotusBanner .lotusLogo .lotusAltText {
- display: none; 
-}
-</code></pre></div>
-<p>Where</p>
-<ul>
-<li>logo.png is the file name of your company logo.</li>
-<li>image_height is the height of the logo.</li>
-<li>image_width is the width of the logo.<ul>
-<li>To replace the HCL graphic logo <img alt="&lt;img class=&quot;image&quot; alt=&quot;&quot; src=&quot;logo2.png&quot;&gt;" src="logo2.png" /> with your company logo, add the following lines to the file:</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>.lotusui30 .lotusBanner .lotusIBMLogo {
- background-image: url(&quot;/com.ibm.oneui3.styles/imageLibrary/Branding/Logos/ibmLogoOpaque16.png&quot;);
- background-position: 0px 0px;
- height: image\_heightpx;
- width: image\_widthpx;
-}
-</code></pre></div>
-<p>Where</p>
-<ul>
-<li>ibmLogoOpaque16.png is the file name of your company logo.</li>
-<li>image_height is the height of the logo.</li>
-<li>image_width is the width of the logo.
-    <strong>Note:</strong> If you are supporting right-to-left languages, such as Arabic or Hebrew, you must make equivalent changes to the customRTL.css file and save that in the customizationDir/themes/&lt;theme_name>Theme directory as well.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Save and close the custom.css file.</p>
-</li>
-<li>
-<p>Stop and restart the Common.ear file to pick up the CSS changes.</p>
-</li>
-<li>
-<p>Clear the /temp and /wstemp directories, for example:c:\IBM\WebSphere\AppServer\profiles\AppSrv01\temp And c:\IBM\WebSphere\AppServer\profiles\AppSrv01\wstemp</p>
-</li>
-<li>
-<p>When you are ready to publish your changes, turn off the customization debugging capability. Test whether your changes were added successfully by restarting the applications and refreshing the web browser.</p>
-<p>A browser refresh shows your changes only if you turned on debugging. See <a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a> for more details.</p>
-</li>
-<li>
-<p>See <a href="t_admin_common_customize_postreq.html">Post-customization step</a> for information about how to update the product version stamp and ensure that your users see the changes the next time that they log in toHCL Connections.</p>
-</li>
-</ol>
-<p><strong>Parent topic:</strong><a href="c_customize_images.html">Customizing images</a></p>
+<p>To customize HCL Connections to reflect the look and feel of your organization, you can replace the default HCL Connections logo in the header with your company logo.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>With the redesigned Connections 8.0 user interface, you can generally apply customizations by providing custom configuration to the Connections system. In this configuration, you would specify key-value pairs that reflect your desired customizations, such as your own logo image in this case.</p>
+<p>Create a custom configuration for the header area using the instructions in <a href="https://github.com/HCL-TECH-SOFTWARE/connections-ui-docs/tree/master/custom-config-extensions">Custom Config Extensions</a> on the Connections UI Docs. </p>
+<h2 id="procedure">Procedure</h2>
+<p>To change the HCL Connections logo in the header, you need to define the <code>image</code> property in the header configuration by specifying the <code>src</code> tag. This tag points to the actual image displayed as the logo. You can reference any static image that is accessible to you and is in a supported format, such as .jpeg, .png, .svg, and so on.</p>
+<p>For more information and examples, refer to <a href="https://github.com/HCL-TECH-SOFTWARE/connections-ui-docs/tree/master/main-areas/header-area#example">Custom configuration for the header area</a> in the Connections UI docs.</p>
+<p><strong>Parent topic:</strong> <a href="c_customize_images.html">Customizing images</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a></p>
 <p><a href="t_customize_find_custom_directory.html">Determining where to save your customizations</a></p>
