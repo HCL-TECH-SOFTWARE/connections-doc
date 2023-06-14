@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35123,20 +35117,14 @@
 </tr>
 <tr>
 <td>CRE OAuth Consumer Proxy</td>
-<td>```</td>
+<td><code>org.apache.shindig.gadgets.oauth2.*=all com.ibm.mm.proxy.*=all (MuM proxy)</code></td>
+</tr>
+<tr>
+<td>Connections CRE integration layer</td>
+<td><code>com.ibm.lconn.core.services.cre.*=all</code> <br> <code>com.ibm.lconn.news.shindig.oauth.service.*=all</code> <br> <code>com.ibm.lconn.news.service.impl.oauth.*=all</code></td>
 </tr>
 </tbody>
 </table>
-<p>org.apache.shindig.gadgets.oauth2.<em>=all
-com.ibm.mm.proxy.</em>=all (MuM proxy)
-<div class="highlight"><pre><span></span><code>|
-|Connections CRE integration layer|```
-
-com.ibm.lconn.core.services.cre.*=all
-com.ibm.lconn.news.shindig.oauth.service.*=all
-com.ibm.lconn.news.service.impl.oauth.*=all
-</code></pre></div></p>
-<p>|</p>
 <h2 class="section" id="troubleshooting">Troubleshooting</h2>
 <table>
 <thead>
@@ -35151,35 +35139,13 @@ com.ibm.lconn.news.service.impl.oauth.*=all
 <tbody>
 <tr>
 <td>Response in the user interface</td>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Error 404: javax.servlet.ServletException:</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Filter [OAuth20ClientAuthnFilter]: filter is unavailable.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>Error 404: javax.servlet.ServletException: Filter [OAuth20ClientAuthnFilter]: filter is unavailable.</code></td>
+<td>http://server:port/oauth2/endpoint/connectionsProvider/authorize?client_id=&lt;client_id>&amp;redirect_uri=&lt;redirect_uri>&amp;response_type=code&amp;scope=Connections&amp;state=&lt;state></td>
+<td>The authorization screen URL is invalid. This happens if the {oauthSvcUrl} placeholder in the authorization URL parameter was not replaced successfully.</td>
+<td>Make sure the ProviderInitializer context listener completes initialization successfully. Check errors in the logs to find an appropriate solution for each case.</td>
 </tr>
 </tbody>
 </table>
-<p>|http://server:port/oauth2/endpoint/connectionsProvider/authorize?client_id=&lt;client_id>&amp;redirect_uri=&lt;redirect_uri>&amp;response_type=code&amp;scope=Connections&amp;state=&lt;state>|The authorization screen URL is invalid. This happens if the {oauthSvcUrl} placeholder in the authorization URL parameter was not replaced successfully.|Make sure the ProviderInitializer context listener completes initialization successfully. Check errors in the logs to find an appropriate solution for each case.|</p>
 <p><strong>Parent topic:</strong><a href="ts_c_ts_tips_overview.html">Troubleshooting tips</a></p>
 
 

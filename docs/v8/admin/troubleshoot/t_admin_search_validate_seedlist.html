@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35057,18 +35051,12 @@
 <tbody>
 <tr>
 <td>SearchService.validateSeedlist(String component)</td>
-<td>Validates the seedlist for the specified application.This command takes a string value, which is the name of the application whose seedlist is to be validated. The following values are valid: activities, blogs, communities, dogear, files, forums, profiles, and wikis.</td>
+<td>Validates the seedlist for the specified application.This command takes a string value, which is the name of the application whose seedlist is to be validated. The following values are valid: activities, blogs, communities, dogear, files, forums, profiles, and wikis. <br> For example: <br> <code>SearchService.validateSeedlist("communities")</code></td>
 </tr>
 </tbody>
 </table>
 </li>
 </ol>
-<p>For example:</p>
-<pre><code>```
-</code></pre>
-<p>SearchService.validateSeedlist("communities")
-    ```</p>
-<p>|</p>
 <p>When the seedlist for the specified application is working correctly, the following message is returned in the terminal window:</p>
 <div class="highlight"><pre><span></span><code>CLFRW0262I: Seedlist validation successful.
 </code></pre></div>

@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35391,61 +35385,110 @@
 <tr>
 <td>CLFRO0160W: The configuration file {1} in the directory {0} with this configuration ID {2}, is a duplicate of this file {3}. To stop the warning the duplicate configuration file should be removed; the system will ignore this duplicate file.</td>
 <td>A new configuration file that was not on the approved configuration list was duplicating an approved configuration file, thus it will be ignored.</td>
-<td>To remove the warning, do one of the following things:-   Change the file extension of the new configuration file to something like .oldxml.</td>
+<td>To remove the warning, do one of the following things: <br> - Change the file extension of the new configuration file to something like .oldxml. <br> - Remove the new configuration file.</td>
 </tr>
 <tr>
-<td>-   Remove the new configuration file.</td>
-<td></td>
-<td></td>
+<td>CLFRO0161W: This file {1} is located in the wrong directory {0}; it should be removed. The system will ignore this file.</td>
+<td>The config verification found a copy of an approved configuration file in the wrong location. The file will be ignored by all application.</td>
+<td>You can remove the warning by doing one of the following things: <br> -   Give the file with extension .xml a different extension, such as .oldxml. Repeat for each file that the configuration verification warns about. <br> - Remove the file. Repeat for each file that the configuration verification warns about in the directory.</td>
+</tr>
+<tr>
+<td>CLFRO0162E: The Connection application will not start up unless the previously noted errors are corrected; check earlier in the log file for detailed reasons on why they failed: {0}</td>
+<td>The configuration verification failed one or more verification steps on all of the configuration files listed in this error message. The connections application will fail to run until all of the files listed in this message has their errors corrected.</td>
+<td>To correct the error, complete the following steps: <br> 1.  Search through the log file for the detailed error message for each of these files listed in the message. <br> 2.  Correct each error. <br> 3.  Restart the application. <br> 4.  Ensure there is no further error.</td>
+</tr>
+<tr>
+<td>CLFRO0163E: The XML parser failed to find the configuration file {1}, that are located in the {0} directory. Check to ensure that the configuration file actually exists, and consult the exception from the XML parser that follows this message for more information. Finally restart the application after the issue has been corrected.</td>
+<td>The system was unable to read the configuration file.</td>
+<td>Resolve the error by doing one of the following things: <br> -   Consult the error message from the xml parser to identify what kind of xsd error it is. <br> -   Correct the filesystem permissions for the XSD files if they are wrong. <br> -   If you are unable to correct the issue, then contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0164E: The XML parser failed to open one or more XSD file {2} that is associated with the configuration file {1}. These files are located in the {0} directory. Check the filesystem permission and ensure that these XSD files exists. Also consult the exception from the XML parser that follows this message to assist in correcting this issue, and then restart the application.</td>
+<td>One or more XSD files were not readable or did not exist.</td>
+<td>Remove the error by doing one of the following things: <br> -   Consult the error message from the xml parser to identify what kind of xsd error it is. <br> -   Correct the filesystem permissions for the XSD files if they are wrong. <br> -   If the XSD files are missing, try to recover them. Otherwise contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0165E: The Connection application will not start unless the following missing configuration files are supplied: {0}</td>
+<td>Some critical files, such as LotusConnections-config.xml, are missing.</td>
+<td>Recover the missing files or contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0166W: The configuration file {1} in the directory {0} with this configuration ID {2}, is a duplicate of a file on the approved configuration file list. Contact support about this issue.</td>
+<td>The system was unable to resolve what approved configuration file that this configuration file was a duplicate of.</td>
+<td>Do one of the following things: <br> -   Change the file extension to something like .oldxml. <br> - Remove the file. <br> If neither of these actions work, contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0167E: The XML parser failed to read the configuration file {1}, that are located in the {0} directory. Check the filesystem permission to correct this issue, and consult the exception from the XML parser that follows this message for further information. Finally restart the application after the issue has been corrected.</td>
+<td>The system was unable to read the configuration file.</td>
+<td>Resolve the error by doing one of the following things: <br> -   Consult the error message from the xml parser to identify what kind of xsd error it is. <br> -   Correct the filesystem permissions for the XSD files if they are wrong. <br> -   If you are unable to correct the issue, then contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0168W: This directory is not on the approved configuration directory list: {0}, remove it along with the {1} file in the directory. The system will ignore this directory and file.</td>
+<td>The configuration verification found an extra directory which does not have a file on the HCL Connections configuration file list. This directory and the file found in it will be ignored by all application.</td>
+<td>You can remove the warning by doing one of the following things: <br> -   Give the file with extension .xml a different extension, such as .oldxml. Repeat for each file that the configuration verification warns about. <br> -   Remove the file. Repeat for each file that the configuration verification warns about in the directory. <br> -   Remove the directory and the files inside it.</td>
+</tr>
+<tr>
+<td>CLFRO0170E: The system failed to determine what the associated XSD files are for the configuration file {1}, that are located in the {0} directory. Consult the exception from the XML parser that follows this message to correct the issue, and if unable to correct the issue, contact support about this issue.</td>
+<td>The system was unable to discover what XSD file to use for validation of the configuration file.</td>
+<td>Remove the error by doing one of the following things: <br> -   Consult the error message from the xml parser to identify what kind of xsd error it is. <br> -   Correct the filesystem permissions for the XSD files if they are wrong. <br> -   If the XSD files are missing, try to recover them. Otherwise contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0171E: The XML parser failed to validate the file {1} located in directory {0}. Use the exception from the XML parser that is before this message to correct the configuration file, and then restart the application.</td>
+<td>The configuration verification was not able to validate the configuration file.</td>
+<td>Remove the error by consulting the error message from the xml parser that preceded this error to identify what part in the xml file failed validation. Correct the errors.</td>
+</tr>
+<tr>
+<td>CLFRO0172E: The configuration file {1} in the directory {0} does not have the correct configuration ID, it has: {2}. Contact support about this issue.</td>
+<td>The system was unable to resolve what the correct configuration-id is for the file.</td>
+<td>See if you can roll back to a previous version of the configuration file. If you cannot, contact support.</td>
+</tr>
+<tr>
+<td>CLFRO0173W: The configuration file {1} in the directory {0} with this configuration ID {2}, was accepted by the system because it was the newest, the following file(s) are being ignored by the system: {3}. To stop the warning the duplicate configuration file(s) should be removed; the system will automatically take the newest file and ignore the rest of the duplicate file(s).</td>
+<td>There was more than one configuration file that was not on the approved configuration file list with the same configuration id. The system picked the newest one and ignored the rest.</td>
+<td>To resolve this issue, complete the following steps: <br> 1.  Decide which file you want to keep. <br> 2.  Change the file extension of the other configuration file to something like .oldxml or remove the other configuration file altogether.</td>
+</tr>
+<tr>
+<td>CLFRO2001E: Error processing config file: &lt;path>, &lt;filename>.</td>
+<td>The server encountered an error while parsing the specified configuration file.</td>
+<td>Ensure that XML configuration files in the LotusConnections-config folders are valid.</td>
+</tr>
+<tr>
+<td>CLFRO2002E: Unable to find configuration with id: &lt;config_id>.</td>
+<td>The server could not retrieve an XML configuration file with the requested ID in the LotusConnections-config folder hierarchy.</td>
+<td>Report this problem to Customer Support.</td>
+</tr>
+<tr>
+<td>CLFRO2003E: Error processing global configuration file</td>
+<td>The server could not retrieve or successfully parse a LotusConnections-config.xml configuration file from the LotusConnections-config folder hierarchy.</td>
+<td>Report this problem to Customer Support.</td>
+</tr>
+<tr>
+<td>CLFRO2004E: Error: &lt;filename> does not have an id attribute in its config element.</td>
+<td>The specified XML configuration file does not have a value defined for the required <code>id</code> attribute of the &lt;config> element.</td>
+<td>Report this problem to Customer Support.</td>
+</tr>
+<tr>
+<td>CLFRO2006E: href attribute in &lt;filename> service element cannot be used to construct a proper URL</td>
+<td>The specified XML configuration file does not have a valid value defined for the <code>href</code> attribute; it should be a value that can be converted into a URL.</td>
+<td>Update the value of the <code>href</code> attribute to be a properly formed URL string.</td>
+</tr>
+<tr>
+<td>CLFRO2008E: {0} internal error</td>
+<td>An unspecified error occurred.</td>
+<td>Check the SystemOut.log for previous errors.</td>
+</tr>
+<tr>
+<td>CLFRO2009E: Entry for service &lt;service_name> does not exist in global config file &lt;file_name>.</td>
+<td>The global configuration file does not have a service reference for the requested service name.</td>
+<td>Report this problem to Customer Support.</td>
+</tr>
+<tr>
+<td>CLFRO2010E: Cannot locate schema file &lt;filename>.</td>
+<td>The server cannot find an xsd file required to validate the schema validation in the folder &lt;app_server_profile>/config/cells/ &lt;cell_name>/LotusConnections-config.</td>
+<td>Report this problem to Customer Support.</td>
 </tr>
 </tbody>
 </table>
-<p>|
-|CLFRO0161W: This file {1} is located in the wrong directory {0}; it should be removed. The system will ignore this file.|The config verification found a copy of an approved configuration file in the wrong location. The file will be ignored by all application.|You can remove the warning by doing one of the following things: *-   Give the file with extension .xml a different extension, such as .oldxml. Repeat for each file that the configuration verification warns about.
--   Remove the file. Repeat for each file that the configuration verification warns about in the directory.</p>
-<p>|
-|CLFRO0162E: The Connection application will not start up unless the previously noted errors are corrected; check earlier in the log file for detailed reasons on why they failed: {0}|The configuration verification failed one or more verification steps on all of the configuration files listed in this error message. The connections application will fail to run until all of the files listed in this message has their errors corrected.|To correct the error, complete the following steps:1.  Search through the log file for the detailed error message for each of these files listed in the message
-2.  Correct each error.
-3.  Restart the application
-4.  Ensure there is no further error.</p>
-<p>|
-|CLFRO0163E: The XML parser failed to find the configuration file {1}, that are located in the {0} directory. Check to ensure that the configuration file actually exists, and consult the exception from the XML parser that follows this message for more information. Finally restart the application after the issue has been corrected.|The system was unable to read the configuration file.|Resolve the error by doing one of the following things:-   Consult the error message from the xml parser to identify what kind of xsd error it is.
--   Correct the filesystem permissions for the XSD files if they are wrong.
--   If you are unable to correct the issue, then contact support.</p>
-<p>|
-|CLFRO0164E: The XML parser failed to open one or more XSD file {2} that is associated with the configuration file {1}. These files are located in the {0} directory. Check the filesystem permission and ensure that these XSD files exists. Also consult the exception from the XML parser that follows this message to assist in correcting this issue, and then restart the application.|One or more XSD files were not readable or did not exist.|Remove the error by doing one of the following things:-   Consult the error message from the xml parser to identify what kind of xsd error it is.
--   Correct the filesystem permissions for the XSD files if they are wrong.
--   If the XSD files are missing, try to recover them. Otherwise contact support.</p>
-<p>|
-|CLFRO0165E: The Connection application will not start unless the following missing configuration files are supplied: {0}|Some critical files, such as LotusConnections-config.xml, are missing.|Recover the missing files or contact support.|
-|CLFRO0166W: The configuration file {1} in the directory {0} with this configuration ID {2}, is a duplicate of a file on the approved configuration file list. Contact support about this issue.|The system was unable to resolve what approved configuration file that this configuration file was a duplicate of.|Do one of the following things:-   Change the file extension to something like .oldxml.
--   Remove the file.</p>
-<p>If neither of these actions work, contact support.|
-|CLFRO0167E: The XML parser failed to read the configuration file {1}, that are located in the {0} directory. Check the filesystem permission to correct this issue, and consult the exception from the XML parser that follows this message for further information. Finally restart the application after the issue has been corrected.|The system was unable to read the configuration file.|Resolve the error by doing one of the following things:-   Consult the error message from the xml parser to identify what kind of xsd error it is.
--   Correct the filesystem permissions for the XSD files if they are wrong.
--   If you are unable to correct the issue, then contact support.</p>
-<p>|
-|CLFRO0168W: This directory is not on the approved configuration directory list: {0}, remove it along with the {1} file in the directory. The system will ignore this directory and file.|The configuration verification found an extra directory which does not have a file on the HCL Connections configuration file list. This directory and the file found in it will be ignored by all application.|You can remove the warning by doing one of the following things: -   Give the file with extension .xml a different extension, such as .oldxml. Repeat for each file that the configuration verification warns about.
--   Remove the file. Repeat for each file that the configuration verification warns about in the directory.
--   Remove the directory and the files inside it.</p>
-<p>|
-|CLFRO0170E: The system failed to determine what the associated XSD files are for the configuration file {1}, that are located in the {0} directory. Consult the exception from the XML parser that follows this message to correct the issue, and if unable to correct the issue, contact support about this issue.|The system was unable to discover what XSD file to use for validation of the configuration file.|Remove the error by doing one of the following things:-   Consult the error message from the xml parser to identify what kind of xsd error it is.
--   Correct the filesystem permissions for the XSD files if they are wrong.
--   If the XSD files are missing, try to recover them. Otherwise contact support.</p>
-<p>|
-|CLFRO0171E: The XML parser failed to validate the file {1} located in directory {0}. Use the exception from the XML parser that is before this message to correct the configuration file, and then restart the application.|The configuration verification was not able to validate the configuration file.|Remove the error by consulting the error message from the xml parser that preceded this error to identify what part in the xml file failed validation. Correct the errors.|
-|CLFRO0172E: The configuration file {1} in the directory {0} does not have the correct configuration ID, it has: {2}. Contact support about this issue.|The system was unable to resolve what the correct configuration-id is for the file.|See if you can roll back to a previous version of the configuration file. If you cannot, contact support.|
-|CLFRO0173W: The configuration file {1} in the directory {0} with this configuration ID {2}, was accepted by the system because it was the newest, the following file(s) are being ignored by the system: {3}. To stop the warning the duplicate configuration file(s) should be removed; the system will automatically take the newest file and ignore the rest of the duplicate file(s).|There was more than one configuration file that was not on the approved configuration file list with the same configuration id. The system picked the newest one and ignored the rest.|To resolve this issue, complete the following steps:1.  Decide which file you want to keep.
-2.  Change the file extension of the other configuration file to something like .oldxml or remove the other configuration file altogether.</p>
-<p>|
-|CLFRO2001E: Error processing config file: &lt;path>, &lt;filename>.|The server encountered an error while parsing the specified configuration file.|Ensure that XML configuration files in the LotusConnections-config folders are valid.|
-|CLFRO2002E: Unable to find configuration with id: &lt;config_id>.|The server could not retrieve an XML configuration file with the requested ID in the LotusConnections-config folder hierarchy.|Report this problem to Customer Support.|
-|CLFRO2003E: Error processing global configuration file|The server could not retrieve or successfully parse a LotusConnections-config.xml configuration file from the LotusConnections-config folder hierarchy.|Report this problem to Customer Support.|
-|CLFRO2004E: Error: &lt;filename> does not have an id attribute in its config element.|The specified XML configuration file does not have a value defined for the required <code>id</code> attribute of the &lt;config> element.|Report this problem to Customer Support.|
-|CLFRO2006E: href attribute in &lt;filename> service element cannot be used to construct a proper URL|The specified XML configuration file does not have a valid value defined for the <code>href</code> attribute; it should be a value that can be converted into a URL.|Update the value of the <code>href</code> attribute to be a properly formed URL string.|
-|CLFRO2008E: {0} internal error|An unspecified error occurred.|Check the SystemOut.log for previous errors.|
-|CLFRO2009E: Entry for service &lt;service_name> does not exist in global config file &lt;file_name>.|The global configuration file does not have a service reference for the requested service name.|Report this problem to Customer Support.|
-|CLFRO2010E: Cannot locate schema file &lt;filename>.|The server cannot find an xsd file required to validate the schema validation in the folder &lt;app_server_profile>/config/cells/ &lt;cell_name>/LotusConnections-config.|Report this problem to Customer Support.|</p>
 <p><strong>Parent topic:</strong><a href="c_error_codes.html">Error message reference</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../secure/t_admin_config_ajax_proxy.html">Configuring the AJAX proxy</a></p>
