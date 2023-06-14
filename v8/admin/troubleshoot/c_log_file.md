@@ -22,7 +22,6 @@ The **SystemOut.log** file is stored in the following directory:
     C:\IBM\WebSphere\AppServer\profiles\<profile_name>\logs\<server_name>
     ```
 
-
 Messages written to the log use the following syntax:
 
 ```
@@ -33,11 +32,11 @@ where:
 
 -   Application prefix: Identifies the application that wrote the message. The following prefixes are used to identify Connections applications and components:
 
+    Table 1. Error message prefixes
+
     |Connections application or component|Prefix|
     |------------------------------------|------|
-    |Activities**Note:** The Quartz Scheduler, a component of Activities does not use the Activities prefix, but its messages do include the string org.quartz.
-
-|CLFRA|
+    |Activities <br> **Note:** The Quartz Scheduler, a component of Activities does not use the Activities prefix, but its messages do include the string org.quartz.|CLFRA|
     |Blogs|CLFRS|
     |Bookmarks|CLFRL|
     |Common directory services integration service|CLFRK|
@@ -62,6 +61,8 @@ where:
 -   Error code: A 4-digit code assigned to the error message to identify it. Code numbers make it easier to search for information about the message. See [Error messages](c_error_codes.md) to see a list of the error codes and what they mean.
 -   Message level code: Identifies the level of the message written to the log. The following levels are supported:
 
+    Table 2. Message level codes
+
     |Message level code|Message level|
     |------------------|-------------|
     |I|INFO|
@@ -78,5 +79,5 @@ CLFRA0299I
 
 CLFRA identifies the message as coming from the Activities application; 0299 is the error code; I indicates that the message is an Info level message.
 
-**Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
+**Parent topic:** [Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 
