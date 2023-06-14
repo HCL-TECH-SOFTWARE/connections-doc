@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35035,123 +35029,135 @@
 drive:\Program Files\IBM\WebSphere\AppServer
 </code></pre></div>
 <p>Where drive is the system drive on which the file directory is stored. For example: C: or D:.</p>
-<p>where dm_profile_root is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\Program Files\IBM\WebSphere\AppServer\profiles\Dmgr01\bin.</p>
-<p><strong>Attention:</strong> You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile() command does not work correctly.</p>
+<p>where <code>dm_profile_root</code> is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\Program Files\IBM\WebSphere\AppServer\profiles\Dmgr01\bin.</p>
+<p><strong>Attention</strong>: You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile() command does not work correctly.</p>
 </li>
 <li>
 <p>Enter the following command to start the wsadmin client:</p>
 <ul>
-<li>AIX or Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
-<li>
-<p>Microsoft Windows: wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT
-where:</p>
-</li>
-<li>
-<p>admin_user_id is the user name of the Administrator role on IBM WebSphere® Application Server. This administrator must be configured at the cell level, not at the cluster, node, or server level.</p>
-</li>
-<li>admin_password is the password of the WebSphere Application Server administrator.</li>
-<li>
-<p>SOAP_CONNECTOR_ADDRESS_PORT is the SOAP port for the WebSphere Application Server deployment manager server. The default value of the SOAP port is 8879. If you are using the default port value, you do not have to specify this parameter. If you are not using the default value and you do not know the port number, you can look up its value in the WebSphere Application Server Integrated Solution Console. To look up the SOAP port number, complete the following steps:</p>
-<ol>
-<li>Open the WebSphere Application Server Integrated Solution Console for the deployment manager, and then select <strong>System Administration</strong> > <strong>Deployment Manager</strong>.</li>
-<li>In the Additional properties section expand <strong>Ports</strong>, and then look for the SOAP_CONNECTOR_ADDRESS port entry to find the port number.
-For example:</li>
-</ol>
-</li>
-<li>
-<p>AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
-</li>
-<li>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879</li>
-<li>Use the following command to access the configuration files:</li>
+<li>AIX or Linux: <code>./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</code></li>
+<li>Microsoft Windows: <code>wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</code></li>
 </ul>
-</li>
-</ol>
-<p>execfile("application_py_file")</p>
-<p>where application_py_file is one of the following values:</p>
+<p>where:</p>
 <ul>
-<li>HCL Connections-wide: connectionsConfig.py</li>
-<li>Activities: activitiesAdmin.py</li>
-<li>Blogs: blogsAdmin.py</li>
-<li>Bookmarks: dogearAdmin.py</li>
-<li>Communities: communitiesAdmin.py</li>
-<li>Files: filesAdmin.py</li>
-<li>Forums: forumsAdmin.py</li>
-<li>Home page: homepageAdmin.py</li>
-<li>News: newsAdmin.py</li>
-<li>Profiles: profilesAdmin.py</li>
-<li>Search: searchAdmin.py</li>
-<li>Wikis: wikisAdmin.py</li>
-<li>Metrics: metricsAdmin.py
-If you are prompted to specify a service to connect to, type 1 to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</li>
+<li><code>admin_user_id</code> is the user name of the Administrator role on IBM WebSphere® Application Server. This administrator must be configured at the cell level, not at the cluster, node, or server level.</li>
+<li><code>admin_password</code> is the password of the WebSphere Application Server administrator.</li>
+<li>
+<p><code>SOAP_CONNECTOR_ADDRESS_PORT</code> is the SOAP port for the WebSphere Application Server deployment manager server. The default value of the SOAP port is 8879. If you are using the default port value, you do not have to specify this parameter. If you are not using the default value and you do not know the port number, you can look up its value in the WebSphere Application Server Integrated Solution Console. To look up the SOAP port number, complete the following steps:</p>
+<ol>
+<li>
+<p>Open the WebSphere Application Server Integrated Solution Console for the deployment manager, and then select <strong>System Administration</strong> > <strong>Deployment Manager</strong>.</p>
+</li>
+<li>
+<p>In the Additional properties section expand <strong>Ports</strong>, and then look for the SOAP_CONNECTOR_ADDRESS port entry to find the port number.</p>
+</li>
+</ol>
+<p>For example:</p>
+<ul>
+<li>AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</li>
+<li>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879</li>
 </ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Use the following command to access the configuration files:</p>
+<div class="highlight"><pre><span></span><code>execfile(&quot;application_py_file&quot;)
+</code></pre></div>
+<p>where <code>application_py_file</code> is one of the following values:</p>
+<ul>
+<li>HCL Connections-wide: <code>connectionsConfig.py</code></li>
+<li>Activities: <code>activitiesAdmin.py</code></li>
+<li>Blogs: <code>blogsAdmin.py</code></li>
+<li>Bookmarks: <code>dogearAdmin.py</code></li>
+<li>Communities: <code>communitiesAdmin.py</code></li>
+<li>Files: <code>filesAdmin.py</code></li>
+<li>Forums: <code>forumsAdmin.py</code></li>
+<li>Home page: <code>homepageAdmin.py</code></li>
+<li>News: <code>newsAdmin.py</code></li>
+<li>Profiles: <code>profilesAdmin.py</code></li>
+<li>Search: <code>searchAdmin.py</code></li>
+<li>Wikis: <code>wikisAdmin.py</code></li>
+<li>Metrics: <code>metricsAdmin.py</code></li>
+</ul>
+<p>If you are prompted to specify a service to connect to, type <code>1</code> to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
 </li>
 <li>
 <p>Check out the configuration file for an application by using the following command:</p>
-<p>service_name.checkOutConfig("working_directory", "cell_name")</p>
+<div class="highlight"><pre><span></span><code>service_name.checkOutConfig(&quot;working_directory&quot;, &quot;cell_name&quot;)
+</code></pre></div>
 <p>where:</p>
 <ul>
-<li>service_name is one of the following values:<ul>
-<li>HCL Connections-wide: LCConfigService</li>
-<li>Activities: ActivitiesConfigService</li>
+<li>
+<p><code>service_name</code> is one of the following values:</p>
+<ul>
+<li>HCL Connections-wide: <code>LCConfigService</code></li>
+<li>Activities: <code>ActivitiesConfigService</code></li>
 <li>Blogs: The configuration settings for Blogs are not in a configuration file, so you do not have to edit a file. Unlike the other applications, when you edit Blogs configuration properties, the changes are written directly to the Blogs database.</li>
-<li>Bookmarks: DogearCellConfig</li>
-<li>Communities: CommunitiesConfigService</li>
-<li>Files: FilesConfigService</li>
-<li>Forums: ForumsConfigService</li>
-<li>News: NewsCellConfig</li>
-<li>Profiles: ProfilesConfigService</li>
-<li>Search: SearchCellConfig</li>
-<li>Wikis: WikisConfigService</li>
-<li>Metrics:MetricsConfigService</li>
+<li>Bookmarks: <code>DogearCellConfig</code></li>
+<li>Communities: <code>CommunitiesConfigService</code></li>
+<li>Files: <code>FilesConfigService</code></li>
+<li>Forums: <code>ForumsConfigService</code></li>
+<li>News: <code>NewsCellConfig</code></li>
+<li>Profiles: <code>ProfilesConfigService</code></li>
+<li>Search: <code>SearchCellConfig</code></li>
+<li>Wikis: <code>WikisConfigService</code></li>
+<li>Metrics: <code>MetricsConfigService</code></li>
 </ul>
 </li>
 <li>
-<p>working_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</p>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".</li>
-<li>AIX, and Linux only: The directory must grant write permissions or the command fails.<ul>
-<li>cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</li>
-</ul>
+<p><code>working_directory</code> is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</p>
+<p>!<strong>Notes</strong>:</p>
+<pre><code>-   When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: `"C:/temp"`
+-   AIX, and Linux only: The directory must grant write permissions or the command fails.
+</code></pre>
 </li>
-</ul>
-<p><strong>Note:</strong> This input parameter is case-sensitive.</p>
+<li>
+<p><code>cell_name</code> is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: <code>print AdminControl.getCell()</code></p>
+<p><strong>Note</strong>: This input parameter is case-sensitive.</p>
 </li>
 </ul>
 <p>For example:</p>
 <ul>
-<li>Common HCL Connections properties:LCConfigService.checkOutConfig("C:/temp","foo01Cell01") LCConfigService.checkOutNotificationConfig("C:/temp","foo01Cell01") LCConfigService.checkOutOpensocialConfig("C:/temp","fooCell01")</li>
 <li>
-<p>The events-config.xml file:LCConfigService.checkOutEventsConfig("/temp","foo01Cell01")</p>
+<p>Common HCL Connections properties: <code>LCConfigService.checkOutConfig("C:/temp","foo01Cell01") LCConfigService.checkOutNotificationConfig("C:/temp","foo01Cell01") LCConfigService.checkOutOpensocialConfig("C:/temp","fooCell01")</code></p>
+</li>
+<li>
+<p>The events-config.xml file: <code>LCConfigService.checkOutEventsConfig("/temp","foo01Cell01")</code></p>
 <p>This command is part of the LCConfig service and checks out the events-config.xml file. For more information, see <em>Editing the events-config.xml file</em>.</p>
 </li>
 <li>
-<p>Activities: ActivitiesConfigService.checkOutConfig("/temp","foo01Cell01")</p>
+<p>Activities: <code>ActivitiesConfigService.checkOutConfig("/temp","foo01Cell01")</code></p>
 </li>
-<li>Bookmarks: DogearCellConfig.checkOutConfig("C:/temp","foo01Cell01")</li>
-<li>Communities: CommunitiesConfigService.checkOutConfig("/temp","foo01Cell01")</li>
-<li>Files: FilesConfigService.checkOutConfig("C:/temp","foo01Cell01")</li>
-<li>Forums: ForumsConfigService.checkOutConfig("C:/temp","foo01Cell01")</li>
-<li>Metrics: MetricsConfigService.checkOutConfig("/temp","foo01Cell01")</li>
-<li>News repository: NewsCellConfig.checkOutConfig("/temp","foo01Cell01")</li>
-<li>Profiles: ProfilesConfigService.checkOutConfig("C:/temp","foo01Cell01")</li>
+<li>Bookmarks: <code>DogearCellConfig.checkOutConfig("C:/temp","foo01Cell01")</code></li>
+<li>Communities: <code>CommunitiesConfigService.checkOutConfig("/temp","foo01Cell01")</code></li>
+<li>Files: <code>FilesConfigService.checkOutConfig("C:/temp","foo01Cell01")</code></li>
+<li>Forums: <code>ForumsConfigService.checkOutConfig("C:/temp","foo01Cell01")</code></li>
+<li>Metrics: <code>MetricsConfigService.checkOutConfig("/temp","foo01Cell01")</code></li>
+<li>News repository: <code>NewsCellConfig.checkOutConfig("/temp","foo01Cell01")</code></li>
+<li>Profiles: <code>ProfilesConfigService.checkOutConfig("C:/temp","foo01Cell01")</code></li>
 <li>
-<p>Search: SearchCellConfig.checkOutConfig("/temp","foo01Cell01")</p>
-<p><strong>Note:</strong> The HomepageCellConfig.checkOutConfig command is superseded by the SearchCellConfig.checkOutConfig command.</p>
+<p>Search: <code>SearchCellConfig.checkOutConfig("/temp","foo01Cell01")</code></p>
+<p><strong>Note</strong>:The HomepageCellConfig.checkOutConfig command is superseded by the SearchCellConfig.checkOutConfig command.</p>
 </li>
 <li>
-<p>Wikis: WikisConfigService.checkOutConfig("C:/temp","foo01Cell01")</p>
+<p>Wikis: <code>WikisConfigService.checkOutConfig("C:/temp","foo01Cell01")</code></p>
 </li>
-<li>To see the current values of the configuration properties, use the following command:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>service\_name.showConfig()
+</li>
+<li>
+<p><strong>Optional</strong>: To see the current values of the configuration properties, use the following command:</p>
+<div class="highlight"><pre><span></span><code>service_name.showConfig()
 </code></pre></div>
-<p>where service_name is one of the service names that are defined in step 4.</p>
+<p>where <code>service_name</code> is one of the service names that are defined in step 4.</p>
 </li>
 <li>
 <p>Edit the configuration properties that you want to change. Some properties must be edited by using the wsadmin client; others can be edited only by editing the configuration XML file directly.</p>
 <p>For example:</p>
-<p>service_name.updateConfig("property_name","new_value")</p>
+<div class="highlight"><pre><span></span><code>service_name.updateConfig(&quot;property_name&quot;,&quot;new_value&quot;)
+</code></pre></div>
 <p>For more information about the configuration properties that you can edit, see the documentation for the individual application sections.</p>
 </li>
 <li>
@@ -35159,13 +35165,15 @@ If you are prompted to specify a service to connect to, type 1 to select the fir
 </li>
 <li>
 <p>Check in the configuration files:</p>
-<p>service_name.checkInConfig()</p>
-<p>where service_name is one of the service names that are defined in step 4. You do not have to complete this step for the Blogs application. To check in the events-config.xml file, use the LCConfigService.checkInEventsConfig() command.</p>
-<p><strong>Note:</strong> You must check in the file during the same wsadmin session in which you checked it out.</p>
+<div class="highlight"><pre><span></span><code>service_name.checkInConfig()
+</code></pre></div>
+<p>where <code>service_name</code> is one of the service names that are defined in step 4. You do not have to complete this step for the Blogs application. To check in the events-config.xml file, use the <code>LCConfigService.checkInEventsConfig()</code> command.</p>
+<p><strong>Note</strong>: You must check in the file during the same wsadmin session in which you checked it out.</p>
 </li>
 <li>
 <p>Deploy the changes by synchronizing the nodes:</p>
-<p>synchAllNodes()</p>
+<div class="highlight"><pre><span></span><code>synchAllNodes()
+</code></pre></div>
 </li>
 <li>
 <p>To exit the wsadmin client, type <code>exit</code> at the prompt.</p>
@@ -35183,7 +35191,7 @@ Configuration files are XML-formatted files that store configuration information
 <li><strong><a href="t_admin_common_editing_events_config.html">Editing the events-config.xml file</a></strong><br />
 Edit the events-config.xml file to change how events are collected and managed</li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_common_tools.html">Administration tools</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_tools.html">Administration tools</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../customize/t_admin_common_customize_postreq.html">Post-customization step</a></p>
 

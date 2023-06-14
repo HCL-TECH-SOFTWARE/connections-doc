@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35051,8 +35045,10 @@
 <li>Profiles: <strong>profiles</strong></li>
 <li>Search: <strong>search</strong></li>
 <li>Wikis: <strong>wikis</strong></li>
-<li>Click <strong>Test connection</strong>.</li>
 </ul>
+</li>
+<li>
+<p>Click <strong>Test connection</strong>.</p>
 </li>
 <li>
 <p>If the connection fails, make sure the JAAS Auth alias information is correct.</p>
@@ -35075,12 +35071,13 @@
 <li>News: <strong>newsJAASAuth</strong></li>
 <li>Profiles: <strong>profilesJAASAuth</strong></li>
 <li>Search: <strong>searchJAASAuth</strong></li>
-<li>Wikis: <strong>wikisJAASAuth</strong><ol>
-<li>Make sure that the ID in the user ID field is the same User ID that you provided during installation when you were asked to specify a user ID for the database connector.</li>
-</ol>
-</li>
+<li>Wikis: <strong>wikisJAASAuth</strong></li>
 </ul>
+</li>
+<li>
+<p>Make sure that the ID in the user ID field is the same User ID that you provided during installation when you were asked to specify a user ID for the database connector.</p>
 <p>The user ID should be one of the following default IDs:</p>
+<p>Table 1. Default user ID for Connections databases</p>
 <table>
 <thead>
 <tr>
@@ -35241,11 +35238,11 @@
 <li>News: <strong>NEWS_JDBC_DRIVER_HOME</strong></li>
 <li>Profiles: <strong>PROFILES_JDBC_DRIVER_HOME</strong></li>
 <li>Search: <strong>SEARCH_JDBC_DRIVER_HOME</strong></li>
-<li>Wikis: <strong>WIKIS_JDBC_DRIVER_HOME</strong><ol>
-<li>Ensure that the corresponding file path in the <strong>Value</strong> column is the same file path that you specified in the <strong>JDBC driver library</strong> field when you ran the installation wizard. For example:</li>
-</ol>
-</li>
+<li>Wikis: <strong>WIKIS_JDBC_DRIVER_HOME</strong></li>
 </ul>
+</li>
+<li>
+<p>Ensure that the corresponding file path in the <strong>Value</strong> column is the same file path that you specified in the <strong>JDBC driver library</strong> field when you ran the installation wizard. For example:</p>
 <div class="highlight"><pre><span></span><code>C:\IBM\DB2\SQLLIB\java
 </code></pre></div>
 <p>If the file path is incorrect, click the variable name and edit the file path in the <strong>Value</strong> field.</p>
@@ -35256,7 +35253,7 @@
 </ol>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="ts_c_ts_tips_overview.html">Troubleshooting tips</a></p>
+<p><strong>Parent topic:</strong> <a href="ts_c_ts_tips_overview.html">Troubleshooting tips</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="r_error_codes_search.html">Search error messages</a></p>
 

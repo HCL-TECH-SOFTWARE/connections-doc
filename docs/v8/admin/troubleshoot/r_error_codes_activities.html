@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6106,8 +6116,6 @@
         
           
         
-          
-        
       
       
         
@@ -6276,20 +6284,6 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -35418,371 +35412,1650 @@
 <tr>
 <td>CLFRA0122E: Cannot find credentials for &lt;name>.</td>
 <td>The system is configured to use J2C Authentication Aliases to store authentication data. The entry for &lt;name> is missing.</td>
-<td>Go to <strong>Security</strong> > <strong>Global security</strong> > <strong>JAAS</strong> > <strong>J2C authentication data</strong> in the WebSphere Application Server Integrated Solutions Console, and check whether there is an entry for &lt;name>. If there is no entry, create an Authentication Alias for &lt;name> by completing these steps:1.  Shut down the WebSphere Application Server.</td>
+<td>Go to <strong>Security</strong> > <strong>Global security</strong> > <strong>JAAS</strong> > <strong>J2C authentication data</strong> in the WebSphere Application Server Integrated Solutions Console, and check whether there is an entry for &lt;name>. If there is no entry, create an Authentication Alias for &lt;name> by completing these steps: <br> 1.  Shut down the WebSphere Application Server. <br> 2.  Edit the security.xml file in &lt;APPServer_HOME>/profiles/AppSrv01/config/cells/&lt;cell> <br> 3.  Find the authDataEntries entry with an alias that includes &lt;name>. For example: &lt;authDataEntries alias="text/name"> 2.5 <br> 4.  Replace "text/name" with "name" <br> 5.  Save the security.xml file. <br> 6.  Restart the WebSphere Application Server. <br> If there is an entry for &lt;name>, verify that the user credentials are correct. If these steps do not fix the problem, then contact Customer Support.</td>
 </tr>
 <tr>
-<td>2.  Edit the security.xml file in &lt;APPServer_HOME>/profiles/AppSrv01/config/cells/&lt;cell></td>
-<td></td>
-<td></td>
+<td>CLFRA0123E: Profile provider error.</td>
+<td>Activities received an error querying the directory (i.e. LDAP) for a user or group.</td>
+<td>Ensure that the LDAP server configured for the WebSphere Application Server is accessible and that the bind credentials used to authenticate to the LDAP server (if necessary) are valid.</td>
 </tr>
 <tr>
-<td>3.  Find the authDataEntries entry with an alias that includes &lt;name>. For example: &lt;authDataEntries alias="text/name"> 2.5</td>
-<td></td>
-<td></td>
+<td>CLFRA0127W: Activities cannot determine host name.</td>
+<td>An error occurred while initializing the Statistics collection service. There was a problem with the server host name. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
 </tr>
 <tr>
-<td>4.  Replace "text/name" with "name"</td>
-<td></td>
-<td></td>
+<td>CLFRA0131E: Activities Task Scheduler initialization error: &lt;error>.</td>
+<td>Reason: An error occurred while initializing the Quartz scheduler. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
 </tr>
 <tr>
-<td>5.  Save the security.xml file.</td>
-<td></td>
-<td></td>
+<td>CLFRA0135E: Error executing event notification.</td>
+<td>Error received in the event broker. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
 </tr>
 <tr>
-<td>6.  Restart the WebSphere Application Server.</td>
-<td></td>
-<td></td>
+<td>CLFRA0136E: Exiting the Async Notification Thread: event processing has been halted.</td>
+<td>Error received when the event broker thread is halted. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0137E: Error encountered processing events.</td>
+<td>Error received in the event broker when dispatching events. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0138E: The invoker should not be interrupted.</td>
+<td>Another thread interrupted the internal event broker. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0142E: Incorrect number of arguments. Please specify the configuration file to process.</td>
+<td>Should not see this error message. Application is not enabled.</td>
+<td>Should not see this error message. Application is not enabled.</td>
+</tr>
+<tr>
+<td>CLFRA0143E: Cannot locate configuration file {0}.</td>
+<td>Should not see this error message. Application is not enabled.</td>
+<td>Should not see this error message. Application is not enabled.</td>
+</tr>
+<tr>
+<td>CLFRA0144E: ConfigurationParser: Bad configuration. Config section defines more properties than values, or vice versa. Possible errant &lt;property> element(s) without a "name" attribute(s).</td>
+<td>A configuration element in oa-config.xml or oa-jobs.xml is invalid.</td>
+<td>Enable debug tracing for com.ibm.openactivities.util, restart the application, and determine the invalid element from the trace.log output. Correct the element and restart the Activities application.</td>
+</tr>
+<tr>
+<td>CLFRA0146E: Unable to refresh cached list of groups.</td>
+<td>Activities received an exception refreshing its group cache. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0147E: Error initializing Activities.</td>
+<td>The Activities application received an error trying to start.</td>
+<td>The cause of the error will be found in the SystemOut.log file. Correct the error cause and restart the Activities application.</td>
+</tr>
+<tr>
+<td>CLFRA0270E: Error getting server URL for &lt;name>.</td>
+<td>There was an error reading the server URL for the &lt;name> service.</td>
+<td>1.  Find the LotusConnections-config.xml file (in &lt;App server home>/profiles/&lt;name>/config/cells/&lt;cell name>/LotusConnections-config) <br> 2.  Make sure the files exists and is readable by the WebSphere Application Server process. <br> 3.  Make sure the files contains the correct entry for the &lt;name> service.</td>
+</tr>
+<tr>
+<td>CLFRA0271E: Cannot find config variable directory &lt;directory>.</td>
+<td>There was a problem reading variables that can be used in the oa-config.xml file.</td>
+<td>Make sure the directory exists and is readable by the WebSphere Application Server.</td>
+</tr>
+<tr>
+<td>CLFRA0272E: Cannot find &lt;file> for config variables.</td>
+<td>There was a problem opening a file getting configuration variables.</td>
+<td>Make sure the file exists and is readable by the WebSphere Application Server.</td>
+</tr>
+<tr>
+<td>CLFRA0273W: Missing system setting for &lt;name>.</td>
+<td>The Connections configuration cannot find a definition for a variable named "name".</td>
+<td>Either, check the installation documentation for the variable to find the correct value for the variable, or add the variable with its correct value in the WebSphere Application Server Integrated Solutions Console, Environment/websphere Variables page.</td>
+</tr>
+<tr>
+<td>CLFRA0275E: Error loading config variables from &lt;file>.</td>
+<td>There was a failure parsing variables in file.</td>
+<td>1.  Make sure the file exists and is readable by the WebSphere Application Server. <br> 2.  Replace the current copy with a back-up copy of the file.</td>
+</tr>
+<tr>
+<td>CLFRA0276E: Too many errors occurred while sending Activity auto-completion notices. The auto-complete operation was aborted.</td>
+<td>The server has given up trying to keep sending any more auto complete email notices.</td>
+<td>Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0277W: Warning, invalid parameter specified for the Activity Auto Completion notification max errors ({0}).</td>
+<td>Should not see this error message. Application is not enabled.</td>
+<td>Should not see this error message. Application is not enabled.</td>
+</tr>
+<tr>
+<td>CLFRA0278E: An error occurred while generating the list of activities eligible for auto completion.</td>
+<td>Error received querying the database to obtain a list of activities that qualify to be autocompleted. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0279E: Error sending auto-complete notification for activity UUID &lt;uuid>.</td>
+<td>Error received when sending email about an auto complete notification. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0280E: Error initializing the Activities Administrator email address. Some email functionality will not be available.</td>
+<td>No administrator email address was configured in oa-config.xml.</td>
+<td>Edit notification-config.xml and provide an administrator email address for the globalSenderEmailAddress property and optionally provide additional email addresses for different types of Activities notifications.</td>
+</tr>
+<tr>
+<td>CLFRA0281E: The content of mime type: "&lt;mimeType>" or filename: "&lt;fileName>" you tried to upload is not allowed by your administrator.</td>
+<td>The administrator set a size limit of zero bytes for the type of content a user tried to upload, either by mime type or by filename.</td>
+<td>Change the upload limits in the &lt;sizeLimits> element in oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0282E: The profile provider could not find information for member &lt;uuid>.</td>
+<td>The Activities profile application did not find a member by the given member ID.</td>
+<td>Contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0285W: Purge expiration period (days) either not specified or invalid (&lt;integer>). Defaulting to {1} days.</td>
+<td>The trashRetentionInDays configured for the TrashAutoPurgeJob in oa-jobs.xml is invalid.</td>
+<td>Add a value greater than 0 for the trashRetentionInDays configuration. Otherwise, trash older than 1 day will be purged when the job runs.</td>
+</tr>
+<tr>
+<td>CLFRA0286E: Error sending activity auto completion notification.</td>
+<td>Error received when trying to send an email auto-completion notification.</td>
+<td>Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0287E: Error parsing administrator email address.</td>
+<td>The administrator email address configured in oa-config.xml is badly formatted.</td>
+<td>Edit notification-config.xml and provide an administrator email address in the correct format in the &lt;globalSenderEmailAddress> element.</td>
+</tr>
+<tr>
+<td>CLFRA0288E: No Activities Administrator email address has been configured. You must specify a value for "globalSenderEmailAddress" or "sender" in the notification configuration file.</td>
+<td>The administrator email address configured in oa-config.xml is empty.</td>
+<td>Edit notification-config.xml and provide an administrator email address in the correct format in the &lt;globalSenderEmailAddress> element.</td>
+</tr>
+<tr>
+<td>CLFRA0289W: Content removed by active content filter.</td>
+<td>The active content filter removed active content from user input.</td>
+<td>No action necessary.</td>
+</tr>
+<tr>
+<td>CLFRA0290E: Error starting the active content filter.</td>
+<td>The active content filter received an error on start up.</td>
+<td>Contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0291E: Error encountered with the active content filter.</td>
+<td>The active content filter received an error trying to filter text.</td>
+<td>Contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0292W: Warning, it appears the ACF inserted an invalid character mid stream (&lt;filteredText>).</td>
+<td>The active content filter inserted an invalid character in the filteredText as part of a filtering operation.</td>
+<td>No action necessary. The Activities application fixes up the invalid character.</td>
+</tr>
+<tr>
+<td>CLFRA0293E: A MemberProfile cannot be null.</td>
+<td>The data in a request to update a member profile in the database is null; possibly via a bad API request.</td>
+<td>Contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0295E: Cannot update non-matching MemberProfiles. &lt;uuid> is not &lt;uuid>.</td>
+<td>In a request to one member profile with a new one, the member IDs do not match.</td>
+<td>Contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0296E: Error performing UTF-8 character validation: {0}</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0300E: The ArchiveService cannot export activities to the directory=&lt;directory>; it is not writable.</td>
+<td>The exportActivities command of ArchiveService wsadmin object tried to archive Activities to a directory that is not writable.</td>
+<td>Ensure that &lt;directory> exists and that it is writable by the WebSphere Application Server.</td>
+</tr>
+<tr>
+<td>CLFRA0301E: The required zip file "Activity-&lt;uuid>.zip" was not found. This activity will not be imported, or a related activity link will be broken.</td>
+<td>The ArchiveService was requested to import activity with uuid &lt;uuid>. However, the directory path that was also given to the ArchiveService does not contain the file Activity-&lt;uuid>.zip.</td>
+<td>Ensure that the directory specified in an ArchiveService importActivities or createActivities command contains the archives for the desired Activities.</td>
+</tr>
+<tr>
+<td>CLFRA0304E: The version of the archive you tried to import does not match the current DB schema.</td>
+<td>One cannot import activities into servers that are using different DB schemas</td>
+<td>Migrate the archive to the matching schema version and then import the migrated archive.</td>
+</tr>
+<tr>
+<td>CLFRA0306W: The user by email (or display name if it's a group) &lt;member> was not found in the LDAP or the database! This means the activity being imported has a reference to a user that has changed emails, or has been removed from the LDAP. In other words, this email address is stale, and the activity is carrying around incongruent data.</td>
+<td>A member that was included in the imported activity cannot be found anymore. This might happen when switching LDAP servers, and the membership list is different.</td>
+<td>No action necessary. The imported activity will be imported, the missing member email address (or display name if a group) will be rewritten to "NOT_FOUND_&lt;original emal>". If this behavior is unexpected, you might want to investigate why members are missing in the new LDAP.</td>
+</tr>
+<tr>
+<td>CLFRA0309E: The ArchiveService cannot export activities to the directory=&lt;directory>; it is not a directory.</td>
+<td>The exportActivities command of ArchiveService wsadmin object tried to archive Activities to a directory that is not writable.</td>
+<td>Ensure that &lt;directory> exists and that it is writable by the WebSphere Application Server.</td>
+</tr>
+<tr>
+<td>CLFRA0310E: Error writing activity entry #&lt;uuid> to the database.</td>
+<td>An ArchiveService import error received at the point where the Node of the Activity is written. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0312E: Error writing activity node to the database.</td>
+<td>An ArchiveService import error received at the point where one of the nodes (entries) of the Activity is written. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0315E: The ArchiveService cannot create the directory=&lt;directory> for exporting activities.</td>
+<td>In an ArchiveService exportActivities command one specifies a directory where all the archive files will be written. In this case, the system cannot write out the specified directory to the file system.</td>
+<td>Manually create the &lt;directory> on the file system and ensure it is writable by the WebSphere Application Server.</td>
+</tr>
+<tr>
+<td>CLFRA0318E: The related activity with UUID=&lt;uuid> already exists in the system. It is unclear whether the intention is to overwrite that activity with old data or not. Thus, it will be not imported.</td>
+<td>When an activity has a related activity link in it, the ArchiveService will automatically try to import the related activity. However, if the ArchiveService is being run with "importActivities" which overwrites activities rather than creating copies, then, it is unclear to the system whether the administrator also intentionally meant to overwrite related activities since that related activity it was not explicitly passed in to be imported.</td>
+<td>If the administrator wishes to overwrite the related activity, he can use the ArchiveService importActivites command to overwrite the related Activity.</td>
+</tr>
+<tr>
+<td>CLFRA0319E: Error writing activity content entry "&lt;name>".</td>
+<td>An ArchiveService import error received at the point where the content (files, attachments, etc) of one of the nodes (entries) of the activity is written. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0320E: Error importing activity with UUID=&lt;uuid>.</td>
+<td>An ArchiveService import error. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0321E: Error unpacking the archive.</td>
+<td>An ArchiveService import error received when unmarshalling the Zip archive.</td>
+<td>The Zip archive has been corrupted. If the cause of the corruption cannot be determined, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0323E: Duplicate member profile with secondary key "{0}" has been found, no sync operation was taken.</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0324E: Member profile with secondary key "{0}" has not been found in the "{1}".</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0326E: More than one member profile matches the search for {0}.</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0328W: The &lt;name> scheduler is not enabled in config. Check spelling.</td>
+<td>An attempt was made to start or stop a scheduler that is not enabled in the oa-config.xml file or is named differently than the name given in oa-config.xml.</td>
+<td>Enable the scheduler by changing the 'enabled' true/false setting. Ensure the scheduler name is spelled correctly.</td>
+</tr>
+<tr>
+<td>CLFRA0329E: The attempt to start the &lt;name> scheduler failed.</td>
+<td>The Quartz scheduler did not start. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0330W: The &lt;name> scheduler has already been stopped.</td>
+<td>An attempt was made to stop a scheduler that is already stopped.</td>
+<td>Ensure that the scheduler is started before attempting to stop it.</td>
+</tr>
+<tr>
+<td>CLFRA0332W: The job &lt;name> is not valid for the {1} scheduler.</td>
+<td>An attempt was made to carry out an action on a job that is not running.</td>
+<td>Ensure that the job name is spelled correctly and that the job name is known to the system.</td>
+</tr>
+<tr>
+<td>CLFRA0335W: The job &lt;name> is already running on the {1} scheduler.</td>
+<td>An attempt was made to resume a job that is already running on a scheduler.</td>
+<td>Ensure that the job is paused before attempting to resume it.</td>
+</tr>
+<tr>
+<td>CLFRA0337W: The &lt;name> scheduler has already been started.</td>
+<td>An attempt was made to start a scheduler that is already started.</td>
+<td>Ensure that the scheduler is stopped before attempting to start it.</td>
+</tr>
+<tr>
+<td>CLFRA0339W: The &lt;name> scheduler is disabled in config.</td>
+<td>An attempt was made to start or stop a scheduler that is disabled in the oa-config.xml file.</td>
+<td>Enable the scheduler by changing the 'enabled' true/false setting.</td>
+</tr>
+<tr>
+<td>CLFRA0340W: The request to pause job &lt;name> failed.</td>
+<td>An error occurred while attempting to pause a job. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>No action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0341W: The job &lt;name> has already been paused on the {1} scheduler.</td>
+<td>An attempt was made to pause a job that is already paused on a scheduler.</td>
+<td>Ensure that the job is running before attempting to pause it.</td>
+</tr>
+<tr>
+<td>CLFRA0343W: The request to resume job &lt;name> failed.</td>
+<td>An error occurred while attempting to resume a previously paused job. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>No action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0345E: The attempt to stop the &lt;name> scheduler failed.</td>
+<td>The Quartz scheduler did not stop. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+<td>If the problem persists after restarting the Activities application, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0347E: Error exporting activity UUID={0}.</td>
+<td>An error occurred while trying to export the activity with the given UUID.</td>
+<td>Check previous log messages for the actual cause of the export failure. Resolve the error and re-run the export.</td>
+</tr>
+<tr>
+<td>CLFRA0348W: The group "{0}" could not be loaded from LDAP or the database. Or, there might have been multiple matches for the same name in LDAP.</td>
+<td>This error is encountered when a group name is not found or multiple matches to the name are found in the configured directory.</td>
+<td>No action necessary. The activity will continue to be imported; an entry for "NOT_FOUND_" + the group name will be added to the member table and the membership list.</td>
+</tr>
+<tr>
+<td>CLFRA0349E: Error locating profile: EXID mismatch, but email matches. email={0}, directory EXID={1}, db EXID={2}.</td>
+<td>This error is encountered when a member entry is found in the Activities database by the given email address, but the external identifier does not match the LDAP record.</td>
+<td>Determine if the person's record has changed in LDAP and if the two entries are really for the same person. If they are, use the Activities MemberService. <br> synchMemberExtId (email address) command to update the Activities database with the correct id.</td>
+</tr>
+<tr>
+<td>CLFRA0350E: Error: the group profile "{0}" could not be located in the Activities database.</td>
+<td>This error is encountered during LDAP synchronization. The group could not be located in the Activities database.</td>
+<td>Check the spelling of the group name.</td>
+</tr>
+<tr>
+<td>CLFRA0351E: Error: the group profile "{0}" could not be located in the directory service.</td>
+<td>This error is encountered during LDAP synchronization. The group found in the Activities database could not be located in LDAP.</td>
+<td>Check the spelling of the group name.</td>
+</tr>
+<tr>
+<td>CLFRA0353E: Error: the member profile "{0}" could not be located in the Activities database.</td>
+<td>This error is encountered during LDAP synchronization. The person could not be located in the Activities database.</td>
+<td>Check the profile for the referenced user and ensure that the spelling of the supplied look-up field matches.</td>
+</tr>
+<tr>
+<td>CLFRA0356E: Error: the member profile "{0}" could not be located in the directory service.</td>
+<td>This error is encountered during LDAP synchronization. The person could not be located in LDAP.</td>
+<td>There is no match for the person by the given value. Check to see if the person exists in LDAP.</td>
+</tr>
+<tr>
+<td>CLFRA0357E: Error: more than one profile was found with the key "{0}".</td>
+<td>Multiple entries identified by the &lt;user identifier> have been found in the member profile table.</td>
+<td>One of the entries must be deleted. Contact Customer Support before proceeding.</td>
+</tr>
+<tr>
+<td>CLFRA0359E: Error locating member profile for &lt;user identifier>, search type &lt;internal search type>.</td>
+<td>The user's member profile could not be located in the directory.</td>
+<td>Verify the LDAP configuration is correct. If this error is limited to a specific user, verify the user can be located in LDAP given the identifier in the error message. The search type indicates what LDAP attribute is searched: 1=login, 2=email, 3=internal Activities member id (not used when searching LDAP).</td>
+</tr>
+<tr>
+<td>CLFRA0361E: The file "{0}" cannot be uploaded as it is a 0-byte file.</td>
+<td>An attempt was made to upload the specified file which has no content (zero bytes in size). Only files which have content may be uploaded.</td>
+<td>Ensure that the file contains data before uploading.</td>
+</tr>
+<tr>
+<td>CLFRA0362E: FileSystem property name="use.historic" was not found in ObjectStore registry. Double-check the oa-config.xml file.</td>
+<td>The use.historic property is missing from the ObjectStore section of the oa-config.xml file. It must be present and must have a value of either true or false.</td>
+<td>Check the &lt;objectStore> settings in oa-config.xml file and provide a correct value for the use.historic property of the &lt;store> element.</td>
+</tr>
+<tr>
+<td>CLFRA0364E: Error initializing the Notification service for {0}. No notification messages will be sent. Error details : {1}.</td>
+<td>An unexpected error occurred while initializing the notification service for Activities. This is most likely due to a configuration problem with the server or mail service.</td>
+<td>Verify that the mail service is configured properly. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0366E: Activities Notification service initialization error: {0}</td>
+<td>An unexpected error occurred while initializing the notification service for Activities. This is most likely due to a configuration problem with the server or mail service.</td>
+<td>Verify that the mail service is configured properly. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0367E: The date {0} is invalid; see documentation for acceptable date formats</td>
+<td>The date supplied as a parameter is invalid. This date was supplied to the request to fix up the content store after a restore from backup. This is a WSAdmin command task.</td>
+<td>Enter a date that is valid according to one of the documented acceptable formats.</td>
+</tr>
+<tr>
+<td>CLFRA0368E: The folder {0} does not exist</td>
+<td>The folder path which was supplied as a parameter is invalid.</td>
+<td>Enter the path of a folder that exists.</td>
+</tr>
+<tr>
+<td>CLFRA0369E: The attempt to fix up the content store failed : {0}</td>
+<td>An error occurred while attempting to fix up the contents of the file store after a restore from backup.</td>
+<td>Verify that the command was used properly and that the file system is accessible. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0371E: Creation of the orphan folder {1} failed</td>
+<td>An error occurred while attempting to create the specified folder for orphaned files.</td>
+<td>Verify that the path for the folder exists and that the file system is accessible. Also verify that the user has write access to the file system. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0373E: The value {0} for the content store configuration is invalid. Check oa-config.xml</td>
+<td>The directory given in oa-config.xml for the &lt;store> element property name root.directory either could not be found or accessed. This directory is used for file uploads to the Activities content store.</td>
+<td>Check that the directory exists. Create it if it does not exist.</td>
+</tr>
+<tr>
+<td>CLFRA0374E: file: {0} already exists.</td>
+<td>While attempting to mark a file as "purged" for subsequent deletion, the file could not be marked since a file with that name already existed on the file system. This should not ordinarily happen.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0375E: error encountered while purging content: {0} {1}.</td>
+<td>An error occurred while attempting to remove content from the file store or mark the file for deletion.</td>
+<td>Additional information relating to the failure can be found in the SystemOut.log file. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0376E: unable to mark file: {0} for deletion.</td>
+<td>An error occurred while attempting to mark the specified file as "purged" for subsequent deletion. The file could not be marked for deletion from the file system. This should not ordinarily happen.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0377E: unable to purge file {0} {1}.</td>
+<td>An error occurred while attempting to mark the specified file as "purged" for subsequent deletion. The file could not be marked for deletion from the file system. This should not ordinarily happen.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0378E: The attempt to remove redundant files from the content store failed : {0}</td>
+<td>An error occurred while attempting to remove redundant files from the content store. The files could not be removed from the file system. This should not ordinarily happen.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0380E: The content store location is not a valid directory or is missing: {0}</td>
+<td>The file path specified in the oa-config.xml file for the root.directory property either could not be found or could not be accessed. This directory is used for file uploads to the Activities content store and must exist and be writeable.</td>
+<td>Check that the directory exists; create it if it does not exist.</td>
+</tr>
+<tr>
+<td>CLFRA0382E: Unable to delete file {0} from the content store. The system security manager denied file delete access.</td>
+<td>An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since delete access to the file was denied by the system security manager. This should not ordinarily happen. Only processes with the appropriate access credentials should be attempting to delete files from the system. Any failure should be investigated by the system administrator to determine which process was attempting the unauthorized access.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0383E: The content store cleanup job only supports a file system object store. Store is {0}. Check oa-config.xml.</td>
+<td>The Activities content store must be a file system content store. No other type of content store is supported.</td>
+<td>Check in the oa-config.xml file for the store type and ensure that it refers to a FileSystemObjectStore.</td>
+</tr>
+<tr>
+<td>CLFRA0384W: Unable to delete file {0} from the content store. Skipping this file.</td>
+<td>An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since the file delete operation failed. This should not ordinarily happen.</td>
+<td>This is not a critical situation but could lead to extraneous files remaining on the file system. Ensure that the referenced file exists and can be accessed. The administrator can safely manually remove any files that the historic purge task fails to delete. Additional information relating to the failure can be found in the SystemOut.log file. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0386E: The file does not exist.</td>
+<td>An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since it does not exist. This should not ordinarily happen.</td>
+<td>This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0387E: The directory is not empty.</td>
+<td>An error occurred while attempting to remove a directory from the content store. The directory could not be removed from the file system since it contained at least one file. This should not ordinarily happen.</td>
+<td>This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced directory exists and can be accessed and verify that the files contained in it are no longer needed by the Activities server. If they are no longer used, then files in that directory can be manually removed and the directory can be manually removed. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0388E: The file is read only.</td>
+<td>An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since it is read only. This should not ordinarily happen. Files in the Activities content store should be read-write so that they can be updated, moved or deleted by the Activities system.</td>
+<td>This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If necessary, change the file access permissions to read-write. If the problem persists after restarting Activities, contact Customer Support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0392E: The path "{0}" is not a directory or it does not exist.</td>
+<td>The path given was not a directory path</td>
+<td>Provide a correct directory path</td>
+</tr>
+<tr>
+<td>CLFRA0393E: Error. The value given for "{0}" in LotusConnections-config.xml is invalid.</td>
+<td>An error occurred while retrieving the specified value from Lotusconnections-config.xml.</td>
+<td>Check that the config file has a suitable value for the parameter.</td>
+</tr>
+<tr>
+<td>CLFRA0394E: Access control for community activities cannot be altered. Update the membership in the community instead. Activity UUID = {0}</td>
+<td>Tried to update the ACL on a community activity</td>
+<td>By design, the ACL for a community activity should be changed in the Community directly not thru Activities</td>
+</tr>
+<tr>
+<td>CLFRA0395E: Community pseudo groups are not valid members. They may not be used for access control operations.</td>
+<td>Attempted to use a pseudo-group as an ACL object</td>
+<td>By design, the ACL for a community activity should be changed in the Community directly not thru Activities</td>
+</tr>
+<tr>
+<td>CLFRA0396E: Error updating last login time for {0}</td>
+<td>An error occurred updating the last login time for the indicated user.</td>
+<td>Check Systemout.log for additional information.</td>
+</tr>
+<tr>
+<td>CLFRA0399E: Error {0} received accessing Communities server</td>
+<td>The Communities is down or unresponsive</td>
+<td>Check that the server is correctly configured with a valid URL to Communities, and that the Communities server is up and running</td>
+</tr>
+<tr>
+<td>CLFRA0403E: Error: An error occurred while updating the login names for user "{0}". The internal error is {1}</td>
+<td>Additional details of the error are given in the error message.</td>
+<td>If the problem persists after restarting the Communities application, contact Customer Support to report the incident. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0406E: An error occurred while propagating an event.</td>
+<td>The Activities application generated an exception.</td>
+<td>If the problem persists after restarting the Communities application, contact Customer Support to report the incident. Additional information relating to the failure may be found in the SystemOut.log file.</td>
+</tr>
+<tr>
+<td>CLFRA0407E: Error writing ''{0}''.</td>
+<td>Generic error writing a file to the filesystem</td>
+<td>Usually, this error will be followed by a more specific message about an exact problem writing the file</td>
+</tr>
+<tr>
+<td>CLFRA0408E: Could not create the directory for writing ''{0}''.</td>
+<td>Could not write the directory to the filesystem</td>
+<td>Check the given path points to a location the system has the appropiate permissions to write to</td>
+</tr>
+<tr>
+<td>CLFRA0409E: Error closing streams when writing SyncedResourceInfo.xml</td>
+<td>Generic error writing a file to the filesystem</td>
+<td>Usually results in problems when files are locked or deleted by another process</td>
+</tr>
+<tr>
+<td>CLFRA0410E: The given path ''{0}'' is a directory. Please specify a filename.</td>
+<td>The given path is a directory</td>
+<td>Make sure to specify a path pointing to a file and not a directory</td>
+</tr>
+<tr>
+<td>CLFRA0411E: Could not write ''{0}''; The directory or given path is not writable.</td>
+<td>The given path is not a writable directory.</td>
+<td>Make sure to specify a directory path pointing to a directory for which the user has write access.</td>
+</tr>
+<tr>
+<td>CLFRA0439I: Processing ''remote.app.transfer'' community event from old community ExId: ''{0}'', to new community ExId: ''{1}''</td>
+<td>This message is used for logging purpose when moving a set of activities from one community to another (as is the case for a 'sync' event) if debugging/logging is enabled.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0442E: A fatal error occurred while sending a notification message.</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0445E: unable to download the file: {0} {1}.</td>
+<td>An error occurred while downloading a file attachment.</td>
+<td>The specified file could not be found or an error occurred while it was being read.</td>
+</tr>
+<tr>
+<td>CLFRA0446E: Unknown sync event type: "{0}"</td>
+<td>A communities event was not recognized by the Acitvities server.</td>
+<td>Check that Activities is not subscribed to listen to events it does not support</td>
+</tr>
+<tr>
+<td>CLFRA0447E: The communities service is currently unavailable. Check that it is running.</td>
+<td>This message is logged when fetching communities by name and directory service is not available.</td>
+<td>Need to make sure that the directory service is available.</td>
+</tr>
+<tr>
+<td>CLFRA0449E: The user with external ID "{0}" is not authorized to access the Activity with UUID {1}.</td>
+<td>This error message is thrown with access control exception because of the user with a given external Id does not have access to the activity.</td>
+<td>Access to the activity must be granted to the user.</td>
+</tr>
+<tr>
+<td>CLFRA0450E: An internal error occurred during the AntiVirus scan of Activities object store content item "{0}". Make sure that the AntiVirus server is running and that you can access it, and then try to upload the item again.</td>
+<td>An error occurred while attempting to virus-scan a file being uploaded.</td>
+<td>Verify that the AV server is running. Check the SystemOut.log file for additional failure details.</td>
+</tr>
+<tr>
+<td>CLFRA0455E: The file {0} contains a virus. Remove the virus before attempting to upload the file.</td>
+<td>Informational message. The AV scanner processed an uploaded file and found a virus in the file.</td>
+<td>Remove the virus from the file before attempting to upload it to Activities.</td>
+</tr>
+<tr>
+<td>CLFRA0456E: The internal identifier {0} is invalid and cannot be used to retrieve content from the database.</td>
+<td>The identifier in the URL for downloading a file is not valid.</td>
+<td>Check the identifier in the URL for correctness; if it is correct, the content has been removed and is no longer accessible.</td>
+</tr>
+<tr>
+<td>CLFRA0457E: Error {0} received accessing the Organization server</td>
+<td>The service that supplies a person's organization is not responding.</td>
+<td>Ensure that the directory services extension configuration for Organizations is correctly configured.</td>
+</tr>
+<tr>
+<td>CLFRA0458E: The user {0} could not upload the file with size: {1} because their quota of size {2} would be exceeded.</td>
+<td>The specified user attempted to upload a file to Activities but the file exceeded the allowable file size.</td>
+<td>The user may either reduce the size of the file or the system administrator can increase the quota size.</td>
+</tr>
+<tr>
+<td>CLFRA0461E: The file with size: {0} could not be uploaded because your quota of size {1} would be exceeded.</td>
+<td>The current user attempted to upload a file to Activities but the file exceeded the allowable file size.</td>
+<td>The user may either reduce the size of the file or the system administrator can increase the quota size.</td>
+</tr>
+<tr>
+<td>CLFRA0462E: Unable to instantiate file upload quota checker {0}; received error {1}; using default implementation</td>
+<td>The file upload quota extension is not configured with an accessible class.</td>
+<td>Provide the name of a class accessible to the Activities service for checking file upload quotas.</td>
+</tr>
+<tr>
+<td>CLFRA0463E: The command cannot be processed because another user has this key value: {0}</td>
+<td>The person's profile data cannot be updated because another person already has been assigned their unique identifer.</td>
+<td>Resolve issues with the directory so that different users are not assigned the same unique identifer.</td>
+</tr>
+<tr>
+<td>CLFRA0464E: The user with id {0} could not be found.</td>
+<td>The identifier provided in the transfer assets command does not resolve to a unique identifier for a person in the directory.</td>
+<td>Provide a unique identifier for a person in the directory in the transfer command.</td>
+</tr>
+<tr>
+<td>CLFRA0465E: Unknown command: {0}</td>
+<td>The provisioning command received was not recognized.</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>CLFRA0466E: An unexpected error occurred while processing command {0}: {1}</td>
+<td>The provisioning or user lifecycle event failed.</td>
+<td>Resolve the error included in the message and reissue the event.</td>
+</tr>
+<tr>
+<td>CLFRA0470E: Unable to instantiate configured cacheExtensionPoint {0}; received error {1}; using default implementation</td>
+<td>The class providing an alternative implementation to the default Activities cache could not be instantiated.</td>
+<td>Correctly configure the extenstion point for the alternative cache implementation in oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0471E: The community by external ID "{0}" could not be found. Thus, this community activity will not be imported.</td>
+<td>If Activities cannot find the given Community, it cannot import the archive.</td>
+<td>See if the community still exists in the Communities Server using the same ID.</td>
+</tr>
+<tr>
+<td>CLFRA0472E: The membership model can only be changed on community activities.</td>
+<td>This message is thrown if an error occurs when changing the membership type of the community.</td>
+<td>Make sure the activity is a community activity.</td>
+</tr>
+<tr>
+<td>CLFRA0473E: Error locating profile: EXID mismatch, but email matches. name={0}, directory EXID={1}, db EXID={2}</td>
+<td>A collision arose between two users who have the same email address but different LDAP Ids.</td>
+<td>Using the logged identification information. The system administrator can fix up the user data in LDAP and in the Activities database tables, ensuring that each unique user has a different email address and different LDAP Ids.</td>
+</tr>
+<tr>
+<td>CLFRA0475E: Error on user lifecycle getByInternalId of: {0}</td>
+<td>Generic error occurred while running the sync command *byMemberId.</td>
+<td>Use the server logs to identify why command failed to run.</td>
+</tr>
+<tr>
+<td>CLFRA0476E: Error on user lifecycle getByEmail</td>
+<td>Generic error occurred while running the sync command *byEmail.</td>
+<td>Use the server logs to identify why command failed to run.</td>
+</tr>
+<tr>
+<td>CLFRA0477E: Error on user lifecycle getByLogin of: {0}</td>
+<td>Generic error occurred while running the sync command *byLogin.</td>
+<td>Use the server logs to identify why command failed to run.</td>
+</tr>
+<tr>
+<td>CLFRA0478E: Error on user lifecycle update of internalId: {0}</td>
+<td>Generic error occurred while running the sync command *byMemberId.</td>
+<td>Use the server logs to identify why command failed to run.</td>
+</tr>
+<tr>
+<td>CLFRA0480E: Error on user lifecycle getByExternalId of: {0}</td>
+<td>Generic error occurred while running the sync command *byExtId.</td>
+<td>Use the server logs to identify why command failed to run.</td>
+</tr>
+<tr>
+<td>CLFRA0481E: All of the owners of the Activity cannot be removed.</td>
+<td>This message is thrown when removing all of the owners of the activity from the activity's member list is requested.</td>
+<td>At least one owner of the activity must remain as the owner in order to avoid an orphan activity.</td>
+</tr>
+<tr>
+<td>CLFRA0482E: Member {0} tried to modify the permissions of the business owner of Activity {1}</td>
+<td>A person tried to change the access of the business owner of the activity.</td>
+<td>None – the business owner's permissions cannot be changed by a member.</td>
+</tr>
+<tr>
+<td>CLFRA0483E: The permissions of the business owner of the Activity cannot be modified</td>
+<td>A person tried to change the access of the business owner of the activity.</td>
+<td>None – the business owner's permissions cannot be changed by a member.</td>
+</tr>
+<tr>
+<td>CLFRA0494E: Invalid Atom date</td>
+<td>Bad Atom date format is used.</td>
+<td>Correct Atom date format: &lt;updated>2009-01-02T20:45:07Z&lt;/updated> &lt;published>2009-01-02T20:45:07Z&lt;/published></td>
+</tr>
+<tr>
+<td>CLFRA0495E: Invalid Atom date</td>
+<td>Bad Atom date format is used.</td>
+<td>&lt;updated>2009-01-02T20:45:07Z&lt;/updated> &lt;published>2009-01-02T20:45:07Z&lt;/published></td>
+</tr>
+<tr>
+<td>CLFRA0496E: Unexpected Markup\t\t{0}</td>
+<td>Invalid markup used in the atom entry document.</td>
+<td>Remove invalid XML/Atom markup tags.</td>
+</tr>
+<tr>
+<td>CLFRA0497E: Unsupported Document Element</td>
+<td>Unsupported Atom/XML element is used in the atom entry document.</td>
+<td>Remove unsupported Atom entry document elements.</td>
+</tr>
+<tr>
+<td>CLFRA0498E: Invalid Visibility: {0}</td>
+<td>Obsolete – this is used internally for Activities m3 release. Not used in 3.0.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0499E: Invalid Role: {0}</td>
+<td>Obsolete</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0500E: Unsupported element</td>
+<td>Lotus® Live specific error. When creating an activity, if "Public" is entered, then this error message is thrown.</td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0501E: Malformed xml:base</td>
+<td>Malformed xml:base value is used.</td>
+<td>Use valid xml:base value.</td>
+</tr>
+<tr>
+<td>CLFRA0502E: Unacceptable element</td>
+<td>Unacceptable element is used in the atom entry document.</td>
+<td>Remove invalid XML/Atom markup tags.</td>
+</tr>
+<tr>
+<td>CLFRA0503E: Invalid Compound Atom Document</td>
+<td>When parsing multipart POST and PUT input stream, if the Atom entry is formatted invalid, the error message will be thrown.</td>
+<td>Send a valid multipart POST/PUT input request and make sure the first input request body is a well-formatted Atom entry document.</td>
+</tr>
+<tr>
+<td>CLFRA0504E: atom:id is null</td>
+<td>The required atom:id element is null.</td>
+<td>When sending a PUT request to modify an existing entry, make sure to set the atom:id and its value.</td>
+</tr>
+<tr>
+<td>CLFRA0505E: Invalid Due Date: {0}</td>
+<td>Invalid snx:duedate value is used.</td>
+<td>Use Atom Date construct to set the value.</td>
+</tr>
+<tr>
+<td>CLFRA0506E: BadInputStream</td>
+<td>HTTP POST/PUT request input stream is bad.</td>
+<td>Send a valid input request stream.</td>
+</tr>
+<tr>
+<td>CLFRA0507E: Invalid Priority: {0}</td>
+<td>Invalid Activities' priority value is found in the Atom entry document.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0508E: Atom: in-reply-to ref is null</td>
+<td>The required threading extension, "in-reply-to" element's "ref" attribute value is null.</td>
+<td>Be sure to include the value of "ref" attribute when setting or changing the parent entry using the in-reply-to threading extension. Correct use of in-reply-to. &lt;thr:in-reply-to xmlns:thr="http://purl.org/syndication/thread/1.0" ref="urn:lsid:ibm.com:oa:793G09219C73CC5C30A4F106B852AD00012F" type="application/atom+xml" href="http://activities.dulcinea.enterprise.com/service/atom2/activitynode? activityNodeUuid=793G09219C73CC5C30A4F106B852AD00012F" source="urn:lsid:ibm.com:oa:793G09219C73CC5C30A4F106B852AD00012F"> &lt;/thr:in-reply-to></td>
+</tr>
+<tr>
+<td>CLFRA0509E: Invalid component</td>
+<td>Invalid value is entered for "component" attribute in the member entry document.</td>
+<td>Use the correct Activities component.&lt;snx:role component="http://www.ibm.com/xmlns/prod/sn/activities"></td>
+</tr>
+<tr>
+<td>CLFRA0510E: This implementation does not allow markup in title elements</td>
+<td>Invalid markup is used to set the atom:title element's value.</td>
+<td>Use text type for atom:title value.</td>
+</tr>
+<tr>
+<td>CLFRA0511E: Invalid Status: {0}</td>
+<td>Invalid activity's status value is entered.</td>
+<td>Use "completed" or "not-completed" as the flag value.</td>
+</tr>
+<tr>
+<td>CLFRA0512E: This entry type is not supported in the 2.0 API</td>
+<td>When an entry of type="entry" is used in the 2.0 Atom API.</td>
+<td>Don't use "entry" type in the 2.0 Atom API.</td>
+</tr>
+<tr>
+<td>CLFRA0513E: Unrecognized Feed Type</td>
+<td>This is internal use only.</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0514E: Required element snx:role is null</td>
+<td>When creating or modifying an activity member, snx:role is required, but it's not sepcified in the member entry document.</td>
+<td>Use a correct snx:role and value: To add an owner, &lt;snx:role component="http://www.ibm.com/xmlns/prod/sn/activities">owner&lt;/snx:role></td>
+</tr>
+<tr>
+<td>CLFRA0515E: atom:content: unsupported type</td>
+<td>Not used in the server code. N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0516E: unable to create file upload directory {0}</td>
+<td>When uploading a file, there was a problem with the file upload directory.</td>
+<td>Contact system administrator.</td>
+</tr>
+<tr>
+<td>CLFRA0517E: unable to upload file: {0} {1}</td>
+<td>This error message is thrown if a problem occurs when uploading a file to the server.</td>
+<td>Make sure the file size doesn't exceed the upload file size limit and the file type is accepted to the server.</td>
+</tr>
+<tr>
+<td>CLFRA0518E: Could not send SameTime notification</td>
+<td>N/A in server code</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0519E: A URL must be specified via {0}</td>
+<td>N/A in server code</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>CLFRA0520E: Error starting Activities UserLifecycle SPI.</td>
+<td>Generic error initializing the User Lifecycle SPI engine.</td>
+<td>Use the server logs to identify why the SPI engine failed to start.</td>
+</tr>
+<tr>
+<td>CLFRA0523E: Error inserting Tree Entry: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0524E: Error purging MemberProfile: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0525E: Error getting ContentReference: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0526E: Error creating or saving a section because it was not a direct descendant of its activity</td>
+<td>An error occurred adding a section.</td>
+<td>Provide the correct UUID for the parent of the section in the API.</td>
+</tr>
+<tr>
+<td>CLFRA0527E: Error updating NodeMember: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0528E: Error removing node: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0529E: Error updating AclEntry: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0530E: Profile ID: {0} does not exist.</td>
+<td>A Member could not be retrieved from the database using the provided member identifier.</td>
+<td>Provide the correct member identifer for a person in the API.</td>
+</tr>
+<tr>
+<td>CLFRA0531E: Error updating Statement (property): {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0532E: Exporter/Importer cannot delete: {0}</td>
+<td>Unable to delete a filesystem resource.</td>
+<td>Check for permission errors writing to the filesystem and verify the given user can read the directory.</td>
+</tr>
+<tr>
+<td>CLFRA0533E: Error getting related libraries of a selected file entry {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0534E: Required parameter MemberID was not specified</td>
+<td>The person's memberid was not specified in the Hashtable used as input to the updateMember wsadmin command.</td>
+<td>Provide a memberid in the Hashtable and reissue the command.</td>
+</tr>
+<tr>
+<td>CLFRA0535E: Error getting related activities: {0}</td>
+<td>An error occurred retrieving an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0536E: Error inserting EventLogEntry: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0537E: Error getting LogEntries for an activity: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0538E: Error purging a selected publish library {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0540E: Error getting Statements: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0541E: Error loading configuration settings to determine if external email exposure is enabled: {0}</td>
+<td>An error occurred reading a value from LotusConnections-config.xml.</td>
+<td>Check the SystemOut.log on server startup to determine the syntax error in LotusConnections-config.xml; resolve the syntax error.</td>
+</tr>
+<tr>
+<td>CLFRA0542E: Error inserting Node: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0543E: Bad configuration. Config section defines more properties than values, or vice versa. Possible errant &lt;property> element(s) without a "name" attribute(s)</td>
+<td>A property in LotusConnections-config.xml or oa-config.xml has too many or not enough values.</td>
+<td>Provide the correct number of values for the listed property in LotusConnections-config.xml or oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0544E: Importer error accessing the directory {0}</td>
+<td>Error accessing the given archive directory.</td>
+<td>Check for permission errors writing to the filesystem and verify the given user can read the directory.</td>
+</tr>
+<tr>
+<td>CLFRA0545E: Error updating a selected publish library {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0546E: Exporter/Importer destination/source is not a directory: {0}</td>
+<td>The path given is not a directory path.</td>
+<td>Check the directory argument actually points to a path that is a directory.</td>
+</tr>
+<tr>
+<td>CLFRA0547E: no default content store defined</td>
+<td>A default content store has not been configured in oa-config.xml.</td>
+<td>Designated a default content store in oa-config.xml. See the infocenter topic on "Managing uploaded files" for details</td>
+</tr>
+<tr>
+<td>CLFRA0548E: Error inserting Schema Version: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0549E: Error getting nodes: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0550E: Error purging node: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0551E: Error inserting NodeMember: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0552E: cannot disable security; user is not an administrator</td>
+<td>A person tried to assume administrator privileges.</td>
+<td>None – Activities will not allow a person to assume administrator privileges.</td>
+</tr>
+<tr>
+<td>CLFRA0554E: Error creating thumbnail for {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added</td>
+</tr>
+<tr>
+<td>CLFRA0555E: Error getting descendent uuids: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0556E: Failed to initialize {0}</td>
+<td>The Activities database layer configuration file dao.xml has been corrupted.</td>
+<td>Update the Activities Enterprise Application from backup in the WebSphere Application Server Integrated Solutions Console.</td>
+</tr>
+<tr>
+<td>CLFRA0557E: Error getting MemberProfile: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved</td>
+</tr>
+<tr>
+<td>CLFRA0558E: Error getting activities: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0559E: Error inserting Tags: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0560E: Error inserting a new publish library {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0561E: Error getting all LogEntries for a user: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0562E: Error when reparenting node - You cannot reparent a node to one of its descendants.</td>
+<td>An API program tried to move a entry to an incorrect location.</td>
+<td>Check the logic of the move entry logic in the API program.</td>
+</tr>
+<tr>
+<td>CLFRA0563E: Error creating or saving a {0} because it was a child of an invalid node type {1}</td>
+<td>An API program tried to save a entry to an incorrect location.</td>
+<td>Check the parenting logic in the API program.</td>
+</tr>
+<tr>
+<td>CLFRA0564E: Importer error accessing the directory {0}</td>
+<td>The wsadmin ArchiveService does not have access to the directory containing the Activities to be imported.</td>
+<td>Check that the correct directory has been specified; if so, ensure that the permissions on the directory allow the WebSphere Application server to read it.</td>
+</tr>
+<tr>
+<td>CLFRA0565E: Error getting AclEntries for a user: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0566E: Error updating Node: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0567E: Error purging Tag: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed</td>
+</tr>
+<tr>
+<td>CLFRA0568E: Error undeleting node: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0569E: getting children for node: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved</td>
+</tr>
+<tr>
+<td>CLFRA0570E: Cannot change position, the max number of children ({0}) has been exceeded for node = {1}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>None – the maximum number of children for the activity or entry has been reached.</td>
+</tr>
+<tr>
+<td>CLFRA0571E: Could not locate MBean Server</td>
+<td>An error occurred trying to register the Activities Mbeans with the WebSphere Application Server.</td>
+<td>Check the SystemOut.log for WebSphere errors on server startup regarding Mbeans and resolve those errors.</td>
+</tr>
+<tr>
+<td>CLFRA0572E: Error inserting a publish history entry {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0573E: Error, you cannot convert a node template to another type</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0574E: Error updating Schema Version: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0575E: Error, entry type conversion from and to activity is not allowed</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0576E: Error, entry type conversion from and to section is not allowed</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0579E: Error updating ContentReference: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0580E: Error getting ancestors: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0581E: Error purging a selected publish history entry {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0582E: Error inserting MemberProfile: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0583E: Error getting a selected publish history entry {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0584E: Error purging NodeMember: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0585E: Error getting publish history entries of a selected file entry</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0586E: Error auto completing activities: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0587E: Error getting related people: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0588E: Error updating Tag: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0589E: Exporter error creating the directory {0}</td>
+<td>Generic error creating the archive directory.</td>
+<td>Check for permission errors writing to the filesystem and verify the given user can create a directory in a given path.</td>
+</tr>
+<tr>
+<td>CLFRA0590E: Error getting AclEntries for an activity: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0591E: cannot create MemberProfile. Profile ({0}) already exists.</td>
+<td>A person could not be added to Activities because their unique identifier or email address matched with another person's in the database.</td>
+<td>Using the information provided in the error, run the wsadmin ActivitiesMemberService.syncMemberExtIdByLogin() command for the person already in the Activity's database.</td>
+</tr>
+<tr>
+<td>CLFRA0592E: The email address={0} was not found in the directory! Unable to process their message!</td>
+<td>An error occurred trying to send an email notification to a person who does not have an email address.</td>
+<td>The notification will be sent to the person's Home page.</td>
+</tr>
+<tr>
+<td>CLFRA0593E: Error inserting ContentReference: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0594E: Error getting Tags for a member: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0595E: Schema Version Mismatch</td>
+<td>The version of the Activities database Activities is connecting to is the wrong version.</td>
+<td>Upgrade the Activities data to the correct versions either with the database wizard or upgrade scripts.</td>
+</tr>
+<tr>
+<td>CLFRA0596E: Error getting Tags from a node: {0}</td>
+<td>An error occurred retrieving an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0598E: Error getting a selected publish library {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0599E: Unable to add email "{0}" to the membership of the activity because the email address was not recognized either as a person or a group</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0600E: Error updating a selected publish history entry {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0601E: Error purging Statement: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0602E: Error purging Tree Entry: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0603E: Error getting ancestor uuids: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0604E: Error getting NodeMember: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0605E: Error getting activities tags: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0606E: Unable to process event "{0}" . An exception was thrown:</td>
+<td>An error occurred sending an email notification.</td>
+<td>Refer to addition information in the message regarding the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0607E: Error purging EventLogEntry: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0608E: Error finding groups that start with ({0}) : {1}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0609E: Error creating icon for {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0610E: Unrecognized multipart type={0}</td>
+<td>An error occurred processing an email being added to Activities.</td>
+<td>Ensure that the API program adding email to Activities does no try to include unsupported MIME types.</td>
+</tr>
+<tr>
+<td>CLFRA0611E: Error getting activities named ( {0}) : {1}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0612E: Error getting EventLogEntry by member and node: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0613E: Error inserting AclEntry: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0614E: Error, invalid date type specification, {0}</td>
+<td>An error occurred trying to use the dates provided in a database query.</td>
+<td>Ensure that the API program requesting Activities by dates provides valid dates.</td>
+</tr>
+<tr>
+<td>CLFRA0615E: Error updating Statement: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0616E: Exporter/Importer error creating the directory {0}</td>
+<td>Error creating the archive directory.</td>
+<td>Check for permission errors writing to the filesystem and verify the given user can create a directory in a given path.</td>
+</tr>
+<tr>
+<td>CLFRA0617E: Error getting NodeSummary: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0618E: Exporter/Importer destination/source directory is not readable: {0}</td>
+<td>The directory in the filesystem is not readable.</td>
+<td>Check for permission errors writing to the filesystem and verify the given user can read the directory.</td>
+</tr>
+<tr>
+<td>CLFRA0619E: {0} - All passed AclEntrys must refer to the passed object</td>
+<td>An error occurred trying to process the data for performing an Membership change.</td>
+<td>Ensure that the data provided by API program requesting the Membership change is appropriate.</td>
+</tr>
+<tr>
+<td>CLFRA0620E: Error updating Tree Entry: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0621E: Error getting activities nodesummary: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0622E: Error purging Schema Version: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0623E: Error getting related libraries of a selected activity {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0624E: 'subscriber' cannot be empty.</td>
+<td>An error occurred retrieving an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0625E: Error updating MemberProfile: {0}</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0626E: Error getting activities total: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0627E: Error purging AclEntry: {0}</td>
+<td>An error occurred removing an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0628E: Error finding activities that start with ( {0}) : {1}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0630E: Error getting publish history entries of a selected activity {0}</td>
+<td>An error occurred retrieving an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0631E: Unrecognized content type at the beginning of the email={0}, instanceof={1}</td>
+<td>An error occurred trying to add an email to Activities.</td>
+<td>Modify the API program trying to add the email to only provide supported data types.</td>
+</tr>
+<tr>
+<td>CLFRA0632E: Error getting Node: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0634E: Error getting publish history entries of a selected node entry {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0636E: Error getting Statement: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0637E: Error purging ContentReference: {0}</td>
+<td>An error occurred removing an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being removed.</td>
+</tr>
+<tr>
+<td>CLFRA0638E: Error getting Tree Entry: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0639E: Error getting AclEntry by uuid: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0641E: EmailNotifier: initialize method does not allow null properties. Check the config file to see if it includes all the required settings</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0642E: Error moving node, activities/reply typed nodes cannot be re-parented.</td>
+<td>An error occurred updating an entry in the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being updated.</td>
+</tr>
+<tr>
+<td>CLFRA0643E: Invalid event class: {0}</td>
+<td>An error occurred processing the &lt;eventBroker> entry in oa-config.xml.</td>
+<td>Restore the default &lt;eventBroker > entry in oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0644E: Error getting EventLogEntry by uuid: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0645E: Error getting AclEntry by member and node: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0646E: Error getting LogEntries for a user: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0648E: Error getting nodes in activity: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0649E: Error getting Schema Version: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0650E: Error getting autocompleted activity candidates: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0651E: No such Sort Key - {0}</td>
+<td>The sort key provided for sorting entries returned from a query is null.</td>
+<td>Modify the API program requesting sorted entries to provide a sort key.</td>
+</tr>
+<tr>
+<td>CLFRA0652E: No thumbnail exists for {0}</td>
+<td>The thumbnail image for an attachment could not be found.</td>
+<td>None – a default image will be used.</td>
+</tr>
+<tr>
+<td>CLFRA0653E: NOT IMPLEMENTED</td>
+<td>The function being requested from the Activities service is not available.</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>CLFRA0655E: Error getting ancestor tree entries: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0656E: Error getting getMemberProfilesByName: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0657E: Error getting Tag: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0658E: Error getting all nodes: {0}</td>
+<td>An error occurred retrieving an entry from the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being retrieved.</td>
+</tr>
+<tr>
+<td>CLFRA0660E: Stream is not Open</td>
+<td>An error occurred trying to feed user input data through the Active Content filter.</td>
+<td>Caused by a temporary lack of resources, retry the operation.</td>
+</tr>
+<tr>
+<td>CLFRA0661E: Error inserting Statement: {0}</td>
+<td>An error occurred adding an entry to the database.</td>
+<td>Check the database logs and resolve the condition preventing the entry from being added.</td>
+</tr>
+<tr>
+<td>CLFRA0662E: unknown permission: {0}</td>
+<td>An error occurred processing the list of permissions being given to a Member of an activity.</td>
+<td>Ensure that the API program adding the permissions only uses those defined.</td>
+</tr>
+<tr>
+<td>CLFRA0665E: Error closing the Admin Execution Context</td>
+<td>An error occurred during the completion of a user lifecycle event.</td>
+<td>Check the additional information provided in the message for the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0668E: The community activity UUID={0} has been deleted by its Community. Thus, it will not be exported.</td>
+<td>The administrator tried to export an activity that references a community that has been deleted. (When a community is deleted, its activities are soft-deleted, which means they are still potentially available for export.) However, the implementation policy does not allow for the export of such activities.</td>
+<td> </td>
+</tr>
+<tr>
+<td>CLFRA0669E: Cannot set External to {0} in activity UUID {1} due to heterogeneous organizations in the membership of the activity.</td>
+<td>The activity cannot be made internal because some of the current members of the activity have an organization that is different from the organization of the business owner.</td>
+<td>Remove the members of the activity who have a different organization from the business owner, then retry the Access Change action.</td>
+</tr>
+<tr>
+<td>CLFRA0671E: Cannot set External to {0} in activity UUID {1} because the Community member {2} is external.</td>
+<td>The activity cannot be made internal because one of the current community members is external.</td>
+<td>Remove the external community from the Members list, then retry the Access Change action.</td>
+</tr>
+<tr>
+<td>CLFRA0672E: The external Community {0} could not be added as a member to the internal activity with UUID {1}.</td>
+<td>The selected community cannot be added to the internal activity because the community is external.</td>
+<td>Set the community access to be internal, then retry the Add Member action.</td>
+</tr>
+<tr>
+<td>CLFRA0683E: The file {0} does not exist.</td>
+<td>The attachment that you want to remove is not in the file system.</td>
+<td>No action necessary.</td>
+</tr>
+<tr>
+<td>CLFRA0684E: {0} does not have organization member uuid.</td>
+<td>The selected member cannot be added to an activity because the member does not belong to an organization.</td>
+<td>Contact customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0685E: Error inserting Invitation: {0}.</td>
+<td>The operation to add an invitation to the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0686E: Error updating Invitation: {0}.</td>
+<td>The operation to update an invitation in the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0687E: Error getting Invitation by activity and member: {0}.</td>
+<td>The operation to select an invitation from the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0688E: Error updating profile: extId = {0} exception = {1}.</td>
+<td>The operation to update a member in the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0689E: Error adding profile: extId = {0} exception = {1}.</td>
+<td>The operation to add a member to the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0690E: Error purging Invitation: {0}.</td>
+<td>The operation to delete an invitation from the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0691E: Error getting Invitation by uuid: {0}.</td>
+<td>The operation to select an invitation from the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities feature, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0692E: Error getting Invitations for an activity: {0}.</td>
+<td>The operation to select Invitations from the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities feature, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0779E: The organization {0} cannot be removed. It is in use by subscriber(s) : {1}</td>
+<td>The organization cannot be deleted because at least one subscriber in the Activities database is a member of the organization.</td>
+<td>Remove all subscribers from the organization before removing the organization.</td>
+</tr>
+<tr>
+<td>CLFRA0780E: Cannot add member {0} to activity UUID {1} because they are not a member of Community UUID {2}.</td>
+<td>The member could not be added to the community activity because they are not a member of the community.</td>
+<td>Add the member to the community then retry the Add Member action.</td>
+</tr>
+<tr>
+<td>CLFRA0781E: The Activity or Activity Entry with UUID {0} is not present in the Activities database.</td>
+<td>The operation to select an activity or activity entry from the Activities database failed. The activity or entry referenced by the URL is no longer present in the Activities database.</td>
+<td>No action necessary.</td>
+</tr>
+<tr>
+<td>CLFRA0782E: The time zone "{1}" for user "{0}" is not valid; using default time zone for user''s locale.</td>
+<td>You should not see this error message. The feature is not enabled.</td>
+<td>You should not see this error message. The feature is not enabled</td>
+</tr>
+<tr>
+<td>CLFRA0783E: Error getting total number of AclEntries: {0}.</td>
+<td>The operation to select then number of Activity Members from the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0786E: Error checking access permission for user {0} on activity {1}.</td>
+<td>The operation to check a member's access to an activity in the Activities database failed.</td>
+<td>Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0787E: Unable to instantiate requested cache {0} from DynaCache; received error {1}; using default implementation.</td>
+<td>Errors are being returned when Activities is trying to access the WebSphere cache implementation.</td>
+<td>Contact HCL customer support to report the incident.</td>
+</tr>
+<tr>
+<td>CLFRA0788E: Unable to instantiate configured timezoneExtensionPoint {0}; received error {1}; using default implementation.</td>
+<td>You should not see this error message. The feature is not enabled.</td>
+<td>You should not see this error message. The feature is not enabled.</td>
+</tr>
+<tr>
+<td>CLFRA0828E: An incorrect event type was sent to the audit event processor.</td>
+<td>Error publishing event : {0}</td>
+<td>Check oa-config.xml (eventBroker) tag.</td>
+</tr>
+<tr>
+<td>CLFRA0829E: Error purging items.</td>
+<td>An error with the server or database. For example, this might denote that the database server is down or that there is an authorization issue.</td>
+<td>Check the SystemOut.log file to find the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0830I: Purging, fetched {0} items for current batch.</td>
+<td>Denotes number of items to delete during purge.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0831E: Error fetching items to purge.</td>
+<td>An error with the server or database. For example, this might denote that the database server is down or that there is an authorization issue.</td>
+<td>Check the SystemOut.log file to find the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0832W: Number of items to purge is either not specified or invalid ({0}). Defaulting to {1} items.</td>
+<td>Invalid or missing maxNumberOfDeletionPerCall value in EventLogPurgeJob task.</td>
+<td>Correct the value for maxNumberOfDeletionPerCall in the EventLogPurgeJob task in oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0833I: Number of new event log entries added since last execution at {0} : {1}</td>
+<td>Denotes number of entries in log since last event purge.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0834I: Number of event log entries purged {0} for the current batch.</td>
+<td>Denotes number of entries deleted from log for current purge.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0835I: Total number of event log entries purged {0}.</td>
+<td>Denotes total number of entries deleted from log.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0836I: Number of event log entries purged {0}, number of new event log entries added {1}.</td>
+<td>Denotes number of entries deleted from log and number of entries added to log.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0837I: The number of event log entries purged is less than the number of event log entries added.</td>
+<td>Fewer entries were removed from the log than added. consider changing purge settings.</td>
+<td>This is an informational message only; no action is required. Consider adjusting the retentionInDays and maxNumberOfDeletionPerCall values in the EventLogPurgeJob task in oa-config.xml.</td>
+</tr>
+<tr>
+<td>CLFRA0825I: Total number of followers purged: {0}.</td>
+<td>Denotes number of followers removed. The followers removed are users who are still in the activity's follower list but should not be.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0826I: Found {0} deletable followers for the current batch.</td>
+<td>Denotes the number of followers to be deleted. This number matches the number of followers mentioned in CLFRA0825I.</td>
+<td>This is an informational message only; no action is required.</td>
+</tr>
+<tr>
+<td>CLFRA0827E: Error getting LogEntries for a date range: {0}.</td>
+<td>An error occurred with the database.</td>
+<td>Check the SystemOut.log file to find the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0839E: The content store type : {0} was not found.</td>
+<td>Invalid content store type is specified in oa-config.xml .</td>
+<td>For this store type, verify that the objectStore specified in the oa-config.xml includes a valid id attribute and directory mapping.</td>
+</tr>
+<tr>
+<td>CLFRA0840E: Error getting Invitations for member: {0}.</td>
+<td>An error occurred with the database.</td>
+<td>Check the SystemOut.log file to find the cause.</td>
+</tr>
+<tr>
+<td>CLFRA0841E: Error inserting MemberProfile; no login names are available.</td>
+<td>The data Activities retrieved from the name directory (Profiles or LDAP) does not have a login name assigned to the user. This might be caused by an invalid user profile.</td>
+<td>Fix the problem on the name directory.</td>
+</tr>
+<tr>
+<td>CLFRA0842E: Error inserting MemberProfile; no login names are available.</td>
+<td>The data Activities retrieved from the name directory (Profiles or LDAP) does not have a login name assigned to the user. This might be caused by an invalid user profile.</td>
+<td>Fix the problem on the name directory.</td>
 </tr>
 </tbody>
 </table>
-<p>If there is an entry for &lt;name>, verify that the user credentials are correct. If these steps do not fix the problem, then contact Customer Support.|
-|CLFRA0123E: Profile provider error.|Activities received an error querying the directory (i.e. LDAP) for a user or group.|Ensure that the LDAP server configured for the WebSphere Application Server is accessible and that the bind credentials used to authenticate to the LDAP server (if necessary) are valid.|
-|CLFRA0127W: Activities cannot determine host name.|An error occurred while initializing the Statistics collection service. There was a problem with the server host name. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0131E: Activities Task Scheduler initialization error: &lt;error>.|Reason: An error occurred while initializing the Quartz scheduler. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0135E: Error executing event notification.|Error received in the event broker. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0136E: Exiting the Async Notification Thread: event processing has been halted.|Error received when the event broker thread is halted. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0137E: Error encountered processing events.|Error received in the event broker when dispatching events. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0138E: The invoker should not be interrupted.|Another thread interrupted the internal event broker. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0142E: Incorrect number of arguments. Please specify the configuration file to process.|Should not see this error message. Application is not enabled.|Should not see this error message. Application is not enabled.|
-|CLFRA0143E: Cannot locate configuration file {0}.|Should not see this error message. Application is not enabled.|Should not see this error message. Application is not enabled.|
-|CLFRA0144E: ConfigurationParser: Bad configuration. Config section defines more properties than values, or vice versa. Possible errant &lt;property> element(s) without a "name" attribute(s).|A configuration element in oa-config.xml or oa-jobs.xml is invalid.|Enable debug tracing for com.ibm.openactivities.util, restart the application, and determine the invalid element from the trace.log output. Correct the element and restart the Activities application.|
-|CLFRA0146E: Unable to refresh cached list of groups.|Activities received an exception refreshing its group cache. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0147E: Error initializing Activities.|The Activities application received an error trying to start.|The cause of the error will be found in the SystemOut.log file. Correct the error cause and restart the Activities application.|
-|CLFRA0270E: Error getting server URL for &lt;name>.|There was an error reading the server URL for the &lt;name> service.|1.  Find the LotusConnections-config.xml file (in &lt;App server home>/profiles/&lt;name>/config/cells/&lt;cell name>/LotusConnections-config)
-2.  Make sure the files exists and is readable by the WebSphere Application Server process.
-3.  Make sure the files contains the correct entry for the &lt;name> service.</p>
-<p>|
-|CLFRA0271E: Cannot find config variable directory &lt;directory>.|There was a problem reading variables that can be used in the oa-config.xml file.|Make sure the directory exists and is readable by the WebSphere Application Server.|
-|CLFRA0272E: Cannot find &lt;file> for config variables.|There was a problem opening a file getting configuration variables.|Make sure the file exists and is readable by the WebSphere Application Server.|
-|CLFRA0273W: Missing system setting for &lt;name>.|The Connections configuration cannot find a definition for a variable named "name".|Either, check the installation documentation for the variable to find the correct value for the variable, or add the variable with its correct value in the WebSphere Application Server Integrated Solutions Console, Environment/websphere Variables page.|
-|CLFRA0275E: Error loading config variables from &lt;file>.|There was a failure parsing variables in file.|1.  Make sure the file exists and is readable by the WebSphere Application Server.
-2.  Replace the current copy with a back-up copy of the file.</p>
-<p>|
-|CLFRA0276E: Too many errors occurred while sending Activity auto-completion notices. The auto-complete operation was aborted.|The server has given up trying to keep sending any more auto complete email notices.|Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.|
-|CLFRA0277W: Warning, invalid parameter specified for the Activity Auto Completion notification max errors ({0}).|Should not see this error message. Application is not enabled.|Should not see this error message. Application is not enabled.|
-|CLFRA0278E: An error occurred while generating the list of activities eligible for auto completion.|Error received querying the database to obtain a list of activities that qualify to be autocompleted. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0279E: Error sending auto-complete notification for activity UUID &lt;uuid>.|Error received when sending email about an auto complete notification. Additional information relating to the failure may be found in the SystemOut.log file.|Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.|
-|CLFRA0280E: Error initializing the Activities Administrator email address. Some email functionality will not be available.|No administrator email address was configured in oa-config.xml.|Edit notification-config.xml and provide an administrator email address for the globalSenderEmailAddress property and optionally provide additional email addresses for different types of Activities notifications.|
-|CLFRA0281E: The content of mime type: "&lt;mimeType>" or filename: "&lt;fileName>" you tried to upload is not allowed by your administrator.|The administrator set a size limit of zero bytes for the type of content a user tried to upload, either by mime type or by filename.|Change the upload limits in the &lt;sizeLimits> element in oa-config.xml.|
-|CLFRA0282E: The profile provider could not find information for member &lt;uuid>.|The Activities profile application did not find a member by the given member ID.|Contact Customer Support to report the incident.|
-|CLFRA0285W: Purge expiration period (days) either not specified or invalid (&lt;integer>). Defaulting to {1} days.|The trashRetentionInDays configured for the TrashAutoPurgeJob in oa-jobs.xml is invalid.|Add a value greater than 0 for the trashRetentionInDays configuration. Otherwise, trash older than 1 day will be purged when the job runs.|
-|CLFRA0286E: Error sending activity auto completion notification.|Error received when trying to send an email auto-completion notification.|Ensure that SMTP server configuration in the &lt;email> element of notification-config.xml is valid and that the server is accessible. Additional information relating to the failure may be found in the SystemOut.log file.|
-|CLFRA0287E: Error parsing administrator email address.|The administrator email address configured in oa-config.xml is badly formatted.|Edit notification-config.xml and provide an administrator email address in the correct format in the &lt;globalSenderEmailAddress> element.|
-|CLFRA0288E: No Activities Administrator email address has been configured. You must specify a value for "globalSenderEmailAddress" or "sender" in the notification configuration file.|The administrator email address configured in oa-config.xml is empty.|Edit notification-config.xml and provide an administrator email address in the correct format in the &lt;globalSenderEmailAddress> element.|
-|CLFRA0289W: Content removed by active content filter.|The active content filter removed active content from user input.|No action necessary.|
-|CLFRA0290E: Error starting the active content filter.|The active content filter received an error on start up.|Contact Customer Support to report the incident.|
-|CLFRA0291E: Error encountered with the active content filter.|The active content filter received an error trying to filter text.|Contact Customer Support to report the incident.|
-|CLFRA0292W: Warning, it appears the ACF inserted an invalid character mid stream (&lt;filteredText>).|The active content filter inserted an invalid character in the filteredText as part of a filtering operation.|No action necessary. The Activities application fixes up the invalid character.|
-|CLFRA0293E: A MemberProfile cannot be null.|The data in a request to update a member profile in the database is null; possibly via a bad API request.|Contact Customer Support to report the incident.|
-|CLFRA0295E: Cannot update non-matching MemberProfiles. &lt;uuid> is not &lt;uuid>.|In a request to one member profile with a new one, the member IDs do not match.|Contact Customer Support to report the incident.|
-|CLFRA0296E: Error performing UTF-8 character validation: {0}| | |
-|CLFRA0300E: The ArchiveService cannot export activities to the directory=&lt;directory>; it is not writable.|The exportActivities command of ArchiveService wsadmin object tried to archive Activities to a directory that is not writable.|Ensure that &lt;directory> exists and that it is writable by the WebSphere Application Server.|
-|CLFRA0301E: The required zip file "Activity-&lt;uuid>.zip" was not found. This activity will not be imported, or a related activity link will be broken.|The ArchiveService was requested to import activity with uuid &lt;uuid>. However, the directory path that was also given to the ArchiveService does not contain the file Activity-&lt;uuid>.zip.|Ensure that the directory specified in an ArchiveService importActivities or createActivities command contains the archives for the desired Activities.|
-|CLFRA0304E: The version of the archive you tried to import does not match the current DB schema.|One cannot import activities into servers that are using different DB schemas|Migrate the archive to the matching schema version and then import the migrated archive.|
-|CLFRA0306W: The user by email (or display name if it's a group) &lt;member> was not found in the LDAP or the database! This means the activity being imported has a reference to a user that has changed emails, or has been removed from the LDAP. In other words, this email address is stale, and the activity is carrying around incongruent data.|A member that was included in the imported activity cannot be found anymore. This might happen when switching LDAP servers, and the membership list is different.|No action necessary. The imported activity will be imported, the missing member email address (or display name if a group) will be rewritten to "NOT_FOUND_&lt;original emal>". If this behavior is unexpected, you might want to investigate why members are missing in the new LDAP.|
-|CLFRA0309E: The ArchiveService cannot export activities to the directory=&lt;directory>; it is not a directory.|The exportActivities command of ArchiveService wsadmin object tried to archive Activities to a directory that is not writable.|Ensure that &lt;directory> exists and that it is writable by the WebSphere Application Server.|
-|CLFRA0310E: Error writing activity entry #&lt;uuid> to the database.|An ArchiveService import error received at the point where the Node of the Activity is written. Additional information relating to the failure may be found in the SystemOut.log file.|If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.|
-|CLFRA0312E: Error writing activity node to the database.|An ArchiveService import error received at the point where one of the nodes (entries) of the Activity is written. Additional information relating to the failure may be found in the SystemOut.log file.|If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.|
-|CLFRA0315E: The ArchiveService cannot create the directory=&lt;directory> for exporting activities.|In an ArchiveService exportActivities command one specifies a directory where all the archive files will be written. In this case, the system cannot write out the specified directory to the file system.|Manually create the &lt;directory> on the file system and ensure it is writable by the WebSphere Application Server.|
-|CLFRA0318E: The related activity with UUID=&lt;uuid> already exists in the system. It is unclear whether the intention is to overwrite that activity with old data or not. Thus, it will be not imported.|When an activity has a related activity link in it, the ArchiveService will automatically try to import the related activity. However, if the ArchiveService is being run with "importActivities" which overwrites activities rather than creating copies, then, it is unclear to the system whether the administrator also intentionally meant to overwrite related activities since that related activity it was not explicitly passed in to be imported.|If the administrator wishes to overwrite the related activity, he can use the ArchiveService importActivites command to overwrite the related Activity.|
-|CLFRA0319E: Error writing activity content entry "&lt;name>".|An ArchiveService import error received at the point where the content (files, attachments, etc) of one of the nodes (entries) of the activity is written. Additional information relating to the failure may be found in the SystemOut.log file.|If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.|
-|CLFRA0320E: Error importing activity with UUID=&lt;uuid>.|An ArchiveService import error. Additional information relating to the failure may be found in the SystemOut.log file.|If the error reported in the SystemOut.log file cannot be resolved, contact Customer Support to report the incident.|
-|CLFRA0321E: Error unpacking the archive.|An ArchiveService import error received when unmarshalling the Zip archive.|The Zip archive has been corrupted. If the cause of the corruption cannot be determined, contact Customer Support to report the incident.|
-|CLFRA0323E: Duplicate member profile with secondary key "{0}" has been found, no sync operation was taken.| | |
-|CLFRA0324E: Member profile with secondary key "{0}" has not been found in the "{1}".| | |
-|CLFRA0326E: More than one member profile matches the search for {0}.| | |
-|CLFRA0328W: The &lt;name> scheduler is not enabled in config. Check spelling.|An attempt was made to start or stop a scheduler that is not enabled in the oa-config.xml file or is named differently than the name given in oa-config.xml.|Enable the scheduler by changing the 'enabled' true/false setting. Ensure the scheduler name is spelled correctly.|
-|CLFRA0329E: The attempt to start the &lt;name> scheduler failed.|The Quartz scheduler did not start. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0330W: The &lt;name> scheduler has already been stopped.|An attempt was made to stop a scheduler that is already stopped.|Ensure that the scheduler is started before attempting to stop it.|
-|CLFRA0332W: The job &lt;name> is not valid for the {1} scheduler.|An attempt was made to carry out an action on a job that is not running.|Ensure that the job name is spelled correctly and that the job name is known to the system.|
-|CLFRA0335W: The job &lt;name> is already running on the {1} scheduler.|An attempt was made to resume a job that is already running on a scheduler.|Ensure that the job is paused before attempting to resume it.|
-|CLFRA0337W: The &lt;name> scheduler has already been started.|An attempt was made to start a scheduler that is already started.|Ensure that the scheduler is stopped before attempting to start it.|
-|CLFRA0339W: The &lt;name> scheduler is disabled in config.|An attempt was made to start or stop a scheduler that is disabled in the oa-config.xml file.|Enable the scheduler by changing the 'enabled' true/false setting.|
-|CLFRA0340W: The request to pause job &lt;name> failed.|An error occurred while attempting to pause a job. Additional information relating to the failure may be found in the SystemOut.log file.|No action is required.|
-|CLFRA0341W: The job &lt;name> has already been paused on the {1} scheduler.|An attempt was made to pause a job that is already paused on a scheduler.|Ensure that the job is running before attempting to pause it.|
-|CLFRA0343W: The request to resume job &lt;name> failed.|An error occurred while attempting to resume a previously paused job. Additional information relating to the failure may be found in the SystemOut.log file.|No action is required.|
-|CLFRA0345E: The attempt to stop the &lt;name> scheduler failed.|The Quartz scheduler did not stop. Additional information relating to the failure may be found in the SystemOut.log file.|If the problem persists after restarting the Activities application, contact Customer Support to report the incident.|
-|CLFRA0347E: Error exporting activity UUID={0}.|An error occurred while trying to export the activity with the given UUID.|Check previous log messages for the actual cause of the export failure. Resolve the error and re-run the export.|
-|CLFRA0348W: The group "{0}" could not be loaded from LDAP or the database. Or, there might have been multiple matches for the same name in LDAP.|This error is encountered when a group name is not found or multiple matches to the name are found in the configured directory.|No action necessary. The activity will continue to be imported; an entry for "NOT_FOUND_" + the group name will be added to the member table and the membership list.|
-|CLFRA0349E: Error locating profile: EXID mismatch, but email matches. email={0}, directory EXID={1}, db EXID={2}.|This error is encountered when a member entry is found in the Activities database by the given email address, but the external identifier does not match the LDAP record.|Determine if the person's record has changed in LDAP and if the two entries are really for the same person. If they are, use the Activities MemberService.</p>
-<p>synchMemberExtId (email address) command to update the Activities database with the correct id.</p>
-<p>|
-|CLFRA0350E: Error: the group profile "{0}" could not be located in the Activities database.|This error is encountered during LDAP synchronization. The group could not be located in the Activities database.|Check the spelling of the group name.|
-|CLFRA0351E: Error: the group profile "{0}" could not be located in the directory service.|This error is encountered during LDAP synchronization. The group found in the Activities database could not be located in LDAP.|Check the spelling of the group name.|
-|CLFRA0353E: Error: the member profile "{0}" could not be located in the Activities database.|This error is encountered during LDAP synchronization. The person could not be located in the Activities database.|Check the profile for the referenced user and ensure that the spelling of the supplied look-up field matches.|
-|CLFRA0356E: Error: the member profile "{0}" could not be located in the directory service.|This error is encountered during LDAP synchronization. The person could not be located in LDAP.|There is no match for the person by the given value. Check to see if the person exists in LDAP.|
-|CLFRA0357E: Error: more than one profile was found with the key "{0}".|Multiple entries identified by the &lt;user identifier> have been found in the member profile table.|One of the entries must be deleted. Contact Customer Support before proceeding.|
-|CLFRA0359E: Error locating member profile for &lt;user identifier>, search type &lt;internal search type>.|The user's member profile could not be located in the directory.|Verify the LDAP configuration is correct. If this error is limited to a specific user, verify the user can be located in LDAP given the identifier in the error message. The search type indicates what LDAP attribute is searched: 1=login, 2=email, 3=internal Activities member id (not used when searching LDAP).|
-|CLFRA0361E: The file "{0}" cannot be uploaded as it is a 0-byte file.|An attempt was made to upload the specified file which has no content (zero bytes in size). Only files which have content may be uploaded.|Ensure that the file contains data before uploading.|
-|CLFRA0362E: FileSystem property name="use.historic" was not found in ObjectStore registry. Double-check the oa-config.xml file.|The use.historic property is missing from the ObjectStore section of the oa-config.xml file. It must be present and must have a value of either true or false.|Check the &lt;objectStore> settings in oa-config.xml file and provide a correct value for the use.historic property of the &lt;store> element.|
-|CLFRA0364E: Error initializing the Notification service for {0}. No notification messages will be sent. Error details : {1}.|An unexpected error occurred while initializing the notification service for Activities. This is most likely due to a configuration problem with the server or mail service.|Verify that the mail service is configured properly. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0366E: Activities Notification service initialization error: {0}|An unexpected error occurred while initializing the notification service for Activities. This is most likely due to a configuration problem with the server or mail service.|Verify that the mail service is configured properly. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0367E: The date {0} is invalid; see documentation for acceptable date formats|The date supplied as a parameter is invalid. This date was supplied to the request to fix up the content store after a restore from backup. This is a WSAdmin command task.|Enter a date that is valid according to one of the documented acceptable formats.|
-|CLFRA0368E: The folder {0} does not exist|The folder path which was supplied as a parameter is invalid.|Enter the path of a folder that exists.|
-|CLFRA0369E: The attempt to fix up the content store failed : {0}|An error occurred while attempting to fix up the contents of the file store after a restore from backup.|Verify that the command was used properly and that the file system is accessible. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0371E: Creation of the orphan folder {1} failed|An error occurred while attempting to create the specified folder for orphaned files.|Verify that the path for the folder exists and that the file system is accessible. Also verify that the user has write access to the file system. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0373E: The value {0} for the content store configuration is invalid. Check oa-config.xml|The directory given in oa-config.xml for the &lt;store> element property name root.directory either could not be found or accessed. This directory is used for file uploads to the Activities content store.|Check that the directory exists. Create it if it does not exist.|
-|CLFRA0374E: file: {0} already exists.|While attempting to mark a file as "purged" for subsequent deletion, the file could not be marked since a file with that name already existed on the file system. This should not ordinarily happen.|This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0375E: error encountered while purging content: {0} {1}.|An error occurred while attempting to remove content from the file store or mark the file for deletion.|Additional information relating to the failure can be found in the SystemOut.log file. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0376E: unable to mark file: {0} for deletion.|An error occurred while attempting to mark the specified file as "purged" for subsequent deletion. The file could not be marked for deletion from the file system. This should not ordinarily happen.|This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0377E: unable to purge file {0} {1}.|An error occurred while attempting to mark the specified file as "purged" for subsequent deletion. The file could not be marked for deletion from the file system. This should not ordinarily happen.|This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file.|
-|CLFRA0378E: The attempt to remove redundant files from the content store failed : {0}|An error occurred while attempting to remove redundant files from the content store. The files could not be removed from the file system. This should not ordinarily happen.|This is not a critical situation but could lead to extraneous files remaining on the file system. The administrator can safely manually remove any files that the purge task fails to mark for deletion. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0380E: The content store location is not a valid directory or is missing: {0}|The file path specified in the oa-config.xml file for the root.directory property either could not be found or could not be accessed. This directory is used for file uploads to the Activities content store and must exist and be writeable.|Check that the directory exists; create it if it does not exist.|
-|CLFRA0382E: Unable to delete file {0} from the content store. The system security manager denied file delete access.|An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since delete access to the file was denied by the system security manager. This should not ordinarily happen. Only processes with the appropriate access credentials should be attempting to delete files from the system. Any failure should be investigated by the system administrator to determine which process was attempting the unauthorized access.|This is not a critical situation but could lead to extraneous files remaining on the file system. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0383E: The content store cleanup job only supports a file system object store. Store is {0}. Check oa-config.xml.|The Activities content store must be a file system content store. No other type of content store is supported.|Check in the oa-config.xml file for the store type and ensure that it refers to a FileSystemObjectStore.|
-|CLFRA0384W: Unable to delete file {0} from the content store. Skipping this file.|An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since the file delete operation failed. This should not ordinarily happen.|This is not a critical situation but could lead to extraneous files remaining on the file system. Ensure that the referenced file exists and can be accessed. The administrator can safely manually remove any files that the historic purge task fails to delete. Additional information relating to the failure can be found in the SystemOut.log file. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0386E: The file does not exist.|An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since it does not exist. This should not ordinarily happen.|This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0387E: The directory is not empty.|An error occurred while attempting to remove a directory from the content store. The directory could not be removed from the file system since it contained at least one file. This should not ordinarily happen.|This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced directory exists and can be accessed and verify that the files contained in it are no longer needed by the Activities server. If they are no longer used, then files in that directory can be manually removed and the directory can be manually removed. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0388E: The file is read only.|An error occurred while attempting to delete a file from the content store. The file could not be removed from the file system since it is read only. This should not ordinarily happen. Files in the Activities content store should be read-write so that they can be updated, moved or deleted by the Activities system.|This is not a critical situation. Additional information relating to the failure can be found in the SystemOut.log file. Ensure that the referenced file exists and can be accessed. If necessary, change the file access permissions to read-write. If the problem persists after restarting Activities, contact Customer Support to report the incident.|
-|CLFRA0392E: The path "{0}" is not a directory or it does not exist.|The path given was not a directory path|Provide a correct directory path|
-|CLFRA0393E: Error. The value given for "{0}" in LotusConnections-config.xml is invalid.|An error occurred while retrieving the specified value from Lotusconnections-config.xml.|Check that the config file has a suitable value for the parameter.|
-|CLFRA0394E: Access control for community activities cannot be altered. Update the membership in the community instead. Activity UUID = {0}|Tried to update the ACL on a community activity|By design, the ACL for a community activity should be changed in the Community directly not thru Activities|
-|CLFRA0395E: Community pseudo groups are not valid members. They may not be used for access control operations.|Attempted to use a pseudo-group as an ACL object|By design, the ACL for a community activity should be changed in the Community directly not thru Activities|
-|CLFRA0396E: Error updating last login time for {0}|An error occurred updating the last login time for the indicated user.|Check Systemout.log for additional information.|
-|CLFRA0399E: Error {0} received accessing Communities server|The Communities is down or unresponsive|Check that the server is correctly configured with a valid URL to Communities, and that the Communities server is up and running|
-|CLFRA0403E: Error: An error occurred while updating the login names for user "{0}". The internal error is {1}|Additional details of the error are given in the error message.|If the problem persists after restarting the Communities application, contact Customer Support to report the incident. Additional information relating to the failure may be found in the SystemOut.log file.|
-|CLFRA0406E: An error occurred while propagating an event.|The Activities application generated an exception.|If the problem persists after restarting the Communities application, contact Customer Support to report the incident. Additional information relating to the failure may be found in the SystemOut.log file.|
-|CLFRA0407E: Error writing ''{0}''.|Generic error writing a file to the filesystem|Usually, this error will be followed by a more specific message about an exact problem writing the file|
-|CLFRA0408E: Could not create the directory for writing ''{0}''.|Could not write the directory to the filesystem|Check the given path points to a location the system has the appropiate permissions to write to|
-|CLFRA0409E: Error closing streams when writing SyncedResourceInfo.xml|Generic error writing a file to the filesystem|Usually results in problems when files are locked or deleted by another process|
-|CLFRA0410E: The given path ''{0}'' is a directory. Please specify a filename.|The given path is a directory|Make sure to specify a path pointing to a file and not a directory|
-|CLFRA0411E: Could not write ''{0}''; The directory or given path is not writable.|The given path is not a writable directory.|Make sure to specify a directory path pointing to a directory for which the user has write access.|
-|CLFRA0439I: Processing ''remote.app.transfer'' community event from old community ExId: ''{0}'', to new community ExId: ''{1}''|This message is used for logging purpose when moving a set of activities from one community to another (as is the case for a 'sync' event) if debugging/logging is enabled.|N/A|
-|CLFRA0442E: A fatal error occurred while sending a notification message.| | |
-|CLFRA0445E: unable to download the file: {0} {1}.|An error occurred while downloading a file attachment.|The specified file could not be found or an error occurred while it was being read.|
-|CLFRA0446E: Unknown sync event type: "{0}"|A communities event was not recognized by the Acitvities server.|Check that Activities is not subscribed to listen to events it does not support|
-|CLFRA0447E: The communities service is currently unavailable. Check that it is running.|This message is logged when fetching communities by name and directory service is not available.|Need to make sure that the directory service is available.|
-|CLFRA0449E: The user with external ID "{0}" is not authorized to access the Activity with UUID {1}.|This error message is thrown with access control exception because of the user with a given external Id does not have access to the activity.|Access to the activity must be granted to the user.|
-|CLFRA0450E: An internal error occurred during the AntiVirus scan of Activities object store content item "{0}". Make sure that the AntiVirus server is running and that you can access it, and then try to upload the item again.|An error occurred while attempting to virus-scan a file being uploaded.|Verify that the AV server is running. Check the SystemOut.log file for additional failure details.|
-|CLFRA0455E: The file {0} contains a virus. Remove the virus before attempting to upload the file.|Informational message. The AV scanner processed an uploaded file and found a virus in the file.|Remove the virus from the file before attempting to upload it to Activities.|
-|CLFRA0456E: The internal identifier {0} is invalid and cannot be used to retrieve content from the database.|The identifier in the URL for downloading a file is not valid.|Check the identifier in the URL for correctness; if it is correct, the content has been removed and is no longer accessible.|
-|CLFRA0457E: Error {0} received accessing the Organization server|The service that supplies a person's organization is not responding.|Ensure that the directory services extension configuration for Organizations is correctly configured.|
-|CLFRA0458E: The user {0} could not upload the file with size: {1} because their quota of size {2} would be exceeded.|The specified user attempted to upload a file to Activities but the file exceeded the allowable file size.|The user may either reduce the size of the file or the system administrator can increase the quota size.|
-|CLFRA0461E: The file with size: {0} could not be uploaded because your quota of size {1} would be exceeded.|The current user attempted to upload a file to Activities but the file exceeded the allowable file size.|The user may either reduce the size of the file or the system administrator can increase the quota size.|
-|CLFRA0462E: Unable to instantiate file upload quota checker {0}; received error {1}; using default implementation|The file upload quota extension is not configured with an accessible class.|Provide the name of a class accessible to the Activities service for checking file upload quotas.|
-|CLFRA0463E: The command cannot be processed because another user has this key value: {0}|The person's profile data cannot be updated because another person already has been assigned their unique identifer.|Resolve issues with the directory so that different users are not assigned the same unique identifer.|
-|CLFRA0464E: The user with id {0} could not be found.|The identifier provided in the transfer assets command does not resolve to a unique identifier for a person in the directory.|Provide a unique identifier for a person in the directory in the transfer command.|
-|CLFRA0465E: Unknown command: {0}|The provisioning command received was not recognized.|None.|
-|CLFRA0466E: An unexpected error occurred while processing command {0}: {1}|The provisioning or user lifecycle event failed.|Resolve the error included in the message and reissue the event.|
-|CLFRA0470E: Unable to instantiate configured cacheExtensionPoint {0}; received error {1}; using default implementation|The class providing an alternative implementation to the default Activities cache could not be instantiated.|Correctly configure the extenstion point for the alternative cache implementation in oa-config.xml.|
-|CLFRA0471E: The community by external ID "{0}" could not be found. Thus, this community activity will not be imported.|If Activities cannot find the given Community, it cannot import the archive.|See if the community still exists in the Communities Server using the same ID.|
-|CLFRA0472E: The membership model can only be changed on community activities.|This message is thrown if an error occurs when changing the membership type of the community.|Make sure the activity is a community activity.|
-|CLFRA0473E: Error locating profile: EXID mismatch, but email matches. name={0}, directory EXID={1}, db EXID={2}|A collision arose between two users who have the same email address but different LDAP Ids.|Using the logged identification information. The system administrator can fix up the user data in LDAP and in the Activities database tables, ensuring that each unique user has a different email address and different LDAP Ids.|
-|CLFRA0475E: Error on user lifecycle getByInternalId of: {0}|Generic error occurred while running the sync command *byMemberId.|Use the server logs to identify why command failed to run.|
-|CLFRA0476E: Error on user lifecycle getByEmail|Generic error occurred while running the sync command *byEmail.|Use the server logs to identify why command failed to run.|
-|CLFRA0477E: Error on user lifecycle getByLogin of: {0}|Generic error occurred while running the sync command *byLogin.|Use the server logs to identify why command failed to run.|
-|CLFRA0478E: Error on user lifecycle update of internalId: {0}|Generic error occurred while running the sync command *byMemberId.|Use the server logs to identify why command failed to run.|
-|CLFRA0480E: Error on user lifecycle getByExternalId of: {0}|Generic error occurred while running the sync command *byExtId.|Use the server logs to identify why command failed to run.|
-|CLFRA0481E: All of the owners of the Activity cannot be removed.|This message is thrown when removing all of the owners of the activity from the activity's member list is requested.|At least one owner of the activity must remain as the owner in order to avoid an orphan activity.|
-|CLFRA0482E: Member {0} tried to modify the permissions of the business owner of Activity {1}|A person tried to change the access of the business owner of the activity.|None – the business owner's permissions cannot be changed by a member.|
-|CLFRA0483E: The permissions of the business owner of the Activity cannot be modified|A person tried to change the access of the business owner of the activity.|None – the business owner's permissions cannot be changed by a member.|
-|CLFRA0494E: Invalid Atom date|Bad Atom date format is used.|Correct Atom date format: &lt;updated>2009-01-02T20:45:07Z&lt;/updated> &lt;published>2009-01-02T20:45:07Z&lt;/published>|
-|CLFRA0495E: Invalid Atom date|Bad Atom date format is used.|&lt;updated>2009-01-02T20:45:07Z&lt;/updated> &lt;published>2009-01-02T20:45:07Z&lt;/published>|
-|CLFRA0496E: Unexpected Markup\t\t{0}|Invalid markup used in the atom entry document.|Remove invalid XML/Atom markup tags.|
-|CLFRA0497E: Unsupported Document Element|Unsupported Atom/XML element is used in the atom entry document.|Remove unsupported Atom entry document elements.|
-|CLFRA0498E: Invalid Visibility: {0}|Obsolete – this is used internally for Activities m3 release. Not used in 3.0.|N/A|
-|CLFRA0499E: Invalid Role: {0}|Obsolete|N/A|
-|CLFRA0500E: Unsupported element|Lotus® Live specific error. When creating an activity, if "Public" is entered, then this error message is thrown.| |
-|CLFRA0501E: Malformed xml:base|Malformed xml:base value is used.|Use valid xml:base value.|
-|CLFRA0502E: Unacceptable element|Unacceptable element is used in the atom entry document.|Remove invalid XML/Atom markup tags.|
-|CLFRA0503E: Invalid Compound Atom Document|When parsing multipart POST and PUT input stream, if the Atom entry is formatted invalid, the error message will be thrown.|Send a valid multipart POST/PUT input request and make sure the first input request body is a well-formatted Atom entry document.|
-|CLFRA0504E: atom:id is null|The required atom:id element is null.|When sending a PUT request to modify an existing entry, make sure to set the atom:id and its value.|
-|CLFRA0505E: Invalid Due Date: {0}|Invalid snx:duedate value is used.|Use Atom Date construct to set the value.|
-|CLFRA0506E: BadInputStream|HTTP POST/PUT request input stream is bad.|Send a valid input request stream.|
-|CLFRA0507E: Invalid Priority: {0}|Invalid Activities' priority value is found in the Atom entry document.|N/A|
-|CLFRA0508E: Atom: in-reply-to ref is null|The required threading extension, "in-reply-to" element's "ref" attribute value is null.|Be sure to include the value of "ref" attribute when setting or changing the parent entry using the in-reply-to threading extension. Correct use of in-reply-to. &lt;thr:in-reply-to xmlns:thr="http://purl.org/syndication/thread/1.0" ref="urn:lsid:ibm.com:oa:793G09219C73CC5C30A4F106B852AD00012F" type="application/atom+xml" href="http://activities.dulcinea.enterprise.com/service/atom2/activitynode? activityNodeUuid=793G09219C73CC5C30A4F106B852AD00012F" source="urn:lsid:ibm.com:oa:793G09219C73CC5C30A4F106B852AD00012F"> &lt;/thr:in-reply-to>|
-|CLFRA0509E: Invalid component|Invalid value is entered for "component" attribute in the member entry document.|Use the correct Activities component.&lt;snx:role component="http://www.ibm.com/xmlns/prod/sn/activities">|
-|CLFRA0510E: This implementation does not allow markup in title elements|Invalid markup is used to set the atom:title element's value.|Use text type for atom:title value.|
-|CLFRA0511E: Invalid Status: {0}|Invalid activity's status value is entered.|Use "completed" or "not-completed" as the flag value.|
-|CLFRA0512E: This entry type is not supported in the 2.0 API|When an entry of type="entry" is used in the 2.0 Atom API.|Don't use "entry" type in the 2.0 Atom API.|
-|CLFRA0513E: Unrecognized Feed Type|This is internal use only.|N/A|
-|CLFRA0514E: Required element snx:role is null|When creating or modifying an activity member, snx:role is required, but it's not sepcified in the member entry document.|Use a correct snx:role and value: To add an owner, &lt;snx:role component="http://www.ibm.com/xmlns/prod/sn/activities">owner&lt;/snx:role>|
-|CLFRA0515E: atom:content: unsupported type|Not used in the server code. N/A|N/A|
-|CLFRA0516E: unable to create file upload directory {0}|When uploading a file, there was a problem with the file upload directory.|Contact system administrator.|
-|CLFRA0517E: unable to upload file: {0} {1}|This error message is thrown if a problem occurs when uploading a file to the server.|Make sure the file size doesn't exceed the upload file size limit and the file type is accepted to the server.|
-|CLFRA0518E: Could not send SameTime notification|N/A in server code|N/A|
-|CLFRA0519E: A URL must be specified via {0}|N/A in server code|N/A|
-|CLFRA0520E: Error starting Activities UserLifecycle SPI.|Generic error initializing the User Lifecycle SPI engine.|Use the server logs to identify why the SPI engine failed to start.|
-|CLFRA0523E: Error inserting Tree Entry: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0524E: Error purging MemberProfile: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0525E: Error getting ContentReference: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0526E: Error creating or saving a section because it was not a direct descendant of its activity|An error occurred adding a section.|Provide the correct UUID for the parent of the section in the API.|
-|CLFRA0527E: Error updating NodeMember: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0528E: Error removing node: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0529E: Error updating AclEntry: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0530E: Profile ID: {0} does not exist.|A Member could not be retrieved from the database using the provided member identifier.|Provide the correct member identifer for a person in the API.|
-|CLFRA0531E: Error updating Statement (property): {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0532E: Exporter/Importer cannot delete: {0}|Unable to delete a filesystem resource.|Check for permission errors writing to the filesystem and verify the given user can read the directory.|
-|CLFRA0533E: Error getting related libraries of a selected file entry {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0534E: Required parameter MemberID was not specified|The person's memberid was not specified in the Hashtable used as input to the updateMember wsadmin command.|Provide a memberid in the Hashtable and reissue the command.|
-|CLFRA0535E: Error getting related activities: {0}|An error occurred retrieving an entry to the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0536E: Error inserting EventLogEntry: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0537E: Error getting LogEntries for an activity: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0538E: Error purging a selected publish library {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0540E: Error getting Statements: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0541E: Error loading configuration settings to determine if external email exposure is enabled: {0}|An error occurred reading a value from LotusConnections-config.xml.|Check the SystemOut.log on server startup to determine the syntax error in LotusConnections-config.xml; resolve the syntax error.|
-|CLFRA0542E: Error inserting Node: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0543E: Bad configuration. Config section defines more properties than values, or vice versa. Possible errant &lt;property> element(s) without a "name" attribute(s)|A property in LotusConnections-config.xml or oa-config.xml has too many or not enough values.|Provide the correct number of values for the listed property in LotusConnections-config.xml or oa-config.xml.|
-|CLFRA0544E: Importer error accessing the directory {0}|Error accessing the given archive directory.|Check for permission errors writing to the filesystem and verify the given user can read the directory.|
-|CLFRA0545E: Error updating a selected publish library {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0546E: Exporter/Importer destination/source is not a directory: {0}|The path given is not a directory path.|Check the directory argument actually points to a path that is a directory.|
-|CLFRA0547E: no default content store defined|A default content store has not been configured in oa-config.xml.|Designated a default content store in oa-config.xml. See the infocenter topic on "Managing uploaded files" for details|
-|CLFRA0548E: Error inserting Schema Version: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0549E: Error getting nodes: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0550E: Error purging node: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0551E: Error inserting NodeMember: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0552E: cannot disable security; user is not an administrator|A person tried to assume administrator privileges.|None – Activities will not allow a person to assume administrator privileges.|
-|CLFRA0554E: Error creating thumbnail for {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added|
-|CLFRA0555E: Error getting descendent uuids: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0556E: Failed to initialize {0}|The Activities database layer configuration file dao.xml has been corrupted.|Update the Activities Enterprise Application from backup in the WebSphere Application Server Integrated Solutions Console.|
-|CLFRA0557E: Error getting MemberProfile: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved|
-|CLFRA0558E: Error getting activities: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0559E: Error inserting Tags: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0560E: Error inserting a new publish library {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0561E: Error getting all LogEntries for a user: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0562E: Error when reparenting node - You cannot reparent a node to one of its descendants.|An API program tried to move a entry to an incorrect location.|Check the logic of the move entry logic in the API program.|
-|CLFRA0563E: Error creating or saving a {0} because it was a child of an invalid node type {1}|An API program tried to save a entry to an incorrect location.|Check the parenting logic in the API program.|
-|CLFRA0564E: Importer error accessing the directory {0}|The wsadmin ArchiveService does not have access to the directory containing the Activities to be imported.|Check that the correct directory has been specified; if so, ensure that the permissions on the directory allow the WebSphere Application server to read it.|
-|CLFRA0565E: Error getting AclEntries for a user: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0566E: Error updating Node: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0567E: Error purging Tag: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed|
-|CLFRA0568E: Error undeleting node: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0569E: getting children for node: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved|
-|CLFRA0570E: Cannot change position, the max number of children ({0}) has been exceeded for node = {1}|An error occurred updating an entry in the database.|None – the maximum number of children for the activity or entry has been reached.|
-|CLFRA0571E: Could not locate MBean Server|An error occurred trying to register the Activities Mbeans with the WebSphere Application Server.|Check the SystemOut.log for WebSphere errors on server startup regarding Mbeans and resolve those errors.|
-|CLFRA0572E: Error inserting a publish history entry {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0573E: Error, you cannot convert a node template to another type|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0574E: Error updating Schema Version: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0575E: Error, entry type conversion from and to activity is not allowed|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0576E: Error, entry type conversion from and to section is not allowed|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0579E: Error updating ContentReference: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0580E: Error getting ancestors: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0581E: Error purging a selected publish history entry {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0582E: Error inserting MemberProfile: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0583E: Error getting a selected publish history entry {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0584E: Error purging NodeMember: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0585E: Error getting publish history entries of a selected file entry|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0586E: Error auto completing activities: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0587E: Error getting related people: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0588E: Error updating Tag: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0589E: Exporter error creating the directory {0}|Generic error creating the archive directory.|Check for permission errors writing to the filesystem and verify the given user can create a directory in a given path.|
-|CLFRA0590E: Error getting AclEntries for an activity: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0591E: cannot create MemberProfile. Profile ({0}) already exists.|A person could not be added to Activities because their unique identifier or email address matched with another person's in the database.|Using the information provided in the error, run the wsadmin ActivitiesMemberService.syncMemberExtIdByLogin() command for the person already in the Activity's database.|
-|CLFRA0592E: The email address={0} was not found in the directory! Unable to process their message!|An error occurred trying to send an email notification to a person who does not have an email address.|The notification will be sent to the person's Home page.|
-|CLFRA0593E: Error inserting ContentReference: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0594E: Error getting Tags for a member: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0595E: Schema Version Mismatch|The version of the Activities database Activities is connecting to is the wrong version.|Upgrade the Activities data to the correct versions either with the database wizard or upgrade scripts.|
-|CLFRA0596E: Error getting Tags from a node: {0}|An error occurred retrieving an entry in the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0598E: Error getting a selected publish library {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0599E: Unable to add email "{0}" to the membership of the activity because the email address was not recognized either as a person or a group| | |
-|CLFRA0600E: Error updating a selected publish history entry {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0601E: Error purging Statement: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0602E: Error purging Tree Entry: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0603E: Error getting ancestor uuids: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0604E: Error getting NodeMember: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0605E: Error getting activities tags: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0606E: Unable to process event "{0}" . An exception was thrown:|An error occurred sending an email notification.|Refer to addition information in the message regarding the cause.|
-|CLFRA0607E: Error purging EventLogEntry: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0608E: Error finding groups that start with ({0}) : {1}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0609E: Error creating icon for {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0610E: Unrecognized multipart type={0}|An error occurred processing an email being added to Activities.|Ensure that the API program adding email to Activities does no try to include unsupported MIME types.|
-|CLFRA0611E: Error getting activities named ( {0}) : {1}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0612E: Error getting EventLogEntry by member and node: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0613E: Error inserting AclEntry: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0614E: Error, invalid date type specification, {0}|An error occurred trying to use the dates provided in a database query.|Ensure that the API program requesting Activities by dates provides valid dates.|
-|CLFRA0615E: Error updating Statement: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0616E: Exporter/Importer error creating the directory {0}|Error creating the archive directory.|Check for permission errors writing to the filesystem and verify the given user can create a directory in a given path.|
-|CLFRA0617E: Error getting NodeSummary: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0618E: Exporter/Importer destination/source directory is not readable: {0}|The directory in the filesystem is not readable.|Check for permission errors writing to the filesystem and verify the given user can read the directory.|
-|CLFRA0619E: {0} - All passed AclEntrys must refer to the passed object|An error occurred trying to process the data for performing an Membership change.|Ensure that the data provided by API program requesting the Membership change is appropriate.|
-|CLFRA0620E: Error updating Tree Entry: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0621E: Error getting activities nodesummary: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0622E: Error purging Schema Version: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0623E: Error getting related libraries of a selected activity {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0624E: 'subscriber' cannot be empty.|An error occurred retrieving an entry in the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0625E: Error updating MemberProfile: {0}|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0626E: Error getting activities total: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0627E: Error purging AclEntry: {0}|An error occurred removing an entry from the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0628E: Error finding activities that start with ( {0}) : {1}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0630E: Error getting publish history entries of a selected activity {0}|An error occurred retrieving an entry in the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0631E: Unrecognized content type at the beginning of the email={0}, instanceof={1}|An error occurred trying to add an email to Activities.|Modify the API program trying to add the email to only provide supported data types.|
-|CLFRA0632E: Error getting Node: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0634E: Error getting publish history entries of a selected node entry {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0636E: Error getting Statement: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0637E: Error purging ContentReference: {0}|An error occurred removing an entry in the database.|Check the database logs and resolve the condition preventing the entry from being removed.|
-|CLFRA0638E: Error getting Tree Entry: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0639E: Error getting AclEntry by uuid: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0641E: EmailNotifier: initialize method does not allow null properties. Check the config file to see if it includes all the required settings| | |
-|CLFRA0642E: Error moving node, activities/reply typed nodes cannot be re-parented.|An error occurred updating an entry in the database.|Check the database logs and resolve the condition preventing the entry from being updated.|
-|CLFRA0643E: Invalid event class: {0}|An error occurred processing the &lt;eventBroker> entry in oa-config.xml.|Restore the default &lt;eventBroker > entry in oa-config.xml.|
-|CLFRA0644E: Error getting EventLogEntry by uuid: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0645E: Error getting AclEntry by member and node: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0646E: Error getting LogEntries for a user: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0648E: Error getting nodes in activity: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0649E: Error getting Schema Version: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0650E: Error getting autocompleted activity candidates: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0651E: No such Sort Key - {0}|The sort key provided for sorting entries returned from a query is null.|Modify the API program requesting sorted entries to provide a sort key.|
-|CLFRA0652E: No thumbnail exists for {0}|The thumbnail image for an attachment could not be found.|None – a default image will be used.|
-|CLFRA0653E: NOT IMPLEMENTED|The function being requested from the Activities service is not available.|None.|
-|CLFRA0655E: Error getting ancestor tree entries: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0656E: Error getting getMemberProfilesByName: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0657E: Error getting Tag: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0658E: Error getting all nodes: {0}|An error occurred retrieving an entry from the database.|Check the database logs and resolve the condition preventing the entry from being retrieved.|
-|CLFRA0660E: Stream is not Open|An error occurred trying to feed user input data through the Active Content filter.|Caused by a temporary lack of resources, retry the operation.|
-|CLFRA0661E: Error inserting Statement: {0}|An error occurred adding an entry to the database.|Check the database logs and resolve the condition preventing the entry from being added.|
-|CLFRA0662E: unknown permission: {0}|An error occurred processing the list of permissions being given to a Member of an activity.|Ensure that the API program adding the permissions only uses those defined.|
-|CLFRA0665E: Error closing the Admin Execution Context|An error occurred during the completion of a user lifecycle event.|Check the additional information provided in the message for the cause.|
-|CLFRA0668E: The community activity UUID={0} has been deleted by its Community. Thus, it will not be exported.|The administrator tried to export an activity that references a community that has been deleted. (When a community is deleted, its activities are soft-deleted, which means they are still potentially available for export.) However, the implementation policy does not allow for the export of such activities.| |
-|CLFRA0669E: Cannot set External to {0} in activity UUID {1} due to heterogeneous organizations in the membership of the activity.|The activity cannot be made internal because some of the current members of the activity have an organization that is different from the organization of the business owner.|Remove the members of the activity who have a different organization from the business owner, then retry the Access Change action.|
-|CLFRA0671E: Cannot set External to {0} in activity UUID {1} because the Community member {2} is external.|The activity cannot be made internal because one of the current community members is external.|Remove the external community from the Members list, then retry the Access Change action.|
-|CLFRA0672E: The external Community {0} could not be added as a member to the internal activity with UUID {1}.|The selected community cannot be added to the internal activity because the community is external.|Set the community access to be internal, then retry the Add Member action.|
-|CLFRA0683E: The file {0} does not exist.|The attachment that you want to remove is not in the file system.|No action necessary.|
-|CLFRA0684E: {0} does not have organization member uuid.|The selected member cannot be added to an activity because the member does not belong to an organization.|Contact customer support to report the incident.|
-|CLFRA0685E: Error inserting Invitation: {0}.|The operation to add an invitation to the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0686E: Error updating Invitation: {0}.|The operation to update an invitation in the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0687E: Error getting Invitation by activity and member: {0}.|The operation to select an invitation from the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0688E: Error updating profile: extId = {0} exception = {1}.|The operation to update a member in the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0689E: Error adding profile: extId = {0} exception = {1}.|The operation to add a member to the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0690E: Error purging Invitation: {0}.|The operation to delete an invitation from the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0691E: Error getting Invitation by uuid: {0}.|The operation to select an invitation from the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities feature, contact HCL customer support to report the incident.|
-|CLFRA0692E: Error getting Invitations for an activity: {0}.|The operation to select Invitations from the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities feature, contact HCL customer support to report the incident.|
-|CLFRA0779E: The organization {0} cannot be removed. It is in use by subscriber(s) : {1}|The organization cannot be deleted because at least one subscriber in the Activities database is a member of the organization.|Remove all subscribers from the organization before removing the organization.|
-|CLFRA0780E: Cannot add member {0} to activity UUID {1} because they are not a member of Community UUID {2}.|The member could not be added to the community activity because they are not a member of the community.|Add the member to the community then retry the Add Member action.|
-|CLFRA0781E: The Activity or Activity Entry with UUID {0} is not present in the Activities database.|The operation to select an activity or activity entry from the Activities database failed. The activity or entry referenced by the URL is no longer present in the Activities database.|No action necessary.|
-|CLFRA0782E: The time zone "{1}" for user "{0}" is not valid; using default time zone for user''s locale.|You should not see this error message. The feature is not enabled.|You should not see this error message. The feature is not enabled|
-|CLFRA0783E: Error getting total number of AclEntries: {0}.|The operation to select then number of Activity Members from the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0786E: Error checking access permission for user {0} on activity {1}.|The operation to check a member's access to an activity in the Activities database failed.|Ensure any database issues reported in the SystemOut.log file are resolved. If the problem persists after restarting Activities, contact HCL customer support to report the incident.|
-|CLFRA0787E: Unable to instantiate requested cache {0} from DynaCache; received error {1}; using default implementation.|Errors are being returned when Activities is trying to access the WebSphere cache implementation.|Contact HCL customer support to report the incident.|
-|CLFRA0788E: Unable to instantiate configured timezoneExtensionPoint {0}; received error {1}; using default implementation.|You should not see this error message. The feature is not enabled.|You should not see this error message. The feature is not enabled.|
-|CLFRA0828E: An incorrect event type was sent to the audit event processor.|Error publishing event : {0}|Check oa-config.xml (eventBroker) tag.|
-|CLFRA0829E: Error purging items.|An error with the server or database. For example, this might denote that the database server is down or that there is an authorization issue.|Check the SystemOut.log file to find the cause.|
-|CLFRA0830I: Purging, fetched {0} items for current batch.|Denotes number of items to delete during purge.|This is an informational message only; no action is required.|
-|CLFRA0831E: Error fetching items to purge.|An error with the server or database. For example, this might denote that the database server is down or that there is an authorization issue.|Check the SystemOut.log file to find the cause.|
-|CLFRA0832W: Number of items to purge is either not specified or invalid ({0}). Defaulting to {1} items.|Invalid or missing maxNumberOfDeletionPerCall value in EventLogPurgeJob task.|Correct the value for maxNumberOfDeletionPerCall in the EventLogPurgeJob task in oa-config.xml.|
-|CLFRA0833I: Number of new event log entries added since last execution at {0} : {1}|Denotes number of entries in log since last event purge.|This is an informational message only; no action is required.|
-|CLFRA0834I: Number of event log entries purged {0} for the current batch.|Denotes number of entries deleted from log for current purge.|This is an informational message only; no action is required.|
-|CLFRA0835I: Total number of event log entries purged {0}.|Denotes total number of entries deleted from log.|This is an informational message only; no action is required.|
-|CLFRA0836I: Number of event log entries purged {0}, number of new event log entries added {1}.|Denotes number of entries deleted from log and number of entries added to log.|This is an informational message only; no action is required.|
-|CLFRA0837I: The number of event log entries purged is less than the number of event log entries added.|Fewer entries were removed from the log than added. consider changing purge settings.|This is an informational message only; no action is required. Consider adjusting the retentionInDays and maxNumberOfDeletionPerCall values in the EventLogPurgeJob task in oa-config.xml.|
-|CLFRA0825I: Total number of followers purged: {0}.|Denotes number of followers removed. The followers removed are users who are still in the activity's follower list but should not be.|This is an informational message only; no action is required.|
-|CLFRA0826I: Found {0} deletable followers for the current batch.|Denotes the number of followers to be deleted. This number matches the number of followers mentioned in CLFRA0825I.|This is an informational message only; no action is required.|
-|CLFRA0827E: Error getting LogEntries for a date range: {0}.|An error occurred with the database.|Check the SystemOut.log file to find the cause.|
-|CLFRA0839E: The content store type : {0} was not found.|Invalid content store type is specified in oa-config.xml .|For this store type, verify that the objectStore specified in the oa-config.xml includes a valid id attribute and directory mapping.|
-|CLFRA0840E: Error getting Invitations for member: {0}.|An error occurred with the database.|Check the SystemOut.log file to find the cause.|
-|CLFRA0841E: Error inserting MemberProfile; no login names are available.|The data Activities retrieved from the name directory (Profiles or LDAP) does not have a login name assigned to the user. This might be caused by an invalid user profile.|Fix the problem on the name directory.|
-|CLFRA0842E: Error inserting MemberProfile; no login names are available.|The data Activities retrieved from the name directory (Profiles or LDAP) does not have a login name assigned to the user. This might be caused by an invalid user profile.|Fix the problem on the name directory.|</p>
 <p><strong>Parent topic:</strong><a href="c_error_codes.html">Error message reference</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../admin/c_admin_act_overview.html">Administering Activities</a></p>
