@@ -42,6 +42,8 @@ markdown_extensions:
   - attr_list
   - def_list
   - md_in_html
+  - toc:
+      title: On this page
 
 extra:
 #  analytics: 
