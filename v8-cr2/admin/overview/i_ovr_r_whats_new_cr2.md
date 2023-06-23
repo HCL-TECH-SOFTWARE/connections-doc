@@ -37,11 +37,7 @@ HCL Connections no longer supports context roots customization starting from Con
 
 A new release of TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, refer to [Optional: Installing and configuring Tiny Editors for HCL Connections](https://opensource.hcltechsw.com/connections-doc/v8-cr1/admin/install/tiny_editors/c_tiny-editors.html).
 
-## Connections Engagement Center in HCL Connections {#cec .section}
-
-Updated the installation instructions for the Connections Engagement Center to work with HCL Connections 8.0. This will allow customers to view the Connections Engagement Center 8.0 in the HCL Software License & Download Portal when they purchase. Refer to [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) for details.
 
 **Interested in Connections Mobile?**
 
 Check out the App Store for iOS or Google Play for Android for the latest information and release. Refer to [HCL Connections Mobile](https://help.hcltechsw.com/connectionsmobile/index.html) product documentation for additional information.
-

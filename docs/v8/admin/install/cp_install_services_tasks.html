@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -6112,8 +6122,6 @@
         
           
         
-          
-        
       
       
         
@@ -6282,20 +6290,6 @@
     <li class="md-nav__item">
       <a href="tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tiny_editors/r_fonts-samples.html" class="md-nav__link">
-        Sample fonts list configurations
       </a>
     </li>
   
@@ -34986,7 +34980,9 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -34995,7 +34991,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -35590,7 +35586,7 @@ mkdir -p /pv-connections/mongo5-node-2
 <p>For how to troubleshoot PV and PVC setup, see the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf">Troubleshooting Component Pack guide</a> document.</p>
 <h2 class="section" id="bootstrap">Set up bootstrap charts</h2>
 <p>The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis and OpenSearch.</p>
-<p>Be aware that bootstrap installation overwrites existing secrets, and therefore requires redoing some configuration steps, like SSL interoperability with OpenSearch.</p>
+<p>Bootstrap installation overwrites existing secrets only if the 'force_regenerate' flag is set to true or if the related component service is not configured on the Kubernetes cluster. Once secrets have been overwritten, you need to redo certain configuration steps, such as SSL interoperability with OpenSearch.</p>
 <ol>
 <li>
 <p>Start by deleting the existing chart:</p>
@@ -35898,7 +35894,7 @@ sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
 </li>
 <li>
 <p>Merge the Signer certificate into the opensearch-metrics.p12 keystore:</p>
-<div id="codeblock_krg_nmg_fvb" class="highlight"><pre><span></span><code>execfile(&#39;esSecurityAdmin.py&#39;)    
+<div id="codeblock_krg_nmg_fvb" class="highlight"><pre><span></span><code>execfile(&#39;esSearchAdmin.py&#39;)    
 enableSslForESSearch(&#39;KEYSTORE_FULL_PATH&#39;, &#39;OpenSearch_CA_PASSWORD&#39;, &#39;SIGNER_CA_FULL_PATH&#39;, &#39;OpenSearch_HTTPS_PORT&#39;)
 </code></pre></div>
 <p>Where:</p>

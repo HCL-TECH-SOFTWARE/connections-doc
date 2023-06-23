@@ -8,7 +8,9 @@ To resolve this problem, configure the Virtual Member Manager component of WebSp
 
 1.  Open the wimconfig.xml file in a text editor. The file is stored in the following location:
 
-        |**AIX®**|/usr/IBM/WebSphere/AppServer/profiles/<profile\_name\>/config/cells/ <cell\_name\>/wim/config|
+    |Option|Description|
+    |------|-----------|
+    |**AIX®**|/usr/IBM/WebSphere/AppServer/profiles/<profile\_name\>/config/cells/ <cell\_name\>/wim/config|
     |**Linux™**|/opt/IBM/WebSphere/AppServer/profiles/<profile\_name\>/config/cells/ <cell\_name\>/wim/config|
     |**Microsoft™ Windows™**|C:\\IBM\\WebSphere\\AppServer\\profiles\\<profile\_name\>\\config\\cells\\ <cell\_name\>\\wim\\config|
 
