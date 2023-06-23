@@ -121,12 +121,7 @@ When you enable presence awareness by using the Sametime Proxy server, a person'
 
 !!! Note
 
-    -   If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your **Important To Me** navigation bar. For more information, see the [Connections Sametime chat extension](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime).
-    -   You can ignore the following configuration in `profiles-config.xml`, as it is not used for Sametime 12. 
-    ```
-    <sametimeAwareness enabled="false" href="http://localhost:59449/stwebapi/" ssl_href="http://localhost:59449/stwebapi/" sametimeInputType="uid" />
-    ```
-    Make sure to leave enabled as `false`.
+    If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your **Important To Me** navigation bar. For more information, see the [Connections Sametime chat extension](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime).
 
-**Parent topic:** [Customizing the deployment](../admin/c_admin_common_customizing.md)
+**Parent topic:**[Customizing the deployment](../admin/c_admin_common_customizing.md)
 

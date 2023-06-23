@@ -105,10 +105,6 @@ Pinned contacts and communities are available everywhere in Connections for inst
 
 See [Adding an Important To Me bar to a Connections component](../customize/c_itm_iframe_intro.md).
 
-## Connections Engagement Center in HCL Connections {#cec .section}
-
-Expand the use of [Connections Engagement Center](../../connectors/icec/icec_welcome.md) throughout Connections by upgrading to a full version of the Engagement Center by purchasing an additional entitlement. Follow the [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) after downloading the update and license package from the HCL Software License & Download Portal.
-
 **Interested in Connections Mobile?**
 
 Check out the App Store for iOS or Google Play for Android for the latest information and release. Refer to [HCL Connections Mobile](https://help.hcltechsw.com/connectionsmobile/index.html) product documentation for additional information.

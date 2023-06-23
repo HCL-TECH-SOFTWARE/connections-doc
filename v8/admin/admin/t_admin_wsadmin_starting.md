@@ -54,7 +54,7 @@ The wsadmin client is a scripting environment that is installed with IBM® WebSp
 
 For more information about the properties that you can change, see the topics in the common HCL Connections section and individual application sections.
 
-**Parent topic:** [Administration tools](../admin/c_admin_common_tools.md)
+**Parent topic:**[Administration tools](../admin/c_admin_common_tools.md)
 
 **Related information**  
 
