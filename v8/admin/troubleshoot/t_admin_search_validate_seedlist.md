@@ -35,7 +35,15 @@ The SearchService.validateSeedlist command allows you to validate a specified ap
 
     |Command|Description|
     |-------|-----------|
-    |SearchService.validateSeedlist\(String component\)|Validates the seedlist for the specified application.This command takes a string value, which is the name of the application whose seedlist is to be validated. The following values are valid: activities, blogs, communities, dogear, files, forums, profiles, and wikis. <br> For example: <br> ```SearchService.validateSeedlist("communities")```|
+    |SearchService.validateSeedlist\(String component\)|Validates the seedlist for the specified application.This command takes a string value, which is the name of the application whose seedlist is to be validated. The following values are valid: activities, blogs, communities, dogear, files, forums, profiles, and wikis.
+
+For example:
+
+    ```
+SearchService.validateSeedlist("communities")
+    ```
+
+|
 
 
 When the seedlist for the specified application is working correctly, the following message is returned in the terminal window:

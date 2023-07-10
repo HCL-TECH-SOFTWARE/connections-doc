@@ -12,59 +12,61 @@ Each configuration file is an XML that is paired with an XSD file. The XML file 
 
         [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/dm\_profile\_root/bin
 
-        app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
-
-        ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
+        Where:
         
-        ```
+        -   app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
-        ```
-        Linux:
-        /opt/IBM/WebSphere/AppServer
-        
-        ```
+            ```
+            AIX:
+            /usr/IBM/WebSphere/AppServer
+            ```
 
-        ```
-        Windows:
-        drive:\Program Files\IBM\WebSphere\AppServer
-        
-        ```
+            ```
+            Linux:
+            /opt/IBM/WebSphere/AppServer
+            ```
 
-        Where drive is the system drive on which the file directory is stored. For example: C: or D:.
+            ```
+            Windows:
+            drive:\Program Files\IBM\WebSphere\AppServer
+            ```
 
-        where `dm_profile_root` is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\\Program Files\\IBM\\WebSphere\\AppServer\\profiles\\Dmgr01\\bin.
+        -   drive is the system drive on which the file directory is stored. For example: C: or D:.
 
-        **Attention**: You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile\(\) command does not work correctly.
+        -   dm\_profile\_root is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\\Program Files\\IBM\\WebSphere\\AppServer\\profiles\\Dmgr01\\bin.
+
+        **Attention:** You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile\(\) command does not work correctly.
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: `./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT`
-        -   Microsoft Windows: `wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT`
+        -   AIX or Linux: `./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT`
+        -   Microsoft Windows: `wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT`
+        
+        Where:
 
-        where:
+        -   admin\_user\_id is the user name of the Administrator role on IBM WebSphere® Application Server. This administrator must be configured at the cell level, not at the cluster, node, or server level.
 
-        -   `admin_user_id` is the user name of the Administrator role on IBM WebSphere® Application Server. This administrator must be configured at the cell level, not at the cluster, node, or server level.
-        -   `admin_password` is the password of the WebSphere Application Server administrator.
-        -   `SOAP_CONNECTOR_ADDRESS_PORT` is the SOAP port for the WebSphere Application Server deployment manager server. The default value of the SOAP port is 8879. If you are using the default port value, you do not have to specify this parameter. If you are not using the default value and you do not know the port number, you can look up its value in the WebSphere Application Server Integrated Solution Console. To look up the SOAP port number, complete the following steps:
+        -   admin\_password is the password of the WebSphere Application Server administrator.
+
+        -   SOAP\_CONNECTOR\_ADDRESS\_PORT is the SOAP port for the WebSphere Application Server deployment manager server. The default value of the SOAP port is 8879. If you are using the default port value, you do not have to specify this parameter. If you are not using the default value and you do not know the port number, you can look up its value in the WebSphere Application Server Integrated Solution Console. To look up the SOAP port number, complete the following steps:
 
             1.  Open the WebSphere Application Server Integrated Solution Console for the deployment manager, and then select **System Administration** \> **Deployment Manager**.
 
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
 
-            For example:
+        For example:
 
-            -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
-            -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+
+        -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 
 2.  Use the following command to access the configuration files:
 
     ```
-    execfile("application_py_file")
+    execfile\("application\_py\_file"\)
     ```
 
-    where `application_py_file` is one of the following values:
+    where application\_py\_file is one of the following values:
 
     -   HCL Connections-wide: `connectionsConfig.py`
     -   Activities: `activitiesAdmin.py`
@@ -85,13 +87,12 @@ Each configuration file is an XML that is paired with an XSD file. The XML file 
 3.  Check out the configuration file for an application by using the following command:
 
     ```
-    service_name.checkOutConfig("working_directory", "cell_name")
+    service\_name.checkOutConfig\("working\_directory", "cell\_name"\)
     ```
 
-    where:
+    Where:
 
-    -   `service_name` is one of the following values:
-
+    -   service\_name is one of the following values:
         -   HCL Connections-wide: `LCConfigService`
         -   Activities: `ActivitiesConfigService`
         -   Blogs: The configuration settings for Blogs are not in a configuration file, so you do not have to edit a file. Unlike the other applications, when you edit Blogs configuration properties, the changes are written directly to the Blogs database.
@@ -105,53 +106,54 @@ Each configuration file is an XML that is paired with an XSD file. The XML file 
         -   Wikis: `WikisConfigService`
         -   Metrics: `MetricsConfigService`
 
-    -   `working_directory` is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
+    -   working\_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
 
-        !**Notes**:
+        **Notes:**
 
-            -   When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: `"C:/temp"`
-            -   AIX, and Linux only: The directory must grant write permissions or the command fails.
+        -   When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: `"C:/temp"`.
 
-    -   `cell_name` is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: `print AdminControl.getCell()`
+        -   AIX, and Linux only: The directory must grant write permissions or the command fails.
 
-        **Note**: This input parameter is case-sensitive.
+    -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: `print AdminControl.getCell\(\)`
+
+        **Note:** This input parameter is case-sensitive.
 
     For example:
 
-    -   Common HCL Connections properties: `LCConfigService.checkOutConfig("C:/temp","foo01Cell01") LCConfigService.checkOutNotificationConfig("C:/temp","foo01Cell01") LCConfigService.checkOutOpensocialConfig("C:/temp","fooCell01")`
+    -   Common HCL Connections properties: `LCConfigService.checkOutConfig\("C:/temp","foo01Cell01"\) LCConfigService.checkOutNotificationConfig\("C:/temp","foo01Cell01"\) LCConfigService.checkOutOpensocialConfig\("C:/temp","fooCell01"\)`
 
-    -   The events-config.xml file: `LCConfigService.checkOutEventsConfig("/temp","foo01Cell01")`
+    -   The events-config.xml file: `LCConfigService.checkOutEventsConfig\("/temp","foo01Cell01"\)`
 
         This command is part of the LCConfig service and checks out the events-config.xml file. For more information, see *Editing the events-config.xml file*.
 
-    -   Activities: `ActivitiesConfigService.checkOutConfig("/temp","foo01Cell01")`
-    -   Bookmarks: `DogearCellConfig.checkOutConfig("C:/temp","foo01Cell01")`
-    -   Communities: `CommunitiesConfigService.checkOutConfig("/temp","foo01Cell01")`
-    -   Files: `FilesConfigService.checkOutConfig("C:/temp","foo01Cell01")`
-    -   Forums: `ForumsConfigService.checkOutConfig("C:/temp","foo01Cell01")`
-    -   Metrics: `MetricsConfigService.checkOutConfig("/temp","foo01Cell01")`
-    -   News repository: `NewsCellConfig.checkOutConfig("/temp","foo01Cell01")`
-    -   Profiles: `ProfilesConfigService.checkOutConfig("C:/temp","foo01Cell01")`
-    -   Search: `SearchCellConfig.checkOutConfig("/temp","foo01Cell01")`
+    -   Activities: `ActivitiesConfigService.checkOutConfig\("/temp","foo01Cell01"\)`
+    -   Bookmarks: `DogearCellConfig.checkOutConfig\("C:/temp","foo01Cell01"\)`
+    -   Communities: `CommunitiesConfigService.checkOutConfig\("/temp","foo01Cell01"\)`
+    -   Files: `FilesConfigService.checkOutConfig\("C:/temp","foo01Cell01"\)`
+    -   Forums: `ForumsConfigService.checkOutConfig\("C:/temp","foo01Cell01"\)`
+    -   Metrics: `MetricsConfigService.checkOutConfig\("/temp","foo01Cell01"\)`
+    -   News repository: `NewsCellConfig.checkOutConfig\("/temp","foo01Cell01"\)`
+    -   Profiles: `ProfilesConfigService.checkOutConfig\("C:/temp","foo01Cell01"\)`
+    -   Search: `SearchCellConfig.checkOutConfig\("/temp","foo01Cell01"\)`
 
-        **Note**:The HomepageCellConfig.checkOutConfig command is superseded by the SearchCellConfig.checkOutConfig command.
+        **Note:** The HomepageCellConfig.checkOutConfig command is superseded by the SearchCellConfig.checkOutConfig command.
 
-    -   Wikis: `WikisConfigService.checkOutConfig("C:/temp","foo01Cell01")`
+    -   Wikis: `WikisConfigService.checkOutConfig\("C:/temp","foo01Cell01"\)`
 
 4.  **Optional**: To see the current values of the configuration properties, use the following command:
 
     ```
-    service_name.showConfig()
+    service\_name.showConfig()
     ```
 
-    where `service_name` is one of the service names that are defined in step 4.
+    where service\_name is one of the service names that are defined in step 4.
 
 5.  Edit the configuration properties that you want to change. Some properties must be edited by using the wsadmin client; others can be edited only by editing the configuration XML file directly.
 
     For example:
 
     ```
-    service_name.updateConfig("property_name","new_value")
+    service\_name.updateConfig\("property\_name","new\_value"\)
     ```
 
     For more information about the configuration properties that you can edit, see the documentation for the individual application sections.
@@ -161,17 +163,17 @@ Each configuration file is an XML that is paired with an XSD file. The XML file 
 7.  Check in the configuration files:
 
     ```
-    service_name.checkInConfig()
+    service\_name.checkInConfig\(\)
     ```
 
-    where `service_name` is one of the service names that are defined in step 4. You do not have to complete this step for the Blogs application. To check in the events-config.xml file, use the `LCConfigService.checkInEventsConfig()` command.
+    where service\_name is one of the service names that are defined in step 4. You do not have to complete this step for the Blogs application. To check in the events-config.xml file, use the LCConfigService.checkInEventsConfig\(\) command.
 
-    **Note**: You must check in the file during the same wsadmin session in which you checked it out.
+    **Note:** You must check in the file during the same wsadmin session in which you checked it out.
 
 8.  Deploy the changes by synchronizing the nodes:
 
     ```
-    synchAllNodes()
+    synchAllNodes\(\)
     ```
 
 9.  To exit the wsadmin client, type `exit` at the prompt.
@@ -183,8 +185,10 @@ Each configuration file is an XML that is paired with an XSD file. The XML file 
 
 -   **[HCL Connections configuration property values](../admin/t_admin_common_change_config_value_over.md)**  
 Find out what configuration properties you can edit for each application.
+
 -   **[HCL Connections configuration files](../admin/r_admin_common_config_files.md)**  
 Configuration files are XML-formatted files that store configuration information for HCL Connections.
+
 -   **[Editing the events-config.xml file](../admin/t_admin_common_editing_events_config.md)**  
 Edit the events-config.xml file to change how events are collected and managed
 

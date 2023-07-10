@@ -512,7 +512,7 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis and OpenSearch.
 
-Bootstrap installation overwrites existing secrets only if the 'force_regenerate' flag is set to true or if the related component service is not configured on the Kubernetes cluster. Once secrets have been overwritten, you need to redo certain configuration steps, such as SSL interoperability with OpenSearch.
+Be aware that bootstrap installation overwrites existing secrets, and therefore requires redoing some configuration steps, like SSL interoperability with OpenSearch.
 
 1.  Start by deleting the existing chart:
 
@@ -859,7 +859,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     2.  Merge the Signer certificate into the opensearch-metrics.p12 keystore:
 
         ``` {#codeblock_krg_nmg_fvb}
-        execfile('esSearchAdmin.py')    
+        execfile('esSecurityAdmin.py')    
         enableSslForESSearch('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
         ```
 

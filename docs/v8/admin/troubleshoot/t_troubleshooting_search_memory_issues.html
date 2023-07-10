@@ -63,21 +63,11 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
- 
-
   gtag('config', 'UA-169645537-2');
-  gtag('config', 'G-7LF0XY95M1');
 </script>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
-  <!-- End Google Tag Manager -->
-  
+ 
 <!--  Global site tag (gtag.js) - Google Analytics end -->
+
     
     
     
@@ -6116,6 +6106,8 @@
         
           
         
+          
+        
       
       
         
@@ -6284,6 +6276,20 @@
     <li class="md-nav__item">
       <a href="../install/tiny_editors/r_fonts-default.html" class="md-nav__link">
         Default fonts list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/tiny_editors/r_fonts-samples.html" class="md-nav__link">
+        Sample fonts list configurations
       </a>
     </li>
   
@@ -23834,56 +23840,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Troubleshooting Search-related memory issues
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="t_troubleshooting_search_memory_issues.html" class="md-nav__link md-nav__link--active">
         Troubleshooting Search-related memory issues
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#before-you-begin" class="md-nav__link">
-    Before you begin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-task" class="md-nav__link">
-    About this task
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -35037,43 +34996,12 @@
                   <div class="md-sidebar__inner">
                     
 
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
     
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#before-you-begin" class="md-nav__link">
-    Before you begin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-task" class="md-nav__link">
-    About this task
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -35095,19 +35023,16 @@
 
 <h1 class="task" id="t_troubleshooting_search_memory_issues">Troubleshooting Search-related memory issues</h1>
 <p>You can configure settings in the LotusConnections-config.xml file to avoid out-of-memory issues or other problems caused by long response times from the Search application.</p>
-<h2 id="before-you-begin">Before you begin</h2>
 <p>To edit configuration files, you must use the IBM® WebSphere® Application Server wsadmin client. See <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
-<h2 id="about-this-task">About this task</h2>
 <p>In a heavily-loaded environment or when HCL Connections™ is deployed in an environment with inadequate hardware, the applications that use Search can get blocked while waiting for search results. They can also run out of memory if the Search application is overloaded with hanging threads or transactions that have not completed.</p>
 <p>Connections provides two counters that ensure that the applications using Search do not get blocked, and that they can resume normal behavior without administrative intervention once the Search application is operating properly again. These two counters act as a mechanism to determine if the Search server is able to accept new connections.</p>
-<p><strong>Active transactions counter</strong></p>
-<p>Counts the number of active transactions that are waiting for a response from the Search server.</p>
-<p><strong>Queue counter</strong></p>
-<p>Counts the number of active transactions that are queuing to connect to the Search server.</p>
+<p>Active transactions counter
+:   Counts the number of active transactions that are waiting for a response from the Search server.</p>
+<p>Queue counter
+:   Counts the number of active transactions that are queuing to connect to the Search server.</p>
 <p><strong>Note:</strong> These counters only work when the Search application is installed on a different server from the Connections applications.</p>
 <p>The active transactions counter allows a specified number of active transactions to wait for a response from the Search server. For example, if the limit is set to 20, when 20 active transactions are waiting for a response from the Search server, any subsequent attempts to connect to the server are placed in a queue. If the queue counter is not equal to the value defined in the LotusConnections-config.xml configuration file, the connection to the Search server is rejected. If the queue counter is equal to the value set in the configuration file, a connection to the server is allowed. If the Search server returns data without an timeout exception being returned to the application, the queue counter is reset to 0.</p>
 <p>You can set the limits allowed by the active transactions counter and the queue counter by configuring settings in the LotusConnections-config.xml file.</p>
-<h2 id="procedure">Procedure</h2>
 <ol>
 <li>
 <p>Start the wsadmin client from one of the following directories on the system on which you installed the Deployment Manager:</p>
@@ -35120,8 +35045,8 @@
 <p>Use the wsadmin client to access and check out the Connections configuration files:</p>
 <ol>
 <li>
-<p>Enter the following command to load the HCL Connections configuration file: <code>execfile("connectionsConfig.py")</code></p>
-<p>If you are prompted to specify a service to connect to, type <code>1</code> to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
+<p>Enter the following command to load the HCL Connections configuration file: execfile("connectionsConfig.py")</p>
+<p>If you are prompted to specify a service to connect to, type 1 to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
 </li>
 <li>
 <p>Enter the following command to check out HCL Connections configuration files:</p>
@@ -35133,11 +35058,9 @@
 <p><strong>Notes:</strong></p>
 <ul>
 <li>When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".</li>
-<li>AIX, and Linux only: The directory must grant write permissions or the command fails.</li>
+<li>AIX, and Linux only: The directory must grant write permissions or the command fails.
+        -   cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</li>
 </ul>
-</li>
-<li>
-<p>cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</p>
 <p><strong>Note:</strong> This input parameter is case-sensitive.</p>
 </li>
 </ul>
