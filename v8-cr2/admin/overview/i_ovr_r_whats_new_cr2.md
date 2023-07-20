@@ -15,7 +15,7 @@ Also, updates have been made to HCL Support Statement. For details, see the [HCL
 **System requirements**
 
 -   Refer to the [HCL Connections 8.0 CR2 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104521).
--   For Component Pack 8 CR2, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr2/admin/install/cp_prereqs.html).
+-   For Component Pack 8 CR2, see [Prerequisites for Component Pack](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/install/cp_prereqs.html?h=prerequ).
 
 ## Using HCL Leap with HCL Connections {#hclleap.section}
 
@@ -23,7 +23,7 @@ HCL Leap can be used to create applications, including but not limited to polls 
 
 ## Using HCL Sametime 12 with HCL Connections
 
-HCL Connections has been updated to support Sametime awareness and chat for Sametime Version 12. Once enabled, a user's profile and business card will display their Sametime status and you can start a Sametime chat with that user via the Sametime web client. See [Adding Sametime awareness through the Sametime server](../admin/t_admin_common_add_st_awareness_via_proxy.md) to enable this feature. 
+HCL Connections has been updated to support Sametime awareness and chat for Sametime Version 12. Once enabled, a user's profile and business card will display their Sametime status and you can start a Sametime chat with that user via the Sametime web client. See [Adding Sametime awareness through the Sametime server](../admin/t_admin_common_add_st_awareness_via_proxy.md) to enable this feature.
 
 ## HCL Connections Mail plug-in support for Verse {#mail_verse .section}
 
