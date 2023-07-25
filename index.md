@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Redirecting</title>
   <noscript>
-    <meta http-equiv="refresh" content="1; url=../v8_cr2/" />
+    <meta http-equiv="refresh" content="1; url=../v8_cr3/" />
   <script>
     window.location.replace("../v8_cr3/" + window.location.hash);
   </script>	
