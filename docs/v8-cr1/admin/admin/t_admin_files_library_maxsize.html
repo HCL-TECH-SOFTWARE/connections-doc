@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35308,8 +35324,10 @@
 </li>
 <li>
 <p>Run the following commands to set maximum sizes on libraries:</p>
-<p>FilesLibraryService.assignPolicy(string libraryId, string policyId)
-:   Assigns a policy to a library. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments. A policy sets a maximum size for a library.</p>
+<dl>
+<dt>FilesLibraryService.assignPolicy(string libraryId, string policyId)</dt>
+<dd>Assigns a policy to a library. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments. A policy sets a maximum size for a library.</dd>
+</dl>
 <pre><code>No message is printed if the task succeeds.
 
 Parameters:
@@ -35327,8 +35345,10 @@ FilesLibraryService.assignPolicy("f0d01111-9b21-4dd8-b8be-8825631cb84b",
    "2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>FilesLibraryService.assignPolicyBatch(string filePath)
-:   Assigns policies to libraries as specified in a text file. The file must contain a list of library-policy ID pairs, one pair per line, values separated by a comma. For example: <code>libraryId, policyId</code>. Extra whitespace is ignored. You must create this text file and save it in a directory local to the server where you are running the wsadmin processor.</p>
+<dl>
+<dt>FilesLibraryService.assignPolicyBatch(string filePath)</dt>
+<dd>Assigns policies to libraries as specified in a text file. The file must contain a list of library-policy ID pairs, one pair per line, values separated by a comma. For example: <code>libraryId, policyId</code>. Extra whitespace is ignored. You must create this text file and save it in a directory local to the server where you are running the wsadmin processor.</dd>
+</dl>
 <pre><code>A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments. A policy sets a maximum size for a library.
 
 Parameters:

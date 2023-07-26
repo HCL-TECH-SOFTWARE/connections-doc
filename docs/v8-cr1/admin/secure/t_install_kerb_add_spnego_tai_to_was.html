@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35310,18 +35326,20 @@
 <ol>
 <li>
 <p>Click <strong>Kerberos configuration</strong> in the <strong>Authentication</strong> area, and then specify the following details:</p>
-<p>Kerberos service name
-:   HTTP</p>
-<p>Kerberos configuration file
-:   Full path to your Kerberos configuration file</p>
-<p>Kerberos keytab file name
-:   Full path to your keytab file</p>
-<p>Kerberos realm name
-:   Name of your Kerberos realm</p>
-<p>Trim Kerberos realm from principal name
-:   Select this option if it is not selected.</p>
-<p>Enable delegation of Kerberos credentials
-:   Select this option if it is not selected.</p>
+<dl>
+<dt>Kerberos service name</dt>
+<dd>HTTP</dd>
+<dt>Kerberos configuration file</dt>
+<dd>Full path to your Kerberos configuration file</dd>
+<dt>Kerberos keytab file name</dt>
+<dd>Full path to your keytab file</dd>
+<dt>Kerberos realm name</dt>
+<dd>Name of your Kerberos realm</dd>
+<dt>Trim Kerberos realm from principal name</dt>
+<dd>Select this option if it is not selected.</dd>
+<dt>Enable delegation of Kerberos credentials</dt>
+<dd>Select this option if it is not selected.</dd>
+</dl>
 <pre><code>**Note:** Enable this option only if you are using Connections Mail with an Exchange backend; otherwise this setting should not be selected.
 </code></pre>
 </li>
@@ -35340,22 +35358,28 @@
 <li>
 <p>In the SPNEGO Filters area, click <strong>New</strong> and enter the following details:</p>
 <p><strong>Note:</strong> Connections Mobile for iOS devices supports Kerberos for authentication. If your deployment only includes mobile iOS devices, and does not include mobile Android devices, remove the first instance of <strong>request-url!=/mobile</strong> from the filter criteria.</p>
-<p>Host name
-:   Enter the URI for how the HCL Connections™ environment is accessed. Typically, it is the hostname/alias of the HTTP server.</p>
-<p>Kerberos realm name
-:   Enter your Kerberos realm name. Only required if Kerberos is enabled.</p>
-<p>Filter criteria
-:   request-url!=noSPNEGO;request-url!=/mobile;request-url!=/nav;request-url!=/bundles/js;request-url!=/static;request-url!=/activities/oauth;request-url!=/blogs/oauth;request-url!=/dogear/oauth;request-url!=/communities/calendar/oauth;request-url!=/communities/service/atom/oauth;request-url!=/communities/service/opensocial/oauth/;request-url!=/communities/recomm/oauth;request-url!=/connections/opensocial/oauth;request-url!=/connections/opensocial/anonymous/rest;request-url!=/connections/opensocial/common;request-url!=/connections/opensocial/gadgets;request-url!=/connections/opensocial/ic;request-url!=/connections/opensocial/rpc;request-url!=/connections/opensocial/social;request-url!=/connections/opensocial/xrds;request-url!=/connections/opensocial/xpc;request-url!=/connections/resources/web;request-url!=/connections/resources/ic;request-url!=/files/oauth;request-url!=/forums/oauth;request-url!=/homepage/oauth;request-url!=/metrics/service/oauth;request-url!=/moderation/oauth;request-url!=/news/oauth;request-url!=/news/follow/oauth;request-url!=/profiles/oauth;request-url!=/wikis/oauth;request-url!=/search/oauth;request-url!=/connections/core/oauth/;request-url!=/connections/oauth/authorize;request-url!=/resources;request-url!=/oauth2/endpoint/;request-url!=/activities_content;request-url!=/files_content;request-url!=/library_content_cache;request-url!=/mobile_content;request-url!=/wikis_content</p>
+<dl>
+<dt>Host name</dt>
+<dd>Enter the URI for how the HCL Connections™ environment is accessed. Typically, it is the hostname/alias of the HTTP server.</dd>
+<dt>Kerberos realm name</dt>
+<dd>Enter your Kerberos realm name. Only required if Kerberos is enabled.</dd>
+<dt>Filter criteria</dt>
+<dd>request-url!=noSPNEGO;request-url!=/mobile;request-url!=/nav;request-url!=/bundles/js;request-url!=/static;request-url!=/activities/oauth;request-url!=/blogs/oauth;request-url!=/dogear/oauth;request-url!=/communities/calendar/oauth;request-url!=/communities/service/atom/oauth;request-url!=/communities/service/opensocial/oauth/;request-url!=/communities/recomm/oauth;request-url!=/connections/opensocial/oauth;request-url!=/connections/opensocial/anonymous/rest;request-url!=/connections/opensocial/common;request-url!=/connections/opensocial/gadgets;request-url!=/connections/opensocial/ic;request-url!=/connections/opensocial/rpc;request-url!=/connections/opensocial/social;request-url!=/connections/opensocial/xrds;request-url!=/connections/opensocial/xpc;request-url!=/connections/resources/web;request-url!=/connections/resources/ic;request-url!=/files/oauth;request-url!=/forums/oauth;request-url!=/homepage/oauth;request-url!=/metrics/service/oauth;request-url!=/moderation/oauth;request-url!=/news/oauth;request-url!=/news/follow/oauth;request-url!=/profiles/oauth;request-url!=/wikis/oauth;request-url!=/search/oauth;request-url!=/connections/core/oauth/;request-url!=/connections/oauth/authorize;request-url!=/resources;request-url!=/oauth2/endpoint/;request-url!=/activities_content;request-url!=/files_content;request-url!=/library_content_cache;request-url!=/mobile_content;request-url!=/wikis_content</dd>
+</dl>
 <pre><code>**Note:** Ensure that you separate each filter with a semicolon \(;\). No other character is allowed as a separator.
 </code></pre>
-<p>Filter class
-:   Leave this field blank to allow the system to use the default filter class (<strong>com.ibm.ws.security.spnego.HTTPHeaderFilter</strong>).</p>
-<p>SPNEGO not supported error page URL
-:   Enter the URL to the redirect page that you created. For example: http://webserver/NoSpnegoRedirect.html.</p>
+<dl>
+<dt>Filter class</dt>
+<dd>Leave this field blank to allow the system to use the default filter class (<strong>com.ibm.ws.security.spnego.HTTPHeaderFilter</strong>).</dd>
+<dt>SPNEGO not supported error page URL</dt>
+<dd>Enter the URL to the redirect page that you created. For example: http://webserver/NoSpnegoRedirect.html.</dd>
+</dl>
 <pre><code>where webserver is the name of your HTTP Server instance and NoSpnegoRedirect.html is the name of the redirect page.
 </code></pre>
-<p>NTLM token received error page URL
-:   Enter the URL to the redirect page that you created. For example: http://webserver/NoSpnegoRedirect.html.</p>
+<dl>
+<dt>NTLM token received error page URL</dt>
+<dd>Enter the URL to the redirect page that you created. For example: http://webserver/NoSpnegoRedirect.html.</dd>
+</dl>
 </li>
 <li>
 <p>Select <strong>Trim Kerberos realm from principal name</strong>.</p>
@@ -35417,17 +35441,21 @@
 </li>
 <li>
 <p>To disable TAI authentication if you are not configuring Tivoli Access Manager or Siteminder with SPNEGO, select <strong>Security</strong> > <strong>Global Security</strong> > <strong>Custom properties</strong> > <strong>New</strong>, and then enter the following name and value pair:</p>
-<p>Name
-:   com.ibm.websphere.security.performTAIForUnprotectedURI</p>
-<p>Value
-:   false</p>
+<dl>
+<dt>Name</dt>
+<dd>com.ibm.websphere.security.performTAIForUnprotectedURI</dd>
+<dt>Value</dt>
+<dd>false</dd>
+</dl>
 </li>
 <li>
 <p>To enable TAI authentication if configuring Tivoli Access Manager or Siteminder with SPNEGO, select <strong>Security</strong> > <strong>Global Security</strong> > <strong>Custom properties</strong> > <strong>New</strong>, and then enter the following name and value pair:</p>
-<p>Name
-:   com.ibm.websphere.security.performTAIForUnprotectedURI</p>
-<p>Value
-:   true</p>
+<dl>
+<dt>Name</dt>
+<dd>com.ibm.websphere.security.performTAIForUnprotectedURI</dd>
+<dt>Value</dt>
+<dd>true</dd>
+</dl>
 </li>
 <li>
 <p>Click <strong>OK</strong> and then click <strong>Save</strong> to preserve your update.</p>

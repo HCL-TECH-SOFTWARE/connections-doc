@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35323,8 +35339,10 @@ wsadmin&gt;SearchService.indexFileContentNow(&quot;files&quot;,&quot;1000&quot;)
 </li>
 <li>
 <p>Use the following commands to perform file content retrieval tasks.</p>
-<p>SearchService.getFileContentNow(String applicationNames)
-:   Starts the file content retrieval task. This command iterates over the file cache, downloading and converting files that do not have any content.</p>
+<dl>
+<dt>SearchService.getFileContentNow(String applicationNames)</dt>
+<dd>Starts the file content retrieval task. This command iterates over the file cache, downloading and converting files that do not have any content.</dd>
+</dl>
 <pre><code>This command takes a string value, which is the name of the application whose content is to be retrieved. The following values are valid:
 
 -   ecm\_files - retrieves files from the Enterprise Content Management repository. Only published files are retrieved; draft files are not included.
@@ -35338,8 +35356,10 @@ For example:
 SearchService.getFileContentNow("files")
 ```
 </code></pre>
-<p>SearchService.retryContentFailuresNow(String applicationNames)
-:   Tries failed attempts at downloading and converting files for the specified application again.</p>
+<dl>
+<dt>SearchService.retryContentFailuresNow(String applicationNames)</dt>
+<dd>Tries failed attempts at downloading and converting files for the specified application again.</dd>
+</dl>
 <pre><code>This command takes a string value, which is the name of the application whose content is to be downloaded and converted. The following values are valid:
 
 -   files - retrieves files from the Files app.
@@ -35354,8 +35374,10 @@ For example:
 SearchService.retryContentFailuresNow("wikis,files")
 ```
 </code></pre>
-<p>SearchService.addFileContentTask(String taskName, String schedule, String startBy, String applicationNames, String all_configured, Boolean failuresOnly)
-:   Creates a scheduled file content retrieval task.</p>
+<dl>
+<dt>SearchService.addFileContentTask(String taskName, String schedule, String startBy, String applicationNames, String all_configured, Boolean failuresOnly)</dt>
+<dd>Creates a scheduled file content retrieval task.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   taskName. The name of the scheduled task. This argument is a string value, which must be unique.
@@ -35392,8 +35414,10 @@ SearchService.addFileContentTask("20min-file-retrieval-task",
   "all_configured", "false")
 ```
 </code></pre>
-<p>SearchService.addFileContentIndexingTask(String taskName, String schedule, String startBy, String applicationNames, String all_configured, Integer, duration)
-:   Creates a scheduled file content indexing task. The file content indexing task iterates through the list of files whose content has not been indexed yet. This list can contain just a few elements, in which case the task executes quickly. In some cases there could be a large backlog of unprocessed files. You can limit the execution time of the task using the duration argument; any remaining files are processed in the next execution of the task.</p>
+<dl>
+<dt>SearchService.addFileContentIndexingTask(String taskName, String schedule, String startBy, String applicationNames, String all_configured, Integer, duration)</dt>
+<dd>Creates a scheduled file content indexing task. The file content indexing task iterates through the list of files whose content has not been indexed yet. This list can contain just a few elements, in which case the task executes quickly. In some cases there could be a large backlog of unprocessed files. You can limit the execution time of the task using the duration argument; any remaining files are processed in the next execution of the task.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   taskName. The name of the scheduled task. This argument is a string value, which must be unique.
@@ -35416,8 +35440,10 @@ SearchService.addFileContentIndexingTask("file-indexing-task", "0 1/30 0,2-23 * 
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.indexFileContentNow(String applicationNames, Integer duration)
-:   Creates a file content indexing task for immediate execution.</p>
+<dl>
+<dt>SearchService.indexFileContentNow(String applicationNames, Integer duration)</dt>
+<dd>Creates a file content indexing task for immediate execution.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   applicationNames. The name \(or names\) of the IBM Connections application to be indexed when the task is triggered. This argument is a string value. To index multiple applications, use a comma-delimited list. The following values are valid:
@@ -35435,16 +35461,22 @@ SearchService.indexFileContentNow("activities,files,wikis", "600")
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.listFileContentTasks()
-:   Lists all the scheduled file content retrieval tasks.</p>
+<dl>
+<dt>SearchService.listFileContentTasks()</dt>
+<dd>Lists all the scheduled file content retrieval tasks.</dd>
+</dl>
 <pre><code>This command does not take any input parameters.
 </code></pre>
-<p>SearchService.listFileContentIndexingTasks()
-:   Lists all the scheduled file content indexing retrieval tasks.</p>
+<dl>
+<dt>SearchService.listFileContentIndexingTasks()</dt>
+<dd>Lists all the scheduled file content indexing retrieval tasks.</dd>
+</dl>
 <pre><code>This command does not take any input parameters.
 </code></pre>
-<p>SearchService.enableTask(String taskName)
-:   Enables the specified task.</p>
+<dl>
+<dt>SearchService.enableTask(String taskName)</dt>
+<dd>Enables the specified task.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   taskName. The name of the task to be enabled.
@@ -35454,8 +35486,10 @@ For example:
 SearchService.enableTask("mine")
 ```
 </code></pre>
-<p>SearchService.disableTask(String taskName)
-:   Disables the specified task.</p>
+<dl>
+<dt>SearchService.disableTask(String taskName)</dt>
+<dd>Disables the specified task.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   taskName. The name of the task to be disabled. This argument is a string value.

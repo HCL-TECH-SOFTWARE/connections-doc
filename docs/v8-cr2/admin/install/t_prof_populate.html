@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35346,10 +35346,10 @@
 <p>Log into the system where Tivoli Directory Integrator is installed as the root user or system administrator.</p>
 </li>
 <li>
-<p>(AIX® and Linux™): Grant display authority to all users by running the following commands under the root user or system administrator:</p>
+<p>(Linux™): Grant display authority to all users by running the following commands under the root user or system administrator:</p>
 <div class="highlight"><pre><span></span><code>xhost +
 </code></pre></div>
-<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your AIX or Linux administrator guide.</p>
+<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your Linux administrator guide.</p>
 <div class="highlight"><pre><span></span><code>echo $DISPLAY
 </code></pre></div>
 </li>
@@ -35366,7 +35366,6 @@
 <li>
 <p>Run the following script from the Wizards directory:</p>
 <ul>
-<li>AIX: ./populationWizard.sh</li>
 <li>
 <p>Linux: ./populationWizard.sh</p>
 <p><strong>Note:</strong> If the wizard does not run correctly, you might need to edit the populationWizard.sh file and enter the correct JRE/JVM path for your system The populationWizard.sh file expects the path to be jvm/linux/jre/bin.</p>
@@ -35438,7 +35437,7 @@ SQL Server
 <li>
 <p>Start the iKeyman utility by running the following file:</p>
 <ul>
-<li>AIX or Linux:TDI_Install_directory/jvm/jre/bin/./ikeyman</li>
+<li>Linux:TDI_Install_directory/jvm/jre/bin/./ikeyman</li>
 <li>Windows: TDI_Install_directory\jvm\jre\bin\ikeyman.exe
 where TDI_Install_directory is the directory where Tivoli Directory Integrator is installed.</li>
 </ul>

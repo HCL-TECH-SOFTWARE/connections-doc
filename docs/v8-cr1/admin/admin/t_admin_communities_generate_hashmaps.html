@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35336,10 +35352,12 @@ uuid=3e5ecf96-1cf8-4da4-b8bb-87d61e80299b, memberSize=12, lastMod=10/5/10
 strategies for new products., createdBy=[John Smith, 
 76982F24-BCC0-4D11-0083-242F9876C0BC]}
 </code></pre></div>
-<p>CommunitiesService.fetchAllComm()
-:   Returns a vector of hash maps of all communities and subcommunities. There is no way to distinguish from the information returned whether the object is a community or subcommunity. Do not run CommunitiesService.fetchAllComm() on large deployments because it loads all communities into memory at once. Instead, run CommunitiesService.fetchBatchComm().</p>
-<p>CommunitiesService.fetchCommById(string communityUUID)
-:   Returns the community or subcommunity with the specified UUID.</p>
+<dl>
+<dt>CommunitiesService.fetchAllComm()</dt>
+<dd>Returns a vector of hash maps of all communities and subcommunities. There is no way to distinguish from the information returned whether the object is a community or subcommunity. Do not run CommunitiesService.fetchAllComm() on large deployments because it loads all communities into memory at once. Instead, run CommunitiesService.fetchBatchComm().</dd>
+<dt>CommunitiesService.fetchCommById(string communityUUID)</dt>
+<dd>Returns the community or subcommunity with the specified UUID.</dd>
+</dl>
 <pre><code>You can obtain the UUID for a community or subcommunity by doing one of the following:
 
 -   Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.
@@ -35357,9 +35375,11 @@ lastModBy=[Andy Jones, 2BC32FEF-E736-4C81-986C-30780C5EF8C3]}]
 wsadmin&gt;
 ```
 </code></pre>
-<p>CommunitiesService.fetchCommByMemberEmail(String email)
-CommunitiesService.fetchCommByMemberEmail(String email, String orgId)
-:   Returns all the communities and subcommunities that the user of the specified email address or organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
+<dl>
+<dt>CommunitiesService.fetchCommByMemberEmail(String email)</dt>
+<dt>CommunitiesService.fetchCommByMemberEmail(String email, String orgId)</dt>
+<dd>Returns all the communities and subcommunities that the user of the specified email address or organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</dd>
+</dl>
 <pre><code>For example:
 
 ```
@@ -35370,9 +35390,11 @@ CommunitiesService.fetchCommByMember("john_doe@company.com")
 CommunitiesService.fetchCommByMember("john_doe@company.com", "0000000042")
 ```
 </code></pre>
-<p>CommunitiesService.fetchCommByMemberUuid(String uuid)
-CommunitiesService.fetchCommByMemberUuid(String uuid, String orgId)
-:   Returns all the communities and subcommunities that the user with the specified UUID or the specified organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
+<dl>
+<dt>CommunitiesService.fetchCommByMemberUuid(String uuid)</dt>
+<dt>CommunitiesService.fetchCommByMemberUuid(String uuid, String orgId)</dt>
+<dd>Returns all the communities and subcommunities that the user with the specified UUID or the specified organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</dd>
+</dl>
 <pre><code>For example:
 
 ```
@@ -35388,9 +35410,11 @@ CommunitiesService.fetchCommByMemberUuid("193F1CE8-E10A-4B9A-B933-C8ECD6C072E4",
 -   CommunitiesMemberService.getMemberExtIdByEmail\("email"\)
 -   CommunitiesMemberService.getMemberExtIdByLogin\("login"\)
 </code></pre>
-<p>CommunitiesService.fetchCommByName(String name)
-CommunitiesService.fetchCommByName(String name, String orgId)
-:   Returns the community or subcommunity with the specified name in the specified organization.</p>
+<dl>
+<dt>CommunitiesService.fetchCommByName(String name)</dt>
+<dt>CommunitiesService.fetchCommByName(String name, String orgId)</dt>
+<dd>Returns the community or subcommunity with the specified name in the specified organization.</dd>
+</dl>
 <pre><code>**Note:** There is a maximum of one community in the list, but that list can be used in the other methods that use a list input. If no match is found, the list will be empty.
 
 For example:
@@ -35409,8 +35433,10 @@ If the name of the community or subcommunity that you enter in this command is n
 CommunitiesService.fetchCommById(string communityUUID)
 ```
 </code></pre>
-<p>CommunitiesService.fetchMember(List list)
-:   Returns the input list of communities or subcommunities with an additional property for each community that is the member list for that community.</p>
+<dl>
+<dt>CommunitiesService.fetchMember(List list)</dt>
+<dd>Returns the input list of communities or subcommunities with an additional property for each community that is the member list for that community.</dd>
+</dl>
 <pre><code>This command is run in two steps. First, generate a list of data to input into the fetchMember command and assign the list to a variable. The variable is then used as input into the fetchMember command.
 
 For example:
@@ -35420,8 +35446,10 @@ wsadmin&gt;allComm=CommunitiesService.fetchCommByName("Test Community")
 wsadmin&gt;CommunitiesService.fetchMember(allComm)
 ```
 </code></pre>
-<p>CommunitiesService.fetchReference(List list)
-:   Adds references (feeds and bookmarks) to communities or subcommunities in the list passed into this command and returns a new list with references.</p>
+<dl>
+<dt>CommunitiesService.fetchReference(List list)</dt>
+<dd>Adds references (feeds and bookmarks) to communities or subcommunities in the list passed into this command and returns a new list with references.</dd>
+</dl>
 <pre><code>This command is run in two steps. First, use the fetchCommByName command to gather the list of communities and assign the list to a variable. The variable is then used as input into the fetchReference command.
 
 For example:
@@ -35448,8 +35476,10 @@ bsmith@MyCompany.com}
 </li>
 <li>
 <p>Use these commands to print the information that is generated by using the fetch commands.</p>
-<p>CommunitiesService.listComm(List list)
-:   Prints the information associated with the communities or subcommunities in the list input to the wsadmin command window in an easy-to-read format. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
+<dl>
+<dt>CommunitiesService.listComm(List list)</dt>
+<dd>Prints the information associated with the communities or subcommunities in the list input to the wsadmin command window in an easy-to-read format. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</dd>
+</dl>
 <pre><code>This command is run in two steps. First, generate the data to input into the listComm command and assign the list to a variable. The variable is then used as input into the listComm command.
 
 For example:
@@ -35460,8 +35490,10 @@ wsadmin&gt;CommunitiesService.listComm(byMember)
 
 ```
 </code></pre>
-<p>CommunitiesService.listCommToFile(List list, String filename)
-:   Prints the information associated with the communities or subcommunities in the list input to the specified file using an easy-to-read format. The directory to which the file is to be output must already exist. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
+<dl>
+<dt>CommunitiesService.listCommToFile(List list, String filename)</dt>
+<dd>Prints the information associated with the communities or subcommunities in the list input to the specified file using an easy-to-read format. The directory to which the file is to be output must already exist. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</dd>
+</dl>
 <pre><code>This command is run in two steps. First, generate the data to input into the listCommToFile command and assign the list to a variable. The variable is then used as input into the listCommToFile command.
 
 For example:
@@ -35475,8 +35507,10 @@ wsadmin&gt;CommunitiesService.listCommToFile(bymember,"/temp/CommMembers.txt")
 </li>
 <li>
 <p>Use this command to iterate through a list of UUIDs for all communities.</p>
-<p>CommunitiesService.fetchBatchComm(batchSize, priorLastCommunityId)
-:   Returns a portion of an ordered list of UUIDs for all communities. The command does not return any details about the communities. It returns only the UUIDs.</p>
+<dl>
+<dt>CommunitiesService.fetchBatchComm(batchSize, priorLastCommunityId)</dt>
+<dd>Returns a portion of an ordered list of UUIDs for all communities. The command does not return any details about the communities. It returns only the UUIDs.</dd>
+</dl>
 <pre><code>The command takes the following parameters:
 
 batchSize

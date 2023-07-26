@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35290,14 +35306,17 @@
 <h1 class="concept" id="c_admin_common_moderation_over">Moderation overview</h1>
 <p>If the moderation application is installed and enabled, you can define a person or set of people who will review and approve the content that users add to certain applications before it is published or review and act on content that has been flagged as problematic.</p>
 <p>Moderation can be configured to make moderation available for global moderators, community owners or blog owners, as follows:</p>
-<p>Global moderators
-:   User assigned the global-moderator Java EE role for the Moderation component can review and manage content for blogs, forums, and community files from the global moderation interface, which is accessed using the <strong>Moderation</strong> link in the application menu bar. The link is only visible to users who have been assigned the Java EE global-moderator role. For more information about assigning roles, see <em>Roles</em>.</p>
-<p>Community moderators
-:   When owner moderation is enabled for communities, community owners can access moderation options for their community by opening the community and selecting <strong>Community Actions</strong> > <strong>Moderate Community</strong>. Community moderators can only manage the content of communities that they own, and they can only do so from the community moderation interface; they cannot access the global moderation interface.</p>
-<pre><code>You can specify whether owner moderation is enabled by changing the value of the ownerModerate setting in the contentreview-config.xml file. For more information, see *Managing content moderation and flagged content*.
-</code></pre>
-<p>Blogs moderators
-:   If the Moderation service is enabled, you can moderate Blogs from the central moderation interface. If the Moderation service is not enabled, you can moderate Blogs from a moderation interface available from the Blogs application. When owner moderation is enabled for Blogs, blog owners can access moderation options for a blog they own by opening the blog and choosing the <strong>Moderation</strong> tab. If moderation is enabled for a blog, the blog owner can review content before it is posted to a blog. In addition, users of the Blogs application have the options to flag content as inappropriate. When content is flagged, the moderator is informed and can take action from the moderation interface.</p>
+<dl>
+<dt>Global moderators</dt>
+<dd>User assigned the global-moderator Java EE role for the Moderation component can review and manage content for blogs, forums, and community files from the global moderation interface, which is accessed using the <strong>Moderation</strong> link in the application menu bar. The link is only visible to users who have been assigned the Java EE global-moderator role. For more information about assigning roles, see <em>Roles</em>.</dd>
+<dt>Community moderators</dt>
+<dd>
+<p>When owner moderation is enabled for communities, community owners can access moderation options for their community by opening the community and selecting <strong>Community Actions</strong> > <strong>Moderate Community</strong>. Community moderators can only manage the content of communities that they own, and they can only do so from the community moderation interface; they cannot access the global moderation interface.</p>
+<p>You can specify whether owner moderation is enabled by changing the value of the ownerModerate setting in the contentreview-config.xml file. For more information, see <em>Managing content moderation and flagged content</em>.</p>
+</dd>
+<dt>Blogs moderators</dt>
+<dd>If the Moderation service is enabled, you can moderate Blogs from the central moderation interface. If the Moderation service is not enabled, you can moderate Blogs from a moderation interface available from the Blogs application. When owner moderation is enabled for Blogs, blog owners can access moderation options for a blog they own by opening the blog and choosing the <strong>Moderation</strong> tab. If moderation is enabled for a blog, the blog owner can review content before it is posted to a blog. In addition, users of the Blogs application have the options to flag content as inappropriate. When content is flagged, the moderator is informed and can take action from the moderation interface.</dd>
+</dl>
 <p>In addition to the user interfaces available for moderation, there is a public moderation API that can be leveraged by third-party developers to extend the capabilities of content moderation.</p>
 <ul>
 <li><strong><a href="c_admin_common_moderation_roles.html">Moderation roles</a></strong><br />

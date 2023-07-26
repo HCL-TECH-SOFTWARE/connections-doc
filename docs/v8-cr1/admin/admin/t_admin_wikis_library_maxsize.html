@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35308,8 +35324,10 @@
 </li>
 <li>
 <p>Run the following commands to set maximum sizes on libraries:</p>
-<p>WikisLibraryService.assignPolicy(string libraryId, string policyId)
-:   Assigns a policy to a library. A library includes the pages, attachments, and other data that make up a wiki. It includes all wiki page versions but does not include metadata such as comments. It also includes all wiki page versions but does not include metadata such as comments. A policy sets a maximum size for a wiki.</p>
+<dl>
+<dt>WikisLibraryService.assignPolicy(string libraryId, string policyId)</dt>
+<dd>Assigns a policy to a library. A library includes the pages, attachments, and other data that make up a wiki. It includes all wiki page versions but does not include metadata such as comments. It also includes all wiki page versions but does not include metadata such as comments. A policy sets a maximum size for a wiki.</dd>
+</dl>
 <pre><code>If the task succeeds, no message is printed.
 
 Parameters:
@@ -35327,8 +35345,10 @@ WikisLibraryService.assignPolicy("f0d01111-9b21-4dd8-b8be-8825631cb84b",
    "2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>WikisLibraryService.assignPolicyBatch(string filePath)
-:   Assigns policies that are specified in a text file. You must create this text file and save it in on the server where you are running the wsadmin client. The file must contain a list of library-policy ID pairs, one pair per line, with values separated by a comma. For example: <code>libraryId, policyId</code>. Extra white space is ignored.</p>
+<dl>
+<dt>WikisLibraryService.assignPolicyBatch(string filePath)</dt>
+<dd>Assigns policies that are specified in a text file. You must create this text file and save it in on the server where you are running the wsadmin client. The file must contain a list of library-policy ID pairs, one pair per line, with values separated by a comma. For example: <code>libraryId, policyId</code>. Extra white space is ignored.</dd>
+</dl>
 <pre><code>A library is the pages, attachments, and other data that make up a wiki. It includes all wiki page versions, but does not include metadata such as comments. It includes all wiki page versions, but does not include metadata such as comments.
 
 Parameters:

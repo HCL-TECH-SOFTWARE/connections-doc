@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35343,85 +35359,95 @@
 <p>Configuration properties control various features within Communities and also help in the optimization of server performance. They require a Communities application or server restart to take effect.</p>
 <h2 class="section" id="configuration-properties">Configuration properties</h2>
 <p>You can check out and modify the following configuration properties in the communities-config.xml file. The properties are listed in alphabetical order.</p>
-<p>activeContentFilter.enabled
-:   When enabled, this property prevents the addition of active content (JavaScript™) in any text input field.</p>
-<pre><code>This property takes a Boolean value: true or false.
-
-**Note:** Disabling this filter introduces vulnerability to cross-site scripting \(XSS\) and other type of malicious attacks. For more information, see *Securing applications from malicious attack*.
-</code></pre>
-<p>descriptionSummary.size
-:   This property determines the maximum number of characters in a community description to display in the My Organization Communities or My Communities view. It gets this information through the seedlist.</p>
-<pre><code>**Note:** You must reindex the catalog to get the old content updated. For more information, see *Restoring the Communities catalog index*.
-
-This property takes an integer value.
-</code></pre>
-<p>explicitMembershipEntityLimit
-:   This property determines the maximum number of members that a community can contain. This limit is the total number of people and groups added to a community. It does not count the number of people who are contained in a group towards this limit. The limit applies to adding new members only. If the limit is reduced, HCL Connections does not remove people from communities to accommodate the decreased limit.</p>
-<pre><code>This property takes an integer value. The default value is 100000. Values greater than 100000 are not supported.
-
-**Note:**
-
--   A group added to community membership counts as one member.
--   The limit applies to all community types \(open, moderated, and restricted\).
-
-Decrease explicitMembershipEntityLimit to improve performance.
-</code></pre>
-<p>group.enabled
-:   Enables or disables the ability to add groups to communities. When owners click <strong>Add Members</strong>, they can choose to add Groups in the <strong>Members</strong> field.</p>
-<pre><code>This property accepts the following values: true or false.
-</code></pre>
-<p>group.membershipCache.maximumAgeOnLoginInSeconds
-:   When a user logs in, this property determines the maximum age of a group membership cache in seconds.</p>
-<pre><code>The value must be 0 or greater.
-</code></pre>
-<p>group.membershipCache.maximumAgeOnRequestInSeconds
-:   Determines the maximum age of a group membership cache in seconds across requests for a user.</p>
-<pre><code>The value must be 0 or greater.
-</code></pre>
-<p>pagingSupport.communityListTags.pageSize
-:   Used by API calls that request tags. If you do not specify the count parameter in the API call, then the value that is listed in pagingSupport.communityListTags.pageSize is used.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>pagingSupport.dbNameTypeAhead.pageSize
-:   Determines the maximum number of matching names to display in the type-ahead suggestion field when users start typing the names of people to add to a community. These names are retrieved from the SNCOMM.MEMBERPROFILE database table.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>pagingSupport.defaultPageSize
-:   This property determines the maximum number of community bookmarks and feed lists that are displayed on a page. The default value is 10.</p>
-<pre><code>This property takes an integer value.
-
-Decrease the number to speed paging.
-</code></pre>
-<p>pagingSupport.ldapNameSearch.pageSize
-:   Determines the maximum number of LDAP users that are returned when users click <strong>Search Directory</strong> to search the LDAP directory for a name when they are adding members to a community.</p>
-<p>pagingSupport.memberNameTypeAhead.pageSize
-:   Determines the maximum number of users that are displayed by the type-ahead application when users click <strong>Search Directory</strong> to search the LDAP directory for a name when they are adding members to a community.</p>
-<p>pagingSupport.tagNameTypeAhead.pageSize
-:   Determines the maximum number of tags that are displayed by the type-ahead application when users add new tags to a community.</p>
-<p>show.StartCommunity.To.Unauthenticated
-:   When enabled, this property displays <strong>Start a community</strong> to unauthenticated users.</p>
-<pre><code>This property takes a Boolean value: true or false.
-</code></pre>
-<p>task.EventLogCleanup.enabled
-:   Enables or disables the event log cleanup task.</p>
-<pre><code>This property accepts the following values: true or false.
-</code></pre>
-<p>task.EventLogCleanup.interval
-:   Specifies the interval at which the event log cleanup task runs.</p>
-<pre><code>This parameter is specified by using Cron format. For more information about using the Cron format, see *Scheduling tasks*.
-
-When you change the interval property, the new schedule is registered the next time that Communities is started on any server in the Communities cluster \(if there is one\).
-</code></pre>
-<p>task.LifecycleRetryQueuedEvents.enabled
-:   Enables or disables the lifecycle retry queued events task.</p>
-<pre><code>This property accepts the following values: true or false.
-</code></pre>
-<p>task.LifecycleRetryQueuedEvents.interval
-:   Specifies the interval at which the lifecycle retry queued events task runs.</p>
-<pre><code>This parameter is specified by using Cron format. For more information about using the Cron format, see *Scheduling tasks*.
-
-When you change the interval property, the new schedule is registered the next time that Communities is started on any server in the Communities cluster \(if there is one\).
-</code></pre>
+<dl>
+<dt>activeContentFilter.enabled</dt>
+<dd>
+<p>When enabled, this property prevents the addition of active content (JavaScript™) in any text input field.</p>
+<p>This property takes a Boolean value: true or false.</p>
+<p><strong>Note:</strong> Disabling this filter introduces vulnerability to cross-site scripting (XSS) and other type of malicious attacks. For more information, see <em>Securing applications from malicious attack</em>.</p>
+</dd>
+<dt>descriptionSummary.size</dt>
+<dd>
+<p>This property determines the maximum number of characters in a community description to display in the My Organization Communities or My Communities view. It gets this information through the seedlist.</p>
+<p><strong>Note:</strong> You must reindex the catalog to get the old content updated. For more information, see <em>Restoring the Communities catalog index</em>.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>explicitMembershipEntityLimit</dt>
+<dd>
+<p>This property determines the maximum number of members that a community can contain. This limit is the total number of people and groups added to a community. It does not count the number of people who are contained in a group towards this limit. The limit applies to adding new members only. If the limit is reduced, HCL Connections does not remove people from communities to accommodate the decreased limit.</p>
+<p>This property takes an integer value. The default value is 100000. Values greater than 100000 are not supported.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>A group added to community membership counts as one member.</li>
+<li>The limit applies to all community types (open, moderated, and restricted).</li>
+</ul>
+<p>Decrease explicitMembershipEntityLimit to improve performance.</p>
+</dd>
+<dt>group.enabled</dt>
+<dd>
+<p>Enables or disables the ability to add groups to communities. When owners click <strong>Add Members</strong>, they can choose to add Groups in the <strong>Members</strong> field.</p>
+<p>This property accepts the following values: true or false.</p>
+</dd>
+<dt>group.membershipCache.maximumAgeOnLoginInSeconds</dt>
+<dd>
+<p>When a user logs in, this property determines the maximum age of a group membership cache in seconds.</p>
+<p>The value must be 0 or greater.</p>
+</dd>
+<dt>group.membershipCache.maximumAgeOnRequestInSeconds</dt>
+<dd>
+<p>Determines the maximum age of a group membership cache in seconds across requests for a user.</p>
+<p>The value must be 0 or greater.</p>
+</dd>
+<dt>pagingSupport.communityListTags.pageSize</dt>
+<dd>
+<p>Used by API calls that request tags. If you do not specify the count parameter in the API call, then the value that is listed in pagingSupport.communityListTags.pageSize is used.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>pagingSupport.dbNameTypeAhead.pageSize</dt>
+<dd>
+<p>Determines the maximum number of matching names to display in the type-ahead suggestion field when users start typing the names of people to add to a community. These names are retrieved from the SNCOMM.MEMBERPROFILE database table.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>pagingSupport.defaultPageSize</dt>
+<dd>
+<p>This property determines the maximum number of community bookmarks and feed lists that are displayed on a page. The default value is 10.</p>
+<p>This property takes an integer value.</p>
+<p>Decrease the number to speed paging.</p>
+</dd>
+<dt>pagingSupport.ldapNameSearch.pageSize</dt>
+<dd>Determines the maximum number of LDAP users that are returned when users click <strong>Search Directory</strong> to search the LDAP directory for a name when they are adding members to a community.</dd>
+<dt>pagingSupport.memberNameTypeAhead.pageSize</dt>
+<dd>Determines the maximum number of users that are displayed by the type-ahead application when users click <strong>Search Directory</strong> to search the LDAP directory for a name when they are adding members to a community.</dd>
+<dt>pagingSupport.tagNameTypeAhead.pageSize</dt>
+<dd>Determines the maximum number of tags that are displayed by the type-ahead application when users add new tags to a community.</dd>
+<dt>show.StartCommunity.To.Unauthenticated</dt>
+<dd>
+<p>When enabled, this property displays <strong>Start a community</strong> to unauthenticated users.</p>
+<p>This property takes a Boolean value: true or false.</p>
+</dd>
+<dt>task.EventLogCleanup.enabled</dt>
+<dd>
+<p>Enables or disables the event log cleanup task.</p>
+<p>This property accepts the following values: true or false.</p>
+</dd>
+<dt>task.EventLogCleanup.interval</dt>
+<dd>
+<p>Specifies the interval at which the event log cleanup task runs.</p>
+<p>This parameter is specified by using Cron format. For more information about using the Cron format, see <em>Scheduling tasks</em>.</p>
+<p>When you change the interval property, the new schedule is registered the next time that Communities is started on any server in the Communities cluster (if there is one).</p>
+</dd>
+<dt>task.LifecycleRetryQueuedEvents.enabled</dt>
+<dd>
+<p>Enables or disables the lifecycle retry queued events task.</p>
+<p>This property accepts the following values: true or false.</p>
+</dd>
+<dt>task.LifecycleRetryQueuedEvents.interval</dt>
+<dd>
+<p>Specifies the interval at which the lifecycle retry queued events task runs.</p>
+<p>This parameter is specified by using Cron format. For more information about using the Cron format, see <em>Scheduling tasks</em>.</p>
+<p>When you change the interval property, the new schedule is registered the next time that Communities is started on any server in the Communities cluster (if there is one).</p>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="t_admin_communities_changing_config.html">Changing Communities configuration property values</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../secure/c_admin_security_xss.html">Securing applications from malicious attack</a></p>

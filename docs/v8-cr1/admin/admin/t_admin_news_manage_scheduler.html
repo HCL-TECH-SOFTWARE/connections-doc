@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35321,8 +35337,10 @@
 </li>
 <li>
 <p>Use the following commands to administer the scheduler service for the News repository.</p>
-<p>NewsScheduler.getTaskDetails(java.lang.String taskName)
-:   Returns information about the scheduled task specified by taskName.</p>
+<dl>
+<dt>NewsScheduler.getTaskDetails(java.lang.String taskName)</dt>
+<dd>Returns information about the scheduled task specified by taskName.</dd>
+</dl>
 <pre><code>The values returned are server time, next scheduled run time, status \(SCHEDULED, RUNNING, SUSPENDED\), and task name. When the task has been paused, then the status parameter shows as SUSPENDED instead of SCHEDULED. SUSPENDED means that the task is not scheduled to run.
 
 For example:
@@ -35339,8 +35357,10 @@ The resulting output looks similar to the following:
 GMT 2010, status=SCHEDULED}
 ```
 </code></pre>
-<p>NewsScheduler.pauseSchedulingTask(java.lang.String taskName)
-:   Temporarily pauses the specified task and stops it from running.</p>
+<dl>
+<dt>NewsScheduler.pauseSchedulingTask(java.lang.String taskName)</dt>
+<dd>Temporarily pauses the specified task and stops it from running.</dd>
+</dl>
 <pre><code>When you pause a scheduled task, the task remains in the suspended state even after you stop and restart News or the WebSphere Application Server. You must run the NewsScheduler.resumeSchedulingTask\(String taskName\) command to get the task running again.
 
 If the task is currently running, it continues to run but is not scheduled to run again. If the task is already suspended, this command has no effect. When the task is paused successfully, a 1 is returned to the wsadmin client. When the task is not paused successfully, a 0 is returned.
@@ -35351,8 +35371,10 @@ For example:
 NewsScheduler.pauseSchedulingTask("NewsDataCleanup")
 ```
 </code></pre>
-<p>NewsScheduler.resumeSchedulingTask(java.lang.String taskName)
-:   If the task is suspended, puts the task in the scheduled state. If the task is not suspended, this command has no effect.</p>
+<dl>
+<dt>NewsScheduler.resumeSchedulingTask(java.lang.String taskName)</dt>
+<dd>If the task is suspended, puts the task in the scheduled state. If the task is not suspended, this command has no effect.</dd>
+</dl>
 <pre><code>When a task is resumed, it does not run immediately; it runs at the time when it is next scheduled to run.
 
 For example:

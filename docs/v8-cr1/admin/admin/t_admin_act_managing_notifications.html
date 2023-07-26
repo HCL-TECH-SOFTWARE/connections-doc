@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35328,7 +35344,7 @@
 <div class="highlight"><pre><span></span><code>LCConfigService.checkOutNotificationConfig(&quot;temp\_dir&quot;,&quot;cell\_name&quot;)
 </code></pre></div>
 <p>where temp_dir is a temporary directory and cell_name is the WebSphere® Application Server cell to which you installed Activities. When you specify a path to the working directory on a system running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".</p>
-<p><strong>Note:</strong> AIX and Linux: The directory you specify as the temporary directory must grant write permissions.</p>
+<p><strong>Note:</strong> Linux: The directory you specify as the temporary directory must grant write permissions.</p>
 </li>
 <li>
 <p>From the temporary directory to which you checked out the notification-config.xml file, open it in a text editor.</p>
@@ -35355,8 +35371,10 @@
 <li>
 <p>To specify different administrator email addresses for different notifications types per application, search for the notification types you want to change, and then change the value of the sender properties. If there is no sender property, add one.</p>
 <p><strong>Note:</strong> If a type element is present, the email address specified for it is used instead of the global administrator address. If you want the global sender address to be used instead of the address specified here, comment out the associated type element. For example, if you want to change the address from which notifications that inform people that they have been added to an activity are sent, edit the value of the sender property in the following notification type:</p>
-<p>add-member
-:   For example:</p>
+<dl>
+<dt>add-member</dt>
+<dd>For example:</dd>
+</dl>
 <pre><code>```
 &lt;type name="add-member"&gt;
   &lt;channel name="email" enabled="true"&gt;

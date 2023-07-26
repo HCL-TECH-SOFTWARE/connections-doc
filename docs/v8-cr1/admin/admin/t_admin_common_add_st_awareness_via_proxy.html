@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -11041,9 +11057,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Adding Sametime awareness through the Sametime server
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_admin_common_add_st_awareness_via_proxy.html" class="md-nav__link md-nav__link--active">
         Adding Sametime awareness through the Sametime server
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -35275,6 +35322,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35294,61 +35356,65 @@
 
 
 <h1 class="task" id="t_admin_common_add_st_awareness_via_proxy">Adding Sametime awareness through the Sametime server</h1>
-<p>If an Sametime® Proxy server is configured in your enterprise and the Profiles application is deployed, you can enable presence awareness and simple chats in HCL Connections.</p>
+<p>If an HCL Sametime® server is configured in your enterprise and the Profiles application is deployed, you can enable presence awareness and simple chats in HCL Connections.</p>
 <p>The following software must be enabled before you add presence awareness to HCL Connections:</p>
 <ul>
-<li>
-<p>Domino® Server 8.5 or later</p>
-<p>Refer to <a href="https://help.hcltechsw.com/domino/11.0.0/inst_dominoserverinstallation_c.html">Installing and setting up Domino servers</a>.</p>
-</li>
-<li>
-<p>Sametime 8.5.2 Interim Feature Release 1 or later, with the Sametime System Console, Sametime Community Server, and Sametime Proxy Server components.</p>
-</li>
+<li>Sametime 12.0 server or later, with <strong>Web client integration</strong> enabled.</li>
+<li>See the HCL Sametime article on <a href="https://help.hcltechsw.com/sametime/12/admin/verse_integration.html">Integrating with other applications</a> for more information on enabling the web client interface.</li>
 </ul>
 <p>Complete the following procedures before enabling awareness.</p>
 <ul>
-<li>Enable single sign-on between the Domino environment and the HCL Connections server. For more information, see <a href="../secure/t_secure_domino.html">Enabling single sign-on for Domino</a>.</li>
+<li>Enable single sign-on between the Sametime server environment and the HCL Connections server using Lightweight Third Party Authentication.  For more information, see the Sametime 12 article <a href="https://help.hcltechsw.com/sametime/12/admin/enabling_sso_ltpa.html">Setting up SSO using LTPA</a>.</li>
 </ul>
 <p>When you enable presence awareness by using the Sametime Proxy server, a person's online status is indicated by a set of icons and an associated status message that is available from the person's profile and business card. Presence awareness tells you whether the person is available to chat, busy in a meeting, or away from their computer. In addition to seeing a person's availability, you can carry on a chat with that person even when no Sametime client is installed.</p>
-<p><strong>Encrypted connection support</strong>: If you configure the product to send encrypted traffic, presence awareness can be retrieved as an encrypted connection. For more information about enabling encrypted connections for Sametime, refer to the documentation provided with the Sametime SDK, which is available from the following web site: <a href="http://www.ibm.com/developerworks/lotus/downloads/toolkits.html">http://www.ibm.com/developerworks/lotus/downloads/toolkits.html</a></p>
+<h2 id="procedure">Procedure</h2>
 <ol>
 <li>
 <p>Start the wsadmin client from the following directory of the system where you installed the deployment manager:</p>
-<div class="highlight"><pre><span></span><code>[app\_server\_root](../plan/i_ovr_r_directory_conventions.md)\profiles\dm\_profile\_root\bin
+<div class="highlight"><pre><span></span><code>&lt;app_server_root&gt;\profiles\&lt;dm_profile_root&gt;\bin
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>app\_server\_root\profiles\dm\_profile\_root\bin
-</code></pre></div>
-<p><strong>Note:</strong> You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the <em>Starting the wsadmin client</em> topic.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Find more information about <em>app_server_root</em> and <em>dm_profile_root</em> in <a href="../plan/i_ovr_r_directory_conventions.html">Directory path conventions</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> topic.</p>
+</div>
 </li>
 <li>
 <p>Use the wsadmin client to access and check out the HCL Connections extension configuration files.</p>
 <ol>
 <li>
-<p>Enter the following command to load the HCL Connections configuration file: execfile("connectionsConfig.py")</p>
+<p>Enter the following command to load the HCL Connections configuration file: </p>
+<div class="highlight"><pre><span></span><code>execfile(&quot;connectionsConfig.py&quot;)
+</code></pre></div>
 <p>If you are prompted to specify a service to connect to, type 1 to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
 </li>
 <li>
 <p>Enter the following command to check out the LotusConnections-config.xml file:</p>
-<div class="highlight"><pre><span></span><code>LCConfigService.checkOutConfig(&quot;working\_directory&quot;,&quot;cell\_name&quot;)
+<div class="highlight"><pre><span></span><code>LCConfigService.checkOutConfig(&quot;working_directory&quot;,&quot;cell_name&quot;)
 </code></pre></div>
 <p>where:</p>
 <ul>
 <li>
 <p>working_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.</p>
-<p>AIX and Linux: The directory must grant write permissions or the command does not run successfully.</p>
+<p>Linux: The directory must grant write permissions or the command does not run successfully.</p>
 </li>
 <li>
 <p>cell_name is the name of the WebSphere® Application Server cell that hosts the IBM Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell()
 For example:</p>
 </li>
 <li>
-<p>AIX or Linux:LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</p>
+<p>Linux:LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</p>
 </li>
 <li>Microsoft Windows:LCConfigService.checkOutConfig("c:/temp","foo01Cell01")</li>
-<li>From the directory you specified as the working directory in the previous step, open the LotusConnections-config.xml file in a text editor, and then find the <code>sametimeProxy service</code> section:</li>
 </ul>
 </li>
 </ol>
+</li>
+<li>
+<p>From the directory you specified as the working directory in the previous step, open the LotusConnections-config.xml file in a text editor, and then find the <code>sametimeProxy service</code> section:</p>
 <div class="highlight"><pre><span></span><code>&lt;sloc:serviceReference enabled=&quot;false&quot; isConnectClient=&quot;false&quot; serviceName=&quot;sametimeProxy&quot; ssl_enabled=&quot;false&quot;&gt;
 &lt;sloc:href&gt;&lt;sloc:hrefPathPrefix/&gt;
 &lt;sloc:static href=&quot;admin_replace&quot; ssl_href=&quot;admin_replace&quot;/&gt;
@@ -35362,8 +35428,8 @@ For example:</p>
 <div class="highlight"><pre><span></span><code>&lt;sloc:serviceReference enabled=&quot;true&quot; isConnectClient=&quot;false&quot; serviceName=&quot;sametimeProxy&quot; ssl_enabled=&quot;true&quot;&gt;
 &lt;sloc:href&gt;&lt;sloc:hrefPathPrefix/&gt;
 &lt;sloc:static href=&quot;http://sametimeProxyServer.enterprise.example.com&quot; 
-ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot;/&gt;
-&lt;sloc:interService href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot;/&gt;
+ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:443&quot;/&gt;
+&lt;sloc:interService href=&quot;https://sametimeProxyServer.enterprise.example.com:443&quot;/&gt;
 &lt;/sloc:href&gt;
 &lt;/sloc:serviceReference&gt;
 </code></pre></div>
@@ -35371,14 +35437,16 @@ ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot;/&gt
 <ul>
 <li><code>sloc:serviceReference enabled="true"</code> displays the Sametime action bar in Connections and connects to Sametime using the specified Sametime Proxy server.</li>
 <li><code>ssl_enabled="true"</code> connects to the Sametime proxy server on the secure port.</li>
-<li><code>isConnectClient="false"</code> automatically connects to the Sametime Proxy Server rather than using the UIM client.</li>
-<li>If your Connections environment is configured to a reverse proxy but the Sametime server is not, or if <code>dynamicHosts</code> is enabled in the LotusConnections-config.xml, add the isExternal attribute to the configuration as shown in following example. The isExternal attribute is set so that the Sametime proxy server URLs are not overwritten by the dynamic host URLs.</li>
+<li><code>isConnectClient="false"</code> leave this as false, it forces the use of the Sametime Proxy Server.</li>
 </ul>
+</li>
+<li>
+<p>If your Connections environment is configured to a reverse proxy but the Sametime server is not, or if <code>dynamicHosts</code> is enabled in the LotusConnections-config.xml, add the isExternal attribute to the configuration as shown in following example. The isExternal attribute is set so that the Sametime proxy server URLs are not overwritten by the dynamic host URLs.</p>
 <div class="highlight"><pre><span></span><code>&lt;sloc:serviceReference enabled=&quot;true&quot; isConnectClient=&quot;false&quot; serviceName=&quot;sametimeProxy&quot; ssl_enabled=&quot;true&quot;&gt;
 &lt;sloc:href&gt; &lt;sloc:hrefPathPrefix/&gt; 
 &lt;sloc:static href=&quot;http://sametimeProxyServer.enterprise.example.com&quot; 
-ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot; **isExternal=&quot;true&quot;**/&gt; 
-&lt;sloc:interService href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot;/&gt; 
+ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:443&quot; isExternal=&quot;true&quot;/&gt; 
+&lt;sloc:interService href=&quot;https://sametimeProxyServer.enterprise.example.com:443&quot;/&gt; 
 &lt;/sloc:href&gt;
 &lt;/sloc:serviceReference&gt;
 </code></pre></div>
@@ -35388,7 +35456,7 @@ ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot; **i
 </li>
 <li>
 <p>To check in the changed configuration files, use the following command:</p>
-<div class="highlight"><pre><span></span><code>LCConfigService.checkInConfig(working\_directory,cell\_name)
+<div class="highlight"><pre><span></span><code>LCConfigService.checkInConfig(working_directory,cell_name)
 </code></pre></div>
 </li>
 <li>
@@ -35406,7 +35474,17 @@ ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:9444&quot; **i
 <p>Confirm that this procedure worked by accessing one of the Connections applications, and then opening a person's business card. It might take a few seconds for the person's presence information to display the first time. If you can start a chat with the person, then enabling awareness through the proxy server was successfully completed.</p>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_admin_common_customizing.html">Customizing the deployment</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your <strong>Important To Me</strong> navigation bar. For more information, see the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime">Connections Sametime chat extension</a>.</li>
+<li>You can ignore the following configuration in <code>profiles-config.xml</code>, as it is not used for Sametime 12. 
+<div class="highlight"><pre><span></span><code>&lt;sametimeAwareness enabled=&quot;false&quot; href=&quot;http://localhost:59449/stwebapi/&quot; ssl_href=&quot;http://localhost:59449/stwebapi/&quot; sametimeInputType=&quot;uid&quot; /&gt;
+</code></pre></div>
+Make sure to leave enabled as <code>false</code>.</li>
+</ul>
+</div>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_customizing.html">Customizing the deployment</a></p>
 
 
 

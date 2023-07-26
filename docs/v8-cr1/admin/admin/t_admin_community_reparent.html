@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35314,8 +35330,10 @@
 </li>
 <li>
 <p>Use the following commands to reparent communities or subcommunities:</p>
-<p>CommunitiesService.moveSubcommunityToCommunity("subCommunityUuid")
-:   Modifies a subcommunity to become a top-level, stand-alone community.</p>
+<dl>
+<dt>CommunitiesService.moveSubcommunityToCommunity("subCommunityUuid")</dt>
+<dd>Modifies a subcommunity to become a top-level, stand-alone community.</dd>
+</dl>
 <pre><code>The command takes the following parameters:
 
 subCommunityUuid
@@ -35350,8 +35368,10 @@ When you use moveSubcommunityToCommunity, the new top-level community retains th
 
     **Note:** The URL to access this community changes slightly because the parent handle no longer exists.
 </code></pre>
-<p>CommunitiesService.moveCommunityToSubcommunity("parentCommunityUuid", "communityToMoveUuid")
-:   Reparents a community to be the subcommunity of another community.</p>
+<dl>
+<dt>CommunitiesService.moveCommunityToSubcommunity("parentCommunityUuid", "communityToMoveUuid")</dt>
+<dd>Reparents a community to be the subcommunity of another community.</dd>
+</dl>
 <pre><code>The command takes the following parameters:
 
 parentCommunityUuid

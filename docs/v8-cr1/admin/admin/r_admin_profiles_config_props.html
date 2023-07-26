@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35344,72 +35360,83 @@
 <h2 class="section" id="profiles-configuration-settings">Profiles configuration settings</h2>
 <p>You can check out and modify the following configuration settings in the profiles-config.xml file.</p>
 <p><strong>Note:</strong> Some configuration settings, such as the settings for the board and tagging features, were moved from the profiles-config.xml file to the profiles-policy.xml file. For more information about the settings that you can configure in the profiles-policy.xml file, see <em>Profile-types</em>.</p>
-<p>activeContentFilter.enabled
-:   Enables/disables filtering for active content of text entered into the <strong>About me</strong> and <strong>Background</strong> text input fields.</p>
-<pre><code>This property takes a Boolean value: true or false. The value must be formatted in lowercase.
-</code></pre>
-<p>fullReportsToChainCache.ceouid
-:   The corporate directory user ID of the person who displays at the top of the organizational structure.</p>
-<p>fullReportsToChainCache.enabled
-:   Enables or disables the full reports-to chain cache.</p>
-<pre><code>This property takes a Boolean value: true or false. The value must be formatted in lowercase.
-</code></pre>
-<p>fullReportsToChainCache.refreshInterval
-:   Time in minutes between cache reload operations.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>fullReportsToChainCache.refreshTime
-:   HH:MM. Determines the time of day in 24-hour time format that Profiles performs the first scheduled reloading of the cache.</p>
-<p>fullReportsToChainCache.size
-:   The number of employee entries that should be loaded into the cache.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>fullReportsToChainCache.startDelay
-:   Time in minutes that Profiles should wait after starting loading the cache for the first time.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>organizationalStructure.enabled
-:   Indicates if the organizational structure information (report-to chain, people managed, same manager) should display.</p>
-<pre><code>This property takes a Boolean value: true or false. The value must be formatted in lowercase.
-</code></pre>
-<p>nameOrdering.enabled
-:   When this property is set to true, names must be entered as (FirstName LastName) or (LastName, FirstName). By default, it is set to false.</p>
-<pre><code>When only a single word is entered, that word is treated as the LastName value during search.
-
-This property takes a Boolean value.
-</code></pre>
-<p>scheduledTasks.DbCleanupTasks
-:   Specifies the frequency at which the database cleanup tasks runs. This task removes event log entries, or draft profiles updates older than the specified number of days.</p>
-<pre><code>eventLogTrashRetentionInDays: Specifies the number of days to keep system events in the EMPINST.EVENTLOG table.
-
-draftTrashRetentionInDays: Specifies the number of days to keep draft profile updates.
-
-eventLogMaxBulkPurge: Specifies the maximum number of events to purge in a query.
-</code></pre>
-<p>scheduledTasks.ProcessLifeCycleEventsTasks
-:   Specifies the frequency at which lifecycle events are published. This event ensures that lifecycle events are propagated.</p>
-<pre><code>platformCommandBatrchSize: Specifies the maximum number of events attempted to process in each event run.
-</code></pre>
-<p>scheduledTasks.ProcessTDIEventsTasks
-:   Specifies the frequency at which audit events triggered by a TDI synch are processed.</p>
-<pre><code>platformCommandBatrchSize: Specifies the maximum number of events attempted to process in each event run.
-</code></pre>
-<p>scheduledTasks.StatsCollectorTask
-:   Specifies the frequency at which Profiles statistics are calculated and written to disk.</p>
-<pre><code>filePath: Specifies the directory in which to place the file.
-
-fileName: Specifies the file name.
-</code></pre>
-<p>scheduledTasks.RefreshSystemObjectsTask
-:   This task is obsolete.</p>
-<p>search.maxRowsToReturn
-:   Determines the maximum number of rows returned by a search operation.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
-<p>search.pageSize
-:   Determines the number of returned rows to place on a results page.</p>
-<pre><code>This property takes an integer value.
-</code></pre>
+<dl>
+<dt>activeContentFilter.enabled</dt>
+<dd>
+<p>Enables/disables filtering for active content of text entered into the <strong>About me</strong> and <strong>Background</strong> text input fields.</p>
+<p>This property takes a Boolean value: true or false. The value must be formatted in lowercase.</p>
+</dd>
+<dt>fullReportsToChainCache.ceouid</dt>
+<dd>The corporate directory user ID of the person who displays at the top of the organizational structure.</dd>
+<dt>fullReportsToChainCache.enabled</dt>
+<dd>
+<p>Enables or disables the full reports-to chain cache.</p>
+<p>This property takes a Boolean value: true or false. The value must be formatted in lowercase.</p>
+</dd>
+<dt>fullReportsToChainCache.refreshInterval</dt>
+<dd>
+<p>Time in minutes between cache reload operations.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>fullReportsToChainCache.refreshTime</dt>
+<dd>HH:MM. Determines the time of day in 24-hour time format that Profiles performs the first scheduled reloading of the cache.</dd>
+<dt>fullReportsToChainCache.size</dt>
+<dd>
+<p>The number of employee entries that should be loaded into the cache.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>fullReportsToChainCache.startDelay</dt>
+<dd>
+<p>Time in minutes that Profiles should wait after starting loading the cache for the first time.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>organizationalStructure.enabled</dt>
+<dd>
+<p>Indicates if the organizational structure information (report-to chain, people managed, same manager) should display.</p>
+<p>This property takes a Boolean value: true or false. The value must be formatted in lowercase.</p>
+</dd>
+<dt>nameOrdering.enabled</dt>
+<dd>
+<p>When this property is set to true, names must be entered as (FirstName LastName) or (LastName, FirstName). By default, it is set to false.</p>
+<p>When only a single word is entered, that word is treated as the LastName value during search.</p>
+<p>This property takes a Boolean value.</p>
+</dd>
+<dt>scheduledTasks.DbCleanupTasks</dt>
+<dd>
+<p>Specifies the frequency at which the database cleanup tasks runs. This task removes event log entries, or draft profiles updates older than the specified number of days.</p>
+<p>eventLogTrashRetentionInDays: Specifies the number of days to keep system events in the EMPINST.EVENTLOG table.</p>
+<p>draftTrashRetentionInDays: Specifies the number of days to keep draft profile updates.</p>
+<p>eventLogMaxBulkPurge: Specifies the maximum number of events to purge in a query.</p>
+</dd>
+<dt>scheduledTasks.ProcessLifeCycleEventsTasks</dt>
+<dd>
+<p>Specifies the frequency at which lifecycle events are published. This event ensures that lifecycle events are propagated.</p>
+<p>platformCommandBatrchSize: Specifies the maximum number of events attempted to process in each event run.</p>
+</dd>
+<dt>scheduledTasks.ProcessTDIEventsTasks</dt>
+<dd>
+<p>Specifies the frequency at which audit events triggered by a TDI synch are processed.</p>
+<p>platformCommandBatrchSize: Specifies the maximum number of events attempted to process in each event run.</p>
+</dd>
+<dt>scheduledTasks.StatsCollectorTask</dt>
+<dd>
+<p>Specifies the frequency at which Profiles statistics are calculated and written to disk.</p>
+<p>filePath: Specifies the directory in which to place the file.</p>
+<p>fileName: Specifies the file name.</p>
+</dd>
+<dt>scheduledTasks.RefreshSystemObjectsTask</dt>
+<dd>This task is obsolete.</dd>
+<dt>search.maxRowsToReturn</dt>
+<dd>
+<p>Determines the maximum number of rows returned by a search operation.</p>
+<p>This property takes an integer value.</p>
+</dd>
+<dt>search.pageSize</dt>
+<dd>
+<p>Determines the number of returned rows to place on a results page.</p>
+<p>This property takes an integer value.</p>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="t_admin_profiles_changing_config.html">Changing Profiles configuration property values</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a></p>

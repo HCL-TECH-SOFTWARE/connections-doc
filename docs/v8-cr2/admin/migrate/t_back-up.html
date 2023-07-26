@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35341,7 +35341,7 @@
 <p>If you installed Connections Content Manager, back up the FileNet® Storage Area and the Engine-ws.ear file.</p>
 <p>By default the FileNet Storage Area is in the following directory:</p>
 <ul>
-<li>For Linux™, AIX®, or Linux on System z®: <a href="../plan/i_ovr_r_directory_conventions.html">&lt;shared_data_directory_root></a>/ccm</li>
+<li>For Linux™ or Linux on System z®: <a href="../plan/i_ovr_r_directory_conventions.html">&lt;shared_data_directory_root></a>/ccm</li>
 <li>For Windows: <a href="../plan/i_ovr_r_directory_conventions.html">&lt;shared_data_directory_root></a>\ccm
 <strong>Note:</strong> You need to back up FileNet Storage Area if it is reconfigured outside of &lt;shared_data_directory_root> only.</li>
 </ul>
@@ -35351,7 +35351,7 @@
 <p>For Connections 6:</p>
 <ul>
 <li>
-<p>For Linux, AIX, or Linux on System z:</p>
+<p>For Linux or Linux on System z:</p>
 <div class="highlight"><pre><span></span><code>&lt;connections_root&gt;/addons/ccm/ContentEngine/tools/configure/profiles/CCM/ear
 </code></pre></div>
 </li>
@@ -35366,7 +35366,7 @@
 <p>For Connections 6 CR6:</p>
 <ul>
 <li>
-<p>For Linux, AIX, or Linux on System z:</p>
+<p>For Linux or Linux on System z:</p>
 <div class="highlight"><pre><span></span><code>&lt;connections_root&gt;/FileNet/ContentEngine/tools/configure/profiles/CCM/ear
 </code></pre></div>
 </li>
@@ -35432,7 +35432,7 @@
 </ul>
 </li>
 <li>
-<p>AIX or Linux: <a href="../plan/i_ovr_r_directory_conventions.html">shared_resources_root</a></p>
+<p>Linux: <a href="../plan/i_ovr_r_directory_conventions.html">shared_resources_root</a></p>
 </li>
 <li>Windows: <a href="../plan/i_ovr_r_directory_conventions.html">shared_resources_root</a>
 <strong>Note:</strong> For shared and remote network file system requirements, be sure to review the footnotes for each supported operating system in the detailed <a href="https://support.hcltechsw.com/csm?sys_kb_id=2010cc82db30acd0a45ad9fcd3961971&amp;id=kb_article_view">system requirements</a>.</li>
@@ -35442,9 +35442,9 @@
 <p>Back up the HCL Installation Manager data directory:</p>
 <p><strong>Note:</strong> This step is necessary only if you are planning an in-place migration of Connections. That is, where you use the same systems to host the new deployment.</p>
 <ul>
-<li>AIX or Linux: /var/ibm/InstallationManager</li>
+<li>Linux: /var/ibm/InstallationManager</li>
 <li>
-<p>AIX or Linux (non-root user): /home/user/var/ibm/Installation Manager</p>
+<p>Linux (non-root user): /home/user/var/ibm/Installation Manager</p>
 <p>Where user is the account name of the non-root user.</p>
 </li>
 <li>
@@ -35467,14 +35467,10 @@ CAUTION:</p>
 <li>/opt/IBM/IMShared</li>
 </ul>
 </li>
-<li>AIX:<ul>
-<li>/var/ibm/InstallationManager</li>
-<li>/usr/IBM/InstallationManager</li>
-<li>/usr/IBM/IMShared</li>
 </ul>
 </li>
-<li>Back up any customized configuration files. For more information, see <a href="c_configuration_changes_after_update.html">Saving your customizations</a>.</li>
-</ul>
+<li>
+<p>Back up any customized configuration files. For more information, see <a href="c_configuration_changes_after_update.html">Saving your customizations</a>.</p>
 <p><strong>Note:</strong>  Most of the backup steps are covered in <a href="c_configuration_changes_after_update.html">Saving your customizations</a>, however, this procedure does not cover backing up security role mapping for users and groups. So be sure to back up security role mapping for users and groups before the servers are stopped. Otherwise, you have to start server again to back up this information.</p>
 </li>
 </ol>

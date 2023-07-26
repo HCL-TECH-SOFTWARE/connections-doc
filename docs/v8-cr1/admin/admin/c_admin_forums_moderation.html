@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35296,18 +35312,20 @@
 <p>When moderation is enabled for Forums, a designated moderator can review posts before they are published to a forum and manage posts after they are added to a forum. Forums moderation is supported for community forums and stand-alone forums.</p>
 <p>If premoderation is enabled for your deployment, when users create or reply to forum posts, the content that they add is not displayed until it is approved by a moderator. If postmoderation is enabled, the moderator can review content that is flagged as inappropriate and determine whether the content must be removed.</p>
 <p>As administrator, you can control who has permission to moderate forum content by using two scopes:</p>
-<p>Global moderation
-:   You can assign the global-moderator role for Forums to specified users. For more information about assigning roles, see <em>Roles</em>.</p>
-<pre><code>Users who are assigned to the global-moderator role can see an additional **Moderation** link in the application menu bar when they are logged in to HCL Connections. This link is visible only to global moderators. Clicking the link provides access to a global moderation interface where moderators can review and manage posts from stand-alone forums and community forums.
-
-For more information about moderating forum content from the global moderation interface, see *Moderation overview*.
-</code></pre>
-<p>Community forum moderation
-:   Community forums can be moderated by community owners if owner moderation for Communities is enabled in the contentreview-config.xml file. For more information about how to configure owner-moderation settings, see <em>Managing content moderation and flagged content</em>.</p>
-<pre><code>When owner moderation is enabled for Communities, community owners can review and manage the content of their community forums directly from the community by logging in to HCL Connections and selecting **Moderate Community** from the **Community Actions** menu. Community owners can review content only in their own community forums.
-
-For more information about moderating content in community forums, see *Moderating community content*.
-</code></pre>
+<dl>
+<dt>Global moderation</dt>
+<dd>
+<p>You can assign the global-moderator role for Forums to specified users. For more information about assigning roles, see <em>Roles</em>.</p>
+<p>Users who are assigned to the global-moderator role can see an additional <strong>Moderation</strong> link in the application menu bar when they are logged in to HCL Connections. This link is visible only to global moderators. Clicking the link provides access to a global moderation interface where moderators can review and manage posts from stand-alone forums and community forums.</p>
+<p>For more information about moderating forum content from the global moderation interface, see <em>Moderation overview</em>.</p>
+</dd>
+<dt>Community forum moderation</dt>
+<dd>
+<p>Community forums can be moderated by community owners if owner moderation for Communities is enabled in the contentreview-config.xml file. For more information about how to configure owner-moderation settings, see <em>Managing content moderation and flagged content</em>.</p>
+<p>When owner moderation is enabled for Communities, community owners can review and manage the content of their community forums directly from the community by logging in to HCL Connections and selecting <strong>Moderate Community</strong> from the <strong>Community Actions</strong> menu. Community owners can review content only in their own community forums.</p>
+<p>For more information about moderating content in community forums, see <em>Moderating community content</em>.</p>
+</dd>
+</dl>
 <p>In addition to the global moderation interface and the community forum moderation interface, public moderation APIs are available to allow third-party developers to moderate community forum content and community file content. For more information, refer to the Forums API section of the <a href="http://www-10.lotus.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=IBM+Connections+4.0+API+Documentation#action=openDocument&amp;content=catcontent&amp;ct=prodDoc">HCL Connections 4 API Documentation</a>.</p>
 <p><strong>Parent topic:</strong><a href="c_admin_forums_overview.html">Administering Forums</a></p>
 <p><strong>Related information</strong>  </p>

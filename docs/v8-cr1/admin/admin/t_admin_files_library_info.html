@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35305,8 +35321,10 @@
 </li>
 <li>
 <p>Run the following commands to return information about libraries:</p>
-<p>FilesLibraryService.getById(string libraryId)
-:   Returns information about a single library specified by an id. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</p>
+<dl>
+<dt>FilesLibraryService.getById(string libraryId)</dt>
+<dd>Returns information about a single library specified by an id. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</dd>
+</dl>
 <pre><code>Parameters:
 
 libraryId
@@ -35334,8 +35352,10 @@ For example:
 FilesLibraryService.getById("2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>FilesLibraryService.getByExternalContainerId(string community_id)
-:   Returns information about the community libraries available in the named Community.</p>
+<dl>
+<dt>FilesLibraryService.getByExternalContainerId(string community_id)</dt>
+<dd>Returns information about the community libraries available in the named Community.</dd>
+</dl>
 <pre><code>Parameters:
 
 community\_id
@@ -35347,8 +35367,10 @@ For example:
 FilesLibraryService.getByExternalContainerId("003456bc-078d-e990-0450-x12345678900")
 ```
 </code></pre>
-<p>FilesLibraryService.getPersonalByOwnerId(string ownerUserId)
-:   Returns information about the personal library of a specified owner. A personal library is a set of files owned by one person.</p>
+<dl>
+<dt>FilesLibraryService.getPersonalByOwnerId(string ownerUserId)</dt>
+<dd>Returns information about the personal library of a specified owner. A personal library is a set of files owned by one person.</dd>
+</dl>
 <pre><code>Parameters:
 
 ownerId
@@ -35375,8 +35397,10 @@ For example:
 FilesLibraryService.getPersonalByOwnerId("2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>FilesLibraryService.browsePersonal(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)
-:   Returns a list of personal libraries, with information about each library. A personal library is a set of files owned by one person. The list includes libraries whose owners were removed from the user directory. All parameters have default values.</p>
+<dl>
+<dt>FilesLibraryService.browsePersonal(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)</dt>
+<dd>Returns a list of personal libraries, with information about each library. A personal library is a set of files owned by one person. The list includes libraries whose owners were removed from the user directory. All parameters have default values.</dd>
+</dl>
 <pre><code>Parameters:
 
 sortOption
@@ -35412,8 +35436,10 @@ For example:
 FilesLibraryService.browsePersonal("title", "true", 1, 25)
 ```
 </code></pre>
-<p>FilesLibraryService.browseCommunity(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)
-:   Returns a list of community libraries, with information about each library. A community library is a set of files owned by a community.</p>
+<dl>
+<dt>FilesLibraryService.browseCommunity(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)</dt>
+<dd>Returns a list of community libraries, with information about each library. A community library is a set of files owned by a community.</dd>
+</dl>
 <pre><code>Parameters:
 
 sortOption
@@ -35449,8 +35475,10 @@ For example:
 FilesLibraryService.browseCommunity("title", "true", 1, 20)
 ```
 </code></pre>
-<p>FilesLibraryService.browsePersonalOrphan(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)
-:   Returns a list of personal libraries whose owners were removed from the user directory. A personal library is a set of files owned by one person.</p>
+<dl>
+<dt>FilesLibraryService.browsePersonalOrphan(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)</dt>
+<dd>Returns a list of personal libraries whose owners were removed from the user directory. A personal library is a set of files owned by one person.</dd>
+</dl>
 <pre><code>Parameters:
 
 sortOption
@@ -35486,14 +35514,16 @@ For example:
 FilesLibraryService.browsePersonalOrphan("title", "true", 1, 20)
 ```
 </code></pre>
-<p>FilesLibraryService.getPersonalCount()
-:   Returns the total number of personal libraries.</p>
-<p>FilesLibraryService.getCommunityCount()
-:   Returns the total number of Community libraries.</p>
-<p>FilesLibraryService.getPersonalOrphanCount()
-:   Returns the total number of personal libraries whose owners were removed from the user directory.</p>
-<p>FilesLibraryService.exportSyncedResourceInfo(string fullpathForOutput, string type)
-:   Returns a report of all of the communities that the Files application has interacted with. After a system crash you can compare the report to the latest metadata in the Communities database to help synchronize and update any missing data. See the topic <em>Comparing remote application data with the Communities database</em> for more information.</p>
+<dl>
+<dt>FilesLibraryService.getPersonalCount()</dt>
+<dd>Returns the total number of personal libraries.</dd>
+<dt>FilesLibraryService.getCommunityCount()</dt>
+<dd>Returns the total number of Community libraries.</dd>
+<dt>FilesLibraryService.getPersonalOrphanCount()</dt>
+<dd>Returns the total number of personal libraries whose owners were removed from the user directory.</dd>
+<dt>FilesLibraryService.exportSyncedResourceInfo(string fullpathForOutput, string type)</dt>
+<dd>Returns a report of all of the communities that the Files application has interacted with. After a system crash you can compare the report to the latest metadata in the Communities database to help synchronize and update any missing data. See the topic <em>Comparing remote application data with the Communities database</em> for more information.</dd>
+</dl>
 <pre><code>Note that in clusters, when you run the command from the deployment manager the path and file are created on the server running Files. In clusters where multiple nodes are running Files, you are asked choose a server to connect to and run the command on, and then the path and file are created on that server.
 
 Parameters:

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35316,8 +35332,10 @@
 </li>
 <li>
 <p>Use the following commands to manage community trash:</p>
-<p>CommunitiesService.getSoftDeletedCommunityUuidList("date")
-:   Returns a list of community UUIDs in the trash that are older than the date specified.</p>
+<dl>
+<dt>CommunitiesService.getSoftDeletedCommunityUuidList("date")</dt>
+<dd>Returns a list of community UUIDs in the trash that are older than the date specified.</dd>
+</dl>
 <pre><code>The command takes the following parameters:
 
 Date
@@ -35341,8 +35359,10 @@ You can also get a list of all the communities and subcommunities in trash as fo
 wsadmin&gt;CommunitiesService.getSoftDeletedCommunityUuidList()
 ```
 </code></pre>
-<p>CommunitiesService.unDeleteCommunity("communityUuid")
-:   Restores the community from trash.</p>
+<dl>
+<dt>CommunitiesService.unDeleteCommunity("communityUuid")</dt>
+<dd>Restores the community from trash.</dd>
+</dl>
 <pre><code>The command takes the following parameters:
 
 communityUuid

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35329,7 +35345,7 @@
 <h1 class="concept" id="concept_stw_v24_3mb">Sizing the Kubernetes cluster</h1>
 <p>Before you start sizing Kubernetes, let's consider the needs of Component Pack, your operational specifics, master nodes versus worker nodes, and availability.</p>
 <h2 class="section" id="section_w1x_kfc_jmb">Component Pack requirements</h2>
-<p>With Component Pack 8, it is possible that at some point you'll have both Elasticsearch 7 and OpenSearch installed while or until you are done with migration. If you are installing a fresh cluster, you will install only OpenSearch.</p>
+<p>With Component Pack 8 CR1, it is possible that at some point you'll have both Elasticsearch 7 and OpenSearch installed while or until you are done with migration. If you are installing a fresh cluster, you will install only OpenSearch.</p>
 <p>The rule of thumb for the full-blown production Kubernetes cluster is determined by whether or not you need high availability. If not, up to 1000 concurrent users, or one single node with <strong>m5a.large</strong> as master and three <strong>m5a.2xlarge</strong> nodes would do the job. For more than 1000 concurrent users, you must look into scaling specific pods, starting with Customizer, and rather than into scaling your environment.</p>
 <h2 class="section" id="section_fv2_gg4_3mb">Operational considerations</h2>
 <p>You will be installing and upgrading different Component Pack (and non-Component Pack) services, which means that there will be points in time when instead of three pods there will be six up and running for the same service, while Kubernetes is, for example, upgrading it or reinstalling it.</p>

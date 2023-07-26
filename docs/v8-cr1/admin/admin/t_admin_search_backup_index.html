@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35321,8 +35337,10 @@
 </li>
 <li>
 <p>Use the following commands.</p>
-<p>SearchService.addBackupIndexTask(String taskName, String schedule, String startbySchedule)
-:   Defines a new scheduled index backup task.</p>
+<dl>
+<dt>SearchService.addBackupIndexTask(String taskName, String schedule, String startbySchedule)</dt>
+<dd>Defines a new scheduled index backup task.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   taskName. The name of the task to be added.
@@ -35337,14 +35355,18 @@ SearchService.addBackupIndexTask("WeeklyIndexBackup",
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.backupIndexNow()
-:   Backs up the index to the location specified by the IBM WebSphere Application Server variable, SEARCH_INDEX_BACKUP_DIR. There might be a delay before the backup occurs if there are indexing tasks in progress.</p>
+<dl>
+<dt>SearchService.backupIndexNow()</dt>
+<dd>Backs up the index to the location specified by the IBM WebSphere Application Server variable, SEARCH_INDEX_BACKUP_DIR. There might be a delay before the backup occurs if there are indexing tasks in progress.</dd>
+</dl>
 <pre><code>This command does not take any arguments.
 
 After backing up the Search index using wsadmin commands, consider performing a full backup of the HOMEPAGE database. Note that the Search index has a dependency on data in the HOMEPAGE database.
 </code></pre>
-<p>SearchService.deleteTask(String taskName)
-:   Deletes the specified backup task.</p>
+<dl>
+<dt>SearchService.deleteTask(String taskName)</dt>
+<dd>Deletes the specified backup task.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   taskName. The name of the task to be deleted.
@@ -35354,8 +35376,10 @@ For example:
 SearchService.deleteTask("NightlyBackupTask")
 ```
 </code></pre>
-<p>SearchService.notifyRestore(Boolean isNewIndex)
-:   Brings the database to a consistent state so that crawlers start from the point at which the backup was made.</p>
+<dl>
+<dt>SearchService.notifyRestore(Boolean isNewIndex)</dt>
+<dd>Brings the database to a consistent state so that crawlers start from the point at which the backup was made.</dd>
+</dl>
 <pre><code>The notifyRestore command updates index management tables in the HOMEPAGE database so that crawling resume points are reloaded from a restored index, thereby ensuring that all future crawls start from the correct point. The command also purges cached content in the HOMEPAGE database.
 
 The notifyRestore command optionally removes all entries from the HOMEPAGE database table that tracks the status of individual files as part of the content extraction process. This table is used by the Search application when indexing the content of file attachments.

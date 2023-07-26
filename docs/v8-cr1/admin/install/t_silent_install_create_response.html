@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35312,19 +35328,21 @@
 <li>Uninstalling HCL Connections</li>
 </ul>
 <p>For each procedure, run a simulated instance of the IBM Installation Manager and record your input to a response file. Later, you can run a silent command that uses this response file as an input parameter.</p>
-<p>Default response files on AIX or Linux:</p>
-<p>Install
-:   LC.rsp</p>
-<p>Modify - Add
-:   LC_modify_add.rsp</p>
-<p>Modify - Remove
-:   LC_modify_remove.rsp</p>
-<p>Update
-:   LC_update.rsp</p>
-<p>Roll back
-:   LC_rollback.rsp</p>
-<p>Uninstall
-:   LC_uninstall.rsp</p>
+<p>Default response files on Linux:</p>
+<dl>
+<dt>Install</dt>
+<dd>LC.rsp</dd>
+<dt>Modify - Add</dt>
+<dd>LC_modify_add.rsp</dd>
+<dt>Modify - Remove</dt>
+<dd>LC_modify_remove.rsp</dd>
+<dt>Update</dt>
+<dd>LC_update.rsp</dd>
+<dt>Roll back</dt>
+<dd>LC_rollback.rsp</dd>
+<dt>Uninstall</dt>
+<dd>LC_uninstall.rsp</dd>
+</dl>
 <p>To create a response file, complete the following steps:</p>
 <ol>
 <li>
@@ -35336,7 +35354,7 @@
 <li>
 <p>Run the command to record a response file. This command uses the -skipInstall agentDataLocation argument, which records the installation commands without installing HCL Connections. Substitute your own file name and path for the response file. Verify that the file paths that you enter exist because IBM Installation Manager does not create directories for the response file.</p>
 <ul>
-<li>AIX and Linux:./IBMIM -record /response_files/install_product.xml -skipInstall agentDataLocation</li>
+<li>Linux:./IBMIM -record /response_files/install_product.xml -skipInstall agentDataLocation</li>
 <li>Microsoft Windows:IBMIM.exe -record responseFile.rsp -skipInstall agentDataLocation
 where agentDataLocation is the file path to the skip directory, which stores IBM Installation Manager data files.</li>
 </ul>

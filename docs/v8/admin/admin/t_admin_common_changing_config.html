@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35027,9 +35027,6 @@
 <p>Open a command prompt and then change to the following directory of the system on which you installed the deployment manager:</p>
 <p><a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/dm_profile_root/bin</p>
 <p>app_server_root/profiles/dm_profile_root/bin. Where app_server_root represents the IBM WebSphere Application Server installation directory, for example:</p>
-<div class="highlight"><pre><span></span><code>AIX:
-/usr/IBM/WebSphere/AppServer
-</code></pre></div>
 <div class="highlight"><pre><span></span><code>Linux:
 /opt/IBM/WebSphere/AppServer
 </code></pre></div>
@@ -35043,7 +35040,7 @@ drive:\Program Files\IBM\WebSphere\AppServer
 <li>
 <p>Enter the following command to start the wsadmin client:</p>
 <ul>
-<li>AIX or Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
+<li>Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
 <li>
 <p>Microsoft Windows: wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT
 where:</p>
@@ -35061,7 +35058,7 @@ For example:</li>
 </ol>
 </li>
 <li>
-<p>AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
+<p>Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
 </li>
 <li>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879</li>
 <li>Use the wsadmin client to check out HCL Connections configuration files:</li>
@@ -35081,7 +35078,7 @@ For example:</li>
 <p><strong>Notes:</strong></p>
 <ul>
 <li>When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".</li>
-<li>AIX, and Linux only: The directory must grant write permissions or the command fails.
+<li>Linux only: The directory must grant write permissions or the command fails.
         -   cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</li>
 </ul>
 <p><strong>Note:</strong> This input parameter is case-sensitive.</p>
@@ -35091,7 +35088,7 @@ For example:</li>
 </ol>
 <p>For example:</p>
 <ul>
-<li>AIX or Linux: LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</li>
+<li>Linux: LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</li>
 <li>Microsoft Windows: LCConfigService.checkOutConfig("c:/temp","foo01Cell01")</li>
 <li>If you want to find out the current value of a property, you can list the current configuration settings and values by using the following command:</li>
 </ul>

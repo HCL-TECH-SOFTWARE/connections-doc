@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35291,18 +35307,22 @@
 <ol>
 <li>
 <p>Identify LDAP attributes to use for the following roles. If no corresponding attribute exists, create one. You can use an attribute for multiple purposes. For example, you can use the mail attribute to perform the login and messaging tasks.</p>
-<p>Display name
-:   The cn LDAP attribute is used to display a person's name in the product user interface. Ensure that the value you use in the cn attribute is suitable for use as a display name.</p>
-<p>Log in
-:   Determine which attribute or attributes you want people to be able to use to log in to HCL Connections. For example: uid. See <em>Choosing login values</em> for important considerations when deciding which attributes to use.</p>
+<dl>
+<dt>Display name</dt>
+<dd>The cn LDAP attribute is used to display a person's name in the product user interface. Ensure that the value you use in the cn attribute is suitable for use as a display name.</dd>
+<dt>Log in</dt>
+<dd>Determine which attribute or attributes you want people to be able to use to log in to HCL Connections. For example: uid. See <em>Choosing login values</em> for important considerations when deciding which attributes to use.</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The values of the login name attribute must be unique in the LDAP directory.</p>
 </div>
-<p>Messaging
-:   (Optional.) Determine which attribute to use to define the email address of a person. The email address must be unique in the LDAP directory. If a person does not have an email address and does not have an LDAP attribute that represents the email address, that person cannot receive notifications.</p>
-<p>Global unique identifier (GUID)
-:   Determine which attribute to use as the unique identifier of each person and group in the organization. This value must be unique across the organization. For more information, see the <em>Specifying the global ID attribute for users and groups</em> topic.</p>
+<dl>
+<dt>Messaging</dt>
+<dd>(Optional.) Determine which attribute to use to define the email address of a person. The email address must be unique in the LDAP directory. If a person does not have an email address and does not have an LDAP attribute that represents the email address, that person cannot receive notifications.</dd>
+<dt>Global unique identifier (GUID)</dt>
+<dd>Determine which attribute to use as the unique identifier of each person and group in the organization. This value must be unique across the organization. For more information, see the <em>Specifying the global ID attribute for users and groups</em> topic.</dd>
+</dl>
 </li>
 <li>
 <p>Collect the following information about your LDAP directory before configuring it for WebSphere Application Server:</p>

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -539,6 +539,8 @@
         
           
         
+          
+        
       
       
         
@@ -581,6 +583,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35411,21 +35427,27 @@ Ready for Helm install.
 <p><strong>Attention:</strong> Do not proceed any further unless the bootstrap helm chart has successfully completed.</p>
 </li>
 </ol>
-<p>Enabling Redis changes to take immediate effect
-:   1.  Browse to the WebSphere Integrated Solutions Console and log in.</p>
-<pre><code>For example: https://your\_HCL Connections\_URL:9043/ibm/console
-</code></pre>
+<dl>
+<dt>Enabling Redis changes to take immediate effect</dt>
+<dd>
+<ol>
+<li>Browse to the WebSphere Integrated Solutions Console and log in.</li>
+</ol>
+<p>For example: https://your_HCL Connections_URL:9043/ibm/console</p>
+</dd>
+</dl>
 <ol>
 <li>Click <strong>Applications</strong> > <strong>All Applications</strong>.</li>
 <li>Stop and restart the News application.</li>
 </ol>
-<p>Re-running the bootstrap
-:   If you want to re-run the bootstrap, you must first delete the bootstrap helm release from the release list by running the following command:</p>
-<pre><code>```
-helm delete bootstrap --purge
-
-```
-</code></pre>
+<dl>
+<dt>Re-running the bootstrap</dt>
+<dd>
+<p>If you want to re-run the bootstrap, you must first delete the bootstrap helm release from the release list by running the following command:</p>
+<div class="highlight"><pre><span></span><code>helm delete bootstrap --purge
+</code></pre></div>
+</dd>
+</dl>
 
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35305,8 +35321,10 @@
 </li>
 <li>
 <p>Run the following commands to work with policies:</p>
-<p>FilesPolicyService.add(string title, long maximumSize)
-:   Creates a policy with a specified title and maximum size. Policies set a maximum size limit on libraries.</p>
+<dl>
+<dt>FilesPolicyService.add(string title, long maximumSize)</dt>
+<dd>Creates a policy with a specified title and maximum size. Policies set a maximum size limit on libraries.</dd>
+</dl>
 <pre><code>When a policy is created, an ID is created for it and returned to you. The ID is in the following standard Universally Unique Identifier \(UUID\) format: 00000000-0000-0000-0000-000000000000. You must provide policy IDs as parameters when running other FilesPolicyService commands. Policies can be applied to libraries using the FilesLibraryService.assignPolicy or FilesLibraryService.assignPolicyBatch commands.
 
 A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.
@@ -35327,8 +35345,10 @@ For example:
 FilesPolicyService.add("My Policy", 2147483648L)
 ```
 </code></pre>
-<p>FilesPolicyService.edit(string policyId, string title, long maximumSize)
-:   Edits the title and maximum size of a policy with a specified ID. If the ID is for a default policy, the title is not modified. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</p>
+<dl>
+<dt>FilesPolicyService.edit(string policyId, string title, long maximumSize)</dt>
+<dd>Edits the title and maximum size of a policy with a specified ID. If the ID is for a default policy, the title is not modified. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</dd>
+</dl>
 <pre><code>Parameters:
 
 policyID
@@ -35348,8 +35368,10 @@ For example:
 FilesPolicyService.edit("2d93497d-065a-4022ae25-a4b52598d11a", "My Policy", 2147483648L)
 ```
 </code></pre>
-<p>FilesPolicyService.getById(string policyId)
-:   Returns information for a single policy specified by an ID. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</p>
+<dl>
+<dt>FilesPolicyService.getById(string policyId)</dt>
+<dd>Returns information for a single policy specified by an ID. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</dd>
+</dl>
 <pre><code>Parameters:
 
 policyId
@@ -35364,8 +35386,10 @@ For example:
 FilesPolicyService.getById("2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>FilesPolicyService.browse(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)
-:   Returns a list of policies with ID, title, and maximum size information, as described for the FilesPolicyService.getById(id) command. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</p>
+<dl>
+<dt>FilesPolicyService.browse(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)</dt>
+<dd>Returns a list of policies with ID, title, and maximum size information, as described for the FilesPolicyService.getById(id) command. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</dd>
+</dl>
 <pre><code>Parameters:
 
 sortOption
@@ -35386,10 +35410,12 @@ For example:
 FilesPolicyService.browse("title", "true", 1, 25)
 ```
 </code></pre>
-<p>FilesPolicyService.getCount()
-:   Returns the total number of policies. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</p>
-<p>FilesPolicyService.editPersonalDefault(long maximumSize)
-:   Sets the maximum size, in bytes, for the personal library default policy. The default policy is applied to all personal libraries that do not otherwise have a policy. It allows you to control library size as a way of controlling the amount of storage space used.</p>
+<dl>
+<dt>FilesPolicyService.getCount()</dt>
+<dd>Returns the total number of policies. Policies set a maximum size limit on libraries. A library is a set of files owned by a person or community. It includes all versions of the files, but does not include metadata such as comments.</dd>
+<dt>FilesPolicyService.editPersonalDefault(long maximumSize)</dt>
+<dd>Sets the maximum size, in bytes, for the personal library default policy. The default policy is applied to all personal libraries that do not otherwise have a policy. It allows you to control library size as a way of controlling the amount of storage space used.</dd>
+</dl>
 <pre><code>A personal library is a set of files owned by one person. It includes all versions of the files, but does not include metadata such as comments.
 
 Parameters:
@@ -35405,8 +35431,10 @@ For example:
 FilesPolicyService.editPersonalDefault(2147483648L)
 ```
 </code></pre>
-<p>FilesPolicyService.editCommunityDefault(long maximumSize)
-:   Sets the maximum size, in bytes, for the community library default policy. The default policy is applied to all community libraries that do not otherwise have a policy. It allows you to control library size as a way of controlling the amount of storage space used.</p>
+<dl>
+<dt>FilesPolicyService.editCommunityDefault(long maximumSize)</dt>
+<dd>Sets the maximum size, in bytes, for the community library default policy. The default policy is applied to all community libraries that do not otherwise have a policy. It allows you to control library size as a way of controlling the amount of storage space used.</dd>
+</dl>
 <pre><code>A community library is a set of files owned by a community. It includes all versions of the files, but does not include metadata such as comments.
 
 Parameters:
@@ -35422,8 +35450,10 @@ For example:
 FilesPolicyService.editCommunityDefault(2147483648L)
 ```
 </code></pre>
-<p>FilesPolicyService.delete(string policyId)
-:   Deletes the policy specified by the policy ID. You cannot delete default policies or policies in use by any libraries.</p>
+<dl>
+<dt>FilesPolicyService.delete(string policyId)</dt>
+<dd>Deletes the policy specified by the policy ID. You cannot delete default policies or policies in use by any libraries.</dd>
+</dl>
 <pre><code>policyId
 :   The policy ID in the following standard Universally Unique Identifier \(UUID\) format: 00000000-0000-0000-0000-000000000000.
 

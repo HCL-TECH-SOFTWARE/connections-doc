@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35335,8 +35351,10 @@ For example:</li>
 </li>
 <li>
 <p>Edit the following properties for the recent updates feature as needed.</p>
-<p>profile.board
-:   Enables or disables the Profiles recent updates feature.</p>
+<dl>
+<dt>profile.board</dt>
+<dd>Enables or disables the Profiles recent updates feature.</dd>
+</dl>
 <pre><code>**Note:** Configuring this property does not affect the ability to post status messages.
 
 This property takes a string value. Possible values include:
@@ -35344,8 +35362,10 @@ This property takes a string value. Possible values include:
 -   true. Enables the recent updates feature for users with the specified profile type. When set to true, message posts display in the user interface.
 -   false. Disables the recent updates feature for users with the specified profile type. When set to false, message posts do not display in the user interface. The access control level settings are also ignored when the feature is disabled.
 </code></pre>
-<p>profile.board.write.message
-:   Controls user access to post messages.</p>
+<dl>
+<dt>profile.board.write.message</dt>
+<dd>Controls user access to post messages.</dd>
+</dl>
 <pre><code>Access levels for this property can be defined using one of the following scopes:
 
 -   none. No user can post messages to users with the specified profile type.
@@ -35366,8 +35386,10 @@ This property takes a string value. Possible values include:
 
     **Note:** If resourceOwner is specified on the access check, the resource owner constraint must also be met, unless the user has the self role.
 </code></pre>
-<p>profile.board.write.comment
-:   Controls user access to post comments to the recent updates area.</p>
+<dl>
+<dt>profile.board.write.comment</dt>
+<dd>Controls user access to post comments to the recent updates area.</dd>
+</dl>
 <pre><code>Access levels for this property can be defined using one of the following scopes:
 
 -   none. No one can post comments to the recent updates area of users with the specified profile type.

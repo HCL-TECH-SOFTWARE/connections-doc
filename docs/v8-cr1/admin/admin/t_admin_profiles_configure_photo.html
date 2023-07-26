@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35333,22 +35349,28 @@ For example:</li>
 </li>
 <li>
 <p>Edit the following properties for the profile photo feature as needed.</p>
-<p>profile.photo
-:   Enables or disables the profile photo feature.</p>
+<dl>
+<dt>profile.photo</dt>
+<dd>Enables or disables the profile photo feature.</dd>
+</dl>
 <pre><code>This property takes a string value. Possible values include:
 
 -   true. Enables the photo feature for users with the specified profile type. The user interface displays the user's photo and provides options for editing the photo.
 -   false. Disables the photo feature for users with the specified profile type. The user interface does not display the user's photo or options for editing the photo. A generic photo image is displayed in place of the user's photo.
 </code></pre>
-<p>profile.photo.update
-:   Control access to view the photo. In additional to the scope attribute for this access control, dissallowNonAdminIfInactive can be used to indicate whether photos for inactive users can be viewed. Administrative users can view photos regardless of the configuration.</p>
+<dl>
+<dt>profile.photo.update</dt>
+<dd>Control access to view the photo. In additional to the scope attribute for this access control, dissallowNonAdminIfInactive can be used to indicate whether photos for inactive users can be viewed. Administrative users can view photos regardless of the configuration.</dd>
+</dl>
 <pre><code>Access levels for this property can be defined using one of the following scopes:
 
 -   none. No one can update the profile photo of users with the specified profile type.
 -   self. Users with the specified profile type can update their own profile photo.
 </code></pre>
-<p>profile.photo.view
-:   Controls access to view the photo.</p>
+<dl>
+<dt>profile.photo.view</dt>
+<dd>Controls access to view the photo.</dd>
+</dl>
 <pre><code>In additional to the scope attribute for this access control, dissallowNonAdminIfInactive can be used to indicate whether photos for inactive users can be viewed. Administrative users can view photos regardless of the configuration.
 </code></pre>
 <p>In the following photo policy sample, users who have been assigned the reader role can view active user's photos with the default profile type, but photos for inactive users are only viewable by users who have been assigned theadmin role. When a user's photo is not viewable, the default gray photo image is displayed.</p>

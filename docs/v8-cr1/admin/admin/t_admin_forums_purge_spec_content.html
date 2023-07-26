@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35316,12 +35332,14 @@
 </li>
 <li>
 <p>To get a list of the deleted forum content currently in the trash, use the following commands:</p>
-<p>ForumsTrashService.fetchForumsTrash()
-:   Retrieves a list of the deleted forums currently in the trash</p>
-<p>ForumsTrashService.fetchTopicsTrash()
-:   Retrieves a list of the deleted forum topics currently in the trash.</p>
-<p>ForumsTrashService.fetchForumsTrashByDate(String modifySince)
-:   Retrieves a list of the forums that were deleted on a specific date.</p>
+<dl>
+<dt>ForumsTrashService.fetchForumsTrash()</dt>
+<dd>Retrieves a list of the deleted forums currently in the trash</dd>
+<dt>ForumsTrashService.fetchTopicsTrash()</dt>
+<dd>Retrieves a list of the deleted forum topics currently in the trash.</dd>
+<dt>ForumsTrashService.fetchForumsTrashByDate(String modifySince)</dt>
+<dd>Retrieves a list of the forums that were deleted on a specific date.</dd>
+</dl>
 <pre><code>This command takes the following parameter:
 
 modifySince
@@ -35333,16 +35351,20 @@ modifySince
 </li>
 <li>
 <p>To delete a specific forum or forum topic from the trash permanently, use the following commands.</p>
-<p>ForumsTrashService.purgeForumsTrash(vector hashtable)
-:   Purges the specified forums from the trash, where you specify the forums that you want to delete by using the hashtable parameter.</p>
+<dl>
+<dt>ForumsTrashService.purgeForumsTrash(vector hashtable)</dt>
+<dd>Purges the specified forums from the trash, where you specify the forums that you want to delete by using the hashtable parameter.</dd>
+</dl>
 <pre><code>For example:
 
 ```
 ForumsTrashService.purgeForumsTrash(forumtrash)
 ```
 </code></pre>
-<p>ForumsTrashService.purgeTopicsTrash(vector hashtable)
-:   Purges the specified forum topics from the trash, where you specify the topics that you want to delete by using the hashtable parameter.</p>
+<dl>
+<dt>ForumsTrashService.purgeTopicsTrash(vector hashtable)</dt>
+<dd>Purges the specified forum topics from the trash, where you specify the topics that you want to delete by using the hashtable parameter.</dd>
+</dl>
 <pre><code>For example:
 
 ```

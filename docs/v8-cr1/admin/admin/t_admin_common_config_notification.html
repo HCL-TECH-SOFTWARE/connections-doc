@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35286,10 +35302,12 @@
 <p>If you did not create a mail session in WebSphere® Application Server during the installation of the product, you can configure it afterward to enable support for email notifications. Complete this task only if you did not configure notifications during the installation.</p>
 <p>When you enable notifications, users are kept informed about new information and events that take place in HCL Connections applications. For more information about notification types and events, see the <em>Notification types and events</em>topic.</p>
 <p>You can configure notifications to be sent in one the following ways:</p>
-<p>Send mail from a server found by doing a lookup
-:   This configuration performs a lookup of domain namespace (DNS) MX records to retrieve a list of available SMTP servers. If the DNS lookup does not find any available SMTP servers, then notification fails. If one or more SMTP servers are returned by the lookup, then HCL Connections attempts to send the notification email through one server and then the next until the email is sent successfully. This option avoids the risk of a single point of failure. If you choose this option, make sure that your DNS is configured with valid MX records to ensure that available SMTP servers can be found.</p>
-<p>Send mail from a specific SMTP server
-:   This configuration uses a single SMTP server. You must define the SMTP server and its associated settings as a mail session that is managed by WebSphere Application Server. This single SMTP server is used to send email notifications. If the server is unavailable, then notification fails.</p>
+<dl>
+<dt>Send mail from a server found by doing a lookup</dt>
+<dd>This configuration performs a lookup of domain namespace (DNS) MX records to retrieve a list of available SMTP servers. If the DNS lookup does not find any available SMTP servers, then notification fails. If one or more SMTP servers are returned by the lookup, then HCL Connections attempts to send the notification email through one server and then the next until the email is sent successfully. This option avoids the risk of a single point of failure. If you choose this option, make sure that your DNS is configured with valid MX records to ensure that available SMTP servers can be found.</dd>
+<dt>Send mail from a specific SMTP server</dt>
+<dd>This configuration uses a single SMTP server. You must define the SMTP server and its associated settings as a mail session that is managed by WebSphere Application Server. This single SMTP server is used to send email notifications. If the server is unavailable, then notification fails.</dd>
+</dl>
 <ul>
 <li><strong><a href="r_notification_types.html">Notification types and events</a></strong><br />
 Several notification types and events are supported.</li>
@@ -35321,7 +35339,6 @@ You can enable links to the HCL Connections Mobile service from notifications by
 <p><strong>Parent topic:</strong><a href="../install/c_optional_post-install_tasks.html">Optional post-installation tasks</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../customize/t_customize_email_digests.html">Customizing email digests</a></p>
-<p><a href="../customize/t_customize_notification_strings.html">Customizing notification strings</a></p>
 <p><a href="../customize/t_customize_notifications.html">Customizing notifications sent as single emails</a></p>
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35298,10 +35314,12 @@
 <p>To edit configuration files, you must use the IBM® WebSphere® Application Server wsadmin client. See <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
 <p>In a heavily-loaded environment or when HCL Connections™ is deployed in an environment with inadequate hardware, the applications that use Search can get blocked while waiting for search results. They can also run out of memory if the Search application is overloaded with hanging threads or transactions that have not completed.</p>
 <p>Connections provides two counters that ensure that the applications using Search do not get blocked, and that they can resume normal behavior without administrative intervention once the Search application is operating properly again. These two counters act as a mechanism to determine if the Search server is able to accept new connections.</p>
-<p>Active transactions counter
-:   Counts the number of active transactions that are waiting for a response from the Search server.</p>
-<p>Queue counter
-:   Counts the number of active transactions that are queuing to connect to the Search server.</p>
+<dl>
+<dt>Active transactions counter</dt>
+<dd>Counts the number of active transactions that are waiting for a response from the Search server.</dd>
+<dt>Queue counter</dt>
+<dd>Counts the number of active transactions that are queuing to connect to the Search server.</dd>
+</dl>
 <p><strong>Note:</strong> These counters only work when the Search application is installed on a different server from the Connections applications.</p>
 <p>The active transactions counter allows a specified number of active transactions to wait for a response from the Search server. For example, if the limit is set to 20, when 20 active transactions are waiting for a response from the Search server, any subsequent attempts to connect to the server are placed in a queue. If the queue counter is not equal to the value defined in the LotusConnections-config.xml configuration file, the connection to the Search server is rejected. If the queue counter is equal to the value set in the configuration file, a connection to the server is allowed. If the Search server returns data without an timeout exception being returned to the application, the queue counter is reset to 0.</p>
 <p>You can set the limits allowed by the active transactions counter and the queue counter by configuring settings in the LotusConnections-config.xml file.</p>
@@ -35330,7 +35348,7 @@
 <p><strong>Notes:</strong></p>
 <ul>
 <li>When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".</li>
-<li>AIX, and Linux only: The directory must grant write permissions or the command fails.
+<li>Linux only: The directory must grant write permissions or the command fails.
         -   cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</li>
 </ul>
 <p><strong>Note:</strong> This input parameter is case-sensitive.</p>

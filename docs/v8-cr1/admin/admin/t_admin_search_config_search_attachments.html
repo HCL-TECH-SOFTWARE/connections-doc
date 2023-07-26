@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35317,7 +35333,7 @@
 <ul>
 <li>
 <p>working_dir is the temporary directory to which you want to check out the cell level configuration file. This directory must exist on the server where you are running the wsadmin client. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.</p>
-<p><strong>Note:</strong> AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.</p>
+<p><strong>Note:</strong> Linux only: The directory must grant write permissions or the command does not run successfully.</p>
 </li>
 <li>
 <p>cellName is the name of the cell that the Search node belongs to. The command is case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:</p>
@@ -35330,18 +35346,24 @@
 </li>
 <li>
 <p>Use the following commands to control the file content indexing process.</p>
-<p>SearchCellConfig.enableAttachmentHandling()
-:   Enables the indexing of file attachments in the Files and Wikis applications.</p>
+<dl>
+<dt>SearchCellConfig.enableAttachmentHandling()</dt>
+<dd>Enables the indexing of file attachments in the Files and Wikis applications.</dd>
+</dl>
 <pre><code>**Note:** If you already disabled the attachment handling of files during the last indexing, you need to rebuild the index again you enable attachment handling. Otherwise, this command does not take effect.
 
 This command does not take any input parameters.
 </code></pre>
-<p>SearchCellConfig.disableAttachmentHandling()
-:   Disables the indexing of file content in the Files, Wikis, Library (Enterprise Content Manager files), Forums, and Activities applications.</p>
+<dl>
+<dt>SearchCellConfig.disableAttachmentHandling()</dt>
+<dd>Disables the indexing of file content in the Files, Wikis, Library (Enterprise Content Manager files), Forums, and Activities applications.</dd>
+</dl>
 <pre><code>This command does not take any input parameters.
 </code></pre>
-<p>SearchCellConfig.setMaximumAttachmentSize(int maxAttachmentSize)
-:   Sets the limit on the size of files that can be downloaded for indexing. Files that are greater than the configured maximum attachment size are not downloaded or processed for content indexing. By default, the limit is set to 50 MB, which means that files over 50 MB are not indexed.</p>
+<dl>
+<dt>SearchCellConfig.setMaximumAttachmentSize(int maxAttachmentSize)</dt>
+<dd>Sets the limit on the size of files that can be downloaded for indexing. Files that are greater than the configured maximum attachment size are not downloaded or processed for content indexing. By default, the limit is set to 50 MB, which means that files over 50 MB are not indexed.</dd>
+</dl>
 <pre><code>Files that are under the specified size are downloaded to a temporary directory in the index directory, where they go through the text extraction process. The extracted text is then indexed. The temporary directory size available must be greater than the maximum file size allowed for content indexing.
 
 This command accepts one argument:
@@ -35353,8 +35375,10 @@ For example:
 SearchCellConfig.setMaximumAttachmentSize("52428800")
 ```
 </code></pre>
-<p>SearchCellConfig.setMaximumConcurrentDownloads(int maxConcurrentDownloads)
-:   Sets the maximum number of threads that download files on a Search server.</p>
+<dl>
+<dt>SearchCellConfig.setMaximumConcurrentDownloads(int maxConcurrentDownloads)</dt>
+<dd>Sets the maximum number of threads that download files on a Search server.</dd>
+</dl>
 <pre><code>This command takes a single argument that specifies the maximum number of threads. The argument must be an integer greater than zero. The default value is 3. The value of the maxConcurrentDownloads argument must not exceed the maximum number of threads set for the DefaultWorkManager Work Manager resources at the Search server scope.
 
 CAUTION:
@@ -35367,8 +35391,10 @@ For example:
 SearchCellConfig.setMaximumConcurrentDownloads("10")
 ```
 </code></pre>
-<p>SearchCellConfig.setMaximumTempDirSize(int maxTempDirSize)
-:   Sets the maximum size of a temporary directory that is used by a Search server for the files conversion process.</p>
+<dl>
+<dt>SearchCellConfig.setMaximumTempDirSize(int maxTempDirSize)</dt>
+<dd>Sets the maximum size of a temporary directory that is used by a Search server for the files conversion process.</dd>
+</dl>
 <pre><code>This command takes a single argument that specifies the maximum size in bytes. The argument must be an integer greater than zero. The default value is 100 MB.
 
 Files are downloaded to a temporary directory, which is in the index directory. The temporary directory size available must be greater than the maximum file size allowed for content indexing.
@@ -35379,8 +35405,10 @@ For example:
 SearchCellConfig.setMaximumTempDirSize("51200")
 ```
 </code></pre>
-<p>SearchCellConfig.setDownloadThrottle(long downloadThrottle)
-:   Sets the duration of a rest period between successive files downloads in a single file-download thread.</p>
+<dl>
+<dt>SearchCellConfig.setDownloadThrottle(long downloadThrottle)</dt>
+<dd>Sets the duration of a rest period between successive files downloads in a single file-download thread.</dd>
+</dl>
 <pre><code>This command takes a single argument that specifies the download throttle size in milliseconds. The download throttle is set to 500 by default.
 
 CAUTION:

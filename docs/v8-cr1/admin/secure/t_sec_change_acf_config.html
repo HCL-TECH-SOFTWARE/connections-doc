@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -539,6 +539,8 @@
         
           
         
+          
+        
       
       
         
@@ -581,6 +583,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35283,26 +35299,28 @@
 <li>Flash animations are permitted.</li>
 </ul>
 <p>The following configuration files are shipped with Connections and stored in the LotusConnections-config\extern directory. To change the level of filtering that is performed by the active content filter, you can replace the default configuration file with one of these files.</p>
-<p>acf-config.xml
-:   Allows style changes, allows forms, but strips flash. Flash is a format used for videos and animated content.</p>
-<p>acf-config-nf.xml
-:   Allows style changes, but strips forms and flash. The types of forms that are not allowed are form HTML elements. Form HTML elements are used to add things like buttons or fields to a web page.</p>
-<p>acf-config-ns.xml
-:   Allows forms, but strips style changes and flash. Preventing style changes affects rich text fields. If you configure the active content filter to prevent style changes, then users will not be able to perform the common tasks associated with changing the style of rich text content, such as changing the font color, margins, and so on.</p>
-<p>acf-config-nf-ns.xml
-:   Prevents style changes and strips forms and flash.</p>
-<p>acf-config-flash.xml
-:   Allows style changes, allows forms, and allows flash.</p>
-<p>acf-config-nf-flash.xml
-:   Allows style changes and flash, but strips forms. This file is the default file used by Blogs, Wikis, and Forums.</p>
-<p>acf-config-ns-flash.xml
-:   Allows forms and flash, but strips style changes.</p>
-<p>acf-config-nf-ns-flash.xml
-:   Allows flash, but strips style changes and forms.</p>
-<p>acf-config-nm.xml
-:   Prevents users from changing the margins on images and strips flash.</p>
-<p>acf-config-nm-flash.xml
-:   Allows flash, but prevents users from changing the margins on images.</p>
+<dl>
+<dt>acf-config.xml</dt>
+<dd>Allows style changes, allows forms, but strips flash. Flash is a format used for videos and animated content.</dd>
+<dt>acf-config-nf.xml</dt>
+<dd>Allows style changes, but strips forms and flash. The types of forms that are not allowed are form HTML elements. Form HTML elements are used to add things like buttons or fields to a web page.</dd>
+<dt>acf-config-ns.xml</dt>
+<dd>Allows forms, but strips style changes and flash. Preventing style changes affects rich text fields. If you configure the active content filter to prevent style changes, then users will not be able to perform the common tasks associated with changing the style of rich text content, such as changing the font color, margins, and so on.</dd>
+<dt>acf-config-nf-ns.xml</dt>
+<dd>Prevents style changes and strips forms and flash.</dd>
+<dt>acf-config-flash.xml</dt>
+<dd>Allows style changes, allows forms, and allows flash.</dd>
+<dt>acf-config-nf-flash.xml</dt>
+<dd>Allows style changes and flash, but strips forms. This file is the default file used by Blogs, Wikis, and Forums.</dd>
+<dt>acf-config-ns-flash.xml</dt>
+<dd>Allows forms and flash, but strips style changes.</dd>
+<dt>acf-config-nf-ns-flash.xml</dt>
+<dd>Allows flash, but strips style changes and forms.</dd>
+<dt>acf-config-nm.xml</dt>
+<dd>Prevents users from changing the margins on images and strips flash.</dd>
+<dt>acf-config-nm-flash.xml</dt>
+<dd>Allows flash, but prevents users from changing the margins on images.</dd>
+</dl>
 <p>To edit configuration files, you must use the wsadmin client. See <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
 <ol>
 <li>
@@ -35322,7 +35340,7 @@
 <p><strong>Notes:</strong></p>
 <ul>
 <li>When you specify a path to the working directory on a system that is running Microsoft® Windows®, use a forward slash for the directory. For example: "C:/temp".</li>
-<li>AIX®, and Linux® only: The directory must grant write permissions or the command fails.
+<li>Linux® only: The directory must grant write permissions or the command fails.
         -   cell_name is the name of the WebSphere® Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell()</li>
 </ul>
 <p><strong>Note:</strong> This input parameter is case-sensitive.</p>

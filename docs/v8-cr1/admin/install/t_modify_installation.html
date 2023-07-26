@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35304,7 +35320,7 @@
 <li>
 <p>Run the following command:</p>
 <ul>
-<li>AIX or Linux: ./launcher</li>
+<li>Linux: ./launcher</li>
 <li>Windows: launcher.exe</li>
 <li>From the IBM Installation Manager menu, click <strong>File</strong> > <strong>Preferences</strong>.</li>
 </ul>
@@ -35424,10 +35440,6 @@
 <p>Enter the <strong>JDBC driver location</strong>. For example:</p>
 <ul>
 <li>
-<p>AIX:</p>
-<p>/usr/IBM/WebSphere/AppServer/lib</p>
-</li>
-<li>
 <p>Linux:</p>
 <p>/opt/IBM/WebSphere/AppServer/lib</p>
 </li>
@@ -35439,14 +35451,18 @@
 </li>
 <li>
 <p>Ensure that the following JDBC driver libraries are present in the JDBC directory:</p>
-<p>DB2
-:   db2jcc4.jar and db2jcc_license_cu.jar</p>
+<dl>
+<dt>DB2</dt>
+<dd>db2jcc4.jar and db2jcc_license_cu.jar</dd>
+</dl>
 <pre><code>**Note:** Ensure that your user account has the necessary permissions to access the DB2 JDBC files.
 </code></pre>
-<p>Oracle
-:   ojdbc8.jar</p>
-<p>SQL Server
-:   Download the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=54671">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</p>
+<dl>
+<dt>Oracle</dt>
+<dd>ojdbc8.jar</dd>
+<dt>SQL Server</dt>
+<dd>Download the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=54671">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</dd>
+</dl>
 <pre><code>The directory must not contain the sqljdbc.jar file, only the sqljdbc42.jar file. An exception occurs if both files are present in the same directory.
 </code></pre>
 </li>
@@ -35475,8 +35491,8 @@
 </ol>
 <p>The log file for IBM Installation Manager records the values that you entered when you ran IBM Installation Manager in interactive mode. To review the log file for IBM Installation Manager, open the date_time.xml file, where date_time represents the date and time of the installation. The file by default is in the following directory:</p>
 <ul>
-<li>AIX or Linux (root user): /var/ibm/InstallationManager/logs</li>
-<li>AIX or Linux (non-root user): user_home/var/ibm/InstallationManager/logswhere user_home is the non-root user account directory</li>
+<li>Linux (root user): /var/ibm/InstallationManager/logs</li>
+<li>Linux (non-root user): user_home/var/ibm/InstallationManager/logswhere user_home is the non-root user account directory</li>
 </ul>
 <p>To check the complete details of the installation, open each of the log files in the <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>/logs directory. Each HCL Connections application that you installed has a log file, using the following naming format: applicationInstallog.txt, where application is the name of an HCL Connections application.</p>
 <p><strong>Parent topic:</strong><a href="c_install_silent.html">Installing silently</a></p>

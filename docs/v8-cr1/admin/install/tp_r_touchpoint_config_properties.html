@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35404,49 +35420,58 @@
 <p>You can modify the following configuration properties. The location of the touchpoint-config.xml is similar to the following sample location:</p>
 <p>/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/config/cells/Cell01/LotusConnections-config/touchpoint-config.xml</p>
 <h2 class="section" id="general-properties">General properties</h2>
-<p>uiEnabled
-:   Determines whether the Touchpoint onboarding feature is displayed to users when they first log in to Connections. The default value is <code>false</code>. Setting this value to <code>true</code> enables the onboarding experience: users are either directed to set up their profiles, or (if enabled) first asked to read and acknowledge the company privacy policy and guidelines.</p>
-<pre><code>**Note:** This is the only property change required to start Touchpoint for users if you are keeping all of the defaults for other properties.
-</code></pre>
-<p>contentDirectory
-:   The directory that stores Touchpoint-related data. The default value is <code>${placeholder}</code>.</p>
-<p>defaultPath
-:   Defines the views that internal users are guided through in the onboarding experience. The default value is <code>welcome,editProfile,profileTags,findColleagues,followCommunities</code>.</p>
-<p>icExternalPath
-:   Defines the views that external users are guided through in the onboarding experience. The default value is <code>welcome,editProfile,profileTags</code>.</p>
-<p>order
-:   Defines the order in which the various views are displayed. The default value is <code>welcome,editProfile,profileTags,findColleagues,followCommunities</code>.</p>
-<p>pagStandalone
-:   Defines the view that users are directed to during a privacy policy and guidelines update. The default value is <code>pagStandalone</code>.</p>
-<p>templateFile
-:   The landing page that users first see (the "welcome" view). The default value is templates/welcome.html.</p>
-<p>welcomeVideoUrl
-:   Link to a welcome video that is displayed to users. For more information, see <a href="tp_t_add_welcome_video.html">Adding a welcome video to Touchpoint</a>.</p>
+<dl>
+<dt>uiEnabled</dt>
+<dd>
+<p>Determines whether the Touchpoint onboarding feature is displayed to users when they first log in to Connections. The default value is <code>false</code>. Setting this value to <code>true</code> enables the onboarding experience: users are either directed to set up their profiles, or (if enabled) first asked to read and acknowledge the company privacy policy and guidelines.</p>
+<p><strong>Note:</strong> This is the only property change required to start Touchpoint for users if you are keeping all of the defaults for other properties.</p>
+</dd>
+<dt>contentDirectory</dt>
+<dd>The directory that stores Touchpoint-related data. The default value is <code>${placeholder}</code>.</dd>
+<dt>defaultPath</dt>
+<dd>Defines the views that internal users are guided through in the onboarding experience. The default value is <code>welcome,editProfile,profileTags,findColleagues,followCommunities</code>.</dd>
+<dt>icExternalPath</dt>
+<dd>Defines the views that external users are guided through in the onboarding experience. The default value is <code>welcome,editProfile,profileTags</code>.</dd>
+<dt>order</dt>
+<dd>Defines the order in which the various views are displayed. The default value is <code>welcome,editProfile,profileTags,findColleagues,followCommunities</code>.</dd>
+<dt>pagStandalone</dt>
+<dd>Defines the view that users are directed to during a privacy policy and guidelines update. The default value is <code>pagStandalone</code>.</dd>
+<dt>templateFile</dt>
+<dd>The landing page that users first see (the "welcome" view). The default value is templates/welcome.html.</dd>
+<dt>welcomeVideoUrl</dt>
+<dd>Link to a welcome video that is displayed to users. For more information, see <a href="tp_t_add_welcome_video.html">Adding a welcome video to Touchpoint</a>.</dd>
+</dl>
 <h2 class="section" id="privacy-policy-and-guidelines-properties">Privacy policy and guidelines properties</h2>
-<p>enabled
-:   Prompts user to accept the privacy policy and guidelines as defined by the following properties in this section. The default value is <code>false</code>.</p>
-<p>version
-:   The version of the privacy policy and guidelines that the user will accept. The default value is <code>1.0</code>. When the document is updated, increasing this value requires the user to accept again.</p>
-<p>internalLink
-:   The link to the document that contains the privacy policy and guidelines for internal users.</p>
-<p>externalLink
-:   The link to the document that contains the privacy policy and guidelines for external users.</p>
+<dl>
+<dt>enabled</dt>
+<dd>Prompts user to accept the privacy policy and guidelines as defined by the following properties in this section. The default value is <code>false</code>.</dd>
+<dt>version</dt>
+<dd>The version of the privacy policy and guidelines that the user will accept. The default value is <code>1.0</code>. When the document is updated, increasing this value requires the user to accept again.</dd>
+<dt>internalLink</dt>
+<dd>The link to the document that contains the privacy policy and guidelines for internal users.</dd>
+<dt>externalLink</dt>
+<dd>The link to the document that contains the privacy policy and guidelines for external users.</dd>
+</dl>
 <h2 class="section" id="properties-for-promoting-colleagues-and-communities-to-users">Properties for promoting colleagues and communities to users</h2>
-<p>maxPromotedExperts
-:   The maximum number of colleagues to be suggested to a user as network contacts. The default value is <code>3</code>.</p>
-<p>promotedExperts
-:   A comma-separated list of colleagues within your Connections organization, identified by their user-id. The default value is <code>3</code>.</p>
-<p>maxPromotedCommunities
-:   The maximum number of communities to be suggested to a user. The default value is <code>3</code>.</p>
-<p>promotedCommunities
-:   A comma-separated list of communities, identified by their community-id.</p>
+<dl>
+<dt>maxPromotedExperts</dt>
+<dd>The maximum number of colleagues to be suggested to a user as network contacts. The default value is <code>3</code>.</dd>
+<dt>promotedExperts</dt>
+<dd>A comma-separated list of colleagues within your Connections organization, identified by their user-id. The default value is <code>3</code>.</dd>
+<dt>maxPromotedCommunities</dt>
+<dd>The maximum number of communities to be suggested to a user. The default value is <code>3</code>.</dd>
+<dt>promotedCommunities</dt>
+<dd>A comma-separated list of communities, identified by their community-id.</dd>
+</dl>
 <h2 class="section" id="orient-me-properties">Orient Me properties</h2>
-<p>enabled
-:   If Orient Me is deployed, defines whether the Touchpoint experience should include Orient Me features, such as the user's being able to mark people and communities as "Important to Me" during onboarding. The default value is <code>false</code>.</p>
-<p>socialCtxRoot
-:   The URL context root for Orient Me. The default value is <code>/social</code>.</p>
-<p>itmCtxRoot
-:   The URL context root for the Important to Me API. The default value is <code>/itm</code>.</p>
+<dl>
+<dt>enabled</dt>
+<dd>If Orient Me is deployed, defines whether the Touchpoint experience should include Orient Me features, such as the user's being able to mark people and communities as "Important to Me" during onboarding. The default value is <code>false</code>.</dd>
+<dt>socialCtxRoot</dt>
+<dd>The URL context root for Orient Me. The default value is <code>/social</code>.</dd>
+<dt>itmCtxRoot</dt>
+<dd>The URL context root for the Important to Me API. The default value is <code>/itm</code>.</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="c_post-install_tasks_for_touchpoint.html">Post-installation tasks for Connections Touchpoint</a></p>
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35372,14 +35388,16 @@
 <p><em>Migrating</em> refers to moving user data, as well as configuration changes and other customizations, from the old to the new version, regardless of whether they are located on the same system or a new system.</p>
 <h2 class="section" id="section_j2z_z5v_pqb">Understanding the approaches</h2>
 <p>Here are the key things to know about the upgrade approaches:</p>
-<p>Side-by-side upgrades
-:   Side by side is the approach most often used by HCL Digital Solutions services group and Technical Advisors group. With this approach, you gain the benefit of migrating configuration changes and other customizations (and testing them) before switching the new environment to production.</p>
-<p>:   Migrating configuration changes and other customizations is entirely manual with this approach, so it requires careful record keeping and a thorough understanding of the processes involved in applying the changes to the new setup.</p>
-<p>In-place upgrades
-:   For smaller environments, the in-place upgrade is the easiest option with the lowest risk, as long as known, working backups/snapshots are available should you encounter an issue. Running the Installation Manager update function preserves some of the configuration and changes that you made in 8.0. These changes – file-related settings such as round-trip editing, quotas, proxy configuration, and so on – are stored in XML and other data formats and kept or extended during upgrade.</p>
-<p>Hybrid upgrades
-:   The hybrid upgrade uses the same process as the in-place, except that in a new environment identical to that in production. As with the side-by-side, you gain the benefit of migrating remaining customizations and testing them before switching it to production.</p>
-<p>:   This "mirrored" type of set up was the approach used by the Connections team in their internal environment. For more information, see <a href="c_inplace_upgrade_considerations.html">Considerations for an in-place or hybrid upgrade</a>.</p>
+<dl>
+<dt>Side-by-side upgrades</dt>
+<dd>Side by side is the approach most often used by HCL Digital Solutions services group and Technical Advisors group. With this approach, you gain the benefit of migrating configuration changes and other customizations (and testing them) before switching the new environment to production.</dd>
+<dd>Migrating configuration changes and other customizations is entirely manual with this approach, so it requires careful record keeping and a thorough understanding of the processes involved in applying the changes to the new setup.</dd>
+<dt>In-place upgrades</dt>
+<dd>For smaller environments, the in-place upgrade is the easiest option with the lowest risk, as long as known, working backups/snapshots are available should you encounter an issue. Running the Installation Manager update function preserves some of the configuration and changes that you made in 8.0. These changes – file-related settings such as round-trip editing, quotas, proxy configuration, and so on – are stored in XML and other data formats and kept or extended during upgrade.</dd>
+<dt>Hybrid upgrades</dt>
+<dd>The hybrid upgrade uses the same process as the in-place, except that in a new environment identical to that in production. As with the side-by-side, you gain the benefit of migrating remaining customizations and testing them before switching it to production.</dd>
+<dd>This "mirrored" type of set up was the approach used by the Connections team in their internal environment. For more information, see <a href="c_inplace_upgrade_considerations.html">Considerations for an in-place or hybrid upgrade</a>.</dd>
+</dl>
 <h2 class="section" id="section_ors_bvv_pqb">Comparing the approaches</h2>
 <p>The following table is provided to aid you in planning your upgrade.</p>
 <table>

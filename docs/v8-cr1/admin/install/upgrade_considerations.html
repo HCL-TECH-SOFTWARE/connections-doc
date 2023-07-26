@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35422,9 +35438,9 @@
 
 
 <h1 class="concept" id="upgrade_considerations">Upgrade considerations for Component Pack 8 CR1</h1>
-<p>The upgrade path described in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.</p>
+<p>The upgrade path described in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR1</a> is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.</p>
 <h2 class="section" id="section_jch_yrx_bvb">Side-by-side vs. in-place</h2>
-<p>You can upgrade to HCL Connections 8.0 CR1 by doing either a side-by-side or an in-place upgrade. The approach described in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.</p>
+<p>You can upgrade to HCL Connections 8.0 CR1 by doing either a side-by-side or an in-place upgrade. The approach described in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR1</a> focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.</p>
 <p>If your upgrade strategy requires a side-by-side migration on a mirrored set of both WebSphere and Kubernetes machines, you can still use the installation document. The difference between the two approaches is the transfer of data from source to destination system.</p>
 <p>For a side-by-side migration, these would be the steps:</p>
 <ul>
@@ -35451,7 +35467,7 @@
 <p>See <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections 8.0 CR1 System Requirements</a>.</p>
 <h2 class="section" id="section_wsm_gvx_bvb">OpenSearch</h2>
 <p>Connections 8.0 CR1 defines OpenSearch 1.3.0 as the default backend for Orient Me, search and Metrics – this is what we'll deploy and configure in our installation scenario. Previous Connections releases used an older Elasticsearch 7 version, which is no longer needed.</p>
-<p><strong>Note:</strong> In case you already have Metrics deployed and its data collected, and you do not want to start Metrics from scratch, you will have to migrate these data into the new release. <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> covers both scenarios.</p>
+<p><strong>Note:</strong> In case you already have Metrics deployed and its data collected, and you do not want to start Metrics from scratch, you will have to migrate these data into the new release. <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR1</a> covers both scenarios.</p>
 <p><strong>Parent topic:</strong> <a href="cp_install_upgrade_container.html">Installation and upgrade</a></p>
 
 

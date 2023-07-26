@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35312,12 +35328,14 @@
 <div class="highlight"><pre><span></span><code>editor.macros.addSimpleMacro(startString, endString, callback);
 </code></pre></div>
 <p>where</p>
-<p>startString
-:   is a string to search for signifying the beginning of the macro replacement.</p>
-<p>endString
-:   is a string to search for signifying the end of the macro replacement.</p>
-<p>callback
-:   is a function that receives the text between the <code>startString</code> and <code>endString</code> markers and returns HTML which should replace it (including <code>startString</code> and <code>endString</code>).</p>
+<dl>
+<dt>startString</dt>
+<dd>is a string to search for signifying the beginning of the macro replacement.</dd>
+<dt>endString</dt>
+<dd>is a string to search for signifying the end of the macro replacement.</dd>
+<dt>callback</dt>
+<dd>is a function that receives the text between the <code>startString</code> and <code>endString</code> markers and returns HTML which should replace it (including <code>startString</code> and <code>endString</code>).</dd>
+</dl>
 <p>...</p>
 <p>Macros could be used to implement a simplified bbcode like system.</p>
 <div class="highlight"><pre><span></span><code>postCreateTextboxio: function(editor) {

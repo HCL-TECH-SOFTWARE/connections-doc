@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35321,9 +35337,11 @@
 </li>
 <li>
 <p>Use the following commands to remove or replace inappropriate or unwanted content from the Profiles database.</p>
-<p>ProfilesService.updateExperience(String user_email_addr, String new_content_for_experience_field)
-ProfilesService.updateExperience(String user_email_addr, String new_content_for_experience_field, String orgId)
-:   Replaces the existing experience text that is associated with a user's email address with alternative text enclosed by double quotation marks.</p>
+<dl>
+<dt>ProfilesService.updateExperience(String user_email_addr, String new_content_for_experience_field)</dt>
+<dt>ProfilesService.updateExperience(String user_email_addr, String new_content_for_experience_field, String orgId)</dt>
+<dd>Replaces the existing experience text that is associated with a user's email address with alternative text enclosed by double quotation marks.</dd>
+</dl>
 <pre><code>Experience is the information that is contained in the **Background** area of a user's profile.
 
 For example:
@@ -35340,9 +35358,11 @@ ProfilesService.updateExperience("ann_jones@example.com",
 
 **Note:** Rich text cannot be entered with this command.
 </code></pre>
-<p>ProfilesService.updateDescription(String user_email_addr, String new_content_for_description_field)
-ProfilesService.updateDescription(String user_email_addr, String new_content_for_description_field, String orgId)
-:   Replaces the existing description text that is associated with a user's email address with an alternate description text enclosed by double quotation marks.</p>
+<dl>
+<dt>ProfilesService.updateDescription(String user_email_addr, String new_content_for_description_field)</dt>
+<dt>ProfilesService.updateDescription(String user_email_addr, String new_content_for_description_field, String orgId)</dt>
+<dd>Replaces the existing description text that is associated with a user's email address with an alternate description text enclosed by double quotation marks.</dd>
+</dl>
 <pre><code>Description text is information that is contained on the **About Me** tab of a user's profile.
 
 For example:
@@ -35359,9 +35379,11 @@ ProfilesService.updateDescription("ann_jones@example.com",
 
 **Note:** Rich text cannot be entered with this command.
 </code></pre>
-<p>ProfilesService.deletePhoto(String user_email_addr)
-ProfilesService.deletePhoto(String user_email_addr, String orgId)
-:   Deletes image files that are associated with a user's email address. This command can be used only if the user uploaded a photo to their profile. This command removes the photo.</p>
+<dl>
+<dt>ProfilesService.deletePhoto(String user_email_addr)</dt>
+<dt>ProfilesService.deletePhoto(String user_email_addr, String orgId)</dt>
+<dd>Deletes image files that are associated with a user's email address. This command can be used only if the user uploaded a photo to their profile. This command removes the photo.</dd>
+</dl>
 <pre><code>For example:
 
 ```

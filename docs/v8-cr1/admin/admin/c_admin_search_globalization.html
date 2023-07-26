@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35300,18 +35316,23 @@
 <p><strong>Note:</strong> For non-English deployments, ensure that you first enable the relevant language dictionary for your geography. This procedure is a mandatory post-installation task. Without multiple dictionary support for languages other than English, Search will only return results where there is an exact match between the search term and content term. Enabling multiple dictionaries ensures better quality search results when your user base is multilingual. By default, only the English language dictionary is enabled during installation. For more information about enabling multilingual support, see <em>Configuring dictionaries for Search</em>.</p>
 <p>When your organization spans multiple geographies and multiple languages, you might find it useful to enable the globalization options provided by the Search application. Note that when these options are enabled, Search requires more terms to be indexed, resulting in a larger Search index that contains the extra globalized terms. As more terms need to be indexed, this means that the indexing task will take longer to complete.</p>
 <p>Search provides the following globalization options:</p>
-<p>Accent-insensitive search
-:   Allows users to search for equivalent non-accented search terms when using a search term that contains an accent.</p>
-<pre><code>For example, the default behavior of the Search application is to index the term ált as a single term. However, when accent sensitivity is enabled, the term ált is stored in the index as "ált" and "alt".
-</code></pre>
-<p>Ignore Punctuation
-:   Allows users to search for equivalent search terms without using punctuation in the search term that contains the punctuation.</p>
-<pre><code>For example, the default behavior of the Search application is to index I.B.M. as a single term. However, when the ignore punctuation setting is enabled, the term I.B.M. is stored in the index as I.B.M. and IBM.
-</code></pre>
-<p>1 to 2 matching
-:   Allows users to search for equivalent search terms using the stem of characters in the Search term.</p>
-<pre><code>For example, the default behavior of the Search application is to index Müller as a single term. However, when the 1 to 2 matching setting is enabled, the term Müller is stored in the index as Müller and Mueller.
-</code></pre>
+<dl>
+<dt>Accent-insensitive search</dt>
+<dd>
+<p>Allows users to search for equivalent non-accented search terms when using a search term that contains an accent.</p>
+<p>For example, the default behavior of the Search application is to index the term ált as a single term. However, when accent sensitivity is enabled, the term ált is stored in the index as "ált" and "alt".</p>
+</dd>
+<dt>Ignore Punctuation</dt>
+<dd>
+<p>Allows users to search for equivalent search terms without using punctuation in the search term that contains the punctuation.</p>
+<p>For example, the default behavior of the Search application is to index I.B.M. as a single term. However, when the ignore punctuation setting is enabled, the term I.B.M. is stored in the index as I.B.M. and IBM.</p>
+</dd>
+<dt>1 to 2 matching</dt>
+<dd>
+<p>Allows users to search for equivalent search terms using the stem of characters in the Search term.</p>
+<p>For example, the default behavior of the Search application is to index Müller as a single term. However, when the 1 to 2 matching setting is enabled, the term Müller is stored in the index as Müller and Mueller.</p>
+</dd>
+</dl>
 <p>Enabling the globalization options results in a larger index. When you choose to enable these options, you must delete the current index to generate the creation of a new one. For more information, see <em>Deleting the index</em>.</p>
 <p>Enabling these settings for Search also affects the relevance of the results returned when a search is performed. The default behavior is to return search results for a term based on an exact match of the term. However, if these globalization settings are enabled, more search results are returned to the user. For example, performing an accent-insensitive search for the term curé might return results for cure and curé. This type of search can lead to less relevant search results being returned to the user. The English translation of the French term cure is treatment, while curé is a priest.</p>
 <p>For information about how to configure the globalization properties for Search, see <em>Common configuration properties</em>.</p>

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35298,176 +35314,158 @@
 <h1 class="concept" id="sec_acf_whitelist_element">Element and attribute rules (whitelists)</h1>
 <p>Whitelist active content for HCL Connections™ based on elements and attributes used in the HTML source.</p>
 <p>The common elements rules specify which elements and attributes are allowed in the HTML source code of uploaded content. By default, elements and attributes are not allowed; you must explicitly whitelist them using these rules. Elements and attributes that are not whitelisted will be stripped from the content before it is uploaded.</p>
-<p>allowCommonInlineFormattingElements
-:   Allows the following commonly used elements: <code>&lt;b&gt;, &lt;i&gt;, &lt;font&gt;, &lt;s&gt;, &lt;u&gt;, &lt;o&gt;, &lt;sup&gt;, &lt;sub&gt;, &lt;ins&gt;, &lt;del&gt;, &lt;strong&gt;, &lt;strike&gt;, &lt;tt&gt;, &lt;code&gt;, &lt;big&gt;, &lt;small&gt;, &lt;br&gt;, &lt;span&gt;, &lt;em&gt;</code></p>
-<pre><code>Usage:
-
-```
-&lt;allowCommonInlineFormattingElements enabled='true' /&gt;
-```
-</code></pre>
-<p>allowCommonBlockElements
-:   Allows the following common block-type elements: <code>&lt;p&gt;, &lt;div&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;</code></p>
-<pre><code>**Note:** Although some of the elements allowed in this rule can take attributes, the attributes are not allowed by default; you must specify which attributes to allow using other rules, such as allowAttributesGlobally.
-
-Usage:
-
-```
-&lt;allowCommonBlockElements enabled='true' /&gt;
-```
-</code></pre>
-<p>allowElements
-:   Allows only the specified elements.</p>
-<pre><code>**Note:** Although some elements can take attributes, attributes are not included in this rule and are not allowed by default; you must specify which attributes to allow using other rules, such as allowAttributesGlobally.
-
-Usage:
-
-```
-&lt;allowElements&gt;
-        &lt;element name="div"/&gt;
-        &lt;element name="ruby"/&gt;
+<dl>
+<dt>allowCommonInlineFormattingElements</dt>
+<dd>
+<p>Allows the following commonly used elements: <code>&lt;b&gt;, &lt;i&gt;, &lt;font&gt;, &lt;s&gt;, &lt;u&gt;, &lt;o&gt;, &lt;sup&gt;, &lt;sub&gt;, &lt;ins&gt;, &lt;del&gt;, &lt;strong&gt;, &lt;strike&gt;, &lt;tt&gt;, &lt;code&gt;, &lt;big&gt;, &lt;small&gt;, &lt;br&gt;, &lt;span&gt;, &lt;em&gt;</code></p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowCommonInlineFormattingElements enabled=&#39;true&#39; /&gt;
+</code></pre></div>
+</dd>
+<dt>allowCommonBlockElements</dt>
+<dd>
+<p>Allows the following common block-type elements: <code>&lt;p&gt;, &lt;div&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;</code></p>
+<p><strong>Note:</strong> Although some of the elements allowed in this rule can take attributes, the attributes are not allowed by default; you must specify which attributes to allow using other rules, such as allowAttributesGlobally.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowCommonBlockElements enabled=&#39;true&#39; /&gt;
+</code></pre></div>
+</dd>
+<dt>allowElements</dt>
+<dd>
+<p>Allows only the specified elements.</p>
+<p><strong>Note:</strong> Although some elements can take attributes, attributes are not included in this rule and are not allowed by default; you must specify which attributes to allow using other rules, such as allowAttributesGlobally.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowElements&gt;
+        &lt;element name=&quot;div&quot;/&gt;
+        &lt;element name=&quot;ruby&quot;/&gt;
 &lt;/allowElements&gt; 
-```
-</code></pre>
-<p>disallowElements
-:   Disallows the specified elements while retaining the content. Elements are disallowed by default, so there is no need to specifically disallow elements with this rule unless you are making an exception to another rule that allows them.</p>
-<pre><code>Usage:
-
-```
-&lt;disallowElements&gt;
-        &lt;element name="div"/&gt;
-        &lt;element name="ruby"/&gt;
+</code></pre></div>
+</dd>
+<dt>disallowElements</dt>
+<dd>
+<p>Disallows the specified elements while retaining the content. Elements are disallowed by default, so there is no need to specifically disallow elements with this rule unless you are making an exception to another rule that allows them.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;disallowElements&gt;
+        &lt;element name=&quot;div&quot;/&gt;
+        &lt;element name=&quot;ruby&quot;/&gt;
 &lt;/disallowElements&gt;  
-```
-</code></pre>
-<p>allowAttributesGlobally
-:   Allows the specified attributes combined with any allowed elements. Use this rule with caution -- if you whitelist a particular attribute, it is automatically accepted on every allowed element. In particular, you should be careful using this rule on sensitive attributes such as <code>href</code> or <code>src</code>. It's best to only use this rule to allow attributes that are 100% safe.</p>
-<pre><code>Usage:
-
-```
-&lt;allowAttributesGlobally&gt;
-        &lt;elementAttribute name="height" /&gt;
-        &lt;elementAttribute name="width" /&gt;
-        &lt;elementAttribute name="label" /&gt;
+</code></pre></div>
+</dd>
+<dt>allowAttributesGlobally</dt>
+<dd>
+<p>Allows the specified attributes combined with any allowed elements. Use this rule with caution -- if you whitelist a particular attribute, it is automatically accepted on every allowed element. In particular, you should be careful using this rule on sensitive attributes such as <code>href</code> or <code>src</code>. It's best to only use this rule to allow attributes that are 100% safe.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowAttributesGlobally&gt;
+        &lt;elementAttribute name=&quot;height&quot; /&gt;
+        &lt;elementAttribute name=&quot;width&quot; /&gt;
+        &lt;elementAttribute name=&quot;label&quot; /&gt;
 &lt;/allowAttributesGlobally&gt;
-```
-</code></pre>
-<p>allowAttributesOnElements
-:   Allows the specified elements with the specified attributes. All of the listed attributes can be applied to all of the listed elements; in the following example, the <code>cite</code> and <code>datetime</code> attributes will be allowed with both the <code>&lt;del&gt;</code> and the <code>&lt;ins&gt;</code> elements. Since you specify the allowed elements here, there is no need to specify them with another rule.</p>
-<pre><code>Usage:
-
-```
-&lt;allowAttributesOnElements&gt;
-        &lt;element name="del" /&gt;
-        &lt;element name="ins" /&gt;
-        &lt;elementAttribute name="cite" /&gt;
-        &lt;elementAttribute name="datetime" /&gt;
+</code></pre></div>
+</dd>
+<dt>allowAttributesOnElements</dt>
+<dd>
+<p>Allows the specified elements with the specified attributes. All of the listed attributes can be applied to all of the listed elements; in the following example, the <code>cite</code> and <code>datetime</code> attributes will be allowed with both the <code>&lt;del&gt;</code> and the <code>&lt;ins&gt;</code> elements. Since you specify the allowed elements here, there is no need to specify them with another rule.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowAttributesOnElements&gt;
+        &lt;element name=&quot;del&quot; /&gt;
+        &lt;element name=&quot;ins&quot; /&gt;
+        &lt;elementAttribute name=&quot;cite&quot; /&gt;
+        &lt;elementAttribute name=&quot;datetime&quot; /&gt;
 &lt;/allowAttributesOnElements&gt;
-```
-</code></pre>
-<p>allowSpecificAttributesOnElements
-:   Allows the specified attribute on the specified element, provided the attribute's value matches one of the specified values. This rule is more restrictive than allowAttributesOnElements because it additionally filters the attribute's value. In the following example, the <code>&lt;iframe&gt;</code> element is allowed with the <code>sandbox</code> attribute, but only when the attribute uses the value <code>allow-popups</code> or <code>allow-scripts</code>. If the attribute value is not one of those specified, the attribute is removed but the element is left in place.</p>
-<pre><code>In the following example, the sandbox attribute is allowed on `&lt;iframe&gt;` elements, but only when its value is either `allow-popups` or `allow-scripts`.
-
-Usage:
-
-```
-&lt;allowSpecificAttributesOnElements&gt;
-        &lt;element name="iframe" /&gt;
-        &lt;elementAttribute name="sandbox" /&gt;
-        &lt;attributeValue value="allow-popups" /&gt;
-        &lt;attributeValue value="allow-scripts" /&gt;
+</code></pre></div>
+</dd>
+<dt>allowSpecificAttributesOnElements</dt>
+<dd>
+<p>Allows the specified attribute on the specified element, provided the attribute's value matches one of the specified values. This rule is more restrictive than allowAttributesOnElements because it additionally filters the attribute's value. In the following example, the <code>&lt;iframe&gt;</code> element is allowed with the <code>sandbox</code> attribute, but only when the attribute uses the value <code>allow-popups</code> or <code>allow-scripts</code>. If the attribute value is not one of those specified, the attribute is removed but the element is left in place.</p>
+<p>In the following example, the sandbox attribute is allowed on <code>&lt;iframe&gt;</code> elements, but only when its value is either <code>allow-popups</code> or <code>allow-scripts</code>.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowSpecificAttributesOnElements&gt;
+        &lt;element name=&quot;iframe&quot; /&gt;
+        &lt;elementAttribute name=&quot;sandbox&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-popups&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-scripts&quot; /&gt;
 &lt;/allowSpecificAttributesOnElements&gt;
-```
-</code></pre>
-<p>allowSpecificAttributeListOnElements
-:   Allows the specified element with the specified attribute, but only when the list of values for the attribute includes only the items specified by this rule, delimited using the character specified by this rule. Use this rule for attributes that accept lists instead of single values. If the list of values provided by the user includes extra items, the extra values will be stripped so that the list only includes allowed values. If none of the values in the list are allowed, the attribute will be stripped but the element will still be allowed. In the following example, the <code>&lt;iframe&gt;</code> element is allowed with the <code>sandbox</code> attribute, but the attribute can only use the following list of values: <code>allow-popups allow-scripts allow-same-origin</code> (using a space as the delimiter).</p>
-<pre><code>Usage:
-
-```
-&lt;allowSpecificAttributeListOnElements&gt;
-        &lt;element name="iframe" /&gt;
-        &lt;elementAttribute name="sandbox" /&gt;
-        &lt;attributeValue value="allow-popups" /&gt;
-        &lt;attributeValue value="allow-scripts" /&gt;
-        &lt;attributeValue value="allow-same-origin" /&gt;
-        &lt;delimiter value=" " /&gt;
+</code></pre></div>
+</dd>
+<dt>allowSpecificAttributeListOnElements</dt>
+<dd>
+<p>Allows the specified element with the specified attribute, but only when the list of values for the attribute includes only the items specified by this rule, delimited using the character specified by this rule. Use this rule for attributes that accept lists instead of single values. If the list of values provided by the user includes extra items, the extra values will be stripped so that the list only includes allowed values. If none of the values in the list are allowed, the attribute will be stripped but the element will still be allowed. In the following example, the <code>&lt;iframe&gt;</code> element is allowed with the <code>sandbox</code> attribute, but the attribute can only use the following list of values: <code>allow-popups allow-scripts allow-same-origin</code> (using a space as the delimiter).</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowSpecificAttributeListOnElements&gt;
+        &lt;element name=&quot;iframe&quot; /&gt;
+        &lt;elementAttribute name=&quot;sandbox&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-popups&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-scripts&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-same-origin&quot; /&gt;
+        &lt;delimiter value=&quot; &quot; /&gt;
 &lt;/allowSpecificAttributeListOnElements&gt;
-```
-</code></pre>
-<p>allowSpecificAttributeListOnElements
-:   This rule is similar to allowSpecificAttributesOnElements except that it is used for attributes that can take lists of values, delimited by what's specified by the delimiter in the rule. If the user enters a list where some of the values have been allowed and others have not, the disallowed values in the list will be stripped. If the list consists entirely of disallowed values, then the attribute will be stripped, but the element will still be allowed.</p>
-<pre><code>In the example below, you can use the attribute `rel` on the element `&lt;link&gt;` when it matches the following regular expression: `^((?!stylesheet).)*$` \(this expression will match any value that is not `stylesheet`\).
-
-The following example allows only the values `allow-popups`, `allow-scripts`, and `allow-same-origin` in a space-delimited list when the list is provided as the value of the `sandbox` attribute on the `&lt;iframe&gt;` element.
-
-Usage:
-
-```
-&lt;allowSpecificAttributeListOnElements&gt;
-        &lt;element name="iframe" /&gt;
-        &lt;elementAttribute name="sandbox" /&gt;
-        &lt;attributeValue value="allow-popups" /&gt;
-        &lt;attributeValue value="allow-scripts" /&gt;
-        &lt;attributeValue value="allow-same-origin" /&gt;
-        &lt;delimiter value=" " /&gt; 
+</code></pre></div>
+</dd>
+<dt>allowSpecificAttributeListOnElements</dt>
+<dd>
+<p>This rule is similar to allowSpecificAttributesOnElements except that it is used for attributes that can take lists of values, delimited by what's specified by the delimiter in the rule. If the user enters a list where some of the values have been allowed and others have not, the disallowed values in the list will be stripped. If the list consists entirely of disallowed values, then the attribute will be stripped, but the element will still be allowed.</p>
+<p>In the example below, you can use the attribute <code>rel</code> on the element <code>&lt;link&gt;</code> when it matches the following regular expression: <code>^((?!stylesheet).)*$</code> (this expression will match any value that is not <code>stylesheet</code>).</p>
+<p>The following example allows only the values <code>allow-popups</code>, <code>allow-scripts</code>, and <code>allow-same-origin</code> in a space-delimited list when the list is provided as the value of the <code>sandbox</code> attribute on the <code>&lt;iframe&gt;</code> element.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowSpecificAttributeListOnElements&gt;
+        &lt;element name=&quot;iframe&quot; /&gt;
+        &lt;elementAttribute name=&quot;sandbox&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-popups&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-scripts&quot; /&gt;
+        &lt;attributeValue value=&quot;allow-same-origin&quot; /&gt;
+        &lt;delimiter value=&quot; &quot; /&gt; 
 &lt;/allowSpecificAttributeListOnElements&gt;
-```
-</code></pre>
-<p>allowSpecificAttributesOnElements_regex
-:   Allows the specified element with the specified attribute, but only when the value for the attribute can be matched by the specified regular expression. Using a regular expression with this rule enables you to whitelist a range of acceptable values without actually specifying a predefined list.</p>
-<pre><code>In the example below, you can use the attribute `rel` on the element `&lt;link&gt;` when it matches the following regular expression: `^((?!stylesheet).)*$` \(this expression will match any value that is not `stylesheet`\).
-
-Usage:
-
-```
-&lt;allowSpecificAttributesOnElements_regex&gt;
-        &lt;element name="link"/&gt;
-        &lt;elementAttribute name="rel"/&gt;
-        &lt;regexRule regex="^((?!stylesheet).)*$"/&gt;
+</code></pre></div>
+</dd>
+<dt>allowSpecificAttributesOnElements_regex</dt>
+<dd>
+<p>Allows the specified element with the specified attribute, but only when the value for the attribute can be matched by the specified regular expression. Using a regular expression with this rule enables you to whitelist a range of acceptable values without actually specifying a predefined list.</p>
+<p>In the example below, you can use the attribute <code>rel</code> on the element <code>&lt;link&gt;</code> when it matches the following regular expression: <code>^((?!stylesheet).)*$</code> (this expression will match any value that is not <code>stylesheet</code>).</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowSpecificAttributesOnElements_regex&gt;
+        &lt;element name=&quot;link&quot;/&gt;
+        &lt;elementAttribute name=&quot;rel&quot;/&gt;
+        &lt;regexRule regex=&quot;^((?!stylesheet).)*$&quot;/&gt;
 &lt;/allowSpecificAttributesOnElements_regex&gt;
-```
-</code></pre>
-<p>disallowWithoutAttributes
-:   Elements specified with this rule are allowed only if they include attributes. Elements are disallowed by default, so there is no need to specifically disallow elements with this rule unless you are making an exception to another rule that allows them. Use this rule to require an element to include an attribute even though it typically is accepted without one.</p>
-<pre><code>Usage:
-
-```
-&lt;disallowWithoutAttributes&gt;
-        &lt;element name="iframe"/&gt;
+</code></pre></div>
+</dd>
+<dt>disallowWithoutAttributes</dt>
+<dd>
+<p>Elements specified with this rule are allowed only if they include attributes. Elements are disallowed by default, so there is no need to specifically disallow elements with this rule unless you are making an exception to another rule that allows them. Use this rule to require an element to include an attribute even though it typically is accepted without one.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;disallowWithoutAttributes&gt;
+        &lt;element name=&quot;iframe&quot;/&gt;
 &lt;/disallowWithoutAttributes&gt;  
-```
-</code></pre>
-<p>allowWithoutAttributes
-:   Elements specified with this rule are allowed even if they omit attributes. Use this rule to specifically allow an element that typically requires an attribute; for example, the <code>&lt;a&gt;</code> element (which is normally accompanied by the <code>href=</code> attribute).</p>
-<pre><code>Usage:
-
-```
-&lt;allowWithoutAttributes&gt;
-        &lt;element name="a"/&gt;
+</code></pre></div>
+</dd>
+<dt>allowWithoutAttributes</dt>
+<dd>
+<p>Elements specified with this rule are allowed even if they omit attributes. Use this rule to specifically allow an element that typically requires an attribute; for example, the <code>&lt;a&gt;</code> element (which is normally accompanied by the <code>href=</code> attribute).</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowWithoutAttributes&gt;
+        &lt;element name=&quot;a&quot;/&gt;
 &lt;/allowWithoutAttributes&gt; 
-```
-</code></pre>
-<p>disallowTextIn
-:   Elements specified with this rule will not be stripped; however, if a specified element contains text, that text will be stripped. This is because some elements contain text that is not intended for display to the user. Typically, elements with non-displaying text are styled using <code>display:none</code> in the browser's default style sheet, or they reference text that is stored as a separate file.</p>
-<pre><code>Usage:
-
-```
-&lt;disallowTextIn&gt;
-        &lt;element name="div"/&gt;
+</code></pre></div>
+</dd>
+<dt>disallowTextIn</dt>
+<dd>
+<p>Elements specified with this rule will not be stripped; however, if a specified element contains text, that text will be stripped. This is because some elements contain text that is not intended for display to the user. Typically, elements with non-displaying text are styled using <code>display:none</code> in the browser's default style sheet, or they reference text that is stored as a separate file.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;disallowTextIn&gt;
+        &lt;element name=&quot;div&quot;/&gt;
 &lt;/disallowTextIn&gt;
-```
-</code></pre>
-<p>allowTextIn
-:   Elements specified with this rule will be allowed if they contain text. Use this rule when you want to allow text within an element that does not typically include text as data. The HTML5 specification allows text content in any element that can contain character data, but text data is not allowed by default in elements that contain other types of content (such as JavaScript in <code>&lt;script&gt;</code> elements).</p>
-<pre><code>Usage:
-
-```
-&lt;allowTextIn&gt;
-        &lt;element name="script"/&gt;
+</code></pre></div>
+</dd>
+<dt>allowTextIn</dt>
+<dd>
+<p>Elements specified with this rule will be allowed if they contain text. Use this rule when you want to allow text within an element that does not typically include text as data. The HTML5 specification allows text content in any element that can contain character data, but text data is not allowed by default in elements that contain other types of content (such as JavaScript in <code>&lt;script&gt;</code> elements).</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowTextIn&gt;
+        &lt;element name=&quot;script&quot;/&gt;
 &lt;/allowTextIn&gt;
-```
-</code></pre>
+</code></pre></div>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="sec_acf_whitelist_config.html">Configuring active content filters (whitelists)</a></p>
 
 

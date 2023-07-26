@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35104,13 +35104,13 @@
 <li><a href="r_admin_homepage_admin_commands.html#HomepagePersonService">HomepagePersonService commands</a></li>
 </ul>
 <h2 class="section" id="HomepageCellConfig">HomepageCellConfig commands</h2>
-<p>HomepageCellConfig.checkInGettingstartedConfig("working_directory", "cell_name")
-:   Checks in the configuration files for the Getting Started wizard where the working_directory and cell_name parameters contain the same values you specified for the checked out location. See the description for the HomepageCellConfig.checkOutGettingstartedConfig command for more information.</p>
-<p>HomepageCellConfig.checkOutGettingstartedConfig("working_directory","cell_name")
-:   Checks out the configuration files for the Getting Started wizard where:</p>
+<p><strong>HomepageCellConfig.checkInGettingstartedConfig("working_directory", "cell_name")</strong></p>
+<p>Checks in the configuration files for the Getting Started wizard where the working_directory and cell_name parameters contain the same values you specified for the checked out location. See the description for the HomepageCellConfig.checkOutGettingstartedConfig command for more information.</p>
+<p><strong>HomepageCellConfig.checkOutGettingstartedConfig("working_directory","cell_name")</strong></p>
+<p>Checks out the configuration files for the Getting Started wizard where:</p>
 <pre><code>-   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft™ Windows™ operating system.
 
-    **Note:** AIX®, and Linux™ only: The directory must grant write permissions or the command does not run successfully.
+    **Note:** Linux™ only: The directory must grant write permissions or the command does not run successfully.
 
 -   cell\_name is the name of the WebSphere® Application Server cell that hosts the IBM® Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -35121,7 +35121,7 @@
 
 For example:
 
--   AIX/Linux:
+-   Linux:
 
     ```
     HomepageCellConfig.checkOutGettingstartedConfig("/opt/act/temp","foo01Cell01")
@@ -35134,44 +35134,43 @@ For example:
     ```
 </code></pre>
 <h2 class="section" id="HomepagePersonService">HomepagePersonService commands</h2>
-<p>HomepagePersonService.resetWelcomeFlagAllMembers()
-:   Forces the Getting Started view to be the default Home page view for all users.</p>
-<p>HomepagePersonService.resetWelcomeFlagMemberByEmail(String email)
-:   Forces the Getting Started view to be the default Home page view for the user specified by email address.</p>
+<p><strong>HomepagePersonService.resetWelcomeFlagAllMembers()</strong></p>
+<p>Forces the Getting Started view to be the default Home page view for all users.</p>
+<p><strong>HomepagePersonService.resetWelcomeFlagMemberByEmail(String email)</strong></p>
+<p>Forces the Getting Started view to be the default Home page view for the user specified by email address.</p>
 <pre><code>For example:
 
 ```
 HomepagePersonService.resetWelcomeFlagMemberByEmail("jsmith@example.com")
 ```
 </code></pre>
-<p>HomepagePersonService.resetWelcomeFlagMemberByLoginName(String loginName)
-:   Forces the Getting Started view to be the default Home page view for the user specified by login name.</p>
+<p><strong>HomepagePersonService.resetWelcomeFlagMemberByLoginName(String loginName)</strong></p>
+<p>Forces the Getting Started view to be the default Home page view for the user specified by login name.</p>
 <pre><code>For example:
 
 ```
 HomepagePersonService.resetWelcomeFlagMemberByLoginName("Joe Smith")
 ```
 </code></pre>
-<p>HomepagePersonService.resetWelcomeFlagBatchMembersByEmail(String fileName)
-:   Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's email per line.</p>
+<p><strong>HomepagePersonService.resetWelcomeFlagBatchMembersByEmail(String fileName)</strong></p>
+<p>Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's email per line.</p>
 <pre><code>For example:
 
 ```
 HomepagePersonService.resetWelcomeFlagBatchMembersByEmail("/opt/Homepage/emails.txt")
 ```
 </code></pre>
-<p>HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName(String fileName)
-:   Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's login name per line.</p>
+<p><strong>HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName(String fileName)</strong></p>
+<p>Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's login name per line.</p>
 <pre><code>For example:
 
 ```
 HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName("/opt/Homepage/logins.txt")
 ```
 </code></pre>
-<p><strong>Parent topic:</strong><a href="c_admin_homepage_wsadmin.html">Administering the Home page using the wsadmin client</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_homepage_wsadmin.html">Administering the Home page using the wsadmin client</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../customize/t_customize_getstarted_tab_on.html">Forcing the Getting Started view to be the default Home page view</a></p>
-<p><a href="../customize/t_customize_getting_started_page.html">Customizing the Getting Started view</a></p>
 <p><a href="c_admin_common_sync_via_admin_commands1.html">Synchronizing user data by using administrative commands</a></p>
 
 

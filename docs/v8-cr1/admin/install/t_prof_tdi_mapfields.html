@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35300,12 +35316,16 @@
 <li>From the SDI Solutions (tdisol/TDI) directory, open the map_dbrepos_from_source.properties file in a text editor.</li>
 <li>
 <p>Add or modify the field values. Any values that you omit or set to null are not populated in the database. You can modify the values in one of the following ways:</p>
-<p>1:1 mapping
-:   If one field in the Profiles database matches one field in the enterprise directory, type the name of the field in the Profiles database and set it equal to the associated source database LDAP property. For example:</p>
+<dl>
+<dt>1:1 mapping</dt>
+<dd>If one field in the Profiles database matches one field in the enterprise directory, type the name of the field in the Profiles database and set it equal to the associated source database LDAP property. For example:</dd>
+</dl>
 <pre><code>bldgId=buildingname
 </code></pre>
-<p>Complex mapping
-:   If there is a more complex relationship between the fields in the Profiles database and enterprise directory, such as the content of the property in the enterprise LDAP directory must be split into multiple fields in the Profiles database, use a JavaScript™ function to define the relationship. Define the function in the profiles_functions.js file and wrap the name of the JavaScript function in braces {}. Begin function names with func_ so that you can more easily identify them. For example:</p>
+<dl>
+<dt>Complex mapping</dt>
+<dd>If there is a more complex relationship between the fields in the Profiles database and enterprise directory, such as the content of the property in the enterprise LDAP directory must be split into multiple fields in the Profiles database, use a JavaScript™ function to define the relationship. Define the function in the profiles_functions.js file and wrap the name of the JavaScript function in braces {}. Begin function names with func_ so that you can more easily identify them. For example:</dd>
+</dl>
 <pre><code>bldgId=\{func\_map\_to\_db\_bldgId\}
 </code></pre>
 <p><strong>Note:</strong> See <a href="r_pers_complex_map_ex.html">Sample complex mappings of Profiles data</a> for an example of complex mapping.</p>

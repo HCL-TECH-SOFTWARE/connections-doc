@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35337,17 +35337,6 @@
 <p>Ensure that the Statement cache size for the data sources on WebSphere Application Server is no larger than 50. A higher value could lead to Out Of Memory errors on the application server instance.</p>
 </li>
 <li>
-<p>(AIX® only) If you are downloading the wizard, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM® distributes through the AIX Toolbox for Linux™ Applications at the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html">IBM AIX Toolbox</a> web site. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.</p>
-<p>After you have installed the GNU-compatible TAR program, change to the directory where you downloaded the HCL Connections TAR file, and enter the following command to extract the files from it:</p>
-<p>gtar -xvf HCL_Connections_6.5_wizards_lin_aix.tar</p>
-<p>This command creates a directory named after the wizard.</p>
-</li>
-<li>
-<p>(AIX only) Download and install the following packages from the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html">AIX Toolbox for Linux Applications</a> webpage:</p>
-<p>gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32, and libtiff-3.8.2</p>
-<p><strong>Note:</strong> Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.</p>
-</li>
-<li>
 <p>HCL Connections does not support Pluggable Databases (PDB).</p>
 </li>
 </ul>
@@ -35357,13 +35346,13 @@
 <p>Log in to your database server as the root user or system administrator.</p>
 </li>
 <li>
-<p>(AIX and Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
+<p>(Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
 <p>xhost + // Grant display authority to other users</p>
-<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.</p>
+<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your Linux administrator guide.</p>
 <p>echo $DISPLAY // Echo the value of DISPLAY under the root user</p>
 </li>
 <li>
-<p>(AIX and Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
+<p>(Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
 <ul>
 <li>
 <p>Oracle</p>
@@ -35382,7 +35371,7 @@
 <p><strong>Note:</strong> Run the database commands under the user account that has administrative access to the database.</p>
 <ul>
 <li>
-<p>AIX or Linux:</p>
+<p>Linux:</p>
 <ul>
 <li>
 <p>Oracle (login as oracle or use the su oracle command to change to oracle)</p>
@@ -35411,14 +35400,14 @@
 <p><strong>Notes:</strong></p>
 <ul>
 <li>If you have more instances, exit from the current instance and repeat this step for each instance.</li>
-<li>(AIX and Linux only) Ensure that users other than <code>root</code> have permission to access the HCL Connections Wizards directory.</li>
-<li>(AIX and Linux only): Restore default display authority by logging out or running the following command.</li>
+<li>(Linux only) Ensure that users other than <code>root</code> have permission to access the HCL Connections Wizards directory.</li>
+<li>(Linux only): Restore default display authority by logging out or running the following command.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>xhost -
 </code></pre></div>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_inst_create_database_oracle.html">Creating Oracle databases</a></p>
+<p><strong>Parent topic:</strong> <a href="c_inst_create_database_oracle.html">Creating Oracle databases</a></p>
 
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35323,10 +35339,12 @@
 <ul>
 <li>
 <p>To retrieve a list of the events currently queued for processing, use the following commands:</p>
-<p>CommunitiesQEventService.viewQueuedEventsSummary()
-:   Lists a summary of all of the lifecycle replay events that are currently queued for processing.</p>
-<p>CommunitiesQEventService.viewQueuedEventsByResourceType(String resourceType, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events with the specified resource type, where:</p>
+<dl>
+<dt>CommunitiesQEventService.viewQueuedEventsSummary()</dt>
+<dd>Lists a summary of all of the lifecycle replay events that are currently queued for processing.</dd>
+<dt>CommunitiesQEventService.viewQueuedEventsByResourceType(String resourceType, HashMap lastEvent, int maxRows)</dt>
+<dd>Lists the queued lifecycle replay events with the specified resource type, where:</dd>
+</dl>
 <pre><code>-   resourceType is the string "community".
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
@@ -35348,8 +35366,10 @@ lastRow = CommunitiesQEventService.viewQueuedEventsByResourceType
    ("community", lastRow, 10)
 ```
 </code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByResourceId(String resourceType, String resourceId, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events with the specified resource type and resource ID, where:</p>
+<dl>
+<dt>CommunitiesQEventService.viewQueuedEventsByResourceId(String resourceType, String resourceId, HashMap lastEvent, int maxRows)</dt>
+<dd>Lists the queued lifecycle replay events with the specified resource type and resource ID, where:</dd>
+</dl>
 <pre><code>-   resourceType is the string "community".
 -   resourceId is the communityUuid. This parameter is a string.
 -   lastEvent is a HashMap object.
@@ -35373,8 +35393,10 @@ lastRow = CommunitiesQEventService.viewQueuedEventsByResourceId
    ("community", "b46300c7-7837-4ba3-b26b-3fcf67a75bba", None, 10)
 ```
 </code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId(String remoteAppDefId, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
+<dl>
+<dt>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId(String remoteAppDefId, HashMap lastEvent, int maxRows)</dt>
+<dd>Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</dd>
+</dl>
 <pre><code>-   remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
@@ -35395,8 +35417,10 @@ lastRow = CommunitiesQEventService. viewQueuedEventsByRemoteAppDefId
   ("Activities", lastRow, 10)
 ```
 </code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType(String remoteAppDefId, String eventType, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
+<dl>
+<dt>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType(String remoteAppDefId, String eventType, HashMap lastEvent, int maxRows)</dt>
+<dd>Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</dd>
+</dl>
 <pre><code>-   remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.
 -   eventType specifies the event type to limit the query to.
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
@@ -35422,8 +35446,10 @@ lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType
 </li>
 <li>
 <p>Use the following commands to retry events that failed to process. After you run one of these commands, run the CommunitiesQEventService.viewQueuedEventsByResourceType command to make sure that the queue is empty. In some rare cases it might be necessary to run a retryQueuedEvents command multiple times to process and remove all events:</p>
-<p>CommunitiesQEventService.retryQueuedEventsByResourceType(String resourceType)
-:   Retries queued lifecycle replay events with the specified resource type, where resourceType is a string. The value of resourceType is always "community".</p>
+<dl>
+<dt>CommunitiesQEventService.retryQueuedEventsByResourceType(String resourceType)</dt>
+<dd>Retries queued lifecycle replay events with the specified resource type, where resourceType is a string. The value of resourceType is always "community".</dd>
+</dl>
 <pre><code>The return value is either "retry succeed" or 0. 0 indicates failure.
 
 For example:
@@ -35432,8 +35458,10 @@ For example:
 CommunitiesQEventService.retryQueuedEventsByResourceType("community")
 ```
 </code></pre>
-<p>CommunitiesQEventService.retryQueuedEventsByResourceId(String resourceType, String resourceId)
-:   Retries queued lifecycle replay events with the specified resource type and resource ID, where resourceType and resourceId are both strings.</p>
+<dl>
+<dt>CommunitiesQEventService.retryQueuedEventsByResourceId(String resourceType, String resourceId)</dt>
+<dd>Retries queued lifecycle replay events with the specified resource type and resource ID, where resourceType and resourceId are both strings.</dd>
+</dl>
 <pre><code>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.
 
 The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
@@ -35445,8 +35473,10 @@ CommunitiesQEventService.retryQueuedEventsByResourceId("community",
      "e952cf0c-a86c-4e26-b1e0-f8bf40a75804")
 ```
 </code></pre>
-<p>CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId(String remoteAppDefId)
-:   Retries queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
+<dl>
+<dt>CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId(String remoteAppDefId)</dt>
+<dd>Retries queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</dd>
+</dl>
 <pre><code>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
 
 For example:
@@ -35458,8 +35488,10 @@ CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId("Wiki")
 </li>
 <li>
 <p>Use the following commands to clear the queue of events that waiting to be processed. For example, if your organization has communities that have activities that are associated with them and you uninstall the Activities application from your deployment, you need to purge Activities events so that they aren't perpetually retried. Use these commands with care.</p>
-<p>CommunitiesQEventService.clearQueuedEventsByResourceType(String resourceType)
-:   Clears queued lifecycle replay events with the specified resource type, where resourceType is a string. The events are removed from the queue and are not processed.</p>
+<dl>
+<dt>CommunitiesQEventService.clearQueuedEventsByResourceType(String resourceType)</dt>
+<dd>Clears queued lifecycle replay events with the specified resource type, where resourceType is a string. The events are removed from the queue and are not processed.</dd>
+</dl>
 <pre><code>The resourceType parameter is always "community".
 
 The return value is the number of events that were cleared.
@@ -35470,8 +35502,10 @@ For example:
 CommunitiesQEventService.clearQueuedEventsByResourceType("community")
 ```
 </code></pre>
-<p>CommunitiesQEventService.clearQueuedEventsByResourceId(String resourceType, String resourceId)
-:   Clears queued lifecycle replay events with the specified resource ID, where resourceType and resourceId are both strings. The events are removed from the queue and are not processed.</p>
+<dl>
+<dt>CommunitiesQEventService.clearQueuedEventsByResourceId(String resourceType, String resourceId)</dt>
+<dd>Clears queued lifecycle replay events with the specified resource ID, where resourceType and resourceId are both strings. The events are removed from the queue and are not processed.</dd>
+</dl>
 <pre><code>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.
 
 The return value is the number of events that were cleared.
@@ -35483,8 +35517,10 @@ CommunitiesQEventService.clearQueuedEventsByResourceId("community",
      "e952cf0c-a86c-4e26-b1e0-f8bf40a75804")
 ```
 </code></pre>
-<p>CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId(String remoteAppDefId)
-:   Clears queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
+<dl>
+<dt>CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId(String remoteAppDefId)</dt>
+<dd>Clears queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</dd>
+</dl>
 <pre><code>The return value is the number of events that were cleared.
 
 For example:
@@ -35493,8 +35529,10 @@ For example:
 CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId("Wiki")
 ```
 </code></pre>
-<p>CommunitiesQEventService.clearQueuedEventByEventId(String eventId)
-:   Clears queued lifecycle replay events with the specified event ID, where eventId is a string. The events are removed from the queue and are not processed.</p>
+<dl>
+<dt>CommunitiesQEventService.clearQueuedEventByEventId(String eventId)</dt>
+<dd>Clears queued lifecycle replay events with the specified event ID, where eventId is a string. The events are removed from the queue and are not processed.</dd>
+</dl>
 <pre><code>The return value is the number of events that were cleared.
 
 For example:

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35330,16 +35346,24 @@
 </li>
 <li>
 <p>Set the following values:</p>
-<p>Verbose garbage collection
-:   <code>true</code></p>
-<p>Initial heap size
-:   <code>6144MB</code></p>
-<p>Maximum heap size
-:   <code>6144MB</code></p>
-<p>Generic JVM arguments
-:   -   <code>-Xms6144M -Xmx6144M -Xgcpolicy:balanced -Dsun.nio.MaxDirectMemorySize=1572864000</code>
--   <code>-DAIONewWindowsCancelPath=1</code>
-    3.  Click <strong>Apply</strong> and save the configuration file if prompted.</p>
+<dl>
+<dt>Verbose garbage collection</dt>
+<dd><code>true</code></dd>
+<dt>Initial heap size</dt>
+<dd><code>6144MB</code></dd>
+<dt>Maximum heap size</dt>
+<dd><code>6144MB</code></dd>
+<dt>Generic JVM arguments</dt>
+<dd>
+<ul>
+<li><code>-Xms6144M -Xmx6144M -Xgcpolicy:balanced -Dsun.nio.MaxDirectMemorySize=1572864000</code></li>
+<li><code>-DAIONewWindowsCancelPath=1</code><ol>
+<li>Click <strong>Apply</strong> and save the configuration file if prompted.</li>
+</ol>
+</li>
+</ul>
+</dd>
+</dl>
 </li>
 <li>
 <p>Stop, synchronize, and restart your proxy nodes.</p>

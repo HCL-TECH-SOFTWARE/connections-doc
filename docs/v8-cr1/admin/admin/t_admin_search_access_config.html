@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35295,25 +35311,29 @@
 <p>You need to initialize the Search configuration environment to be able to run the SearchCellConfig and SearchService MBean commands.</p>
 <p>See <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for information about how to start the wsadmin command-line tool.</p>
 <p>Two types of command are provided for administering the Search application:</p>
-<p>SearchCellConfig
-:   An MBean used to check out, update, and check in copies of the Search configuration file, search-config.xml. This file is used to control many aspects of Search configuration, such as:</p>
-<pre><code>-   The location of the Search index
--   The location of the IBM® LanguageWare® dictionaries used by Search
--   The configuration of the file download and conversion service used by Search when indexing file attachments
-
-The SearchCellConfig MBean also provides the user with a means of checking out and checking in the Search Ajax proxy configuration file, proxy-search-config.xml.
-
-For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see *SearchCellConfig commands*.
-</code></pre>
-<p>SearchService
-:   An MBean used to create, retrieve, update, and delete scheduled task definitions of the following Search operations. This includes a facility to trigger one of these operations.</p>
-<pre><code>-   Indexing
--   Indexing optimization
-
-This is implemented by scheduling a one-off task that is scheduled to run within 30 seconds of issuing the corresponding SearchService command.
-
-For more information about the syntax of the SearchService commands and a description of what each command does, see *SearchService commands*.
-</code></pre>
+<dl>
+<dt>SearchCellConfig</dt>
+<dd>
+<p>An MBean used to check out, update, and check in copies of the Search configuration file, search-config.xml. This file is used to control many aspects of Search configuration, such as:</p>
+<ul>
+<li>The location of the Search index</li>
+<li>The location of the IBM® LanguageWare® dictionaries used by Search</li>
+<li>The configuration of the file download and conversion service used by Search when indexing file attachments</li>
+</ul>
+<p>The SearchCellConfig MBean also provides the user with a means of checking out and checking in the Search Ajax proxy configuration file, proxy-search-config.xml.</p>
+<p>For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see <em>SearchCellConfig commands</em>.</p>
+</dd>
+<dt>SearchService</dt>
+<dd>
+<p>An MBean used to create, retrieve, update, and delete scheduled task definitions of the following Search operations. This includes a facility to trigger one of these operations.</p>
+<ul>
+<li>Indexing</li>
+<li>Indexing optimization</li>
+</ul>
+<p>This is implemented by scheduling a one-off task that is scheduled to run within 30 seconds of issuing the corresponding SearchService command.</p>
+<p>For more information about the syntax of the SearchService commands and a description of what each command does, see <em>SearchService commands</em>.</p>
+</dd>
+</dl>
 <ol>
 <li>To initialize the Search configuration environment, complete the following steps.</li>
 <li>

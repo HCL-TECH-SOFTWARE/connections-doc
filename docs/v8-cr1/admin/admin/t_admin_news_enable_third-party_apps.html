@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35321,8 +35337,10 @@
 </li>
 <li>
 <p>Use the following commands as needed:</p>
-<p>NewsActivityStreamService.registerApplication(appId, displayName, url, secureUrl, imageUrl, secureImageUrl, summary, isEnabled)
-:   Registers a new application.</p>
+<dl>
+<dt>NewsActivityStreamService.registerApplication(appId, displayName, url, secureUrl, imageUrl, secureImageUrl, summary, isEnabled)</dt>
+<dd>Registers a new application.</dd>
+</dl>
 <pre><code>This command takes the following parameters:
 
 -   appId. The ID of the application that you want to register.
@@ -35344,8 +35362,10 @@ NewsActivityStreamService.registerApplication
 "https://www.test.com/image.jpg", "summary", "true")
 ```
 </code></pre>
-<p>NewsActivityStreamService.updateApplicationRegistration(appId, field, value)
-:   Updates a particular field associated with an existing, registered application.</p>
+<dl>
+<dt>NewsActivityStreamService.updateApplicationRegistration(appId, field, value)</dt>
+<dd>Updates a particular field associated with an existing, registered application.</dd>
+</dl>
 <pre><code>This command takes the following parameters:
 
 -   appId. The ID of the application that you want to update.
@@ -35364,8 +35384,10 @@ For example, the following command disables the registration of the testApp appl
 NewsActivityStreamService.updateApplicationRegistration("testApp", "isEnabled", "false")
 ```
 </code></pre>
-<p>NewsActivityStreamService.updateApplicationRegistrationForEmailDigest(appId, isEnabled, defaultFollowFrequency, isLocked)
-:   Updates a registered application so that it is enabled for email digest functionality. When you run this command, the updates occur immediately; you do not need to restart the system.</p>
+<dl>
+<dt>NewsActivityStreamService.updateApplicationRegistrationForEmailDigest(appId, isEnabled, defaultFollowFrequency, isLocked)</dt>
+<dd>Updates a registered application so that it is enabled for email digest functionality. When you run this command, the updates occur immediately; you do not need to restart the system.</dd>
+</dl>
 <pre><code>Enabled applications are included on the Email Preferences page, and email notifications are sent to the intended recipients of activities. Users can select the frequency with which they want to be notified about updates, as with the standard HCL Connections applications. Depending on the user's choice, an email notification is sent either immediately or grouped in a daily or weekly newsletter.
 
 This command takes the following parameters:
@@ -35385,8 +35407,10 @@ For example:
 NewsActivityStreamService.updateApplicationRegistrationForEmailDigest("testApp", "true", "DAILY", "false")
 ```
 </code></pre>
-<p>NewsActivityStreamService.removeApplicationRegistration(appId)
-:   Removes the specified application registration.</p>
+<dl>
+<dt>NewsActivityStreamService.removeApplicationRegistration(appId)</dt>
+<dd>Removes the specified application registration.</dd>
+</dl>
 <pre><code>This command takes a single parameter, which is the ID of the application that you want to remove.
 
 For example, the following command removes the registration of the testApp application.
@@ -35395,14 +35419,18 @@ For example, the following command removes the registration of the testApp appli
 NewsActivityStreamService.removeApplicationRegistration("testApp")
 ```
 </code></pre>
-<p>NewsActivityStreamService.listApplicationRegistrations()
-:   Returns a list of the applications that are registered with the News service. The applications are separated by commas and formatted as follows:</p>
+<dl>
+<dt>NewsActivityStreamService.listApplicationRegistrations()</dt>
+<dd>Returns a list of the applications that are registered with the News service. The applications are separated by commas and formatted as follows:</dd>
+</dl>
 <pre><code>```
 application ID=Display name or description
 ```
 </code></pre>
-<p>NewsActivityStreamService.getApplicationRegistration("applicationId")
-:   Returns a list of details about the specified application. This command takes a single argument, which is a string that specifies the application ID. Use the NewsActivityStreamService.listApplicationRegistrations() command to retrieve this ID.</p>
+<dl>
+<dt>NewsActivityStreamService.getApplicationRegistration("applicationId")</dt>
+<dd>Returns a list of details about the specified application. This command takes a single argument, which is a string that specifies the application ID. Use the NewsActivityStreamService.listApplicationRegistrations() command to retrieve this ID.</dd>
+</dl>
 <pre><code>Results are returned as key value pairs that are separated by commas.
 
 For example:

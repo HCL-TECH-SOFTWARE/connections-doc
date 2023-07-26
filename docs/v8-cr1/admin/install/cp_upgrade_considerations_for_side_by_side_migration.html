@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35409,7 +35425,7 @@
 
 <h1 id="upgrade-considerations-for-side-by-side-migration-of-data">Upgrade considerations for side-by-side migration of data</h1>
 <p>If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.</p>
-<p>Side-by-side migration differs from the approach in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.</p>
+<p>Side-by-side migration differs from the approach in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR1</a> in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.</p>
 <p>Side-by-side migration makes particular sense in certain cases, such as upgrading the whole Kubernetes cluster from a very old version to the latest one, upgrading the underlying container runtime engine, or migrating from one CRI (container runtime interface) to another.</p>
 <p>This page describes, at a high level, what makes a Component Pack setup successful, so that you can plan your side-by-side migration accordingly.</p>
 <p>Recall that Component Pack for HCL Connections is a set of applications grouped together as pods which can be, but don't have to be, dependent on each other. However, the following things must happen for a setup to work:</p>
@@ -35443,12 +35459,14 @@
 <p><img alt="Two Component Pack clusters with second pointing to first Connections cluster" src="cp_install_side_by_side.jpg" /></p>
 <h2 class="section" id="section_hfp_vds_lpb">Different approaches for migrating data</h2>
 <p>The most important thing for migration is to understand how your PV(C)s are configured, and what happens when you delete Helm charts.</p>
-<p>Understanding how PV(C)s are configured
-:   In brief, if you used HCL's stock Helm charts for creating PV(C)s, removing the charts, and hence removing PV(C)s, will not result in loss of physical data, which is still stored in NFS.</p>
-<p>:   You can also have different PV(C)s stored in totally different NFSs. To understand why, see <a href="https://help.hcltechsw.com/connections/v65/admin/admin/cp_admin_pv_mng_add_rmv.html">Adding and removing NFS persistent volumes</a>.</p>
-<p>Moving data between PVs
-:   There are two types of data that you eventually want to migrate: MongoDB and Elasticsearch.</p>
-<p>:   You can approach the move in two different ways: (1) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration (for example, use mongodump to <a href="migrating_data_mongodb_v3_v5.html">export MongoDB data and import it later</a>; for Elasticsearch, do the same with something like <a href="cp_migrate_data_from_es7_to_opensearch.html">elasticsearch-dump</a>) , or (2) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.</p>
+<dl>
+<dt>Understanding how PV(C)s are configured</dt>
+<dd>In brief, if you used HCL's stock Helm charts for creating PV(C)s, removing the charts, and hence removing PV(C)s, will not result in loss of physical data, which is still stored in NFS.</dd>
+<dd>You can also have different PV(C)s stored in totally different NFSs. To understand why, see <a href="https://help.hcltechsw.com/connections/v65/admin/admin/cp_admin_pv_mng_add_rmv.html">Adding and removing NFS persistent volumes</a>.</dd>
+<dt>Moving data between PVs</dt>
+<dd>There are two types of data that you eventually want to migrate: MongoDB and Elasticsearch.</dd>
+<dd>You can approach the move in two different ways: (1) Simply migrate MongoDB and Elasticearch data from one cluster to another the way you would normally do data migration (for example, use mongodump to <a href="migrating_data_mongodb_v3_v5.html">export MongoDB data and import it later</a>; for Elasticsearch, do the same with something like <a href="cp_migrate_data_from_es7_to_opensearch.html">elasticsearch-dump</a>) , or (2) Migrate NFS data from one NFS server to another, or migrate the PVs from one server to another.</dd>
+</dl>
 <h2 id="completing-the-migration">Completing the migration</h2>
 <p>The last two high-level steps to finalize migration are to do the following steps:</p>
 <ul>

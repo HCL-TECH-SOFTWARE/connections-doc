@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35021,24 +35021,15 @@
 <p><strong>Note:</strong> When you use the Profiles population wizard in interactive mode, the wizard creates a response file called tdisettings.properties in the Wizards\TDIPopulation directory. You can modify the existing response file or create a new one. It also creates a mappings.properties file, which contains properties very similar to those in map_dbrepos_from_source.properties file.</p>
 <p>If you need to configure multiple systems with Profiles data, you can run the wizard in silent mode.</p>
 <p>You can also modify the mappings files manually. For more information, see the <a href="t_prof_tdi_mapfields.html">Mapping fields manually</a> topic.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>
-<p>(AIX® only) If you are downloading the wizard, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM® distributes through the AIX Toolbox for Linux™ Applications at the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html">IBM AIX Toolbox</a> web site. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.</p>
-<p>After you have installed the GNU-compatible TAR program, change to the directory where you downloaded the HCL Connections TAR file, and enter the following command to extract the files from it:</p>
-<p>gtar -xvf HCL_Connections_6.5_wizards_lin_aix.tar</p>
-<p>This command creates a directory named after the wizard.</p>
-</li>
-</ul>
 <p>To run the Profiles population wizard in silent mode, complete the following steps:</p>
 <ol>
 <li>
 <p>Log in to your database server as the root user or system administrator.</p>
 </li>
 <li>
-<p>(AIX and Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
+<p>(Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
 <p>xhost +</p>
-<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.</p>
+<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your Linux administrator guide.</p>
 <p>echo $DISPLAY</p>
 </li>
 <li>
@@ -35048,7 +35039,7 @@
 <p>Open a command prompt, change to the TDIPopulation directory, and enter the following commands to launch the wizard in silent mode:</p>
 <ul>
 <li>
-<p>AIX/Linux:</p>
+<p>Linux:</p>
 <ul>
 <li>
 <p>./populationWizard.sh -silent response_file</p>

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35324,7 +35340,7 @@
 <ul>
 <li>
 <p>working_dir is the temporary directory to which you want to check out the cell level configuration file. This directory must exist on the server where you are running the wsadmin client. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.</p>
-<p><strong>Note:</strong> AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.</p>
+<p><strong>Note:</strong> Linux only: The directory must grant write permissions or the command does not run successfully.</p>
 </li>
 <li>
 <p>cellName is the name of the cell that the Search node belongs to. The command is case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:</p>
@@ -35337,8 +35353,10 @@
 </li>
 <li>
 <p>Use the following commands:</p>
-<p>SearchCellConfig.enableVerboseLogging()
-:   Enables more detailed status reporting during crawling and indexing in the form of more verbose logging to the SystemOut.log file. Verbose logging is automatically enabled when HCL Connections is installed.</p>
+<dl>
+<dt>SearchCellConfig.enableVerboseLogging()</dt>
+<dd>Enables more detailed status reporting during crawling and indexing in the form of more verbose logging to the SystemOut.log file. Verbose logging is automatically enabled when HCL Connections is installed.</dd>
+</dl>
 <pre><code>This command does not take any parameters.
 
 You can use the following commands to tune the frequency with which status information is logged to the SystemOut.log file during different stages of the crawling and indexing process:
@@ -35349,14 +35367,18 @@ You can use the following commands to tune the frequency with which status infor
 -   SearchCellConfig.setVerboseIncrementalBuildingLoggingInterval\(int interval\)
 For more information about each of these commands, refer to the command descriptions that follow.
 </code></pre>
-<p>SearchCellConfig.disableVerboseLogging()
-:   Disables verbose logging.</p>
+<dl>
+<dt>SearchCellConfig.disableVerboseLogging()</dt>
+<dd>Disables verbose logging.</dd>
+</dl>
 <pre><code>This command does not take any parameters.
 
 Verbose logging fills the SystemOut.log file with detailed output that can occupy an increasing amount of disk space, unless you have configured your deployment to retain only a limited number of the most recent log files. A high turnover of logs might be a problem when you are trying to track down the cause of an issue if the log file that you are interested in has been deleted. For this reason, you might want to disable verbose logging. The performance impact of having verbose logging enabled is negligible.
 </code></pre>
-<p>SearchCellConfig.setVerboseInitialLoggingInterval(int initialInterval)
-:   Controls the frequency with which initial index creation progress is logged to the SystemOut.log file.</p>
+<dl>
+<dt>SearchCellConfig.setVerboseInitialLoggingInterval(int initialInterval)</dt>
+<dd>Controls the frequency with which initial index creation progress is logged to the SystemOut.log file.</dd>
+</dl>
 <pre><code>This command takes a single parameter:
 
 initialInterval
@@ -35375,8 +35397,10 @@ For example:
 SearchCellConfig.setVerboseInitialLoggingInterval(500)
 ```
 </code></pre>
-<p>SearchCellConfig.setVerboseSeedlistRequestLoggingInterval(int seedlistRequestInterval)
-:   Controls the frequency with which seedlist crawling progress is logged to the SystemOut.log file.</p>
+<dl>
+<dt>SearchCellConfig.setVerboseSeedlistRequestLoggingInterval(int seedlistRequestInterval)</dt>
+<dd>Controls the frequency with which seedlist crawling progress is logged to the SystemOut.log file.</dd>
+</dl>
 <pre><code>This command takes a single parameter:
 
 seedlistRequestInterval
@@ -35397,8 +35421,10 @@ For example:
 SearchCellConfig.setVerboseSeedlistRequestLoggingInterval(1)
 ```
 </code></pre>
-<p>SearchCellConfig.setVerboseIncrementalCrawlingLoggingInterval(int incrementalCrawlingInterval)
-:   Controls the frequency with which seedlist update crawling progress is logged to the SystemOut.log file. An update crawl of an application fetches data that was created, updated, or deleted since the previous crawl of that application began.</p>
+<dl>
+<dt>SearchCellConfig.setVerboseIncrementalCrawlingLoggingInterval(int incrementalCrawlingInterval)</dt>
+<dd>Controls the frequency with which seedlist update crawling progress is logged to the SystemOut.log file. An update crawl of an application fetches data that was created, updated, or deleted since the previous crawl of that application began.</dd>
+</dl>
 <pre><code>This command takes a single parameter:
 
 incrementalCrawlingInterval
@@ -35417,8 +35443,10 @@ For example:
 SearchCellConfig.setVerboseIncrementalCrawlingLoggingInterval(100)
 ```
 </code></pre>
-<p>SearchCellConfig.setVerboseIncrementalBuildingLoggingInterval(int incrementalBuildingInterval)
-:   Controls the frequency with which update indexing progress is logged to the SystemOut.log file. Update indexing of an HCL Connections application or set of applications, is an indexing job that updates an index that already has content from all applications that are to be indexed as part of the current indexing job.</p>
+<dl>
+<dt>SearchCellConfig.setVerboseIncrementalBuildingLoggingInterval(int incrementalBuildingInterval)</dt>
+<dd>Controls the frequency with which update indexing progress is logged to the SystemOut.log file. Update indexing of an HCL Connections application or set of applications, is an indexing job that updates an index that already has content from all applications that are to be indexed as part of the current indexing job.</dd>
+</dl>
 <pre><code>This command takes a single parameter:
 
 incrementalBuildingInterval
@@ -35436,8 +35464,10 @@ For example:
 SearchCellConfig.setVerboseIncrementalBuildingLoggingInterval(100)
 ```
 </code></pre>
-<p>SearchCellConfig.setVerboseLogging(int initialInterval, int seedlistRequestInterval, int incrementalCrawlingInterval, int incrementalBuildingInterval)
-:   Enables verbose logging with the specified initial interval, seedlist request interval, crawling interval, and incremental building interval.</p>
+<dl>
+<dt>SearchCellConfig.setVerboseLogging(int initialInterval, int seedlistRequestInterval, int incrementalCrawlingInterval, int incrementalBuildingInterval)</dt>
+<dd>Enables verbose logging with the specified initial interval, seedlist request interval, crawling interval, and incremental building interval.</dd>
+</dl>
 <pre><code>Running this command has the same net effect as calling the following commands in sequence:
 
 -   SearchCellConfig.enableVerboseLogging\(\)

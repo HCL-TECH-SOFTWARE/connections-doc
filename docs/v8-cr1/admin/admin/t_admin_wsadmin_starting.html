@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35296,73 +35312,51 @@
 <h1 class="task" id="t_admin_wsadmin_starting">Starting the wsadmin client</h1>
 <p>Use the wsadmin client to make configuration changes to applications.</p>
 <p>The wsadmin client is a scripting environment that is installed with IBM® WebSphere® Application Server. You can use the client to access and change properties of your HCL Connections configuration. You can configure common properties that apply across all applications or you can configure properties that apply only to an individual application.</p>
+<ol>
+<li>
 <p>Start the wsadmin client by completing the following steps:</p>
 <ol>
 <li>
 <p>Open a command prompt and then change to the following directory of the system on which you installed the deployment manager:</p>
 <p><a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/dm_profile_root/bin</p>
-<p>Where:</p>
-<ul>
-<li>
-<p>app_server_root represents the IBM WebSphere Application Server installation directory, for example:</p>
-<div class="highlight"><pre><span></span><code>AIX:
-/usr/IBM/WebSphere/AppServer
-</code></pre></div>
+<p>app_server_root/profiles/dm_profile_root/bin. Where app_server_root represents the IBM WebSphere Application Server installation directory, for example:</p>
 <div class="highlight"><pre><span></span><code>Linux:
 /opt/IBM/WebSphere/AppServer
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows:
 drive:\Program Files\IBM\WebSphere\AppServer
 </code></pre></div>
-</li>
-<li>
-<p>drive is the system drive on which the file directory is stored, for example: C: or D:.</p>
-</li>
-<li>
-<p>dm_profile_root is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\Program Files\IBM\WebSphere\AppServer\profiles\Dmgr01\bin.</p>
-</li>
-</ul>
+<p>Where drive is the system drive on which the file directory is stored. For example: C: or D:.</p>
+<p>where dm_profile_root is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\Program Files\IBM\WebSphere\AppServer\profiles\Dmgr01\bin.</p>
 <p><strong>Attention:</strong> You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile() command does not work correctly.</p>
 </li>
 <li>
 <p>Enter the following command to start the wsadmin client:</p>
 <ul>
+<li>Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
 <li>
-<p>AIX or Linux: <code>./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT</code></p>
+<p>Microsoft Windows: wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT
+where:</p>
 </li>
-<li>
-<p>Microsoft Windows: <code>wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT</code></p>
-</li>
-</ul>
-<p>Where:</p>
-<ul>
 <li>
 <p>admin_user_id is the user name of the Administrator role on IBM WebSphere Application Server. This administrator must be configured at the cell level, not at the cluster, node, or server level.</p>
 </li>
-<li>
-<p>admin_password is the password of the WebSphere Application Server administrator.</p>
-</li>
+<li>admin_password is the password of the WebSphere Application Server administrator.</li>
 <li>
 <p>SOAP_CONNECTOR_ADDRESS_PORT is the SOAP port for the WebSphere Application Server deployment manager server. The default value of the SOAP port is 8879. If you are using the default port value, you do not have to specify this parameter. If you are not using the default value and you do not know the port number, you can look up its value in the WebSphere Application Server Integrated Solution Console. To look up the SOAP port number, complete the following steps:</p>
 <ol>
-<li>
-<p>Open the WebSphere Application Server Integrated Solution Console for the deployment manager, and then select <strong>System Administration</strong> > <strong>Deployment Manager</strong>.</p>
-</li>
-<li>
-<p>In the Additional properties section expand <strong>Ports</strong>, and then look for the SOAP_CONNECTOR_ADDRESS port entry to find the port number.</p>
-</li>
+<li>Open the WebSphere Application Server Integrated Solution Console for the deployment manager, and then select <strong>System Administration</strong> > <strong>Deployment Manager</strong>.</li>
+<li>In the Additional properties section expand <strong>Ports</strong>, and then look for the SOAP_CONNECTOR_ADDRESS port entry to find the port number.
+For example:</li>
 </ol>
 </li>
-</ul>
-<p>For example:</p>
-<ul>
 <li>
-<p>AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
+<p>Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
 </li>
-<li>
-<p>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879</p>
-</li>
+<li>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879</li>
 </ul>
+</li>
+</ol>
 </li>
 </ol>
 <p>For more information about the properties that you can change, see the topics in the common HCL Connections section and individual application sections.</p>

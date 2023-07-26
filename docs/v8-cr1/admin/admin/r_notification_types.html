@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35341,97 +35357,395 @@
 <p>Several notification types and events are supported.</p>
 <h2 class="section" id="notification-types">Notification types</h2>
 <p>The following notification types are supported:</p>
-<p>Broadcast
-:   Sent to recipients by email. Broadcast notifications are not shown on the Home page.</p>
-<p>Directed
-:   Sent from one user, or the system, to another user or set of users. Users can opt to not receive these notifications by email by changing their email preferences. Directed notifications are always visible to the recipients and the sender from the Home page.</p>
-<p>Follow
-:   Generated for users who follow a particular resource and who choose to have individual notifications for that type of resource.</p>
-<p>Moderation
-:   Used solely in the content moderation process.</p>
-<p>Response
-:   Used to inform a user when a comment or reply was left on their content. Response notifications go to the owner of the content only, not to followers. These notifications are sent if the user configured their email preferences to receive responses through individual emails.</p>
-<p>@mentions
-:   Sent when a user is @mentioned anywhere within HCL Connections. This type of notification is sent only when users configure their email preferences to receive @mentions notifications by email.</p>
+<dl>
+<dt>Broadcast</dt>
+<dd>Sent to recipients by email. Broadcast notifications are not shown on the Home page.</dd>
+<dt>Directed</dt>
+<dd>Sent from one user, or the system, to another user or set of users. Users can opt to not receive these notifications by email by changing their email preferences. Directed notifications are always visible to the recipients and the sender from the Home page.</dd>
+<dt>Follow</dt>
+<dd>Generated for users who follow a particular resource and who choose to have individual notifications for that type of resource.</dd>
+<dt>Moderation</dt>
+<dd>Used solely in the content moderation process.</dd>
+<dt>Response</dt>
+<dd>Used to inform a user when a comment or reply was left on their content. Response notifications go to the owner of the content only, not to followers. These notifications are sent if the user configured their email preferences to receive responses through individual emails.</dd>
+<dt>@mentions</dt>
+<dd>Sent when a user is @mentioned anywhere within HCL Connections. This type of notification is sent only when users configure their email preferences to receive @mentions notifications by email.</dd>
+</dl>
 <p>The following notification events are available for HCL Connections applications:</p>
-<p>Activities
-:   Notification events are enabled by default. Email event types are enabled only if you enabled email notifications during the installation of the product.</p>
-<pre><code>|Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|addMemberMail|When an activity owner adds members to an activity, a notification is automatically sent to them to inform them about the activity.|Directed|
-|autoCompleteActivityMail|Activity owners receive an email to warn them that one of their inactive activities will be marked complete if it is not updated.|Directed|
-|createMail|When a standard activity is created, each member is sent a notification about the new activity. When a community activity is created, notifications are sent only if individual members are added. No notifications are sent when an entire community membership list is added.|Directed|
-|inviteMemberMail|When an activity owner invites members to an activity, a notification is automatically sent to them to inform them about the activity.|Directed|
-|notifyMail|Activity members can send other members notifications about entries.|Directed|
-</code></pre>
-<p>Blogs
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|approved|When an entry, idea, or comment is approved, a notification is sent to the author and the last editor.|Moderation|
-|confirmflagged|When a flag on a post, idea, or comment is confirmed, a notification is sent to the flag creator.|Moderation|
-|notify|Notifications that one user sends to other users to inform them about useful blog posts.|Directed|
-|notifyassigned|When a blog owner assigns author, draft, or owner permission for a blog, a notification is sent to the member to inform them of the blog and their access level.|Directed|
-|notifyflagged|When a post, idea, or comment is flagged as inappropriate, a notification is sent to content reviewers, including anyone in the global-moderator role.|Moderation|
-|notifyreposted|When an entry or idea is modified and reposted, a notification is sent to content reviewers, including anyone in the global-moderator role, to inform them about it.|Moderation|
-|notifyreview|When a new entry, idea, comment, or trackback comment is posted and put in pending status, a notification is sent to content reviewers to notify them that they must review it. Content reviewers include anyone in the global-moderator role.|Moderation|
-|ownermsg|When a new comment is posted, a notification is sent to the entry or idea creator.|Response|
-|quarantined|When an entry, idea, or comment is quarantined, a notification is sent to the authors, including the post creator, its last editor, and blog owners.|Moderation|
-|rejected|When an entry, idea, or comment is rejected, a notification is sent to the author and last editor.|Moderation|
-|restored|When an entry, idea, or comment is restored, a notification is sent to the author, last editor, and blog owners.|Moderation|
-|returned|When an entry or idea is returned, a notification is sent to the post authors, including the post creator, its last editor, and blog owners.|Moderation|</p>
-<p>Bookmarks
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|notifytemplate|Users can send notifications to other users to inform them about useful bookmarks.|Directed|
-|replaceurltemplate|Administrator can send a notification to the bookmark owner to report the update of a link.|This notification is triggered by an MBean|</p>
-<p>Communities
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|broadcastMail|Members can send notifications to other members to inform them about important events.|Broadcast|
-|invitedToJoinMail|Owners can send a notification to a non-member to invite them to join the community.|Directed|
-|memberAddedMail|Notifications are automatically generated and sent to members when they are added to a community.|Directed|
-|memberRemovedMail|Notifications are automatically generated and sent to members when they are removed from a community.|Directed|
-|notifyEvent|Community members can notify other members about specific events by opening the event and selecting <strong>More Actions</strong> > <strong>Notify Other People</strong>. The event owner can also send this notification when the event is created.|Directed|
-|requestToJoinMail|Users can request to join a Moderated community by sending a notification to the community's owner.|Directed|</p>
-<p>Files
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|collectionMediaAdded|Notification sent to users when a file is added to a folder or community that they are following.|Follow|
-|collectionMemberUpdated|Notification sent to users when a folder is shared with them or when their access level changes. This notification applies to individual users, not groups.|Directed|
-|commentAdded|Notification sent to users when a comment is created on a file that they are following. Users can follow files by opening the file page and clicking <strong>Follow</strong>.|Follow|
-|communityVisibilityUpdated|Notification sent to owners of a community when the community changes from non-public to public and when private files that are shared with the community are removed from it.|Directed|
-|mediaUpdated|Notification sent to users when a file that they are following is updated. Users can follow files by opening the file page and clicking <strong>Follow</strong>.|Follow|
-|mediaShared|Notification sent to users when files are shared with them.|Directed|</p>
-<p>Moderation
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|notifyapproved|When an entry is approved, a notification is sent to the entry authors, including the entry's creator and its last editor, and the entry owners.|Moderation|
-|notifyautoquarantined|When an entry is flagged as inappropriate a specific number of times, a notification is sent to the Global Moderator and Reviewers. The number of inappropriate flags is specified in the autoQuarantine property in the contentreview-config.xml file. For example, if you enter a value of 5 in autoQuarantine, a notification is sent when an entry is flagged for the fifth time.|Moderation|
-|notifydeleted|When an entry is deleted, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.|Moderation|
-|notifyflagged|When an entry is flagged as having inappropriate content and is put in pending status, a notification is sent to content reviewers, including anyone in the global-moderator role.|Moderation|
-|notifypending|When an entry is added and needs approval, a notification is sent to the entry author. Reviewers and moderators are notified separately by a notifyReview email.|Moderation|
-|notifyquarantined|When an entry is quarantined, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.|Moderation|
-|notifyrejected|When an entry is rejected, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.|Moderation|
-|notifyrestored|When an entry is restored, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.|Moderation|
-|notifyreview|When an entry is added and put in pending status, a notification is sent to content reviewers, including anyone in the global-moderator role.|Moderation|</p>
-<p>News
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|dailyDigest|If email notifications are enabled on your system, your preferences are set to the Daily Newsletter option by default. Each option corresponds to a subview within the Updates News Feed view on the Home page. All options can be customized to your preferred frequency.|Follow|
-|followIndividual|If email notifications are enabled, they are set to Individual E-mails by default. Each option corresponds to a subview within the Updates News Feed view. Options can be customized to any frequency. Any updates within the corresponding News Feed subview by a person other than yourself are sent to you in individual emails.|Follow|
-|replyToError|When a user replies to a ReplyTo enabled notification and an error occurs at the server, a notification is generated and sent to the user.|Directed|
-|weeklyDigest|If email notifications are enabled on your system, your preferences are set to the Weekly Newsletter option by default. Each option corresponds to a subview within the Updates News Feed view. Options can be customized to a desired frequency.|Follow|</p>
-<p>Profiles
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|inviteColleagueMail|If a person designates someone else as a colleague, the colleague is sent an invitation to join that person's network.|Directed|
-|notifyBoardOwnerForComment|Board owners are notified when someone comments on their message board.|Response|
-|notifyBoardOwnerForEntry|Board owners are notified when someone posts a message in their message board.|Response|
-|notifyEntryOwnerForComment|Board owners are notified when someone comments on a message board entry.|Response|</p>
-<p>Wikis
-:   |Notification name|Description|Notification type|
-|-----------------|-----------|-----------------|
-|commentAdded|Notification sent to users when a comment is created on a wiki page they are following, or on any page in a wiki they are following.</p>
+<dl>
+<dt>Activities</dt>
+<dd>
+<p>Notification events are enabled by default. Email event types are enabled only if you enabled email notifications during the installation of the product.</p>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addMemberMail</td>
+<td>When an activity owner adds members to an activity, a notification is automatically sent to them to inform them about the activity.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>autoCompleteActivityMail</td>
+<td>Activity owners receive an email to warn them that one of their inactive activities will be marked complete if it is not updated.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>createMail</td>
+<td>When a standard activity is created, each member is sent a notification about the new activity. When a community activity is created, notifications are sent only if individual members are added. No notifications are sent when an entire community membership list is added.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>inviteMemberMail</td>
+<td>When an activity owner invites members to an activity, a notification is automatically sent to them to inform them about the activity.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>notifyMail</td>
+<td>Activity members can send other members notifications about entries.</td>
+<td>Directed</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Blogs</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>approved</td>
+<td>When an entry, idea, or comment is approved, a notification is sent to the author and the last editor.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>confirmflagged</td>
+<td>When a flag on a post, idea, or comment is confirmed, a notification is sent to the flag creator.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notify</td>
+<td>Notifications that one user sends to other users to inform them about useful blog posts.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>notifyassigned</td>
+<td>When a blog owner assigns author, draft, or owner permission for a blog, a notification is sent to the member to inform them of the blog and their access level.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>notifyflagged</td>
+<td>When a post, idea, or comment is flagged as inappropriate, a notification is sent to content reviewers, including anyone in the global-moderator role.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyreposted</td>
+<td>When an entry or idea is modified and reposted, a notification is sent to content reviewers, including anyone in the global-moderator role, to inform them about it.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyreview</td>
+<td>When a new entry, idea, comment, or trackback comment is posted and put in pending status, a notification is sent to content reviewers to notify them that they must review it. Content reviewers include anyone in the global-moderator role.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>ownermsg</td>
+<td>When a new comment is posted, a notification is sent to the entry or idea creator.</td>
+<td>Response</td>
+</tr>
+<tr>
+<td>quarantined</td>
+<td>When an entry, idea, or comment is quarantined, a notification is sent to the authors, including the post creator, its last editor, and blog owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>rejected</td>
+<td>When an entry, idea, or comment is rejected, a notification is sent to the author and last editor.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>restored</td>
+<td>When an entry, idea, or comment is restored, a notification is sent to the author, last editor, and blog owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>returned</td>
+<td>When an entry or idea is returned, a notification is sent to the post authors, including the post creator, its last editor, and blog owners.</td>
+<td>Moderation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Bookmarks</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notifytemplate</td>
+<td>Users can send notifications to other users to inform them about useful bookmarks.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>replaceurltemplate</td>
+<td>Administrator can send a notification to the bookmark owner to report the update of a link.</td>
+<td>This notification is triggered by an MBean</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Communities</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>broadcastMail</td>
+<td>Members can send notifications to other members to inform them about important events.</td>
+<td>Broadcast</td>
+</tr>
+<tr>
+<td>invitedToJoinMail</td>
+<td>Owners can send a notification to a non-member to invite them to join the community.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>memberAddedMail</td>
+<td>Notifications are automatically generated and sent to members when they are added to a community.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>memberRemovedMail</td>
+<td>Notifications are automatically generated and sent to members when they are removed from a community.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>notifyEvent</td>
+<td>Community members can notify other members about specific events by opening the event and selecting <strong>More Actions</strong> > <strong>Notify Other People</strong>. The event owner can also send this notification when the event is created.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>requestToJoinMail</td>
+<td>Users can request to join a Moderated community by sending a notification to the community's owner.</td>
+<td>Directed</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Files</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collectionMediaAdded</td>
+<td>Notification sent to users when a file is added to a folder or community that they are following.</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>collectionMemberUpdated</td>
+<td>Notification sent to users when a folder is shared with them or when their access level changes. This notification applies to individual users, not groups.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>commentAdded</td>
+<td>Notification sent to users when a comment is created on a file that they are following. Users can follow files by opening the file page and clicking <strong>Follow</strong>.</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>communityVisibilityUpdated</td>
+<td>Notification sent to owners of a community when the community changes from non-public to public and when private files that are shared with the community are removed from it.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>mediaUpdated</td>
+<td>Notification sent to users when a file that they are following is updated. Users can follow files by opening the file page and clicking <strong>Follow</strong>.</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>mediaShared</td>
+<td>Notification sent to users when files are shared with them.</td>
+<td>Directed</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Moderation</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notifyapproved</td>
+<td>When an entry is approved, a notification is sent to the entry authors, including the entry's creator and its last editor, and the entry owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyautoquarantined</td>
+<td>When an entry is flagged as inappropriate a specific number of times, a notification is sent to the Global Moderator and Reviewers. The number of inappropriate flags is specified in the autoQuarantine property in the contentreview-config.xml file. For example, if you enter a value of 5 in autoQuarantine, a notification is sent when an entry is flagged for the fifth time.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifydeleted</td>
+<td>When an entry is deleted, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyflagged</td>
+<td>When an entry is flagged as having inappropriate content and is put in pending status, a notification is sent to content reviewers, including anyone in the global-moderator role.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifypending</td>
+<td>When an entry is added and needs approval, a notification is sent to the entry author. Reviewers and moderators are notified separately by a notifyReview email.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyquarantined</td>
+<td>When an entry is quarantined, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyrejected</td>
+<td>When an entry is rejected, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyrestored</td>
+<td>When an entry is restored, a notification is sent to the entry authors, including the entry's creator, its last editor, and the entry owners.</td>
+<td>Moderation</td>
+</tr>
+<tr>
+<td>notifyreview</td>
+<td>When an entry is added and put in pending status, a notification is sent to content reviewers, including anyone in the global-moderator role.</td>
+<td>Moderation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>News</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dailyDigest</td>
+<td>If email notifications are enabled on your system, your preferences are set to the Daily Newsletter option by default. Each option corresponds to a subview within the Updates News Feed view on the Home page. All options can be customized to your preferred frequency.</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>followIndividual</td>
+<td>If email notifications are enabled, they are set to Individual E-mails by default. Each option corresponds to a subview within the Updates News Feed view. Options can be customized to any frequency. Any updates within the corresponding News Feed subview by a person other than yourself are sent to you in individual emails.</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>replyToError</td>
+<td>When a user replies to a ReplyTo enabled notification and an error occurs at the server, a notification is generated and sent to the user.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>weeklyDigest</td>
+<td>If email notifications are enabled on your system, your preferences are set to the Weekly Newsletter option by default. Each option corresponds to a subview within the Updates News Feed view. Options can be customized to a desired frequency.</td>
+<td>Follow</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Profiles</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inviteColleagueMail</td>
+<td>If a person designates someone else as a colleague, the colleague is sent an invitation to join that person's network.</td>
+<td>Directed</td>
+</tr>
+<tr>
+<td>notifyBoardOwnerForComment</td>
+<td>Board owners are notified when someone comments on their message board.</td>
+<td>Response</td>
+</tr>
+<tr>
+<td>notifyBoardOwnerForEntry</td>
+<td>Board owners are notified when someone posts a message in their message board.</td>
+<td>Response</td>
+</tr>
+<tr>
+<td>notifyEntryOwnerForComment</td>
+<td>Board owners are notified when someone comments on a message board entry.</td>
+<td>Response</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Wikis</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Notification name</th>
+<th>Description</th>
+<th>Notification type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commentAdded</td>
+<td>Notification sent to users when a comment is created on a wiki page they are following, or on any page in a wiki they are following.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 <p>Users can follow wiki pages or wikis by opening a page and clicking <strong>Follow</strong>, and then <strong>Follow this Page</strong> or <strong>Follow this Wiki</strong>.</p>
 <p>|Follow|
 |mediaUpdated|Notification sent to users when an event occurs in a wiki page they are following. Events include title or description edits, new tags, and new or deleted pages, edits, or comments.</p>

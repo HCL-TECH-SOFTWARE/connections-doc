@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35441,7 +35441,7 @@
 
 <h1 id="upgrade-considerations-for-side-by-side-migration-of-data">Upgrade considerations for side-by-side migration of data</h1>
 <p>If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.</p>
-<p>Side-by-side migration differs from the approach in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.</p>
+<p>Side-by-side migration differs from the approach in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR2</a> in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.</p>
 <p>Side-by-side migration makes particular sense in certain cases, such as upgrading the whole Kubernetes cluster from a very old version to the latest one, upgrading the underlying container runtime engine, or migrating from one CRI (container runtime interface) to another.</p>
 <p>This page describes, at a high level, what makes a Component Pack setup successful, so that you can plan your side-by-side migration accordingly.</p>
 <p>Recall that Component Pack for HCL Connections is a set of applications grouped together as pods which can be, but don't have to be, dependent on each other. However, the following things must happen for a setup to work:</p>

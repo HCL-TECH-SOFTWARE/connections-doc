@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35317,26 +35333,34 @@
 </li>
 <li>
 <p>Use the following commands to reload the Search configuration and index:</p>
-<p>SearchService.reloadSearchConfiguration()
-:   Reloads the search-config.xml file for Search on the current node only without a restart of the Search application.</p>
+<dl>
+<dt>SearchService.reloadSearchConfiguration()</dt>
+<dd>Reloads the search-config.xml file for Search on the current node only without a restart of the Search application.</dd>
+</dl>
 <pre><code>**Note:** If you are making changes to the configuration of the social analytics service, you still need to restart Search to apply the changes.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.reloadSearchConfigurationAllNodes()
-:   Reloads the search-config.xml file for Search on all nodes in the cluster without a restart of the Search application.</p>
+<dl>
+<dt>SearchService.reloadSearchConfigurationAllNodes()</dt>
+<dd>Reloads the search-config.xml file for Search on all nodes in the cluster without a restart of the Search application.</dd>
+</dl>
 <pre><code>**Note:** If you are making changes to the configuration of the social analytics service, you still need to restart Search to apply the changes.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.reloadIndex()
-:   Reloads the Search index on the current node only without a restart of the Search application.</p>
+<dl>
+<dt>SearchService.reloadIndex()</dt>
+<dd>Reloads the Search index on the current node only without a restart of the Search application.</dd>
+</dl>
 <pre><code>**Note:** If you are making changes to the configuration of the social analytics service, you still need to restart Search to apply the changes.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.reloadIndexAllNodes()
-:   Reloads the Search index on all the nodes in the cluster without a restart of the Search application.</p>
+<dl>
+<dt>SearchService.reloadIndexAllNodes()</dt>
+<dd>Reloads the Search index on all the nodes in the cluster without a restart of the Search application.</dd>
+</dl>
 <pre><code>**Note:** If you are making changes to the configuration of the social analytics service, you still need to restart Search to apply the changes.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.

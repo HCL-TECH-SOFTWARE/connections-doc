@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35415,14 +35415,14 @@
 <ul>
 <li>
 <p>working_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.</p>
-<p>AIX and Linux: The directory must grant write permissions or the command does not run successfully.</p>
+<p>Linux: The directory must grant write permissions or the command does not run successfully.</p>
 </li>
 <li>
 <p>cell_name is the name of the WebSphere® Application Server cell that hosts the IBM Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell()
 For example:</p>
 </li>
 <li>
-<p>AIX or Linux:LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</p>
+<p>Linux:LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")</p>
 </li>
 <li>Microsoft Windows:LCConfigService.checkOutConfig("c:/temp","foo01Cell01")</li>
 </ul>
@@ -35492,9 +35492,15 @@ ssl_href=&quot;https://sametimeProxyServer.enterprise.example.com:443&quot; isEx
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your <strong>Important To Me</strong> navigation bar. For more information, see the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime">Connections Sametime chat extension</a>.</p>
+<ul>
+<li>If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your <strong>Important To Me</strong> navigation bar. For more information, see the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime">Connections Sametime chat extension</a>.</li>
+<li>You can ignore the following configuration in <code>profiles-config.xml</code>, as it is not used for Sametime 12. 
+<div class="highlight"><pre><span></span><code>&lt;sametimeAwareness enabled=&quot;false&quot; href=&quot;http://localhost:59449/stwebapi/&quot; ssl_href=&quot;http://localhost:59449/stwebapi/&quot; sametimeInputType=&quot;uid&quot; /&gt;
+</code></pre></div>
+Make sure to leave enabled as <code>false</code>.</li>
+</ul>
 </div>
-<p><strong>Parent topic:</strong><a href="c_admin_common_customizing.html">Customizing the deployment</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_common_customizing.html">Customizing the deployment</a></p>
 
 
 
