@@ -8,11 +8,11 @@ If you configured HCL Connections to prevent email addresses from being displaye
 
 1.  Open a command prompt and change to the following directory on the WebSphere® Application Server that hostsHCL Connections:
 
-    -   Linux™: /opt/IBM/Connections/ConfigEngine
+    -   AIX® or Linux™: /opt/IBM/Connections/ConfigEngine
     -   Microsoft™ Windows™: C:\\IBM\\Connections\\ConfigEngine
 2.  Enter the following command to run the script that configures HCL Connections to display email addresses on each WebSphere Application Server profile to which you installed an application:
 
-    -   Linux:./ConfigEngine.sh action-expose-email \> /tmp/expose\_email.log 2\>&1
+    -   AIX or Linux:./ConfigEngine.sh action-expose-email \> /tmp/expose\_email.log 2\>&1
     -   Microsoft Windows:ConfigEngine.bat action-expose-email \> D:/expose\_email.log 2\>&1
     For example, on Windows, enter the following command:
 

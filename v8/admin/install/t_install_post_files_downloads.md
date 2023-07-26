@@ -28,6 +28,8 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
 2.  On the server where you installed HCL Connections \(on the deployment manager\), navigate to the [connections\_root](../plan/i_ovr_r_directory_conventions.md)/plugins/ihs/mod\_ibm\_local\_redirect/platform directory to find the module file \(mod\_ibm\_local\_redirect.so\). On supported operating systems, search the following directories:
 
+    -   /aix\_ppc32-ap22
+    -   /aix\_ppc64-ap22
     -   /linux390-ap22
     -   /linux\_ia32-ap22
     -   /linux\_ppc64-ap22
@@ -59,7 +61,7 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
 5.  Grant access to the data directory root:
 
-    -   Linux: Give the IBM HTTP Server user READ and EXECUTE access to the data directory root.
+    -   AIX or Linux: Give the IBM HTTP Server user READ and EXECUTE access to the data directory root.
     -   Microsoft Windows: Give the IBM HTTP Server user READ access to the data directory root. For optimal security, do not grant WRITE access.
     **Notes:**
 

@@ -2,7 +2,7 @@
 
 Grant permissions to a non-root user to install fixes.
 
-This task applies only to HCL Connections™ deployments on Linux®.
+This task applies only to HCL Connections™ deployments on AIX® or Linux®.
 
 By default, only root users have the necessary permissions to install fixes for an Connections deployment. You can permit non-root users to install fixes by changing their permissions to access certain data directories.
 
@@ -46,5 +46,5 @@ Grant permissions to a new non-root user who wants to install a fix pack for an 
 
 4.  Advise the new non-root user to log in and then download and install the latest fixes for Connections.
 
-**Parent topic:** [Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
+**Parent topic:**[Updating Connections 8.0 with the latest fixes](../migrate/c_updating_interim_fixes.md)
 

@@ -1,12 +1,12 @@
-# Steps to install or upgrade to Component Pack 8 CR2 {#cp_install_services_tasks .concept}
+# Steps to install or upgrade to Component Pack 8 CR1 {#cp_install_services_tasks .concept}
 
-Use these steps to help you install Component Pack 8 CR2 or replace Component Pack 7 or 8 with 8 CR2.
+Use these steps to help you install Component Pack 8 CR1 or replace Component Pack 7 or 8 with 8 CR1.
 
 ## Before you begin {#section_awd_rwp_tnb .section}
 
 For background information and where to get the latest download, see [Installation and upgrade](cp_install_upgrade_container.md).
 
-When preparing to install or upgrade to Component Pack 8 CR3, consider the recommendations in [Upgrade considerations for Component Pack 8 CR3](upgrade_considerations.md).
+When preparing to install or upgrade to Component Pack 8, consider the recommendations in [Upgrade considerations for Component Pack 8 CR1](upgrade_considerations.md).
 
 Before starting the steps, note the following:
 
@@ -53,7 +53,7 @@ Starting with Connections 7.0, it is possible to use different types of storage.
 
 ## Installation vs. upgrade steps {#section_v5r_1dj_dvb .section}
 
-This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8 CR3. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to 8 CR3. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
+This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8 CR1. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to 8 CR1. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
@@ -287,7 +287,7 @@ Register the snapshot repository in Elasticsearch 7:
     mkdir -p /pv-connections/opensearchbackup
     ```
 
-    Connections 8.0 CR2 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
+    Connections 8.0 CR1 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
 
 3.  Similarly with MongoDB 5, you need PVs for all the replicas of mongo5 pod. So, create additional MongoDB volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group:
 
@@ -417,7 +417,7 @@ For more details, see [Pod Security Admission](https://kubernetes.io/docs/concep
 
 ## Set up Helm charts {#setup_helm .section}
 
-Install or upgrade to the Connections 8.0 CR2 Kubernetes by deploying the Helm charts delivered with Component Pack 8 CR2.
+Install or upgrade to the Connections 8.0 CR1 Kubernetes by deploying the Helm charts delivered with Component Pack 8.
 
 The [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) includes a set of templates to override the default values to values that are appropriate to your environment. The resulting files are the ones used by the following Helm upgrade commands using the -f option.
 
@@ -453,7 +453,7 @@ Make sure that the network configuration of your NFS environment is correct befo
 
     It might take some time to delete the existing volumes.
 
-2.  If you have upgraded the existing Component Pack 7 charts instead of deleting them and starting with a fresh Component Pack 8 CR2 installation, perform this step. Otherwise, skip to the next step.
+2.  If you have upgraded the existing Component Pack 7 charts instead of deleting them and starting with a fresh Component Pack 8 installation, perform this step. Otherwise, skip to the next step.
 
     This is because if you deleted all Component Pack 7 charts, the linked PVs and PVCs are properly removed and therefore do not need further action. However, if you upgraded the charts, you would need to manually touch those PVs and PVCs.
 
@@ -512,7 +512,7 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis and OpenSearch.
 
-Bootstrap installation overwrites existing secrets only if the 'force_regenerate' flag is set to true or if the related component service is not configured on the Kubernetes cluster. Once secrets have been overwritten, you need to redo certain configuration steps, such as SSL interoperability with OpenSearch.
+Be aware that bootstrap installation overwrites existing secrets, and therefore requires redoing some configuration steps, like SSL interoperability with OpenSearch.
 
 1.  Start by deleting the existing chart:
 
@@ -569,7 +569,7 @@ kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk
 
 ## Install MongoDB 5 {#inst_mongo5 .section}
 
-Perform the steps in [Installing MongoDB 5 for Component Pack 8 CR2](installing_mongodb_5_for_component_pack_8.md).
+Perform the steps in [Installing MongoDB 5 for Component Pack 8](installing_mongodb_5_for_component_pack_8.md).
 
 ## Set up infrastructure charts {#infra_chart .section}
 
@@ -713,7 +713,7 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
     kubectl get pods -n connections | grep -iE "orient|itm-services|community-suggestions|middleware-graphql|people-idmapping|people-migrate|people-relation|people-scoring|userprefs-service"
     ```
 
-5.  If you are upgrading to Connections 8.0 CR2, perform these additional steps:
+5.  If you are upgrading to Connections 8.0 CR1, perform these additional steps:
 
     1.  Check if the Home page works fine from your browser by navigating to the /homepage URL.
 
@@ -747,7 +747,7 @@ Learn more about configuring Orient Me in [Configuring the Orient Me component](
 
 **Before you begin**
 
-Component Pack for HCL Connections 8.0 CR2 comes with OpenSearch enabled by default – this is the only backend for Metrics starting from Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8 CR2.
+Component Pack for HCL Connections 8.0 CR1 comes with OpenSearch enabled by default – this is the only backend for Metrics starting from Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8.
 
 If you are on HCL Connections 6.5.0.1 or earlier, and using ElasticSearch 5, there are two options:
 
@@ -859,7 +859,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     2.  Merge the Signer certificate into the opensearch-metrics.p12 keystore:
 
         ``` {#codeblock_krg_nmg_fvb}
-        execfile('esSearchAdmin.py')    
+        execfile('esSecurityAdmin.py')    
         enableSslForESSearch('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
         ```
 
@@ -1070,7 +1070,7 @@ For post-installation tasks required to deploy the community creation wizard and
         print AdminControl.getCell()
         ```
 
-    **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.
+    **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On AIX and Linux, the directory must grant write permissions or the command fails.
 
 4.  Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the <properties\> </properties\> tag as shown below:
 
@@ -1161,12 +1161,12 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
 
 To enable the Connections add-in for Microsoft Outlook, see [Making the Connections Add-in for Outlook available to users](cp_3p_outlook_make_available_to_users.md).
 
--   **[Installing MongoDB 5 for Component Pack 8 CR2](../install/installing_mongodb_5_for_component_pack_8.md)**  
-Install MongoDB 5 for Component Pack 8 CR2.
+-   **[Installing MongoDB 5 for Component Pack 8](../install/installing_mongodb_5_for_component_pack_8.md)**  
+Install MongoDB 5 for Component Pack 8.
 -   **[Migrating data from MongoDB 3 to 5](../install/migrating_data_mongodb_v3_v5.md)**  
 Back up, copy, restore, and validate your MongoDB databases.
 -   **[Migrating data from Elasticsearch 7 to OpenSearch](../install/cp_migrate_data_from_es7_to_opensearch.md)**  
-To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.0 CR2.
+To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.0 CR1.
 
 **Parent topic:** [Installation and upgrade](../install/cp_install_upgrade_container.md)
 

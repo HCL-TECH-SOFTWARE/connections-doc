@@ -3,7 +3,7 @@
 The XML configuration file, config.xml, is used to adjust settings once the editor is loaded. The config.xml file can be found as follows:
 
 -   On the Windows operating system, you can find config.xml in C:\\IBM\\Connections\\data\\shared\\\\customization\\javascript\\ephox\\ephoxeditors\\connections\\config.xml
--   On Linux operating system, you can find config.xml in /opt/ibm/Connections/data/shared/customization/javascript/ephox/ephoxeditors/connections/config.xml
+-   On AIX or Linux operating system, you can find config.xml in /opt/ibm/Connections/data/shared/customization/javascript/ephox/ephoxeditors/connections/config.xml
 
 Consider making a backup copy of config.xml, before editing it.
 

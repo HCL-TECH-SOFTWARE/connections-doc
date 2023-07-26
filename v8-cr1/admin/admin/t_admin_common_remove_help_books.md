@@ -32,7 +32,7 @@ The help system enables users to navigate from the help for one application to a
 
     -   temp\_directory is the name of a temporary directory on your system. The directory you specify can be any directory, but it must exist before you enter the command. When you enter the command, an XML file called helpData.xml is added to this directory and is used by the command.
 
-        Linux: The directory must grant write permissions or the command does not complete successfully.
+        AIX, and Linux: The directory must grant write permissions or the command does not complete successfully.
 
     -   application\_name is the name of the application whose help section you want to include in the table of contents. List each application name separated by commas. The options are:
         -   activities

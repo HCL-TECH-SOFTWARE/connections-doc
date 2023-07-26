@@ -18,7 +18,7 @@ This topic describes how to configure the Edge components to optimize the perfor
 
 1.  Open the ibmproxy.conf configuration file for the Edge components in a text editor. The file is stored in the following directory:
 
-    -   Linux™:/etc/
+    -   AIX® or Linux™:/etc/
     -   Microsoft™ Windows™: C:\\Program Files\\IBM\\edge\\cp\\etc\\en\_US\\
 2.  Make the following edits to the file:
 

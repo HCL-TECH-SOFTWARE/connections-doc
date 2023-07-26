@@ -62,4 +62,4 @@ Create an App Package for your Microsoft Teams App: https://docs.microsoft.com/e
 Publish a Custom App by Uploading an App Package: https://docs.microsoft.com/en-us/MicrosoftTeams/upload-custom-apps
 ## What to do next {#section_w2g_3bg_vnb .section}
 
-Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in [Steps to install or upgrade to Component Pack 8 CR2](../../admin/install/cp_install_services_tasks.md#teams_integ).
+Deploy the microservices and configure IBM HTTP Server for Teams. See the "Set up Microsoft Teams integration" section in [Steps to install or upgrade to Component Pack 8](../../admin/install/cp_install_services_tasks.md#teams_integ).

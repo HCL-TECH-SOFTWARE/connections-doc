@@ -257,5 +257,5 @@ Use the UI to verify that the Metrics and type-ahead search data was migrated su
     2.  Navigate to some content, such as a forum, wiki, or community. View a global report and verify that the migrated data displays.
     3.  Open the type-ahead search sidebar by clicking the Search icon. Verify that you can see the content you viewed at the top of the list.
 
-**Parent topic:** [Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
 

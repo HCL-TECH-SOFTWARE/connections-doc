@@ -10,7 +10,7 @@ You do not have to run this script frequently. Schedule this task during another
 
 1.  Copy the reorg.sql script to the root directory of the application database for which you want to improve performance. The scripts are stored in the following directory:
 
-    -   Linux™:/Lotus\_Connections\_Install/connections.sql/ application\_subdirectory/db2
+    -   AIX® or Linux™:/Lotus\_Connections\_Install/connections.sql/ application\_subdirectory/db2
     -   Microsoft™ Windows™:\\Lotus\_Connections\_Install\\connections.sql\\ application\_subdirectory\\db2
     where application\_subdirectory is the directory of the application for which you are improving database access performance. Choose one of the following subdirectories:
 

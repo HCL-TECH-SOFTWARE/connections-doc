@@ -32,7 +32,7 @@ ForumsConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
 
     For example:
 
-    -   Linux™:ForumsConfigService.checkOutConfig\("/opt/my\_temp\_dir", "CommServerNode01Cell"\)
+    -   AIX® or Linux™:ForumsConfigService.checkOutConfig\("/opt/my\_temp\_dir", "CommServerNode01Cell"\)
     -   Microsoft™ Windows™:ForumsConfigService.checkOutConfig\("c:/temp","foo01Cell01"\)
 
 ForumsConfigService.checkInConfig\(\)

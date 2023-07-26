@@ -12,7 +12,7 @@ To create encrypted passwords for a response file, complete the following steps:
 
 2.  Run the following command:
 
-    -   Linux™: ./imutilsc encryptString Password -silent -noSplash
+    -   AIX® or Linux™: ./imutilsc encryptString Password -silent -noSplash
     -   Windows™: imutilsc.exe encryptString Password -silent -noSplash
 
         where Password is your password.

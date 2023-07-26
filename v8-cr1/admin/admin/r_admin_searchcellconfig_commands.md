@@ -124,12 +124,12 @@ SearchCellConfig.enableVerboseLogging\(\)
 SearchCellConfig.excludeInactiveProfilesSearchResults\(\)
 :   Specifies that the documents corresponding to inactive user profiles are excluded from search results. In a default installation of HCL Connections, inactive user profiles are automatically excluded from search results.
 
-    This command updates the checked out search-config.xml file by setting: <profilesSearch includeInactiveUsers="false"/\> as a child element of <config\>.
+    This command updates the checked out seach-config.xml file by setting: <profilesSearch includeInactiveUsers="false"/\> as a child element of <config\>.
 
 SearchCellConfig.includeInactiveProfilesSearchResults\(\)
 :   Specifies that the documents corresponding to inactive user profiles are included in search results. In a default installation of HCL Connections, inactive user profiles are automatically excluded from search results.
 
-    This command updates the checked out search-config.xml file by setting: <profilesSearch includeInactiveUsers="true"/\> as a child element of <config\>.
+    This command updates the checked out seach-config.xml file by setting: <profilesSearch includeInactiveUsers="true"/\> as a child element of <config\>.
 
 SearchCellConfig.listDictionaries\(\)
 :   Lists the LanguageWare dictionaries that are configured for Search. These dictionaries are used by common Search to support indexing multilingual content and searching in multiple languages.

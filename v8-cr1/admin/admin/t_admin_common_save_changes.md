@@ -50,5 +50,7 @@ After you edit configuration properties for an HCL Connections application, chec
 
 [Customizing the user interface](../customize/t_admin_common_customize_main.md)
 
+[Customizing product strings](../customize/t_customize_strings_global.md)
+
 [Turning off active content filtering](../secure/t_admin_common_turn_off_filter.md)
 

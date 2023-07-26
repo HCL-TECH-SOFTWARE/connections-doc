@@ -112,6 +112,8 @@ Without installed fonts, the PDF rendering may result in unsatisfactory result. 
     /usr/share/fonts/TTF/DejaVuSans-Bold.ttf: DejaVu Sans:style=Bold
     ```
 
+-   AIX: Binaries can be found at http://www.perzl.org/aix/index.php%3Fn%3DMain.Dejavu-fonts
+
 -   Windows:
 
     -   The fonts can be found at https://dejavu-fonts.github.io/Download.html

@@ -6,7 +6,7 @@ Complete this task to ensure that the HTTP server redirects users to the Orient 
 
 Using the sample deployment described in [Steps to install or upgrade to Component Pack](cp_install_services_tasks.md#section_awd_rwp_tnb), the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).
 
-1.  Log in to the HTTP server as the root user \(Linux™\) or the administrator \(Windows™\).
+1.  Log in to the HTTP server as the root user \(AIX®, Linux™\) or the administrator \(Windows™\).
 
 2.  Backup the current httpd.conf.
 
@@ -14,6 +14,7 @@ Using the sample deployment described in [Steps to install or upgrade to Compone
 
     The http.conf file is typically stored in the following location:
 
+    -   AIX: /opt2/IBM/HTTPServer/
     -   Linux: /opt/IBM/HTTPServer/conf/
     -   Windows: D:\\IBM\\HTTPServer\\conf\\
 
@@ -100,5 +101,5 @@ Using the sample deployment described in [Steps to install or upgrade to Compone
 8.  To verify the proxy, open a browser to https://nginx.example.com/social/views/login.html and make sure you get the Orient-Me POC login screen. Do it again to https://nginx.example.com/social/views/login.html
 
 
-**Parent topic:** [Configuring the Orient Me component](../install/cp_config_om_intro.md)
+**Parent topic:**[Configuring the Orient Me component](../install/cp_config_om_intro.md)
 

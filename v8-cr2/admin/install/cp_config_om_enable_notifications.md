@@ -1,10 +1,8 @@
-# Configuring the Top Updates home page {#cp_config_om_enable_notifications .task}
+# Configuring the Orient Me home page {#cp_config_om_enable_notifications .task}
 
-<!--Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.
+Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.
 
-The following changes are required to enable the Notification Center tailored to work with the Orient Me home page. The Notification Center lets users view prioritized updates and track commitments for the day.-->
-
-The following changes are required to enable the Top Updates tab on the user's home page.
+The following changes are required to enable the Notification Center tailored to work with the Orient Me home page. The Notification Center lets users view prioritized updates and track commitments for the day.
 
 1.  On the WebSphere® deployment manager machine, start the wsadmin client as described in [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md).
 
@@ -26,7 +24,7 @@ The following changes are required to enable the Top Updates tab on the user's h
     -   `cell\_name` is the name of the WebSphere Application Server cell that hosts the Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: `print AdminControl.getCell()`
     For example:
 
-    -   Linux®:
+    -   AIX® or Linux®:
 
         ```
         LCConfigService.checkOutConfig("/opt/temp","foo01Cell01")
@@ -72,7 +70,7 @@ The following changes are required to enable the Top Updates tab on the user's h
         </sloc:serviceReference>
         ```
 
-    2.  **(Optional)** Enable the actioncenter property:
+    2.  Enable the actioncenter property:
 
         Locate the following statement:
 
@@ -88,16 +86,49 @@ The following changes are required to enable the Top Updates tab on the user's h
 
         If the property does not exist, then create it.
 
+    3.  Set Orient Me up as the default home page:
+
+        Locate the following statement:
+
+        ```
+        <genericProperty name="com.ibm.orient.isOrientHomepage">false</genericProperty>
+        ```
+
+        and set it to `true`; for example:
+
+        ```
+        <genericProperty name="com.ibm.orient.isOrientHomepage">`true`</genericProperty>
+        ```
+
+        If the property does not exist, then create it.
+
+    4.  \(Optional\) Disable the home page switcher.
+
+        The menu option that allows users to switch between the Orient Me home page and the classic home page is enabled by default. If you wish to disable it, locate the `isHomepageSwitcherEnabled` property \(or create it is it does not exist\) and set it to `false`. For example:
+
+        ```
+        <genericProperty name="com.ibm.orient.isHomepageSwitcherEnabled">false</genericProperty>
+        ```
+
 6.  Save your changes to LotusConnections-config.xml.
 
+7.  Add an enumeration value for the Orient Me service to the service names section in the service-location.xsd file.
 
-7.  After you make changes, check the configuration files in by running the following command in the wsadmin session that you left open:
+    The new value should match the `serviceName` value for the `serviceReference` that you uncommented in step 5a; for example:
+
+    ```
+    <xsd:enumeration value="orient" />
+    ```
+
+8.  Save your changes to service-location.xsd.
+
+9.  After you make changes, check the configuration files in by running the following command in the wsadmin session that you left open:
 
     ```
     LCConfigService.checkInConfig()
     ```
 
-8. Stop and then restart the servers that host the Connections applications.
+10. Stop and then restart the servers that host the Connections applications.
 
 
 **Parent topic:**[Configuring the Orient Me component](../install/cp_config_om_intro.md)

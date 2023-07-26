@@ -30,7 +30,6 @@ To test a database connection, complete the following steps:
     -   Profiles: **profiles**
     -   Search: **search**
     -   Wikis: **wikis**
-
 5.  Click **Test connection**.
 
 6.  If the connection fails, make sure the JAAS Auth alias information is correct.
@@ -52,12 +51,9 @@ To test a database connection, complete the following steps:
         -   Profiles: **profilesJAASAuth**
         -   Search: **searchJAASAuth**
         -   Wikis: **wikisJAASAuth**
-
     3.  Make sure that the ID in the user ID field is the same User ID that you provided during installation when you were asked to specify a user ID for the database connector.
 
         The user ID should be one of the following default IDs:
-
-        Table 1. Default user ID for Connections databases
 
         |Application|DB2® database|DB2 User ID|Oracle database|Oracle User ID|SQL Server database|SQL Server User ID|
         |-----------|-------------|-----------|---------------|--------------|-------------------|------------------|
@@ -98,7 +94,6 @@ To test a database connection, complete the following steps:
         -   Profiles: **PROFILES\_JDBC\_DRIVER\_HOME**
         -   Search: **SEARCH\_JDBC\_DRIVER\_HOME**
         -   Wikis: **WIKIS\_JDBC\_DRIVER\_HOME**
-
     3.  Ensure that the corresponding file path in the **Value** column is the same file path that you specified in the **JDBC driver library** field when you ran the installation wizard. For example:
 
         ```
@@ -110,7 +105,7 @@ To test a database connection, complete the following steps:
     4.  Select **JDBC** \> **Data sources** to return to the data source. Select the check box next to the data source, and then click **Test connection**.
 
 
-**Parent topic:** [Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
+**Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 
 **Related information**  
 

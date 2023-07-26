@@ -91,7 +91,7 @@ acf-config-nm-flash.xml
             **Notes:**
 
             -   When you specify a path to the working directory on a system that is running Microsoft® Windows®, use a forward slash for the directory. For example: "C:/temp".
-            -   Linux® only: The directory must grant write permissions or the command fails.
+            -   AIX®, and Linux® only: The directory must grant write permissions or the command fails.
         -   cell\_name is the name of the WebSphere® Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell\(\)
 
             **Note:** This input parameter is case-sensitive.

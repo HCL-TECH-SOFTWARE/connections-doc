@@ -43,17 +43,28 @@ Verify that all necessary prerequisite conditions are complete before installing
 -   Use a worksheet to record the user IDs, passwords, server names, and other information that you need during and after installation. For more information, see the *Worksheet for installing HCL Connections* topic.
 -   Installing and configuring HCL Connections is a complex process; not only should you read the instructions but you must also pay attention to the *Before you begin* prerequisites in each topic.
 
-## Linux considerations 
+## Linux and AIX considerations 
 
--   If you receive an error message after attempting to start IBM Installation Manager, you might need to install additional 32-bit libraries. For more information about required Linux libraries, see the *Linux libraries* topic. For more information about IBM Installation Manager errors, go to the [Unable to install Installation Manager on RHEL 6.0/6.1 \(64-bit\)](https://www-304.ibm.com/support/docview.wss?uid=swg21459143) web page.
--   Ensure that the directory paths that you enter contain no spaces.
--   \(IBMi,and Linux\) Ensure that the Open File Descriptor limit is 8192. For information about setting the file limit, go to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E.
+-   \(Linux only\) If you receive an error message after attempting to start IBM Installation Manager, you might need to install additional 32-bit libraries. For more information about required Linux libraries, see the *Linux libraries* topic. For more information about IBM Installation Manager errors, go to the [Unable to install Installation Manager on RHEL 6.0/6.1 \(64-bit\)](https://www-304.ibm.com/support/docview.wss?uid=swg21459143) web page.
+-   \(AIX and Linux\) Ensure that the directory paths that you enter contain no spaces.
+-   \(AIX, IBMi, and Linux\) Ensure that the Open File Descriptor limit is 8192. For information about setting the file limit, go to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E.
+-   \(AIX only\) IBM Installation Manager requires additional libraries for the AIX operating system. For more information, go to the [Required filesets on AIX for Installation Manager](http://www-01.ibm.com/support/docview.wss?uid=swg21584548) web page.
+-   \(AIX only\) IBM Installation Manager requires additional 64-bit AIX libraries to support the graphical user interface. 
+-   \(AIX only\) If IBM Installation Manager hangs while being installed on your system, you might need to update your version of the software. For more information, read the [IBM Installation Manager hangs on 64-bit AIX systems](http://www-01.ibm.com/support/docview.wss?uid=swg21431957) technote.
+-   \(AIX only\) If you are downloading IBM Installation Manager, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM distributes through the AIX Toolbox for Linux Applications at the [IBM AIX Toolbox](http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html) website. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.
 
--   You can install HCL Connections with either root or non-root accounts on Linux. For more information, see the *Installing as a non-root user* topic.
+    After installing the GNU-compatible compression program, change to the directory where you downloaded the HCL Connections tar file. Enter the following command to extract the files from the file:
+
+    gtar -xvf HCL\_Connections\_6.5\_wizards\_lin\_aix.tar
+
+    This command creates a directory named after IBM Installation Manager.
+
+-   You can install HCL Connections with either root or non-root accounts on AIX and Linux. For more information, see the *Installing as a non-root user* topic.
 
 -   **[Linux libraries](../install/r_linux_libraries.md)**  
 Linux libraries that are required for deploying HCL Connections.
-
+-   **[AIX libraries](../install/r_aix_libraries-N.md)**  
+Installation Manager requires additional 64-bit AIX libraries to support the graphical user interface in an HCL Connections deployment.
 
 **Parent topic:** [Pre-installation tasks](../install/c_preinstall_actions.md)
 

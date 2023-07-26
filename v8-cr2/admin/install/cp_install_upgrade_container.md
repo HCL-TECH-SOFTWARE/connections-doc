@@ -30,7 +30,7 @@ Perform the following steps chronologically, in the order that they appear in th
 
 ### For a fresh installation {#cp_install_table .section}
 
-|Installing Component Pack 8 CR2|
+|Installing Component Pack 8 CR1|
 |-----|
 |1.  Install or upgrade HCL Connections|
 |2.  [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb)|
@@ -56,7 +56,7 @@ Perform the following steps chronologically, in the order that they appear in th
 
 ### For an upgrade
 
-|Upgrading Component Pack 7 to 8 CR1|Upgrading Component Pack 8 to 8 CR2|
+|Upgrading Component Pack 7 to 8 CR1|Upgrading Component Pack 8 to 8 CR1|
 |-------------------------------|-------------------------------|
 |1.  Install or upgrade HCL Connections|1.  Install or upgrade HCL Connections|
 |2. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb) to ensure that you have NFS setup with proper folders and specific permissions.|2. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb) to ensure that you have NFS setup with proper folders and specific permissions.|
@@ -88,7 +88,7 @@ Perform the following steps chronologically, in the order that they appear in th
 |27. [Set up Activities Plus](cp_install_services_tasks.md#activities_plus)||
 |28. [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin)||
 
-For more information, see [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md).
+For more information, see [Steps to install or upgrade to Component Pack 8 CR1](cp_install_services_tasks.md).
 
 ### For OpenShift deployment
 
@@ -98,14 +98,14 @@ Refer to [Installing Component Pack on OpenShift](cp_openshift.md) for details.
 
 Refer to [Installing Component Pack using EKS](cp_eks.md) for details.
 
--   **[Upgrade considerations for Component Pack 8 CR2](../install/upgrade_considerations.md)**  
-The upgrade path described in [Steps to install or upgrade to Component Pack 8 CR2](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
+-   **[Upgrade considerations for Component Pack 8 CR1](../install/upgrade_considerations.md)**  
+The upgrade path described in [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
 -   **[Upgrade considerations for side-by-side migration of data](../install/cp_upgrade_considerations_for_side_by_side_migration.md)**  
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.
 
--   **[Steps to install or upgrade to Component Pack 8 CR2](../install/cp_install_services_tasks.md)**  
-Use these steps to help you install Component Pack 8 CR2 or replace Component Pack 7 or 8 with 8 CR2.
+-   **[Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md)**  
+Use these steps to help you install Component Pack 8 CR1 or replace Component Pack 7 or 8 with 8 CR1.
 
 -   **[Installing Component Pack on OpenShift](../install/cp_openshift.md)**  
 This document outlines the steps for OpenShift deployment.

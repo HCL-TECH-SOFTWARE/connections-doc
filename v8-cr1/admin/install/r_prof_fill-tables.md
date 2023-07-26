@@ -99,5 +99,5 @@ aq;Antarctica
 ar;Argentina
 ```
 
-You can find more sample CSV files in the wizard\_files\_directory/TDIPopulation/TDISOL/lin\|win/samples directory, where the wizard\_files\_directory is the location of the various Wizard files that you downloaded or received on disk, and lin\|win is the Linux® or Microsoft® Windows® version of the directory.
+You can find more sample CSV files in the wizard\_files\_directory/TDIPopulation/TDISOL/aix\|lin\|win/samples directory, where the wizard\_files\_directory is the location of the various Wizard files that you downloaded or received on disk, and aix\|lin\|win is the AIX®, Linux®, or Microsoft® Windows® version of the directory.
 

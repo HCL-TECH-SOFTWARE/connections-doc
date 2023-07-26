@@ -10,8 +10,8 @@ To disable anonymous access to the sitemap, complete the following steps:
 
 1.  Open the web.xmlfile in a text editor. The default location of the file is:
 
-    -   Linux™: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
-    -   Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
+    -   AIX® or Linux™: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
+    -   AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
     -   Windows: [connections\_root](../plan/i_ovr_r_directory_conventions.md)\\Wikis.ear\\wikis.web.war\\WEB-INF\\web.xml
 2.  In the **servlet** stanza, change the value of the **allow.anonymous.access** parameter to false.
 

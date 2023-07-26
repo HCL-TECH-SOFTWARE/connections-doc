@@ -6,7 +6,7 @@ Encrypt your administrator passwords. For more information about encrypting pass
 
 Silent installation uses the parameters in a response file to install the same HCL Connections profile on multiple computers.
 
-If you are silently installing HCL Connections as a non-root user in a Linux™ environment, you must specify that parameter in the silent-install.ini file.
+If you are silently installing HCL Connections as a non-root user in an AIX® or Linux™ environment, you must specify that parameter in the silent-install.ini file.
 
 1.  Navigate to the [*connections\_root*](../plan/i_ovr_r_directory_conventions.md) directory and open the LC.rsp response file.
 
@@ -28,10 +28,11 @@ If you are silently installing HCL Connections as a non-root user in a Linux™ 
 
 5.  Save your changes.
 
-6.  If you are performing the silent installation as a non-root user on Linux systems, complete the following steps:
+6.  If you are performing the silent installation as a non-root user on AIX or Linux systems, complete the following steps:
 
     1.  Open the silent-install.ini file for editing from the following location:
 
+        -   AIX: HCL\_Connections\_set-up/HCL\_Connections\_Install/IM/aix/silent-install.ini
         -   Linux: HCL\_Connections\_set-up/HCL\_Connections\_Install/IM/linux/silent-install.ini
         -   Linux on System z®: HCL\_Connections\_set-up/HCL\_Connections\_Install\_s390/IM/zlinux/silent-install.ini
         where HCL\_Connections\_set-up is the HCL Connections set-up directory or installation media.

@@ -11,7 +11,7 @@ For more information about the removeNode command, see [removeNode command](http
 
 4.  Run the following script to remove the node:
 
-    -   Linux:
+    -   AIX or Linux:
 
         ./removenode.sh\[-username uid\] \[-password pwd\]
 

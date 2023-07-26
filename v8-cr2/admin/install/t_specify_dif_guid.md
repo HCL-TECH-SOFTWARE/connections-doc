@@ -91,6 +91,7 @@ To specify a custom attribute as the unique ID for users or groups, complete the
 
 3.  Add the new property types to each repository adapter. Open the wimconfig.xml file in a text editor.
 
+        |**AIX®**|/usr/IBM/WebSphere/AppServer/profiles/<profile\_name\>/config/cells/<cell\_name\>/wim/config|
     |**Linux™**|/opt/IBM/WebSphere/AppServer/profiles/<profile\_name\>/config/cells/<cell\_name\>/wim/config|
     |**Microsoft™ Windows™**|C:\\IBM\\WebSphere\\AppServer\\profiles\\<profile\_name\>\\config\\cells\\<cell\_name\>\\wim\\config|
 

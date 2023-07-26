@@ -319,7 +319,7 @@ ActivitiesConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
     working\_directory
     :   Temporary working directory to which the configuration files are copied. The files are kept in this working directory while you make changes to them. When you specify a path to the working directory on a system running Microsoft™ Windows™, use a forward slash for the directory. For example: "C:/temp".
 
-        **Note:** Linux™: The working directory must grant write permissions or the command will not run successfully.
+        **Note:** AIX®, and Linux™: The working directory must grant write permissions or the command will not run successfully.
 
     cell\_name
     :   Name of the WebSphere® Application Server cell hosting the Lotus® Connections application. If you do not know the cell name, type the following command while in the wsadmin command processor:
@@ -330,7 +330,7 @@ ActivitiesConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
 
     For example:
 
-    -   Linux:
+    -   AIX/Linux:
 
         ```
         ActivitiesConfigService.checkOutConfig("/opt/my_temp_dir", "CommServerNode01Cell")

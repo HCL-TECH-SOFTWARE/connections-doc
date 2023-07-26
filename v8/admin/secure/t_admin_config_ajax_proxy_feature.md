@@ -31,6 +31,12 @@ To configure the AJAX proxy for a specific application, complete the following s
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
+        AIX:
+        /usr/IBM/WebSphere/AppServer
+        
+        ```
+
+        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -50,7 +56,7 @@ To configure the AJAX proxy for a specific application, complete the following s
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -61,7 +67,7 @@ To configure the AJAX proxy for a specific application, complete the following s
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
     3.  Access the configuration service files for the application to which you want to apply special proxy configuration rules using the following command:
 

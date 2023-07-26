@@ -150,7 +150,7 @@ com.ibm.websphere.security.performTAIForUnprotectedURI
         -   ADFSIdPMapping is used for MS ADFS 2.0, SAML 2.0 IdP only.
     2.  Obtain the com.ibm.connections.concerto.services.jar from the [connections\_root](http://www-10.lotus.com/ldd/lcwiki.nsf/xpDocViewer.xsp?lookupName=IBM+Connections+4.5+Documentation#action=openDocument&res_title=Directory_path_conventions_ic45&content=pdcontent)/Concerto directory and copy this file into the WebSphere Application Server’s library extension folder. For example, copy com.ibm.connections.concerto.services.jar to:
         -   Windows™: C:\\IBM\\WebSphere\\AppServer\\lib\\ext
-        -   Linux™: /opt/IBM/WebSphere/AppServer/lib/ext
+        -   AIX®, Linux™: /opt/IBM/WebSphere/AppServer/lib/ext
         -   **Note:** For a multi-node ND deployment, all the nodes must have this redirection service JAR available for the SAML TAI to pick up.
 
 10. Restart the deployment as follows:

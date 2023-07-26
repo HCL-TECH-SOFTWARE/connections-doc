@@ -10,7 +10,7 @@ To modify your installation, complete the following steps:
 
 2.  Run the following command:
 
-    -   Linux: ./launcher
+    -   AIX or Linux: ./launcher
     -   Windows: launcher.exe
 3.  From the IBM Installation Manager menu, click **File** \> **Preferences**.
 
@@ -106,6 +106,10 @@ To modify your installation, complete the following steps:
 
     5.  Enter the **JDBC driver location**. For example:
 
+        -   AIX:
+
+            /usr/IBM/WebSphere/AppServer/lib
+
         -   Linux:
 
             /opt/IBM/WebSphere/AppServer/lib
@@ -156,8 +160,8 @@ To modify your installation, complete the following steps:
 
 The log file for IBM Installation Manager records the values that you entered when you ran IBM Installation Manager in interactive mode. To review the log file for IBM Installation Manager, open the date\_time.xml file, where date\_time represents the date and time of the installation. The file by default is in the following directory:
 
--   Linux \(root user\): /var/ibm/InstallationManager/logs
--   Linux \(non-root user\): user\_home/var/ibm/InstallationManager/logswhere user\_home is the non-root user account directory
+-   AIX or Linux \(root user\): /var/ibm/InstallationManager/logs
+-   AIX or Linux \(non-root user\): user\_home/var/ibm/InstallationManager/logswhere user\_home is the non-root user account directory
 
 To check the complete details of the installation, open each of the log files in the [connections\_root](../plan/i_ovr_r_directory_conventions.md)/logs directory. Each HCL Connections application that you installed has a log file, using the following naming format: applicationInstallog.txt, where application is the name of an HCL Connections application.
 

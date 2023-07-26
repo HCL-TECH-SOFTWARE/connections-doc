@@ -56,6 +56,8 @@ To configure IBM HTTP Server for encrypted connections, complete the following s
     -   `server_name` is the host name of the IBM HTTP Server.
     -   `path_to_key_file` is the path to the key file that you created with the iKeyman utility.
     For example:
+    -   AIX®:
+        -   `Keyfile "/usr/IBM/keyfiles/key_file.kdb"`
     -   Linux™:
         -   `Keyfile "/opt/IBM/keyfiles/key_file.kdb"`
     -   Microsoft™ Windows™:

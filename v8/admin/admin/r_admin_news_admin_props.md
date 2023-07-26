@@ -149,7 +149,7 @@ NewsCellConfig.checkOutConfig\("working\_directory", "cell\_name"\)
 
     For example:
 
-    -   Linux:
+    -   AIX/Linux:
 
         ```
         NewsCellConfig.checkOutConfig("/opt/my_temp_dir", 

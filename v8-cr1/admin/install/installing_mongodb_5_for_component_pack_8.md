@@ -1,6 +1,6 @@
-# Installing MongoDB 5 for Component Pack 8 CR1 {#installing_mongodb_5_for_component_pack_8 .concept}
+# Installing MongoDB 5 for Component Pack 8 {#installing_mongodb_5_for_component_pack_8 .concept}
 
-Install MongoDB 5 for Component Pack 8 CR1.
+Install MongoDB 5 for Component Pack 8.
 
 ## Before you begin {#section_zhd_414_y5b .section}
 
@@ -123,5 +123,5 @@ Ensure you have the following:
             ```
 
 
-**Parent topic:** [Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
 

@@ -16,6 +16,18 @@ To install fixes in silent mode, complete the following steps:
 
 2.  Open a command prompt from the updateInstaller directory under the [connections\_root](../plan/i_ovr_r_directory_conventions.md) directory and enter the following commands \(without the carriage returns\):
 
+    -   AIX:
+
+        ```
+        chmod +x updateSilent.sh
+        ./updateSilent.sh -fix -installDir [connections\_root](../plan/i_ovr_r_directory_conventions.md)
+        -fixDir fix\_file\_location -install 
+        -fixes APAR\_number\_of\_fix 
+        -wasUserId AdminUserID 
+        -wasPassword AdminPasswordAdminPassword 
+        -featureCustomizationBackedUp backup\_status
+        ```
+
     -   Linux:
 
         ```

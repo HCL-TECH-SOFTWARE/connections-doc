@@ -4,9 +4,9 @@ Grant permissions to a non-root user to install HCL Connections.
 
 Ensure that you complete all the prerequisite tasks that are relevant for your environment. For more information, see the [Before installing](r_before_installing.md) topic.
 
-This task applies to the Linux™ operating systems only.
+This task applies to the AIX® and Linux™ operating systems only.
 
-By default, only root users have the necessary permissions to install an HCL Connections deployment. On the Linux operating systems, you can permit non-root users to install the product by changing their permissions to access certain data directories. On the Windows™ operating system, the user must be a member of the administrator group.
+By default, only root users have the necessary permissions to install an HCL Connections deployment. On the AIX and Linux operating systems, you can permit non-root users to install the product by changing their permissions to access certain data directories. On the Windows™ operating system, the user must be a member of the administrator group.
 
 **Note:** The non-root user must be the same user who installed IBM® WebSphere® Application Server.
 
@@ -20,6 +20,7 @@ To grant the necessary permissions to a non-root user, complete the following st
 
     1.  Open the install.ini file for editing from the following location:
 
+        -   AIX: HCL\_Connections\_install/IM/aix/install.ini
         -   Linux: HCL\_Connections\_install/IM/linux/install.ini
         -   Linux on System z®: HCL\_Connections\_install/IM/zlinux/install.ini
     2.  In the second line of the file, change `admin` to nonadmin.
@@ -28,7 +29,7 @@ To grant the necessary permissions to a non-root user, complete the following st
 
 4.  Open a command prompt and grant the appropriate permissions to the user by entering the commands shown in the following table:
 
-    -   Linux:
+    -   AIX or Linux:
 
         **Note:** Use either the chmod or chown commands, depending on your security environment. Use the chown commands to grant permissions to a user and group but ensure that the group includes the user account that installed WebSphere Application Server.
 

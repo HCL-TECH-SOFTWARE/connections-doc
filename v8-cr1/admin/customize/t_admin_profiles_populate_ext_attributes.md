@@ -60,7 +60,7 @@ To map custom extension attributes to fields in your source LDAP directory, conf
 
 8.  To populate the custom extension attributes, run one of the following scripts:
 
-    -   Linux™:
+    -   -   AIX® or Linux™:
 
     ```
     ./sync_all_dns.sh
@@ -72,7 +72,7 @@ To map custom extension attributes to fields in your source LDAP directory, conf
     sync_all_dns.bat
     ```
 
-    -   Linux:
+    -   -   AIX or Linux:
 
     ```
     ./populate_from_dn_file.sh

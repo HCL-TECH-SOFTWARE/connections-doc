@@ -44,7 +44,7 @@ To download fixes, complete the following steps.
 
 6.  Extract the contents of the fix file and then copy the extracted files to the following directory:
 
-    -   Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/updateInstaller/fixes
+    -   AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/updateInstaller/fixes
     -   Microsoft Windows: [connections\_root](../plan/i_ovr_r_directory_conventions.md)\\updateInstaller\\fixes
     **Note:** If a fixes subdirectory does not already exist in the update directory, create it. You need to specify this directory when you install fixes.
 

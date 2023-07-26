@@ -3,7 +3,7 @@
 Complete the following tasks before installing HCL Connections. If you are migrating from a prior release of HCL Connections, do not complete the tasks for creating databases or populating the Profiles database. The migration process handles those tasks automatically.
 
 -   **[Verifying disk space and open file limits before installing HCL Connections](../install/t_preinstall_sys.md)**  
-On all operating systems, ensure that you have 6 GB of temporary disk space. On Linux™, set the Open File Descriptor limit to at least 40000 before installing HCL Connections.
+On all operating systems, ensure that you have 6 GB of temporary disk space. On AIX® and Linux™, set the Open File Descriptor limit to at least 40000 before installing HCL Connections.
 -   **[Preparing to configure the LDAP directory](../install/t_config_ldap.md)**  
 Determine which Lightweight Directory Access Protocol \(LDAP\) attributes you want to use as the identifiers for HCL Connections users.
 -   **[Installing IBM WebSphere Application Server and IBM HTTP Server](../install/t_install_was_http.md)**  
