@@ -8,12 +8,6 @@ To delete databases with the database wizard, complete the following steps:
 
 2.  From the HCL Connections wizards directory, run the following script file to launch the wizard:
 
-    -   AIX®:
-
-        ```
-        ./dbWizard.sh 
-        ```
-
     -   Linux®:
 
         ```

@@ -19,11 +19,3 @@ If you've enabled the Connections 6.0 CR4 common style and structure documents \
 For both the default and CR4 enhanced templates for notifications, you can edit the templates directly to achieve the level of customization you want. The following procedures apply to both sets of templates, and, for the CR4 templates, specific examples are provided.
 
 **Parent topic:**[Customizing](../customize/c_customize_overview.md)
-
-**Related information**  
-
-
-[Customizing notification strings](../customize/t_customize_notification_strings.md)
-
-[Customizing product strings](../customize/t_customize_strings_global.md)
-

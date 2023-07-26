@@ -8,7 +8,7 @@ The <store\> element that contains the default attribute set to true is the acti
 
 With release 4, the Java object that is used to define the content store changed. The new implementation provides the following enhancements:
 
--   Resources from one activity are distributed and stored across multiple directories. In previous releases, the resources were all stored in subdirectories of a single directory. The new method helps to prevent busy implementations from reaching the maximum number of allowed subdirectories. For example, a directory on an EXT2 or EXT3 file system or Journal File System \(JFS\) and JFS2 on AIX® allows for a maximum of 32K subdirectories. When the maximum number of subdirectories is reached, the administrator must add a content store to the deployment.
+-   Resources from one activity are distributed and stored across multiple directories. In previous releases, the resources were all stored in subdirectories of a single directory. The new method helps to prevent busy implementations from reaching the maximum number of allowed subdirectories. When the maximum number of subdirectories is reached, the administrator must add a content store to the deployment.
 -   The new implementation uses a unique identifier to name the file, instead of using the file name that is given by the person who uploads the file. File metadata such as its mime type and user-defined name, is stored separately. As a result, someone with access to the disk cannot view the file without doing so through the product user interface.
 
 1.  Use the wsadmin client to check out the Activities configuration files.
@@ -32,7 +32,7 @@ With release 4, the Java object that is used to define the content store changed
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you make changes to them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft™ Windows™ operating system.
 
-            **Note:** AIX, and Linux™: The directory must grant write permissions or the command will not run successfully.
+            **Note:** Linux™: The directory must grant write permissions or the command will not run successfully.
 
         -   cell\_name is the name of the WebSphere® Application Server cell hosting the HCL Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -42,7 +42,7 @@ With release 4, the Java object that is used to define the content store changed
 
         For example:
 
-        -   AIX and Linux:
+        -   Linux:
 
             ```
             ActivitiesConfigService.checkOutConfig("/opt/act/temp","foo01Cell01")

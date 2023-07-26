@@ -8,7 +8,7 @@ If you have not configured Orient Me, then complete this task to ensure that the
 
 Using the sample deployment described in [Steps to install or upgrade to Component Pack](cp_install_services_tasks.md#section_awd_rwp_tnb), the Kubernetes master node is used in the proxy rules in this document. In an HA environment, the load balancer DNS of the HA cluster should be used (must be FQHN).
 
-1.  Log in to the HTTP server as the root user \(AIX®, Linux®\) or the administrator \(Windows™\).
+1.  Log in to the HTTP server as the root user \(Linux®\) or the administrator \(Windows™\).
 
 2.  Backup the current `httpd.conf`.
 
@@ -16,7 +16,6 @@ Using the sample deployment described in [Steps to install or upgrade to Compone
 
     The `httpd.conf` file is typically stored in the following location:
 
-    -   AIX: /opt2/IBM/HTTPServer/
     -   Linux: /opt/IBM/HTTPServer/conf/
     -   Windows: D:\\IBM\\HTTPServer\\conf\\
     

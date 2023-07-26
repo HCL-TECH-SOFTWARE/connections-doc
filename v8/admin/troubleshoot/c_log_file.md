@@ -4,12 +4,6 @@ HCL Connections™ writes messages to the SystemOut.log file. Refer to this file
 
 The **SystemOut.log** file is stored in the following directory:
 
--   AIX®:
-
-    ```
-    /usr/IBM/WebSphere/AppServer/profiles/<profile_name>/logs/<server_name>
-    ```
-
 -   Linux™:
 
     ```

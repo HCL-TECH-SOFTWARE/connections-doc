@@ -57,7 +57,7 @@ To configure Security Directory Integrator, complete the following steps:
 
     **Note:** On Linux systems the file name is ibmdisrv. On Windows systems the file name is ibmdisrv.bat. On both systems the file is located in the main SDI directory.
 
-    -   AIX® or Linux:ibmdisrv
+    -   Linux:ibmdisrv
 
         After you add the new arguments to increase runtime memory, the Java invocation command might look like the following example:
 
@@ -90,9 +90,9 @@ To configure Security Directory Integrator, complete the following steps:
 
         Specifies the root folder of the IBM Security Directory Integrator \(for example, C:\\Program Files\\IBM\\TDI\\V7.2\). This is a required property.
 
-4.  \(AIX or Linux only.\) In the Solution Directory, execute the `chmod +x *.sh` command to ensure that the script files are executable.
+4.  \(Linux only.\) In the Solution Directory, execute the `chmod +x *.sh` command to ensure that the script files are executable.
 
-5.  \(AIX or Linux only.\) Ensure that there is a `localhost` entry in the /etc/hosts file.
+5.  \(Linux only.\) Ensure that there is a `localhost` entry in the /etc/hosts file.
 
     For example:
 

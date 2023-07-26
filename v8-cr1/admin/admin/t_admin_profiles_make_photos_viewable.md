@@ -7,7 +7,6 @@ This is an optional task; it is only useful if Profiles is configured to lock pr
 1.  Define a rule in the IBM HTTP Server to explicitly set the caching headers of profile photos by completing the following steps:
 2.  Using a text editor, open the httpd.conf file, which is the IBM HTTP Server configuration file. The file is stored in the following directory by default:
 
-    -   AIX®: /usr/IBM/HTTPServer/conf
     -   Linux™: /opt/IBM/HTTPServer/conf
     -   Microsoft™ Windows™: C:\\IBM\\HTTPServer\\conf
 3.  Add the following block of code to the httpd.conf file:

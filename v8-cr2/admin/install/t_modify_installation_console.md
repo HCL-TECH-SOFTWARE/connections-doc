@@ -14,7 +14,7 @@ To modify your installation, complete the following steps:
 
 4.  Run the following command to start IBM Installation Manager in console mode:
 
-    -   AIX or Linux: ./imcl -c
+    -   Linux: ./imcl -c
     -   Windows: imcl.exe -c
 5.  Type 3 to begin modifying the deployment.
 
@@ -79,7 +79,7 @@ To modify your installation, complete the following steps:
 
     2.  Select a **Database type** from one of the following options:
 
-        If installing on Windows, Linux, or AIX:
+        If installing on Windows or Linux:
 
         -   IBM DB2 Universal Database™
         -   Oracle Enterprise Edition
@@ -93,10 +93,6 @@ To modify your installation, complete the following steps:
         If your installed applications use different database servers or instances, enter the port number for each database server or instance.
 
     5.  Enter the **JDBC driver location**. For example:
-
-        -   AIX:
-
-            /usr/IBM/WebSphere/AppServer/lib
 
         -   Linux:
 
@@ -147,7 +143,7 @@ To modify your installation, complete the following steps:
 
 14. Restart the Deployment Manager:
 
-    -   AIX or Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the `./stopManager.sh` command and then enter the `./startManager.sh` command.
+    -   Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the `./stopManager.sh` command and then enter the `./startManager.sh` command.
     -   Windows: Stop and restart the Deployment Manager service.
 15. Start all the federated nodes and enter the startNode command. Repeat these steps for each node:
 
@@ -157,7 +153,7 @@ To modify your installation, complete the following steps:
 
     3.  Enter the startNode command for your operating system:
 
-        -   AIX or Linux:./startNode.sh
+        -   Linux:./startNode.sh
         -   Windows:startNode.bat
 16. Configure the HTTP Server plugin with Connections
 

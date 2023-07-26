@@ -50,12 +50,12 @@ When you enable presence awareness by using the Sametime Proxy server, a person'
 
         -   working_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-            AIX and Linux: The directory must grant write permissions or the command does not run successfully.
+            Linux: The directory must grant write permissions or the command does not run successfully.
 
         -   cell_name is the name of the WebSphere® Application Server cell that hosts the IBM Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell\(\)
         For example:
 
-        -   AIX or Linux:LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
+        -   Linux:LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
         -   Microsoft Windows:LCConfigService.checkOutConfig\("c:/temp","foo01Cell01"\)
 
 3.  From the directory you specified as the working directory in the previous step, open the LotusConnections-config.xml file in a text editor, and then find the `sametimeProxy service` section:
@@ -121,7 +121,12 @@ When you enable presence awareness by using the Sametime Proxy server, a person'
 
 !!! Note
 
-    If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your **Important To Me** navigation bar. For more information, see the [Connections Sametime chat extension](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime).
+    -   If you are using the HCL Connections Component pack, then you can also enable an Appregistry Extension which will include a chat icon for all people that have been added to your **Important To Me** navigation bar. For more information, see the [Connections Sametime chat extension](https://github.com/HCL-TECH-SOFTWARE/connections-samples/tree/main/customizer/samples/sametime).
+    -   You can ignore the following configuration in `profiles-config.xml`, as it is not used for Sametime 12. 
+    ```
+    <sametimeAwareness enabled="false" href="http://localhost:59449/stwebapi/" ssl_href="http://localhost:59449/stwebapi/" sametimeInputType="uid" />
+    ```
+    Make sure to leave enabled as `false`.
 
-**Parent topic:**[Customizing the deployment](../admin/c_admin_common_customizing.md)
+**Parent topic:** [Customizing the deployment](../admin/c_admin_common_customizing.md)
 

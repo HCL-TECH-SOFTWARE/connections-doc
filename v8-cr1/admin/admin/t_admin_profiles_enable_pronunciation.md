@@ -9,7 +9,6 @@ Profiles users can add a recording of how their name is pronounced to enhance th
 1.  Define a rule in the IBM HTTP Server by completing the following steps:
 2.  Using a text editor, open the IBM HTTP Server configuration file, httpd.conf file. The file is stored in the following directory by default:
 
-    -   AIX®: /usr/IBM/HTTPServer/conf
     -   Linux™: /opt/IBM/HTTPServer/conf
     -   Microsoft™ Windows™: C:\\IBM\\HTTPServer\\conf
 3.  Add the following block of code to the httpd.conf file:

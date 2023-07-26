@@ -24,7 +24,6 @@ Configure installation properties and run the installation program to deploy the
 
             -   If installing on Windows, edit `CECInstaller_Windows.bat`
             -    If installing on Linux, edit `CECInstaller_Linux.sh`
-            -   If installing on AIX, edit `CECInstaller_AIX.ksh`
 
         2.  Look for **-port 8879** and edit the `-port` parameter with the one specified in your `wsadmin.properties file` and save the file.
 
@@ -32,7 +31,6 @@ Configure installation properties and run the installation program to deploy the
 
     -   On Windows, open the command prompt, navigate to the directory, and run `CECInstaller_Windows.bat`
     -   On Linux, open the terminal, navigate to the directory, and run `CECInstaller_Linux.sh`
-    -   On AIX, open the terminal, navigate to the directory, and run `CECInstaller_AIX.ksh`
 
     Once the installation completes, the CEC app is ready for use. There is no need to restart it.
 

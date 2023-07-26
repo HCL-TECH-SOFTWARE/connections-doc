@@ -14,12 +14,6 @@ The personalized user views available in the Communities application include the
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -39,7 +33,7 @@ The personalized user views available in the Communities application include the
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -50,7 +44,7 @@ The personalized user views available in the Communities application include the
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 3.  Use the wsadmin client to access and check out the HCL Connections configuration files:
 
@@ -66,12 +60,12 @@ The personalized user views available in the Communities application include the
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you make changes to them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-            AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.
+            Linux only: The directory must grant write permissions or the command does not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the HCL Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell\(\)
         For example:
 
-        -   AIX or Linux: LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
+        -   Linux: LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
         -   Microsoft Windows: LCConfigService.checkOutConfig\("c:/temp","foo01Cell01"\)
 4.  Using a text editor, open the LotusConnections-config.xml from the local directory to which you checked it out.
 

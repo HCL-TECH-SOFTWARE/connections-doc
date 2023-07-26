@@ -8,7 +8,6 @@ CLFRO Represents the prefix that identifies the error message as one originating
 
 |Message|Cause|Solution|
 |-------|-----|--------|
-|| | |
 |CLFRO0001E: Failed to edit bookmark, url is: \{0\} .|This error is encountered if an unexpected exception occurs when updating the bookmark.|Check the detailed exception message following this error message in the log file to find the root cause|
 |CLFRO0002E: Failed to post the bookmark to Dogear.|This error is encountered if an unexpected exception occurs when adding a bookmark to Dogear.|Check the detailed exception message following this error message in the log file to find the root cause.|
 |CLFRO0003E: Failed to build data entry for invoking remote service.|The common bookmarklet creates xml document with the user inputs. This error is usually caused by the bad user inputs.|Check the detailed exception message following this error message in the log file to find the root cause. Check the user inputs.|

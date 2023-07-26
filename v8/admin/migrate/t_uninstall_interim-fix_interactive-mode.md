@@ -11,7 +11,7 @@ To uninstall fixes with the update wizard in interactive mode, complete the foll
 
 1.  From the updateInstaller directory under the [connections\_root](../plan/i_ovr_r_directory_conventions.md) directory, run the following script:
 
-    -   AIX® or Linux:
+    -   Linux:
 
         ```
         ./updateWizard.sh

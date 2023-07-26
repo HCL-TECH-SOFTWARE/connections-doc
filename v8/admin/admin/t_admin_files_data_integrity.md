@@ -10,7 +10,7 @@ Users cannot download files if they are missing from the database.
 
 Before running the FilesDataIntegrityService.checkFiles command, create the target path\_to\_extra\_filesDirectory folder. This folder will be used to save unused files during the integrity check. Create the folder on the device from which you will run the command.
 
-If you are running the command on AIX®, or Linux™ ensure that you have correct write permissions enabled for the folder.
+If you are running the command on Linux™ ensure that you have correct write permissions enabled for the folder.
 
 1.  Start the wsadmin client.
 
@@ -24,7 +24,7 @@ If you are running the command on AIX®, or Linux™ ensure that you have correc
 
     On Microsoft™ Windows™ -- `FilesDataIntegrityService.checkFiles("C:\path\_to\_extra\_filesDirectory")`
 
-    On AIX or Linux -- `FilesDataIntegrityService.checkFiles("/opt/path\_to\_extra\_filesDirectory")`
+    On Linux -- `FilesDataIntegrityService.checkFiles("/opt/path\_to\_extra\_filesDirectory")`
 
 
 **Parent topic:**[Backing up Files data](../admin/t_admin_files_backup.md)

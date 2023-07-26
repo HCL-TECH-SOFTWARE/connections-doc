@@ -40,9 +40,6 @@ By default, WebSphere® Application Server reserves the following attributes as 
 
 The wimconfig.xml file is stored in the following location:
 
-AIX®
-:   `/usr/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config`
-
 Linux™
 :   `/opt/IBM/WebSphere/AppServer/profiles/profile_name/config/cells/cell_name/wim/config`
 

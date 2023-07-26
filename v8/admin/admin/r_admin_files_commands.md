@@ -36,7 +36,7 @@ FilesConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
 
     For example:
 
-    -   AIX® or Linux™:
+    -   Linux™:
 
         ```
         FilesConfigService.checkOutConfig("/opt/my_temp_dir", "CommServerNode01Cell")

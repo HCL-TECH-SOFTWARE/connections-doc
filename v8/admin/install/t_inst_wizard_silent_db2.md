@@ -25,7 +25,6 @@ To create databases in silent mode, complete the following steps:
 
 3.  Launch the wizard by running the following command:
 
-    -   AIX®:./dbWizard.sh -silent response\_file
     -   Linux®: ./dbWizard.sh -silent response\_file
     -   Microsoft® Windows: dbWizard.bat -silent response\_file
     where response\_file is the file path to the response file.

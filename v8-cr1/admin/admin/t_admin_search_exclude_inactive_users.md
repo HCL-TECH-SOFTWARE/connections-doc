@@ -43,7 +43,7 @@ For more information about the user life cycle in HCL Connections, see *Managing
 
     -   working\_dir is the temporary directory to which you want to check out the cell level configuration file. This directory must exist on the server where you are running the wsadmin client. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-        **Note:** AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.
+        **Note:** Linux only: The directory must grant write permissions or the command does not run successfully.
 
     -   cellName is the name of the cell that the Search node belongs to. The command is case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -60,12 +60,12 @@ For more information about the user life cycle in HCL Connections, see *Managing
     SearchCellConfig.includeInactiveProfilesSearchResults\(\)
     :   Specifies that the documents corresponding to inactive user profiles are included in search results. In a default installation of HCL Connections, inactive user profiles are automatically excluded from search results.
 
-        This command updates the checked out seach-config.xml file by setting: <profilesSearch includeInactiveUsers="true"/\> as a child element of <config\>.
+        This command updates the checked out search-config.xml file by setting: <profilesSearch includeInactiveUsers="true"/\> as a child element of <config\>.
 
     SearchCellConfig.excludeInactiveProfilesSearchResults\(\)
     :   Specifies that the documents corresponding to inactive user profiles are excluded from search results. In a default installation of HCL Connections, inactive user profiles are automatically excluded from search results.
 
-        This command updates the checked out seach-config.xml file by setting: <profilesSearch includeInactiveUsers="false"/\> as a child element of <config\>.
+        This command updates the checked out search-config.xml file by setting: <profilesSearch includeInactiveUsers="false"/\> as a child element of <config\>.
 
 6.  Check in the updated search-config.xml configuration file using the following wsadmin client command:
 

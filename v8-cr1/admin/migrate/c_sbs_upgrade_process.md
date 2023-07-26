@@ -38,7 +38,7 @@ See [Installing HCL Connections 8.0](../install/t_install_cluster.md), taking ca
     -   Clear scheduled tasks
 3.  If you installed the Feature Foundation module during the Connections 8.0 installation, see the post-installation task [Post-installation tasks for PDF Export](../install/install-guide-preparations.md).
 4.  If both Feature Foundation and Component Pack are part of your new deployment, and you want to deploy the Tailored Experience for communities, do the following:
-    1.  Set up Tailored Experience for communities. See [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md).
+    1.  Set up Tailored Experience for communities. See [Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md).
     2.  [Configure the community creation wizard](../install/t_configure_community_wizard.md).
     3.  If Component Pack is included in your existing deployment, see [Upgrade considerations for side-by-side migration of data](../install/cp_upgrade_considerations_for_side_by_side_migration.md) in the Component Pack section of the Connections documentation.
 

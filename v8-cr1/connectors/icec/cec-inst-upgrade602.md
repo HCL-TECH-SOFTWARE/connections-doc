@@ -32,12 +32,12 @@ If you want to expand the use of Connections Engagement Center throughout Connec
 
     -   On Windows, edit the CECInstaller\_Windows.bat file.
     -   On Linux, edit the CECInstaller\_Linux.sh file.
-    -   On AIX, edit the CECInstaller\_AIX.ksh file.
+
 6.  Run the upgrade program:
 
     -   On Windows, open the command prompt, navigate to this directory, and run CECInstaller\_Windows.bat.
     -   On Linux, open the terminal, navigate to this directory, and run CECInstaller\_Linux.sh.
-    -   On AIX, open the terminal, navigate to this directory, and run CECInstaller\_AIX.ksh.
+
 7.  Once the installation completes, the Connections Engagement Center app is ready for use. There is no need to restart it.
 
 

@@ -10,7 +10,7 @@ To gather DB2 database statistics, complete the following steps:
 
 1.  Copy the statistics script named runstats.sql to the root directory of the application database for which you want to gather statistics. The script is stored in the following directory:
 
-    -   AIX® or Linux®:/Lotus\_Connections\_Install/connections.sql/ application\_subdirectory/db2
+    -   Linux®:/Lotus\_Connections\_Install/connections.sql/ application\_subdirectory/db2
     -   Microsoft® Windows®:\\Lotus\_Connections\_Install\\connections.sql\\ application\_subdirectory\\db2
     where application\_subdirectory is the script file storage directory of the application for which you are compacting the database. Choose one of the following subdirectories:
 

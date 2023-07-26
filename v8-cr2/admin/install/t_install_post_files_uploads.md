@@ -1,8 +1,8 @@
 # Configuring file uploads through IBM HTTP Server {#task_jkk_vs1_d5 .task}
 
-Configure the IBM® HTTP Server to manage file uploads from Activities and Files. This approach is more efficient than using the IBM WebSphere® Application Server to receive files larger than 500 MB.
+Configure the IBM® HTTP Server to manage file uploads from Files. This approach is more efficient than using the IBM WebSphere® Application Server to receive files larger than 500 MB.
 
-All Activities and Files data must first be stored on a shared file system as described in [Deployment options](../plan/c_planning_the_installation.md). The IBM HTTP Servers in the deployment must also have READ and WRITE access to the files and folders, and the WebSphere Application Servers must have WRITE access.
+All Files data must first be stored on a shared file system as described in [Deployment options](../plan/c_planning_the_installation.md). The IBM HTTP Servers in the deployment must also have READ and WRITE access to the files and folders, and the WebSphere Application Servers must have WRITE access.
 
 **Note:** For shared and remote network file system requirements, review the footnotes for each supported operating system in the detailed system requirements.
 
@@ -17,8 +17,6 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 2.  On the server where HCL Connections is installed, go to the connections\_root/ihs/mod\_ibm\_upload/platform directory and locate the module file named **mod\_ibm\_upload.so**. Depending on your operating system, search for one of the following directories:
 
     ```
-    /ihs.aix.ppc32    
-    /ihs.aix.ppc64    
     /ihs.linux.s390
     /ihs.linux.ia32    
     /ihs.linux.ppc64    
@@ -48,7 +46,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
 5.  Grant access to the data directory root as follows:
 
-    -   For AIX and Linux: Give the IBM HTTP Server user READ, WRITE, and EXECUTEaccess to the data directory root.
+    -   For Linux: Give the IBM HTTP Server user READ, WRITE, and EXECUTEaccess to the data directory root.
     -   For Microsoft Windows: Give the IBM HTTP Server user READ and WRITE access to the data directory root. For optimal security, do not grant WRITE access.
     **Note:**
 
@@ -56,15 +54,15 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of `FILES_CONTENT_DIR` is \\\\server\\Shared\\files\\upload. In this case, the user has no rights to share and cannot be given READ access. You must instead give the user READ access at the share point of \\\\server\\Shared.
 
-    You must give the HTTP server the appropriate level of access to each content store root defined in the **oa-config.xml** file. The content store roots are defined in the `root.directory` property of each `<store>` element. For example:
+    <!--You must give the HTTP server the appropriate level of access to each content store root defined in the **oa-config.xml** file. The content store roots are defined in the `root.directory` property of each `<store>` element. For example:
 
     ```
     <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-    ```
+    ```-->
 
-6.  On all virtual hosts in the same domain as Activities and Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:
+6.  On all virtual hosts in the same domain as Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:
 
-    For Activities:
+    <!--For Activities:
 
     ```
     <IfModule mod_rewrite.c>
@@ -108,7 +106,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
     RewriteRule ^/activities/service/atom2/forms/activity$ /ihs/activities/service/atom2/forms/activity [PT,L]
     
-    </IfModule>
+    </IfModule>-->
     ```
 
     For Files:
@@ -223,11 +221,11 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     </IfModule>
     ```
 
-    **Note:** You can put rules for Activities and Files only between the `<IfModule>` and `</IfModule>` elements.
+    **Note:** You can put rules for Files only between the `<IfModule>` and `</IfModule>` elements.
 
 7.  Configure the upload module as follows:
 
-    For Activities:
+    <!--For Activities:
 
     ```
     <Location /ihs/activities>
@@ -237,7 +235,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     IBMUploadMethods POST,PUT
     IBMUploadURLPrefix /ihs
     </Location>
-    ```
+    ```-->
 
     For Files:
 
@@ -251,9 +249,9 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     </Location>
     ```
 
-8.  Configure the Activities and Files applications to work with the upload module as follows:
+8.  Configure the Files application to work with the upload module as follows:
 
-    For Activities:
+    <!--For Activities:
 
     Add the `fileUploadPluginEnabled` property to the default store configuration in the **oa-config.xml** file to indicate whether the file upload plug-in is enabled in the environment. For example:
 
@@ -279,7 +277,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     <formFileUploadSizeLimit>31457280</formFileUploadSizeLimit>
     <max-concurrent-downloads>10</max-concurrent-downloads> 
     </objectStore>
-    ```
+    ```-->
 
     For Files:
 
@@ -311,7 +309,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
         </api>
     ```
 
-9.  Restart the HTTP server, the Activities application, and the Files application.
+9.  Restart the HTTP server and the Files application.
 
 
 **Parent topic:**[Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
