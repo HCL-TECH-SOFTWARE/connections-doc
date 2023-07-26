@@ -54,7 +54,7 @@ The process\_draft\_updates\_ldap command starts the daemon, which monitors chan
 
 6.  Start the daemon by running the process\_draft\_updates\_ldap command:
 
-    -   IBM® AIX® or Linux™: chmod +x process\_draft\_updates\_ldap.sh./process\_draft\_updates\_ldap.sh
+    -   Linux™: chmod +x process\_draft\_updates\_ldap.sh./process\_draft\_updates\_ldap.sh
     -   Microsoft™ Windows™: process\_draft\_updates\_ldap.bat
     **Note:** The process\_draft\_update command tracks the database change record number in a persistent field. Your task will not run successfully if you clear the content of the EMP\_DRAFT table manually.
 

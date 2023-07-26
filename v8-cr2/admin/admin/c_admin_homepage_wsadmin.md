@@ -18,7 +18,5 @@ Edit configuration property settings to allow users to go straight to **Activity
 
 [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
 
-[Customizing the Getting Started view](../customize/t_customize_getting_started_page.md)
-
 [Synchronizing user data by using administrative commands](../admin/c_admin_common_sync_via_admin_commands1.md)
 

@@ -35,7 +35,7 @@ To extend the Profiles business card, complete the following steps:
             **Notes:**
 
             -   When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".
-            -   AIX, and Linux only: The directory must grant write permissions or the command fails.
+            -   Linux only: The directory must grant write permissions or the command fails.
         -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell\(\)
 
             **Note:** This input parameter is case-sensitive.
@@ -54,7 +54,7 @@ To extend the Profiles business card, complete the following steps:
 |
     |person\_card\_service\_name\_js\_eval|Represents a JavaScript™ statement that is used by the framework to generate the text displayed in the business card for the given service.This attribute takes a string value.
 
-You can add a resource string as the value for this attribute. The resource string must include "generalrs." before the resource bundle key. See [Adding custom strings for widgets and other specified scenarios](t_admin_profiles_add_custom_strings.md) for information about how to add resource strings to the business card.
+You can add a resource string as the value for this attribute. The resource string must include "generalrs." before the resource bundle key. 
 
 |
 

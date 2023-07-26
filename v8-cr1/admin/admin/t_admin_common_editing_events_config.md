@@ -13,12 +13,6 @@ To edit the events configuration file, you must check it out first.
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -38,7 +32,7 @@ To edit the events configuration file, you must check it out first.
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -49,7 +43,7 @@ To edit the events configuration file, you must check it out first.
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 2.  Use the following command to access HCL Connections configuration files:
 
@@ -66,7 +60,7 @@ To edit the events configuration file, you must check it out first.
         **Notes:**
 
         -   When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".
-        -   AIX, and Linux only: The directory must grant write permissions or the command fails.
+        -   Linux only: The directory must grant write permissions or the command fails.
     -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: print AdminControl.getCell\(\)
 
         **Note:** This input parameter is case-sensitive.

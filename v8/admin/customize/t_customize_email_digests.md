@@ -92,7 +92,7 @@ The property named emailDigestBean is passed to the daily and weekly email diges
 
         2.  Enter the following command to start the wsadmin client:
 
-            -   AIX or Linux:
+            -   Linux:
 
                 ```
                 ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS Port
@@ -113,7 +113,7 @@ The property named emailDigestBean is passed to the daily and weekly email diges
                 2.  In the **Additional properties** section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
             For example:
 
-            -   AIX or Linux:
+            -   Linux:
 
                 ```
                 ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
@@ -141,7 +141,7 @@ The property named emailDigestBean is passed to the daily and weekly email diges
 
             -   temp\_dir is the temporary directory to which the configuration XML and XSD files are copied and are stored while you make changes to them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-                **Note:** AIX and Linux, only: The temporary directory must grant write permissions or the command will not run successfully.
+                **Note:** Linux, only: The temporary directory must grant write permissions or the command will not run successfully.
 
             -   cell\_name is the WebSphere Application Server cell to which you installed the application for which you are enabling mail. This argument is case-sensitive, so type it with care.
         5.  Using a text editor, open the notification-config.xml file from the temporary directory to which you checked it out.
@@ -236,10 +236,6 @@ HCL Connections™ CR4 offers new ways to customize the email message that is se
 [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
 
 [Configuring notifications](../admin/t_admin_common_config_notification.md)
-
-[Customizing product strings](../customize/t_customize_strings_global.md)
-
-[Language codes](../customize/r_customize_lang_codes.md)
 
 [Verifying email digests](../troubleshoot/ts_t_trigger_email_notifications.md)
 

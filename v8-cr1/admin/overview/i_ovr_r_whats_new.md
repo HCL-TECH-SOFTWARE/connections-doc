@@ -2,7 +2,7 @@
 
 Find out about features that are new or updated in this release of HCL Connections.
 
--   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates for both Connections Server and Component Pack, including required critical updates.
+-   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
 -   **Download** Connections 8.0 from the [HCL Software License & Download portal](https://hclsoftware.flexnetoperations.com), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
@@ -80,7 +80,7 @@ Easier customization also allows you to:
 -   Add your most-used applications to the side navigation bar so they're always in reach
 -   Tailor the look of the top navigation – the logo, color, and environment name – to reflect your own branding
 
-For more information, see [Customizing the navigation bar](../customize/t_admin_navbar_create_files.md).
+For more information, see [Customizing the navigation bar](../customize/customizing-navigation.md).
 
 ![](images/navbar.png)
 
@@ -103,7 +103,11 @@ Pinned contacts and communities are available everywhere in Connections for inst
 
 ![](images/itm_bar.png)
 
-See [Adding an Important To Me bar to a Connections component](../customize/c_itm_iframe_intro.md).
+See [Customizing the Important To Me (ITM) bar](../customize/customizing-itm.md).
+
+## Connections Engagement Center in HCL Connections {#cec .section}
+
+Expand the use of [Connections Engagement Center](../../connectors/icec/icec_welcome.md) throughout Connections by upgrading to a full version of the Engagement Center by purchasing an additional entitlement. Follow the [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) after downloading the update and license package from the HCL Software License & Download Portal.
 
 **Interested in Connections Mobile?**
 

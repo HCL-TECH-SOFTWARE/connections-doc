@@ -33,12 +33,12 @@ To access configuration files, you must use the wsadmin client. See [Starting th
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you make changes to them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-            AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.
+            Linux only: The directory must grant write permissions or the command does not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the HCL Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell\(\)
         For example:
 
-        -   AIX or Linux:LCConfigService.checkOutCalendarConfig\("/opt/temp","foo01Cell01"\)
+        -   Linux:LCConfigService.checkOutCalendarConfig\("/opt/temp","foo01Cell01"\)
         -   Microsoft Windows:LCConfigService.checkOutCalendarConfig\("c:/temp","foo01Cell01"\)
 4.  Open calendar-config.xml in a text editor.
 

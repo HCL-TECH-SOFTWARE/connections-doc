@@ -8,7 +8,7 @@ To create a dedicated DB2 database user named lcuser, complete the following ste
 
 -   Choose your operating system:
 
-    -   AIX® or Linux™
+    -   Linux™
         -   Log into the DB2 server as the root user, and then type the following command to create a new user:
 
             ```

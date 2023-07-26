@@ -6,8 +6,6 @@ When you create multiple database instances, you must install the databases on e
 
 Complete the following steps for your operating system:
 
--   **[Creating multiple DB2 database instances on AIX](../install/t_create_multiple_db2_instances_on_aix.md)**  
-
 -   **[Creating multiple DB2 database instances on Linux](../install/t_create_multiple_db2_instances_on_linux.md)**  
 
 -   **[Creating multiple DB2 database instances on Windows](../install/t_create_multiple_db2_instances_on_windows.md)**  

@@ -13,12 +13,6 @@ The wsadmin client is a scripting environment that is installed with IBM® WebSp
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -38,7 +32,7 @@ The wsadmin client is a scripting environment that is installed with IBM® WebSp
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -49,12 +43,12 @@ The wsadmin client is a scripting environment that is installed with IBM® WebSp
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 
 For more information about the properties that you can change, see the topics in the common HCL Connections section and individual application sections.
 
-**Parent topic:**[Administration tools](../admin/c_admin_common_tools.md)
+**Parent topic:** [Administration tools](../admin/c_admin_common_tools.md)
 
 **Related information**  
 

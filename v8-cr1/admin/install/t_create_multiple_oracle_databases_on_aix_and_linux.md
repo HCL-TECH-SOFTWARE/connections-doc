@@ -1,6 +1,6 @@
-# Creating multiple Oracle databases on AIX and Linux {#oracle_aix .task}
+# Creating multiple Oracle databases on Linux {#oracle_aix .task}
 
-1.  Each database is a database instance. To create Oracle databases on AIX and Linux, use the Oracle Database Configuration Assistant \(DBCA\) to complete these steps:
+1.  Each database is a database instance. To create Oracle databases on Linux, use the Oracle Database Configuration Assistant \(DBCA\) to complete these steps:
 
 2.  To open the DBCA tool:
 

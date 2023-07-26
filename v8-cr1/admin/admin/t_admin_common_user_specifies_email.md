@@ -57,7 +57,7 @@ The following preferences are set by default:
 
     For example:
 
-    -   AIX or Linux:
+    -   Linux:
 
         ```
         LCConfigService.checkOutNotificationConfig("/opt/temp","foo01Cell01")

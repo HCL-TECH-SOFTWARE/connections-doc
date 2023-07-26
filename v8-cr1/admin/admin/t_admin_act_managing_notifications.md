@@ -50,7 +50,7 @@ If you want to change default email addresses from what you assigned in install,
 
     where temp\_dir is a temporary directory and cell\_name is the WebSphere® Application Server cell to which you installed Activities. When you specify a path to the working directory on a system running Microsoft Windows, use a forward slash for the directory. For example: "C:/temp".
 
-    **Note:** AIX and Linux: The directory you specify as the temporary directory must grant write permissions.
+    **Note:** Linux: The directory you specify as the temporary directory must grant write permissions.
 
 4.  From the temporary directory to which you checked out the notification-config.xml file, open it in a text editor.
 

@@ -30,14 +30,13 @@ Use the profileDetails.ftl template to render multiple sections of the main prof
 
             **Note:** In order for the command to complete successfully, the directory must grant write permissions if you are using one of the following operating systems:
 
-            -   AIX
             -   Linux
             **Note:** The directory must grant write permissions or the command does not complete successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the Profiles application. This argument is required. It is also case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor: print AdminControl.getCell\(\)
         For example:
 
-        -   AIX or Linux:
+        -   Linux:
 
             ```
             ProfilesConfigService.checkOutConfig("/opt/prof/temp","foo01Cell01")

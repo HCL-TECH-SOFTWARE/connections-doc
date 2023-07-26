@@ -81,5 +81,3 @@ When you first open the Home page, the Getting Started view is displayed by defa
 
 [Home page administrative commands](../admin/r_admin_homepage_admin_commands.md)
 
-[Customizing the Getting Started view](../customize/t_customize_getting_started_page.md)
-
