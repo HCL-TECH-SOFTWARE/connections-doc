@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35326,8 +35342,10 @@
 </li>
 <li>
 <p>To exclude a user from the social analytics service, enter one of the following commands.</p>
-<p>SearchService.optOutOfSandByEmail(String email)
-:   Excludes the user with the specified email address from the social analytics service.</p>
+<dl>
+<dt>SearchService.optOutOfSandByEmail(String email)</dt>
+<dd>Excludes the user with the specified email address from the social analytics service.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   email. The email address of the user who is to be excluded from the social analytics service. This argument is a string value.
@@ -35337,8 +35355,10 @@ For example:
 SearchService.optOutOfSandByEmail("ajones10@example.com")
 ```
 </code></pre>
-<p>SearchService.optOutOfSandByExId(String externalId)
-:   Excludes the user with the specified external ID from the social analytics service.</p>
+<dl>
+<dt>SearchService.optOutOfSandByExId(String externalId)</dt>
+<dd>Excludes the user with the specified external ID from the social analytics service.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   externalId. The external ID of the user who is to be excluded from the social analytics service. This argument is a string value.
@@ -35351,8 +35371,10 @@ SearchService.optOutOfSandByExId("11111-1111-1111-1111")
 </li>
 <li>
 <p>To re-enable a user for the social analytics service, use one of the following commands.</p>
-<p>SearchService.optIntoSandByEmail(String email)
-:   Includes the user with the specified email address in the social analytics service.</p>
+<dl>
+<dt>SearchService.optIntoSandByEmail(String email)</dt>
+<dd>Includes the user with the specified email address in the social analytics service.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   email. The email address of the user who is to be included in the social analytics service. This argument is a string value.
@@ -35362,8 +35384,10 @@ For example:
 SearchService.optIntoSandByEmail("ajones10@example.com")
 ```
 </code></pre>
-<p>SearchService.optIntoSandByExId(String externalId)
-:   Includes the user with the specified external ID in the social analytics service.</p>
+<dl>
+<dt>SearchService.optIntoSandByExId(String externalId)</dt>
+<dd>Includes the user with the specified external ID in the social analytics service.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   externalId. The external ID of the user who is to be included in the social analytics service. This argument is a string value.

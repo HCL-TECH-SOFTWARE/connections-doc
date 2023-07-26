@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35349,120 +35365,117 @@
 <li><code>.enabled</code> properties must have boolean values of either <code>true</code> or <code>false</code>.</li>
 <li>Number values must be integers.</li>
 </ul>
-<p>activeContentFilter.enabled
-:   Does not apply to this release.</p>
-<p>api.indent.enabled
-:   Specifies whether the Files service API output is indented. This is <code>false</code> by default. To enable indentation, specify <code>true</code>.</p>
-<pre><code>Enable this property to help with development and debugging. It is disabled by default because it does affect performance.
-</code></pre>
-<p>api.simpleUploadAPI.maximumSizeInKb
-:   Specifies the maximum file size that can be uploaded by the simple upload mechanism. One thread of the WebSphere® Application Server is blocked while data is received. Larger files can be uploaded via the IBM HTTP Server if upload.modIBMUpload.enabled is true.</p>
-<p>cache.http.publicContentMaxAgeInSecs
-:   Maximum age of the public content cache before it is refreshed, in seconds. The public content cache stores static web resources, such as JavaScript and images. Decrease this value to show resource changes more quickly.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-**Note:** You can force a resource update by opening the LotusConnections-config.xml common configuration properties file and setting the versionStamp property to any token. This token is included in most urls, so changing this token changes the url. Since urls are cached by path and cache header, the new url overrides the old url and refreshes the resources. For information, see *Common configuration properties*.
-
-**Note:** Some resources, such as some images, do not use version stamps. If you edit those frequently, you can decrease the cache.http.publicContentMaxAgeInSecs value to show changes more quickly. If not, you can leave the value high and update the version stamp when you make changes.
-</code></pre>
-<p>cache.http.publicFeedMaxAgeInSecs
-:   Maximum age of the public feed cache before it is refreshed, in seconds. Public feeds pass information to the Public Files view. You may want to raise this value in very large deployments (for example, over a million files) to avoid performance issues. It could also be decreased to have very up-to-date information in the public view. A value of 0 means no feeds are cached.</p>
-<pre><code>The value must be greater than or equal to 0.
-</code></pre>
-<p>cache.user.timeout
-:   Number of milliseconds user objects stay in the user information cache. The user information cache stores metadata about users, such as names and email addresses. Use this property to control the frequency of requests to the Files database for user information.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-If the value of a user's data changes in the background \(when the update user task or commands for MemberSynch are executed\) the cache is invalidated.
-</code></pre>
-<p>db.dialect
-:   Reflects the current database type, typically specified during installation. Accepts the values DB2, Oracle, or SQL Server.</p>
-<p>directory.community.membershipCache.maximumAgeOnLoginInSeconds
-:   Number of seconds after a user logs in that community membership cache is refreshed. Only applicable if Community Files and Community Integration are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required for a user to have the same access as the community, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the community can access.
-
-You can decrease the value here and then tell users that logging out and then in again is the best way to refresh the cache. This would allow you to increase the number of seconds in directory.community.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests would not affect performance.
-</code></pre>
-<p>directory.community.membershipCache.maximumAgeOnRequestInSeconds
-:   Number of seconds after an application request that the community membership cache is refreshed. Only applicable if Community Files and Community Integration are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required for a user to have the same access as the community, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the community can access.
-
-If you decrease the value of directory.community.membershipCache.maximumAgeOnLoginInSeconds and then tell users that logging out and then in again is the best way to refresh the cache, you can increase this value to 10 or even 20 minutes, so that frequent requests will not affect performance.
-</code></pre>
-<p>directory.group.membershipCache.maximumAgeOnLoginInSeconds
-:   Number of seconds after a user logs in that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required for a user to have the same access as the group, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the group can access.
-
-You can decrease the value here and then tell users that logging out and then in again is the best way to refresh the cache. This would allow you to increase the number of seconds in directory.group.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests would not affect performance.
-</code></pre>
-<p>directory.group.membershipCache.maximumAgeOnRequestInSeconds
-:   Number of seconds after an application request that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required for a user to have the same access as the group, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the group can access.
-
-If you decrease the value of directory.group.membershipCache.maximumAgeOnLoginInSeconds and then tell users that logging out and then in again is the best way to refresh the cache, you can increase this value to 10 or even 20 minutes, so that frequent requests will not affect performance.
-</code></pre>
-<p>directory.typeaheadSearch.maximumResults
-:   Maximum number of names to display when a user searches for user or group names in a search field. Sets a maximum for both typeahead results and search results (when they click the search icon).</p>
-<pre><code>The value must be greater than or equal to 1.
-
-If the value is very large, such as 1,000, and there are 1,000 or more matches, all names are returned and performance is greatly reduced. If the value is low, such as 10, users typing a generic name might not see all matches.
-</code></pre>
-<p>download.modIBMLocalRedirect.enabled
-:   Specifies whether the IBM® HTTP Server serves downloaded files instead of the WebSphere® Application Server redirect servlet.</p>
-<pre><code>You can configure HCL Connections to have the IBM HTTP Server download files. This is strongly recommended in production environments.
-
-If this property is set to true, you must also specify a URL in the download.modIBMLocalRedirect.hrefPathPrefix property. If the property is set to false, the WebSphere Application Server redirect servlet downloads files.
-
-To see information and steps for configuring the IBM HTTP Server to download files, see *Configuring file downloads through the HTTP Server*.
-</code></pre>
-<p>download.modIBMLocalRedirect.hrefPathPrefix
-:   Path to the file system directory where Files data is stored. The file path should not include a trailing slash.</p>
-<pre><code>This is only relevant if the download.modIBMLocalRedirect.enabled property is true.
-
-To see more information and steps for configuring the IBM HTTP Server to download files, see *Configuring file downloads through the HTTP Server*.
-</code></pre>
-<p>download.stats.logging.enabled
-:   Level of detail to log about file downloads. If true, the Files application logs detailed download statistics, including the names of authenticated users who download files, and the version they most recently downloaded. If false, the applications only log the number of times a file is downloaded.</p>
-<pre><code>Specify true for a better user experience and auditing.
-</code></pre>
-<p>emailNotification.addOnMediaDownload.enabled
-:   Specifies whether to send email notification to users who download a file when the file is edited.</p>
-<pre><code>The download.stats.logging.enabled property must be true for this to work.
-</code></pre>
-<p>file.attachment.maximumSizeInKb
-:   Does not apply to Files. Files does not have attachments, the value in this property will not affect the application.</p>
-<p>file.media.maximumSizeInKb
-:   Maximum size allowed for media, in kilobytes. In Files, media are files.</p>
-<pre><code>The recommended file maximum size should be less than 2 GB.
-
-The value must be greater than or equal to 1.
-
-This property is useful if you want a relatively large quota size for libraries, but you do not want users upload very large files, such as .iso files.
-
-After changing this value, the maximum size limit will not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. see *Post-customization step* for more information on forcing a browser cache refresh.
-</code></pre>
-<p>file.page.maximumSizeInKb
-:   Does not apply to Files. Files does not have pages, the value in this property will not affect the application.</p>
-<p>file.restrictions.enabled
-:   Enables or disables the ability to restrict the types of files that users can upload in Files. Accepts the values true or false.</p>
-<pre><code>To see information and steps for restricting file types, see *Restricting file types in Files*.
-</code></pre>
-<p>file.restrictions.mode
-:   Sets the mode for file extension restrictions. Accepts the values allow or deny. If the value is allow, then users can only upload files with extensions on the list, or change the extension of existing files to those on the list. If the value is deny, then users can only upload files with extensions not the list, or change the extension of existing files to those not the list.</p>
-<pre><code>For example:
-
-```
-&lt;file&gt;
+<dl>
+<dt>activeContentFilter.enabled</dt>
+<dd>Does not apply to this release.</dd>
+<dt>api.indent.enabled</dt>
+<dd>
+<p>Specifies whether the Files service API output is indented. This is <code>false</code> by default. To enable indentation, specify <code>true</code>.</p>
+<p>Enable this property to help with development and debugging. It is disabled by default because it does affect performance.</p>
+</dd>
+<dt>api.simpleUploadAPI.maximumSizeInKb</dt>
+<dd>Specifies the maximum file size that can be uploaded by the simple upload mechanism. One thread of the WebSphere® Application Server is blocked while data is received. Larger files can be uploaded via the IBM HTTP Server if upload.modIBMUpload.enabled is true.</dd>
+<dt>cache.http.publicContentMaxAgeInSecs</dt>
+<dd>
+<p>Maximum age of the public content cache before it is refreshed, in seconds. The public content cache stores static web resources, such as JavaScript and images. Decrease this value to show resource changes more quickly.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p><strong>Note:</strong> You can force a resource update by opening the LotusConnections-config.xml common configuration properties file and setting the versionStamp property to any token. This token is included in most urls, so changing this token changes the url. Since urls are cached by path and cache header, the new url overrides the old url and refreshes the resources. For information, see <em>Common configuration properties</em>.</p>
+<p><strong>Note:</strong> Some resources, such as some images, do not use version stamps. If you edit those frequently, you can decrease the cache.http.publicContentMaxAgeInSecs value to show changes more quickly. If not, you can leave the value high and update the version stamp when you make changes.</p>
+</dd>
+<dt>cache.http.publicFeedMaxAgeInSecs</dt>
+<dd>
+<p>Maximum age of the public feed cache before it is refreshed, in seconds. Public feeds pass information to the Public Files view. You may want to raise this value in very large deployments (for example, over a million files) to avoid performance issues. It could also be decreased to have very up-to-date information in the public view. A value of 0 means no feeds are cached.</p>
+<p>The value must be greater than or equal to 0.</p>
+</dd>
+<dt>cache.user.timeout</dt>
+<dd>
+<p>Number of milliseconds user objects stay in the user information cache. The user information cache stores metadata about users, such as names and email addresses. Use this property to control the frequency of requests to the Files database for user information.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>If the value of a user's data changes in the background (when the update user task or commands for MemberSynch are executed) the cache is invalidated.</p>
+</dd>
+<dt>db.dialect</dt>
+<dd>Reflects the current database type, typically specified during installation. Accepts the values DB2, Oracle, or SQL Server.</dd>
+<dt>directory.community.membershipCache.maximumAgeOnLoginInSeconds</dt>
+<dd>
+<p>Number of seconds after a user logs in that community membership cache is refreshed. Only applicable if Community Files and Community Integration are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required for a user to have the same access as the community, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the community can access.</p>
+<p>You can decrease the value here and then tell users that logging out and then in again is the best way to refresh the cache. This would allow you to increase the number of seconds in directory.community.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests would not affect performance.</p>
+</dd>
+<dt>directory.community.membershipCache.maximumAgeOnRequestInSeconds</dt>
+<dd>
+<p>Number of seconds after an application request that the community membership cache is refreshed. Only applicable if Community Files and Community Integration are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required for a user to have the same access as the community, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the community can access.</p>
+<p>If you decrease the value of directory.community.membershipCache.maximumAgeOnLoginInSeconds and then tell users that logging out and then in again is the best way to refresh the cache, you can increase this value to 10 or even 20 minutes, so that frequent requests will not affect performance.</p>
+</dd>
+<dt>directory.group.membershipCache.maximumAgeOnLoginInSeconds</dt>
+<dd>
+<p>Number of seconds after a user logs in that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required for a user to have the same access as the group, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the group can access.</p>
+<p>You can decrease the value here and then tell users that logging out and then in again is the best way to refresh the cache. This would allow you to increase the number of seconds in directory.group.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests would not affect performance.</p>
+</dd>
+<dt>directory.group.membershipCache.maximumAgeOnRequestInSeconds</dt>
+<dd>
+<p>Number of seconds after an application request that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required for a user to have the same access as the group, but it affects performance. A short time before refresh means Files is more up-to-date, but performance may be slower. A long time before refresh may affect performance less, but users do not have immediate access to what the group can access.</p>
+<p>If you decrease the value of directory.group.membershipCache.maximumAgeOnLoginInSeconds and then tell users that logging out and then in again is the best way to refresh the cache, you can increase this value to 10 or even 20 minutes, so that frequent requests will not affect performance.</p>
+</dd>
+<dt>directory.typeaheadSearch.maximumResults</dt>
+<dd>
+<p>Maximum number of names to display when a user searches for user or group names in a search field. Sets a maximum for both typeahead results and search results (when they click the search icon).</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>If the value is very large, such as 1,000, and there are 1,000 or more matches, all names are returned and performance is greatly reduced. If the value is low, such as 10, users typing a generic name might not see all matches.</p>
+</dd>
+<dt>download.modIBMLocalRedirect.enabled</dt>
+<dd>
+<p>Specifies whether the IBM® HTTP Server serves downloaded files instead of the WebSphere® Application Server redirect servlet.</p>
+<p>You can configure HCL Connections to have the IBM HTTP Server download files. This is strongly recommended in production environments.</p>
+<p>If this property is set to true, you must also specify a URL in the download.modIBMLocalRedirect.hrefPathPrefix property. If the property is set to false, the WebSphere Application Server redirect servlet downloads files.</p>
+<p>To see information and steps for configuring the IBM HTTP Server to download files, see <em>Configuring file downloads through the HTTP Server</em>.</p>
+</dd>
+<dt>download.modIBMLocalRedirect.hrefPathPrefix</dt>
+<dd>
+<p>Path to the file system directory where Files data is stored. The file path should not include a trailing slash.</p>
+<p>This is only relevant if the download.modIBMLocalRedirect.enabled property is true.</p>
+<p>To see more information and steps for configuring the IBM HTTP Server to download files, see <em>Configuring file downloads through the HTTP Server</em>.</p>
+</dd>
+<dt>download.stats.logging.enabled</dt>
+<dd>
+<p>Level of detail to log about file downloads. If true, the Files application logs detailed download statistics, including the names of authenticated users who download files, and the version they most recently downloaded. If false, the applications only log the number of times a file is downloaded.</p>
+<p>Specify true for a better user experience and auditing.</p>
+</dd>
+<dt>emailNotification.addOnMediaDownload.enabled</dt>
+<dd>
+<p>Specifies whether to send email notification to users who download a file when the file is edited.</p>
+<p>The download.stats.logging.enabled property must be true for this to work.</p>
+</dd>
+<dt>file.attachment.maximumSizeInKb</dt>
+<dd>Does not apply to Files. Files does not have attachments, the value in this property will not affect the application.</dd>
+<dt>file.media.maximumSizeInKb</dt>
+<dd>
+<p>Maximum size allowed for media, in kilobytes. In Files, media are files.</p>
+<p>The recommended file maximum size should be less than 2 GB.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>This property is useful if you want a relatively large quota size for libraries, but you do not want users upload very large files, such as .iso files.</p>
+<p>After changing this value, the maximum size limit will not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. see <em>Post-customization step</em> for more information on forcing a browser cache refresh.</p>
+</dd>
+<dt>file.page.maximumSizeInKb</dt>
+<dd>Does not apply to Files. Files does not have pages, the value in this property will not affect the application.</dd>
+<dt>file.restrictions.enabled</dt>
+<dd>
+<p>Enables or disables the ability to restrict the types of files that users can upload in Files. Accepts the values true or false.</p>
+<p>To see information and steps for restricting file types, see <em>Restricting file types in Files</em>.</p>
+</dd>
+<dt>file.restrictions.mode</dt>
+<dd>
+<p>Sets the mode for file extension restrictions. Accepts the values allow or deny. If the value is allow, then users can only upload files with extensions on the list, or change the extension of existing files to those on the list. If the value is deny, then users can only upload files with extensions not the list, or change the extension of existing files to those not the list.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>&lt;file&gt;
  ....
- &lt;restrictions enabled="true" mode="allow"&gt;
+ &lt;restrictions enabled=&quot;true&quot; mode=&quot;allow&quot;&gt;
   &lt;extensions&gt;
    &lt;extension&gt;odt&lt;/extension&gt;
    &lt;extension&gt;odp&lt;/extension&gt;
@@ -35470,174 +35483,159 @@ After changing this value, the maximum size limit will not change for users unti
   &lt;/extensions&gt;
  &lt;/restrictions&gt;
 &lt;/file&gt;
-```
-
-To see information and steps for restricting file types, see *Restricting file types in Files*.
-</code></pre>
-<p>file.storage.rootDirectory
-:   Path to the file system directory where Files data is stored. This can be set during installation and be different for each node in a cluster. If a directory is specified in during installation this value (a variable by default) is populated by the WebSphere Application Server. However, you can specify any directory.</p>
-<pre><code>HCL Connections looks for a files and a temp directory in this directory. If they are not there they are created. The temp directory stores data while the data is uploaded or virus scanned \(if enabled\). The files directory contains the binary data that must be backed up.
-
-For more information on backing up data, see *Backing up Files data*.
-</code></pre>
-<p>file.versioning.enabled
-:   Specifies whether file versioning is allowed. Specify true or false.</p>
-<pre><code>If false, the versioning interface does not display and the first version is always current. If you disable this after multiple versions of a file are created the latest version becomes the current and only version.
-
-Note that new versions are created only when content changes, not title or tags or other metadata.
-
-Specify false to simplify and reduce data storage.
-
-For more information, see *Disabling file versioning*.
-</code></pre>
-<p>publicMedia.maximumResults
-:   Maximum number of files displayed in public views. For example, the default setting of 1000 means public views can only have 1000 files. Adjust this property to improve performance.</p>
-<pre><code>The value must be greater than or equal to 100.
-</code></pre>
-<p>renditions
-:   Specifies whether Files can generate previews for files types that can be displayed inline in areas as the activity stream, embedded experience gadget, and media gallery widget. Only JPEG, JPG, GIF, and PNG file types are available for preview. The generated previews can be in JPG (default) or PNG format.</p>
-<p>:   The following <code>renditions enabled</code> sample enables display of thumbnail images and specifies image format and size for each preview style:</p>
-<pre><code>```
-&lt;renditions enabled="true"&gt;
-               &lt;small format="JPG" width="100" height="100"/&gt;
-               &lt;medium format="JPG" width="250" height="250"/&gt;
-              &lt; large format="JPG" width="500" height="500"/&gt;
+</code></pre></div>
+<p>To see information and steps for restricting file types, see <em>Restricting file types in Files</em>.</p>
+</dd>
+<dt>file.storage.rootDirectory</dt>
+<dd>
+<p>Path to the file system directory where Files data is stored. This can be set during installation and be different for each node in a cluster. If a directory is specified in during installation this value (a variable by default) is populated by the WebSphere Application Server. However, you can specify any directory.</p>
+<p>HCL Connections looks for a files and a temp directory in this directory. If they are not there they are created. The temp directory stores data while the data is uploaded or virus scanned (if enabled). The files directory contains the binary data that must be backed up.</p>
+<p>For more information on backing up data, see <em>Backing up Files data</em>.</p>
+</dd>
+<dt>file.versioning.enabled</dt>
+<dd>
+<p>Specifies whether file versioning is allowed. Specify true or false.</p>
+<p>If false, the versioning interface does not display and the first version is always current. If you disable this after multiple versions of a file are created the latest version becomes the current and only version.</p>
+<p>Note that new versions are created only when content changes, not title or tags or other metadata.</p>
+<p>Specify false to simplify and reduce data storage.</p>
+<p>For more information, see <em>Disabling file versioning</em>.</p>
+</dd>
+<dt>publicMedia.maximumResults</dt>
+<dd>
+<p>Maximum number of files displayed in public views. For example, the default setting of 1000 means public views can only have 1000 files. Adjust this property to improve performance.</p>
+<p>The value must be greater than or equal to 100.</p>
+</dd>
+<dt>renditions</dt>
+<dd>Specifies whether Files can generate previews for files types that can be displayed inline in areas as the activity stream, embedded experience gadget, and media gallery widget. Only JPEG, JPG, GIF, and PNG file types are available for preview. The generated previews can be in JPG (default) or PNG format.</dd>
+<dd>
+<p>The following <code>renditions enabled</code> sample enables display of thumbnail images and specifies image format and size for each preview style:</p>
+<div class="highlight"><pre><span></span><code>&lt;renditions enabled=&quot;true&quot;&gt;
+               &lt;small format=&quot;JPG&quot; width=&quot;100&quot; height=&quot;100&quot;/&gt;
+               &lt;medium format=&quot;JPG&quot; width=&quot;250&quot; height=&quot;250&quot;/&gt;
+              &lt; large format=&quot;JPG&quot; width=&quot;500&quot; height=&quot;500&quot;/&gt;
            &lt;/renditions&gt;
-```
-
-For data existing before Connections 4.0, you can use the following scheduled task to enable and generate previews for supported file types.
-
-```
-&lt;task name="RenditionDailyGeneration" interval="0 0 0 * * ?" enabled="true" type="internal"&gt;&lt;/task&gt; 
-```
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours
-:   Specifies the number of hours that group information can remain in the Files database before the synchronization task can run on it. Does not run if groups are disabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any group information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.args.pauseInMillis
-:   Number of milliseconds that the synchronization task should wait before updating the next group's information. Use this to add a small amount of time between synchronizing items in the queue to avoid overloading your user directory as the task runs. Does not run if groups are disabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-
-Zero is an acceptable value if the remote user directory can handle many simultaneous queries.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.enabled
-:   Enables or disables the synchronization task for groups. The default is true.</p>
-<pre><code>The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name. If the group name is not found in the user directory, it is removed from the database.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.interval
-:   Frequency with which the synchronization task runs.</p>
-<pre><code>This property accepts a chronological expression.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any group information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-
-Adjust this property to speed up or slow down the process of synchronizing group information.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins
-:   Number of minutes that files must be in the pending deletion queue before the delete files task will delete them. For example, the default value of 720 means they will be deleted if they have been in the pending deletion queue 720 or more minutes.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-More pending time allows users to finish downloads of files added to the pending deletion queue. It also allows looser online back up policies. For example, for online backups that take less than this number of minutes you do not need to pause the file deletion task. For more information about pausing the file deletion task during backups, see *Backing up Files data*.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.enabled
-:   Enables or disables the delete files task. The default is true.</p>
-<pre><code>The task deletes files if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.interval
-:   Frequency with which the delete files task runs.</p>
-<pre><code>This property accepts a chronological expression.
-
-Files are deleted if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.
-</code></pre>
-<p>scheduledTasks.MetricsDailyCollection.enabled
-:   Specifies whether to collect metrics. Specify true or false.</p>
-<pre><code>See *Files administrative commands* for MetricService commands you can use to access metrics.
-
-The collection task runs near midnight in the server timezone, so all of the date-based metrics include data from most of a given day. Metrics entries only require a few kilobytes per day, so there is little performance impact to enabling them.
-</code></pre>
-<p>scheduledTasks.MetricsDailyCollection.interval
-:   Frequency with which daily metrics collection task runs. Only the default is supported: the task can only run at midnight in the server timezone. Do not edit this property.</p>
-<p>scheduledTasks.TagUpdateFrequency.enabled
-:   Specifies whether to run the tag frequency update task. This task finds the most frequently used tags in public files updates the public files tag cloud.</p>
-<p>scheduledTasks.TagUpdateFrequency.interval
-:   Frequency with which the tag frequency update task runs. This task finds the most frequently used tags in public files and updates public tag clouds and the autocomplete lists that display when users type a tag name in the tag filter field. For example, it measures how often the tag human-resources is used in public files and updates the cloud and lists accordingly.</p>
-<pre><code>This property accepts a chronological expression.
-
-Updating tag frequency data is resource-intensive, so you may want to adjust this value as your deployment grows. In small deployments 60 minutes is appropriate. In large deployments, once per day is recommended. Only updating once per day in large deployments should not cause problems, since the 100 to 500 most-used tags do not change very often.
-
-This property only affects public tags. Tag clouds for one person's set of files are updated in real time and are not affected.
-</code></pre>
-<p>scheduledTasks.SearchClearDeletionHistory.enabled
-:   Specifies whether to run the task. Specify true or false.</p>
-<p>scheduledTasks.SearchClearDeletionHistory.interval
-:   Frequency with which the task runs.</p>
-<pre><code>This property accepts a chronological expression.
-</code></pre>
-<p>scheduledTasks.RenditionDailyGeneration.enabled
-:   Specifies whether to run the rendition task. Specify true or false.</p>
-<p>scheduledTasks.RenditionDailyGeneration.interval
-:   Frequency with which the rendition task runs.</p>
-<pre><code>This property accepts a chronological expression.
-</code></pre>
-<p>search.seedlist.maximumIncrementalQuerySpanInDays
-:   Number of days that deletion records are saved before they are eligible to be deleted by the SearchClearDeletionHistory task.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-Files keeps records of deleted files. These records are eligible to be deleted by the SearchClearDeletionHistory task after the number of days specified in this property. The incremental search crawler needs these deletion records to update the search index. If the records are deleted before the incremental crawler reads them, updates will be incomplete. This is not allowed, so Files performs a full crawl instead of an incremental crawl. Full crawls delete the existing search index and create a new one, which is more time consuming than incremental crawls.
-
-To avoid frequent full crawls, set this value higher than the span of days between incremental crawls. For example, if incremental crawls happen every four days, set this value higher than 4. This ensures that incremental crawls capture all deletion records.
-</code></pre>
-<p>search.seedlist.maximumPageSize
-:   Maximum number of items on search return page. The value must be greater than or equal to 100.</p>
-<p>security.inlineDownload.enabled
-:   Enables inline display of files. This is useful when you use the Files API to download and display active content, such as Adobe® Flash (.swf) files, in your own HTML pages.</p>
-<pre><code>By default, the HCL Connections server passes Files application files to browsers with the header Content-Disposition: attachment. This means files display as attachments; when users click the attachment they are prompted to open or download the file. It also prevents embedding files. If you want to embed files in your own HTML page using an &lt;embed\&gt; tag, the content disposition must be inline. This affects active content, such as Adobe Flash \(.swf\), and HTML pages referenced with &lt;iframe\&gt;.
-
-Configure a property in `files-config.xml` to change the content disposition from attachment to inline. Then set the inline parameter to true in your Files API download requests. See *Displaying files inline*.
-
-**Note:** Files uses the attachment disposition for security reasons. Uploaded files could potentially contain malicious code that can exploit the cross-site scripting vulnerabilities of some browsers. If you switch to inline disposition, you should configure an alternate domain download for greater security. See *Securing applications from malicious attack*.
-
-Accepted values are `true` and `false`.
-</code></pre>
-<p>security.logout.href
-:   Logout URL for single-sign on solutions that require their own logout page.</p>
-<pre><code>If you are configuring HCL Connections to work with Tivoli® Access Manager, specify the following value:
-
-```
-/files/ibm_security_logout?logoutExitPage=&lt;url&gt;
-```
-
-where `&lt;url&gt;` is the Tivoli Access Manager junction URL \(this is usually the host name of the server\).
-
-For more information, see *Enabling single-sign on with IBM Tivoli Access Manager*.
-
-**Note:** You must use fully-qualified domain names in this configuration file. If you use an abbreviated name, secure communications between servers will fail.
-
-If you customize the contextroot for Files in WebSphere Application Server \(WAS\) and LotusConnections-config.xml, you must also change the contextroot in the security.logout.href value. Otherwise, users will be unable to log out.
-</code></pre>
-<p>tagFilter
-:   Specifies the maximum number of tags to filter Files search results. The default is 3. A value greater than 10 is not recommended for performance reasons. Format is as follows:</p>
-<pre><code>```
-&lt;tagFilter maximumTags="5"/&gt;
-
-```
-</code></pre>
-<p>upload.modIBMUpload.enabled
-:   Specifies whether the IBM® HTTP Server receives uploaded files instead of the WebSphere® Application Server.</p>
-<pre><code>This is an optimization that moves potentially long running tasks off of the WebSphere® Application Server, which is tuned for short running operations. If this property is set to true, increase the file.media.maximumSizeInKb property to allow large files to be uploaded. If this property is set to false, the WebSphere Application Server handles the complete upload process. For more information and steps for configuring the IBM HTTP Server to upload files, see [Configuring file uploads through the HTTP Server](../install/t_install_post_files_uploads.md).
-
-**Note:** Files sizes up to the value of api.simpleUploadAPI.maximumSizeInKb are still uploaded by the WebSphere® Application Server.
-</code></pre>
+</code></pre></div>
+<p>For data existing before Connections 4.0, you can use the following scheduled task to enable and generate previews for supported file types.</p>
+<div class="highlight"><pre><span></span><code>&lt;task name=&quot;RenditionDailyGeneration&quot; interval=&quot;0 0 0 * * ?&quot; enabled=&quot;true&quot; type=&quot;internal&quot;&gt;&lt;/task&gt; 
+</code></pre></div>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours</dt>
+<dd>
+<p>Specifies the number of hours that group information can remain in the Files database before the synchronization task can run on it. Does not run if groups are disabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any group information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.args.pauseInMillis</dt>
+<dd>
+<p>Number of milliseconds that the synchronization task should wait before updating the next group's information. Use this to add a small amount of time between synchronizing items in the queue to avoid overloading your user directory as the task runs. Does not run if groups are disabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+<p>Zero is an acceptable value if the remote user directory can handle many simultaneous queries.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.enabled</dt>
+<dd>
+<p>Enables or disables the synchronization task for groups. The default is true.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name. If the group name is not found in the user directory, it is removed from the database.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.interval</dt>
+<dd>
+<p>Frequency with which the synchronization task runs.</p>
+<p>This property accepts a chronological expression.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Files database with the HCL Connections user directory. It queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any group information older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+<p>Adjust this property to speed up or slow down the process of synchronizing group information.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins</dt>
+<dd>
+<p>Number of minutes that files must be in the pending deletion queue before the delete files task will delete them. For example, the default value of 720 means they will be deleted if they have been in the pending deletion queue 720 or more minutes.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>More pending time allows users to finish downloads of files added to the pending deletion queue. It also allows looser online back up policies. For example, for online backups that take less than this number of minutes you do not need to pause the file deletion task. For more information about pausing the file deletion task during backups, see <em>Backing up Files data</em>.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.enabled</dt>
+<dd>
+<p>Enables or disables the delete files task. The default is true.</p>
+<p>The task deletes files if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.interval</dt>
+<dd>
+<p>Frequency with which the delete files task runs.</p>
+<p>This property accepts a chronological expression.</p>
+<p>Files are deleted if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.</p>
+</dd>
+<dt>scheduledTasks.MetricsDailyCollection.enabled</dt>
+<dd>
+<p>Specifies whether to collect metrics. Specify true or false.</p>
+<p>See <em>Files administrative commands</em> for MetricService commands you can use to access metrics.</p>
+<p>The collection task runs near midnight in the server timezone, so all of the date-based metrics include data from most of a given day. Metrics entries only require a few kilobytes per day, so there is little performance impact to enabling them.</p>
+</dd>
+<dt>scheduledTasks.MetricsDailyCollection.interval</dt>
+<dd>Frequency with which daily metrics collection task runs. Only the default is supported: the task can only run at midnight in the server timezone. Do not edit this property.</dd>
+<dt>scheduledTasks.TagUpdateFrequency.enabled</dt>
+<dd>Specifies whether to run the tag frequency update task. This task finds the most frequently used tags in public files updates the public files tag cloud.</dd>
+<dt>scheduledTasks.TagUpdateFrequency.interval</dt>
+<dd>
+<p>Frequency with which the tag frequency update task runs. This task finds the most frequently used tags in public files and updates public tag clouds and the autocomplete lists that display when users type a tag name in the tag filter field. For example, it measures how often the tag human-resources is used in public files and updates the cloud and lists accordingly.</p>
+<p>This property accepts a chronological expression.</p>
+<p>Updating tag frequency data is resource-intensive, so you may want to adjust this value as your deployment grows. In small deployments 60 minutes is appropriate. In large deployments, once per day is recommended. Only updating once per day in large deployments should not cause problems, since the 100 to 500 most-used tags do not change very often.</p>
+<p>This property only affects public tags. Tag clouds for one person's set of files are updated in real time and are not affected.</p>
+</dd>
+<dt>scheduledTasks.SearchClearDeletionHistory.enabled</dt>
+<dd>Specifies whether to run the task. Specify true or false.</dd>
+<dt>scheduledTasks.SearchClearDeletionHistory.interval</dt>
+<dd>
+<p>Frequency with which the task runs.</p>
+<p>This property accepts a chronological expression.</p>
+</dd>
+<dt>scheduledTasks.RenditionDailyGeneration.enabled</dt>
+<dd>Specifies whether to run the rendition task. Specify true or false.</dd>
+<dt>scheduledTasks.RenditionDailyGeneration.interval</dt>
+<dd>
+<p>Frequency with which the rendition task runs.</p>
+<p>This property accepts a chronological expression.</p>
+</dd>
+<dt>search.seedlist.maximumIncrementalQuerySpanInDays</dt>
+<dd>
+<p>Number of days that deletion records are saved before they are eligible to be deleted by the SearchClearDeletionHistory task.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>Files keeps records of deleted files. These records are eligible to be deleted by the SearchClearDeletionHistory task after the number of days specified in this property. The incremental search crawler needs these deletion records to update the search index. If the records are deleted before the incremental crawler reads them, updates will be incomplete. This is not allowed, so Files performs a full crawl instead of an incremental crawl. Full crawls delete the existing search index and create a new one, which is more time consuming than incremental crawls.</p>
+<p>To avoid frequent full crawls, set this value higher than the span of days between incremental crawls. For example, if incremental crawls happen every four days, set this value higher than 4. This ensures that incremental crawls capture all deletion records.</p>
+</dd>
+<dt>search.seedlist.maximumPageSize</dt>
+<dd>Maximum number of items on search return page. The value must be greater than or equal to 100.</dd>
+<dt>security.inlineDownload.enabled</dt>
+<dd>
+<p>Enables inline display of files. This is useful when you use the Files API to download and display active content, such as Adobe® Flash (.swf) files, in your own HTML pages.</p>
+<p>By default, the HCL Connections server passes Files application files to browsers with the header Content-Disposition: attachment. This means files display as attachments; when users click the attachment they are prompted to open or download the file. It also prevents embedding files. If you want to embed files in your own HTML page using an &lt;embed> tag, the content disposition must be inline. This affects active content, such as Adobe Flash (.swf), and HTML pages referenced with &lt;iframe>.</p>
+<p>Configure a property in <code>files-config.xml</code> to change the content disposition from attachment to inline. Then set the inline parameter to true in your Files API download requests. See <em>Displaying files inline</em>.</p>
+<p><strong>Note:</strong> Files uses the attachment disposition for security reasons. Uploaded files could potentially contain malicious code that can exploit the cross-site scripting vulnerabilities of some browsers. If you switch to inline disposition, you should configure an alternate domain download for greater security. See <em>Securing applications from malicious attack</em>.</p>
+<p>Accepted values are <code>true</code> and <code>false</code>.</p>
+</dd>
+<dt>security.logout.href</dt>
+<dd>
+<p>Logout URL for single-sign on solutions that require their own logout page.</p>
+<p>If you are configuring HCL Connections to work with Tivoli® Access Manager, specify the following value:</p>
+<div class="highlight"><pre><span></span><code>/files/ibm_security_logout?logoutExitPage=&lt;url&gt;
+</code></pre></div>
+<p>where <code>&lt;url&gt;</code> is the Tivoli Access Manager junction URL (this is usually the host name of the server).</p>
+<p>For more information, see <em>Enabling single-sign on with IBM Tivoli Access Manager</em>.</p>
+<p><strong>Note:</strong> You must use fully-qualified domain names in this configuration file. If you use an abbreviated name, secure communications between servers will fail.</p>
+<p>If you customize the contextroot for Files in WebSphere Application Server (WAS) and LotusConnections-config.xml, you must also change the contextroot in the security.logout.href value. Otherwise, users will be unable to log out.</p>
+</dd>
+<dt>tagFilter</dt>
+<dd>
+<p>Specifies the maximum number of tags to filter Files search results. The default is 3. A value greater than 10 is not recommended for performance reasons. Format is as follows:</p>
+<div class="highlight"><pre><span></span><code>&lt;tagFilter maximumTags=&quot;5&quot;/&gt;
+</code></pre></div>
+</dd>
+<dt>upload.modIBMUpload.enabled</dt>
+<dd>
+<p>Specifies whether the IBM® HTTP Server receives uploaded files instead of the WebSphere® Application Server.</p>
+<p>This is an optimization that moves potentially long running tasks off of the WebSphere® Application Server, which is tuned for short running operations. If this property is set to true, increase the file.media.maximumSizeInKb property to allow large files to be uploaded. If this property is set to false, the WebSphere Application Server handles the complete upload process. For more information and steps for configuring the IBM HTTP Server to upload files, see <a href="../install/t_install_post_files_uploads.html">Configuring file uploads through the HTTP Server</a>.</p>
+<p><strong>Note:</strong> Files sizes up to the value of api.simpleUploadAPI.maximumSizeInKb are still uploaded by the WebSphere® Application Server.</p>
+</dd>
+</dl>
 <p>For information on how to format the value of an interval attribute, see <em>Scheduling tasks</em>.</p>
 <p><strong>Parent topic:</strong><a href="t_admin_files_changing_config_properties.html">Changing Files configuration property values</a></p>
 <p><strong>Related information</strong>  </p>

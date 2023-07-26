@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35313,8 +35329,10 @@
 </li>
 <li>
 <p>Use the following commands to administer the Profiles scheduler service.</p>
-<p>ProfilesScheduledTaskService.pauseSchedulingTask(string taskName)
-:   Suspends scheduling of a task. Has no effect on currently running tasks. Returns a 1 to indicate that the task has been paused. Paused tasks remain paused until you explicitly resume them, even if the server is stopped and restarted.</p>
+<dl>
+<dt>ProfilesScheduledTaskService.pauseSchedulingTask(string taskName)</dt>
+<dd>Suspends scheduling of a task. Has no effect on currently running tasks. Returns a 1 to indicate that the task has been paused. Paused tasks remain paused until you explicitly resume them, even if the server is stopped and restarted.</dd>
+</dl>
 <pre><code>Parameters: taskName
 
 Task names have the following string values:
@@ -35329,8 +35347,10 @@ For example:
 ProfilesScheduledTaskService.pauseSchedulingTask("StatsCollectorTask")
 ```
 </code></pre>
-<p>ProfilesScheduledTaskService.resumeSchedulingTask(string taskName)
-:   Resumes the start of a paused task. Returns a 1 to indicate that the task has been resumed.</p>
+<dl>
+<dt>ProfilesScheduledTaskService.resumeSchedulingTask(string taskName)</dt>
+<dd>Resumes the start of a paused task. Returns a 1 to indicate that the task has been resumed.</dd>
+</dl>
 <pre><code>Parameters: taskName
 
 Task names have the following string values:
@@ -35345,8 +35365,10 @@ For example:
 ProfilesScheduledTaskService.resumeSchedulingTask("StatsCollectorTask")
 ```
 </code></pre>
-<p>ProfilesScheduledTaskService.forceTaskExecution(string taskName, string executeSynchronously)
-:   Property settings in the profiles-config.xml file specify whether tasks are enabled to run automatically, and how often. This command allows you to run tasks manually, for example if you disabled a task but want to run it occasionally.</p>
+<dl>
+<dt>ProfilesScheduledTaskService.forceTaskExecution(string taskName, string executeSynchronously)</dt>
+<dd>Property settings in the profiles-config.xml file specify whether tasks are enabled to run automatically, and how often. This command allows you to run tasks manually, for example if you disabled a task but want to run it occasionally.</dd>
+</dl>
 <pre><code>Executes a task. Returns a 1 to indicate that the task has been executed.
 
 Parameters: taskName
@@ -35367,8 +35389,10 @@ For example:
 ProfilesScheduledTaskService.forceTaskExecution("StatsCollectorTask")
 ```
 </code></pre>
-<p>ProfilesScheduledTaskService.getTaskDetails(string taskName)
-:   Displays status of a task and details about configuration parameters.</p>
+<dl>
+<dt>ProfilesScheduledTaskService.getTaskDetails(string taskName)</dt>
+<dd>Displays status of a task and details about configuration parameters.</dd>
+</dl>
 <pre><code>Parameters: taskName
 
 Task names have the following string values:

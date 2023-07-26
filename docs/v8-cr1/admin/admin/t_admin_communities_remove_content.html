@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35333,8 +35349,10 @@ java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: CLFRM009
 </li>
 <li>
 <p>Use the following commands to make changes to content in various fields of a community or subcommunity to which you do not have owner access. You can use the commands to remove unwanted or inappropriate content.</p>
-<p>CommunitiesService.updateCommunityName(String communityName, String newName)
-:   Allows you to update an existing community or subcommunity name where:</p>
+<dl>
+<dt>CommunitiesService.updateCommunityName(String communityName, String newName)</dt>
+<dd>Allows you to update an existing community or subcommunity name where:</dd>
+</dl>
 <pre><code>-   communityName refers to the existing community or subcommunity name, which must be specified exactly.
 -   newName is the new name of the community or subcommunity.
 Both communityName and newName must be enclosed in double quotation marks \("\).
@@ -35352,8 +35370,10 @@ You can obtain the UUID for a community or subcommunity by doing one of the foll
 -   Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.
 -   Run the CommunitiesService.fetchAllComm\(\) wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.
 </code></pre>
-<p>CommunitiesService.updateCommunityDescription(String communityName, String newDescription)
-:   Allows you to update (overwrite) the description field in an existing community or subcommunity. Any existing description is overwritten by the new text that you enter into this command.</p>
+<dl>
+<dt>CommunitiesService.updateCommunityDescription(String communityName, String newDescription)</dt>
+<dd>Allows you to update (overwrite) the description field in an existing community or subcommunity. Any existing description is overwritten by the new text that you enter into this command.</dd>
+</dl>
 <pre><code>Both communityName and newDescription must be enclosed in double quotation marks \("\).
 
 For example:
@@ -35364,8 +35384,10 @@ CommunitiesService.updateCommunityDescription("Ski Community",
 people interested in skiing.")
 ```
 </code></pre>
-<p>CommunitiesService.removeReferencesByUri(String communityName, List referenceURIs)
-:   Allows you to remove all references to one or more existing bookmarks (URIs) from a specified community or subcommunity.</p>
+<dl>
+<dt>CommunitiesService.removeReferencesByUri(String communityName, List referenceURIs)</dt>
+<dd>Allows you to remove all references to one or more existing bookmarks (URIs) from a specified community or subcommunity.</dd>
+</dl>
 <pre><code>The command requires a two-step process: First, create a comma-separated list of the bookmarks \(URIs\) that you want to remove. These URIs are saved to a variable and this variable is used as input for the removeReferencesByUri command.
 
 Because the URIs are specified as a list, each URI must be enclosed in double quotation marks and separated by commas. All URIs must be enclosed within brackets. The URI that is listed must match exactly the URI that is saved in the community or subcommunity, otherwise the command fails.
@@ -35379,8 +35401,10 @@ wsadmin&gt;delete=["http://valid1.url.com", "http://valid2.url.com", "http://val
 wsadmin&gt;CommunitiesService.removeReferencesByUri("Ski Club Community",delete)
 ```
 </code></pre>
-<p>CommunitiesService.removeTagsFromCommunity(String communityName, List tagNames)
-:   Allows you to remove tags from an existing community or subcommunity. This command is a two-step process. First, create a comma-separated list of the tags that you want to remove. This list of tags is saved to a variable and the variable is used as input for the removeTagsFromCommunity command.</p>
+<dl>
+<dt>CommunitiesService.removeTagsFromCommunity(String communityName, List tagNames)</dt>
+<dd>Allows you to remove tags from an existing community or subcommunity. This command is a two-step process. First, create a comma-separated list of the tags that you want to remove. This list of tags is saved to a variable and the variable is used as input for the removeTagsFromCommunity command.</dd>
+</dl>
 <pre><code>**Note:** You can remove tags on a community or subcommunity, but you cannot remove tags associated with bookmarks or feeds within a community.
 
 Because the tags are specified as a list, each tag must be enclosed in double quotation marks and separated by commas. All tags must be enclosed within brackets.
@@ -35394,8 +35418,10 @@ wsadmin&gt;tags=["snowboard", "mountain"]
 wsadmin&gt;CommunitiesService.removeTagsFromCommunity("Ski Club Community", tags)
 ```
 </code></pre>
-<p>CommunitiesService.removeWidgetsByWidgetDefIdForAllComm(String widgetDefId)
-:   Allows you to remove the specified widget from all communities and subcommunities. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
+<dl>
+<dt>CommunitiesService.removeWidgetsByWidgetDefIdForAllComm(String widgetDefId)</dt>
+<dd>Allows you to remove the specified widget from all communities and subcommunities. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</dd>
+</dl>
 <pre><code>**Note:** Use this command with caution, it can delete a lot of data for many widgets. Backup your databases before running.
 
 widgetDefId is a string and must be enclosed in double quotation marks \("\).
@@ -35407,8 +35433,10 @@ For example:
 wsadmin&gt;CommunitiesService.removeWidgetsByWidgetDefIdForAllComm("Blog")
 ```
 </code></pre>
-<p>CommunitiesService.removeAllWidgetsByWidgetDefId(String communityUuid, String widgetDefId)
-:   Allows you to remove all instances of the specified widget from the specified community. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
+<dl>
+<dt>CommunitiesService.removeAllWidgetsByWidgetDefId(String communityUuid, String widgetDefId)</dt>
+<dd>Allows you to remove all instances of the specified widget from the specified community. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</dd>
+</dl>
 <pre><code>Both communityUuid and widgetDefId must be enclosed in double quotation marks \("\).
 
 For example:

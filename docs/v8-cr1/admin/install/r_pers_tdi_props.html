@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35413,15 +35429,17 @@
 |source_ldap_sort_page_size|Page size|If specified, the LDAP Connector tries to use paged mode search. Paged mode causes the directory server to return a specific number of entries (called pages) instead of all entries in one chunk. Not all directory servers support this option. The default value is 0, which indicates that paged mode is disabled.</p>
 <p>The default value is 0.</p>
 <p>This parameter is not configurable when you are using the population wizard.</p>
-<p>|
-|source_ldap_authentication_method|Authentication Method|Anonymous
-:   This method provides minimal security.</p>
-<p>Simple
-:   This method uses a login user name and password to authenticate. It is treated as anonymous if no user name and password are provided.</p>
-<p>CRAM-MD5
-:   Challenge/Response Authentication Mechanism using Message Digest 5. This method provides reasonable security against various attacks, including replay.</p>
-<p>SASL
-:   Simple Authentication and Security Layer. This method adds authentication support to connection-based protocols. Specify parameters for this type of authentication with the <strong>Extra Provider Parameters</strong> option.</p>
+<dl>
+<dt>|</dt>
+<dt>|source_ldap_authentication_method|Authentication Method|Anonymous</dt>
+<dd>This method provides minimal security.</dd>
+<dt>Simple</dt>
+<dd>This method uses a login user name and password to authenticate. It is treated as anonymous if no user name and password are provided.</dd>
+<dt>CRAM-MD5</dt>
+<dd>Challenge/Response Authentication Mechanism using Message Digest 5. This method provides reasonable security against various attacks, including replay.</dd>
+<dt>SASL</dt>
+<dd>Simple Authentication and Security Layer. This method adds authentication support to connection-based protocols. Specify parameters for this type of authentication with the <strong>Extra Provider Parameters</strong> option.</dd>
+</dl>
 <p>This parameter is not configurable through the population wizard.</p>
 <p>|
 |source_ldap_collect_dns_file| |Name of the file that is used to collect distinguished names (DNs) by the collect_dns.bat/sh process from the source. This is then used during population by the populate_from_dn_file.bat/sh processes to look up entries to add to the database repository.</p>
@@ -35583,10 +35601,12 @@
 </tr>
 </tbody>
 </table>
-<p>HTTP basic authentication
-:   A method that is designed to allow a web browser, or other client program, to provide credentials when making a request. The credentials are in the form of a user name and password.</p>
-<p>Anonymous
-:   This method provides minimal security.</p>
+<dl>
+<dt>HTTP basic authentication</dt>
+<dd>A method that is designed to allow a web browser, or other client program, to provide credentials when making a request. The credentials are in the form of a user name and password.</dd>
+<dt>Anonymous</dt>
+<dd>This method provides minimal security.</dd>
+</dl>
 <p>|
 |monitor_changes_dsml_server_url| |<strong>Required if you are transmitting user changes back to the source repository</strong>. Web address of the DSML server to which the DSML update requests are sent.</p>
 <p>|
@@ -35635,14 +35655,16 @@
 <p>|
 |ad_changelog_ldap_required_dn_regex.| | |
 |tds_changelog_ldap_authentication_method|Authentication Method|Authentication method that is used to connect to LDAP to read records. Options include the following:</p>
-<p>Anonymous
-:   This method provides minimal security.</p>
-<p>Simple
-:   This method uses a login user name and password to authenticate. It is treated as anonymous if no user name and password are provided.</p>
-<p>CRAM-MD5
-:   Challenge/Response Authentication Mechanism using Message Digest 5. This method provides reasonable security against various attacks, including replay.</p>
-<p>SASL
-:   Simple Authentication and Security Layer. This method adds authentication support to connection-based protocols. Specify parameters for this type of authentication using the Extra Provider Parameters option.</p>
+<dl>
+<dt>Anonymous</dt>
+<dd>This method provides minimal security.</dd>
+<dt>Simple</dt>
+<dd>This method uses a login user name and password to authenticate. It is treated as anonymous if no user name and password are provided.</dd>
+<dt>CRAM-MD5</dt>
+<dd>Challenge/Response Authentication Mechanism using Message Digest 5. This method provides reasonable security against various attacks, including replay.</dd>
+<dt>SASL</dt>
+<dd>Simple Authentication and Security Layer. This method adds authentication support to connection-based protocols. Specify parameters for this type of authentication using the Extra Provider Parameters option.</dd>
+</dl>
 <p>|
 |tds_changelog_ldap_changelog_base|ChangelogBase|Change log base to use when iterating through the changes. This is typically <code>cn=changelog</code>.</p>
 <p>|

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35324,8 +35324,8 @@
 
 
 <h1 class="task" id="task_jkk_vs1_d5">Configuring file uploads through IBM HTTP Server</h1>
-<p>Configure the IBM® HTTP Server to manage file uploads from Activities and Files. This approach is more efficient than using the IBM WebSphere® Application Server to receive files larger than 500 MB.</p>
-<p>All Activities and Files data must first be stored on a shared file system as described in <a href="../plan/c_planning_the_installation.html">Deployment options</a>. The IBM HTTP Servers in the deployment must also have READ and WRITE access to the files and folders, and the WebSphere Application Servers must have WRITE access.</p>
+<p>Configure the IBM® HTTP Server to manage file uploads from Files. This approach is more efficient than using the IBM WebSphere® Application Server to receive files larger than 500 MB.</p>
+<p>All Files data must first be stored on a shared file system as described in <a href="../plan/c_planning_the_installation.html">Deployment options</a>. The IBM HTTP Servers in the deployment must also have READ and WRITE access to the files and folders, and the WebSphere Application Servers must have WRITE access.</p>
 <p><strong>Note:</strong> For shared and remote network file system requirements, review the footnotes for each supported operating system in the detailed system requirements.</p>
 <p>The default deployment for the IBM HTTP Server passes file upload requests from the IBM HTTP Server to the WebSphere Application Server. The WebSphere Application Server then saves the files in a data directory on the file system. When too many users upload large files this deployment becomes inefficient because the WebSphere Application Server has a limited thread pool that is tuned for short-lived transactions. Configuring the IBM HTTP Server to upload large files allows the WebSphere Application Server to run tasks such as security checking and quota validation. During the upload of a large file, the WebSphere Application Server can serve other requests while the HTTP server is receiving file content.</p>
 <p>Installing an add-on module that directs the IBM HTTP Server to upload files is the first step in configuring the environment. When the module is installed, upload requests are intercepted by the IBM HTTP Server. The add-on module then communicates with the WebSphere Application Server and saves file content to the data directory. After the whole file content is saved, the add-on module tells the WebSphere Application Server to save the information to the database and complete the upload process.</p>
@@ -35336,9 +35336,7 @@
 </li>
 <li>
 <p>On the server where HCL Connections is installed, go to the connections_root/ihs/mod_ibm_upload/platform directory and locate the module file named <strong>mod_ibm_upload.so</strong>. Depending on your operating system, search for one of the following directories:</p>
-<div class="highlight"><pre><span></span><code>/ihs.aix.ppc32    
-/ihs.aix.ppc64    
-/ihs.linux.s390
+<div class="highlight"><pre><span></span><code>/ihs.linux.s390
 /ihs.linux.ia32    
 /ihs.linux.ppc64    
 /ihs.linuxs.390_x64
@@ -35364,19 +35362,18 @@ LoadModule ibm_upload_module modules/mod_ibm_upload.so
 <li>
 <p>Grant access to the data directory root as follows:</p>
 <ul>
-<li>For AIX and Linux: Give the IBM HTTP Server user READ, WRITE, and EXECUTEaccess to the data directory root.</li>
+<li>For Linux: Give the IBM HTTP Server user READ, WRITE, and EXECUTEaccess to the data directory root.</li>
 <li>For Microsoft Windows: Give the IBM HTTP Server user READ and WRITE access to the data directory root. For optimal security, do not grant WRITE access.
 <strong>Note:</strong></li>
 </ul>
 <p>You can find the data_directory_root path by searching for storage rootDirectory in <strong>files-config.xml</strong>. This attribute contains either the path itself or a WebSphere Application Server variable whose value is the path. For example, if the value is <code>${FILES_CONTENT_DIR}</code>, then <code>FILES_CONTENT_DIR</code> is the path for the WebSphere Application Server console. Information about opening the <strong>files-config.xml</strong> can be found in <em>Changing configuration property values</em>. For more information about WebSphere variables, see <em>Changing WebSphere Application Server environment variables</em>.</p>
 <p>In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of <code>FILES_CONTENT_DIR</code> is \\server\Shared\files\upload. In this case, the user has no rights to share and cannot be given READ access. You must instead give the user READ access at the share point of \\server\Shared.</p>
-<p>You must give the HTTP server the appropriate level of access to each content store root defined in the <strong>oa-config.xml</strong> file. The content store roots are defined in the <code>root.directory</code> property of each <code>&lt;store&gt;</code> element. For example:</p>
-<div class="highlight"><pre><span></span><code>&lt;property name=&quot;root.directory&quot;&gt;${ACTIVITIES_CONTENT_DIR}&lt;/property&gt;
-</code></pre></div>
+<p>&lt;!--You must give the HTTP server the appropriate level of access to each content store root defined in the <strong>oa-config.xml</strong> file. The content store roots are defined in the <code>root.directory</code> property of each <code>&lt;store&gt;</code> element. For example:</p>
+<p><code>&lt;property name="root.directory"&gt;${ACTIVITIES_CONTENT_DIR}&lt;/property&gt;</code>--&gt;</p>
 </li>
 <li>
-<p>On all virtual hosts in the same domain as Activities and Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:</p>
-<p>For Activities:</p>
+<p>On all virtual hosts in the same domain as Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:</p>
+<p>&lt;!--For Activities:</p>
 <div class="highlight"><pre><span></span><code>&lt;IfModule mod_rewrite.c&gt;
 RewriteEngine On
 #RewriteLog logs/rewrite.log
@@ -35418,7 +35415,7 @@ RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
 RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
 RewriteRule ^/activities/service/atom2/forms/activity$ /ihs/activities/service/atom2/forms/activity [PT,L]
 
-&lt;/IfModule&gt;
+&lt;/IfModule&gt;--&gt;
 </code></pre></div>
 <p>For Files:</p>
 <div class="highlight"><pre><span></span><code>&lt;IfModule mod_rewrite.c&gt;    
@@ -35529,32 +35526,34 @@ RewriteRule ^/files/(basic|form|oauth)/api/document/([^/]+)/entry(\?[^/]*)? /ihs
 
 &lt;/IfModule&gt;
 </code></pre></div>
-<p><strong>Note:</strong> You can put rules for Activities and Files only between the <code>&lt;IfModule&gt;</code> and <code>&lt;/IfModule&gt;</code> elements.</p>
+<p><strong>Note:</strong> You can put rules for Files only between the <code>&lt;IfModule&gt;</code> and <code>&lt;/ifmodule&gt;</code> elements.</p>
 </li>
 <li>
 <p>Configure the upload module as follows:</p>
-<p>For Activities:</p>
-<div class="highlight"><pre><span></span><code>&lt;Location /ihs/activities&gt;
+<p>&lt;!--For Activities:</p>
+<p><div class="highlight"><pre><span></span><code>&lt;Location /ihs/activities&gt;
 IBMUploadHandler On
 SetHandler ibm_upload_handler
 IBMUploadBaseStore &quot;/opt/IBM/Connections/data/activities/content&quot;
 IBMUploadMethods POST,PUT
 IBMUploadURLPrefix /ihs
 &lt;/Location&gt;
+```--&gt;
+
+For Files:
 </code></pre></div>
-<p>For Files:</p>
-<div class="highlight"><pre><span></span><code>&lt;Location &quot;/ihs/files&quot;&gt;    
-IBMUploadHandler On    
-SetHandler ibm_upload_handler    
-IBMUploadBaseStore &quot;/opt/IBM/Connections/data/files/upload/files&quot;    
+<Location "/ihs/files">  <br />
+IBMUploadHandler On  <br />
+SetHandler ibm_upload_handler  <br />
+IBMUploadBaseStore "/opt/IBM/Connections/data/files/upload/files"  <br />
 IBMUploadMethods POST,PUT
 IBMUploadURLPrefix /ihs
-&lt;/Location&gt;
-</code></pre></div>
+</location>
+```</p>
 </li>
 <li>
-<p>Configure the Activities and Files applications to work with the upload module as follows:</p>
-<p>For Activities:</p>
+<p>Configure the Files application to work with the upload module as follows:</p>
+<p>&lt;!--For Activities:</p>
 <p>Add the <code>fileUploadPluginEnabled</code> property to the default store configuration in the <strong>oa-config.xml</strong> file to indicate whether the file upload plug-in is enabled in the environment. For example:</p>
 <div class="highlight"><pre><span></span><code>&lt;store default=&quot;true&quot; class=&quot;com.ibm.openactivities.objectstore.filesystem.ContentStore&quot;&gt;
 &lt;id&gt;filestore&lt;/id&gt;            
@@ -35565,7 +35564,7 @@ IBMUploadURLPrefix /ihs
 </code></pre></div>
 <p>Then, limit the old API to allow only smaller file uploads as follows:</p>
 <p>Add the <code>formFileUploadSizeLimit</code> property to the object store configuration in the <strong>oa-config.xml</strong> file to specify the maximum file size that can be uploaded through the old file upload solution. For example:</p>
-<div class="highlight"><pre><span></span><code>&lt;objectStore&gt;  
+<p><div class="highlight"><pre><span></span><code>&lt;objectStore&gt;  
 ...  
 &lt;sizeLimits&gt;            
 &lt;limit mimeFilenameRegex=&quot;.*&quot;&gt;2147483648&lt;/limit&gt;        
@@ -35573,29 +35572,33 @@ IBMUploadURLPrefix /ihs
 &lt;formFileUploadSizeLimit&gt;31457280&lt;/formFileUploadSizeLimit&gt;
 &lt;max-concurrent-downloads&gt;10&lt;/max-concurrent-downloads&gt; 
 &lt;/objectStore&gt;
+```--&gt;
+
+For Files:
+
+Change the `modIBMUpload` property to be enabled in the **files-config.xml** file. For example:
 </code></pre></div>
-<p>For Files:</p>
-<p>Change the <code>modIBMUpload</code> property to be enabled in the <strong>files-config.xml</strong> file. For example:</p>
-<div class="highlight"><pre><span></span><code>&lt;upload&gt;  
-&lt;modIBMUpload enabled=&quot;true&quot;/&gt; 
-&lt;/upload&gt;
+<upload><br />
+<modIBMUpload enabled="true"/> 
+</upload>
+<div class="highlight"><pre><span></span><code>Then, limit the old API to allow only smaller file uploads as follows:
+
+Change the `maximumSizeInKb` property for the simpleUploadAPI file. For example:
 </code></pre></div>
-<p>Then, limit the old API to allow only smaller file uploads as follows:</p>
-<p>Change the <code>maximumSizeInKb</code> property for the simpleUploadAPI file. For example:</p>
-<div class="highlight"><pre><span></span><code>&lt;api&gt;   
-&lt;simpleUploadAPI maximumSizeInKb=&quot;512000&quot;&gt;
-&lt;/simpleUploadAPI&gt; 
-&lt;/api&gt;
+<api> <br />
+<simpleUploadAPI maximumSizeInKb="512000">
+</simpleuploadapi> 
+</api>
+<div class="highlight"><pre><span></span><code>**Note:** The upload module can be used only when WebSphere Application Server is not run as user root. Otherwise, file permissions prevent the application server and the IBM HTTP Server from exchanging files. For security reasons, do not run the application server as root, but if that is not an option, then large files still can be uploaded. If WebSphere Application Server is run as root, consider making the following change to the `maximumSizeInKb` property for thesimpleUploadAPI file:
 </code></pre></div>
-<p><strong>Note:</strong> The upload module can be used only when WebSphere Application Server is not run as user root. Otherwise, file permissions prevent the application server and the IBM HTTP Server from exchanging files. For security reasons, do not run the application server as root, but if that is not an option, then large files still can be uploaded. If WebSphere Application Server is run as root, consider making the following change to the <code>maximumSizeInKb</code> property for thesimpleUploadAPI file:</p>
-<div class="highlight"><pre><span></span><code>&lt;api&gt;   
-    &lt;simpleUploadAPI maximumSizeInKb=&quot;2097152&quot;&gt;
-    &lt;/simpleUploadAPI&gt; 
-    &lt;/api&gt;
-</code></pre></div>
+<api> <br />
+    <simpleUploadAPI maximumSizeInKb="2097152">
+    </simpleuploadapi> 
+    </api>
+```</p>
 </li>
 <li>
-<p>Restart the HTTP server, the Activities application, and the Files application.</p>
+<p>Restart the HTTP server and the Files application.</p>
 </li>
 </ol>
 <p><strong>Parent topic:</strong><a href="c_add_ihs_over.html">Configuring IBM HTTP Server</a></p>

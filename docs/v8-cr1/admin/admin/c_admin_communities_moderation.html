@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35303,12 +35319,15 @@
 <p>When postmoderation is enabled, the global moderator or community moderator can review community content that has been flagged as inappropriate and the reason given for flagging it. They can then determine whether the content should be removed or the flag dismissed. You can enable postmoderation for one, two, or all three types of content.</p>
 <p>As administrator, you can enable moderation for communities in the contentreview-config.xml. For more information about how to configure moderation settings, see <em>Managing content moderation and flagged content</em>.</p>
 <p>When moderation is enabled, the following users can review and manage community content:</p>
-<p>Global moderators
-:   User assigned the global-moderator Java EE role can review and manage community content from the global moderation interface, which is accessed using the <strong>Moderation</strong> link in the application menu bar. The link is only visible to logged-in users who have been assigned the Java EE global-moderator role. For more information about assigning roles, see <em>Roles</em>.</p>
-<p>Community moderators
-:   When owner moderation is enabled, community owners can access moderation options for their community by logging into HCL Connections, opening the community, and then clicking <strong>Moderation</strong> in the community navigation. Community moderators can only manage the content of communities that they own, and they can only do so from the community moderation interface; they cannot access the global moderation interface.</p>
-<pre><code>You can specify whether owner moderation is enabled by changing the value of the ownerModerate setting in the contentreview-config.xml file. For more information, see *Managing content moderation and flagged content*.
-</code></pre>
+<dl>
+<dt>Global moderators</dt>
+<dd>User assigned the global-moderator Java EE role can review and manage community content from the global moderation interface, which is accessed using the <strong>Moderation</strong> link in the application menu bar. The link is only visible to logged-in users who have been assigned the Java EE global-moderator role. For more information about assigning roles, see <em>Roles</em>.</dd>
+<dt>Community moderators</dt>
+<dd>
+<p>When owner moderation is enabled, community owners can access moderation options for their community by logging into HCL Connections, opening the community, and then clicking <strong>Moderation</strong> in the community navigation. Community moderators can only manage the content of communities that they own, and they can only do so from the community moderation interface; they cannot access the global moderation interface.</p>
+<p>You can specify whether owner moderation is enabled by changing the value of the ownerModerate setting in the contentreview-config.xml file. For more information, see <em>Managing content moderation and flagged content</em>.</p>
+</dd>
+</dl>
 <p>In addition to the global moderation interface and the communities moderation interface, public moderation APIs are available to allow third-party developers to moderate community forum content and community file content. For more information, refer to the Forums API section of the <a href="http://www-10.lotus.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=IBM+Connections+4.5+API+Documentation#action=openDocument&amp;content=catcontent&amp;ct=prodDoc">HCL Connections API Documentation</a>.</p>
 <p><strong>Parent topic:</strong><a href="c_admin_communities_intro.html">Administering Communities</a></p>
 <p><strong>Related information</strong>  </p>

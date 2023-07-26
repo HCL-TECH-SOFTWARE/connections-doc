@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35318,14 +35334,18 @@
 </li>
 <li>
 <p>Use the following commands to disable and re-enable scheduled tasks.</p>
-<p>SearchService.disableAllTasks()
-:   Disables all scheduled tasks for the Search application.</p>
+<dl>
+<dt>SearchService.disableAllTasks()</dt>
+<dd>Disables all scheduled tasks for the Search application.</dd>
+</dl>
 <pre><code>This command does not take any arguments.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.disableTask(String taskName)
-:   Disables the scheduled task with the specified name.</p>
+<dl>
+<dt>SearchService.disableTask(String taskName)</dt>
+<dd>Disables the scheduled task with the specified name.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   taskName. The name of the task to be disabled. This argument is a string value.
@@ -35343,14 +35363,18 @@ Using this command affects the indexing process as follows:
 -   When the command is run during the indexing operation for an application, the Search application stops indexing.
 Results for the current application that is being indexed are discarded but, if, as part of an scheduled task, some applications have been successfully crawled, those applications are up-to-date in the index. For example, if a task is fired that is to index Bookmarks, Blogs, and Activities \(in that order\) and the disable command is called while Blogs is being indexed, when the task is enabled again, Blogs and Activities resume indexing at the same point as the previously-called task. Disabled tasks remain disabled until they are re-enabled.
 </code></pre>
-<p>SearchService.enableAllTasks()
-:   Re-enables all scheduled tasks for the Search application.</p>
+<dl>
+<dt>SearchService.enableAllTasks()</dt>
+<dd>Re-enables all scheduled tasks for the Search application.</dd>
+</dl>
 <pre><code>This command does not take any arguments.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
 </code></pre>
-<p>SearchService.enableTask(String taskName)
-:   Re-enables the scheduled task with the specified name. This command uses the current schedule.</p>
+<dl>
+<dt>SearchService.enableTask(String taskName)</dt>
+<dd>Re-enables the scheduled task with the specified name. This command uses the current schedule.</dd>
+</dl>
 <pre><code>This command takes a single argument:
 
 -   taskName. The name of the task to be enabled. This argument is a string value.

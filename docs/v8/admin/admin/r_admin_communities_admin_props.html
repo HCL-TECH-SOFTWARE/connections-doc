@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35154,7 +35154,7 @@
 <h1 class="reference" id="r_admin_communities_admin_props">Communities administrative commands</h1>
 <p>Use the commands that are listed to administer Communities. No file checkout or server restart is needed when you use these commands.</p>
 <h2 class="section" id="overview">Overview</h2>
-<p>The following sections define the commands that you can use when you work with Communities. Each section describes the commands for a specific service. The commands are listed in alphabetical order. See also <em>Synchronizing user data using administrative commands</em> for information about how to synchronize user data between the HCL Connections application membership tables and the configured directory for the deployment.</p>
+<p>The following sections define the commands that you can use when you work with Communities. Each section describes the commands for a specific service. The commands are listed in alphabetical order. See also <a href="c_admin_common_sync_via_admin_commands1.html">Synchronizing user data using administrative commands</a> for information about how to synchronize user data between the HCL Connections application membership tables and the configured directory for the deployment.</p>
 <ul>
 <li><a href="r_admin_communities_admin_props.html#CommunitiesListService">CommunitiesListService</a></li>
 <li><a href="r_admin_communities_admin_props.html#CommunitiesMemberService">CommunitiesMemberService</a></li>
@@ -35164,533 +35164,395 @@
 <li><a href="r_admin_communities_admin_props.html#CommunitiesService">CommunitiesService</a></li>
 </ul>
 <h2 class="section" id="CommunitiesListService">CommunitiesListService commands</h2>
-<p>CommunitiesListService.filterListById(List list, String filter)
-:   Returns a new list containing only the communities and subcommunities whose ID matches the regular expression filter.</p>
-<pre><code>For example:
-
-```
-wwsadmin&gt;all=CommunitiesService.fetchAllComm()
+<p><strong>CommunitiesListService.filterListById(List list, String filter)</strong></p>
+<p>Returns a new list containing only the communities and subcommunities whose ID matches the regular expression filter.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wwsadmin&gt;all=CommunitiesService.fetchAllComm()
 wsadmin&gt;CommunitiesListService.filterListById(all, 
-   "c6a2c680-5933-4efa-9a14-be1723445d30")
-```
-
-This example returns a list of all the communities and subcommunities and then filters the results by ID to list only the communities and subcommunities where the ID matches the one specified.
-</code></pre>
-<p>CommunitiesListService.filterListByName(List list, String filter)
-:   Returns a new list containing only the communities and subcommunities whose names match the regular expression filter.</p>
-<pre><code>For example:
-
-```
-wsadmin&gt;allComm=CommunitiesService.fetchAllComm()
-wsadmin&gt;CommunitiesListService.filterListByName(allComm,"My Community Name")
-```
-
-This example returns a list of all communities and subcommunities using the fetchAllComm command \(command is set to a variable that will be used in the next command\) and then filters the results to get the information for a particular community or subcommunity.
-</code></pre>
-<p>CommunitiesListService.filterListByType(List list, String filter)
-:   Returns a new list containing only the communities and subcommunities whose type (private, public, or publicInviteOnly) matches the regular expression filter.</p>
-<pre><code>For example:
-
-```
-wsadmin&gt;commByMember=CommunitiesService.fetchCommByMember("jane_smith@company.com")
-wsadmin&gt;CommunitiesListService.filterListByType(commByMember,"publicInviteOnly")
-```
-
-This example retrieves a list of all the communities and subcommunities for a particular user \(in this case Jane Smith\) and then filters that list to display all the user's communities and subcommunities that are publicInviteOnly. The fetch command is set to a variable that will be used in the listService command.
-</code></pre>
+    &quot;c6a2c680-5933-4efa-9a14-be1723445d30&quot;)
+</code></pre></div>
+<p>This example returns a list of all the communities and subcommunities and then filters the results by ID to list only the communities and subcommunities where the ID matches the one specified.</p>
+<p><strong>CommunitiesListService.filterListByName(List list, String filter)</strong></p>
+<p>Returns a new list containing only the communities and subcommunities whose names match the regular expression filter.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;allComm=CommunitiesService.fetchAllComm()
+wsadmin&gt;CommunitiesListService.filterListByName(allComm,&quot;My Community Name&quot;)
+</code></pre></div>
+<p>This example returns a list of all communities and subcommunities using the <code>fetchAllComm</code> command (command is set to a variable that will be used in the next command) and then filters the results to get the information for a particular community or subcommunity.</p>
+<p><strong>CommunitiesListService.filterListByType(List list, String filter)</strong></p>
+<p>Returns a new list containing only the communities and subcommunities whose type (private, public, or publicInviteOnly) matches the regular expression filter.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;commByMember=CommunitiesService.fetchCommByMember(&quot;jane_smith@company.com&quot;)
+wsadmin&gt;CommunitiesListService.filterListByType(commByMember,&quot;publicInviteOnly&quot;)
+</code></pre></div>
+<p>This example retrieves a list of all the communities and subcommunities for a particular user (in this case Jane Smith) and then filters that list to display all the user's communities and subcommunities that are publicInviteOnly. The fetch command is set to a variable that will be used in the listService command.</p>
 <h2 class="section" id="CommunitiesMemberService">CommunitiesMemberService commands</h2>
-<p>CommunitiesMemberService.getMemberExtIdByEmail("email")
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.getMemberExtIdByLogin("login")
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.inactivateMemberByEmail("email")
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.inactivateMemberByExtId("externalID")
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncAllMembersByExtId( {"updateOnEmailLoginMatch": ["true" | "false"] } )
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncBatchMemberExtIdsByEmail("emailFile" [, {"allowInactivate" : ["true" | "false"] } ])
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncBatchMemberExtIdsByLogin("loginFile" [, {"allowInactivate" : ["true" | "false"] } ])
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncMemberByExtId("currentExternalId"[, {"newExtId" : "id-string" [, "allowExtIdSwap" : ["true" | "false"] ] } ] )
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncMemberExtIdByEmail("email" [, { "allowInactivate" : ["true" | "false"] } ])
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
-<p>CommunitiesMemberService.syncMemberExtIdByLogin("name" [, { "allowInactivate" : ["true" | "false"] } ])
-:   See <em>Synchronizing user data using administrative commands</em> for details.</p>
+<p>For details on the following, see <a href="c_admin_common_sync_via_admin_commands1.html">Synchronizing user data by using administrative commands</a>.</p>
+<ul>
+<li>CommunitiesMemberService.getMemberExtIdByEmail("email")</li>
+<li>CommunitiesMemberService.getMemberExtIdByLogin("login")   </li>
+<li>CommunitiesMemberService.inactivateMemberByEmail("email")</li>
+<li>CommunitiesMemberService.inactivateMemberByExtId("externalID")</li>
+<li>CommunitiesMemberService.syncAllMembersByExtId( {"updateOnEmailLoginMatch": ["true" | "false"] } )</li>
+<li>CommunitiesMemberService.syncBatchMemberExtIdsByEmail("emailFile" [, {"allowInactivate" : ["true" | "false"] } ])</li>
+<li>CommunitiesMemberService.syncBatchMemberExtIdsByLogin("loginFile" [, {"allowInactivate" : ["true" | "false"] } ])</li>
+<li>CommunitiesMemberService.syncMemberByExtId("currentExternalId"[, {"newExtId" : "id-string" [, "allowExtIdSwap" : ["true" | "false"] ] } ] )</li>
+<li>CommunitiesMemberService.syncMemberExtIdByEmail("email" [, { "allowInactivate" : ["true" | "false"] } ])</li>
+<li>CommunitiesMemberService.syncMemberExtIdByLogin("name" [, { "allowInactivate" : ["true" | "false"] } ])</li>
+</ul>
 <h2 class="section" id="CommunitiesQEventService">CommunitiesQEventService commands</h2>
-<p>CommunitiesQEventService.clearQueuedEventByEventId(String eventId)
-:   Clears queued lifecycle replay events with the specified event ID, where eventId is a string. The events are removed from the queue and are not processed.</p>
-<pre><code>The return value is the number of events that were cleared.
-
-For example:
-
-```
-CommunitiesQEventService.clearQueuedEventsByEventId
-    ("2d93497d-065a-4022ae25-a4b52598d11a")
-```
-</code></pre>
-<p>CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId(String remoteAppDefId)
-:   Clears queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
-<pre><code>The return value is the number of events that were cleared.
-
-For example:
-
-```
-CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId("Wiki")
-```
-</code></pre>
-<p>CommunitiesQEventService.clearQueuedEventsByResourceId(String resourceType, String resourceId)
-:   Clears queued lifecycle replay events with the specified resource ID, where resourceType and resourceId are both strings. The events are removed from the queue and are not processed.</p>
-<pre><code>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.
-
-The return value is the number of events that were cleared.
-
-For example:
-
-```
-CommunitiesQEventService.clearQueuedEventsByResourceId("community", 
-     "e952cf0c-a86c-4e26-b1e0-f8bf40a75804")
-```
-</code></pre>
-<p>CommunitiesQEventService.clearQueuedEventsByResourceType(String resourceType)
-:   Clears queued lifecycle replay events with the specified resource type, where resourceType is a string. The events are removed from the queue and are not processed.</p>
-<pre><code>The resourceType parameter is always "community".
-
-The return value is the number of events that were cleared.
-
-For example:
-
-```
-CommunitiesQEventService.clearQueuedEventsByResourceType("community")
-```
-</code></pre>
-<p>CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId(String remoteAppDefId)
-:   Retries queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
-<pre><code>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
-
-For example:
-
-```
-CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId("Wiki")
-```
-</code></pre>
-<p>CommunitiesQEventService.retryQueuedEventsByResourceId(String resourceType, String resourceId)
-:   Retries queued lifecycle replay events with the specified resource type and resource ID, where resourceType and resourceId are both strings.</p>
-<pre><code>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.
-
-The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
-
-For example:
-
-```
-CommunitiesQEventService.retryQueuedEventsByResourceId("community", 
-     "e952cf0c-a86c-4e26-b1e0-f8bf40a75804")
-```
-</code></pre>
-<p>CommunitiesQEventService.retryQueuedEventsByResourceType(String resourceType)
-:   Retries queued lifecycle replay events with the specified resource type, where resourceType is a string. The value of resourceType is always "community".</p>
-<pre><code>The return value is either "retry succeed" or 0. 0 indicates failure.
-
-For example:
-
-```
-CommunitiesQEventService.retryQueuedEventsByResourceType("community")
-```
-</code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId(String remoteAppDefId, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
+<p><strong>CommunitiesQEventService.clearQueuedEventByEventId(String eventId)</strong></p>
+<p>Clears queued lifecycle replay events with the specified event ID, where eventId is a string. The events are removed from the queue and are not processed.</p>
+<p>The return value is the number of events that were cleared.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.clearQueuedEventsByEventId
+    (&quot;2d93497d-065a-4022ae25-a4b52598d11a&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId(String remoteAppDefId)</strong></p>
+<p>Clears queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
+<p>The return value is the number of events that were cleared.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.clearQueuedEventsByRemoteAppDefId(&quot;Wiki&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.clearQueuedEventsByResourceId(String resourceType, String resourceId)</strong></p>
+<p>Clears queued lifecycle replay events with the specified resource ID, where resourceType and resourceId are both strings. The events are removed from the queue and are not processed.</p>
+<p>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.</p>
+<p>The return value is the number of events that were cleared.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.clearQueuedEventsByResourceId(&quot;community&quot;, 
+    &quot;e952cf0c-a86c-4e26-b1e0-f8bf40a75804&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.clearQueuedEventsByResourceType(String resourceType)</strong></p>
+<p>Clears queued lifecycle replay events with the specified resource type, where resourceType is a string. The events are removed from the queue and are not processed.</p>
+<p>The resourceType parameter is always "community".</p>
+<p>The return value is the number of events that were cleared.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.clearQueuedEventsByResourceType(&quot;community&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId(String remoteAppDefId)</strong></p>
+<p>Retries queued lifecycle replay events with the specified associated application ID, where remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.</p>
+<p>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.retryQueuedEventsByRemoteAppDefId(&quot;Wiki&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.retryQueuedEventsByResourceId(String resourceType, String resourceId)</strong>
+Retries queued lifecycle replay events with the specified resource type and resource ID, where resourceType and resourceId are both strings.</p>
+<p>The resourceType parameter is always set to "community". The resourceId parameter is a value that can be obtained by using one of the CommunitiesQEventService.viewQueuedEvents commands.</p>
+<p>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.retryQueuedEventsByResourceId(&quot;community&quot;, 
+    &quot;e952cf0c-a86c-4e26-b1e0-f8bf40a75804&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.retryQueuedEventsByResourceType(String resourceType)</strong></p>
+<p>Retries queued lifecycle replay events with the specified resource type, where resourceType is a string. The value of resourceType is always "community".</p>
+<p>The return value is either "retry succeed" or 0. 0 indicates failure.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.retryQueuedEventsByResourceType(&quot;community&quot;)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId(String remoteAppDefId, HashMap lastEvent, int maxRows)</strong></p>
+<p>Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
 <pre><code>-   remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
-
-This command returns a HashMap that is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.
-
-For example:
-
-```
-CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId("Blog", None, 100)
-```
-
-To display all queued events of remoteAppDefId type Activities in batches of 10, when there are 200 entries, you might code in Jython:
-
-```
-lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId
-  ("Activities", None, 10) while (lastRow != None)
-lastRow = CommunitiesQEventService. viewQueuedEventsByRemoteAppDefId
-  ("Activities", lastRow, 10)
-```
 </code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType(String remoteAppDefId, String eventType, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
+<p>This command returns a HashMap that is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId(&quot;Blog&quot;, None, 100)
+</code></pre></div>
+<p>To display all queued events of remoteAppDefId type Activities in batches of 10, when there are 200 entries, you might code in Jython:</p>
+<div class="highlight"><pre><span></span><code>lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefId
+    (&quot;Activities&quot;, None, 10) while (lastRow != None)
+lastRow = CommunitiesQEventService. viewQueuedEventsByRemoteAppDefId
+    (&quot;Activities&quot;, lastRow, 10)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType(String remoteAppDefId, String eventType, HashMap lastEvent, int maxRows)</strong></p>
+<p>Lists the queued lifecycle replay events that are associated with the specified remote application ID, where:</p>
 <pre><code>-   remoteAppDefId is one of the following: Activities, Blog, IdeationBlog, Files, Forum, Wiki, and StatusUpdates. The application IDs are case-sensitive and must be entered as indicated in this documentation.
 -   eventType specifies the event type to limit the query to.
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
-
-This command returns a HashMap that is the last viewed row for the specified event type. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.
-
-For example:
-
-```
-CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType("Blog", "community.updated", None, 100)
-```
-
-To display all queued events of remoteAppDefId type Activities in batches of 10, when there are 200 entries, you might code in Jython:
-
-```
-lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType
-  ("Activities", "community.updated", None, 10) 
+</code></pre>
+<p>This command returns a HashMap that is the last viewed row for the specified event type. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType(&quot;Blog&quot;, &quot;community.updated&quot;, None, 100)
+</code></pre></div>
+<p>To display all queued events of remoteAppDefId type Activities in batches of 10, when there are 200 entries, you might code in Jython:</p>
+<div class="highlight"><pre><span></span><code>lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType
+    (&quot;Activities&quot;, &quot;community.updated&quot;, None, 10) 
 while (lastRow != None)
 lastRow = CommunitiesQEventService.viewQueuedEventsByRemoteAppDefIdAndEventType
-  ("Activities", "community.updated", lastRow, 10)
-```
-</code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByResourceId(String resourceType, String resourceId, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events with the specified resource type and resource ID, where:</p>
+    (&quot;Activities&quot;, &quot;community.updated&quot;, lastRow, 10)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.viewQueuedEventsByResourceId(String resourceType, String resourceId, HashMap lastEvent, int maxRows)</strong></p>
+<p>Lists the queued lifecycle replay events with the specified resource type and resource ID, where:</p>
 <pre><code>-   resourceType is the string "community".
 -   resourceId is the communityUuid. This parameter is a string.
 -   lastEvent is a HashMap object.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
-
-This command returns a HashMap, which is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.
-
-For example:
-
-```
-CommunitiesQEventService.viewQueuedEventsByResourceId
-    ("community", "e952cf0c-a86c-4e26-b1e0-f8bf40a75804", None, 100)
-```
-
-For example, you might use the following Jython code to display all queued events of resourceType "community" and resourceId b46300c7-7837-4ba3-b26b-3fcf67a75bba, in batches of 10 when there are 200 entries:
-
-```
-lastRow = CommunitiesQEventService.viewQueuedEventsByResourceId
-   ("community", "b46300c7-7837-4ba3-b26b-3fcf67a75bba", None, 10)
+</code></pre>
+<p>This command returns a HashMap, which is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few at a time.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.viewQueuedEventsByResourceId
+    (&quot;community&quot;, &quot;e952cf0c-a86c-4e26-b1e0-f8bf40a75804&quot;, None, 100)
+</code></pre></div>
+<p>For example, you might use the following Jython code to display all queued events of resourceType "community" and resourceId b46300c7-7837-4ba3-b26b-3fcf67a75bba, in batches of 10 when there are 200 entries:</p>
+<div class="highlight"><pre><span></span><code>lastRow = CommunitiesQEventService.viewQueuedEventsByResourceId
+    (&quot;community&quot;, &quot;b46300c7-7837-4ba3-b26b-3fcf67a75bba&quot;, None, 10)
 while (lastRow != None)
 lastRow = CommunitiesQEventService.viewQueuedEventsByResourceId
-   ("community", "b46300c7-7837-4ba3-b26b-3fcf67a75bba", None, 10)
-```
-</code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsByResourceType(String resourceType, HashMap lastEvent, int maxRows)
-:   Lists the queued lifecycle replay events with the specified resource type, where:</p>
-<pre><code>-   resourceType is the string "community".
+    (&quot;community&quot;, &quot;b46300c7-7837-4ba3-b26b-3fcf67a75bba&quot;, None, 10)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.viewQueuedEventsByResourceType(String resourceType, HashMap lastEvent, int maxRows)</strong></p>
+<p>Lists the queued lifecycle replay events with the specified resource type, where:</p>
+<pre><code>-   resourceType is the string "community". 
 -   lastEvent specifies the last row of the previous batch. This parameter is a HashMap object. To obtain the first batch, specify None.
 -   maxRows is the number of rows to be retrieved and viewed with a single command. Use maxRows when there are many rows, 200, for example, to break up both the database reads and the display into batches.
-
-For example:
-
-```
-CommunitiesQEventService.viewQueuedEventsByResourceType("community", None, 100)
-```
-
-This command returns a HashMap that is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few rows at a time.
-
-For example, you might use the following Jython code to display all queued events of resourceType community in batches of 10 when there are 200 events:
-
-```
-lastRow = CommunitiesQEventService.viewQueuedEventsByResourceType
-   ("community", None, 10)
-   while (lastRow != None)
-   lastRow = CommunitiesQEventService.viewQueuedEventsByResourceType
-   ("community", lastRow, 10)
-```
 </code></pre>
-<p>CommunitiesQEventService.viewQueuedEventsSummary()
-:   Lists a summary of all of the lifecycle replay events that are currently queued for processing.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesQEventService.viewQueuedEventsByResourceType(&quot;community&quot;, None, 100)
+</code></pre></div>
+<p>This command returns a HashMap that is the last viewed row. When there are no more rows, the value None is returned. This parameter makes it straightforward to loop over all rows a few rows at a time.</p>
+<p>For example, you might use the following Jython code to display all queued events of resourceType community in batches of 10 when there are 200 events:</p>
+<div class="highlight"><pre><span></span><code>lastRow = CommunitiesQEventService.viewQueuedEventsByResourceType
+    (&quot;community&quot;, None, 10)
+    while (lastRow != None)
+    lastRow = CommunitiesQEventService.viewQueuedEventsByResourceType
+    (&quot;community&quot;, lastRow, 10)
+</code></pre></div>
+<p><strong>CommunitiesQEventService.viewQueuedEventsSummary()</strong></p>
+<p>Lists a summary of all of the lifecycle replay events that are currently queued for processing.</p>
 <h2 class="section" id="CommunitiesRemote">CommunitiesRemoteAppService commands</h2>
-<p>CommunitiesRemoteAppService.resyncRemoteAppsForCommunity("communityUuid")
-:   See <em>Synchronizing remote application data with the communities database</em> for details.</p>
-<p>CommunitiesRemoteAppService.resyncRemoteAppsForCommunityAndWidget("communityUuid", "widgetDefId")
-:   See <em>Synchronizing remote application data with the communities database</em> for details.</p>
-<p>CommunitiesRemoteAppService.resyncRemoteAppsForAllCommunities("widgetDefId")
-:   See <em>Synchronizing remote application data with the communities database</em> for details.</p>
-<p>CommunitiesRemoteAppService.restartResyncRemoteAppsForAllCommunities("lastCommunityUuid", "widgetDefId")
-:   See <em>Synchronizing remote application data with the communities database</em> for details.</p>
-<p>CommunitiesRemoteAppService.generateSyncReports(String syncedResourceInfoFilepath, String outputDirPath)
-:   CommunitiesRemoteAppService.generateSyncReports(String syncedResourceInfoFilepath, String outputDirPath)</p>
-<pre><code>Where:
-
--   syncedResourceInfoFilepath is the full path and file name of the output XML file that was generated by using the exportSyncedResource command. \(For more information about this command, see *Comparing remote application data with the Communities database*.\) Use forward slashes as the path separator. For example, c:/temp-dir/activitiesOutput.xml on Microsoft™ Windows™ or /opt/temp-dir/blogsOutput.xml on Linux™ or AIX®.
--   outputDirPath is the full path to the subdirectory where you want to create the two output files that are generated from this command. You must use forward slashes; not backslashes as the path separator. For example, c:/temp-dir on Microsoft Windows or /opt/temp-dir on Linux or AIX.
-
-For example:
-
-```
-CommunitiesRemoteAppService.generateSyncReports("c:/temp-dir/activitiesOutput.xml", "c:/temp-dir")
-```
-
-Using the sample command previously shown, the two output files, Activities\_communityDifferences.html and Activities\_orphanedRemoteApplications.html, are created in the c:/temp-dir subdirectory.
-</code></pre>
+<ul>
+<li><strong>CommunitiesRemoteAppService.resyncRemoteAppsForCommunity("communityUuid")</strong></li>
+<li><strong>CommunitiesRemoteAppService.resyncRemoteAppsForCommunityAndWidget("communityUuid", "widgetDefId")</strong></li>
+<li><strong>CommunitiesRemoteAppService.resyncRemoteAppsForAllCommunities("widgetDefId")</strong></li>
+<li><strong>CommunitiesRemoteAppService.restartResyncRemoteAppsForAllCommunities("lastCommunityUuid", "widgetDefId")</strong></li>
+</ul>
+<p>For details on these four commands, see <a href="t_admin_communities_synch_remote_app.html">Synchronizing remote application data with the communities database</a>.</p>
+<p><strong>CommunitiesRemoteAppService.generateSyncReports(String syncedResourceInfoFilepath, String outputDirPath)</strong></p>
+<p><div class="highlight"><pre><span></span><code>CommunitiesRemoteAppService.generateSyncReports\(String syncedResourceInfoFilepath, String outputDirPath\)
+</code></pre></div>
+Where:</p>
+<ul>
+<li>
+<p><em>syncedResourceInfoFilepath</em> is the full path and file name of the output XML file that was generated by using the <strong>exportSyncedResource</strong> command. (For more information about this command, see <a href="t_admin_communities_sync_remote_apps.html">Comparing remote application data with the Communities database</a>.) Use forward slashes as the path separator. For example, <code>c:/temp-dir/activitiesOutput.xml</code> on Microsoft™ Windows™ or /opt/temp-dir/blogsOutput.xml on Linux™.</p>
+</li>
+<li>
+<p><em>outputDirPath</em> is the full path to the subdirectory where you want to create the two output files that are generated from this command. You must use forward slashes; not backslashes as the path separator. For example, c:/temp-dir on Microsoft Windows or /opt/temp-dir on Linux.</p>
+</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesRemoteAppService.generateSyncReports(&quot;c:/temp-dir/activitiesOutput.xml&quot;, &quot;c:/temp-dir&quot;)
+</code></pre></div>
+<p>Using the sample command previously shown, the two output files, <code>Activities\_communityDifferences.html</code> and <code>Activities\_orphanedRemoteApplications.html</code>, are created in the <code>c:/temp-dir</code> subdirectory.</p>
 <h2 class="section" id="CommunitiesScheduler">CommunitiesScheduler commands</h2>
-<p>CommunitiesScheduler.getTaskDetails(String taskName)
-:   Returns information about the scheduled task specified by taskName. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
-<pre><code>The values returned in the HashMap are the next scheduled fire time, server time, status \(SCHEDULED, RUNNING, SUSPENDED\), and task name. SUSPENDED means that the task is not scheduled to run.
-
-For example:
-
-```
-CommunitiesScheduler.getTaskDetails("LifecycleRetryQueuedEvents")
-```
-</code></pre>
-<p>CommunitiesScheduler.pauseSchedulingTask(String taskName)
-:   Puts the task in the suspended state. When you pause a scheduled task, that task remains in the suspended state even after you stop and restart Communities or the WebSphere® Application Server. The task names are LifecycleRetryQueuedEvents and EventLogCleanup. Run the CommunitiesScheduler.resumeSchedulingTask command to get the scheduled task running again.</p>
-<pre><code>If the task is currently running when you use this command, the task continues to run but is not scheduled to run again. If the task is already suspended, this command has no effect.
-
-The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
-
-For example:
-
-```
-CommunitiesScheduler.pauseSchedulingTask("LifecycleRetryQueuedEvents")
-```
-</code></pre>
-<p>CommunitiesScheduler.resumeSchedulingTask(String taskName)
-:   If the task is suspended, puts the task in the scheduled stated. If the task is not suspended, this command has no effect. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
-<pre><code>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
-
-For example:
-
-```
-CommunitiesScheduler.resumeSchedulingTask("LifecycleRetryQueuedEvents")
-```
-</code></pre>
+<p><strong>CommunitiesScheduler.getTaskDetails(String taskName)</strong></p>
+<p>Returns information about the scheduled task specified by taskName. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
+<p>The values returned in the HashMap are the next scheduled fire time, server time, status (SCHEDULED, RUNNING, SUSPENDED), and task name. SUSPENDED means that the task is not scheduled to run.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>CommunitiesScheduler.getTaskDetails(&quot;LifecycleRetryQueuedEvents&quot;)
+</code></pre></div></p>
+<p><strong>CommunitiesScheduler.pauseSchedulingTask(String taskName)</strong></p>
+<p>Puts the task in the suspended state. When you pause a scheduled task, that task remains in the suspended state even after you stop and restart Communities or the WebSphere® Application Server. The task names are LifecycleRetryQueuedEvents and EventLogCleanup. Run the CommunitiesScheduler.resumeSchedulingTask command to get the scheduled task running again.</p>
+<p>If the task is currently running when you use this command, the task continues to run but is not scheduled to run again. If the task is already suspended, this command has no effect.</p>
+<p>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>CommunitiesScheduler.pauseSchedulingTask(&quot;LifecycleRetryQueuedEvents&quot;)
+</code></pre></div></p>
+<p><strong>CommunitiesScheduler.resumeSchedulingTask(String taskName)</strong></p>
+<p>If the task is suspended, puts the task in the scheduled stated. If the task is not suspended, this command has no effect. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
+<p>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesScheduler.resumeSchedulingTask(&quot;LifecycleRetryQueuedEvents&quot;)
+</code></pre></div>
 <h2 class="section" id="CommunitiesService">CommunitiesService commands</h2>
-<p>CommunitiesService.addAlternateOwner(String directoryUuid, String alternateDirectoryUuid, Boolean removeOriginal)
-CommunitiesService.addAlternateOwner(String directoryUuid, String alternateDirectoryUuid, Boolean removeOriginal, String orgId)
-:   Adds the user with the specified alternateDirectoryUuid as an owner to every community and subcommunity owned by the user with the specified directoryUuid (external ID).</p>
-<pre><code>This command takes the following parameters:
-
-directoryUuid
-:   A string that specifies the directory UUID \(external ID\) of an existing community or subcommunity owner.
-
-alternateDirectoryUuid
-:   A string that specifies the directory UUID \(external ID\) of the person who you want to add as the alternate owner.
-
-removeOriginal
-:   A Boolean value that determines whether the person specified using the directoryUuid \(external ID\) parameter is removed from the membership of their communities and subcommunities. When set to true, the user with the specified directoryUuid is removed from their community and subcommunity membership. When set to false, the user with the specified directoryUuid remains listed as an owner of their communities and subcommunities.
-
-orgId
-:   A string that identifies the organization to which the Community belongs.
-
-For example:
-
-```
-CommunitiesService.addAlternateOwner
-("193F1CE8-E10A-4B9A-B933-C8ECD6C072E4", 
-"EC8A89C0-F41D-102C-9B60-F225BC6C4AF4", "true")
-```
-
-```
-CommunitiesService.addAlternateOwner
-("193F1CE8-E10A-4B9A-B933-C8ECD6C072E4", 
-"EC8A89C0-F41D-102C-9B60-F225BC6C4AF4", 
-"true", "0000000043")
-```
-
-To obtain the value to use for the directoryUuid and alternateDirectoryUuid parameters, you can use the following command:
-
-```
-CommunitiesMemberService.getMemberExtIdByEmail("email_address")
-```
-
-In the following example, for any community \(or subcommunity\) where Paul Smith is an owner, user Alice Lee is added to the membership list with owner access, and Paul Smith is removed from the membership list:
-
-```
-wsadmin&gt;CommunitiesMemberService.getMemberExtIdByEmail
-("paul_smith@example.com") 
+<p><strong>CommunitiesService.addAlternateOwner(String directoryUuid, String alternateDirectoryUuid, Boolean removeOriginal)</strong></p>
+<p>Adds the user with the specified alternateDirectoryUuid as an owner to every community and subcommunity owned by the user with the specified directoryUuid (external ID). This command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>directoryUuid</strong>: A string that specifies the directory UUID (external ID) of an existing community or subcommunity owner.</p>
+</li>
+<li>
+<p><strong>alternateDirectoryUuid</strong>: A string that specifies the directory UUID (external ID) of the person who you want to add as the alternate owner.</p>
+</li>
+<li>
+<p><strong>removeOriginal</strong>: A Boolean value that determines whether the person specified using the directoryUuid (external ID) parameter is removed from the membership of their communities and subcommunities. When set to true, the user with the specified directoryUuid is removed from their community and subcommunity membership. When set to false, the user with the specified directoryUuid remains listed as an owner of their communities and subcommunities.</p>
+</li>
+<li>
+<p><strong>orgId</strong>: A string that identifies the organization to which the Community belongs.</p>
+</li>
+</ul>
+<p>For example:</p>
+<p><div class="highlight"><pre><span></span><code>CommunitiesService.addAlternateOwner
+(&quot;193F1CE8-E10A-4B9A-B933-C8ECD6C072E4&quot;, 
+&quot;EC8A89C0-F41D-102C-9B60-F225BC6C4AF4&quot;, &quot;true&quot;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>CommunitiesService.addAlternateOwner
+(&quot;193F1CE8-E10A-4B9A-B933-C8ECD6C072E4&quot;, 
+&quot;EC8A89C0-F41D-102C-9B60-F225BC6C4AF4&quot;, 
+&quot;true&quot;, &quot;0000000043&quot;)
+</code></pre></div></p>
+<p>To obtain the value to use for the directoryUuid and alternateDirectoryUuid parameters, you can use the following command:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesMemberService.getMemberExtIdByEmail(&quot;email_address&quot;)
+</code></pre></div>
+<p>In the following example, for any community (or subcommunity) where Paul Smith is an owner, user Alice Lee is added to the membership list with owner access, and Paul Smith is removed from the membership list:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesMemberService.getMemberExtIdByEmail
+(&quot;paul_smith@example.com&quot;) 
 510b99c0-0123-1010-8989-f78755f7e0ed
 wsadmin&gt;
 wsadmin&gt;CommunitiesMemberService.getMemberExtIdByEmail
-("alice_lee@example.com")
+(&quot;alice_lee@example.com&quot;)
 510b99c0-0101-102e-8934-f78755f7e0ed
 wsadmin&gt;
 wsadmin&gt;CommunitiesService.addAlternateOwner
-("510b99c0-0123-1010-8989-f78755f7e0ed",
-"510b99c0-0101-102e-8934-f78755f7e0ed", "true")
-```
-</code></pre>
-<p>CommunitiesService.addMembersToCommunityByEmail(String communityUuid, Integer memberRole, List emailAddresses)
-CommunitiesService.addMembersToCommunityByEmail(String communityUuid, Integer memberRole, List emailAddresses, String orgId)
-:   Adds members to an existing community or subcommunity.</p>
-<pre><code>**Note:** When you use this command to add owners or members to a subcommunity, the users that you are adding must belong to the parent community.
-
-You cannot exceed the maximum number of members limit that is specified in the explicitMembershipEntityLimit property of the communities-config.xml file. See *Communities configuration properties*.
-
-You use this command in two steps. First, create a comma-separated list of users \(using their email addresses\) that you want to add to an existing community or subcommunity and assign this list to a variable. This variable is then used as input into the addMembersToCommunity command.
-
-memberRole. Valid settings are 0 \(member\) or 1 \(owner\). Do not enclose this setting in quotation marks.
-
-For example:
-
-```
-wsadmin&gt;threemembers=["alex_jones@example.com", "mary_smith@example.com", "paul_henderson@example.com"]
-wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail("5742c4c8-0010-4e6e-abdb-65015e8a22e1",0,threemembers)
-```
-
-```
-wsadmin&gt;threemembers=["alex_jones@example.com", "mary_smith@example.com", "paul_henderson@example.com"]
-wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail("5742c4c8-0010-4e6e-abdb-65015e8a22e1",0,threemembers, "0000000043")
-```
-
-**Note:** You could use the communityName parameter instead of communityUuid. However, this is not recommended because the command fails if more than one community has the same community name. If the community name that you provide is not unique, an error similar to the following displays:
-
-```
-WASX7015E: Exception running command: 
- "CommunitiesService.addMembersToCommunityByEmail
- ("My community",0,threemembers)"; exception information:
- javax.management.RuntimeMBeanException
- java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: 
- CLFRM0091E: Multiple communities found with name: My community
-```
-
-When you see an error like the previous one, instead of entering the name of the community or subcommunity in the command, use the community UUID. For example:
-
-```
-wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail("5742c4c8-0010-4e6e-abdb-65015e8a22e1", 0,threemembers)
-```
-</code></pre>
-<p>CommunitiesService.addMembersToCommunityByMemberUuid(String communityUuid, Integer memberRole, List UUID of member)
-CommunitiesService.addMembersToCommunityByMemberUuid(String communityUuid, Integer memberRole, List UUID of member, String orgId)
-:   Adds members to an existing community or subcommunity. Use this command when you want to add users to a community's membership list, but they don't have an email address. The users that you are adding must belong to the parent community in order for them to be added to the subcommunity.</p>
-<pre><code>**Note:** The member's UUID is the external LDAP identifier for a specific user. Use one of the following commands to return the user's external ID for use in the previous command:
-
--   CommunitiesMemberService.getMemberExtIdByEmail\("email"\)
--   CommunitiesMemberService.getMemberExtIdByLogin\("login"\)
-
-You cannot exceed the maximum number of members limit that is specified in the explicitMembershipEntityLimit property of the community-config.xml file. See *Communities configuration properties*.
-
-You use this command in two steps. First, create a comma-separated list of users \(using their UUID, the external LDAP ID\) that you want to add to an existing community or subcommunity and assign this list to a variable. This variable is then used as input into the addMembersToCommunity command.
-
-memberRole: Valid settings are 0 \(member\) or 1 \(owner\). Do not enclose this setting in quotation marks.
-
-For example:
-
-```
-wsadmin&gt;onemember=["84b4897d-b4f8-4d95-9621-50bcaa2fd3ca"]
-wsadmin&gt;CommunitiesService.addMembersToCommunityByMemberUuid("5742c4c8-0010-4e6e-abdb-65015e8a22e1",0,onemember)
-```
-
-```
-wsadmin&gt;onemember=["84b4897d-b4f8-4d95-9621-50bcaa2fd3ca"]
-wsadmin&gt;CommunitiesService.addMembersToCommunityByMemberUuid("5742c4c8-0010-4e6e-abdb-65015e8a22e1",0,onemember, "0000000043")
-```
-
-The `onemember` parameter is the `extid(user)`.
-
-**Note:** You could use the communityName parameter instead of communityUuid. However, this is not recommended because the command fails if more than one community has the same community name. If the community name that you provide is not unique, an error similar to the following displays:
-
-```
-WASX7015E: Exception running command: 
- "CommunitiesService.addMembersToCommunityByEmail
- ("My community",0,threemembers)"; exception information:
- javax.management.RuntimeMBeanException
- java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: 
- CLFRM0091E: Multiple communities found with name: My community
-```
-
-When you see an error like the previous one, instead of entering the name of the community or subcommunity in the command, enter the community UUID instead. For example:
-
-```
-wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail("5742c4c8-0010-4e6e-abdb-65015e8a22e1", 0,threemembers)
-```
-</code></pre>
-<p>CommunitiesService.createCommunityWithEmail(String community name, String ownerName, int memberRole, String dsmlFile)
-:   Creates a public community whose membership list is initialized from a Directory Services Markup Language (DSML) file exported from the LDAP directory. The DSML file must be local to the system running the script. The script parses the DSML file and extracts the mail values. These values are used to populate the membership list of the community. For more information about how to create DSML files from your LDAP directory, see <a href="http://www.dsmltools.org/">http://www.dsmltools.org/</a>.</p>
-<pre><code>A typical mail attribute in a DSML file looks like the following:
-
-```
-&lt;attr 
- name="mail"&gt;
- &lt;value&gt;john_doe@example.com&lt;/value&gt;
+(&quot;510b99c0-0123-1010-8989-f78755f7e0ed&quot;,
+&quot;510b99c0-0101-102e-8934-f78755f7e0ed&quot;, &quot;true&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.addMembersToCommunityByEmail(String communityUuid, Integer memberRole, List emailAddresses)</strong></p>
+<p>Adds members to an existing community or subcommunity.</p>
+<p><strong>Note</strong>: When you use this command to add owners or members to a subcommunity, the users that you are adding must belong to the parent community.</p>
+<p>You cannot exceed the maximum number of members limit that is specified in the explicitMembershipEntityLimit property of the communities-config.xml file. See <a href="r_admin_communities_config_props.html">Communities configuration properties</a>.</p>
+<p>You use this command in two steps. First, create a comma-separated list of users (using their email addresses) that you want to add to an existing community or subcommunity and assign this list to a variable. This variable is then used as input into the <strong>addMembersToCommunity</strong> command.</p>
+<p><strong>memberRole</strong>: Valid settings are 0 (member) or 1 (owner). Do not enclose this setting in quotation marks.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;threemembers=[&quot;alex_jones@example.com&quot;, &quot;mary_smith@example.com&quot;, &quot;paul_henderson@example.com&quot;]
+wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;,0,threemembers)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;threemembers=[&quot;alex_jones@example.com&quot;, &quot;mary_smith@example.com&quot;, &quot;paul_henderson@example.com&quot;]
+wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;,0,threemembers, &quot;0000000043&quot;)
+</code></pre></div>
+<p><strong>Note:</strong> You could use the <em>communityName</em> parameter instead of <em>communityUuid</em>. However, this is not recommended because the command fails if more than one community has the same community name. If the community name that you provide is not unique, an error similar to the following displays:</p>
+<div class="highlight"><pre><span></span><code>WASX7015E: Exception running command: 
+&quot;CommunitiesService.addMembersToCommunityByEmail
+(&quot;My community&quot;,0,threemembers)&quot;; exception information:
+javax.management.RuntimeMBeanException
+java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: 
+CLFRM0091E: Multiple communities found with name: My community
+</code></pre></div>
+<p>When you see an error like the previous one, instead of entering the name of the community or subcommunity in the command, use the community UUID. For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;, 0,threemembers)
+</code></pre></div>
+<p><strong>CommunitiesService.addMembersToCommunityByMemberUuid(String communityUuid, Integer memberRole, List UUID of member)</strong></p>
+<p>Adds members to an existing community or subcommunity. Use this command when you want to add users to a community's membership list, but they don't have an email address. The users that you are adding must belong to the parent community in order for them to be added to the subcommunity.</p>
+<p><strong>Note:</strong> The member's UUID is the external LDAP identifier for a specific user. Use one of the following commands to return the user's external ID for use in the previous command:</p>
+<ul>
+<li><strong>CommunitiesMemberService.getMemberExtIdByEmail("email")</strong></li>
+<li><strong>CommunitiesMemberService.getMemberExtIdByLogin("login")</strong></li>
+</ul>
+<p>You cannot exceed the maximum number of members limit that is specified in the explicitMembershipEntityLimit property of the `community-config.xml file. See <a href="r_admin_communities_config_props.html">Communities configuration properties</a>.</p>
+<p>You use this command in two steps. First, create a comma-separated list of users (using their UUID, the external LDAP ID) that you want to add to an existing community or subcommunity and assign this list to a variable. This variable is then used as input into the <strong>addMembersToCommunity</strong> command.</p>
+<p><strong>memberRole</strong>: Valid settings are 0 (member) or 1 (owner). Do not enclose this setting in quotation marks.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;onemember=[&quot;84b4897d-b4f8-4d95-9621-50bcaa2fd3ca&quot;]
+wsadmin&gt;CommunitiesService.addMembersToCommunityByMemberUuid(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;,0,onemember)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;onemember=[&quot;84b4897d-b4f8-4d95-9621-50bcaa2fd3ca&quot;]
+wsadmin&gt;CommunitiesService.addMembersToCommunityByMemberUuid(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;,0,onemember, &quot;0000000043&quot;)
+</code></pre></div>
+<p>The <code>onemember</code> parameter is the <code>extid(user)</code>.</p>
+<p><strong>Note:</strong> You could use the communityName parameter instead of communityUuid. However, this is not recommended because the command fails if more than one community has the same community name. If the community name that you provide is not unique, an error similar to the following displays:</p>
+<div class="highlight"><pre><span></span><code>WASX7015E: Exception running command: 
+&quot;CommunitiesService.addMembersToCommunityByEmail
+(&quot;My community&quot;,0,threemembers)&quot;; exception information:
+javax.management.RuntimeMBeanException
+java.lang.IllegalArgumentException: java.lang.IllegalArgumentException: 
+CLFRM0091E: Multiple communities found with name: My community
+</code></pre></div>
+<p>When you see an error like the previous one, instead of entering the name of the community or subcommunity in the command, enter the community UUID instead. For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.addMembersToCommunityByEmail(&quot;5742c4c8-0010-4e6e-abdb-65015e8a22e1&quot;, 0,threemembers)
+</code></pre></div>
+<p><strong>CommunitiesService.createCommunityWithEmail(String community name, String ownerName, int memberRole, String dsmlFile)</strong></p>
+<p>Creates a public community whose membership list is initialized from a Directory Services Markup Language (DSML) file exported from the LDAP directory. The DSML file must be local to the system running the script. The script parses the DSML file and extracts the mail values. These values are used to populate the membership list of the community. For more information about how to create DSML files from your LDAP directory, see <a href="http://www.dsmltools.org/">http://www.dsmltools.org/</a>.</p>
+<p>A typical mail attribute in a DSML file looks like the following:</p>
+<div class="highlight"><pre><span></span><code>&lt;attr 
+name=&quot;mail&quot;&gt;
+&lt;value&gt;john_doe@example.com&lt;/value&gt;
 &lt;/attr&gt;
-```
-
-The command takes the following parameters:
-
-communityName
-:   A string value that specifies the name of the community that you are creating.
-
-ownerName
-:   A string value that specifies the name of the new community's owner. Enter the email address of the user who will be the owner of the community.
-
-memberRole
-:   An integer that specifies the role of the users added to the new community. This property can be set to 0 to specify the member role or 1 to specify the owner role. Do not enclose this setting in quotation marks.
-
-dsmlFile
-:   A string value that specifies that name of the DSML file containing the mail values used to populate the community membership.
-
-In the following example, a community named AJ's Community is created with Ann Jones as the community owner/creator. The command parses the file /opt/myDSML.xml, looks for each of the mail attributes, and then adds those email addresses to the new community with member access.
-
-```
-CommunitiesService.createCommunityWithEmail("AJ's Community", "ann_jones@example.com", 0, "/opt/myDSML.xml")
-```
-
-**Notes:**
-
--   This command only creates parent communities; it cannot be used to create subcommunities.
--   This command creates a public community by default. To change the visibility of the community, the community owner must edit the community from the user interface and change the access level to moderated or restricted as needed.
-</code></pre>
-<p>CommunitiesService.createCommunityWithLoginName(String communityName, String ownerName, int memberRole, String dsmlFile)
-:   Creates a public community whose membership list is initialized from a DSML file exported from the LDAP directory. The DSML file must be local to the system running the script. The script parses the DSML XML file and extracts the login name values. These values are used to populate the membership list of the community. For more information about how to create DSML files from your LDAP directory, see <a href="http://www.dsmltools.org/">http://www.dsmltools.org/</a>.</p>
-<pre><code>The command takes the following parameters:
-
-communityName
-:   A string value that specifies the name of the community that you are creating.
-
-ownerName
-:   A string value that specifies the name of the new community's owner. Enter the loginName of the user who will be the owner of the community.
-
-memberRole
-:   An integer that specifies the role of the users added to the new community. This property can be set to 0 to specify the member role or 1 to specify the owner role. Do not enclose this setting in quotation marks.
-
-dsmlFile
-:   A string value that specifies the name of the DSML file containing the loginName values used to populate the community membership.
-
-In the following example, a community named AJ's Community is created with Ann Jones as the community owner/creator. The command parses the file /opt/myDSML.xml and looks for each of the login attributes and adds those login names to the new community with member access.
-
-```
-CommunitiesService.createCommunityWithLoginName("AJ's Community", "ann_jones", 0, "/opt/myDSML.xml")
-```
-
-**Notes:**
-
--   This command only creates parent communities; it cannot be used to create subcommunities.
--   This command creates a public community by default. To change the visibility of the community, the community owner must edit the community from the user interface and change the access level to moderated or restricted as needed.
-</code></pre>
-<p>CommunitiesService.fetchAllComm()
-:   Returns a vector of hash maps of all communities and subcommunities. There is no way to distinguish from the information returned whether the object is a community or subcommunity. Do not run CommunitiesService.fetchAllComm() on large deployments because it loads all communities into memory at once. Instead, run CommunitiesService.fetchBatchComm().</p>
-<p>CommunitiesService.fetchBatchComm(batchSize, priorLastCommunityId)
-:   Returns a portion of an ordered list of UUIDs for all communities. The command does not return any details about the communities. It returns only the UUIDs.</p>
-<pre><code>The command takes the following parameters:
-
-batchSize
-:   Uses an integer to indicate how many communities you want returned.
-
-priorLastCommunityId
-:   Enter the UUID of the last community enclosed by double quotation marks. If you don't have a community id to enter, use either None or "". If you enter `CommunitiesService.fetchBatchComm(5, None)`, the command returns the GUID for the first five communities.
-
-The following example fetches a batch of two communities.  None indicates that it starts with the first community.
-
-```
-wsadmin&gt;CommunitiesService.fetchBatchComm(2, None)
+</code></pre></div>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>communityName</strong>: A string value that specifies the name of the community that you are creating.</p>
+</li>
+<li>
+<p><strong>ownerName</strong>: A string value that specifies the name of the new community's owner. Enter the email address of the user who will be the owner of the community.</p>
+</li>
+<li>
+<p><strong>memberRole</strong>: An integer that specifies the role of the users added to the new community. This property can be set to 0 to specify the member role or 1 to specify the owner role. Do not enclose this setting in quotation marks.</p>
+</li>
+<li>
+<p><strong>dsmlFile</strong>: A string value that specifies that name of the DSML file containing the mail values used to populate the community membership.</p>
+</li>
+</ul>
+<p>In the following example, a community named AJ's Community is created with Ann Jones as the community owner/creator. The command parses the file /opt/myDSML.xml, looks for each of the mail attributes, and then adds those email addresses to the new community with member access.</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.createCommunityWithEmail(&quot;AJ&#39;s Community&quot;, &quot;ann_jones@example.com&quot;, 0, &quot;/opt/myDSML.xml&quot;)
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>
+<p>This command only creates parent communities; it cannot be used to create subcommunities.</p>
+</li>
+<li>
+<p>This command creates a public community by default. To change the visibility of the community, the community owner must edit the community from the user interface and change the access level to moderated or restricted as needed.</p>
+</li>
+</ul>
+<p><strong>CommunitiesService.createCommunityWithLoginName(String communityName, String ownerName, int memberRole, String dsmlFile)</strong></p>
+<p>Creates a public community whose membership list is initialized from a DSML file exported from the LDAP directory. The DSML file must be local to the system running the script. The script parses the DSML XML file and extracts the login name values. These values are used to populate the membership list of the community. For more information about how to create DSML files from your LDAP directory, see <a href="http://www.dsmltools.org/">http://www.dsmltools.org/</a>.</p>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>communityName</strong>: A string value that specifies the name of the community that you are creating.</p>
+</li>
+<li>
+<p><strong>ownerName</strong>: A string value that specifies the name of the new community's owner. Enter the loginName of the user who will be the owner of the community.</p>
+</li>
+<li>
+<p><strong>memberRole</strong>: An integer that specifies the role of the users added to the new community. This property can be set to 0 to specify the member role or 1 to specify the owner role. Do not enclose this setting in quotation marks.</p>
+</li>
+<li>
+<p><strong>dsmlFile</strong>: A string value that specifies the name of the DSML file containing the loginName values used to populate the community membership.</p>
+</li>
+</ul>
+<p>In the following example, a community named AJ's Community is created with Ann Jones as the community owner/creator. The command parses the file <code>/opt/myDSML.xml</code> and looks for each of the login attributes and adds those login names to the new community with member access.</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.createCommunityWithLoginName(&quot;AJ&#39;s Community&quot;, &quot;ann_jones&quot;, 0, &quot;/opt/myDSML.xml&quot;)
+</code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>
+<p>This command only creates parent communities; it cannot be used to create subcommunities.</p>
+</li>
+<li>
+<p>This command creates a public community by default. To change the visibility of the community, the community owner must edit the community from the user interface and change the access level to moderated or restricted as needed.</p>
+</li>
+</ul>
+<p><strong>CommunitiesService.fetchAllComm()</strong>  </p>
+<p>Returns a vector of hash maps of all communities and subcommunities. There is no way to distinguish from the information returned whether the object is a community or subcommunity. Do not run CommunitiesService.fetchAllComm() on large deployments because it loads all communities into memory at once. Instead, run <strong>CommunitiesService.fetchBatchComm()</strong>.</p>
+<p><strong>CommunitiesService.fetchBatchComm(batchSize, priorLastCommunityId)</strong></p>
+<p>Returns a portion of an ordered list of UUIDs for all communities. The command does not return any details about the communities. It returns only the UUIDs.</p>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>batchSize</strong> :Uses an integer to indicate how many communities you want returned.</p>
+</li>
+<li>
+<p><strong>priorLastCommunityId</strong>: Enter the UUID of the last community enclosed by double quotation marks. If you don't have a community id to enter, use either None or "". If you enter <code>CommunitiesService.fetchBatchComm(5, None)</code>, the command returns the GUID for the first five communities.</p>
+</li>
+</ul>
+<p>The following example fetches a batch of two communities.  None indicates that it starts with the first community.</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.fetchBatchComm(2, None)
 fetchBatchComm request processed
 [3302c2fa-e16f-4a52-8685-b56c1435d742, 
 3e457e81-c9d9-4a20-a71a-6cc336673fab]
-```
-</code></pre>
-<p>CommunitiesService.fetchCommById(string communityUUID)
-:   Returns the community or subcommunity with the specified UUID.</p>
-<pre><code>You can obtain the UUID for a community or subcommunity by doing one of the following:
-
--   Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.
--   Run the CommunitiesService.fetchAllComm\(\) wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.fetchCommById("59d8e5a7-ba0e-488f-8bcd-1f79a994e419")
+</code></pre></div>
+<p><strong>CommunitiesService.fetchCommById(string communityUUID)</strong></p>
+<p>Returns the community or subcommunity with the specified UUID.</p>
+<p>You can obtain the UUID for a community or subcommunity by doing one of the following:</p>
+<ul>
+<li>Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.</li>
+<li>Run the CommunitiesService.fetchAllComm() wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.fetchCommById(&quot;59d8e5a7-ba0e-488f-8bcd-1f79a994e419&quot;)
 [{createdBy=[Andy Jones, 2BC32FEF-E736-4C81-986C-30780C5EF8C3], lastMod=6/18/09
 3:09:02 PM EDT, description= Community of developers working on JAVA projects 
 in our company.  This is a community to share ideas., name=JAVA Developers
@@ -35698,444 +35560,306 @@ community, uuid=59d8e5a7-ba0e-488f-8bcd-1f79a994e419, memberSize=6,
 type=publicInviteOnly,tags=[developers, java], created=6/18/09 3:08:48 PM EDT,
 lastModBy=[Andy Jones, 2BC32FEF-E736-4C81-986C-30780C5EF8C3]}]
 wsadmin&gt;
-```
-</code></pre>
-<p>CommunitiesService.fetchCommByMemberEmail(String email)
-CommunitiesService.fetchCommByMemberEmail(String email, String orgId)
-:   Returns all the communities and subcommunities that the user of the specified email address or organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
-<pre><code>For example:
-
-```
-CommunitiesService.fetchCommByMember("john_doe@company.com")
-```
-
-```
-CommunitiesService.fetchCommByMember("john_doe@company.com", "0000000042")
-```
-</code></pre>
-<p>CommunitiesService.fetchCommByMemberUuid(String uuid)
-CommunitiesService.fetchCommByMemberUuid(String uuid, String orgId)
-:   Returns all the communities and subcommunities that the user with the specified UUID or the specified organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
-<pre><code>For example:
-
-```
-CommunitiesService.fetchCommByMemberUuid("193F1CE8-E10A-4B9A-B933-C8ECD6C072E4")
-```
-
-```
-CommunitiesService.fetchCommByMemberUuid("193F1CE8-E10A-4B9A-B933-C8ECD6C072E4", "0000000042")
-```
-
-**Note:** The Member's UUID is the External LDAP identifier for a specific user. Use one of the following commands to return the user's external ID for use in this command.
-
--   CommunitiesMemberService.getMemberExtIdByEmail\("email"\)
--   CommunitiesMemberService.getMemberExtIdByLogin\("login"\)
-</code></pre>
-<p>CommunitiesService.fetchCommByName(String name)
-CommunitiesService.fetchCommByName(String name, String orgId)
-:   Returns the community or subcommunity with the specified name in the specified organization.</p>
-<pre><code>**Note:** There is a maximum of one community in the list, but that list can be used in the other methods that use a list input. If no match is found, the list will be empty.
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.fetchCommByName("Test Community")
-```
-
-```
-wsadmin&gt;CommunitiesService.fetchCommByName("Test Community" "0000000042")
-```
-
-If the name of the community or subcommunity that you enter in this command is not unique, the command fails with an error. If the command fails, use the following command instead:
-
-```
-CommunitiesService.fetchCommById(string communityUUID)
-```
-</code></pre>
-<p>CommunitiesService.fetchMember(List list)
-:   Returns the input list of communities or subcommunities with an additional property for each community that is the member list for that community.</p>
-<pre><code>This command is run in two steps. First, generate a list of data to input into the fetchMember command and assign the list to a variable. The variable is then used as input into the fetchMember command.
-
-For example:
-
-```
-wsadmin&gt;allComm=CommunitiesService.fetchCommByName("Test Community")
+</code></pre></div>
+<p><strong>CommunitiesService.fetchCommByMemberEmail(String email)</strong></p>
+<p>Returns all the communities and subcommunities that the user of the specified email address or organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.fetchCommByMember(&quot;john_doe@company.com&quot;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>CommunitiesService.fetchCommByMember(&quot;john_doe@company.com&quot;, &quot;0000000042&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.fetchCommByMemberUuid(String uuid)</strong></p>
+<p>Returns all the communities and subcommunities that the user with the specified UUID or the specified organization is a member of. There is no way to distinguish from the information returned whether the object is a community or subcommunity.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.fetchCommByMemberUuid(&quot;193F1CE8-E10A-4B9A-B933-C8ECD6C072E4&quot;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>CommunitiesService.fetchCommByMemberUuid(&quot;193F1CE8-E10A-4B9A-B933-C8ECD6C072E4&quot;, &quot;0000000042&quot;)
+</code></pre></div>
+<p><strong>Note:</strong> The Member's UUID is the External LDAP identifier for a specific user. Use one of the following commands to return the user's external ID for use in this command.</p>
+<ul>
+<li>CommunitiesMemberService.getMemberExtIdByEmail("email")</li>
+<li>CommunitiesMemberService.getMemberExtIdByLogin("login")</li>
+</ul>
+<p><strong>CommunitiesService.fetchCommByName(String name)</strong></p>
+<p>Returns the community or subcommunity with the specified name in the specified organization.</p>
+<p><strong>Note:</strong> There is a maximum of one community in the list, but that list can be used in the other methods that use a list input. If no match is found, the list will be empty.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.fetchCommByName(&quot;Test Community&quot;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.fetchCommByName(&quot;Test Community&quot; &quot;0000000042&quot;)
+</code></pre></div>
+<p>If the name of the community or subcommunity that you enter in this command is not unique, the command fails with an error. If the command fails, use the following command instead:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.fetchCommById(string communityUUID)
+</code></pre></div>
+<p><strong>CommunitiesService.fetchMember(List list)</strong></p>
+<p>Returns the input list of communities or subcommunities with an additional property for each community that is the member list for that community.</p>
+<p>This command is run in two steps. First, generate a list of data to input into the fetchMember command and assign the list to a variable. The variable is then used as input into the fetchMember command.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;allComm=CommunitiesService.fetchCommByName(&quot;Test Community&quot;)
 wsadmin&gt;CommunitiesService.fetchMember(allComm)
-```
-</code></pre>
-<p>CommunitiesService.fetchReference(List list)
-:   Adds references (feeds and bookmarks) to communities or subcommunities in the list passed into this command and returns a new list with references.</p>
-<pre><code>This command is run in two steps. First, use the fetchCommByName command to gather the list of communities and assign the list to a variable. The variable is then used as input into the fetchReference command.
-
-For example:
-
-```
-wsadmin&gt;allComm=CommunitiesService.fetchCommByName("Test Community")
+</code></pre></div>
+<p><strong>CommunitiesService.fetchReference(List list)</strong></p>
+<p>Adds references (feeds and bookmarks) to communities or subcommunities in the list passed into this command and returns a new list with references.</p>
+<p>This command is run in two steps. First, use the fetchCommByName command to gather the list of communities and assign the list to a variable. The variable is then used as input into the <strong>fetchReference</strong> command.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;allComm=CommunitiesService.fetchCommByName(&quot;Test Community&quot;)
 wsadmin&gt;CommunitiesService.fetchReference(allComm)
-```
-
-The results that are returned include any feeds or bookmarks for a community or subcommunity. The name that the user enters when creating the feed or bookmark is also displayed as part of the reference information. For example: `reference=[[Cooking, http://www.cuisineathome.com]]`
-
-Here are sample results from running the command:
-
-```
-{createdBy=alex_jones@MyCompany.com, lastMod=2/22/08 
+</code></pre></div>
+<p>The results that are returned include any feeds or bookmarks for a community or subcommunity. The name that the user enters when creating the feed or bookmark is also displayed as part of the reference information. For example: <code>reference=[[Cooking, http://www.cuisineathome.com]]</code></p>
+<p>Here are sample results from running the command:</p>
+<div class="highlight"><pre><span></span><code>{createdBy=alex_jones@MyCompany.com, lastMod=2/22/08 
 8:43:48 AM EST, description=Community with one bookmark one feed, 
 name=Jones Community, uuid=3395f15e-bde7-4151-80ed-ed538d12d00e, 
 memberSize=2, reference=[[CNN, http://www.cnn.com], [Ghirardelli 
 Chocolate, http://www.ghirardelli.com]], type=publicInviteOnly, 
 tags=[chocolate], created=2/22/08 8:42:53 AM EST, lastModBy=
 bsmith@MyCompany.com}
-```
-</code></pre>
-<p>CommunitiesService.listComm(List list)
-:   Prints the information associated with the communities or subcommunities in the list input to the wsadmin command window in an easy-to-read format. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
-<pre><code>This command is run in two steps. First, generate the data to input into the listComm command and assign the list to a variable. The variable is then used as input into the listComm command.
-
-For example:
-
-```
-wsadmin&gt;byMember=CommunitiesService.fetchCommByMember("jane_doe@company.com")
+</code></pre></div>
+<p><strong>CommunitiesService.listComm(List list)</strong></p>
+<p>Prints the information associated with the communities or subcommunities in the list input to the wsadmin command window in an easy-to-read format. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
+<p>This command is run in two steps. First, generate the data to input into the listComm command and assign the list to a variable. The variable is then used as input into the listComm command.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;byMember=CommunitiesService.fetchCommByMember(&quot;jane_doe@company.com&quot;)
 wsadmin&gt;CommunitiesService.listComm(byMember)
-
-```
-</code></pre>
-<p>CommunitiesService.listCommToFile(List list, String filename)
-:   Prints the information associated with the communities or subcommunities in the list input to the specified file using an easy-to-read format. The directory to which the file is to be output must already exist. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
-<pre><code>This command is run in two steps. First, generate the data to input into the listCommToFile command and assign the list to a variable. The variable is then used as input into the listCommToFile command.
-
-For example:
-
-```
-wsadmin&gt;byMember=CommunitiesService.fetchCommByMember("jane_doe@company.com")
-wsadmin&gt;CommunitiesService.listCommToFile(bymember,"/temp/CommMembers.txt")
-
-```
-</code></pre>
-<p>CommunitiesService.removeAllMembershipByDirectoryUuid(String "directoryUuid")
-CommunitiesService.removeAllMembershipByDirectoryUuid(String "directoryUuid", String "orgId")
-:   Removes the specified user from any communities and subcommunities to which they belong.</p>
-<pre><code>The command takes the following parameters:
-
-directoryUuid
-:   A string that specifies the directory UUID \(external ID\) of the user whose membership you want to remove.
-
-orgId
-:   A string that specifies the organization of the user whose membership you want to remove.
-
-If the user is the last owner of a community or subcommunity, they are not removed, and the community or subcommunity is included in the return value for this call. The command returns a vector of hash maps of all the communities and subcommunities where the user was not removed because they are the last owner.
-
-To obtain the directory UUID to use as input, use one of the following commands. Both commands return the user's external ID.
-
--   CommunitiesMemberService.getMemberExtIdByEmail\("email"\)
--   CommunitiesMemberService.getMemberExtIdByLogin\("login"\)
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.removeAllMembershipByDirectoryUuid("91b3897d-b4f8-4d05-3621-50bcaa22d300")
-```
-
-```
-wsadmin&gt;CommunitiesService.removeAllMembershipByDirectoryUuid("91b3897d-b4f8-4d05-3621-50bcaa22d300", "0000000042")
-```
-</code></pre>
-<p>CommunitiesService.removeMembersFromCommunityByEmail(String "communityName", String "variable containing list of email addresses")
-CommunitiesService.removeMembersFromCommunityByEmail(String "communityName", String "variable containing list of email addresses", String "org Id")
-:   Removes members from an existing community or subcommunity. Members are identified in a list by their email addresses.</p>
-<pre><code>You can remove both owners and members, but you cannot remove the last active owner. You can remove members from a subcommunity, but you cannot remove owners from a subcommunity.
-
-If an email address in the list does not match any member email address, then the command fails and none of the members are removed from the community.
-
-You use this command in two steps. First, create a comma-separated list of users \(by using their email addresses\) who you want to remove from an existing community or sub community. Then, assign this list to a variable.
-
-For example:
-
-```
-wsadmin&gt;threemembers=["alex_jones@example.com", "mary_smith@example.com", "paul_henderson@example.com"]
-```
-
-Then use this variable as input into the removeMembersFromCommunityByEmail command as the "variable containing list of email addresses" parameter.
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.removeMembersFromCommunityByEmail("Ski Club Community",threemembers)
-```
-
-```
-wsadmin&gt;CommunitiesService.removeMembersFromCommunityByEmail("Ski Club Community",threemembers, "0000000042")
-```
-
-The communityName parameter is case-sensitive so be sure to specify the name of the community or subcommunity exactly.
-</code></pre>
-<p>CommunitiesService.removeMembersFromCommunityByMemberUuid(String "communityName", String "variable containing list of UUIDs")
-CommunitiesService.removeMembersFromCommunityByMemberUuid(String " communityName", String "variable containing list of UUIDs", String "orgId")
-:   Removes members from an existing community or subcommunity. Members are identified in a list by their external ID. Use this command when you want to remove users from a community's membership list, but they do not have an email address.</p>
-<pre><code>You can remove both owners and members, but you cannot remove the last active owner. You can remove members from a subcommunity, but you cannot remove owners from a subcommunity.
-
-If a UUID in the list does not match any member UUID in the community, then the command fails and none of the members in the list are removed from the community.
-
-To obtain the directory UUID to use as input for this command, use one of the following commands. Both commands return the user's external ID.
-
--   CommunitiesMemberService.getMemberExtIdByEmail\("email"\)
--   CommunitiesMemberService.getMemberExtIdByLogin\("login"\)
-
-You use this command in two steps. First, create a comma-separated list of users \(by using their UUID, the external LDAP ID\) who you want to remove from an existing community or sub community.
-
-For example:
-
-```
-wsadmin&gt;twomembers=["84b4897d-b4f8-4d95-9621-50bcaa2fd3ca",
-    "84b4897d-b4f8-4d95-9621-0bcaa2fd3ca"]
-```
-
-Then use this variable as input in to the removeMembersFromCommunityByMemberUuid command as the "variable containing list of Quids" parameter.
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.removeMembersFromCommunityByMemberUuid("Ski Club Community", twomembers)
-```
-
-```
-wsadmin&gt;CommunitiesService.removeMembersFromCommunityByMemberUuid("Ski Club Community", twomembers, "0000000042")
-```
-
-The communityName parameter is case-sensitive so be sure to specify the name of the community or subcommunity exactly.
-</code></pre>
-<p>CommunitiesService.removeInactiveUsers(String "Uuid", boolean skipLastModBump)
-:   Removes all inactive members from the specified community or subcommunity.</p>
-<pre><code>The command takes the following parameters:
-
-Uuid
-:   A string that specifies the UUID of the community from which you want to remove inactive users.
-
-skipLastModBump
-:   An optional integer that determines whether the community's last modified date, time, and person who last modified it is updated. Set skipLastModBump to 1 if you do not want to update the community's last modified date, time, and person who last modified it. Otherwise, do not specify bSkipCommunityLastModBump or set it to 0 to update the community's last modified date and time. The catalog also shows: **Administrative update by &lt;xxx\&gt;**.
-
-The command removes both owners and members. If all owners are inactive, only members are removed. Also, the command does not remove an inactive owner in a subcommunity if that person is also an owner in the community's parent.
-
-If the UUID specified does not match any community, then the command fails and no inactive members are removed.
-
-For example:
-
-```
-wsadmin&gt;CommunitiesService.removeInactiveUsers("84b4897d-b4f8-4d95-9621-50bcaa2fd4ca",1)
-```
-
-```
-wsadmin&gt;CommunitiesService.removeInactiveUsers("84b4897d-b4f8-4d95-9621-50bcaa2fd4ca")
-```
-</code></pre>
-<p>CommunitiesService.updateCommunityName(String communityName, String newName)
-:   Allows you to update an existing community or subcommunity name where:</p>
-<pre><code>-   communityName refers to the existing community or subcommunity name, which must be specified exactly.
--   newName is the new name of the community or subcommunity.
-
-Both communityName and newName must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-CommunitiesService.updateCommunityName("JDs Community", "JDs New Name")
-```
-
-**Note:** When you use this command, if you get an error telling you that the community or subcommunity name is not unique, enter the UUID instead.
-
-You can obtain the UUID for a community or subcommunity by doing one of the following:
-
--   Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.
--   Run the CommunitiesService.fetchAllComm\(\) wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.
-</code></pre>
-<p>CommunitiesService.updateCommunityDescription(String communityName, String newDescription)
-:   Allows you to update (overwrite) the description field in an existing community or subcommunity. Any existing description is overwritten by the new text that you enter into this command.</p>
-<pre><code>Both communityName and newDescription must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-CommunitiesService.updateCommunityDescription("Ski Community", 
-"The purpose of this community is to bring together 
-people interested in skiing.")
-```
-</code></pre>
-<p>CommunitiesService.removeWidgetsByWidgetDefIdForAllComm(String widgetDefId)
-:   Allows you to remove the specified widget from all communities and subcommunities. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
-<pre><code>**Note:** Use this command with caution, it can delete a lot of data for many widgets. Backup your databases before running.
-
-widgetDefId is a string and must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-
-wsadmin&gt;CommunitiesService.removeWidgetsByWidgetDefIdForAllComm("Blog")
-```
-</code></pre>
-<p>CommunitiesService.removeAllWidgetsByWidgetDefId(String communityUuid, String widgetDefId)
-:   Allows you to remove all instances of the specified widget from the specified community. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
-<pre><code>Both communityUuid and widgetDefId must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-
-wsadmin&gt;CommunitiesService.removeAllWidgetsByWidgetDefId("c9042339-0019-48da-9df4-de9885665daa","Library")
-```
-</code></pre>
-<p>CommunitiesService.removeReferencesByUri(String communityName, List referenceURIs)
-:   Allows you to remove all references to one or more existing bookmarks (URIs) from a specified community or subcommunity.</p>
-<pre><code>The command requires a two-step process: First, create a comma-separated list of the bookmarks \(URIs\) that you want to remove. These URIs are saved to a variable and this variable is used as input for the removeReferencesByUri command.
-
-Because the URIs are specified as a list, each URI must be enclosed in double quotation marks and separated by commas. All URIs must be enclosed within brackets. The URI that is listed must match exactly the URI that is saved in the community or subcommunity, otherwise the command fails.
-
-The communityName parameter is a string and must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-wsadmin&gt;delete=["http://valid1.url.com", "http://valid2.url.com", "http://valid3.url.com"]
-wsadmin&gt;CommunitiesService.removeReferencesByUri("Ski Club Community",delete)
-```
-</code></pre>
-<p>CommunitiesService.removeTagsFromCommunity(String communityName, List tagNames)
-:   Allows you to remove tags from an existing community or subcommunity. This command is a two-step process. First, create a comma-separated list of the tags that you want to remove. This list of tags is saved to a variable and the variable is used as input for the removeTagsFromCommunity command.</p>
-<pre><code>**Note:** You can remove tags on a community or subcommunity, but you cannot remove tags associated with bookmarks or feeds within a community.
-
-Because the tags are specified as a list, each tag must be enclosed in double quotation marks and separated by commas. All tags must be enclosed within brackets.
-
-The communityName parameter is a string and must be enclosed in double quotation marks \("\).
-
-For example:
-
-```
-wsadmin&gt;tags=["snowboard", "mountain"]
-wsadmin&gt;CommunitiesService.removeTagsFromCommunity("Ski Club Community", tags)
-```
-</code></pre>
-<p>CommunitiesService.moveSubcommunityToCommunity("subCommunityUuid")
-:   Modifies a subcommunity to become a top-level, stand-alone community.</p>
-<pre><code>The command takes the following parameters:
-
-subCommunityUuid
-:   The UUID of the subcommunity to be made a top-level, stand-alone community.
-
-Example:
-
-```
-wsadmin&gt;CommunitiesService.moveSubcommunityToCommunity ("1f524616-a53b-48fb-8e26-ffa1b2ee045f")
-```
-
-When the command completes successfully, it returns the following message:
-
-```
-moveSubcommunityToCommunity request processed
-```
-
-**Notes:** You can get the UUID for a community or subcommunity by taking one of the following actions:
-
--   Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.
--   Run the CommunitiesService.fetchAllComm\(\) wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.
-
-When you use moveSubcommunityToCommunity, the new top-level community retains the following characteristics of the original subcommunity:
-
--   Original access level \(public, moderated, or restricted\)
--   Membership list
--   Community logo \(picture\), tags, and description
--   Original "internal" state \(external, or internal\)
--   Business Owner and Organization ID
--   Community theme
--   Original start page setting
--   Any existing web addresses
-
-    **Note:** The URL to access this community changes slightly because the parent handle no longer exists.
-</code></pre>
-<p>CommunitiesService.moveCommunityToSubcommunity("parentCommunityUuid", "communityToMoveUuid")
-:   Reparents a community to be the subcommunity of another community.</p>
-<pre><code>The command takes the following parameters:
-
-parentCommunityUuid
-:   The UUID of the parent community.
-
-CommunityToMoveUuid
-:   The UUID of the existing community that becomes a child of the community that is specified in the parentCommunityUuid parameter.
-
-Example:
-
-```
-wsadmin&gt;CommunitiesService.moveCommunityToSubcommunity("1f524616-a53b-48fb-8e26-ffa1b2ee045f", 
-"1f524616-a53b-48fb-8e26-ffa4b2ee095f")
-```
-
-The reparented subcommunity is modified as follows:
-
--   The new subcommunity synchronizes to the new parent's "internal" state.
--   The parent community Business Owner replaces the new subcommunity's Business Owner.
--   The new subcommunity with existing web address is cleared.
-
-    Any "Invited" users on the subcommunity that have not accepted or declined the invitation are removed. Click the **Invitations** tab on a community. You can see the invited users the Members page.
-
-
-When you use moveCommunityToSubommunity, the new subcommunity retains the following characteristics of the original top-level community:
-
--   Start page setting.
--   Community logo \(picture\), tags, and description.
--   Community theme.
-
-Membership relationships between parent and subcommunity are as follows:
-
--   Community owners in the parent are copied to the new subcommunity as owners.
--   Subcommunity members and owners are copied to the new parent as members.
-
-**Note:** Using moveCommunityToSubcommunity generates an error if you attempt the following reparenting actions:
-
--   Reparent a community that has subcommunities.
--   Reparent a community that is already a subcommunity
-</code></pre>
-<p>CommunitiesService.getSoftDeletedCommunityUuidList("date")
-:   Returns a list of community UUIDs in the trash that are older than the date specified.</p>
-<pre><code>The command takes the following parameters:
-
-Date
-:   Date in YYYY-MM-DD format.
-
-Example:
-
-```
-wsadmin&gt;CommunitiesService.getSoftDeletedCommunityUuidList("2013-11-20")
+</code></pre></div>
+<p><strong>CommunitiesService.listCommToFile(List list, String filename)</strong></p>
+<p>Prints the information associated with the communities or subcommunities in the list input to the specified file using an easy-to-read format. The directory to which the file is to be output must already exist. The data printed includes community name, UUID, type, who created it, creation date, last person who modified it, date of last modification, membership list size, and description. If the list includes members, then this command also prints the membership list. If the list includes references, the command also prints the reference information.</p>
+<p>This command is run in two steps. First, generate the data to input into the listCommToFile command and assign the list to a variable. The variable is then used as input into the listCommToFile command.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;byMember=CommunitiesService.fetchCommByMember(&quot;jane_doe@company.com&quot;)
+wsadmin&gt;CommunitiesService.listCommToFile(bymember,&quot;/temp/CommMembers.txt&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.removeAllMembershipByDirectoryUuid(String "directoryUuid")</strong></p>
+<p>Removes the specified user from any communities and subcommunities to which they belong.</p>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>directoryUuid</strong>: A string that specifies the directory UUID (external ID) of the user whose membership you want to remove.</p>
+</li>
+<li>
+<p><strong>orgId</strong>: A string that specifies the organization of the user whose membership you want to remove.</p>
+</li>
+</ul>
+<p>If the user is the last owner of a community or subcommunity, they are not removed, and the community or subcommunity is included in the return value for this call. The command returns a vector of hash maps of all the communities and subcommunities where the user was not removed because they are the last owner.</p>
+<p>To obtain the directory UUID to use as input, use one of the following commands. Both commands return the user's external ID.</p>
+<ul>
+<li>CommunitiesMemberService.getMemberExtIdByEmail("email")</li>
+<li>CommunitiesMemberService.getMemberExtIdByLogin("login")</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeAllMembershipByDirectoryUuid(&quot;91b3897d-b4f8-4d05-3621-50bcaa22d300&quot;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeAllMembershipByDirectoryUuid(&quot;91b3897d-b4f8-4d05-3621-50bcaa22d300&quot;, &quot;0000000042&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.removeMembersFromCommunityByEmail(String "communityName", String "variable containing list of email addresses")</strong></p>
+<p>Removes members from an existing community or subcommunity. Members are identified in a list by their email addresses.</p>
+<p>You can remove both owners and members, but you cannot remove the last active owner. You can remove members from a subcommunity, but you cannot remove owners from a subcommunity.</p>
+<p>If an email address in the list does not match any member email address, then the command fails and none of the members are removed from the community.</p>
+<p>You use this command in two steps. First, create a comma-separated list of users (by using their email addresses) who you want to remove from an existing community or sub community. Then, assign this list to a variable.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;threemembers=[&quot;alex_jones@example.com&quot;, &quot;mary_smith@example.com&quot;, &quot;paul_henderson@example.com&quot;]
+</code></pre></div>
+<p>Then use this variable as input into the removeMembersFromCommunityByEmail command as the "variable containing list of email addresses" parameter.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeMembersFromCommunityByEmail(&quot;Ski Club Community&quot;,threemembers)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeMembersFromCommunityByEmail(&quot;Ski Club Community&quot;,threemembers, &quot;0000000042&quot;)
+</code></pre></div>
+<p>The communityName parameter is case-sensitive so be sure to specify the name of the community or subcommunity exactly.</p>
+<p><strong>CommunitiesService.removeMembersFromCommunityByMemberUuid(String "communityName", String "variable containing list of UUIDs")</strong></p>
+<p>Removes members from an existing community or subcommunity. Members are identified in a list by their external ID. Use this command when you want to remove users from a community's membership list, but they do not have an email address.</p>
+<p>You can remove both owners and members, but you cannot remove the last active owner. You can remove members from a subcommunity, but you cannot remove owners from a subcommunity.</p>
+<p>If a UUID in the list does not match any member UUID in the community, then the command fails and none of the members in the list are removed from the community.</p>
+<p>To obtain the directory UUID to use as input for this command, use one of the following commands. Both commands return the user's external ID.</p>
+<ul>
+<li>CommunitiesMemberService.getMemberExtIdByEmail("email")</li>
+<li>CommunitiesMemberService.getMemberExtIdByLogin("login")</li>
+</ul>
+<p>You use this command in two steps. First, create a comma-separated list of users (by using their UUID, the external LDAP ID) who you want to remove from an existing community or sub community.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;twomembers=[&quot;84b4897d-b4f8-4d95-9621-50bcaa2fd3ca&quot;,
+    &quot;84b4897d-b4f8-4d95-9621-0bcaa2fd3ca&quot;]
+</code></pre></div>
+<p>Then use this variable as input in to the removeMembersFromCommunityByMemberUuid command as the "variable containing list of Quids" parameter.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeMembersFromCommunityByMemberUuid(&quot;Ski Club Community&quot;, twomembers)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeMembersFromCommunityByMemberUuid(&quot;Ski Club Community&quot;, twomembers, &quot;0000000042&quot;)
+</code></pre></div>
+<p>The communityName parameter is case-sensitive so be sure to specify the name of the community or subcommunity exactly.</p>
+<p><strong>CommunitiesService.removeInactiveUsers(String "Uuid", boolean skipLastModBump)</strong></p>
+<p>Removes all inactive members from the specified community or subcommunity.</p>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>Uuid</strong>: A string that specifies the UUID of the community from which you want to remove inactive users.</p>
+</li>
+<li>
+<p><strong>skipLastModBump</strong>: An optional integer that determines whether the community's last modified date, time, and person who last modified it is updated. Set skipLastModBump to 1 if you do not want to update the community's last modified date, time, and person who last modified it. Otherwise, do not specify bSkipCommunityLastModBump or set it to 0 to update the community's last modified date and time. The catalog also shows: <strong>Administrative update by &lt;xxx></strong>.</p>
+</li>
+</ul>
+<p>The command removes both owners and members. If all owners are inactive, only members are removed. Also, the command does not remove an inactive owner in a subcommunity if that person is also an owner in the community's parent.</p>
+<p>If the UUID specified does not match any community, then the command fails and no inactive members are removed.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeInactiveUsers(&quot;84b4897d-b4f8-4d95-9621-50bcaa2fd4ca&quot;,1)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeInactiveUsers(&quot;84b4897d-b4f8-4d95-9621-50bcaa2fd4ca&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.updateCommunityName(String communityName, String newName)</strong></p>
+<p>Allows you to update an existing community or subcommunity name where:</p>
+<ul>
+<li>communityName refers to the existing community or subcommunity name, which must be specified exactly.</li>
+<li>newName is the new name of the community or subcommunity.</li>
+</ul>
+<p>Both communityName and newName must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.updateCommunityName(&quot;JDs Community&quot;, &quot;JDs New Name&quot;)
+</code></pre></div>
+<p><strong>Note:</strong> When you use this command, if you get an error telling you that the community or subcommunity name is not unique, enter the UUID instead.</p>
+<p>You can obtain the UUID for a community or subcommunity by doing one of the following:</p>
+<ul>
+<li>Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.</li>
+<li>Run the CommunitiesService.fetchAllComm() wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.</li>
+</ul>
+<p><strong>CommunitiesService.updateCommunityDescription(String communityName, String newDescription)</strong></p>
+<p>Allows you to update (overwrite) the description field in an existing community or subcommunity. Any existing description is overwritten by the new text that you enter into this command.</p>
+<p>Both communityName and newDescription must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>CommunitiesService.updateCommunityDescription(&quot;Ski Community&quot;, 
+&quot;The purpose of this community is to bring together 
+people interested in skiing.&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.removeWidgetsByWidgetDefIdForAllComm(String widgetDefId)</strong></p>
+<p>Allows you to remove the specified widget from all communities and subcommunities. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
+<p><strong>Note:</strong> Use this command with caution, it can delete a lot of data for many widgets. Backup your databases before running.</p>
+<p>widgetDefId is a string and must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeWidgetsByWidgetDefIdForAllComm(&quot;Blog&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.removeAllWidgetsByWidgetDefId(String communityUuid, String widgetDefId)</strong></p>
+<p>Allows you to remove all instances of the specified widget from the specified community. widgetDefId corresponds to the defId attribute on &lt;widgetDef> elements in widgets-config.xml.</p>
+<p>Both communityUuid and widgetDefId must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.removeAllWidgetsByWidgetDefId(&quot;c9042339-0019-48da-9df4-de9885665daa&quot;,&quot;Library&quot;)
+</code></pre></div>
+<p><strong>CommunitiesService.removeReferencesByUri(String communityName, List referenceURIs)</strong></p>
+<p>Allows you to remove all references to one or more existing bookmarks (URIs) from a specified community or subcommunity.</p>
+<p>The command requires a two-step process: First, create a comma-separated list of the bookmarks (URIs) that you want to remove. These URIs are saved to a variable and this variable is used as input for the removeReferencesByUri command.</p>
+<p>Because the URIs are specified as a list, each URI must be enclosed in double quotation marks and separated by commas. All URIs must be enclosed within brackets. The URI that is listed must match exactly the URI that is saved in the community or subcommunity, otherwise the command fails.</p>
+<p>The communityName parameter is a string and must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;delete=[&quot;http://valid1.url.com&quot;, &quot;http://valid2.url.com&quot;, &quot;http://valid3.url.com&quot;]
+wsadmin&gt;CommunitiesService.removeReferencesByUri(&quot;Ski Club Community&quot;,delete)
+</code></pre></div>
+<p><strong>CommunitiesService.removeTagsFromCommunity(String communityName, List tagNames)</strong></p>
+<p>Allows you to remove tags from an existing community or subcommunity. This command is a two-step process. First, create a comma-separated list of the tags that you want to remove. This list of tags is saved to a variable and the variable is used as input for the removeTagsFromCommunity command.</p>
+<p><strong>Note:</strong> You can remove tags on a community or subcommunity, but you cannot remove tags associated with bookmarks or feeds within a community.</p>
+<p>Because the tags are specified as a list, each tag must be enclosed in double quotation marks and separated by commas. All tags must be enclosed within brackets.</p>
+<p>The communityName parameter is a string and must be enclosed in double quotation marks (").</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;tags=[&quot;snowboard&quot;, &quot;mountain&quot;]
+wsadmin&gt;CommunitiesService.removeTagsFromCommunity(&quot;Ski Club Community&quot;, tags)
+</code></pre></div>
+<p><strong>CommunitiesService.moveSubcommunityToCommunity("subCommunityUuid")</strong></p>
+<p>Modifies a subcommunity to become a top-level, stand-alone community.</p>
+<p>The command takes the following parameter:</p>
+<ul>
+<li><strong>subCommunityUuid</strong>: The UUID of the subcommunity to be made a top-level, stand-alone community.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.moveSubcommunityToCommunity (&quot;1f524616-a53b-48fb-8e26-ffa1b2ee045f&quot;)
+</code></pre></div>
+<p>When the command completes successfully, it returns the following message:</p>
+<div class="highlight"><pre><span></span><code>moveSubcommunityToCommunity request processed
+</code></pre></div>
+<p><strong>Notes:</strong> You can get the UUID for a community or subcommunity by taking one of the following actions:</p>
+<ul>
+<li>Using a browser, open the community or subcommunity that you want and copy the UUID from the URL.</li>
+<li>Run the CommunitiesService.fetchAllComm() wsadmin command to fetch all communities and subcommunities on the server. Copy the UUID from the output.</li>
+</ul>
+<p>When you use moveSubcommunityToCommunity, the new top-level community retains the following characteristics of the original subcommunity:</p>
+<ul>
+<li>Original access level (public, moderated, or restricted)</li>
+<li>Membership list</li>
+<li>Community logo (picture), tags, and description</li>
+<li>Original "internal" state (external, or internal)</li>
+<li>Business Owner and Organization ID</li>
+<li>Community theme</li>
+<li>Original start page setting</li>
+<li>
+<p>Any existing web addresses</p>
+<p><strong>Note:</strong> The URL to access this community changes slightly because the parent handle no longer exists.</p>
+</li>
+</ul>
+<p><strong>CommunitiesService.moveCommunityToSubcommunity("parentCommunityUuid", "communityToMoveUuid")</strong></p>
+<p>Reparents a community to be the subcommunity of another community.</p>
+<p>The command takes the following parameters:</p>
+<ul>
+<li>
+<p><strong>parentCommunityUuid</strong>: The UUID of the parent community.</p>
+</li>
+<li>
+<p><strong>CommunityToMoveUuid</strong>: The UUID of the existing community that becomes a child of the community that is specified in the parentCommunityUuid parameter.</p>
+</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.moveCommunityToSubcommunity(&quot;1f524616-a53b-48fb-8e26-ffa1b2ee045f&quot;, 
+&quot;1f524616-a53b-48fb-8e26-ffa4b2ee095f&quot;)
+</code></pre></div>
+<p>The reparented subcommunity is modified as follows:</p>
+<ul>
+<li>The new subcommunity synchronizes to the new parent's "internal" state.</li>
+<li>The parent community Business Owner replaces the new subcommunity's Business Owner.</li>
+<li>
+<p>The new subcommunity with existing web address is cleared.</p>
+<p>Any "Invited" users on the subcommunity that have not accepted or declined the invitation are removed. Click the <strong>Invitations</strong> tab on a community. You can see the invited users the Members page.</p>
+</li>
+</ul>
+<p>When you use moveCommunityToSubommunity, the new subcommunity retains the following characteristics of the original top-level community:</p>
+<ul>
+<li>Start page setting.</li>
+<li>Community logo (picture), tags, and description.</li>
+<li>Community theme.</li>
+</ul>
+<p>Membership relationships between parent and subcommunity are as follows:</p>
+<ul>
+<li>Community owners in the parent are copied to the new subcommunity as owners.</li>
+<li>Subcommunity members and owners are copied to the new parent as members.</li>
+</ul>
+<p><strong>Note:</strong> Using moveCommunityToSubcommunity generates an error if you attempt the following reparenting actions:</p>
+<ul>
+<li>Reparent a community that has subcommunities.</li>
+<li>Reparent a community that is already a subcommunity</li>
+</ul>
+<p><strong>CommunitiesService.getSoftDeletedCommunityUuidList("date")</strong></p>
+<p>Returns a list of community UUIDs in the trash that are older than the date specified.</p>
+<p>The command takes the following parameter:</p>
+<ul>
+<li><strong>Date</strong>: Date in YYYY-MM-DD format.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.getSoftDeletedCommunityUuidList(&quot;2013-11-20&quot;)
 [{lastModBy=[Amy Jones, 55d04dc0-0101-102e-8ac8-f78755f7e0ed], 
 created=11/19/13 8:33:09 AM EST, tags=[], type=public, name=delete test, 
 uuid=ea546678-94d7-4d 24-9f23-a8ae0fd8b824, memberSize=1, lastMod=11/19/13 
 8:33:33 AM EST, description=defect verification , 
 createdBy=[Amy Jones, 55d04dc0-0101-102e-8ac8-f78755f7e0ed]}]
-
-```
-
-You can also get a list of all the communities and subcommunities in trash as follows:
-
-```
-wsadmin&gt;CommunitiesService.getSoftDeletedCommunityUuidList()
-```
-</code></pre>
-<p>CommunitiesService.unDeleteCommunity("communityUuid")
-:   Restores the community from trash.</p>
-<pre><code>The command takes the following parameters:
-
-communityUuid
-:   UUID of the community or subcommunity to be restored.
-
-Example:
-
-```
-wsadmin&gt;CommunitiesService.unDeleteCommunity("ea546678-94d7-4d 24-9f23-a8ae0fd8b824")
+</code></pre></div>
+<p>You can also get a list of all the communities and subcommunities in trash as follows:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.getSoftDeletedCommunityUuidList()
+</code></pre></div>
+<p><strong>CommunitiesService.unDeleteCommunity("communityUuid")</strong></p>
+<p>Restores the community from trash.</p>
+<p>The command takes the following parameter:</p>
+<ul>
+<li><strong>communityUuid</strong>: UUID of the community or subcommunity to be restored.</li>
+</ul>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>wsadmin&gt;CommunitiesService.unDeleteCommunity(&quot;ea546678-94d7-4d 24-9f23-a8ae0fd8b824&quot;)
 unDeleteCommunity request processed
-
-```
-
-**Note:** If the community you are restoring has subcommunities that are also in trash, only the parent community is restored. You must restore the subcommunities separately. If the community you are restoring is a subcommunity and its parent community is also in trash, the subcommunity is not restored. You must restore the parent community before any of its child subcommunities.
-</code></pre>
-<p><strong>Parent topic:</strong><a href="t_admin_communities_changing_admin.html">Running Communities administrative commands</a></p>
+</code></pre></div>
+<p><strong>Note:</strong> If the community you are restoring has subcommunities that are also in trash, only the parent community is restored. You must restore the subcommunities separately. If the community you are restoring is a subcommunity and its parent community is also in trash, the subcommunity is not restored. You must restore the parent community before any of its child subcommunities.</p>
+<p><strong>Parent topic:</strong> <a href="t_admin_communities_changing_admin.html">Running Communities administrative commands</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="c_admin_common_sync_via_admin_commands1.html">Synchronizing user data by using administrative commands</a></p>
 <p><a href="t_admin_communities_synch_remote_app.html">Synchronizing remote application data with the Communities database</a></p>

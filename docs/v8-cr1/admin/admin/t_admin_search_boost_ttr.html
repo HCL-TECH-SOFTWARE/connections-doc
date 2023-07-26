@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35305,8 +35321,10 @@
 <li>
 <p>Use any of the following commands to configure boosting applied on different fields in search queries.</p>
 <p><strong>Note:</strong> Except for the deleteBoostSettings, the boostname parameter in all commands is "content" when you are referring to global search boosting.</p>
-<p>SearchCellConfig.addFieldBoost(string boostName, string fieldName, float boost)
-:   Adds a field with a specific boost to be taken into account in query time.</p>
+<dl>
+<dt>SearchCellConfig.addFieldBoost(string boostName, string fieldName, float boost)</dt>
+<dd>Adds a field with a specific boost to be taken into account in query time.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35318,8 +35336,10 @@ Example:
 SearchCellConfig.addFieldBoost("content", "author", "2.0")
 ```
 </code></pre>
-<p>SearchCellConfig.addRecencyBoost(string boostName, float rboost)
-:   Adds a tag element that enables boosting results by their recency so that more recently created or edited documents are given a higher score. Recency boost values are 0 - 1. The smaller the recency value is, the higher the score new or edited documents get.</p>
+<dl>
+<dt>SearchCellConfig.addRecencyBoost(string boostName, float rboost)</dt>
+<dd>Adds a tag element that enables boosting results by their recency so that more recently created or edited documents are given a higher score. Recency boost values are 0 - 1. The smaller the recency value is, the higher the score new or edited documents get.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35330,8 +35350,10 @@ Example:
 SearchCellConfig.addRecencyBoost("content", "0.2")
 ```
 </code></pre>
-<p>SearchCellConfig.updateFieldBoost(string boostName, string fieldName, float boost)
-:   Updates the value of an existing field tag.</p>
+<dl>
+<dt>SearchCellConfig.updateFieldBoost(string boostName, string fieldName, float boost)</dt>
+<dd>Updates the value of an existing field tag.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35343,8 +35365,10 @@ Example:
 SearchCellConfig.updateFieldBoost("content", "author", "3.2")
 ```
 </code></pre>
-<p>SearchCellConfig.updateRecencyBoost(string boostName, float rboost)
-:   Updates an existing recency boost value.</p>
+<dl>
+<dt>SearchCellConfig.updateRecencyBoost(string boostName, float rboost)</dt>
+<dd>Updates an existing recency boost value.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The recency boost value to apply \(0 - 1\).
@@ -35355,8 +35379,10 @@ Example:
 SearchCellConfig.updateRecencyBoost("content", "0.2")
 ```
 </code></pre>
-<p>SearchCellConfig.deleteRecencyBoost(string boostName)
-:   Deletes a recency boost tag.</p>
+<dl>
+<dt>SearchCellConfig.deleteRecencyBoost(string boostName)</dt>
+<dd>Deletes a recency boost tag.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35366,8 +35392,10 @@ Example:
 SearchCellConfig.deleteRecencyBoost("content")
 ```
 </code></pre>
-<p>SearchCellConfig.deleteFieldBoost(string boostName, string fieldName)
-:   Deletes a field boost tag.</p>
+<dl>
+<dt>SearchCellConfig.deleteFieldBoost(string boostName, string fieldName)</dt>
+<dd>Deletes a field boost tag.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35378,8 +35406,10 @@ Example:
 SearchCellConfig.deleteFieldBoost("content", "author")
 ```
 </code></pre>
-<p>SearchCellConfig.deleteBoosts(string boostName)
-:   Deletes the boost element that refers to the "content" boostName.</p>
+<dl>
+<dt>SearchCellConfig.deleteBoosts(string boostName)</dt>
+<dd>Deletes the boost element that refers to the "content" boostName.</dd>
+</dl>
 <pre><code>This command takes the following arguments:
 
 -   boostName. The name of the boost element to apply changes to.
@@ -35389,8 +35419,10 @@ Example:
 SearchCellConfig.deleteBoosts("content")
 ```
 </code></pre>
-<p>SearchCellConfig.deleteBoostSettings()
-:   Deletes all the boosting parameters from the configuration file.</p>
+<dl>
+<dt>SearchCellConfig.deleteBoostSettings()</dt>
+<dd>Deletes all the boosting parameters from the configuration file.</dd>
+</dl>
 <pre><code>Example:
 
 ```

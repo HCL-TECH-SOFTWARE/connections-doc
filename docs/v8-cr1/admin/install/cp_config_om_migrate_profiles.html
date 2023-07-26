@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35313,76 +35329,96 @@
 </code></pre></div>
 <p>Choose the migration option that best fits your deployment scenario.</p>
 <p><strong>Note:</strong> The term populate on this page refers to populating users profiles and the term migrate refers to the migration of user data such as network and community relationships.</p>
-<p>Run user population and migration
-:   Run the following command to populate all users from Connections Profiles and migrate their data to People relationship service. If the migration process was stopped, it resumes the migration from where it left off.</p>
+<dl>
+<dt>Run user population and migration</dt>
+<dd>Run the following command to populate all users from Connections Profiles and migrate their data to People relationship service. If the migration process was stopped, it resumes the migration from where it left off.</dd>
+</dl>
 <pre><code>`npm run start migrate`
 
 or
 
 `npm run start migrate config:[filePath]`
 </code></pre>
-<p>Reset and re-run population and migration
-:   Run the following command to reset the population and migration progress. All population and migration status information are cleaned up then the population and migration restarts.</p>
+<dl>
+<dt>Reset and re-run population and migration</dt>
+<dd>Run the following command to reset the population and migration progress. All population and migration status information are cleaned up then the population and migration restarts.</dd>
+</dl>
 <pre><code>`npm run start migrate:clean`
 
 or
 
 `npm run start migrate:clean config:[filePath]`
 </code></pre>
-<p>Populate users without migrating
-:   Run the following command to populate all users from Connections Profiles without migrating. If the populate command was stopped, it resumes from where it left off.</p>
+<dl>
+<dt>Populate users without migrating</dt>
+<dd>Run the following command to populate all users from Connections Profiles without migrating. If the populate command was stopped, it resumes from where it left off.</dd>
+</dl>
 <pre><code>`npm run start populate`
 
 or
 
 `npm run start populate config:[filePath]`
 </code></pre>
-<p>Reset and re-run population without migrating
-:   Run the following command to reset user population progress. All population and migration status information will be cleaned up then the population restarts.</p>
+<dl>
+<dt>Reset and re-run population without migrating</dt>
+<dd>Run the following command to reset user population progress. All population and migration status information will be cleaned up then the population restarts.</dd>
+</dl>
 <pre><code>`npm run start populate:clean`
 
 or
 
 `npm run start populate:clean config:[filePath]`
 </code></pre>
-<p>Migrate for all populated users
-:   Run the following command to migrate data for all populated users. If the users in the population database have already been migrated, it skips them and only migrate those users who have not been completed:</p>
+<dl>
+<dt>Migrate for all populated users</dt>
+<dd>Run the following command to migrate data for all populated users. If the users in the population database have already been migrated, it skips them and only migrate those users who have not been completed:</dd>
+</dl>
 <pre><code>`npm run start migrateuser`
 
 or
 
 `npm run start migrateuser config:[filePath]`
 </code></pre>
-<p>Reset and re-run migration for all populated users
-:   Run the following command to reset population progress. All migration status information is cleaned up then migration against current populated users restarts.</p>
+<dl>
+<dt>Reset and re-run migration for all populated users</dt>
+<dd>Run the following command to reset population progress. All migration status information is cleaned up then migration against current populated users restarts.</dd>
+</dl>
 <pre><code>`npm run start migrateUser:clean`
 
 or
 
 `npm run start migrateUser:clean config:[filePath]`
 </code></pre>
-<p>Generate migration report
-:   Run the following command to generate a migration report:</p>
+<dl>
+<dt>Generate migration report</dt>
+<dd>Run the following command to generate a migration report:</dd>
+</dl>
 <pre><code>`npm run start report`
 </code></pre>
-<p>Generate migration report for specific users
-:   To check whether a user has already been migrated, run the following command and specify the user email address ($email)</p>
+<dl>
+<dt>Generate migration report for specific users</dt>
+<dd>To check whether a user has already been migrated, run the following command and specify the user email address ($email)</dd>
+</dl>
 <pre><code>`npm run start report $email`
 
 To check a group of user's migration status, run the following command and specify the file name containing the list of their email addresses separated by commas.
 
 `npm run start report $filePath`
 </code></pre>
-<p>To migrate canary group (high priority users)
-:   Put all users email address in a text file with addresses separated by commas. Then, run the following command to start migration of those users with high priority.</p>
+<dl>
+<dt>To migrate canary group (high priority users)</dt>
+<dd>Put all users email address in a text file with addresses separated by commas. Then, run the following command to start migration of those users with high priority.</dd>
+</dl>
 <pre><code>`npm run start canary $filepath $reset`
 
 resetflag can be true or false. If set to true, the tool will run the full migration for those users regardless if they were migrated before. Otherwise, it will only migrate those users who haven't been finished.
 
 **Note:** After adding the user group, run `npm run start migrateUser` to start migration. Users in the canary group will be migrated first.
 </code></pre>
-<p>Specify user credentials in the command line
-:   By default, the migration tool reads the user password from the configuration file. It also supports specifying the user name and password in the command line and it will ignore the password in the configuration file.</p>
+<dl>
+<dt>Specify user credentials in the command line</dt>
+<dd>By default, the migration tool reads the user password from the configuration file. It also supports specifying the user name and password in the command line and it will ignore the password in the configuration file.</dd>
+</dl>
 <pre><code>For example use below command line to run the full migration:
 
 ```

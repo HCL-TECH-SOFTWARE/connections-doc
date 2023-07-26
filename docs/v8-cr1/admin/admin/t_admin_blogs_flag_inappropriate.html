@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35337,7 +35353,7 @@
 <p>For example:</p>
 <ul>
 <li>
-<p>AIX/Linux:</p>
+<p>Linux:</p>
 <div class="highlight"><pre><span></span><code>LCConfigService.checkOutContentReviewConfig(&quot;/opt/temp&quot;,&quot;foo01Cell01&quot;)
 </code></pre></div>
 </li>
@@ -35356,10 +35372,12 @@
 </li>
 <li>
 <p>To configure settings for managing content in the pre-moderated state, that is, before it is published or when it is updated, set the following options for each application:</p>
-<p>contentApproval
-:   Set to "true" to require moderation for the specified application. By default this is set to "false". When the setting is set to false, moderation is not automatically enforced for an application, but moderation API command and filters still work. Moderators can still perform moderation tasks.</p>
-<p>ownerModerate
-:   Set to "true" to specify that blog owners and community owners can moderate content in blogs or communities they own. By default this is set to "false" so that only users assigned the J2EE moderator role in the WAS console can moderate content. For information on assigning users to the moderator role, see the topic <em>Roles</em>.</p>
+<dl>
+<dt>contentApproval</dt>
+<dd>Set to "true" to require moderation for the specified application. By default this is set to "false". When the setting is set to false, moderation is not automatically enforced for an application, but moderation API command and filters still work. Moderators can still perform moderation tasks.</dd>
+<dt>ownerModerate</dt>
+<dd>Set to "true" to specify that blog owners and community owners can moderate content in blogs or communities they own. By default this is set to "false" so that only users assigned the J2EE moderator role in the WAS console can moderate content. For information on assigning users to the moderator role, see the topic <em>Roles</em>.</dd>
+</dl>
 <pre><code>**Note:** The **ownerModerate** referred to in this step is the one nested under **contentApproval**.
 </code></pre>
 <p>In the following example, moderation is enforced for blogs so that all content must be approved by a moderator before it is published or updated in a blog. Each blog owner can moderate content for the blogs they own.</p>
@@ -35372,22 +35390,28 @@
 </li>
 <li>
 <p>To configure settings for managing content in the post-moderated state, that is, content that is flagged by a user after it is published. set the following options for each application:</p>
-<p>contentFlagging
-:   Set to "true" to require moderation for flagged content. By default this is set to "false". When the setting is set to false, this means the user can't flag content from the user interface or using an API command. Blogs Moderation API and filters will still work. Moderators can still perform moderation tasks. Files and Forums API commands will return errors.</p>
-<p>ownerModerate
-:   Set to "true" to specify that forum users can moderate their own flagged content. By default this is set to "false" so that only users assigned the J2EE moderator role in the WAS console can moderate. For information on assigning users to the moderator role, see the topic <em>Roles</em>.</p>
+<dl>
+<dt>contentFlagging</dt>
+<dd>Set to "true" to require moderation for flagged content. By default this is set to "false". When the setting is set to false, this means the user can't flag content from the user interface or using an API command. Blogs Moderation API and filters will still work. Moderators can still perform moderation tasks. Files and Forums API commands will return errors.</dd>
+<dt>ownerModerate</dt>
+<dd>Set to "true" to specify that forum users can moderate their own flagged content. By default this is set to "false" so that only users assigned the J2EE moderator role in the WAS console can moderate. For information on assigning users to the moderator role, see the topic <em>Roles</em>.</dd>
+</dl>
 <pre><code>**Note:** The **ownerModerate** referred to in this step is the one nested under **contentFlagging**.
 </code></pre>
-<p>IssueCategorization
-:   Set to "true" to display a list of categories so that users can choose one when flagging content. By default this is set to "false."</p>
+<dl>
+<dt>IssueCategorization</dt>
+<dd>Set to "true" to display a list of categories so that users can choose one when flagging content. By default this is set to "false."</dd>
+</dl>
 <pre><code>**Note:** This feature is not available for Files.
 </code></pre>
-<p>automaticQuarantine
-:   Set to "true" and specify an integer as a value for threshold. When the content in Files, Blogs, Ideation Blogs, or Forums is flagged the number of times specified for the threshold value (by unique users), the post is automatically quarantined and removed from the forum. By default this is set to "false."</p>
-<p>flagCategory
-:   To make a &lt;flagCategory> element available for an application, first define it with a unique id and descriptions in the required languages to the &lt;flaggedCategories> section of the configuration file, then add it to the &lt;IssueCategorization> section for the application.</p>
-<p>reviewer email
-:   To add designated reviewers who will receive notification email when content is flagged, replace the placeholder email names for each category with the email addresses of designated reviewers who are assigned the moderator role.</p>
+<dl>
+<dt>automaticQuarantine</dt>
+<dd>Set to "true" and specify an integer as a value for threshold. When the content in Files, Blogs, Ideation Blogs, or Forums is flagged the number of times specified for the threshold value (by unique users), the post is automatically quarantined and removed from the forum. By default this is set to "false."</dd>
+<dt>flagCategory</dt>
+<dd>To make a &lt;flagCategory> element available for an application, first define it with a unique id and descriptions in the required languages to the &lt;flaggedCategories> section of the configuration file, then add it to the &lt;IssueCategorization> section for the application.</dd>
+<dt>reviewer email</dt>
+<dd>To add designated reviewers who will receive notification email when content is flagged, replace the placeholder email names for each category with the email addresses of designated reviewers who are assigned the moderator role.</dd>
+</dl>
 <pre><code>**Note:** You can also configure a group email here, but each member of the group must be assigned the moderator role.
 </code></pre>
 <p>In the following example, flagging is enabled for forums and each forum owner can moderate flagged content for the forums they own. Issue categorization is enabled so that users can select a category when flagging content. If ten users flag a forum post, it is automatically quarantined and removed from the forum.</p>

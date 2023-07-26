@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35012,24 +35012,29 @@
 
 
 <h1 class="concept" id="cp_config_om_intro.">Configuring the Orient Me component</h1>
-<p>Additional configuration is required for the Orient Me component to populate it with Connections data and to enable the notification center and a menu option for managing home pages.</p>
-<p><strong>Note:</strong> Orient Me is only supported in the Connections 7.0 user interface.</p>
-<p>Follow these steps to configure the Orient Me component to share content with HCL Connections™.</p>
+<!--Additional configuration is required for the Orient Me component to populate it with Connections data and to enable the notification center and a menu option for managing home pages.-->
+
+<p>The Orient Me component is responsible for populating the Top Updates tab on a Connections user's homepage.  Once populated, this page will display cards representing the user's top activity stream updates.</p>
+<!--!!! note
+
+    Orient Me is only supported in the Connections 7.0 user interface.-->
+
+<p>Follow the steps detailed in the following sections to configure the Orient Me component to share content with HCL Connections™.</p>
 <ul>
 <li><strong><a href="cp_config_om_http_server.html">Configuring the HTTP server for Orient Me</a></strong><br />
 Configure the IBM® HTTP Server to redirect users from the HCL Connections home page to the Orient Me home page.</li>
 <li><strong><a href="cp_config_om_enable_profiles_events.html">Enabling profiles events for Orient Me</a></strong><br />
 To enable Component Pack to access user accounts in HCL Connections, you must enable profiles events on your Tivoli® Directory Integrator (TDI) server and WebSphere® Deployment Manager.</li>
-<li><strong><a href="cp_config_om_enable_notifications.html">Configuring the Orient Me home page</a></strong><br />
-Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.</li>
+<li><strong><a href="cp_config_om_enable_notifications.html">Configuring the Top Updates home page</a></strong><br />
+Configure the Notification Center so it works in concert with the data that users prioritize on the Top Updates tab on the user's home page.</li>
 <li><strong><a href="cp_config_om_create_webseal_junctions.html">Creating WebSEAL junctions for Orient Me</a></strong><br />
 For environments that use IBM Security Verify Access (formerly Security Access Manager), configure WebSEAL junctions for Orient Me.</li>
 <li><strong><a href="cp_config_om_redis_traffic.html">Enabling and securing Redis traffic to Orient Me</a></strong><br />
 HCL Connections requires some additional configuration to know how to securely communicate with the Orient Me home page.</li>
-<li><strong><a href="cp_config_om_populate_home_page.html">Populating the Orient Me home page</a></strong><br />
-Use the data migration tool to transfer data from Connections Profiles and Communities to populate the Orient Me home page.</li>
+<li><strong><a href="cp_config_om_populate_home_page.html">Populating the Top Updates home page</a></strong><br />
+Use the data migration tool to transfer data from Connections Profiles and Communities to populate the Top Updates tab on the user's home page.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="cp_config_intro.html">Configuring the Component Pack</a></p>
+<p><strong>Parent topic:</strong> <a href="cp_config_intro.html">Configuring the Component Pack</a></p>
 
 
 

@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35027,7 +35027,7 @@
 <p>The FilesDataIntegrityService.checkFiles command moves files found on the file system, but not in the database, to a file path location you specify in the command. You might want to delete these extra files, or back them up if you think you might need them for a future Files backup.</p>
 <p>Users cannot download files if they are missing from the database.</p>
 <p>Before running the FilesDataIntegrityService.checkFiles command, create the target path_to_extra_filesDirectory folder. This folder will be used to save unused files during the integrity check. Create the folder on the device from which you will run the command.</p>
-<p>If you are running the command on AIX®, or Linux™ ensure that you have correct write permissions enabled for the folder.</p>
+<p>If you are running the command on Linux™ ensure that you have correct write permissions enabled for the folder.</p>
 <ol>
 <li>
 <p>Start the wsadmin client.</p>
@@ -35040,7 +35040,7 @@
 <li>
 <p>Check the integrity of data in the database and file system directory with the following command:</p>
 <p>On Microsoft™ Windows™ -- <code>FilesDataIntegrityService.checkFiles("C:\path\_to\_extra\_filesDirectory")</code></p>
-<p>On AIX or Linux -- <code>FilesDataIntegrityService.checkFiles("/opt/path\_to\_extra\_filesDirectory")</code></p>
+<p>On Linux -- <code>FilesDataIntegrityService.checkFiles("/opt/path\_to\_extra\_filesDirectory")</code></p>
 </li>
 </ol>
 <p><strong>Parent topic:</strong><a href="t_admin_files_backup.html">Backing up Files data</a></p>

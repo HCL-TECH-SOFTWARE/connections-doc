@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35350,147 +35366,136 @@
 </ul>
 <p>After you edit the wikis-config.xml file, apply your changes by restarting the application server that hosts the Wikis application.</p>
 <p>You can modify the following configuration properties:</p>
-<p>activeContentFilter.enabled
-:   Specifies the mime types that are scanned and scripts that are removed from wiki pages when they are viewed.</p>
-<pre><code>You can disable this filter by changing the value to false, but that might leave your environment open to cross-site scripting attacks unless you took other security precautions. For more information, see *Securing applications from malicious attack*.
-</code></pre>
-<p>api.indent.enabled
-:   Specifies whether API output is indented. Indentation helps with development and debugging.</p>
-<pre><code>This value is false by default because indentation affects performance. To enable indentation, change the value to true.
-</code></pre>
-<p>api.tagFilter
-:   Specifies the maximum number of tags that are allowed for filtering Wikis by tags. The default value is 3. For performance reasons, a value greater than 10 is not recommended. To change the value, use the following format:</p>
-<pre><code>```
-&lt;tagFilter maximumTags="n"/&gt;
-
-```
-
-where n is the maximum number of tags.
-</code></pre>
-<p>cache.http.publicContentMaxAgeInSecs
-:   Specifies the maximum age, in seconds, of the public content cache before it is refreshed. The cache stores static web resources, such as JavaScript™ and images. To show resource changes more quickly, reduce the value of this property.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-**Note:** You can force a resource update by opening the `LotusConnections-config.xml` file and setting the versionStamp property to any value. For example: &lt;versionStamp value="20130929.013427"\&gt;. The token is included in most URLs and in URL caches. The new URL overrides the old version and refreshes the resources. For information about editing the `LotusConnections-config.xml` file, see *Common configuration properties*.
-
-Some resources, including some images, do not use version stamps. If you edit these resources frequently, you can reduce the cache.http.publicContentMaxAgeInSecs value to show changes more quickly. Otherwise, update the version stamp when you modify the wikis-config.xml file.
-</code></pre>
-<p>cache.http.publicFeedMaxAgeInSecs
-:   Specifies the maximum age, in seconds, of the public feed cache before it is refreshed. Public feeds pass information to the <strong>Public Wikis</strong> view. To avoid performance issues in deployments with more than 200,000 wikis, increase this value. However, to maintain the latest information in the public view, decrease the value.</p>
-<pre><code>The value must be greater than or equal to 0.
-</code></pre>
-<p>cache.user.timeout
-:   Specifies the number of milliseconds that user objects stay in the user information cache. The user information cache stores metadata about users such as names and email addresses. Use this property to control the frequency of requests to the Wikis database for user information.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-If the value of user data changes while the update user task or commands for MemberSynch are running, the cache is invalidated.
-</code></pre>
-<p>db.dialect
-:   Reflects the current database type, typically specified during installation. Accepts the values DB2, Oracle, or SQL Server.</p>
-<p>directory.community.membershipCache.maximumAgeOnLoginInSeconds
-:   Specifies the number of seconds after a user logs in that the community membership cache is refreshed. Only applicable if Communities wikis and Communities integration are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.
-
-If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.
-
-C
-</code></pre>
-<p>directory.community.membershipCache.maximumAgeOnRequestInSeconds
-:   Specifies the number of seconds after an application request that the community membership cache is refreshed. Only applicable if Communities wikis and Communities integration are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.
-
-If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.
-
-To improve performance, increase this value to 10 minutes or more.
-</code></pre>
-<p>directory.group.membershipCache.maximumAgeOnLoginInSeconds
-:   Number of seconds after a user logs in that group membership cache is refreshed after user login. Only applicable if groups are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.
-
-If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.
-
-Use this property to increase the number of seconds in directory.group.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests do not affect performance.
-</code></pre>
-<p>directory.group.membershipCache.maximumAgeOnRequestInSeconds
-:   Number of seconds after an application request that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.
-
-If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.
-
-To improve performance, increase this value to 10 minutes or more.
-</code></pre>
-<p>directory.typeaheadSearch.maximumResults
-:   Specifies the maximum number of names to display when a user searches for user or group names in a search field. Sets a maximum for both type-ahead results and search results when a user clicks <strong>Search</strong>.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-If the value is large, such as 1000, and there are 1000 or more matches, all names are returned and performance is greatly reduced. If the value is low, such as 10, a user who enters a generic name might not see all matches.
-
-**Note:** Type-ahead is available for public pages but not for filtered pages that might appear in Owner, Editor, or Reader views.
-</code></pre>
-<p>download.modIBMLocalRedirect.enabled
-:   Specifies whether IBM® HTTP Server, and not WebSphere® Application Server, serves downloaded files. In a production environment, use IBM HTTP Server to serve downloaded files.</p>
-<pre><code>If this property is set to true, you must also specify a file path in the download.modIBMLocalRedirect.hrefPathPrefix property.
-
-If this property is set to false, the WebSphere Application Server redirect servlet downloads files.
-
-For information about configuring IBM HTTP Server to download files, see *Configuring file downloads through the HTTP server*.
-</code></pre>
-<p>download.modIBMLocalRedirect.hrefPathPrefix
-:   Specifies the full path to the file system directory where Wikis data is stored. The file path must not include a trailing slash.</p>
-<pre><code>This property is relevant only if the download.modIBMLocalRedirect.enabled property is true. If the property is set to false, the WebSphere Application Server redirect servlet downloads files.
-
-For information about configuring IBM HTTP Server to download files, see *Configuring file downloads through the HTTP server*.
-</code></pre>
-<p>download.stats.logging.enabled
-:   Specifies the level of detail to log about page views. If the value is set to false, Wikis logs the number of times a page is viewed. If true, Wikis logs the names of authenticated users who view pages.</p>
-<pre><code>Specify true for auditing.
-</code></pre>
-<p>editor.wikitexttab.enabled
-:   Specifies whether the Wiki Text tab is enabled. The default value is false. You can enable the Wiki Text tab by changing the value to true.</p>
-<p>file.attachment.maximumSizeInKb
-:   Specifies the maximum size, in KB, that is allowed for file attachments.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-Attachments that are larger than this setting fail to upload and return an error to users. To improve performance, use this property to restrict users from uploading large files.
-
-After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see *Required post-customization steps*.
-</code></pre>
-<p>file.media.maximumSizeInKb
-:   Specifies the maximum size, in KB, that is allowed for media. In Wikis, media are wiki pages.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-This property is useful if you want a relatively large quota size for libraries, but you do not want users to attach large files.
-
-After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see *Required post-customization steps*.
-</code></pre>
-<p>file.page.maximumSizeInKb
-:   Specifies the maximum size, in KB, that is allowed for wiki pages. Since wiki pages are a type of media, this value must be less than or equal to the maximum size set in the file.media.maximumSizeInKb property. Use this property to restrict users from uploading files whose size might affect performance.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-Pages that are larger than the value of this property return an error.
-
-After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see *Required post-customization steps*.
-</code></pre>
-<p>file.restrictions.enabled
-:   Enables or disables the ability to restrict the types of files that users can upload as attachments in Wikis. Accepts the values true or false.</p>
-<pre><code>For more information about restricting file types, see *Restricting attachment file types in Wikis*.
-</code></pre>
-<p>file.restrictions.mode
-:   Sets the mode for file extension restrictions. Accepts the values allow or deny. If the value is allow, the file extensions in the list are the only ones that users can upload as attachments. If the value is deny, the extensions are not allowed.</p>
-<pre><code>For example:
-
-```
-&lt;file&gt;
+<dl>
+<dt>activeContentFilter.enabled</dt>
+<dd>
+<p>Specifies the mime types that are scanned and scripts that are removed from wiki pages when they are viewed.</p>
+<p>You can disable this filter by changing the value to false, but that might leave your environment open to cross-site scripting attacks unless you took other security precautions. For more information, see <em>Securing applications from malicious attack</em>.</p>
+</dd>
+<dt>api.indent.enabled</dt>
+<dd>
+<p>Specifies whether API output is indented. Indentation helps with development and debugging.</p>
+<p>This value is false by default because indentation affects performance. To enable indentation, change the value to true.</p>
+</dd>
+<dt>api.tagFilter</dt>
+<dd>
+<p>Specifies the maximum number of tags that are allowed for filtering Wikis by tags. The default value is 3. For performance reasons, a value greater than 10 is not recommended. To change the value, use the following format:</p>
+<div class="highlight"><pre><span></span><code>&lt;tagFilter maximumTags=&quot;n&quot;/&gt;
+</code></pre></div>
+<p>where n is the maximum number of tags.</p>
+</dd>
+<dt>cache.http.publicContentMaxAgeInSecs</dt>
+<dd>
+<p>Specifies the maximum age, in seconds, of the public content cache before it is refreshed. The cache stores static web resources, such as JavaScript™ and images. To show resource changes more quickly, reduce the value of this property.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p><strong>Note:</strong> You can force a resource update by opening the <code>LotusConnections-config.xml</code> file and setting the versionStamp property to any value. For example: &lt;versionStamp value="20130929.013427">. The token is included in most URLs and in URL caches. The new URL overrides the old version and refreshes the resources. For information about editing the <code>LotusConnections-config.xml</code> file, see <em>Common configuration properties</em>.</p>
+<p>Some resources, including some images, do not use version stamps. If you edit these resources frequently, you can reduce the cache.http.publicContentMaxAgeInSecs value to show changes more quickly. Otherwise, update the version stamp when you modify the wikis-config.xml file.</p>
+</dd>
+<dt>cache.http.publicFeedMaxAgeInSecs</dt>
+<dd>
+<p>Specifies the maximum age, in seconds, of the public feed cache before it is refreshed. Public feeds pass information to the <strong>Public Wikis</strong> view. To avoid performance issues in deployments with more than 200,000 wikis, increase this value. However, to maintain the latest information in the public view, decrease the value.</p>
+<p>The value must be greater than or equal to 0.</p>
+</dd>
+<dt>cache.user.timeout</dt>
+<dd>
+<p>Specifies the number of milliseconds that user objects stay in the user information cache. The user information cache stores metadata about users such as names and email addresses. Use this property to control the frequency of requests to the Wikis database for user information.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>If the value of user data changes while the update user task or commands for MemberSynch are running, the cache is invalidated.</p>
+</dd>
+<dt>db.dialect</dt>
+<dd>Reflects the current database type, typically specified during installation. Accepts the values DB2, Oracle, or SQL Server.</dd>
+<dt>directory.community.membershipCache.maximumAgeOnLoginInSeconds</dt>
+<dd>
+<p>Specifies the number of seconds after a user logs in that the community membership cache is refreshed. Only applicable if Communities wikis and Communities integration are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.</p>
+<p>If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.</p>
+<p>C</p>
+</dd>
+<dt>directory.community.membershipCache.maximumAgeOnRequestInSeconds</dt>
+<dd>
+<p>Specifies the number of seconds after an application request that the community membership cache is refreshed. Only applicable if Communities wikis and Communities integration are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.</p>
+<p>If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.</p>
+<p>To improve performance, increase this value to 10 minutes or more.</p>
+</dd>
+<dt>directory.group.membershipCache.maximumAgeOnLoginInSeconds</dt>
+<dd>
+<p>Number of seconds after a user logs in that group membership cache is refreshed after user login. Only applicable if groups are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.</p>
+<p>If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.</p>
+<p>Use this property to increase the number of seconds in directory.group.membershipCache.maximumAgeOnRequestInSeconds so that frequent requests do not affect performance.</p>
+</dd>
+<dt>directory.group.membershipCache.maximumAgeOnRequestInSeconds</dt>
+<dd>
+<p>Number of seconds after an application request that the group membership cache is refreshed. Only applicable if groups are enabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>Refreshing the cache is required so that a user has the same access to content as the community, but refreshing the cache affects performance. A short time interval between refreshes means that the Wikis application is more up-to-date, but performance might be slower. A long interval between refreshes has less effect on performance, but users might not have immediate access to updated content.</p>
+<p>If you reduce the value of this property, inform users that logging out and back in is the best way to refresh the cache. You can also increase the value of the directory.community.membershipCache.maximumAgeOnRequestInSeconds property so that frequent requests do not affect performance.</p>
+<p>To improve performance, increase this value to 10 minutes or more.</p>
+</dd>
+<dt>directory.typeaheadSearch.maximumResults</dt>
+<dd>
+<p>Specifies the maximum number of names to display when a user searches for user or group names in a search field. Sets a maximum for both type-ahead results and search results when a user clicks <strong>Search</strong>.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>If the value is large, such as 1000, and there are 1000 or more matches, all names are returned and performance is greatly reduced. If the value is low, such as 10, a user who enters a generic name might not see all matches.</p>
+<p><strong>Note:</strong> Type-ahead is available for public pages but not for filtered pages that might appear in Owner, Editor, or Reader views.</p>
+</dd>
+<dt>download.modIBMLocalRedirect.enabled</dt>
+<dd>
+<p>Specifies whether IBM® HTTP Server, and not WebSphere® Application Server, serves downloaded files. In a production environment, use IBM HTTP Server to serve downloaded files.</p>
+<p>If this property is set to true, you must also specify a file path in the download.modIBMLocalRedirect.hrefPathPrefix property.</p>
+<p>If this property is set to false, the WebSphere Application Server redirect servlet downloads files.</p>
+<p>For information about configuring IBM HTTP Server to download files, see <em>Configuring file downloads through the HTTP server</em>.</p>
+</dd>
+<dt>download.modIBMLocalRedirect.hrefPathPrefix</dt>
+<dd>
+<p>Specifies the full path to the file system directory where Wikis data is stored. The file path must not include a trailing slash.</p>
+<p>This property is relevant only if the download.modIBMLocalRedirect.enabled property is true. If the property is set to false, the WebSphere Application Server redirect servlet downloads files.</p>
+<p>For information about configuring IBM HTTP Server to download files, see <em>Configuring file downloads through the HTTP server</em>.</p>
+</dd>
+<dt>download.stats.logging.enabled</dt>
+<dd>
+<p>Specifies the level of detail to log about page views. If the value is set to false, Wikis logs the number of times a page is viewed. If true, Wikis logs the names of authenticated users who view pages.</p>
+<p>Specify true for auditing.</p>
+</dd>
+<dt>editor.wikitexttab.enabled</dt>
+<dd>Specifies whether the Wiki Text tab is enabled. The default value is false. You can enable the Wiki Text tab by changing the value to true.</dd>
+<dt>file.attachment.maximumSizeInKb</dt>
+<dd>
+<p>Specifies the maximum size, in KB, that is allowed for file attachments.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>Attachments that are larger than this setting fail to upload and return an error to users. To improve performance, use this property to restrict users from uploading large files.</p>
+<p>After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see <em>Required post-customization steps</em>.</p>
+</dd>
+<dt>file.media.maximumSizeInKb</dt>
+<dd>
+<p>Specifies the maximum size, in KB, that is allowed for media. In Wikis, media are wiki pages.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>This property is useful if you want a relatively large quota size for libraries, but you do not want users to attach large files.</p>
+<p>After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see <em>Required post-customization steps</em>.</p>
+</dd>
+<dt>file.page.maximumSizeInKb</dt>
+<dd>
+<p>Specifies the maximum size, in KB, that is allowed for wiki pages. Since wiki pages are a type of media, this value must be less than or equal to the maximum size set in the file.media.maximumSizeInKb property. Use this property to restrict users from uploading files whose size might affect performance.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>Pages that are larger than the value of this property return an error.</p>
+<p>After you change this value, the maximum size limit does not change for users until their browser cache is refreshed. You can force a refresh by running a command to update the product version stamp. For more information, see <em>Required post-customization steps</em>.</p>
+</dd>
+<dt>file.restrictions.enabled</dt>
+<dd>
+<p>Enables or disables the ability to restrict the types of files that users can upload as attachments in Wikis. Accepts the values true or false.</p>
+<p>For more information about restricting file types, see <em>Restricting attachment file types in Wikis</em>.</p>
+</dd>
+<dt>file.restrictions.mode</dt>
+<dd>
+<p>Sets the mode for file extension restrictions. Accepts the values allow or deny. If the value is allow, the file extensions in the list are the only ones that users can upload as attachments. If the value is deny, the extensions are not allowed.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>&lt;file&gt;
  ....
- &lt;restrictions enabled="true" mode="allow"&gt;
+ &lt;restrictions enabled=&quot;true&quot; mode=&quot;allow&quot;&gt;
   &lt;extensions&gt;
    &lt;extension&gt;odt&lt;/extension&gt;
    &lt;extension&gt;odp&lt;/extension&gt;
@@ -35498,130 +35503,118 @@ After you change this value, the maximum size limit does not change for users un
   &lt;/extensions&gt;
  &lt;/restrictions&gt;
 &lt;/file&gt;
-```
-
-For more information, see *Restricting attachment file types in Wikis*.
-</code></pre>
-<p>file.storage.rootDirectory
-:   Specifies the path to the file system directory where Wikis data is stored. This value can be set during installation and can differ for each node in a cluster. If the directory is specified during installation, this value is populated by WebSphere Application Server. However, you can specify a different directory.</p>
-<pre><code>HCL Connections looks for a files and a temp directory in the directory that is specified by this property. If the directories are not present, they are created. The temp directory stores data while the data is being uploaded or scanned for viruses. The files directory contains binary data files.
-
-For more information, see *Backing up data*.
-</code></pre>
-<p>file.versioning.enabled
-:   Specifies whether wiki page versioning is allowed. Specify true or false. The default value is true.</p>
-<pre><code>When this value is set to false, the versioning interface is not displayed and the first version is always current. If you disable this property after multiple versions of a page are created, the latest version becomes the current and only version.
-
-New versions are created only when content changes, not when title or tags or other metadata changes.
-
-To reduce data storage, specify false.
-
-For more information, see *Disabling wiki page versioning*.
-</code></pre>
-<p>wikimacros.enabled
-:   Specifies whether macros are enabled in Wikis. You can use macros to automate common tasks, such as generating a table of contents in a wiki page.</p>
-<pre><code>The default value of this parameter is false. To enable macros, set the value to true. When enabled, macros are available from the **Macros** menu in the editor toolbar.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours
-:   Specifies the number of hours that group information can remain in the Wikis database before the synchronization task runs. If groups are disabled, the synchronization task does not run.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.args.pauseInMillis
-:   Specifies the number of milliseconds that the synchronization task must wait before it updates information for the next group. Use this property to add an interval between synchronizing items in the queue. This interval avoids overloading your user directory when the task runs. Does not run if groups are disabled.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-
-If the remote user directory can handle many simultaneous queries, you can enter 0 as the value.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.enabled
-:   Enables or disables the synchronization task for groups. The default is true.</p>
-<pre><code>The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-</code></pre>
-<p>scheduledTasks.DirectoryGroupSynch.interval
-:   Specifies the frequency of the synchronization task.</p>
-<pre><code>This property accepts a chronological expression. For information about formatting an interval attribute, see *Scheduling tasks*.
-
-The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.
-
-The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.
-
-Adjust this property to speed up or slow down the process of synchronizing group information.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins
-:   Specifies the number of minutes that files must be in the pending deletion queue before the delete files task deletes them. For example, the default value of 720 means that queued files are deleted when they are in the queue for 720 minutes or longer.</p>
-<pre><code>The value must be greater than or equal to 0.
-
-A high value allows users to finish downloading large files. It also allows more lenient online backup policies. For example, for online backups that take fewer than this number of minutes, you do not have to pause the file deletion task. For more information about pausing the file deletion task during backups, see *Backing up data*.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.enabled
-:   Enables or disables the delete files task. The default is true.</p>
-<pre><code>This task deletes files if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.
-</code></pre>
-<p>scheduledTasks.FileActuallyDelete.interval
-:   Specifies the frequency with which the delete files task runs.</p>
-<pre><code>This property accepts a chronological expression. For information about formatting an interval attribute, see *Scheduling tasks*.
-
-Wikis are deleted if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.
-</code></pre>
-<p>scheduledTasks.MetricsDailyCollection.enabled
-:   Specifies whether to collect metrics. The values are true and false. The default value is true.</p>
-<pre><code>The collection task runs near midnight in the server time zone so that all of the date-based metrics include data from that day. Metrics entries require only a few KB per day, therefore the performance impact is low.
-
-For information about MetricService commands that you can use to access metrics, see *Wikis administrative commands*.
-</code></pre>
-<p>scheduledTasks.MetricsDailyCollection.interval
-:   Specifies the frequency with which the daily metrics collection task runs. Only the default value is supported: the task can run only at midnight in the server time zone. Do not edit this property.</p>
-<p>scheduledTasks.TagUpdateFrequency.enabled
-:   Specifies whether to run the tag frequency update task. This task finds the most frequently used tags in public wikis and updates the public wikis tag cloud.</p>
-<p>scheduledTasks.TagUpdateFrequency.interval
-:   Specifies the frequency with which the tag frequency update task runs. This task finds the most frequently used tags in public wikis and updates the public wikis tag cloud and the autocomplete lists.</p>
-<pre><code>This property accepts a chronological expression. For information about formatting an interval attribute, see *Scheduling tasks*.
-
-Updating tag frequency data is resource-intensive, so you might want to adjust this value as your deployment grows. In small deployments, 60 minutes is appropriate. In large deployments, once per day is sufficient.
-
-This property affects public tags only. Tag clouds for individual wikis are updated in real time and are not affected.
-</code></pre>
-<p>search.seedlist.maximumIncrementalQuerySpanInDays
-:   Specifies the number of days that deletion records are saved before they are eligible to be deleted by the SearchClearDeletionHistory task.</p>
-<pre><code>The value must be greater than or equal to 1.
-
-Wikis keeps records of deleted files. These records are eligible to be deleted by the SearchClearDeletionHistory task after the number of days that are specified in this property. The incremental search crawler needs these deletion records to update the search index. If the records are deleted before the incremental crawler reads them, the updates are incomplete. For this reason, Wikis runs a full crawl instead of an incremental crawl. Full crawls delete the existing search index and add a new one. This process takes more time than incremental crawls.
-
-To avoid frequent full crawls, make sure that incremental crawls occur sooner than the time it takes for a deletion record to be created and deleted. For example, if deletion records are eligible for deletion after five days, specify that incremental crawls occur every four days.
-</code></pre>
-<p>search.seedlist.maximumPageSize
-:   Specifies the maximum number of items on the seedlist return page. The value must be greater than or equal to 100.</p>
-<p>security.inlineDownload.enabled
-:   Enables the inline display of file attachments. Setting this property is useful when you use the Wikis API to download and display active content, such as Adobe® Flash (.swf) files, in your own HTML pages.</p>
-<pre><code>By default, HCL Connections passes file attachments to browsers with the `Content-Disposition: attachment` header. This specification means that files are displayed as attachments. When users click the attachment, they are prompted to open or download the file. Enabling this property also prevents the embedding of files. If you want to embed files in your own HTML page by using an `embed` tag, the content disposition must be inline. This property affects active content such as Adobe Flash \(.swf\), and HTML pages that are referenced within an iFrame.
-
-Configure a property in the `wikis-config.xml` file to change the content disposition from attachment to inline. Then, set the inline parameter to true in your Wikis API download requests. See *Displaying file attachments inline*.
-
-Important: Wikis uses the attachment disposition for security reasons. Specifically, uploaded files can potentially contain malicious code that can exploit the cross-site scripting vulnerabilities of some browsers. If you switch to inline disposition, configure an alternative download domain for greater security. For more information, see *Mitigating a cross site scripting attack*.
-
-The allowed values are true and false.
-</code></pre>
-<p>security.logout.href
-:   Specifies the logout URL for single-sign on solutions that require their own logout page.</p>
-<pre><code>If you are configuring HCL Connections to work with Tivoli® Access Manager, specify the following value:
-
-```
-/wikis/ibm_security_logout?logoutExitPage=&lt;url&gt;
-```
-
-where `&lt;url&gt;` is the Tivoli Access Manager junction URL. This URL is usually the host name of the server.
-
-For more information, see *Enabling single sign-on for Tivoli Access Manager*.
-
-**Note:** You must use fully qualified domain names in the configuration file. If you use an abbreviated name, secure communication between the servers fails.
-</code></pre>
+</code></pre></div>
+<p>For more information, see <em>Restricting attachment file types in Wikis</em>.</p>
+</dd>
+<dt>file.storage.rootDirectory</dt>
+<dd>
+<p>Specifies the path to the file system directory where Wikis data is stored. This value can be set during installation and can differ for each node in a cluster. If the directory is specified during installation, this value is populated by WebSphere Application Server. However, you can specify a different directory.</p>
+<p>HCL Connections looks for a files and a temp directory in the directory that is specified by this property. If the directories are not present, they are created. The temp directory stores data while the data is being uploaded or scanned for viruses. The files directory contains binary data files.</p>
+<p>For more information, see <em>Backing up data</em>.</p>
+</dd>
+<dt>file.versioning.enabled</dt>
+<dd>
+<p>Specifies whether wiki page versioning is allowed. Specify true or false. The default value is true.</p>
+<p>When this value is set to false, the versioning interface is not displayed and the first version is always current. If you disable this property after multiple versions of a page are created, the latest version becomes the current and only version.</p>
+<p>New versions are created only when content changes, not when title or tags or other metadata changes.</p>
+<p>To reduce data storage, specify false.</p>
+<p>For more information, see <em>Disabling wiki page versioning</em>.</p>
+</dd>
+<dt>wikimacros.enabled</dt>
+<dd>
+<p>Specifies whether macros are enabled in Wikis. You can use macros to automate common tasks, such as generating a table of contents in a wiki page.</p>
+<p>The default value of this parameter is false. To enable macros, set the value to true. When enabled, macros are available from the <strong>Macros</strong> menu in the editor toolbar.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours</dt>
+<dd>
+<p>Specifies the number of hours that group information can remain in the Wikis database before the synchronization task runs. If groups are disabled, the synchronization task does not run.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.args.pauseInMillis</dt>
+<dd>
+<p>Specifies the number of milliseconds that the synchronization task must wait before it updates information for the next group. Use this property to add an interval between synchronizing items in the queue. This interval avoids overloading your user directory when the task runs. Does not run if groups are disabled.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+<p>If the remote user directory can handle many simultaneous queries, you can enter 0 as the value.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.enabled</dt>
+<dd>
+<p>Enables or disables the synchronization task for groups. The default is true.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+</dd>
+<dt>scheduledTasks.DirectoryGroupSynch.interval</dt>
+<dd>
+<p>Specifies the frequency of the synchronization task.</p>
+<p>This property accepts a chronological expression. For information about formatting an interval attribute, see <em>Scheduling tasks</em>.</p>
+<p>The synchronization task runs automatically in the background, synchronizing group names in the Wikis database with the user directory. The task queries the user directory with the directory ID and when it finds a match it synchronizes the group name.</p>
+<p>The task runs on any group information that is older than the value specified in the scheduledTasks.DirectoryGroupSynch.args.maximumDataAgeInHours property. It runs at a frequency that is specified in the scheduledTasks.DirectoryGroupSynch.interval property. It pauses between groups for the amount of time that is specified in the scheduledTasks.DirectoryGroupSynch.args.pauseInMillis property.</p>
+<p>Adjust this property to speed up or slow down the process of synchronizing group information.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins</dt>
+<dd>
+<p>Specifies the number of minutes that files must be in the pending deletion queue before the delete files task deletes them. For example, the default value of 720 means that queued files are deleted when they are in the queue for 720 minutes or longer.</p>
+<p>The value must be greater than or equal to 0.</p>
+<p>A high value allows users to finish downloading large files. It also allows more lenient online backup policies. For example, for online backups that take fewer than this number of minutes, you do not have to pause the file deletion task. For more information about pausing the file deletion task during backups, see <em>Backing up data</em>.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.enabled</dt>
+<dd>
+<p>Enables or disables the delete files task. The default is true.</p>
+<p>This task deletes files if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.</p>
+</dd>
+<dt>scheduledTasks.FileActuallyDelete.interval</dt>
+<dd>
+<p>Specifies the frequency with which the delete files task runs.</p>
+<p>This property accepts a chronological expression. For information about formatting an interval attribute, see <em>Scheduling tasks</em>.</p>
+<p>Wikis are deleted if they are marked as pending deletion, and they are older than the value specified in the scheduledTasks.FileActuallyDelete.args.softDeleteMinimumPendingTimeInMins property.</p>
+</dd>
+<dt>scheduledTasks.MetricsDailyCollection.enabled</dt>
+<dd>
+<p>Specifies whether to collect metrics. The values are true and false. The default value is true.</p>
+<p>The collection task runs near midnight in the server time zone so that all of the date-based metrics include data from that day. Metrics entries require only a few KB per day, therefore the performance impact is low.</p>
+<p>For information about MetricService commands that you can use to access metrics, see <em>Wikis administrative commands</em>.</p>
+</dd>
+<dt>scheduledTasks.MetricsDailyCollection.interval</dt>
+<dd>Specifies the frequency with which the daily metrics collection task runs. Only the default value is supported: the task can run only at midnight in the server time zone. Do not edit this property.</dd>
+<dt>scheduledTasks.TagUpdateFrequency.enabled</dt>
+<dd>Specifies whether to run the tag frequency update task. This task finds the most frequently used tags in public wikis and updates the public wikis tag cloud.</dd>
+<dt>scheduledTasks.TagUpdateFrequency.interval</dt>
+<dd>
+<p>Specifies the frequency with which the tag frequency update task runs. This task finds the most frequently used tags in public wikis and updates the public wikis tag cloud and the autocomplete lists.</p>
+<p>This property accepts a chronological expression. For information about formatting an interval attribute, see <em>Scheduling tasks</em>.</p>
+<p>Updating tag frequency data is resource-intensive, so you might want to adjust this value as your deployment grows. In small deployments, 60 minutes is appropriate. In large deployments, once per day is sufficient.</p>
+<p>This property affects public tags only. Tag clouds for individual wikis are updated in real time and are not affected.</p>
+</dd>
+<dt>search.seedlist.maximumIncrementalQuerySpanInDays</dt>
+<dd>
+<p>Specifies the number of days that deletion records are saved before they are eligible to be deleted by the SearchClearDeletionHistory task.</p>
+<p>The value must be greater than or equal to 1.</p>
+<p>Wikis keeps records of deleted files. These records are eligible to be deleted by the SearchClearDeletionHistory task after the number of days that are specified in this property. The incremental search crawler needs these deletion records to update the search index. If the records are deleted before the incremental crawler reads them, the updates are incomplete. For this reason, Wikis runs a full crawl instead of an incremental crawl. Full crawls delete the existing search index and add a new one. This process takes more time than incremental crawls.</p>
+<p>To avoid frequent full crawls, make sure that incremental crawls occur sooner than the time it takes for a deletion record to be created and deleted. For example, if deletion records are eligible for deletion after five days, specify that incremental crawls occur every four days.</p>
+</dd>
+<dt>search.seedlist.maximumPageSize</dt>
+<dd>Specifies the maximum number of items on the seedlist return page. The value must be greater than or equal to 100.</dd>
+<dt>security.inlineDownload.enabled</dt>
+<dd>
+<p>Enables the inline display of file attachments. Setting this property is useful when you use the Wikis API to download and display active content, such as Adobe® Flash (.swf) files, in your own HTML pages.</p>
+<p>By default, HCL Connections passes file attachments to browsers with the <code>Content-Disposition: attachment</code> header. This specification means that files are displayed as attachments. When users click the attachment, they are prompted to open or download the file. Enabling this property also prevents the embedding of files. If you want to embed files in your own HTML page by using an <code>embed</code> tag, the content disposition must be inline. This property affects active content such as Adobe Flash (.swf), and HTML pages that are referenced within an iFrame.</p>
+<p>Configure a property in the <code>wikis-config.xml</code> file to change the content disposition from attachment to inline. Then, set the inline parameter to true in your Wikis API download requests. See <em>Displaying file attachments inline</em>.</p>
+<p>Important: Wikis uses the attachment disposition for security reasons. Specifically, uploaded files can potentially contain malicious code that can exploit the cross-site scripting vulnerabilities of some browsers. If you switch to inline disposition, configure an alternative download domain for greater security. For more information, see <em>Mitigating a cross site scripting attack</em>.</p>
+<p>The allowed values are true and false.</p>
+</dd>
+<dt>security.logout.href</dt>
+<dd>
+<p>Specifies the logout URL for single-sign on solutions that require their own logout page.</p>
+<p>If you are configuring HCL Connections to work with Tivoli® Access Manager, specify the following value:</p>
+<div class="highlight"><pre><span></span><code>/wikis/ibm_security_logout?logoutExitPage=&lt;url&gt;
+</code></pre></div>
+<p>where <code>&lt;url&gt;</code> is the Tivoli Access Manager junction URL. This URL is usually the host name of the server.</p>
+<p>For more information, see <em>Enabling single sign-on for Tivoli Access Manager</em>.</p>
+<p><strong>Note:</strong> You must use fully qualified domain names in the configuration file. If you use an abbreviated name, secure communication between the servers fails.</p>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="t_admin_wikis_changing_config_properties.html">Changing Wikis configuration property values</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../secure/t_admin_act_minimize_xss_risk.html">Specifying a separate file download domain</a></p>

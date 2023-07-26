@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35306,47 +35322,45 @@
 <p>Some URL protocols are disallowed by default; for example, the irc:// and telnet:// protocols are not allowed. Any URLs that contain disallowed protocols are stripped from the content before it is uploaded.</p>
 <p>The following protocols are allowed by default: <code>http</code>, <code>https</code>, <code>mailto</code>, <code>ftp</code>, and <code>tel</code>.</p>
 <p>The following rules can be used to tailor the allowed protocols to your needs; these rules can be used in conjunction with one another.</p>
-<p>allowStandardUrlProtocols
-:   Allows URLs containing any of the following (default) protocols:</p>
-<pre><code>-   `http`
--   `https`
--   `mailto`
--   `ftp`
--   `tel`
-
-Usage:
-
-```
-&lt;allowStandardUrlProtocols enabled="true" /&gt;
-```
-
-To allow a different set of URL protocols, apply the allowUrlProtocols rule instead.
-</code></pre>
-<p>allowUrlProtocols
-:   Allows URLs containing only protocols that you specify with this rule. Use this rule when you only want to whitelist a small set of URL protocols. This rule can be used in conjunction with AllowStandardUrlProtocols.</p>
-<pre><code>Usage
-
-```
-
-&lt;allowUrlProtocols&gt;
-&lt;protocol name="ftp" /&gt;
-&lt;protocol name="tel" /&gt;
-&lt;protocol name="notes" /&gt;
-&lt;protocol name="file" /&gt;
+<dl>
+<dt>allowStandardUrlProtocols</dt>
+<dd>
+<p>Allows URLs containing any of the following (default) protocols:</p>
+<ul>
+<li><code>http</code></li>
+<li><code>https</code></li>
+<li><code>mailto</code></li>
+<li><code>ftp</code></li>
+<li><code>tel</code></li>
+</ul>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowStandardUrlProtocols enabled=&quot;true&quot; /&gt;
+</code></pre></div>
+<p>To allow a different set of URL protocols, apply the allowUrlProtocols rule instead.</p>
+</dd>
+<dt>allowUrlProtocols</dt>
+<dd>
+<p>Allows URLs containing only protocols that you specify with this rule. Use this rule when you only want to whitelist a small set of URL protocols. This rule can be used in conjunction with AllowStandardUrlProtocols.</p>
+<p>Usage</p>
+<div class="highlight"><pre><span></span><code>&lt;allowUrlProtocols&gt;
+&lt;protocol name=&quot;ftp&quot; /&gt;
+&lt;protocol name=&quot;tel&quot; /&gt;
+&lt;protocol name=&quot;notes&quot; /&gt;
+&lt;protocol name=&quot;file&quot; /&gt;
 &lt;/allowUrlProtocols&gt;
-```
-</code></pre>
-<p>disallowUrlProtocols
-:   Allows you to reverse an earlier "allow" rule.</p>
-<pre><code>Usage:
-
-```
-&lt;disallowUrlProtocols&gt;
-        &lt;protocol name="javascript" /&gt;
-        &lt;protocol name="vbscript" /&gt;
+</code></pre></div>
+</dd>
+<dt>disallowUrlProtocols</dt>
+<dd>
+<p>Allows you to reverse an earlier "allow" rule.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;disallowUrlProtocols&gt;
+        &lt;protocol name=&quot;javascript&quot; /&gt;
+        &lt;protocol name=&quot;vbscript&quot; /&gt;
 &lt;/disallowUrlProtocols&gt;
-```
-</code></pre>
+</code></pre></div>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="sec_acf_whitelist_config.html">Configuring active content filters (whitelists)</a></p>
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35325,9 +35325,12 @@
   </a>
 
 
-<h1 class="task" id="cp_config_om_enable_notifications">Configuring the Orient Me home page</h1>
-<p>Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.</p>
-<p>The following changes are required to enable the Notification Center tailored to work with the Orient Me home page. The Notification Center lets users view prioritized updates and track commitments for the day.</p>
+<h1 class="task" id="cp_config_om_enable_notifications">Configuring the Top Updates home page</h1>
+<!--Configure the Notification Center so it works in concert with the data that users prioritize on the Orient Me home page.
+
+The following changes are required to enable the Notification Center tailored to work with the Orient Me home page. The Notification Center lets users view prioritized updates and track commitments for the day.-->
+
+<p>The following changes are required to enable the Top Updates tab on the user's home page.</p>
 <ol>
 <li>
 <p>On the WebSphere® deployment manager machine, start the wsadmin client as described in <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a>.</p>
@@ -35349,7 +35352,7 @@
 For example:</p>
 </li>
 <li>
-<p>AIX® or Linux®:</p>
+<p>Linux®:</p>
 <div class="highlight"><pre><span></span><code>LCConfigService.checkOutConfig(&quot;/opt/temp&quot;,&quot;foo01Cell01&quot;)
 </code></pre></div>
 </li>
@@ -35390,7 +35393,7 @@ clusterName=&quot;&quot;&gt;
 </code></pre></div>
 </li>
 <li>
-<p>Enable the actioncenter property:</p>
+<p><strong>(Optional)</strong> Enable the actioncenter property:</p>
 <p>Locate the following statement:</p>
 <div class="highlight"><pre><span></span><code>&lt;genericProperty name=&quot;actioncenter&quot;&gt;disabled&lt;/genericProperty&gt;
 </code></pre></div>
@@ -35399,35 +35402,10 @@ clusterName=&quot;&quot;&gt;
 </code></pre></div>
 <p>If the property does not exist, then create it.</p>
 </li>
-<li>
-<p>Set Orient Me up as the default home page:</p>
-<p>Locate the following statement:</p>
-<div class="highlight"><pre><span></span><code>&lt;genericProperty name=&quot;com.ibm.orient.isOrientHomepage&quot;&gt;false&lt;/genericProperty&gt;
-</code></pre></div>
-<p>and set it to <code>true</code>; for example:</p>
-<div class="highlight"><pre><span></span><code>&lt;genericProperty name=&quot;com.ibm.orient.isOrientHomepage&quot;&gt;`true`&lt;/genericProperty&gt;
-</code></pre></div>
-<p>If the property does not exist, then create it.</p>
-</li>
-<li>
-<p>(Optional) Disable the home page switcher.</p>
-<p>The menu option that allows users to switch between the Orient Me home page and the classic home page is enabled by default. If you wish to disable it, locate the <code>isHomepageSwitcherEnabled</code> property (or create it is it does not exist) and set it to <code>false</code>. For example:</p>
-<div class="highlight"><pre><span></span><code>&lt;genericProperty name=&quot;com.ibm.orient.isHomepageSwitcherEnabled&quot;&gt;false&lt;/genericProperty&gt;
-</code></pre></div>
-</li>
 </ol>
 </li>
 <li>
 <p>Save your changes to LotusConnections-config.xml.</p>
-</li>
-<li>
-<p>Add an enumeration value for the Orient Me service to the service names section in the service-location.xsd file.</p>
-<p>The new value should match the <code>serviceName</code> value for the <code>serviceReference</code> that you uncommented in step 5a; for example:</p>
-<div class="highlight"><pre><span></span><code>&lt;xsd:enumeration value=&quot;orient&quot; /&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Save your changes to service-location.xsd.</p>
 </li>
 <li>
 <p>After you make changes, check the configuration files in by running the following command in the wsadmin session that you left open:</p>

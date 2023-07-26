@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35362,14 +35378,16 @@
 </table>
 <p>Each index directory contains doctype, facets, filesTemp, and graph files. After the index is built, each directory also contains an INDEX.READY file and a CRAWLING_VERSION file.</p>
 <p>The following directories are also used by the Search application:</p>
-<p>index_backup
-:   When the SearchService.backupIndexNow() command is run, the index is backed up to the index_backup directory. This directory is contained in the data\local\search folder. The folder location is specified by the WebSphere Application Server variable SEARCH_INDEX_BACKUP_DIR.</p>
-<p>staging
-:   After the initial index is built, it is copied to the staging directory before it is rolled out to all the nodes in the deployment. This directory is located on the network share. The directory location is specified by the WebSphere Application Server variable SEARCH_INDEX_SHARED_COPY_LOCATION. An index in this directory is deleted 30 days after it is created. If you want to disable the automatic roll-out behavior, you must delete the WebSphere variable SEARCH_INDEX_SHARED_COPY_LOCATION. If you delete this variable, you must also clear the existing contents of SEARCH_INDEX_SHARED_COPY_LOCATION manually.</p>
-<p>persistence
-:   The persistence directory contains the XML files that are created after an application is crawled. These files are used to build an index for the application. This directory is contained in the data\local\search folder. The directory location is specified by the WebSphere Application Server variable CRAWLER_PAGE_PERSISTENCE_DIR.</p>
-<p>extracted
-:   The extracted directory holds documents that contain the content extracted from files. This directory is located on the network share. The directory location is specified by the WebSphere Application Server variable EXTRACTED_FILE_STORE.</p>
+<dl>
+<dt>index_backup</dt>
+<dd>When the SearchService.backupIndexNow() command is run, the index is backed up to the index_backup directory. This directory is contained in the data\local\search folder. The folder location is specified by the WebSphere Application Server variable SEARCH_INDEX_BACKUP_DIR.</dd>
+<dt>staging</dt>
+<dd>After the initial index is built, it is copied to the staging directory before it is rolled out to all the nodes in the deployment. This directory is located on the network share. The directory location is specified by the WebSphere Application Server variable SEARCH_INDEX_SHARED_COPY_LOCATION. An index in this directory is deleted 30 days after it is created. If you want to disable the automatic roll-out behavior, you must delete the WebSphere variable SEARCH_INDEX_SHARED_COPY_LOCATION. If you delete this variable, you must also clear the existing contents of SEARCH_INDEX_SHARED_COPY_LOCATION manually.</dd>
+<dt>persistence</dt>
+<dd>The persistence directory contains the XML files that are created after an application is crawled. These files are used to build an index for the application. This directory is contained in the data\local\search folder. The directory location is specified by the WebSphere Application Server variable CRAWLER_PAGE_PERSISTENCE_DIR.</dd>
+<dt>extracted</dt>
+<dd>The extracted directory holds documents that contain the content extracted from files. This directory is located on the network share. The directory location is specified by the WebSphere Application Server variable EXTRACTED_FILE_STORE.</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="c_admin_search_index_process.html">The indexing process</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="r_admin_common_was_env_variables.html">WebSphere Application Server environment variables</a></p>

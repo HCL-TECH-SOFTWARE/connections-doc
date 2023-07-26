@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35315,12 +35331,16 @@
 </li>
 <li>
 <p>Use any of the following commands:</p>
-<p>ForumsTopicsService.fetchTopics()
-:   A list of all forum topics, except those topics that were moved to the trash.</p>
+<dl>
+<dt>ForumsTopicsService.fetchTopics()</dt>
+<dd>A list of all forum topics, except those topics that were moved to the trash.</dd>
+</dl>
 <pre><code>Returns a java.util.Vector object. Each object in the vector is a java.util.Hashtable object that describes one forum topic.
 </code></pre>
-<p>ForumsTopicsService.fetchTopicsByDate(String type, String begindate, String enddate)
-:   A list of forum topics that were created or modified in a specified date range. The maximum number of topics in the returned list is 50. If the number is greater than 50, call this method in a loop where the last UUID parameter is the UUID of the 50th topic from the previous list.</p>
+<dl>
+<dt>ForumsTopicsService.fetchTopicsByDate(String type, String begindate, String enddate)</dt>
+<dd>A list of forum topics that were created or modified in a specified date range. The maximum number of topics in the returned list is 50. If the number is greater than 50, call this method in a loop where the last UUID parameter is the UUID of the 50th topic from the previous list.</dd>
+</dl>
 <pre><code>Returns a java.util.Vector object. Each object in the vector is a java.util.Hashtable object that describes one forum topic.
 
 This command takes the following parameters:
@@ -35346,8 +35366,10 @@ ForumsTopicsService.fetchTopicsByDate("created","2010.05.21","2010.05.22")
 ForumsTopicsService.fetchTopicsByDate("modified","2010.05.21","2010.05.22")
 ```
 </code></pre>
-<p>ForumsTopicsService.fetchTopicsCreatedByMember(String extId, String type)
-:   A list of forum topics that were created by the specified member, except those topics that are in the trash.</p>
+<dl>
+<dt>ForumsTopicsService.fetchTopicsCreatedByMember(String extId, String type)</dt>
+<dd>A list of forum topics that were created by the specified member, except those topics that are in the trash.</dd>
+</dl>
 <pre><code>Returns a java.util.Vector object. Each object in the vector is a java.util.Hashtable object that describes one forum topic.
 
 This command takes the following parameters:
@@ -35370,8 +35392,10 @@ ForumsTopicsService.fetchTopicsCreatedByMember("778CE573-78A5-2ECF-8525-7346003D
 ForumsTopicsService.fetchTopicsCreatedByMember("ajones10@example.com","email")
 ```
 </code></pre>
-<p>ForumsTopicsService.fetchTopicById(String topicuuid)
-:   A forum topic that is identified by the specified universal identifier.</p>
+<dl>
+<dt>ForumsTopicsService.fetchTopicById(String topicuuid)</dt>
+<dd>A forum topic that is identified by the specified universal identifier.</dd>
+</dl>
 <pre><code>Returns a java.util.Hashtable object that describes the forum topic.
 
 This command takes the following parameter:

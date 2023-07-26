@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35306,8 +35322,10 @@
 </li>
 <li>
 <p>Run the following commands to return information about libraries:</p>
-<p>WikisLibraryService.getById(string libraryId)
-:   Returns information about a single library specified by an ID. A library is the pages, attachments, and other data that make up a wiki. It includes all wiki page versions, but does not include metadata such as comments.</p>
+<dl>
+<dt>WikisLibraryService.getById(string libraryId)</dt>
+<dd>Returns information about a single library specified by an ID. A library is the pages, attachments, and other data that make up a wiki. It includes all wiki page versions, but does not include metadata such as comments.</dd>
+</dl>
 <pre><code>Parameters:
 
 libraryId
@@ -35335,8 +35353,10 @@ For example:
 WikisLibraryService.getById("2d93497d-065a-4022ae25-a4b52598d11a")
 ```
 </code></pre>
-<p>WikisLibraryService.browseWiki(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)
-:   Returns a list of all wikis, with information about each wiki. The list includes wikis owned by communities, and wikis whose owners were removed from the user directory.</p>
+<dl>
+<dt>WikisLibraryService.browseWiki(string sortOption, string sortAscending, int pageNumber, int itemsPerPage)</dt>
+<dd>Returns a list of all wikis, with information about each wiki. The list includes wikis owned by communities, and wikis whose owners were removed from the user directory.</dd>
+</dl>
 <pre><code>Parameters:
 
 sortOption
@@ -35373,10 +35393,12 @@ For example:
 WikisLibraryService.browseWiki("title", "true", 1, 25)
 ```
 </code></pre>
-<p>WikisLibraryService.getWikiCount()
-:   Returns the total number of wikis.</p>
-<p>WikisLibraryService.exportSyncedResourceInfo (string fullpathForOutput, string type)
-:   Returns a report of all of the communities that the Wikis application has interacted with. After a system crash you can compare the report to the latest metadata in the Communities database to help synchronize and update any missing data. See the topic <em>Comparing remote application data with the Communities database</em> for more information.</p>
+<dl>
+<dt>WikisLibraryService.getWikiCount()</dt>
+<dd>Returns the total number of wikis.</dd>
+<dt>WikisLibraryService.exportSyncedResourceInfo (string fullpathForOutput, string type)</dt>
+<dd>Returns a report of all of the communities that the Wikis application has interacted with. After a system crash you can compare the report to the latest metadata in the Communities database to help synchronize and update any missing data. See the topic <em>Comparing remote application data with the Communities database</em> for more information.</dd>
+</dl>
 <pre><code>Note that in clusters, when you run the command from the deployment manager the path and file are created on the server running Wikis. In clusters where multiple nodes are running Wikis, you are asked choose a server to connect to and run the command on, and then the path and file are created on that server.
 
 Parameters:

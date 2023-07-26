@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35389,16 +35405,14 @@
 <h2 class="refsyn" id="the-external-proxy-configuration-proxy-opensocial-configtpl">The external Proxy configuration: proxy-opensocial-config.tpl</h2>
 <p>For the external proxy configuration, CRE has been extended to read the proxy-opensocial-config.tpl file. This file works with the extension of gadget-specific proxy constructs. These gadget specific constructs are ignored by the standard Connections proxy, but utilized by the CRE proxy. The companion file <code>proxy-config.dynamic</code> controls which of those endpoints the gadget is permitted to make outbound requests to, while the proxy-opensocial-config.tpl file controls the characteristics (headers/cookies/and so on) of your gadget's communication to that endpoint.</p>
 <h2 class="section" id="gadget-specific-proxy-constructs">Gadget-specific proxy constructs</h2>
-<p>managed-headers
-:   Purpose: Provides a set of headers that will be specially rewritten and passed to the gadget. The proxy helps to ensure that these headers are as follows:</p>
-<pre><code>Placement is as a peer of //policy/headers
-
-Content contains &lt;managed-header\&gt; element.  This element contains a text node that specifies the 'header' that is to be managed.
-
-For example:
-
-```
- &lt;proxy:actions&gt;
+<dl>
+<dt>managed-headers</dt>
+<dd>
+<p>Purpose: Provides a set of headers that will be specially rewritten and passed to the gadget. The proxy helps to ensure that these headers are as follows:</p>
+<p>Placement is as a peer of //policy/headers</p>
+<p>Content contains &lt;managed-header> element.  This element contains a text node that specifies the 'header' that is to be managed.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code> &lt;proxy:actions&gt;
  ...
  &lt;/proxy:actions&gt;
  &lt;proxy:headers /&gt;
@@ -35407,15 +35421,15 @@ For example:
  &lt;proxy:managed-headers\&gt;**
  ...
 &lt;proxy:policy&gt;
-```
-</code></pre>
-<p>managed-cookies
-:   Purpose: Provides a set of headers that will be specially rewritten and passed to the specific gadget. The cookie rewriting ensures that multiple gadgets loaded in the same domain do not overwrite cookie values for each other. The proxy then handles rewriting the cookie back to its original form.</p>
-<p>:   Placement is as a peer of //policy/cookies</p>
-<p>:   Content contains &lt;managed-cookie> element. This element contains a text node that specifies the 'cookie' that is to be managed.</p>
-<p>:   For example:</p>
-<pre><code>```
-&lt;proxy:policy ..&gt;
+</code></pre></div>
+</dd>
+<dt>managed-cookies</dt>
+<dd>Purpose: Provides a set of headers that will be specially rewritten and passed to the specific gadget. The cookie rewriting ensures that multiple gadgets loaded in the same domain do not overwrite cookie values for each other. The proxy then handles rewriting the cookie back to its original form.</dd>
+<dd>Placement is as a peer of //policy/cookies</dd>
+<dd>Content contains &lt;managed-cookie> element. This element contains a text node that specifies the 'cookie' that is to be managed.</dd>
+<dd>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>&lt;proxy:policy ..&gt;
  &lt;proxy:actions&gt;
  ...
  &lt;/proxy:actions&gt;
@@ -35428,8 +35442,9 @@ For example:
  &lt;/proxy:managed-cookies\&gt;**
  ...
 &lt;proxy:policy&gt;
-```
-</code></pre>
+</code></pre></div>
+</dd>
+</dl>
 <h2 class="section" id="the-internal-proxy-config-proxy-opensocial-internal-configtpl-file">The Internal Proxy Config: proxy-opensocial-internal-config.tpl file</h2>
 <p>Typically you should not have to modify this file. For performance testing however, the ability to modify the file can be extremely useful if modifications need to be made. In order to override the default configuration, paste the following sample into a file called <code>proxy-opensocial-internal-config.tpl</code> in the LotusConnections-config directory. The following is a sample <code>proxy-opensocial-internal-config.tpl</code> file:</p>
 <div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;

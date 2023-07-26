@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35343,15 +35359,19 @@
 </li>
 <li>
 <p>On the Repository reference page, the following fields represent the LDAP attribute type and value pairs for the base element in the realm and the LDAP repository. (The type and value pair are separated by an equal sign (=), for example: o=example. These can be the same value when a single LDAP repository is configured for the realm or can be different in a multiple LDAP repository configuration.)</p>
-<p><strong>Distinguished name of a base entry that uniquely identifies this set of entries in the realm</strong>
-:   Identifies entries in the realm. For example, on an IBM Directory Server or Active Directory, the base entry is <code>dc=example, dc=com</code>.</p>
+<dl>
+<dt><strong>Distinguished name of a base entry that uniquely identifies this set of entries in the realm</strong></dt>
+<dd>Identifies entries in the realm. For example, on an IBM Directory Server or Active Directory, the base entry is <code>dc=example, dc=com</code>.</dd>
+</dl>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you are using Domino LDAP, set this field to <code>root</code>. By using <code>root</code>, you ensure that WebSphere does not use a base entry when searching this repository. The reason that you do this has to do with how groups work in Domino LDAP: by default Domino uses flat groups, and therefore they do not belong to a base certifier. If you set the <strong>Distinguished name of a base entry that uniquely identifies this set of entries in the realm</strong> field to root, no base is used when searching this directory, and all users and groups from the directory are found.</p>
 </div>
-<p><strong>Distinguished name of a base entry in this repository</strong>
-: Identifies entries in the LDAP directory. Leave this field blank.</p>
-<p>: This value defines the location in the LDAP directory information tree from which the LDAP search begins. The entries beneath it in the tree can also be accessed by the LDAP search. In other words, the search base entry is the top node of a subtree which consists of many possible entries beneath it.</p>
+<dl>
+<dt><strong>Distinguished name of a base entry in this repository</strong></dt>
+<dd>Identifies entries in the LDAP directory. Leave this field blank.</dd>
+<dd>This value defines the location in the LDAP directory information tree from which the LDAP search begins. The entries beneath it in the tree can also be accessed by the LDAP search. In other words, the search base entry is the top node of a subtree which consists of many possible entries beneath it.</dd>
+</dl>
 </li>
 <li>
 <p>Click <strong>Apply</strong> and then click <strong>Save</strong>.</p>

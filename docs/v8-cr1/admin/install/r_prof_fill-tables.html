@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35376,16 +35392,18 @@
 <p><strong>Note:</strong> These properties are supplied in the profiles_tdi.properties file. The file path specified is relative to the TDI solution directory.</p>
 <p>This step is mandatory if one or more entities have been selected as the Group By filter in Metrics. Otherwise, when you categorize the Metrics report by this entity, the report will show an unknown value, not the descriptive name of the entity in the chart. Metrics have three default Group By attributes: country, organization and title. The country and organization attributes are in the supported list.</p>
 <p>The mapping task for Profiles maps your user data to the following entities:</p>
-<p>Fill countries
-:   Add country data to each profile. Use Country code script ./fill_country.sh or fill_country.bat to populate the Country table.</p>
-<p>Fill departments
-:   Add department data to each profile. Use Department code script ./fill_department.sh or fill_department.bat.</p>
-<p>Fill organization
-:   Add organization data to each profile. Use Organization code script ./fill_organization.sh or fill_organization.bat.</p>
-<p>Fill employee types
-:   Add employee-type data to each profile. Use Employee type code script ./fill_emp_type.sh or fill_emp_type.bat</p>
-<p>Fill work locations
-:   Add location data to each profile. Use Work location code script ./fill_workloc.sh or fill_workloc.bat.</p>
+<dl>
+<dt>Fill countries</dt>
+<dd>Add country data to each profile. Use Country code script ./fill_country.sh or fill_country.bat to populate the Country table.</dd>
+<dt>Fill departments</dt>
+<dd>Add department data to each profile. Use Department code script ./fill_department.sh or fill_department.bat.</dd>
+<dt>Fill organization</dt>
+<dd>Add organization data to each profile. Use Organization code script ./fill_organization.sh or fill_organization.bat.</dd>
+<dt>Fill employee types</dt>
+<dd>Add employee-type data to each profile. Use Employee type code script ./fill_emp_type.sh or fill_emp_type.bat</dd>
+<dt>Fill work locations</dt>
+<dd>Add location data to each profile. Use Work location code script ./fill_workloc.sh or fill_workloc.bat.</dd>
+</dl>
 <h2 class="section" id="csv-files">CSV files</h2>
 <p>A CSV (comma separated value) file is required as input for each of these tasks.</p>
 <p>The following properties pertain to the CVS files used by these tasks:</p>
@@ -35410,16 +35428,18 @@ workloc_table_csv_file=workloc.csv
 <p>For the workloc code, the values can be code;addr1;addr2;city;state;zip. For example: <code>WSF;FIVE TECHNOLOGY PARK DR;;WESTFORD;MA;01886-3141</code>.</p>
 <p>Fields that you do not require in your mapping can be omitted from the file; this example uses only one addr field.</p>
 <p>The default file name for each codes is shown in the following list:</p>
-<p>countryCode
-:   isocc.csv</p>
-<p>deptNumber
-:   deptinfo.csv</p>
-<p>orgId
-:   orginfo.csv</p>
-<p>employeeTypeCode
-:   emptype.csv</p>
-<p>workLocationCode
-:   workloc.csv</p>
+<dl>
+<dt>countryCode</dt>
+<dd>isocc.csv</dd>
+<dt>deptNumber</dt>
+<dd>deptinfo.csv</dd>
+<dt>orgId</dt>
+<dd>orginfo.csv</dd>
+<dt>employeeTypeCode</dt>
+<dd>emptype.csv</dd>
+<dt>workLocationCode</dt>
+<dd>workloc.csv</dd>
+</dl>
 <h2 class="example" id="sample-csv-file">Sample CSV file</h2>
 <p>This sample shows some lines from the isocc.csv file, which can be used to fill countries data:</p>
 <div class="highlight"><pre><span></span><code>ad;Andorra, Principality of
@@ -35434,7 +35454,7 @@ ao;Angola
 aq;Antarctica
 ar;Argentina
 </code></pre></div>
-<p>You can find more sample CSV files in the wizard_files_directory/TDIPopulation/TDISOL/aix|lin|win/samples directory, where the wizard_files_directory is the location of the various Wizard files that you downloaded or received on disk, and aix|lin|win is the AIX®, Linux®, or Microsoft® Windows® version of the directory.</p>
+<p>You can find more sample CSV files in the wizard_files_directory/TDIPopulation/TDISOL/lin|win/samples directory, where the wizard_files_directory is the location of the various Wizard files that you downloaded or received on disk, and lin|win is the Linux® or Microsoft® Windows® version of the directory.</p>
 
 
 

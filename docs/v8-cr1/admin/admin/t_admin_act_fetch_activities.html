@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35301,15 +35317,17 @@
 <ul>
 <li>
 <p>Use the following commands to get a list of activities and entries.</p>
-<p>ActivityService.fetchActivities()
-:   List all of the activities that are created by your users except those activities in the trash.</p>
-<p>ActivityService.fetchDeletedActivities()
-:   List deleted activities. Deleted activities were moved to the Trash view, but are not permanently deleted yet. After the Trash view is purged, these activities are permanently deleted.</p>
-<p>ActivityService.fetchCompletedActivities()
-:   List activities that are marked <strong>Completed</strong>.</p>
-<p>ActivityService.fetchActivitiesByDate(java.lang.String dateType, java.lang.String beginTime,
-java.lang.String endTime, java.lang.String lastUUID)
-:   List activities that were created or modified within a specified date range, including those activities in the Trash. This command does not return activity templates that were created during the specified date range.</p>
+<dl>
+<dt>ActivityService.fetchActivities()</dt>
+<dd>List all of the activities that are created by your users except those activities in the trash.</dd>
+<dt>ActivityService.fetchDeletedActivities()</dt>
+<dd>List deleted activities. Deleted activities were moved to the Trash view, but are not permanently deleted yet. After the Trash view is purged, these activities are permanently deleted.</dd>
+<dt>ActivityService.fetchCompletedActivities()</dt>
+<dd>List activities that are marked <strong>Completed</strong>.</dd>
+<dt>ActivityService.fetchActivitiesByDate(java.lang.String dateType, java.lang.String beginTime,</dt>
+<dt>java.lang.String endTime, java.lang.String lastUUID)</dt>
+<dd>List activities that were created or modified within a specified date range, including those activities in the Trash. This command does not return activity templates that were created during the specified date range.</dd>
+</dl>
 <pre><code>-   dateType: Date field of interest. Options are created and modified.
 -   beginTime: Start of date range.
 -   endTime: End of date range.
@@ -35322,8 +35340,10 @@ For example, the following command gets the first set of 50 activities that were
 ActivityService.fetchActivitiesByDate("created","2008.03.01","2008.03.31","")
 ```
 </code></pre>
-<p>ActivityService.fetchActivityById(java.lang.String uuid)
-:   List an activity with a specified universal identifier.</p>
+<dl>
+<dt>ActivityService.fetchActivityById(java.lang.String uuid)</dt>
+<dd>List an activity with a specified universal identifier.</dd>
+</dl>
 <pre><code>You can find the universal identifier of an activity by using other fetch commands. The hash table of an activity includes an activityID, such as activityId=3F9G09219392F4733F40F82A4E8D5F000083. For example:
 
 ```
@@ -35344,18 +35364,22 @@ ActivityService.fetchActivityById("bc92738c-492c-4b52-8eee-c8ab6e2bd84d")
 </li>
 <li>
 <p>Filter the activity list.</p>
-<p>ActivityService.fetchActivitiesCreatedByMember(java.util.Hashtable member)
-:   List activities that are created by the member.</p>
+<dl>
+<dt>ActivityService.fetchActivitiesCreatedByMember(java.util.Hashtable member)</dt>
+<dd>List activities that are created by the member.</dd>
+</dl>
 <pre><code>For example:
 
 ```
 ActivityService.fetchActivitiesCreatedByMember(jane)
 ```
 </code></pre>
-<p>ActivityService.fetchActivitiesByMember(java.util.Hashtable member)
-:   List activities to which the member has access.</p>
-<p>ActivityService.fetchActivitiesByOwner(java.util.Hashtable member)
-:   List activities which the member owns.</p>
+<dl>
+<dt>ActivityService.fetchActivitiesByMember(java.util.Hashtable member)</dt>
+<dd>List activities to which the member has access.</dd>
+<dt>ActivityService.fetchActivitiesByOwner(java.util.Hashtable member)</dt>
+<dd>List activities which the member owns.</dd>
+</dl>
 </li>
 </ol>
 <p><strong>Note:</strong> Results from fetchActivitiesByMember() and fetchActivitiesByOwner() do not include community activities.</p>

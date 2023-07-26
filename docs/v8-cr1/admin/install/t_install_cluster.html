@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35294,7 +35310,7 @@
 <h1 class="task" id="t_install_cluster">Installing HCL Connections 8.0</h1>
 <p>Install HCL Connections.</p>
 <p>Ensure that you complete all the prerequisite tasks that are relevant for your environment. For more information, see the <a href="r_before_installing.html">Before installing</a> topic.</p>
-<p><strong>Attention:</strong> The HCL Connections 8.0 CR1 database wizard does not create the database for the Community Highlights / Connections Engagement Center (CEC) or Feature Foundation | Export entries to PDF and provides support for Tailored Experience. The Community Highlights database scripts are located in the folder - /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder - /Wizards/connections.sql/ic360. Refer to the procedure in this section to create the databases. You will need to manually run the SQL scripts that are provided with HCL Connections™. See <a href="c_install_db_over.html">Creating databases</a> for more information.</p>
+<p><strong>Attention:</strong> The HCL Connections 8.0 database wizard does not create the database for the Community Highlights / Connections Engagement Center (CEC) or Feature Foundation | Export entries to PDF and provides support for Tailored Experience. The Community Highlights database scripts are located in the folder - /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder - /Wizards/connections.sql/ic360. Refer to the procedure in this section to create the databases. You will need to manually run the SQL scripts that are provided with HCL Connections™. See <a href="c_install_db_over.html">Creating databases</a> for more information.</p>
 <p>To install HCL Connections, run the IBM® Installation Manager wizard on the system where the Deployment Manager is installed.</p>
 <p>Consider the following guidelines for a successful installation:</p>
 <ul>
@@ -35321,7 +35337,7 @@
 <li>
 <p>Enter the startNode command for your operating system:</p>
 <ul>
-<li>AIX or Linux: ./startNode.sh</li>
+<li>Linux: ./startNode.sh</li>
 <li>Windows: startNode.bat</li>
 <li>Copy the installation files to the system that hosts the Deployment Manager.</li>
 </ul>
@@ -35332,12 +35348,12 @@
 <li>
 <p>From the Installation Manager directory, run the file to start the Installation Manager and add the repository to it as follows:</p>
 <ul>
-<li>AIX or Linux: IBMIM</li>
+<li>Linux: IBMIM</li>
 <li>Windows: IBMIM.exe</li>
 </ul>
 <p>Repository:</p>
 <ul>
-<li>AIX or Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
+<li>Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
 <li>Windows: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
 </ul>
 </li>
@@ -35375,7 +35391,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>HCL Connections 8.0 CR1</strong></td>
+<td><strong>HCL Connections 8.0</strong></td>
 <td>Install all HCL Connections applications.</td>
 </tr>
 <tr>
@@ -35433,29 +35449,32 @@
 <p>Select the <strong>WebSphere Application Server installation location</strong> that contains the Deployment Manager.</p>
 <p>Note the default path to the WebSphere Application Server installation:</p>
 <ul>
-<li>AIX: /usr/IBM/WebSphere/AppServer</li>
 <li>Linux: /opt/IBM/WebSphere/AppServer</li>
 <li>Windows: C:\Program Files (x86)\IBM\WebSphere\AppServer<ol>
 <li>Enter the properties of the WebSphere Application Server Deployment Manager (DM):</li>
 </ol>
 </li>
 </ul>
-<p>Deployment Manager profile
-:   Name of the DM to use for HCL Connections. The wizard automatically detects any available DMs.</p>
-<p>Host name
-:   Name of the host DM server.</p>
-<p>Administrator ID
-:   The administrative ID of the DM.</p>
+<dl>
+<dt>Deployment Manager profile</dt>
+<dd>Name of the DM to use for HCL Connections. The wizard automatically detects any available DMs.</dd>
+<dt>Host name</dt>
+<dd>Name of the host DM server.</dd>
+<dt>Administrator ID</dt>
+<dd>The administrative ID of the DM.</dd>
+</dl>
 <pre><code>**Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
 
 **Note:** This user account can be an LDAP or local repository user.
 </code></pre>
-<p>Administrator Password
-:   The password for the administrative ID of the DM.</p>
+<dl>
+<dt>Administrator Password</dt>
+<dd>The password for the administrative ID of the DM.</dd>
+</dl>
 </li>
 <li>
 <p>Click <strong>Validate</strong> to verify the DM information that you entered and that application security is enabled on WebSphere Application Server. If the verification fails, IBM Installation Manager displays an error message.</p>
-<p><strong>Note:</strong> (AIX and Linux) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the <strong>Open File Descriptor limit</strong>, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the <a href="../troubleshoot/r_error_codes_install.html">Installation error messages</a> topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.</p>
+<p><strong>Note:</strong> (Linux) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the <strong>Open File Descriptor limit</strong>, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the <a href="../troubleshoot/r_error_codes_install.html">Installation error messages</a> topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.</p>
 </li>
 <li>
 <p>When the verification test is successful, click <strong>Next</strong>.</p>
@@ -35541,10 +35560,6 @@
 <p>Enter the <strong>JDBC driver location</strong>. For example:</p>
 <ul>
 <li>
-<p>AIX:</p>
-<p>/usr/IBM/WebSphere/AppServer/lib</p>
-</li>
-<li>
 <p>Linux:</p>
 <p>/opt/IBM/WebSphere/AppServer/lib</p>
 </li>
@@ -35556,14 +35571,18 @@
 </li>
 <li>
 <p>Ensure that the following JDBC driver libraries are present in the JDBC directory:</p>
-<p>DB2
-:   db2jcc4.jar and db2jcc_license_cu.jar</p>
+<dl>
+<dt>DB2</dt>
+<dd>db2jcc4.jar and db2jcc_license_cu.jar</dd>
+</dl>
 <pre><code>**Note:** Ensure that your user account has the necessary permissions to access the DB2 JDBC files.
 </code></pre>
-<p>Oracle
-:   ojdbc8.jar</p>
-<p>SQL Server
-:   Download the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=54671">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</p>
+<dl>
+<dt>Oracle</dt>
+<dd>ojdbc8.jar</dd>
+<dt>SQL Server</dt>
+<dd>Download the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=54671">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</dd>
+</dl>
 <pre><code>The directory must not contain the sqljdbc.jar file, only the sqljdbc42.jar file. An exception occurs if both files are present in the same directory.
 </code></pre>
 </li>
@@ -35603,39 +35622,43 @@
 <li>
 <p>WebSphere Java Mail Session: Use a single mail server for all notifications. Select this option if you can access an SMTP server directly using the host name.</p>
 <p>Complete the following fields to identify the mail server to use for sending email:</p>
-<p>Host name of SMTP messaging server
-:   Enter the host name or IP address of the preferred SMTP mail server.</p>
-<p>This SMTP server requires authentication
-:   Select the check box to force authentication when mail is sent from this server.</p>
-<p>User ID
-:   If the SMTP server requires authentication, enter the user ID.</p>
-<p>Password
-:   If the SMTP server requires authentication, enter the user password.</p>
-<p>Encrypt outgoing mail traffic to the SMTP messaging server using SSL
-:   Select this check box if you want to encrypt outgoing mail to the SMTP server.</p>
-<p>Port
-:   Accept the default port of 25, or enter port 465 if you are using SSL.</p>
+<dl>
+<dt>Host name of SMTP messaging server</dt>
+<dd>Enter the host name or IP address of the preferred SMTP mail server.</dd>
+<dt>This SMTP server requires authentication</dt>
+<dd>Select the check box to force authentication when mail is sent from this server.</dd>
+<dt>User ID</dt>
+<dd>If the SMTP server requires authentication, enter the user ID.</dd>
+<dt>Password</dt>
+<dd>If the SMTP server requires authentication, enter the user password.</dd>
+<dt>Encrypt outgoing mail traffic to the SMTP messaging server using SSL</dt>
+<dd>Select this check box if you want to encrypt outgoing mail to the SMTP server.</dd>
+<dt>Port</dt>
+<dd>Accept the default port of 25, or enter port 465 if you are using SSL.</dd>
+</dl>
 </li>
 <li>
 <p>DNS MX Records: Use information from DNS to determine which mail servers to use. Select this option if you use a Domain Name System (DNS) server to access the SMTP messaging server.</p>
-<p>Messaging domain name
-:   Enter the name or IP address of the messaging domain.</p>
-<p>Choose a specific DNS server
-:   Select this check box if you want to specify a unique SMTP server.</p>
-<p>DNS server for the messaging servers query
-:   Enter the host name or IP address of the DNS server.</p>
-<p>DNS port used for the messaging servers query
-:   Enter the port number that is used for sending queries using the messaging server.</p>
-<p>This SMTP server requires authentication
-:   Select the check box to force authentication when notification mail is sent from this server.</p>
-<p>User ID
-:   If SMTP authentication is required, enter the administrator user ID for the SMTP server.</p>
-<p>Password
-:   If SMTP authentication is required, enter the password for the administrator user of the SMTP server.</p>
-<p>Encrypt outgoing mail traffic to the SMTP messaging server using SSL
-:   Select the check box if you want to use the Secure Sockets Layer (SSL) when connecting to the SMTP server.</p>
-<p>Port
-:   Specify the port number to use for the SMTP server connection. The default port number for the SMTP protocol is 25. The default port number for SMTP over SSL is 465.</p>
+<dl>
+<dt>Messaging domain name</dt>
+<dd>Enter the name or IP address of the messaging domain.</dd>
+<dt>Choose a specific DNS server</dt>
+<dd>Select this check box if you want to specify a unique SMTP server.</dd>
+<dt>DNS server for the messaging servers query</dt>
+<dd>Enter the host name or IP address of the DNS server.</dd>
+<dt>DNS port used for the messaging servers query</dt>
+<dd>Enter the port number that is used for sending queries using the messaging server.</dd>
+<dt>This SMTP server requires authentication</dt>
+<dd>Select the check box to force authentication when notification mail is sent from this server.</dd>
+<dt>User ID</dt>
+<dd>If SMTP authentication is required, enter the administrator user ID for the SMTP server.</dd>
+<dt>Password</dt>
+<dd>If SMTP authentication is required, enter the password for the administrator user of the SMTP server.</dd>
+<dt>Encrypt outgoing mail traffic to the SMTP messaging server using SSL</dt>
+<dd>Select the check box if you want to use the Secure Sockets Layer (SSL) when connecting to the SMTP server.</dd>
+<dt>Port</dt>
+<dd>Specify the port number to use for the SMTP server connection. The default port number for the SMTP protocol is 25. The default port number for SMTP over SSL is 465.</dd>
+</dl>
 </li>
 <li>
 <p>If you click <strong>Do not enable Notification</strong>, IBM Installation Manager skips the rest of this step. You can configure notification later.</p>
@@ -35649,12 +35672,14 @@
 </li>
 <li>
 <p>The reply email address is given a unique ID by the system. You can customize the address by adding a prefix or suffix, using a maximum of 28 characters. This extra information is useful if the domain name is already in use for other purposes. Select one of the following options:</p>
-<p>None
-:   Use the ID generated by the system.</p>
-<p>Prefix
-:   Enter a prefix in the <strong>Example</strong> field.</p>
-<p>Suffix
-:   Enter a suffix in the <strong>Example</strong> field.</p>
+<dl>
+<dt>None</dt>
+<dd>Use the ID generated by the system.</dd>
+<dt>Prefix</dt>
+<dd>Enter a prefix in the <strong>Example</strong> field.</dd>
+<dt>Suffix</dt>
+<dd>Enter a suffix in the <strong>Example</strong> field.</dd>
+</dl>
 <p>As you select an option, the wizard creates an example of the address, combining your selection with the ID generated by the system.</p>
 <p>For example:</p>
 <ul>
@@ -35665,12 +35690,14 @@
 </ol>
 </li>
 </ul>
-<p>Server
-:   The domain where your mail server is located. For example: replyTo.mail.example.com.</p>
-<p>User ID
-:   The user account for the mail server. The user ID and password are credentials that HCL Connections will use to poll the inbox on the mail server to retrieve the replies and process the content. HCL Connections connects to the mail server using IMAP.</p>
-<p>Password
-:   Password for the user account. The user ID and password are credentials that HCL Connections will use to poll the inbox on the mail server to retrieve the replies and process the content. HCL Connections connects to the mail server using IMAP.</p>
+<dl>
+<dt>Server</dt>
+<dd>The domain where your mail server is located. For example: replyTo.mail.example.com.</dd>
+<dt>User ID</dt>
+<dd>The user account for the mail server. The user ID and password are credentials that HCL Connections will use to poll the inbox on the mail server to retrieve the replies and process the content. HCL Connections connects to the mail server using IMAP.</dd>
+<dt>Password</dt>
+<dd>Password for the user account. The user ID and password are credentials that HCL Connections will use to poll the inbox on the mail server to retrieve the replies and process the content. HCL Connections connects to the mail server using IMAP.</dd>
+</dl>
 </li>
 <li>
 <p>Click <strong>Next</strong>.</p>
@@ -35696,7 +35723,7 @@
 <li>
 <p>Restart the Deployment Manager:</p>
 <ul>
-<li>AIX or Linux: Open a command prompt and change to the <a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/Dmgr01/bin directory. Enter the <code>./stopManager.sh</code> command and then enter the <code>./startManager.sh</code>command.</li>
+<li>Linux: Open a command prompt and change to the <a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/Dmgr01/bin directory. Enter the <code>./stopManager.sh</code> command and then enter the <code>./startManager.sh</code>command.</li>
 <li>
 <p>Windows: Stop and restart the Deployment Manager service.</p>
 <p>Run C:\IBM\WebSphere\AppServer\profiles\Dmgr01\bin\startManager.bat and change directory to</p>

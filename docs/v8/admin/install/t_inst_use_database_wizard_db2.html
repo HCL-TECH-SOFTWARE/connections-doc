@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35026,7 +35026,7 @@
 <h1 class="task" id="task_gwk_qlv_kr">Using the database wizard for DB2</h1>
 <p>Use the database wizard to create databases for the HCL Connections applications that you plan to install.</p>
 <p>Before using the wizard for the first time, you must complete the steps described in the <a href="t_inst_prepare_database_wizard_db2.html">Preparing the database wizard for DB2®</a> topic.</p>
-<p>When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft™ Windows™, and db2inst1 on Linux™ and AIX®.</p>
+<p>When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft™ Windows™, and db2inst1 on Linux™.</p>
 <p>If you use only one database instance and if that instance includes other databases besides HCL Connections, configure the numdb parameter to match the total number of databases on the instance. For more information, go to the <a href="https://www.ibm.com/docs/db2/11.1?topic=dmcp-numdb-maximum-number-concurrently-active-databases-including-host-system-i-databases">numdb</a> topic in the IBM DB2 documentation.</p>
 <p><strong>Note:</strong> Before removing (or dropping) a database, stop Connections first to ensure that no database connection is in use; otherwise you will not drop the user and the database removal will not occur.</p>
 <p>DB2 uses a user account called <code>lcuser</code>. If you are creating a DB2 database with SQL scripts, you must manually create the <code>lcuser</code> account on your operating system and then run the appGrants.sql script to grant the appropriate privileges to the <code>lcuser</code> account. When you use the database wizard, this script runs automatically. For more information, see the <em>Creating a dedicated DB2 user</em> topic.</p>
@@ -35034,11 +35034,6 @@
 <ul>
 <li>If you are using DASD driver, the SQL scripts are located in the connections.s390.sql/application_subdirectory directory of the HCL Connections setup directory or installation media.</li>
 <li>If you are using SCSI driver, back up the connections.s390.sql directory and rename the connections.sql directory to connections.s390.sql.</li>
-<li>
-<p>(AIX only) Download and install the following packages from the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html">AIX Toolbox for Linux Applications</a> webpage:</p>
-<p>gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32, and libtiff-3.8.2</p>
-<p><strong>Note:</strong> Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.</p>
-</li>
 </ul>
 <p>Use the HCL Connections database wizard to create, update, and remove databases.</p>
 <p>You can review the scripts that the wizard executes by looking in the connections.sql directory in the installation media. On DB2, the commands are shown in the log that the wizard creates.</p>
@@ -35059,7 +35054,6 @@
 <li>
 <p>From the HCL Connections Wizards directory in a command line, enter the following command to launch the wizard:</p>
 <ul>
-<li>AIX: ./dbWizard.sh</li>
 <li>Linux: ./dbWizard.sh</li>
 <li>Microsoft Windows: dbWizard.bat</li>
 <li>Click <strong>Next</strong> to continue.</li>

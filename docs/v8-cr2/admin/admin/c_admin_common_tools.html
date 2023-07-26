@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35320,10 +35320,10 @@
 <p>The wsadmin utility is a tool provided with WebSphere® Application Server that you can use to manage applications hosted by the WebSphere Application Server, including HCL Connections.</p>
 <p>The wsadmin tool runs HCL Connections script-based commands that you enter into a wsadmin command session. Behind the scenes, these scripts are based on the Jython scripting language, and they invoke WebSphere Application Server and HCL Connections commands that do the actual work. These scripts can both change XML-based file values that control an application's configuration and run HCL Connections-supplied MBean commands, which are grouped into services that perform related tasks, such as managing application membership.</p>
 <p>You can change the behavior of HCL Connections by using the wsadmin client to perform one of the following actions:</p>
-<p>Edit configuration properties
-:   These properties control configurable aspects of the applications and are stored in XML-formatted configuration files. When you change these types of properties, you must use scripts that check out the configuration file, make the change, and then check the configuration file back in. After checking in your changes, you must restart the servers for the changes to take effect. In a network deployment, you must also synchronize the nodes to propagate the changes across a cluster.</p>
-<p>Run administrative commands
-:   Run administrative commands to invoke MBean commands associated with the product applications. MBeans control the applications that run on the server. When you run an administrative command, you must start the Jython script interpreter, but you do not have to check out any configuration files nor restart the server. Your changes take effect immediately.</p>
+<p><strong>Edit configuration properties</strong></p>
+<p>These properties control configurable aspects of the applications and are stored in XML-formatted configuration files. When you change these types of properties, you must use scripts that check out the configuration file, make the change, and then check the configuration file back in. After checking in your changes, you must restart the servers for the changes to take effect. In a network deployment, you must also synchronize the nodes to propagate the changes across a cluster.</p>
+<p><strong>Run administrative commands</strong></p>
+<p>Run administrative commands to invoke MBean commands associated with the product applications. MBeans control the applications that run on the server. When you run an administrative command, you must start the Jython script interpreter, but you do not have to check out any configuration files nor restart the server. Your changes take effect immediately.</p>
 <p>For more information about using wsadmin tool scripting, see <a href="https://www.ibm.com/docs/was/8.5.5?topic=wsadmin-using-scripting">Using wsadmin scripting</a> in the IBM® WebSphere Application Server documentation.</p>
 <ul>
 <li><strong><a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a></strong><br />
@@ -35337,7 +35337,7 @@ Use administrative commands to run tasks on the server.</li>
 <li><strong><a href="t_admin_common_startstop_apps.html">Starting or stopping Connections applications</a></strong><br />
 HCL Connections applications, such as Files, are WebSphere Enterprise Applications. Start or stop them in the WebSphere Integrated Solutions console as you would any other WebSphere application.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="c_admin_act_wsadmin.html">Administering common areas</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_act_wsadmin.html">Administering common areas</a></p>
 
 
 

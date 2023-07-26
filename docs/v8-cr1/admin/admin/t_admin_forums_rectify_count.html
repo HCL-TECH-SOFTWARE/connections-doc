@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35315,28 +35331,36 @@
 </li>
 <li>
 <p>Run any of the following commands:</p>
-<p>ForumsService.reCountAllForums()
-:   Recalculates the total number of forums in your organization.</p>
+<dl>
+<dt>ForumsService.reCountAllForums()</dt>
+<dd>Recalculates the total number of forums in your organization.</dd>
+</dl>
 <pre><code>This command does not take any parameters.
 </code></pre>
-<p>ForumsService.reCountForums(Vector forums)
-:   Recalculates the number of specified forums in your organization, where you specify the forums that you want to recalculate as a vector variable that represents multiple forums.</p>
+<dl>
+<dt>ForumsService.reCountForums(Vector forums)</dt>
+<dd>Recalculates the number of specified forums in your organization, where you specify the forums that you want to recalculate as a vector variable that represents multiple forums.</dd>
+</dl>
 <pre><code>For example:
 
 ```
 ForumsService.reCountForums(myforums)
 ```
 </code></pre>
-<p>ForumsService.reCountForumById(java.lang.String uuid)
-:   Recalculates the number of topics in a specific forum, where you specify the forum by its UUID.</p>
+<dl>
+<dt>ForumsService.reCountForumById(java.lang.String uuid)</dt>
+<dd>Recalculates the number of topics in a specific forum, where you specify the forum by its UUID.</dd>
+</dl>
 <pre><code>For example:
 
 ```
 ForumsService.reCountForumById("778CE573-78A5-2ECF-8525-7346003DB078")
 ```
 </code></pre>
-<p>ForumsTopicsService.reCountTopics(Vector topics)
-:   Recalculates the number of specified topics in your organization, where you specify the topics that you want to recalculate as a vector variable that represents multiple topics.</p>
+<dl>
+<dt>ForumsTopicsService.reCountTopics(Vector topics)</dt>
+<dd>Recalculates the number of specified topics in your organization, where you specify the topics that you want to recalculate as a vector variable that represents multiple topics.</dd>
+</dl>
 <pre><code>For example:
 
 ```
@@ -35350,12 +35374,14 @@ ForumsTopicsService.reCountTopics(mytopics)
 </code></pre></div>
 <p>This command returns a new vector that contains a map pair to match the filter criteria.</p>
 <p>The command takes the following parameters:</p>
-<p>inputVector
-:   The source vector that contains the map collection.</p>
-<p>toMatch
-:   The value pattern that you are using to narrow down your results.</p>
-<p>attrName
-:   The key that you want to be filtered in the map.</p>
+<dl>
+<dt>inputVector</dt>
+<dd>The source vector that contains the map collection.</dd>
+<dt>toMatch</dt>
+<dd>The value pattern that you are using to narrow down your results.</dd>
+<dt>attrName</dt>
+<dd>The key that you want to be filtered in the map.</dd>
+</dl>
 <p>For example, you might get a vector of forums by using the following command:</p>
 <div class="highlight"><pre><span></span><code>inputVector=ForumsService.fetchForums()
 </code></pre></div>

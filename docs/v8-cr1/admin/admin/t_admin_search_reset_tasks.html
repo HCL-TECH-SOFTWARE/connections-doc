@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35319,8 +35335,10 @@
 </li>
 <li>
 <p>To restore the full set of default tasks, use the following command:</p>
-<p>SearchService.resetAllTasks()
-:   Deletes all scheduled task definitions from the Home page database and restores the default set of tasks. For more information about these tasks, see <em>Search default scheduled tasks</em>.</p>
+<dl>
+<dt>SearchService.resetAllTasks()</dt>
+<dd>Deletes all scheduled task definitions from the Home page database and restores the default set of tasks. For more information about these tasks, see <em>Search default scheduled tasks</em>.</dd>
+</dl>
 <pre><code>This command does not take any parameters.
 
 When the command runs successfully, 1 is printed to the wsadmin console. If the command does not run successfully, 0 is printed to the wsadmin console.
@@ -35328,17 +35346,18 @@ When the command runs successfully, 1 is printed to the wsadmin console. If the 
 </li>
 <li>
 <p>To reset individual default tasks, use the following commands with the parameters provided here:</p>
-<p>20min-file-retrieval-task
-:   ```
+<dl>
+<dt>20min-file-retrieval-task</dt>
+<dd>```
 SearchService.addFileContentTask("20min-file-retrieval-task", 
   "0 1/20 0,2-23 * <em> ?", "0 10/20 0,2-23 * </em> ?", "all_configured", "false", "true")
 <div class="highlight"><pre><span></span><code>    15min-search-indexing-task
     :   ```
 SearchService.addIndexingTask(&quot;15min-search-indexing-task&quot;, 
 &quot;0 1/15 0,2-23 * * ?&quot;, &quot;0 10/15 0,2-23 * * ?&quot;, &quot;all_configured&quot;, &quot;false&quot;, &quot;true&quot;)
-</code></pre></div></p>
-<p>20min-file-content-indexing-task
-:   ```
+</code></pre></div></dd>
+<dt>20min-file-content-indexing-task</dt>
+<dd>```
 SearchService.addFileContentIndexingTask("20min-file-content-indexing-task",
 "0 11,31,51 0,2-23 * <em> ?", "0 29,49,09 0,2-23 * </em> ?",
 "all_configured", "300")
@@ -35346,11 +35365,12 @@ SearchService.addFileContentIndexingTask("20min-file-content-indexing-task",
     :   ```
 SearchService.addOptimizeTask(&quot;nightly-optimize-task&quot;,&quot;0 30 1 * * ?&quot;,
 &quot;0 35 1 * * ?&quot;, &quot;true&quot;)
-</code></pre></div></p>
-<p>nightly-sand-task
-:   <code>SearchService.addSandTask("nightly-sand-task",   "0 0 1 * * ?", 
+</code></pre></div></dd>
+<dt>nightly-sand-task</dt>
+<dd><code>SearchService.addSandTask("nightly-sand-task",   "0 0 1 * * ?", 
 "0 5 1 * * ?", "evidence,graph, manageremployees,tags,taggedby,
-communitymembership," "true")</code></p>
+communitymembership," "true")</code></dd>
+</dl>
 <p>For more information about these default scheduled tasks, see <em>Search default scheduled tasks</em>.</p>
 </li>
 <li>

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35408,40 +35424,43 @@
 <h2 class="refsyn" id="command">Command</h2>
 <p>updateSilent.{sh|bat}</p>
 <h2 class="section" id="parameters">Parameters</h2>
-<p>-?
-:   Displays command usage information.</p>
-<p>/?
-:   Displays command usage information.</p>
-<p>-fix
-:   Identifies the update as fix update.</p>
-<p>-fixDetails
-:   Instructs the command to display fix detail information.</p>
-<p>-fixDir&lt;directory>
-:   Specifies the fully qualified directory to which you downloaded the fixes. The recommended directory is <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>/update/fixes.</p>
-<p>-fixes&lt;fix1>&lt;fix2>
-:   Specifies a list of space-delimited fixes to install or uninstall.</p>
-<p>-help
-:   Displays command usage information.</p>
-<p>/help
-:   Displays command usage information.</p>
-<p>-install
-:   Installs the update.</p>
-<p>-installDir&lt;directory>
-:   Specifies the fully qualified installation root of the Connections product. By default, this directory is <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>.</p>
-<pre><code>**Note:** If you are applying fixes to an applications in a cluster, apply the fix to the first node and then do a full synchronization to push the fix to the other nodes.
-</code></pre>
-<p>-uninstall
-:   Uninstalls the identified fix.</p>
-<p>-uninstallAll
-:   Uninstalls all applied fixes.</p>
-<p>-usage
-:   Displays command usage information.</p>
-<p>-wasPassword&lt;password>
-:   Required to install or uninstall. Identifies the succeeding text as a WebSphere® Application Server Deployment Manager administrative user password.</p>
-<p>-wasUserId&lt;AdminUserId>
-:   Required to install or uninstall. Specifies the user ID of the WebSphere Application Server administrative user.</p>
-<p>-featureCustomizationBackedUp&lt;backup_status>
-:   Confirms whether you backed up any customizations that you made to the Connections interface. The possible values are yes|no. This parameter does not validate any such backup; it is just a reminder to consider backing up any customizations because updates to your deployment could overwrite your customizations.</p>
+<dl>
+<dt>-?</dt>
+<dd>Displays command usage information.</dd>
+<dt>/?</dt>
+<dd>Displays command usage information.</dd>
+<dt>-fix</dt>
+<dd>Identifies the update as fix update.</dd>
+<dt>-fixDetails</dt>
+<dd>Instructs the command to display fix detail information.</dd>
+<dt>-fixDir&lt;directory></dt>
+<dd>Specifies the fully qualified directory to which you downloaded the fixes. The recommended directory is <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>/update/fixes.</dd>
+<dt>-fixes&lt;fix1>&lt;fix2></dt>
+<dd>Specifies a list of space-delimited fixes to install or uninstall.</dd>
+<dt>-help</dt>
+<dd>Displays command usage information.</dd>
+<dt>/help</dt>
+<dd>Displays command usage information.</dd>
+<dt>-install</dt>
+<dd>Installs the update.</dd>
+<dt>-installDir&lt;directory></dt>
+<dd>
+<p>Specifies the fully qualified installation root of the Connections product. By default, this directory is <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>.</p>
+<p><strong>Note:</strong> If you are applying fixes to an applications in a cluster, apply the fix to the first node and then do a full synchronization to push the fix to the other nodes.</p>
+</dd>
+<dt>-uninstall</dt>
+<dd>Uninstalls the identified fix.</dd>
+<dt>-uninstallAll</dt>
+<dd>Uninstalls all applied fixes.</dd>
+<dt>-usage</dt>
+<dd>Displays command usage information.</dd>
+<dt>-wasPassword&lt;password></dt>
+<dd>Required to install or uninstall. Identifies the succeeding text as a WebSphere® Application Server Deployment Manager administrative user password.</dd>
+<dt>-wasUserId&lt;AdminUserId></dt>
+<dd>Required to install or uninstall. Specifies the user ID of the WebSphere Application Server administrative user.</dd>
+<dt>-featureCustomizationBackedUp&lt;backup_status></dt>
+<dd>Confirms whether you backed up any customizations that you made to the Connections interface. The possible values are yes|no. This parameter does not validate any such backup; it is just a reminder to consider backing up any customizations because updates to your deployment could overwrite your customizations.</dd>
+</dl>
 <h2 class="refsyn" id="syntax">Syntax</h2>
 <p>Use the specified syntax to perform the following common tasks:</p>
 <ul>

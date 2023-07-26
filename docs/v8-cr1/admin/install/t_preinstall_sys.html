@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35292,7 +35308,7 @@
 
 
 <h1 class="task" id="settingupthesystemfordiskspaceandopenfiles">Verifying disk space and open file limits before installing HCL Connections</h1>
-<p>On all operating systems, ensure that you have 6 GB of temporary disk space. On AIX® and Linux™, set the Open File Descriptor limit to at least 40000 before installing HCL Connections.</p>
+<p>On all operating systems, ensure that you have 6 GB of temporary disk space. On Linux™, set the Open File Descriptor limit to at least 40000 before installing HCL Connections.</p>
 <ol>
 <li>
 <p>Check that the <code>/tmp</code> folder on UNIX/Linux systems or the <code>%TEMP%</code> folder on Windows™ systems has at least 6 GB before installing Connections Content Manager. If there is not sufficient disk space, then set the environment variable <code>IATEMPDIR</code> to point to the location where there is at least 6 GB. To update the <code>IATEMPDIR</code> environment variable:</p>
@@ -35304,7 +35320,7 @@
 <li>Click <strong>OK</strong> twice.</li>
 </ol>
 </li>
-<li>On AIX/Linux:<ol>
+<li>On Linux:<ol>
 <li>
 <p>Edit the <code>/etc/profile</code> file and add in the following line to the end of the file:</p>
 <div class="highlight"><pre><span></span><code>export IATEMPDIR=&lt;new location&gt; 
@@ -35316,7 +35332,7 @@
 </ul>
 </li>
 <li>
-<p>(AIX and Linux only) The Open File Descriptor limit must be set to at least 40000 for the user ID that is installing HCL Connections.</p>
+<p>(Linux only) The Open File Descriptor limit must be set to at least 40000 for the user ID that is installing HCL Connections.</p>
 <ul>
 <li>
 <p>Open a command line to view the current Open File Descriptor limit:</p>

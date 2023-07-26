@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35296,9 +35312,6 @@
 <p>Open a command prompt and then change to the following directory of the system on which you installed the deployment manager:</p>
 <p><a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/dm_profile_root/bin</p>
 <p>app_server_root/profiles/dm_profile_root/bin. Where app_server_root represents the IBM WebSphere® Application Server installation directory, for example:</p>
-<div class="highlight"><pre><span></span><code>AIX:
-/usr/IBM/WebSphere/AppServer
-</code></pre></div>
 <div class="highlight"><pre><span></span><code>Linux:
 /opt/IBM/WebSphere/AppServer
 </code></pre></div>
@@ -35312,7 +35325,7 @@ drive:\Program Files\IBM\WebSphere\AppServer
 <li>
 <p>Enter the following command to start the wsadmin client:</p>
 <ul>
-<li>AIX or Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
+<li>Linux: ./wsadmin.sh -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT</li>
 <li>
 <p>Microsoft Windows: wsadmin -lang jython -user admin_user_id -password admin_password -port SOAP_CONNECTOR_ADDRESS_PORT
 where:</p>
@@ -35330,7 +35343,7 @@ For example:</li>
 </ol>
 </li>
 <li>
-<p>AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
+<p>Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879</p>
 </li>
 <li>Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879<ol>
 <li>Use the following command to access the configuration file:</li>
@@ -35481,27 +35494,31 @@ For example:</li>
 </li>
 <li>
 <p>You can optionally specify values for the following proxy:meta-data properties. Add any custom configurations before these proxy:meta-data elements.</p>
-<p>circular_redirects
-:   Specifies that circular redirects are allowed. This property accepts a Boolean value of true or false specified in lowercase letters. If set to true, it supports using a proxy for a site that redirects to the same URL but with different parameters. Such a change is not recognized as a new URL. The default value of this property is true.</p>
-<p>connection-timeout
-:   Amount of time before an attempt to connect to a host times out. Specified in milliseconds, the default value of this property is 60,000, which is 1 minute.</p>
-<p>max_circular_redirects
-:   Maximum number of times a circular redirect is allowed before the proxy rejects it. Specified as an integer, the default value of this property is 100.</p>
-<p>maxconnectionsperhost
-:   Maximum number of simultaneous connections between the proxy and a given host. Specified as an integer, the default value of this property is 5.</p>
-<p>maxtotalconnections
-:   Maximum number of simultaneous connections between the proxy and all of the hosts together. Specified as an integer, the default value of this property is 10.</p>
-<p>socket-timeout
-:   Amount of time before an attempt to use a socket times out. Specified in milliseconds, the default value of this property is 60,000, which is 1 minute.</p>
-<p>unsigned_ssl_certificate_support
-:   Specifies that self-signed SSL certificates are supported. This property accepts a Boolean value of true or false specified in lower-case letters. The default value of this property is true. Change it to false when the system is ready for production.</p>
+<dl>
+<dt>circular_redirects</dt>
+<dd>Specifies that circular redirects are allowed. This property accepts a Boolean value of true or false specified in lowercase letters. If set to true, it supports using a proxy for a site that redirects to the same URL but with different parameters. Such a change is not recognized as a new URL. The default value of this property is true.</dd>
+<dt>connection-timeout</dt>
+<dd>Amount of time before an attempt to connect to a host times out. Specified in milliseconds, the default value of this property is 60,000, which is 1 minute.</dd>
+<dt>max_circular_redirects</dt>
+<dd>Maximum number of times a circular redirect is allowed before the proxy rejects it. Specified as an integer, the default value of this property is 100.</dd>
+<dt>maxconnectionsperhost</dt>
+<dd>Maximum number of simultaneous connections between the proxy and a given host. Specified as an integer, the default value of this property is 5.</dd>
+<dt>maxtotalconnections</dt>
+<dd>Maximum number of simultaneous connections between the proxy and all of the hosts together. Specified as an integer, the default value of this property is 10.</dd>
+<dt>socket-timeout</dt>
+<dd>Amount of time before an attempt to use a socket times out. Specified in milliseconds, the default value of this property is 60,000, which is 1 minute.</dd>
+<dt>unsigned_ssl_certificate_support</dt>
+<dd>Specifies that self-signed SSL certificates are supported. This property accepts a Boolean value of true or false specified in lower-case letters. The default value of this property is true. Change it to false when the system is ready for production.</dd>
+</dl>
 <p>The purpose of the following three settings is to prevent the proxy from consuming all available container threads while it waits for a response from a target host that is slow or is not responding.</p>
-<p>maxconcurrentconnections
-:   Limits the number of threads that can be active in the proxy at any one time. When the limit is reached, all subsequent threads immediately return with a HTTP 504 Gateway Timeout error. If the value is 0, no limit is set. The default setting is 10, which is used if the value is missing or not valid.</p>
-<p>suspend-url-timeout-interval
-:   Specifies the minimum amount of time, in milliseconds, that a host is on the suspend list. A host is placed on the suspend list when the host times out. When a host is on the suspend list, the proxy rejects all requests to that host and returns a HTTP 504 Gateway Timeout error for that host. After the timeout interval expires, the host remains on the suspend list, but the next request is accepted. If the request succeeds, the host is removed from the suspend list. If the request does not succeed, the host remains on the suspend list and the timeout interval is renewed. The maximum value is 120000 (2 minutes). A value of 0 disables the timeout interval feature. The default value is 2000, which is used if the value is missing or not valid.</p>
-<p>clean-url-timeout-interval
-:   Specifies the maximum amount of time, in milliseconds, that a host is on the suspend list. The minimum value is 180000 (30 minutes). The default value is 14400000, which is used if the value is missing or not valid.</p>
+<dl>
+<dt>maxconcurrentconnections</dt>
+<dd>Limits the number of threads that can be active in the proxy at any one time. When the limit is reached, all subsequent threads immediately return with a HTTP 504 Gateway Timeout error. If the value is 0, no limit is set. The default setting is 10, which is used if the value is missing or not valid.</dd>
+<dt>suspend-url-timeout-interval</dt>
+<dd>Specifies the minimum amount of time, in milliseconds, that a host is on the suspend list. A host is placed on the suspend list when the host times out. When a host is on the suspend list, the proxy rejects all requests to that host and returns a HTTP 504 Gateway Timeout error for that host. After the timeout interval expires, the host remains on the suspend list, but the next request is accepted. If the request succeeds, the host is removed from the suspend list. If the request does not succeed, the host remains on the suspend list and the timeout interval is renewed. The maximum value is 120000 (2 minutes). A value of 0 disables the timeout interval feature. The default value is 2000, which is used if the value is missing or not valid.</dd>
+<dt>clean-url-timeout-interval</dt>
+<dd>Specifies the maximum amount of time, in milliseconds, that a host is on the suspend list. The minimum value is 180000 (30 minutes). The default value is 14400000, which is used if the value is missing or not valid.</dd>
+</dl>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>&lt;proxy:meta-data&gt;
   &lt;proxy:name&gt;maxconcurrentconnections&lt;/proxy:name&gt;

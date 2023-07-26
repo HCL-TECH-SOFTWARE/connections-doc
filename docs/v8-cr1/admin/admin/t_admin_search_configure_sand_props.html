@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35319,16 +35335,20 @@
 </li>
 <li>
 <p>Use the following commands to configure social analytics properties:</p>
-<p>SearchService.listGlobalSandProperties()
-:   Lists all global properties for the social analytics service.</p>
+<dl>
+<dt>SearchService.listGlobalSandProperties()</dt>
+<dd>Lists all global properties for the social analytics service.</dd>
+</dl>
 <pre><code>The properties are returned as a mapping of keys to values. For example, the following output indicates that the value of the sand.tag.freq.threshold property is 32000.
 
 ```
 {sand.tag.freq.threshold=32000}
 ```
 </code></pre>
-<p>SearchService.setGlobalSandIntegerProperty(String propertyName, String integerProperyValue)
-:   Adds or updates a dynamic global social analytics property that affects the social analytics API or indexing behavior. The changes take place when the next social analytics indexing job starts.</p>
+<dl>
+<dt>SearchService.setGlobalSandIntegerProperty(String propertyName, String integerProperyValue)</dt>
+<dd>Adds or updates a dynamic global social analytics property that affects the social analytics API or indexing behavior. The changes take place when the next social analytics indexing job starts.</dd>
+</dl>
 <pre><code>When the property is successfully added or updated, 1 is printed to the wsadmin console. If the property is not successfully added or updated, then you will see 0 printed to the wsadmin console. If this happens, contact the Search Cluster Administration and check the SystemOut.log file for more details.
 
 Currently, support is provided only for the sand.tag.freq.threshold social analytics property. This property takes an integer value.
@@ -35365,8 +35385,10 @@ SearchService.setGlobalSandIntegerProperty("sand.tag.freq.threshold",100)
     [5/30/11 15:41:13:633 IST] 00000025 IndexBuilderQ I com.ibm.lotus.connections.search.admin.index.impl.IndexBuilderQueue startSaNDIndexingService CLFRW0483I: SAND indexing has started.
     ```
 </code></pre>
-<p>SearchService.deleteGlobalSandProperty(String propertyName)
-:   Deletes the specified global social analytics property.</p>
+<dl>
+<dt>SearchService.deleteGlobalSandProperty(String propertyName)</dt>
+<dd>Deletes the specified global social analytics property.</dd>
+</dl>
 <pre><code>For example:
 
 ```

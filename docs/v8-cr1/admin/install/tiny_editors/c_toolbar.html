@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35295,14 +35311,16 @@
 <p>The toolbar is the main interface of the editor. This section covers how the components of the toolbar relate to the toolbar definition in the config.js.</p>
 <p>The items listed in the <code>toolbar</code> array will be displayed in order, in the direction defined by the user-interface language. For example: English will display with the toolbar items left aligned, ordered left-to-right and Arabic will display with the items right-aligned, right-to-left.</p>
 <p>The toolbar is constructed from 4 parts.</p>
-<p>Group
-:   A mechanism for combining one or more toolbar items so that they are displayed together and visually separated from other items. When using keyboard navigation, tabbing jumps between groups and the arrow keys move between the group items.</p>
-<p>Menu
-:   A toolbar item that, when clicked, expands to show a list of menu items.</p>
-<p>Command
-:   A toolbar button, menu item, or special widget that performs an action, typically when clicked.</p>
-<p>Placeholder
-:   A placeholder that becomes zero or more application specific commands or menu items at run time.</p>
+<dl>
+<dt>Group</dt>
+<dd>A mechanism for combining one or more toolbar items so that they are displayed together and visually separated from other items. When using keyboard navigation, tabbing jumps between groups and the arrow keys move between the group items.</dd>
+<dt>Menu</dt>
+<dd>A toolbar item that, when clicked, expands to show a list of menu items.</dd>
+<dt>Command</dt>
+<dd>A toolbar button, menu item, or special widget that performs an action, typically when clicked.</dd>
+<dt>Placeholder</dt>
+<dd>A placeholder that becomes zero or more application specific commands or menu items at run time.</dd>
+</dl>
 <p>Groups are the highest level of the toolbar array provided to the Tiny Editors <code>toolbar</code> configuration property. Any strings in the top-most array are assumed to be predefined group IDs.</p>
 <p>Custom groups can be named or anonymous. Any object in the top most array must be a named group. Any array in the top most array must be an anonymous group. Named groups have a label and a list of items, anonymous groups are just the list of items.</p>
 <p>The group item list is an array which can contain strings which refer to predefined menus, commands or placeholders, or it could be an object which depending on the properties is treated as a custom command or menu.</p>

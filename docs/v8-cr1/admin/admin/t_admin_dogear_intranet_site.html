@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35313,8 +35329,10 @@ privateIntranetAllocationTable from 4.4.44.40 to 4.404.0.4
 <p><strong>Note:</strong> Any change to IP ranges will require an update to the intranet settings of bookmarks in the database.</p>
 <p>See the topic <em>Assigning URLs to intranet sites</em> for more information.</p>
 <p>The following commands allow the administrator to either add or remove ipRanges.</p>
-<p>DogearCellConfig.addIpRange('intranetAllocation.ipRange', ['from_range'], ['to_range'])
-:   Strings. This command will add an additional IP Range.</p>
+<dl>
+<dt>DogearCellConfig.addIpRange('intranetAllocation.ipRange', ['from_range'], ['to_range'])</dt>
+<dd>Strings. This command will add an additional IP Range.</dd>
+</dl>
 <pre><code>\[from\_range\] = the starting IP address of this range
 
 \[to\_range\] = the ending IP address of this range
@@ -35325,8 +35343,10 @@ Example:
 DogearCellConfig.addIpRange('intranetAllocation.ipRange','2.2.22.20','2.202.0.2')
 ```
 </code></pre>
-<p>DogearCellConfig.removeIpRange('intranetAllocation.ipRange', ['from_range'], ['to_range]')
-:   Strings. This command will delete an existing IP Range.</p>
+<dl>
+<dt>DogearCellConfig.removeIpRange('intranetAllocation.ipRange', ['from_range'], ['to_range]')</dt>
+<dd>Strings. This command will delete an existing IP Range.</dd>
+</dl>
 <pre><code>\[from\_range\] = the starting IP address of this range
 
 \[to\_range\] = the ending IP address of this range
@@ -35337,8 +35357,10 @@ Example:
 DogearCellConfig.removeIpRange( 'intranetAllocation.ipRange','2.2.22.20','2.202.0.2')
 ```
 </code></pre>
-<p>DogearCellConfig.clearIpRanges('intranetAllocation.ipRange')
-:   String.</p>
+<dl>
+<dt>DogearCellConfig.clearIpRanges('intranetAllocation.ipRange')</dt>
+<dd>String.</dd>
+</dl>
 <pre><code>Clears all IP ranges recorded in the configuration settings
 
 Example:

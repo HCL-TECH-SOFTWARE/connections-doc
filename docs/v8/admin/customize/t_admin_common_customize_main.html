@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -34993,6 +34993,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#impact-on-legacy-customizations" class="md-nav__link">
+    Impact on legacy customizations
+  </a>
+  
+    <nav class="md-nav" aria-label="Impact on legacy customizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-customizations" class="md-nav__link">
+    Functional customizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosmetic-customizations" class="md-nav__link">
+    Cosmetic customizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globalization" class="md-nav__link">
+    Globalization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-ui-areas" class="md-nav__link">
+    Main UI areas
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35011,149 +35060,43 @@
   </a>
 
 
-<h1 class="task" id="t_admin_common_customize_main">Customizing the user interface</h1>
-<p>The procedure to customize HCL Connections™ is the same for each application. You must edit a copy of the relevant source file and save it in the appropriate customization directory.</p>
-<p>Review the user interface to determine what you want to customize.</p>
-<p>Use these instructions as a general guide for customizing the user interface. For more information about customizing specific parts of the user interface, see the related links. For tips about customizing your deployment, see <a href="c_customize_best_practices.html">Customization best practices</a>.</p>
-<p>The style of theConnections user interface is based on the Collaboration Solutions OneUI Toolkit 3.0.</p>
-<ol>
-<li>
-<p>Find the file that serves as the source of the interface elements that you want to customize.</p>
-<p>For a list of the web application source directories and OSGi bundles that are packaged with Connections, see <a href="r_customize_war_osgi_file_locations.html">Application WAR files and OSGi bundles</a>.</p>
-</li>
-<li>
-<p>Enable the customization debugging capability.</p>
-<p>For more information, see <a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a>.</p>
-</li>
-<li>
-<p>Copy the file that you want to customize and past it into the appropriate customization directory.</p>
-<p>For more information, see <a href="t_customize_find_custom_directory.html">Determining where to save your customizations</a>.</p>
-<p><strong>Remember:</strong> You can find the sources for style sheets in the following JAR file:</p>
-<p>WAS_HOME/profiles/profile_name/installedApps/cell_name/Common.ear/connections.web.resources.war/WEB-INF/eclipse/plugins/com.ibm.oneui3.styles_version.jar</p>
-<p><strong>Notes:</strong></p>
+<h1 id="t_admin_common_customize_main">Customizing the user interface</h1>
+<p>The user interface has been redesigned in Connections 8.0, and with it, the way of applying customizations.</p>
+<p>Due to the nature of the 8.0 UI redesign, legacy approaches to UI customization in Connections 7.0 and earlier versions are now unsupported. Some of the methods, such as customization for product strings and the Connections footer, might still work. However others, such as using CSS to override existing themes, will likely fail. The same applies to customizations for components that have been replaced or updated in the 8.0 UI. A good example is the logo, which is now part of the header component. This means that the previous approach to customizing the logo no longer applies, as you would now need to do it using the header configuration. </p>
+<p>For a better understanding of how to apply UI customizations in Connections 8.0, refer to <a href="creating-custom-config-extensions.html">Creating custom configuration extensions</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The issue of delayed display for style and header customizations has been fixed. The <code>cnx8-ui.js</code> now checks for any existing cached customizations before the React components load, that is at the time when the UI element wrappers are created. It immediately applies the customizations without showing the defaults first.</p>
+</div>
+<h2 id="impact-on-legacy-customizations">Impact on legacy customizations</h2>
+<p>For a gauge of what can be expected to work and what may need to be upgraded or disregarded in <a href="https://help.hcltechsw.com/connections/v7/admin/customize/c_customize_overview.html">Customizing</a> of the 7.0 documentation, we differentiate between the following categories of customization:</p>
+<h3 id="functional-customizations">Functional customizations</h3>
+<p>Most functional customizations are still valid and can be expected to work. This does not apply to areas that are not available or visible anymore within the UI, for example the previous header. </p>
+<p>JSP and JavaScript customizations may be subject to updates. If there are existing customizations in your system, you need to verify them against the respective files and code fragments in the core of the new 8.0 release. One area where changes can be expected is the Profiles application.</p>
+<p>In general, JSPs and JavaScript (OSGi) modules are still heavily used and can be adjusted the same way as in previous versions.</p>
+<h3 id="cosmetic-customizations">Cosmetic customizations</h3>
+<p>Most legacy cosmetic customizations are still valid, but they may appear differently now due to the worked UI and respective changes. This does not apply to areas that are not available or visible anymore within the UI, for example the previous header. </p>
+<p>CSS customizations in particular may be invalidated due to the nature of UI changes and consolidated styles. We outline the suggested way of applying style customizations in <a href="customizing-look-and-feel.html">Customizing the look and feel of HCL Connections</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The UI update may result in breaking UI-based automation (for example, DOM-driven testing). Depending on the implementation and required elements, this might require changes to reflect the new UI makeup. </p>
+</div>
+<h3 id="globalization">Globalization</h3>
+<p>When it comes to localization and customization of text, the legacy customizations are generally still valid. The 8.0 release introduces new strings and replaces old ones in various areas, for example the Home page and Profiles, so these may need to be merged into existing customization property files.</p>
+<p>Many of the new UI components, such as the <a href="customizing-side-navigation.html">side navigation bar</a>, now also use a different foundation for managing translations. For the new components, you can apply new translations using the <a href="creating-custom-config-extensions.html">custom config extensions</a>.</p>
+<h2 id="main-ui-areas">Main UI areas</h2>
+<p>The UI consists of the following main areas:</p>
+<p><img alt="Image" src="images/main-areas-overview.png" /></p>
 <ul>
-<li>com.ibm.lconn.oneui3.styles_version.jar contains the Collaboration Solutions OneUI 3.0.x toolkit that includes image resources and sprites.</li>
-<li>com.ibm.lconn.oneui3.styles_version.jar is only found in one application, Common.ear/connections.web.resources.war
-WAS_HOME/profiles/profile_name/installedApps/cell_name/application_name.ear/application_name.war/WEB-INF/eclipse/plugins/com.ibm.lconn.core.styles_version.jar</li>
+<li><a href="customizing-header.html">Header</a> consists of three areas that house the logo, search box, share actions, the language selector, and theme switcher.</li>
+<li><a href="customizing-search.html">Search box</a> allows you to find content that you're looking for, for example the pages you recently visited (for Component Pack deployments only) or quick results via typeahead. </li>
+<li><a href="customizing-side-navigation.html">Side navigation bar</a> contains menus that are specific to the available Connections apps and important user links.</li>
+<li><a href="customizing-navigation.html">Top navigation bar</a> contains top-level links that are connected to the application a user is currently viewing.</li>
+<li><a href="customizing-navigation.html">Third-level navigation</a> contains menus that are specific to the application a user is currently viewing.</li>
+<li><a href="customizing-main-content.html">Main content</a> contains content that is specific to each application.</li>
+<li><a href="customizing-itm.html">Important To Me (ITM) bar</a> contains shortcuts to your important colleagues and communities, as well as relevant suggestions for these.</li>
 </ul>
-<p><strong>Note:</strong> The com.ibm.lconn.core.styles_version.jar file contains CSS style sheets that extend or override default styles from the OneUI 3.0.x toolkit.</p>
-<p>Where:</p>
-<ul>
-<li>WAS_HOME is the directory where IBM® WebSphere® Application Server is installed.</li>
-<li>profile_name is the profile where you installed Connections.</li>
-<li>cell_name is the cell where you installed the application.</li>
-<li>application_name.ear is the name of the application EAR file. To customize interface styles that are common to all applications, use the Common.ear file.</li>
-<li>
-<p>application_name.war is the name of the application WAR file.</p>
-<p><strong>Tip:</strong> For a list of the web application source directories that are packaged with Connections, see <a href="r_customize_war_osgi_file_locations.html">Application WAR files and OSGi bundles</a>.</p>
-</li>
-<li>
-<p>version is the version number of the Connections release plus the date and build number of the JAR file.
-<strong>Note:</strong> In previous releases of Connections, the default style sheets were in the nav subdirectory of the WAS_HOME/profiles/profile_name/installedApps/cell_name/application_name.ear/application_name.war directory. That location is deprecated in this release.</p>
-</li>
-</ul>
-<p>The following table identifies the source files for each user interface area.</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>File location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cascading style sheets</td>
-<td><br><br> - To add custom styles to the product, edit the following files: <br><br> <strong>Note:</strong> If your users view the product in Arabic, Hebrew, or another right-to-left language, copy the defaultTheme_rtl.css file too. <br><br> - /nav/common/styles/defaultTheme/custom.css <br><br> - /nav/common/styles/defaultTheme/custom_rtl.css <br><br> For more information, see <a href="t_admin_navbar_change_style.html">Adding styles to the Connections style sheet</a>. <br><br> - To make extensive changes to the colors used in the product, edit the following file: /nav/common/styles/defaultTheme/defaultTheme.css <br><br> For more information, see <a href="t_admin_common_change_font_styles.html">Making extensive color and style changes</a>.</td>
-</tr>
-<tr>
-<td>Error page</td>
-<td>/nav/templates/error.jspFor more information, see <a href="t_customize_error_page.html">Customizing the error page</a>.</td>
-</tr>
-<tr>
-<td>Footer</td>
-<td>/nav/templates/footer.jspFor more information, see <a href="t_admin_common_add_footer_link.html">Customizing the footer</a>.</td>
-</tr>
-<tr>
-<td>Login page</td>
-<td>/nav/templates/login.jspFor more information, see <a href="t_admin_common_customize_login_screen.html">Customizing the login page</a>.</td>
-</tr>
-<tr>
-<td>Navigation bar</td>
-<td>/nav/templates/header.jspFor the menus available from the navigation bar: <br><br><code>/nav/templates/menu/people.jsp &lt;br&gt;&lt;br&gt; /nav/templates/menu/communities.jsp &lt;br&gt;&lt;br&gt; /nav/templates/menu/apps.jsp</code> <br><br> For more information, see <a href="t_admin_navbar_create_files.html">Customizing the navigation bar</a>.</td>
-</tr>
-</tbody>
-</table>
-<p>For example:</p>
-<ul>
-<li>
-<p>To edit the footer and have the same footer be displayed in all of the applications, store the updated footer file in the following directory:</p>
-<p>customizationDir/common/nav/templates/footer.jsp</p>
-</li>
-<li>
-<p>To change the login page of a single application, store the updated login page file in the directory where customizations that are specific to that application are stored. For example, to change the login page of the Files application only, store the login.jsp file in the files subdirectory instead of the common subdirectory:</p>
-<p>customizationDir/files/nav/templates/login.jsp</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Edit the file in the customizationDir directory to make your changes.</p>
-</li>
-<li>
-<p>Test your changes by refreshing the web browser. You might have to clear your browser cache to see the changes.</p>
-</li>
-<li>
-<p>When you are ready to publish your changes, turn off the customization debugging capability.</p>
-</li>
-<li>
-<p>Using the WebSphere Application Server Integrated Solutions Console, stop and restart each application EAR file.</p>
-</li>
-<li>
-<p>Force all user web browsers to refresh all cached content and display your changes by running the command that updates the product version stamp. For more information, see <a href="t_admin_common_customize_postreq.html">Post-customization step step</a>.</p>
-</li>
-</ol>
-<p>For more information about customizing specific areas of the product, see the related topics.</p>
-<ul>
-<li><strong><a href="t_customize_find_custom_directory.html">Determining where to save your customizations</a></strong><br />
-When you are customizing HCL Connections, save your customized files to the appropriate directory to ensure that your customizations override the default settings.</li>
-<li><strong><a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a></strong><br />
-You can force applications to reload override files every time a browser request is made. This capability shows your customization changes in the product instantly.</li>
-<li><strong><a href="t_admin_navbar_create_files.html">Customizing the navigation bar</a></strong><br />
-You can edit the files that control the content of the HCL Connections navigation bar to add to the bar's functionality. For example, you can add extra links to the navigation bar, remove the <strong>Log Out</strong> link, or insert extra drop-down menus.</li>
-<li><strong><a href="c_itm_iframe_intro.html">Adding an Important To Me bar to a Connections component</a></strong><br />
-Use an iframe to add an Important to Me (ITM) bar to any Connections component.</li>
-<li><strong><a href="c_customize_images.html">Customizing images</a></strong><br />
-You can update the images used in HCL Connections to suit the needs of your organization. For example, you can replace the IBM logo with your company logo, or customize the sprited images and file type icons that are used in the product interface to fit with your company's branding.</li>
-<li><strong><a href="t_admin_navbar_change_style.html">Adding styles to the HCL Connections style sheet</a></strong><br />
-You can customize the look of the HCL Connections pages by adding new style definitions in the cascading style sheet and applying that style to different parts of the product user interface.</li>
-<li><strong><a href="t_admin_common_change_font_styles.html">Making extensive color and style changes</a></strong><br />
-Edit the <code>defaultTheme.css</code> file to change the look of the user interface, such as changing the font style or background color.</li>
-<li><strong><a href="t_admin_common_customize_login_screen.html">Customizing the login page</a></strong><br />
-Customize the login page in HCL Connections to have the appropriate style and content for your organization.</li>
-<li><strong><a href="t_admin_common_add_footer_link.html">Customizing the footer</a></strong><br />
-You can edit the files that control the content of the HCL Connections footer to improve the footer's functionality.</li>
-<li><strong><a href="t_customize_error_page.html">Customizing the error page</a></strong><br />
-Customize the text on the error page in HCL Connections.</li>
-<li><strong><a href="t_customize_getting_started_page.html">Customizing the Getting Started view</a></strong><br />
-Help your users get started with your implementation of HCL Connections by customizing the Getting Started view that is displayed in the Home page.</li>
-<li><strong><a href="t_customize_strings_global.html">Customizing product strings</a></strong><br />
-You can replace a word or phrase in the product user interface with terminology that better suits your environment.</li>
-<li><strong><a href="c_customize_javascript.html">Overriding and extending JavaScript in HCL Connections</a></strong><br />
-HCL Connections supports a mechanism that allows you to override or extend the JavaScript™ that is used in the different applications.</li>
-<li><strong><a href="t_customize_tag_files.html">Extending JSP files with custom tags</a></strong><br />
-You can extend HCL Connections by adding your own custom JSTL tags to meet your company's needs.</li>
-<li><strong><a href="../admin/t_admin_oauth_cust_app_access_rquest_ui.html">Customizing the Application Access and Access Request interfaces</a></strong><br />
-You can customize the header, footer, login, and error pages that prompt HCL Connections users to grant/deny and revoke access to their Connections data for third-party applications protected by OAuth. Also, you can edit the text strings that display on the Application Access and Access Requestinterfaces.</li>
-<li><strong><a href="t_customize_connections_iframe.html">Embedding Connections in an IFrame</a></strong><br />
-You can customize HCL Connections to be embedded in an IFrame.</li>
-<li><strong><a href="t_customize_communities_new_theme.html">Customizing the Hikari theme</a></strong><br />
-Customize the default Hikari theme in HCL Connections.</li>
-</ul>
-<p><strong>Parent topic:</strong><a href="c_customize_overview.html">Customizing</a></p>
-<p><strong>Related information</strong>  </p>
-<p><a href="../admin/t_admin_common_save_changes.html">Applying common configuration property changes</a></p>
-<p><a href="t_customize_enable_custom_debugging.html">Enabling live user interface customization editing mode</a></p>
-<p><a href="t_admin_common_customize_postreq.html">Post-customization step</a></p>
-<p><a href="c_customize_best_practices.html">Customization best practices</a></p>
+<p><strong>Parent topic:</strong> <a href="c_customize_overview.html">Customizing</a></p>
 
 
 

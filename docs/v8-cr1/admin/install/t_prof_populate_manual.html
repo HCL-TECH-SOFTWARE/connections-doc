@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35295,55 +35311,63 @@
 <p>Before starting this task,</p>
 <ol>
 <li>In order to manually populate the Profiles database, ensure you have <a href="t_setting_up_security_dir_integ_solutions_dir.html">Set up the Security Directory Integrator Solutions directory (tdisol)</a>.</li>
-<li>
-<p>Complete the steps in the <a href="t_prof_tdi_mapfields.html">Mapping fields manually</a> topic. You must set up the mapping file before starting this task.</p>
-<p>(AIX® only). An AIX limitation causes a file naming error when you extract the tdisol.tar archive. The system renames the profile-links.xsd to profile-links.xs. To resolve this issue, use the GNU Tar program, version 1.14 or higher, to extract the archive. Download the program from <a href="ftp://ftp.gnu.org/gnu/tar/">ftp://ftp.gnu.org/gnu/tar/</a> and install it as the default tar utility in the path. The default location for GNU Tar is /usr/local/bin.</p>
-<p>The internal name of the Profiles database is PEOPLEDB.</p>
-</li>
+<li>Complete the steps in the <a href="t_prof_tdi_mapfields.html">Mapping fields manually</a> topic. You must set up the mapping file before starting this task.</li>
 </ol>
 <p>After installing the Profiles database, and setting up the SDI Solutions Directory, and defining mapping and validation, complete the following steps to populate the Profiles database:</p>
 <ol>
 <li>
 <p>Update the profiles_tdi.properties file to specify values for the following properties. To locate this file, change to the SDI solution directory that you created in the topic <a href="t_setting_up_security_dir_integ_solutions_dir.html">Setting up the Security Directory Integrator Solutions directory (tdisol)</a>. The profiles_tdi.properties file is located in the tdisol/TDI directory. For example: /opt/IBM/TDI/V7.2/tdisol/TDI.</p>
 <p>The following list contains properties that you must review. Edit any property values that require editing for your configuration.</p>
-<p>source_ldap_url
-:   Universal resource locator of the LDAP directory. Enables programs to access the LDAP directory. Use the following syntax to specify the value:</p>
+<dl>
+<dt>source_ldap_url</dt>
+<dd>Universal resource locator of the LDAP directory. Enables programs to access the LDAP directory. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
  source_ldap_url=ldap://myldap.enterprise.example.com:389 
 ```
 </code></pre>
-<p>source_ldap_user_login
-:   If you cannot use Anonymous search, a user login name is required . Use the following syntax to specify the value:</p>
+<dl>
+<dt>source_ldap_user_login</dt>
+<dd>If you cannot use Anonymous search, a user login name is required . Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 source_ldap_user_login=uid=wpsbind,cn=users,l=Bedford Falls,
 st=New York,c=US,ou=Enterprise,o=Sales Division,dc=example,dc=com
 ```
 </code></pre>
-<p>source_ldap_user_password
-:   If you cannot use anonymous search, a user password is required, along with user login name. Use the following syntax to specify the value:</p>
+<dl>
+<dt>source_ldap_user_password</dt>
+<dd>If you cannot use anonymous search, a user password is required, along with user login name. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 {protect}-source_ldap_user_password=wpsbind  
 ```
 
 **Note:** Tivoli® Directory Integrator automatically encrypts any properties which have the \{protect\} prefix. If you do not want to encrypt these properties, remove the \{protect\} prefix.
 </code></pre>
-<p>source_ldap_search_base
-:   A portion of the LDAP DN that must be part of all entries processed. This base usually contains the expected organization (o) value, such as <code>source_ldap_search_base=o=ibm.com</code>. Use the following syntax to specify the value:</p>
+<dl>
+<dt>source_ldap_search_base</dt>
+<dd>A portion of the LDAP DN that must be part of all entries processed. This base usually contains the expected organization (o) value, such as <code>source_ldap_search_base=o=ibm.com</code>. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 source_ldap_search_base=l=Bedford Falls,st=New York,c=US,
 ou=Enterprise,o=Sales Division,dc=example,dc=com   
 ```
 </code></pre>
-<p>source_ldap_search_filter
-:   A search filter to further refine the entries used. A typical value might be <code>source_ldap_search_filter=cn=*</code>. Use the following syntax to specify the value:</p>
+<dl>
+<dt>source_ldap_search_filter</dt>
+<dd>A search filter to further refine the entries used. A typical value might be <code>source_ldap_search_filter=cn=*</code>. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 source_ldap_search_filter=(&amp;(uid=*)(objectclass=inetOrgPerson))   
 ```
 </code></pre>
-<p>source_ldap_use_ssl
-:   Required only if you are using SSL to authenticate. Specifies whether to use Secure Sockets Layer for the connection. Options are <code>true</code> or <code>false</code>.</p>
-<p>dbrepos_jdbc_driver
-:   JDBC driver used to access the Profiles database repository. The default value of the properties file references the DB2® database provided with Profiles as follows:</p>
+<dl>
+<dt>source_ldap_use_ssl</dt>
+<dd>Required only if you are using SSL to authenticate. Specifies whether to use Secure Sockets Layer for the connection. Options are <code>true</code> or <code>false</code>.</dd>
+<dt>dbrepos_jdbc_driver</dt>
+<dd>JDBC driver used to access the Profiles database repository. The default value of the properties file references the DB2® database provided with Profiles as follows:</dd>
+</dl>
 <pre><code>```
 dbrepos_jdbc_driver=com.ibm.db2.jcc.DB2Driver
 
@@ -35365,8 +35389,10 @@ If you are using SQL Server, change the value to reference the SQL Server databa
 com.microsoft.sqlserver.jdbc.SQLServerDriver
 ```
 </code></pre>
-<p>dbrepos_jdbc_url
-:   Universal resource locator of the database that you created. This value specifies the peopledb database, and must include the port number. For example:</p>
+<dl>
+<dt>dbrepos_jdbc_url</dt>
+<dd>Universal resource locator of the database that you created. This value specifies the peopledb database, and must include the port number. For example:</dd>
+</dl>
 <pre><code>-   DB2:
 
     ```
@@ -35387,14 +35413,18 @@ com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 .
 </code></pre>
-<p>dbrepos_username
-:   The user name used to authenticate to the database that you created. Use the following syntax to specify the value:</p>
+<dl>
+<dt>dbrepos_username</dt>
+<dd>The user name used to authenticate to the database that you created. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 dbrepos_username=&lt;db\_admin\_id&gt;   
 ```
 </code></pre>
-<p>dbrepos_password
-:   The password used to authenticate to the database that you created. Use the following syntax to specify the value:</p>
+<dl>
+<dt>dbrepos_password</dt>
+<dd>The password used to authenticate to the database that you created. Use the following syntax to specify the value:</dd>
+</dl>
 <pre><code>```
 {protect}-dbrepos_password=act1vities   
 ```

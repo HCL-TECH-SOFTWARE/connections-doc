@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35049,8 +35049,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#uninstall_charts_k8s125" class="md-nav__link">
+    Uninstall charts before upgrading to Kubernetes v1.25
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#psa_namespace" class="md-nav__link">
+    Apply Pod security restrictions at the namespace level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#harbor_repo" class="md-nav__link">
-    Add Harbor Helm repository
+    Add or update Harbor Helm repository
   </a>
   
 </li>
@@ -35058,13 +35072,6 @@
         <li class="md-nav__item">
   <a href="#setup_helm" class="md-nav__link">
     Set up Helm charts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pod_sec" class="md-nav__link">
-    Set up pod security policy
   </a>
   
 </li>
@@ -35215,18 +35222,20 @@
   </a>
 
 
-<h1 class="concept" id="cp_install_services_tasks">Steps to install or upgrade to Component Pack 8</h1>
-<p>Use these steps to help you install Component Pack 8 or replace Component Pack 7 with 8.</p>
+<h1 class="concept" id="cp_install_services_tasks">Steps to install or upgrade to Component Pack 8 CR2</h1>
+<p>Use these steps to help you install Component Pack 8 CR2 or replace Component Pack 7 or 8 with 8 CR2.</p>
 <h2 class="section" id="section_awd_rwp_tnb">Before you begin</h2>
 <p>For background information and where to get the latest download, see <a href="cp_install_upgrade_container.html">Installation and upgrade</a>.</p>
-<p>When preparing to install or upgrade to Component Pack 8, consider the recommendations in <a href="upgrade_considerations.html">Upgrade considerations for Component Pack 8</a>.</p>
+<p>When preparing to install or upgrade to Component Pack 8 CR3, consider the recommendations in <a href="upgrade_considerations.html">Upgrade considerations for Component Pack 8 CR3</a>.</p>
 <p>Before starting the steps, note the following:</p>
 <p><strong>Ensure you have these:</strong></p>
 <ul>
-<li>A system running Connections (if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack deployed).</li>
+<li>
+<p>A system running Connections (if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack deployed).</p>
+</li>
 <li>
 <p>Kubernetes up and running.</p>
-<p><strong>Note:</strong> This article does not contain the initial steps to get your Kubernetes platform up and running. The base setup depends on your environment which could be Kubernetes-only.</p>
+<p><strong>Note:</strong> This article does not contain the initial steps to get your Kubernetes platform up and running. The base setup depends on your environment, which could be Kubernetes-only.</p>
 </li>
 <li>
 <p>Access to the <a href="https://hclcr.io/harbor/projects/15/repositories">Harbor repository</a>.</p>
@@ -35241,25 +35250,25 @@
 <li>NFS master is collocated with connections.internal.example.com and its IP address is 172.27.1.48 and all our folders are created in 172.27.1.48:/pv-connections/</li>
 </ul>
 <p><strong>Network configuration</strong></p>
-<p>All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which, in our case, can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:</p>
-<pre><code>-   connections.example.com:
+<p>All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which in our case can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:</p>
+<pre><code>-   connections.internal.example.com:
     -   443 from nginx.example.com
-    -   443 from cpmaster.example.com
--   cpmaster.example.com:
-    -   30301 from connections.example.com \(Customizer\)
+    -   443 from cpmaster.internal.example.com
+-   cpmaster.internal.example.com:
+    -   30301 from connections.internal.example.com \(Customizer\)
     -   30301 from nginx.example.com \(Customizer\)
-    -   30098 from connections.example.com \(Elasticsearch 7 – Connections 7 only\)
-    -   30099 from connections.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
-    -   32080 from connections.example.com \(Ingress Controller\)
-    -   31810 from connections.example.com \(Microsoft Outlook add-in – Connections 7 only\)
+    -   30098 from connections.internal.example.com \(Elasticsearch 7 – Connections 7 only\)
+    -   30099 from connections.internal.example.com \(OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only\)
+    -   32080 from connections.internal.example.com \(Ingress Controller\)
+    -   31810 from connections.internal.example.com \(Microsoft Outlook add-in – Connections 7 only\)
 -   nginx.example.com:
     -   443 from everywhere
     -   80 from everywhere \(in case you plan to redirect to 443 and no load balancer does this job\)
 </code></pre>
 <p><strong>Storage configuration</strong></p>
-<p>Starting with Connections 7, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.</p>
+<p>Starting with Connections 7.0, it is possible to use different types of storage. The recommended setup contains the configuration of a NFS v4 entry point to store both data from shared WebSphere-based Connections services, as well as claims and PVs from the Component Pack side.</p>
 <h2 class="section" id="section_v5r_1dj_dvb">Installation vs. upgrade steps</h2>
-<p>This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures. Some of the following steps apply only to one scenario (install <em>or</em> upgrade), while others apply to both (install <em>and</em> upgrade). Refer to <a href="cp_install_upgrade_container.html#order_cp_install">Order of installation</a> for the complete list of steps for each scenario.</p>
+<p>This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8 CR3. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to 8 CR3. Some of the following steps apply only to one scenario (install <em>or</em> upgrade), while others apply to both (install <em>and</em> upgrade). Refer to <a href="cp_install_upgrade_container.html#order_cp_install">Order of installation</a> for the complete list of steps for each scenario.</p>
 <h2 class="section" id="section_e4p_jrp_tnb">Set up NFS</h2>
 <p>We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.</p>
 <p>Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.</p>
@@ -35272,41 +35281,63 @@
 <p>Perform these steps on NFS master:</p>
 <ol>
 <li>
-<p>Create /pv-connections folder on connections.internal.example.com with permissions 0700</p>
+<p>Create /pv-connections folder on connections.internal.example.com with permissions 0700.  You may set the ownership to your desired owner and group.</p>
 </li>
 <li>
-<p>Inside that folder, create this set of subfolders:</p>
+<p>Create a user with ID 1000 and another user with 1001, if not existing already, for OpenSearch and MongoDB to generate data.</p>
+</li>
+<li>
+<p>Inside the folder, create the following set of subfolders.  You may set the ownership to your desired group while user ownership should be set to the user ID creating data during runtime.</p>
 <ul>
-<li>/pv-connections/customizations with permissions 0005</li>
-<li>/pv-connections/opensearchbackup with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchmaster-0 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchmaster-1 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchmaster-2 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchdata-0 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchdata-1 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchdata-2 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchclient-0 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchclient-1 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/opensearchclient-2 with permissions 0700 (Inside /pv-connections, create a subfolder for Component Pack upgrade)</li>
-<li>/pv-connections/kudos-boards-minio with permissions 0700</li>
-<li>/pv-connections/mongo5-node-0/data/db with permissions 0700</li>
-<li>/pv-connections/mongo5-node-1/data/db with permissions 0700</li>
-<li>/pv-connections/mongo5-node-2/data/db with permissions 0700</li>
+<li>
+<p>/pv-connections/customizations with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchbackup with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchmaster-0 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchmaster-1 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchmaster-2 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchdata-0 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchdata-1 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchdata-2 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchclient-0 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchclient-1 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/opensearchclient-2 with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/kudos-boards-minio with permissions 0700.  The folder should be owned by user ID 1000.</p>
+</li>
+<li>
+<p>/pv-connections/mongo5-node-0/data/db with permissions 0700.  The folder should be owned by user ID 1001.</p>
+</li>
+<li>
+<p>/pv-connections/mongo5-node-1/data/db with permissions 0700.  The folder should be owned by user ID 1001.</p>
+</li>
+<li>
+<p>/pv-connections/mongo5-node-2/data/db with permissions 0700.  The folder should be owned by user ID 1001.</p>
+</li>
 </ul>
 </li>
 <li>
 <p>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a> to a directory of your choice (for example, /tmp).</p>
-</li>
-<li>
-<p>Check if firewalld is already installed using the following rpm command:</p>
-<div id="codeblock_lxc_p5t_hvb" class="highlight"><pre><span></span><code>- $rpm -qa firewalld
-</code></pre></div>
-<p>If the command does not return anything, install firewalld on your operating system. For example, on Linux/CentOS, run:</p>
-<div id="codeblock_mxc_p5t_hvb" class="highlight"><pre><span></span><code>$sudo yum install firewalld
-</code></pre></div>
-<p>Then start the firewalld service:</p>
-<div id="codeblock_nxc_p5t_hvb" class="highlight"><pre><span></span><code>$sudo systemctl start firewalld
-</code></pre></div>
 </li>
 <li>
 <p>Provide execution permission to nfsSetup.sh and run it in order for NFS to be configured:</p>
@@ -35317,11 +35348,6 @@ sudo bash nfsSetup.sh
 <li>
 <p><strong>(Optional)</strong> Export file systems:</p>
 <div id="codeblock_pxc_p5t_hvb" class="highlight"><pre><span></span><code>exportfs -ra
-</code></pre></div>
-</li>
-<li>
-<p>Enable and start nfs-server:</p>
-<div id="codeblock_qxc_p5t_hvb" class="highlight"><pre><span></span><code>systemctl restart nfs-server
 </code></pre></div>
 </li>
 </ol>
@@ -35416,10 +35442,14 @@ db.fsyncUnlock ()
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li>${REPONAME} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.</li>
-<li>${BACKUPPATH} is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.
-Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter).</li>
+<li>
+<p>${REPONAME} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.</p>
+</li>
+<li>
+<p>${BACKUPPATH} is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.</p>
+</li>
 </ul>
+<p>Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter).</p>
 </li>
 <li>
 <p>Connect to an Elasticsearch 7 client pod in the Elasticsearch 7 cluster by running the following command on a Kubernetes node:</p>
@@ -35442,16 +35472,16 @@ Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter
 </code></pre></div>
 </li>
 <li>
-<p>Create additional OpenSearch volumes on the NFS master node:</p>
+<p>Create additional OpenSearch volumes on the NFS master node.  The folders should be owned by user ID 1000 while you may set the ownership to your desired group:</p>
 <div id="codeblock_jxd_ygr_bvb" class="highlight"><pre><span></span><code>mkdir -p /pv-connections/opensearchmaster-{0,1,2}
 mkdir -p /pv-connections/opensearchdata-{0,1,2}
 mkdir -p /pv-connections/opensearchclient-{0,1,2}
 mkdir -p /pv-connections/opensearchbackup
 </code></pre></div>
-<p>Connections 8.0 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: Without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.</p>
+<p>Connections 8.0 CR2 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.</p>
 </li>
 <li>
-<p>Similarly with MongoDB 5, you need PVs for all the replicas of mongo5 pod. So, create additional MongoDB volumes on the NFS master node:</p>
+<p>Similarly with MongoDB 5, you need PVs for all the replicas of mongo5 pod. So, create additional MongoDB volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group:</p>
 <div id="codeblock_x2b_1hr_bvb" class="highlight"><pre><span></span><code>mkdir -p /pv-connections/mongo5-node-0
 mkdir -p /pv-connections/mongo5-node-1
 mkdir -p /pv-connections/mongo5-node-2
@@ -35464,15 +35494,10 @@ mkdir -p /pv-connections/mongo5-node-2
 <p>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a>.</p>
 </li>
 <li>
-<p>Check if firewalld is already installed on the NFS master. If not, run the following command:</p>
-<div id="codeblock_ryy_jhr_bvb" class="highlight"><pre><span></span><code>sudo yum install firewalld
-</code></pre></div>
-</li>
-<li>
 <p>Run nfsSetup.sh to set up NFS directories on the NFS master:</p>
 <div id="codeblock_syy_jhr_bvb" class="highlight"><pre><span></span><code>sh nfsSetup.sh
 </code></pre></div>
-<p>Make sure that the firewall configuration does not block access to NFS. Adjustments might be needed for Component Pack 8 deployment compared to the Component Pack 7 setup.</p>
+<p>If applicable, make sure that the firewall configuration does not block access to NFS. Adjustments might be needed for Component Pack 8 deployment compared to the Component Pack 7 setup.</p>
 </li>
 <li>
 <p>In /etc/exports, validate that the additional PVs are distributed properly.</p>
@@ -35480,12 +35505,56 @@ mkdir -p /pv-connections/mongo5-node-2
 </ol>
 </li>
 </ol>
-<h2 class="section" id="harbor_repo">Add Harbor Helm repository</h2>
+<h2 class="section" id="uninstall_charts_k8s125">Uninstall charts before upgrading to Kubernetes v1.25</h2>
+<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, the following charts should be uninstalled before upgrading to Kubernetes v1.25: </p>
+<div class="highlight"><pre><span></span><code>k8s-psp
+infrastructure
+opensearch-master
+opensearch-data
+opensearch-client
+kudos-boards-cp 
+</code></pre></div>
+<p>First, check if the chart is already deployed:</p>
+<div class="highlight"><pre><span></span><code>helm ls --namespace connections | grep &lt;chart name&gt; | grep -i DEPLOYED
+</code></pre></div>
+<p>If found, delete the chart using below command:</p>
+<div class="highlight"><pre><span></span><code>helm uninstall &lt;chart name&gt; --namespace connections
+</code></pre></div>
+<p>For more details, see <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable">PodSecurityPolicy is removed</a> in the Kubernetes changelog.</p>
+<h2 class="section" id="psa_namespace">Apply Pod security restrictions at the namespace level</h2>
+<p><strong>This step applies when installing on Kubernetes version 1.25.0 or higher:</strong></p>
+<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.</p>
+<p><div class="highlight"><pre><span></span><code>kubectl label --overwrite ns connections \
+pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
+pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
+pod-security.kub
+ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+</code></pre></div>
+We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.</p>
+<p>For more details, see <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Pod Security Admission</a> and <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/">Pod Security Standards</a> in the Kubernetes documentation.</p>
+<p><strong>If installing on Kubernetes to 1.25 is not possible, install/upgrade the k8s-psp Helm chart:</strong></p>
+<ol>
+<li>
+<p>Start by finding out the k8s-psp chart version available on Harbor:</p>
+<div id="codeblock_t4g_f5t_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep k8s-psp | awk {&#39;print $2&#39;}
+</code></pre></div>
+<div id="codeblock_ed5_f5t_hvb" class="highlight"><pre><span></span><code>o/p 0.1.0-20210909-112534
+</code></pre></div>
+</li>
+<li>
+<p>Then install or upgrade:</p>
+<div id="codeblock_g2j_g5t_hvb" class="highlight"><pre><span></span><code>helm upgrade k8s-psp v-connections-helm/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
+</code></pre></div>
+</li>
+</ol>
+<h2 class="section" id="harbor_repo">Add or update Harbor Helm repository</h2>
 <ol>
 <li>
 <p>Check if Harbor repository is already added:</p>
 <div id="codeblock_eqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo list | grep v-connections-helm | grep &lt;&lt; harbor repo path &gt;&gt;
 </code></pre></div>
+<ul>
+<li>
 <p>If not, add Harbor using the following command:</p>
 <div id="codeblock_fqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo add v-connections-helm &lt;&lt; helm repo path &gt;&gt; --username &lt;&lt; helm_repo_username &gt;&gt; --password &lt;&lt; helm_repo_password &gt;&gt; --pass-credentials
 </code></pre></div>
@@ -35493,7 +35562,14 @@ mkdir -p /pv-connections/mongo5-node-2
 <ul>
 <li>&lt;&lt; helm repo path >> is the Helm chart path in Harbor repository, that is <code>https://hclcr.io/chartrepo/cnx</code></li>
 <li>&lt;&lt; helm_repo_username >> is the Harbor username</li>
-<li>&lt;&lt; helm_repo_password >> is the CLI secret (to access, <strong>log in to Harbor</strong> > <strong>at the top-right corner, click on your name</strong> > <strong>User Profile</strong> > <strong>CLI Secretsecret</strong>)</li>
+<li>&lt;&lt; helm_repo_password >> is the CLI secret (to access, log in to Harbor > at the top-right corner, click on your name > <strong>User Profile</strong> > <strong>CLI Secretsecret</strong>)</li>
+</ul>
+</li>
+<li>
+<p>If Harbor is already added, update the repo:</p>
+<div id="codeblock_eqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo update
+</code></pre></div>
+</li>
 </ul>
 </li>
 <li>
@@ -35513,7 +35589,7 @@ mkdir -p /pv-connections/mongo5-node-2
 </li>
 </ol>
 <h2 class="section" id="setup_helm">Set up Helm charts</h2>
-<p>Install or upgrade to the Connections 8.0 Kubernetes by deploying the Helm charts delivered with Component Pack 8.</p>
+<p>Install or upgrade to the Connections 8.0 CR2 Kubernetes by deploying the Helm charts delivered with Component Pack 8 CR2.</p>
 <p>The <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> includes a set of templates to override the default values to values that are appropriate to your environment. The resulting files are the ones used by the following Helm upgrade commands using the -f option.</p>
 <p>For example, if you want the opensearch cluster name to be "opensearch-cluster", you need to change the following line from this:</p>
 <div id="codeblock_cpg_x2j_dvb" class="highlight"><pre><span></span><code>clusterName:                {{ __opensearch_cluster_name }}
@@ -35522,25 +35598,9 @@ mkdir -p /pv-connections/mongo5-node-2
 <div id="codeblock_dpg_x2j_dvb" class="highlight"><pre><span></span><code>clusterName:                opensearch-cluster
 </code></pre></div>
 <p>For sample values of these variables, refer to the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml">HCL Connections deployment automation Git repository</a>.</p>
-<p><strong>Note:</strong> If you do not have all installation options from your Connections 7 environment at hand, you can run the following command to retrieve this information from the deployed charts:</p>
+<p><strong>Note:</strong> If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:</p>
 <div id="codeblock_fpg_x2j_dvb" class="highlight"><pre><span></span><code>helm -n connections get values &lt;chart_name&gt;
 </code></pre></div>
-<h2 class="section" id="pod_sec">Set up pod security policy</h2>
-<p>Install or upgrade the existing Kubernetes Helm chart to the new version.</p>
-<ol>
-<li>
-<p>Start by finding out the k8s-psp chart version available on Harbor:</p>
-<div id="codeblock_t4g_f5t_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep k8s-psp | awk {&#39;print $2&#39;}
-</code></pre></div>
-<div id="codeblock_ed5_f5t_hvb" class="highlight"><pre><span></span><code>o/p 0.1.0-20210909-112534
-</code></pre></div>
-</li>
-<li>
-<p>Then upgrade:</p>
-<div id="codeblock_g2j_g5t_hvb" class="highlight"><pre><span></span><code>helm upgrade k8s-psp v-connections-helm/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
-</code></pre></div>
-</li>
-</ol>
 <h2 class="section" id="pv_pvc">Set up persistent volumes and persistent volume claims on NFS</h2>
 <p>Make sure that the network configuration of your NFS environment is correct before configuring the Connections PVs.</p>
 <ol>
@@ -35551,7 +35611,7 @@ mkdir -p /pv-connections/mongo5-node-2
 <p>It might take some time to delete the existing volumes.</p>
 </li>
 <li>
-<p>If you have upgraded the existing Component Pack 7 charts instead of deleting them and starting with a fresh Component Pack 8 installation, perform this step. Otherwise, skip to the next step.</p>
+<p>If you have upgraded the existing Component Pack 7 charts instead of deleting them and starting with a fresh Component Pack 8 CR2 installation, perform this step. Otherwise, skip to the next step.</p>
 <p>This is because if you deleted all Component Pack 7 charts, the linked PVs and PVCs are properly removed and therefore do not need further action. However, if you upgraded the charts, you would need to manually touch those PVs and PVCs.</p>
 <p>First, check the status of PVCs:</p>
 <div id="codeblock_xc3_cjr_bvb" class="highlight"><pre><span></span><code>kubectl get pvc -n connections
@@ -35590,7 +35650,7 @@ mkdir -p /pv-connections/mongo5-node-2
 <p>For how to troubleshoot PV and PVC setup, see the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf">Troubleshooting Component Pack guide</a> document.</p>
 <h2 class="section" id="bootstrap">Set up bootstrap charts</h2>
 <p>The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis and OpenSearch.</p>
-<p>Be aware that bootstrap installation overwrites existing secrets, and therefore requires redoing some configuration steps, like SSL interoperability with OpenSearch.</p>
+<p>Bootstrap installation overwrites existing secrets only if the 'force_regenerate' flag is set to true or if the related component service is not configured on the Kubernetes cluster. Once secrets have been overwritten, you need to redo certain configuration steps, such as SSL interoperability with OpenSearch.</p>
 <ol>
 <li>
 <p>Start by deleting the existing chart:</p>
@@ -35636,23 +35696,12 @@ mkdir -p /pv-connections/mongo5-node-2
 <div id="codeblock_w3v_trq_bvb" class="highlight"><pre><span></span><code>kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk &#39;{print $1}&#39; | grep -vE &quot;NAME&quot;)
 </code></pre></div>
 <h2 class="section" id="inst_mongo5">Install MongoDB 5</h2>
-<p>Perform the steps in <a href="installing_mongodb_5_for_component_pack_8.html">Installing MongoDB 5 for Component Pack 8</a>.</p>
+<p>Perform the steps in <a href="installing_mongodb_5_for_component_pack_8.html">Installing MongoDB 5 for Component Pack 8 CR2</a>.</p>
 <h2 class="section" id="infra_chart">Set up infrastructure charts</h2>
 <p>The infrastructure charts are installed during MongoDB 5 installation (see previous step).</p>
-<p>If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation check out the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf">Troubleshooting Component Pack</a> document.</p>
+<p>If this step fails, and if all pods don't come up, there is no point proceeding until this is fixed. To troubleshoot the Component Pack installation, check out the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf">Troubleshooting Component Pack</a> document.</p>
 <p>Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – see <a href="cp_config_proxy_rules.html">Configuring the HTTP server</a>.</p>
 <h2 class="section" id="section_n3c_xhj_dvb">Set up Customizer</h2>
-<p><strong>Before you begin</strong></p>
-<p>Customizer needs to be installed, customizations copied into its PV (living on your NFS:/pv-connections/customizations), and then enabled on Nginx:</p>
-<ul>
-<li>Mount NFS:/pv-connections/customizations to the server where you have your Component Pack unpacked and from which you are managing installations</li>
-<li>Copy HelloWorld.js for Customizer from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/component-pack-harbor/files/helloWorld.user.js">HCL Connections deployment automation Git repository</a> to NFS:/pv-connections/customizations/helloWorld/</li>
-<li>Copy MS Teams Share.js for Customizer from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/component-pack-harbor/files/ms-teams/customizations/ms-teams/teamsshare/connections-teams-share-integration.js">HCL Connections deployment automation Git repository</a> to NFS:/pv-connections/customizations/share-extensions/ms-teams/</li>
-</ul>
-<!--Copy all the files from component\_pack\_installations\_folder/hybridcloud/support/customizations/\* to NFS:/pv-connections/customizations
-Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder to NFS:/pv-connections/customizations-->
-
-<p><strong>Procedure</strong></p>
 <ol>
 <li>
 <p>Delete existing Customizer chart:</p>
@@ -35684,6 +35733,13 @@ Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder 
 <p>With Connections 8, OpenSearch replaces Elasticsearch 7 as the default backend for Metrics, OrientMe, and Search.</p>
 <p>Installing the OpenSearch chart creates an additional secret – use the default secret from the bootstrap installation instead. See <a href="#bootstrap">Set up bootstrap charts</a>.</p>
 <p><strong>Note:</strong> OpenSearch, because of the way it is set up starting with version 8, will not work if bootstrap didn't create its secrets and certificates beforehand.</p>
+<p><strong>Prerequisites for installing the OpenSearch chart:</strong></p>
+<p>For production workloads, refer to <a href="https://opensearch.org/docs/1.3/opensearch/install/important-settings/">important settings</a> in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.</p>
+<p>OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
+<div class="highlight"><pre><span></span><code>fs.file-max=65536
+</code></pre></div>
+Then run <code>sudo sysctl -p</code> to reload configurarions.</p>
+<p><strong>Steps to install the OpenSearch chart:</strong></p>
 <ol>
 <li>
 <p>Get chart and version:</p>
@@ -35762,7 +35818,7 @@ Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder 
 </code></pre></div>
 </li>
 <li>
-<p>If you are upgrading to Connections 8, perform these additional steps:</p>
+<p>If you are upgrading to Connections 8.0 CR2, perform these additional steps:</p>
 <ol>
 <li>
 <p>Check if the Home page works fine from your browser by navigating to the /homepage URL.</p>
@@ -35791,7 +35847,7 @@ Copy component\_pack\_installations\_folder/hybridcloud/support/ms-teams folder 
 <p>Learn more about configuring Orient Me in <a href="cp_config_om_intro.html">Configuring the Orient Me component</a>.</p>
 <h2 class="section" id="metrics_os">Set up Metrics for OpenSearch</h2>
 <p><strong>Before you begin</strong></p>
-<p>Component Pack for HCL Connections 8.0 comes with OpenSearch enabled by default – this is the only backend for Metrics in Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8.</p>
+<p>Component Pack for HCL Connections 8.0 CR2 comes with OpenSearch enabled by default – this is the only backend for Metrics starting from Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8 CR2.</p>
 <p>If you are on HCL Connections 6.5.0.1 or earlier, and using ElasticSearch 5, there are two options:</p>
 <ul>
 <li>If you don't need to migrate data, you can use the preceding links to configure the Metrics component to use the newly installed OpenSearch.</li>
@@ -35847,9 +35903,15 @@ enableSslForMetrics(&#39;KEYSTORE_FULL_PATH&#39;, &#39;OpenSearch_CA_PASSWORD&#3
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li>KEYSTORE_FULL_PATH: See the following example.</li>
-<li>SIGNER_CA_FULL_PATH: See the following example.</li>
-<li>OpenSearch_CA_PASSWORD: The password that was set while <a href="#bootstrap">setting up bootstrap charts</a>.</li>
+<li>
+<p>KEYSTORE_FULL_PATH: See the following example.</p>
+</li>
+<li>
+<p>SIGNER_CA_FULL_PATH: See the following example.</p>
+</li>
+<li>
+<p>OpenSearch_CA_PASSWORD: The password that was set while <a href="#bootstrap">setting up bootstrap charts</a>.</p>
+</li>
 <li>
 <p>OpenSearch_HTTPS_PORT: Find the port by running following command on the Component Pack System:</p>
 <div id="codeblock_jp4_xlg_fvb" class="highlight"><pre><span></span><code>kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
@@ -35898,16 +35960,22 @@ sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
 </li>
 <li>
 <p>Merge the Signer certificate into the opensearch-metrics.p12 keystore:</p>
-<div id="codeblock_krg_nmg_fvb" class="highlight"><pre><span></span><code>execfile(&#39;esSecurityAdmin.py&#39;)    
+<div id="codeblock_krg_nmg_fvb" class="highlight"><pre><span></span><code>execfile(&#39;esSearchAdmin.py&#39;)    
 enableSslForESSearch(&#39;KEYSTORE_FULL_PATH&#39;, &#39;OpenSearch_CA_PASSWORD&#39;, &#39;SIGNER_CA_FULL_PATH&#39;, &#39;OpenSearch_HTTPS_PORT&#39;)
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li><code>KEYSTORE_FULL_PATH</code>: See the following example.</li>
-<li><code>SIGNER_CA_FULL_PATH</code>: See the following example.</li>
-<li><code>OpenSearch_CA_PASSWORD</code>: The password that was set while <a href="#bootstrap">setting up bootstrap charts</a>.</li>
 <li>
-<p><code>OpenSearch_HTTPS_PORT</code>: Find the port by running following command on the Component Pack System:</p>
+<p>KEYSTORE_FULL_PATH: See the following example.</p>
+</li>
+<li>
+<p>SIGNER_CA_FULL_PATH: See the following example.</p>
+</li>
+<li>
+<p>OpenSearch_CA_PASSWORD: The password that was set while <a href="#bootstrap">setting up bootstrap charts</a>.</p>
+</li>
+<li>
+<p>OpenSearch_HTTPS_PORT: Find the port by running following command on the Component Pack System:</p>
 <div id="codeblock_mrg_nmg_fvb" class="highlight"><pre><span></span><code>kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
 </code></pre></div>
 </li>
@@ -35925,7 +35993,7 @@ enableSslForESSearch(&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;, &#39;pa
 <p>Download config_blue_metrics.py from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py">HCL Connections deployment automation Git repository</a>. This script sets the OpenSearch server base URL in Metrics.</p>
 </li>
 <li>
-<p>Run the following script on the Connections Component Pack system. This will set highway settings that are needed for Connections to connect to  OpenSearch:</p>
+<p>Run the following script on the Connections Component Pack system. This will set highway settings for Connections to connect to OpenSearch:</p>
 <div id="codeblock_cmj_11p_fvb" class="highlight"><pre><span></span><code>/usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost &lt;&lt;hostname&gt;&gt; --namespace connections
 </code></pre></div>
 <p>Where:</p>
@@ -36008,6 +36076,15 @@ execfile(&#39;searchAdmin.py&#39;)
 </li>
 </ol>
 <h2 class="section" id="teams_integ">Set up Microsoft Teams integration</h2>
+<p>The Microsoft Teams integration microservices rely on a configmap (integrations-msteams-env) and secret (ms-teams-secret) that are part of the overall connections-env deployment. Three specific pieces of information are required which should have been created and noted while performing the steps in <a href="../../connectors/admin/t_ms_teams_config_azure_app.html">Configuring an Azure app to support the Microsoft Teams app</a>.</p>
+<p>The items of information needed for this setup are:</p>
+<ul>
+<li>Teams tenant ID</li>
+<li>Bot (app) ID</li>
+<li>Bot (app) password (secret)</li>
+</ul>
+<p>With this information, if the values were not provided when installing the <a href="cp_install_services_tasks.html#cnx_env">connections-env</a> chart, update the connections-env.yml configuration override file and reinstall the chart.</p>
+<p>Once the configmap and secret are configured, continue to install the microservices that rely on them for configuration.</p>
 <ol>
 <li>
 <p>Get chart and version:</p>
@@ -36024,21 +36101,9 @@ execfile(&#39;searchAdmin.py&#39;)
 </code></pre></div>
 </li>
 </ol>
-<p>The Microsoft Teams integration microservices rely on a configmap (integrations-msteams-env) and secret (ms-teams-secret) that are part of the overall connections-env deployment. They are not installed by the connections-env chart by default; the expectation is that they are enabled as needed by customers who use Microsoft Teams and wish to enable the use cases that these micro-services support.</p>
-<p>To upgrade the connections-env deployment to enable the correct settings for Microsoft Teams, three specific pieces of information are required which should have been created and noted while performing the steps in <a href="../../connectors/admin/t_ms_teams_config_azure_app.html">Configuring an Azure app to support the Microsoft Teams app</a>.</p>
-<p>The items of information needed for this setup are:</p>
-<ul>
-<li>Teams tenant ID</li>
-<li>Bot (app) ID</li>
-<li>Bot (app) password (secret)</li>
-</ul>
-<p>With this information, to upgrade the connections-env and create the configmap and secret, run:</p>
-<div id="codeblock_uqj_hlp_fvb" class="highlight"><pre><span></span><code>helm upgrade connections-env component_pack_installation_folder/hybridcloud/helmbuilds/connections-env-*.tgz --reuse-values --set integrations.msteams.enabled=true,integrations.msteams.tenant.id=&quot;your_tenant_id&quot;,integrations.msteams.client.id=&quot;your_bot_id&quot;,integrations.msteams.client.secret=&quot;your_bot_secret&quot;,integrations.msteams.auth.schema=&quot;3&quot;,integrations.msgraph.client.id=&quot;not_used&quot;,integrations.msgraph.client.secret=&quot;not_used&quot;,integrations.msgraph.redirect.uri=&quot;not_used&quot;,integrations.msteams.share.ui.files.api=&quot;/files/basic/api&quot;,integrations.msteams.redirect.uri=&quot;not_used&quot;,integrations.msgraph.secret.name=&quot;not_used&quot;,integrations.msgraph.auth.endpoint=&quot;not_used&quot;,integrations.msgraph.meta.endpoint=&quot;not_used&quot;,integrations.msgraph.authorize.endpoint=&quot;not_used&quot;,integrations.msgraph.token.endpoint=&quot;not_used&quot;,integrations.msteams.share.service.endpoint=&quot;my.connections.server.com&quot;,imagePullSecretName=&quot;myregkey&quot;
-</code></pre></div>
-<p>Once the configmap and secret are created, continue to install the microservices that rely on them for configuration.</p>
 <p>Once the microservices are installed and running, set up rules in httpd.conf on the IBM HTTP Server – see <a href="cp_config_proxy_rules.html">Configuring the HTTP server</a>.</p>
 <p>The proxy pass statements map URI to the ingress controller service to route requests to the appropriate Microsoft Teams-related micro-services. Given tightening security of more recent versions of browser, especially Chrome (or Chromium-based browsers) and the use of embedded iFrames by Microsoft Teams, passing cookies correctly between the environments requires the SameSite=None and Secure property.</p>
-<p>For more information about the SameSite property, please see:</p>
+<p>For more information about the SameSite property,  see:</p>
 <ul>
 <li><a href="https://www.ibm.com/support/pages/browser-changes-samesite-cookie-handling-and-websphere-application-server">Browser changes to SameSite cookie handling and WebSphere Application Server</a></li>
 <li><a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-03#section-4.1.2.7">Cookies: HTTP State Management Mechanism (RFC6265-bis)</a></li>
@@ -36083,14 +36148,16 @@ execfile(&#39;searchAdmin.py&#39;)
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li>working_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</li>
+<li>
+<p>working_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</p>
+</li>
 <li>
 <p>cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client:</p>
 <div id="codeblock_owg_zpt_hvb" class="highlight"><pre><span></span><code>print AdminControl.getCell()
 </code></pre></div>
 </li>
 </ul>
-<p><strong>Note:</strong> When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On AIX and Linux, the directory must grant write permissions or the command fails.</p>
+<p><strong>Note:</strong> When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.</p>
 </li>
 <li>
 <p>Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the &lt;properties> &lt;/properties> tag as shown below:</p>
@@ -36123,7 +36190,7 @@ execfile(&#39;searchAdmin.py&#39;)
 <h2 class="section" id="activities_plus">Set up Activities Plus</h2>
 <p><strong>Prerequisites</strong></p>
 <ul>
-<li>Get a free license from store.huddo.com</li>
+<li>Get a free license from the store.huddo.com</li>
 <li>Register it with Connections as described in <a href="cp_3p_config_ap_oauth.html">Registering an OAuth application with a provider</a> in the Integrating Activities Plus section.</li>
 </ul>
 <p><strong>Procedure</strong></p>
@@ -36182,14 +36249,14 @@ execfile(&#39;searchAdmin.py&#39;)
 </ol>
 <p>To enable the Connections add-in for Microsoft Outlook, see <a href="cp_3p_outlook_make_available_to_users.html">Making the Connections Add-in for Outlook available to users</a>.</p>
 <ul>
-<li><strong><a href="installing_mongodb_5_for_component_pack_8.html">Installing MongoDB 5 for Component Pack 8</a></strong><br />
-Install MongoDB 5 for Component Pack 8.</li>
+<li><strong><a href="installing_mongodb_5_for_component_pack_8.html">Installing MongoDB 5 for Component Pack 8 CR2</a></strong><br />
+Install MongoDB 5 for Component Pack 8 CR2.</li>
 <li><strong><a href="migrating_data_mongodb_v3_v5.html">Migrating data from MongoDB 3 to 5</a></strong><br />
 Back up, copy, restore, and validate your MongoDB databases.</li>
 <li><strong><a href="cp_migrate_data_from_es7_to_opensearch.html">Migrating data from Elasticsearch 7 to OpenSearch</a></strong><br />
-To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.</li>
+To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.0 CR2.</li>
 </ul>
-<p><strong>Parent topic:</strong><a href="cp_install_upgrade_container.html">Installation and upgrade</a></p>
+<p><strong>Parent topic:</strong> <a href="cp_install_upgrade_container.html">Installation and upgrade</a></p>
 
 
 

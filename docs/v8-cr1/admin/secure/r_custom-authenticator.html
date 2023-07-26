@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35372,32 +35388,36 @@
 <p>The attributes for the customAuthenticator element can differ, depending on the SSO solution that you have implemented. Most attributes are optional, but some might be mandatory in the context of your SSO solution. For more information, see the relevant topics for your authentication solution.</p>
 <h2 class="section" id="default-attributes">Default attributes</h2>
 <p>The following default attributes for the customAuthenticator element are available when the customAuthenticator attribute is set to DefaultAuthenticator, ISAMAuthenticator, or SiteMinderAuthenticator.</p>
-<p>customAuthenticator
-:   The customAuthenticator primary element has two attributes, name and classname. Either or both attributes must be set to an authenticator such as Default, ISAM, or SiteMinder. This attribute is mandatory.</p>
-<p>AllowSelfSignedCerts
-:   Optional. Should be set to false in the production environment. For security and legal reasons, self-signed certificates should only be used in test environments. The default value is true.</p>
-<p>CookieTimeout
-:   This value should match the value in your security proxy or the <strong>LTPA timeout</strong> value for forwarded credentials between servers specified in WebSphere® Application Server. When the ISVA authenticator is in use, this value should also match the ISVA inactive-timeout setting. The default value is 60 minutes.</p>
-<p>ConnectionTimeout
-:   This value determines the time period after which a connection is dropped. The default value is 30 seconds.</p>
-<p>SoTimeout
-:   This default socket value defines the length of time to wait for data. The default value is 60 seconds.</p>
-<p>MaxTotalConnections
-:   The value defines the maximum number of connections allowed overall. The default value is 256 connections.</p>
-<p>DefaultMaxConnectionsPerHost
-:   This value defines the maximum number of connections allowed per host. The default value is 128 connections.</p>
+<dl>
+<dt>customAuthenticator</dt>
+<dd>The customAuthenticator primary element has two attributes, name and classname. Either or both attributes must be set to an authenticator such as Default, ISAM, or SiteMinder. This attribute is mandatory.</dd>
+<dt>AllowSelfSignedCerts</dt>
+<dd>Optional. Should be set to false in the production environment. For security and legal reasons, self-signed certificates should only be used in test environments. The default value is true.</dd>
+<dt>CookieTimeout</dt>
+<dd>This value should match the value in your security proxy or the <strong>LTPA timeout</strong> value for forwarded credentials between servers specified in WebSphere® Application Server. When the ISVA authenticator is in use, this value should also match the ISVA inactive-timeout setting. The default value is 60 minutes.</dd>
+<dt>ConnectionTimeout</dt>
+<dd>This value determines the time period after which a connection is dropped. The default value is 30 seconds.</dd>
+<dt>SoTimeout</dt>
+<dd>This default socket value defines the length of time to wait for data. The default value is 60 seconds.</dd>
+<dt>MaxTotalConnections</dt>
+<dd>The value defines the maximum number of connections allowed overall. The default value is 256 connections.</dd>
+<dt>DefaultMaxConnectionsPerHost</dt>
+<dd>This value defines the maximum number of connections allowed per host. The default value is 128 connections.</dd>
+</dl>
 <h2 class="section" id="additional-attributes-for-security-verify-access-formerly-security-access-manager-and-siteminder">Additional attributes for Security Verify Access (formerly Security Access Manager) and SiteMinder</h2>
 <p>There are additional attributes available when the customAuthenticator attribute is set to ISAMAuthenticator or SiteMinderAuthenticator.</p>
-<p>CustomLoginUsernameField
-:   This attribute key should be implicitly set to user. If you customize the username field in the login form, this setting allows a new field name to be configured for entering the username.</p>
-<p>CustomLoginPasswordField
-:   This attribute key should be implicitly set to PASSWORD. If you customize the password field in the login form, this setting allows a new field name to be configured for entering the user password.</p>
-<p>CustomLoginFormField
-:   This attribute key should be implicitly set to Form. If you customize the login form field in the login form, this setting allows a new field name to be configured for posting login information to this customized form.</p>
-<p>CustomLoginFormValue
-:   This attribute key should be implicitly set to Login. If you customize the login value field in the login form, this setting allows a new value for login form to be configured for posting login information to this customized form.</p>
-<p>FormBasedAuthLoginURL
-:   This is a dedicated login URL for form based authentication.</p>
+<dl>
+<dt>CustomLoginUsernameField</dt>
+<dd>This attribute key should be implicitly set to user. If you customize the username field in the login form, this setting allows a new field name to be configured for entering the username.</dd>
+<dt>CustomLoginPasswordField</dt>
+<dd>This attribute key should be implicitly set to PASSWORD. If you customize the password field in the login form, this setting allows a new field name to be configured for entering the user password.</dd>
+<dt>CustomLoginFormField</dt>
+<dd>This attribute key should be implicitly set to Form. If you customize the login form field in the login form, this setting allows a new field name to be configured for posting login information to this customized form.</dd>
+<dt>CustomLoginFormValue</dt>
+<dd>This attribute key should be implicitly set to Login. If you customize the login value field in the login form, this setting allows a new value for login form to be configured for posting login information to this customized form.</dd>
+<dt>FormBasedAuthLoginURL</dt>
+<dd>This is a dedicated login URL for form based authentication.</dd>
+</dl>
 <p>This extract from the LotusConnections-config.xml file shows attributes with sample values:</p>
 <div class="highlight"><pre><span></span><code>&lt;customAuthenticator name=&quot;TAMAuthenticator&quot; &gt;
    &lt;attribute key=&quot;AllowSelfSignedCerts&quot; value=&quot;true&quot; /&gt;

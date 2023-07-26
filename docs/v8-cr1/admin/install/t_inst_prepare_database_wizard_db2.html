@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35302,20 +35318,6 @@
 <ul>
 <li>If you are planning to create multiple database instances, prepare and run the database wizard once for each instance.</li>
 <li>Create a dedicated IBM® DB2® database user named lcuser. For more information, see the <a href="t_db_create_lcuser.html">Creating a dedicated DB2 user</a> topic.</li>
-<li>
-<p>(AIX® only) If you are downloading the wizard, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM distributes through the AIX Toolbox for Linux™ Applications at the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html">IBM AIX Toolbox</a> web site. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.</p>
-<p>After you have installed the GNU-compatible TAR program, change to the directory where you downloaded the HCL Connections TAR file, and enter the following command to extract the files from it:</p>
-<p>gtar -xvf HCL_Connections_6.0_wizards_lin_aix.tar</p>
-<p>This command creates a directory named after the wizard.</p>
-</li>
-<li>
-<p>(AIX only) Download and install the following packages from the <a href="http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html">AIX Toolbox for Linux Applications</a> webpage:</p>
-<p><code>gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32,</code> and <code>libtiff-3.8.2</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.</p>
-</div>
-</li>
 </ul>
 <p>To prepare the database wizard, complete the following steps:</p>
 <ol>
@@ -35323,14 +35325,14 @@
 <p>Log in to your database server as the root user or system administrator.</p>
 </li>
 <li>
-<p>(AIX and Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
+<p>(Linux only) Grant display authority to all users by running the following commands under the root user or system administrator:</p>
 <p><code>xhost + // Grant display authority to other users</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.</p>
+<p>If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your Linux administrator guide.</p>
 </div>
 <p><code>echo $DISPLAY // Echo the value of DISPLAY under the root user</code>
-3.  (AIX and Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
+3.  (Linux only) Ensure that the current user is qualified or else switch to a qualified user by running the following commands:</p>
 <ul>
 <li>
 <p>DB2</p>
@@ -35358,7 +35360,7 @@ where <code>hostname:displaynumber.screennumber</code> represents the client sys
 </div>
 <ul>
 <li>
-<p>AIX or Linux:</p>
+<p>Linux:</p>
 <ul>
 <li>
 <p>DB2</p>
@@ -35396,12 +35398,12 @@ where <code>hostname:displaynumber.screennumber</code> represents the client sys
 <p>Copy the Wizards directory in the HCL Connections installation media to the system that hosts the database server.</p>
 <p>!!! note “Notes” </p>
 <pre><code>- If you have more instances, exit from the current instance and repeat this step for each instance.
-- \(AIX and Linux only\) Ensure that users other than `root` have permission to access the HCL Connections Wizards directory.
+- \(Linux only\) Ensure that users other than `root` have permission to access the HCL Connections Wizards directory.
 - For more information about working with multiple instances, see the [Setting variables at the instance level in a partitioned database environment](https://www.ibm.com/docs/en/db2/11.1?topic=srev-setting-instance-level-variables-in-partitioned-database-environment) topic in the DB2 documentation.
 </code></pre>
 </li>
 </ol>
-<p><strong>Parent topic:</strong><a href="c_inst_create_database_db2.html">Creating DB2 databases</a></p>
+<p><strong>Parent topic:</strong> <a href="c_inst_create_database_db2.html">Creating DB2 databases</a></p>
 
 
 

@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35322,8 +35338,10 @@
 </li>
 <li>
 <p>Use the following commands to control cache operations.</p>
-<p>ProfilesService.enableFullReportsToCache(startDelay, interval, schedTime)
-:   Enables the full report-to chain cache with the specified start delay in minutes, refresh interval in minutes, and scheduled refresh time in HH:MM format.</p>
+<dl>
+<dt>ProfilesService.enableFullReportsToCache(startDelay, interval, schedTime)</dt>
+<dd>Enables the full report-to chain cache with the specified start delay in minutes, refresh interval in minutes, and scheduled refresh time in HH:MM format.</dd>
+</dl>
 <pre><code>This cache is used to populate the full report-to chain view available in a user's profile. The cache contains the specified number of top employees in the organizational pyramid; it is not intended to store an entry for each profile. It stores the profiles of those people at the top of the chain who are included in many full report-to chain views.
 
 For example:
@@ -35332,10 +35350,12 @@ For example:
 ProfilesService.enableFullReportsToCache(5, 15, "23:00")
 ```
 </code></pre>
-<p>ProfilesService.disableFullReportsToCache()
-:   Disables the full report-to chain cache capability. This command does not take any arguments.</p>
-<p>ProfilesService.reloadFullReportsToCache()
-:   Forces a reload of the full report-to chain cache from the Profiles database. This command does not take any arguments.</p>
+<dl>
+<dt>ProfilesService.disableFullReportsToCache()</dt>
+<dd>Disables the full report-to chain cache capability. This command does not take any arguments.</dd>
+<dt>ProfilesService.reloadFullReportsToCache()</dt>
+<dd>Forces a reload of the full report-to chain cache from the Profiles database. This command does not take any arguments.</dd>
+</dl>
 <pre><code>**Note:** If the full report-to cache is disabled, it cannot be reloaded. This command fails when the cache is disabled.
 </code></pre>
 </li>

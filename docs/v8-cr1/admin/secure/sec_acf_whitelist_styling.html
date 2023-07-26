@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35298,24 +35314,22 @@
 <h1 class="concept" id="sec_acf_whitelist_styling">Styling rules (whitelists)</h1>
 <p>Whitelist active content for HCL Connections™ based on style-sheet usage in the HTML source.</p>
 <p>The styling rules specify whether CSS styles are allowed in the HTML source code of uploaded content. By default, CSS style sheets are not allowed; you must explicitly whitelist them using these rules. Styles that are not allowed will be stripped from the content before it is uploaded.</p>
-<p>allowStylingDefault
-:   Convert <code>style="&lt;CSS&gt;"</code> to sanitized CSS, which allows color, font-size, type-face, and other styling using the default schema.</p>
-<pre><code>Usage:
-
-```
-&lt;allowStylingDefault enabled='true'/&gt;
-```
-
-You can specify additional style information, as in the following example:
-
-```
-&lt;allowStyling&gt; &lt;==
-&lt;param value="position" /&gt;
-&lt;param value="top" /&gt;
-&lt;param value="z-index" /&gt;
+<dl>
+<dt>allowStylingDefault</dt>
+<dd>
+<p>Convert <code>style="&lt;CSS&gt;"</code> to sanitized CSS, which allows color, font-size, type-face, and other styling using the default schema.</p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowStylingDefault enabled=&#39;true&#39;/&gt;
+</code></pre></div>
+<p>You can specify additional style information, as in the following example:</p>
+<div class="highlight"><pre><span></span><code>&lt;allowStyling&gt; &lt;==
+&lt;param value=&quot;position&quot; /&gt;
+&lt;param value=&quot;top&quot; /&gt;
+&lt;param value=&quot;z-index&quot; /&gt;
 &lt;/allowStyling&gt;
-```
-</code></pre>
+</code></pre></div>
+</dd>
+</dl>
 <p><strong>Parent topic:</strong><a href="sec_acf_whitelist_config.html">Configuring active content filters (whitelists)</a></p>
 
 

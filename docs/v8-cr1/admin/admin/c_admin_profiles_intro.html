@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35285,10 +35301,12 @@
 <p>Profiles provides two types of administrative capabilities: configuration settings and administrative commands. You change configuration settings and execute administrative commands by running scripts from the wsadmin command line.</p>
 <p>Jython Scripts run from a wsadmin command line are used to configure and to administer Profiles. These scripts use the AdminConfig object available in IBM® WebSphere® Application Server Admin (wsadmin) to interact with the configuration repository.</p>
 <p>You can update the Profiles environment in two ways:</p>
-<p>Configuration settings
-:   Modify these settings to control various configurable applications within Profiles. When you make configuration changes, you use scripts to check out the Profiles configuration file, profiles-config.xml, make changes, and then check the file back in. A server restart is required for your changes to take effect.</p>
-<p>Administrative commands
-:   Use these commands to control various aspects of the Profiles environment. Administrative commands do not require a server restart to take effect.</p>
+<dl>
+<dt>Configuration settings</dt>
+<dd>Modify these settings to control various configurable applications within Profiles. When you make configuration changes, you use scripts to check out the Profiles configuration file, profiles-config.xml, make changes, and then check the file back in. A server restart is required for your changes to take effect.</dd>
+<dt>Administrative commands</dt>
+<dd>Use these commands to control various aspects of the Profiles environment. Administrative commands do not require a server restart to take effect.</dd>
+</dl>
 <ul>
 <li><strong><a href="t_admin_profiles_changing_admin.html">Running Profiles administrative commands</a></strong><br />
 Scripts are used to administer the Profiles application. These scripts use the AdminConfig object available in IBM WebSphere Application Server wsadmin client to interact with the Profiles server.</li>

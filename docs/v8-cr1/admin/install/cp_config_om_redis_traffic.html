@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35294,23 +35310,34 @@
 <li>Redis Security -Authentication</li>
 <li>Updated configureRedis.sh script</li>
 </ul>
-<p>Redis High Availability (HA) via Redis Sentinel
-:   Using the capabilities of Redis Sentinel, Component Pack runs a Redis Sentinel Cluster (1 Redis master, 2 Redis slaves, 3 Sentinels) that resists, without human intervention, certain kinds of failures. Sentinel capabilities include:</p>
-<pre><code>-   Monitoring. Sentinel constantly checks if your master and slave instances are working as expected.
--   Automatic failover. If the master is not working as expected, Sentinel can start a failover process where a slave is promoted to master, the other additional slaves are reconfigured to use the new master, and the applications using the Redis server informed about the new address to use when connecting.
-</code></pre>
-<p>HA proxy
-:   Component Pack supports HA Proxy to provide a route from Connections 6.0 to the Redis Cluster running within Component Pack. The HA Proxy runs as a separate deployment on Component Pack and its purpose is to provide an external entry point for traffic from Connections 6.0 to the Redis Cluster running within Component Pack. When configuring Connections to connect with Component Pack, we now specify the port that the HA Proxy is running on.</p>
-<p>HA proxy - Authentication
-:   Component Pack supports Redis Security via Redis Authentication. Redis Clients connecting with Redis must authenticate using the Redis password set during the ICp deployment. Note the following considerations:</p>
-<pre><code>-   Redis Authentication can be enabled\\disabled via a setting in the configuration map. Default is Authentication Enabled.
--   When configuring Connections 6.0, you must set the Redis Password
-</code></pre>
-<p>Updated configureRedis.sh script
-:   The updated configureRedis.sh script includes the following:</p>
-<pre><code>-   The ability to set or clear the Redis Password in Connections.
--   Flags for setting input parameters.
-</code></pre>
+<dl>
+<dt>Redis High Availability (HA) via Redis Sentinel</dt>
+<dd>
+<p>Using the capabilities of Redis Sentinel, Component Pack runs a Redis Sentinel Cluster (1 Redis master, 2 Redis slaves, 3 Sentinels) that resists, without human intervention, certain kinds of failures. Sentinel capabilities include:</p>
+<ul>
+<li>Monitoring. Sentinel constantly checks if your master and slave instances are working as expected.</li>
+<li>Automatic failover. If the master is not working as expected, Sentinel can start a failover process where a slave is promoted to master, the other additional slaves are reconfigured to use the new master, and the applications using the Redis server informed about the new address to use when connecting.</li>
+</ul>
+</dd>
+<dt>HA proxy</dt>
+<dd>Component Pack supports HA Proxy to provide a route from Connections 6.0 to the Redis Cluster running within Component Pack. The HA Proxy runs as a separate deployment on Component Pack and its purpose is to provide an external entry point for traffic from Connections 6.0 to the Redis Cluster running within Component Pack. When configuring Connections to connect with Component Pack, we now specify the port that the HA Proxy is running on.</dd>
+<dt>HA proxy - Authentication</dt>
+<dd>
+<p>Component Pack supports Redis Security via Redis Authentication. Redis Clients connecting with Redis must authenticate using the Redis password set during the ICp deployment. Note the following considerations:</p>
+<ul>
+<li>Redis Authentication can be enabled\disabled via a setting in the configuration map. Default is Authentication Enabled.</li>
+<li>When configuring Connections 6.0, you must set the Redis Password</li>
+</ul>
+</dd>
+<dt>Updated configureRedis.sh script</dt>
+<dd>
+<p>The updated configureRedis.sh script includes the following:</p>
+<ul>
+<li>The ability to set or clear the Redis Password in Connections.</li>
+<li>Flags for setting input parameters.</li>
+</ul>
+</dd>
+</dl>
 <p>The Redis topology works as follows:<img alt="Redis topology for deploying the Orient Me home page" src="Redis_topology2.png" /></p>
 <p>Follow these steps to configure and secure the Redis traffic flowing between Connections and Component Pack.</p>
 <ul>

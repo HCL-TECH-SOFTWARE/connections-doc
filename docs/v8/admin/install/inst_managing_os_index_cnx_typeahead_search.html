@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -4639,20 +4639,6 @@
         <li class="md-nav__item">
   <a href="#shard-number" class="md-nav__link">
     Shard number
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#replica-number" class="md-nav__link">
-    Replica number
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-the-number-of-replicas-for-the-opensearch-quickresults-index" class="md-nav__link">
-    Changing the number of replicas for the OpenSearch quickresults index
   </a>
   
 </li>
@@ -35090,20 +35076,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#replica-number" class="md-nav__link">
-    Replica number
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-the-number-of-replicas-for-the-opensearch-quickresults-index" class="md-nav__link">
-    Changing the number of replicas for the OpenSearch quickresults index
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#section_ipf_z32_1lb" class="md-nav__link">
     Changing the number of shards for the OpenSearch quickresults index
   </a>
@@ -35155,28 +35127,6 @@
 <p>The Connections type-ahead search feature uses an index named “quickresults” within the OpenSearch search engine. Review the following information about this index, preferably before creating the quickresults index and enabling the type-ahead search capability.</p>
 <h2 class="section" id="shard-number">Shard number</h2>
 <p>The default number of shards for this index is eight. If you want to change this default, do so before the index is created, because the new value applies only to future indexes and does not affect existing indexes. Changing the number of shards after the type-ahead Search component is enabled and deployed requires you to create a new index, or to follow a series of manual steps. Additional shards in an OpenSearch index consume resources and can affect performance depending on how the shards are used. Change the default setting only when you have carefully weighed the advantages and disadvantages of doing so in your environment. You can refer to following guide for details on changing the default shard number for future indexes: Changing the number of shards for the OpenSearch Quickresults index.</p>
-<h2 class="section" id="replica-number">Replica number</h2>
-<p>The main purpose of replicas is to provide failover. If the node holding a primary shard dies, a replica is promoted to the role of primary. Replica shards can also serve read requests; you can increase search performance by increasing the number of replicas, but only if you also add extra hardware. The default replica number is 2, but this value can be modified. See Changing the number of replicas for the OpenSearch Quickresults index.</p>
-<h2 class="section" id="changing-the-number-of-replicas-for-the-opensearch-quickresults-index">Changing the number of replicas for the OpenSearch quickresults index</h2>
-<p>By default, the quickresults index replicas is set to 2. To modify this value, follow these steps:</p>
-<ol>
-<li>
-<p>Update the search-config.xml file in the Deployment Manager profile configuration folder:</p>
-<p>Add the following statements to <code>&lt;property name=”quickResults”&gt;</code> section, replacing the value with the desired number of replicas.</p>
-<div class="highlight"><pre><span></span><code>&lt;propertyField name=quick.results.elasticsearch.replicas.count&#39; value=&#39;2&#39;/&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Synchronize the nodes and then restart the servers or clusters that are running the Search and Common applications.</p>
-</li>
-<li>If the quickresults index has not been created yet, then stop here. In this case, when the index is created, it will automatically pick up the new replicas setting. If you have already created the quickresults index, proceed with step 4.</li>
-<li>
-<p>Run the following SearchService administration command:</p>
-<div class="highlight"><pre><span></span><code>SearchService.updateESQuickResultsIndexSettings()
-</code></pre></div>
-<p>For information on running SearchService commands, see <a href="../admin/r_admin_searchservice_commands.html">SearchService commands</a>.</p>
-</li>
-</ol>
 <h2 class="section" id="section_ipf_z32_1lb">Changing the number of shards for the OpenSearch quickresults index</h2>
 <p>By default, the quickresults index shard count is set to 8. To modify this value, follow these steps:</p>
 <ul>
@@ -35197,21 +35147,23 @@
 <p>Synchronize the nodes and then restart the servers or clusters that are running the Search and Common applications.</p>
 </li>
 <li>Create (or recreate) the index, refer to <a href="cp_install_services_tasks.html#metrics_os">Set up Metrics for OpenSearch</a>.</li>
-<li>Note that it is also possible to delete the old index and create a new one. This however does not preserve the old index information, so any type-ahead search history that has been built up by existing Connections users will be lost. If this is a proof of concept or test system where this data is not critical, proceed using the Connections search administration command called SearchService. recreateESQuickResultsIndex().</li>
 </ol>
 <h2 class="section" id="existing-index">Existing index</h2>
 <p>If you already have a quickresults index with data from your Connections users, it requires planning and additional steps to modify the number of shards in use. Use the following guide to reduce the number of shards in the quickresults index.</p>
 <p>The strategy for reducing the shards will be to use the OpenSearch Shrink Index API, which will create a new index with a reduced shard count. Once this is completed, an OpenSearch alias will be added to the index so that Connections can still access it using the name “quickresults”.</p>
 <h2 class="section" id="section_z1w_cj2_1lb">Setup</h2>
-<p>These steps are based on documentation from the <a href="https://opensearch.org/docs/1.3/opensearch/rest-api/index-apis/shrink-index/">OpenSearch Shrink Index</a> documentation. The CURL tool is used to submit API requests to the OpenSearch engine and it will typically require access to the certificates that were used when setting up OpenSearch for the Metrics component. See the article on <a href="inst_tasearch_no_metrics.html">Setting up certificates for type-ahead search</a> for information on how to retrieve the p12 certificate if needed. The exact curl syntax may vary based on which OS is used, however the following example could be used to connect to an OpenSearch server which is using a self-signed certificate.</p>
-<div class="highlight"><pre><span></span><code>curl -k --cert-type P12 --cert elasticsearch-metrics.p12:password -X GET &quot;https://esserver.example.com:30098/quickresults?pretty&quot;
+<p>These steps are based on the <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">OpenSearch Shrink Index</a> documentation. The CURL tool is used to submit API requests to the OpenSearch engine and it will typically require access to the certificates that were used when setting up OpenSearch for the Metrics component. For information on how to retrieve the p12 certificate, refer to <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a>. The exact curl syntax may vary based on which OS is used, however the following example could be used to connect to an OpenSearch server which is using a self-signed certificate.</p>
+<div class="highlight"><pre><span></span><code>curl -k --cert-type P12 --cert opensearch-metrics.p12:password -X GET &quot;https://esserver.example.com:30099/quickresults?pretty&quot;
 </code></pre></div>
 <ol>
-<li>Shutdown the Connections Search enterprise application using the WebSphere administration console. This will prevent the Connections apps from attempting to update the index while Connections is running.</li>
+<li>Shut down the Connections Search enterprise application using the WebSphere administration console. This will prevent the Connections apps from attempting to update the index while Connections is running.</li>
 <li>
-<p>Mark the current index as read only and force a copy of every shard in the index to the same node and have green health.</p>
-<p>Curl command would be similar to this (replace the following) localhost – Replace with the host name and port for your OpenSearch instance. For example, “https://myesinstance.example.com:30098” shrink_node_name – the node for relocation for the shrink operation</p>
-<div class="highlight"><pre><span></span><code>curl -X PUT &quot;localhost:30098/quickresults/_settings?pretty&quot; -H &#39;Content-Type: application/json&#39; -d&#39;
+<p>Mark the current index as read-only and force a copy of every shard in the index to the same node and have green health.</p>
+<p>Next, execute into opensearch-client pod:</p>
+<div class="highlight"><pre><span></span><code>kubectl exec -ti -n connections $(kubectl get pods -n connections -o wide | grep opensearch-cluster-client | awk &#39;{print $1}&#39; | head -n 1) -- bash
+</code></pre></div>
+<p>Run the following command for shrink operation:</p>
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh PUT &quot;/quickresults/_settings?pretty&quot; -H &#39;Content-Type: application/json&#39; -d&#39;
 {
   &quot;settings&quot;: {
     &quot;index.routing.allocation.require._name&quot;: &quot;shrink_node_name&quot;, 
@@ -35223,13 +35175,13 @@
 </li>
 <li>
 <p>Monitor this operation using the cluster health API for the quickresults index.</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:30098/_cluster/health/quickresults? wait_for_no_relocating_shards=true&amp;pretty&quot;
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh GET &quot;/_cluster/health/quickresults?wait_for_no_relocating_shards=true&amp;pretty&quot;
 </code></pre></div>
 <p>Wait until this returns a value for <code>relocating_shards= 0</code>.</p>
 </li>
 <li>
 <p>Set the desired number of shards and replicas and shrink the index. The number_of_shards must be a factor of the number of shards in the source index. For example, if the original shards is 8, the number can be 4, 2 or 1.</p>
-<div class="highlight"><pre><span></span><code>curl -X POST &quot;localhost:30098/quickresults/_shrink/quickresults_shrink?pretty&quot; -H &#39;Content-Type: application/json&#39; -d&#39;.
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh POST &quot;/quickresults/_shrink/quickresults_shrink?pretty&quot; -H &#39;Content-Type:application/json&#39; -d&#39;.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>{
   &quot;settings&quot;: {
@@ -35242,18 +35194,18 @@
 </li>
 <li>
 <p>Monitor this operation using the cluster health API for the quickresults_shrink index.</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:30098/_cluster/health/quickresults_shrink?wait_for_active_shards=1 &amp;pretty&quot;
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh GET &quot;/_cluster/health/quickresults_shrink?wait_for_active_shards=1&amp;pretty&quot;
 </code></pre></div>
 <p>Wait until this returns a value for <code>active_shards=1</code>.</p>
 </li>
 <li>
 <p>Delete the old quickresults index using this command:</p>
-<div class="highlight"><pre><span></span><code>curl -X DELETE &quot;localhost:30098/quickresults&quot;
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh DELETE &quot;/quickresults&quot;
 </code></pre></div>
 </li>
 <li>
 <p>Assign an alias called “quickresults” to the new index quickresults_shrink using this command:</p>
-<div class="highlight"><pre><span></span><code>curl -X POST &quot;localhost:9200/_aliases?pretty&quot; -H &#39;Content-Type: application/json&#39; -d&#39;
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh POST &quot;/_aliases?pretty&quot; -H &#39;Content-Type:application/json&#39; -d&#39;
 {
     &quot;actions&quot; : [
         { &quot;add&quot; : { &quot;index&quot; : &quot;quickresults_shrink&quot;, &quot;alias&quot; : &quot;quickresults&quot; } }
@@ -35264,7 +35216,7 @@
 </li>
 <li>
 <p>Verify the new indexes exist with the expected shard and replica counts.</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/quickresults?pretty&quot;
+<div class="highlight"><pre><span></span><code>/usr/share/opensearch/probe/sendRequest.sh GET &quot;/quickresults?pretty&quot;
 </code></pre></div>
 </li>
 <li>

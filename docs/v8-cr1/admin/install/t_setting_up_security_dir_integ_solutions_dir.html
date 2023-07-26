@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35305,7 +35321,7 @@
 <p>On the system hosting your IBM® Tivoli® Directory Integrator installation, create a subdirectory in which to store the Tivoli Directory Integrator solution directory. Make sure that the file path does not contain spaces. Do not, for example, create the subdirectory in the Program Files directory in Microsoft® Windows®. For example, on a Linux server: you may want to create a subdirectory named tdisol under the SDI path /opt/IBM/TDI/V7.2/tdisol.</p>
 </li>
 <li>
-<p>Go to the HCL Connections installation media and navigate to the HCL_Connections_Install\tools directory and copy the TDISOL compressed file tdisol.tar for Linux/AIX, or tdisol.zip for Windows) from the HCL_Connections_Install\tools directory and paste it into the TDISOL directory you created in Step 1.</p>
+<p>Go to the HCL Connections installation media and navigate to the HCL_Connections_Install\tools directory and copy the TDISOL compressed file tdisol.tar for Linux, or tdisol.zip for Windows) from the HCL_Connections_Install\tools directory and paste it into the TDISOL directory you created in Step 1.</p>
 </li>
 <li>
 <p>Using appropriate tools, extract the TDISOL compressed file to the directory that you created in Step 1. This process creates a Security Directory Integrator Solution directory called TDI. For example, you will end up with: /opt/IBM/TDI/V7.2/tdisol/TDI.</p>
@@ -35317,7 +35333,7 @@
 <p>From the SDI solution directory, open the tdienv.bat or tdienv.sh file in a text editor. Ensure that the path to the Tivoli Directory Integrator installation directory is specified correctly in the TDIPATH variable. If the path is not correct, edit the TDIPATH environment variable.</p>
 <ul>
 <li>
-<p>AIX® or Linux®:</p>
+<p>Linux®:</p>
 <p>The default value for TDIPATH is:</p>
 <div class="highlight"><pre><span></span><code>export TDIPATH=/opt/IBM/TDI/V7.2
 </code></pre></div>

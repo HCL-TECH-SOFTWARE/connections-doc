@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35353,7 +35353,7 @@
 <li>
 <p>Enter the startNode command for your operating system:</p>
 <ul>
-<li>AIX or Linux: ./startNode.sh</li>
+<li>Linux: ./startNode.sh</li>
 <li>Windows: startNode.bat</li>
 <li>Copy the installation files to the system that hosts the Deployment Manager.</li>
 </ul>
@@ -35364,12 +35364,12 @@
 <li>
 <p>From the Installation Manager directory, run the file to start the Installation Manager and add the repository to it as follows:</p>
 <ul>
-<li>AIX or Linux: IBMIM</li>
+<li>Linux: IBMIM</li>
 <li>Windows: IBMIM.exe</li>
 </ul>
 <p>Repository:</p>
 <ul>
-<li>AIX or Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
+<li>Linux: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
 <li>Windows: Connections set-up\HCL_Connections_Install\HCLConnections\repository.config</li>
 </ul>
 </li>
@@ -35465,7 +35465,6 @@
 <p>Select the <strong>WebSphere Application Server installation location</strong> that contains the Deployment Manager.</p>
 <p>Note the default path to the WebSphere Application Server installation:</p>
 <ul>
-<li>AIX: /usr/IBM/WebSphere/AppServer</li>
 <li>Linux: /opt/IBM/WebSphere/AppServer</li>
 <li>Windows: C:\Program Files (x86)\IBM\WebSphere\AppServer<ol>
 <li>Enter the properties of the WebSphere Application Server Deployment Manager (DM):</li>
@@ -35487,7 +35486,7 @@
 </li>
 <li>
 <p>Click <strong>Validate</strong> to verify the DM information that you entered and that application security is enabled on WebSphere Application Server. If the verification fails, IBM Installation Manager displays an error message.</p>
-<p><strong>Note:</strong> (AIX and Linux) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the <strong>Open File Descriptor limit</strong>, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the <a href="../troubleshoot/r_error_codes_install.html">Installation error messages</a> topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.</p>
+<p><strong>Note:</strong> (Linux) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the <strong>Open File Descriptor limit</strong>, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the <a href="../troubleshoot/r_error_codes_install.html">Installation error messages</a> topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.</p>
 </li>
 <li>
 <p>When the verification test is successful, click <strong>Next</strong>.</p>
@@ -35572,10 +35571,6 @@
 <li>
 <p>Enter the <strong>JDBC driver location</strong>. For example:</p>
 <ul>
-<li>
-<p>AIX:</p>
-<p>/usr/IBM/WebSphere/AppServer/lib</p>
-</li>
 <li>
 <p>Linux:</p>
 <p>/opt/IBM/WebSphere/AppServer/lib</p>
@@ -35728,7 +35723,7 @@
 <li>
 <p>Restart the Deployment Manager:</p>
 <ul>
-<li>AIX or Linux: Open a command prompt and change to the <a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/Dmgr01/bin directory. Enter the <code>./stopManager.sh</code> command and then enter the <code>./startManager.sh</code>command.</li>
+<li>Linux: Open a command prompt and change to the <a href="../plan/i_ovr_r_directory_conventions.html">app_server_root</a>/profiles/Dmgr01/bin directory. Enter the <code>./stopManager.sh</code> command and then enter the <code>./startManager.sh</code>command.</li>
 <li>
 <p>Windows: Stop and restart the Deployment Manager service.</p>
 <p>Run C:\IBM\WebSphere\AppServer\profiles\Dmgr01\bin\startManager.bat and change directory to</p>

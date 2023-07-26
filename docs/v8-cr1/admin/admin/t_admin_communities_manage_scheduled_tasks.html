@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35295,14 +35311,16 @@
 <p>Use the CommunitiesScheduler commands to administer the community event tasks performed by the IBM® WebSphere® Application Server scheduler. These administrative commands do not require a server restart to take effect, and no file checkout is necessary.</p>
 <p>To use administrative commands, you must use the wsadmin client. See <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
 <p>Communities uses the WebSphere Application Server scheduler to run the following scheduled tasks relating to community eventsand cleaning up data. For more information about the scheduler, see <em>Scheduling tasks</em>.</p>
-<p>LifecycleRetryQueuedEvents
-:   Automatically retries sending life-cycle events to other applications when event processing fails, for example, when another application server is down. For more information about life-cycle events, see <em>Administering widgets and remote applications</em>.</p>
-<p>EventLogCleanup
-:   Removes old entries from the event log. For more information on the EventLogCleanup task, see <em>Configuring news event log clean-up</em>.</p>
-<p>GroupCleanup
-:   Removes cached LDAP group information from the Communities database for groups that are no longer used in community membership.</p>
-<p>fullDelete
-:   Removes deleted communities from the trash. The number of days that a community stays in the trash before being removed is configurable. For more information, see <em>Working with Communities trash.</em></p>
+<dl>
+<dt>LifecycleRetryQueuedEvents</dt>
+<dd>Automatically retries sending life-cycle events to other applications when event processing fails, for example, when another application server is down. For more information about life-cycle events, see <em>Administering widgets and remote applications</em>.</dd>
+<dt>EventLogCleanup</dt>
+<dd>Removes old entries from the event log. For more information on the EventLogCleanup task, see <em>Configuring news event log clean-up</em>.</dd>
+<dt>GroupCleanup</dt>
+<dd>Removes cached LDAP group information from the Communities database for groups that are no longer used in community membership.</dd>
+<dt>fullDelete</dt>
+<dd>Removes deleted communities from the trash. The number of days that a community stays in the trash before being removed is configurable. For more information, see <em>Working with Communities trash.</em></dd>
+</dl>
 <p>You can use the CommunitiesScheduler commands to retrieve details about these tasks, and manually pause and resume the tasks as needed.</p>
 <ol>
 <li>To administer the tasks performed by the WebSphere Application Server scheduler, complete the following steps.</li>
@@ -35323,8 +35341,10 @@
 </li>
 <li>
 <p>Use the following commands to administer the Communities scheduler service:</p>
-<p>CommunitiesScheduler.getTaskDetails(String taskName)
-:   Returns information about the scheduled task specified by taskName. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
+<dl>
+<dt>CommunitiesScheduler.getTaskDetails(String taskName)</dt>
+<dd>Returns information about the scheduled task specified by taskName. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</dd>
+</dl>
 <pre><code>The values returned in the HashMap are the next scheduled fire time, server time, status \(SCHEDULED, RUNNING, SUSPENDED\), and task name. SUSPENDED means that the task is not scheduled to run.
 
 For example:
@@ -35333,8 +35353,10 @@ For example:
 CommunitiesScheduler.getTaskDetails("LifecycleRetryQueuedEvents")
 ```
 </code></pre>
-<p>CommunitiesScheduler.pauseSchedulingTask(String taskName)
-:   Puts the task in the suspended state. When you pause a scheduled task, that task remains in the suspended state even after you stop and restart Communities or the WebSphere Application Server. The task names are LifecycleRetryQueuedEvents and EventLogCleanup. Run the CommunitiesScheduler.resumeSchedulingTask command to get the scheduled task running again.</p>
+<dl>
+<dt>CommunitiesScheduler.pauseSchedulingTask(String taskName)</dt>
+<dd>Puts the task in the suspended state. When you pause a scheduled task, that task remains in the suspended state even after you stop and restart Communities or the WebSphere Application Server. The task names are LifecycleRetryQueuedEvents and EventLogCleanup. Run the CommunitiesScheduler.resumeSchedulingTask command to get the scheduled task running again.</dd>
+</dl>
 <pre><code>If the task is currently running when you use this command, the task continues to run but is not scheduled to run again. If the task is already suspended, this command has no effect.
 
 The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
@@ -35345,8 +35367,10 @@ For example:
 CommunitiesScheduler.pauseSchedulingTask("LifecycleRetryQueuedEvents")
 ```
 </code></pre>
-<p>CommunitiesScheduler.resumeSchedulingTask(String taskName)
-:   If the task is suspended, puts the task in the scheduled stated. If the task is not suspended, this command has no effect. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</p>
+<dl>
+<dt>CommunitiesScheduler.resumeSchedulingTask(String taskName)</dt>
+<dd>If the task is suspended, puts the task in the scheduled stated. If the task is not suspended, this command has no effect. The task names are LifecycleRetryQueuedEvents and EventLogCleanup.</dd>
+</dl>
 <pre><code>The return value is either 1 or 0. 1 indicates success; 0 indicates failure.
 
 For example:

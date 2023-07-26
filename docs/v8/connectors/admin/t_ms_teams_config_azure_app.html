@@ -144,7 +144,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35111,8 +35111,16 @@
 <p>Make sure you've completed the steps in <a href="t_ms_teams_update_websphere_for_sso.html">Updating WebSphere to support single sign-on with Connections for Microsoft Teams</a>.</p>
 <h2 class="section" id="section_pd1_rrf_vnb">Create the Azure bot and app registration</h2>
 <ol>
-<li>Log in as the Microsoft Teams administrator.</li>
-<li>Navigate to Microsoft Teams and in the navigation, select the <strong>Apps catalog</strong> and find the Developer Portal app from Microsoft. Add this app if needed and open it.</li>
+<li>
+<p>Log in as the AD administrator with sufficient rights to create applications, for example Application Developer or Application Administrator.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For details on the permissions required by the administrator, refer to <a href="https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference">Azure AD built-in roles</a> in the Microsoft documentation.</p>
+</div>
+</li>
+<li>
+<p>Navigate to Microsoft Teams and in the navigation, select the <strong>Apps catalog</strong> and find the Developer Portal app from Microsoft. Add this app if needed and open it.</p>
+</li>
 <li>In the top navigation of the app, select <strong>Tools</strong>.</li>
 <li>Choose <strong>Bot Management</strong>, and click the <strong>+ New Bot</strong> button.</li>
 <li>In the bot name field, pick a name for your HCL Connections app, such as "HCL Connections" and then click <strong>Add</strong>.</li>
@@ -35128,8 +35136,16 @@
 </ol>
 <h2 class="section" id="section_t3f_trf_vnb">Add single sign-on permissions to your Azure app</h2>
 <ol>
-<li>Log into the Azure portal to complete the single sign on permissions, at https://portal.azure.com.</li>
-<li>Select or find <strong>App Registrations</strong> and then click on the Azure app that was just created.</li>
+<li>
+<p>Log into the <a href="https://portal.azure.com">Azure portal</a> to complete the single sign-on permissions. You must use an AD administrator account with sufficient rights to manage applications.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For details on the permissions required by the administrator, refer to <a href="https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference">Azure AD built-in roles</a> in the Microsoft documentation.</p>
+</div>
+</li>
+<li>
+<p>Select or find <strong>App Registrations</strong> and then click on the Azure app that was just created.</p>
+</li>
 <li>Navigate to <strong>Manage</strong> > <strong>Authentication</strong>. Under <strong>Supported account types</strong>, make sure that <strong>Accounts in any organizational directory (Any Azure AD Directory - Multitenant)</strong> is selected.</li>
 <li>Navigate to <strong>Manage</strong> > <strong>API Permissions</strong>.</li>
 <li>Click <strong>Add a permission</strong> and select <strong>Microsoft Graph</strong> > <strong>Delegated permissions</strong>.</li>

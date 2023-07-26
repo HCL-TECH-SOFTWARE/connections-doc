@@ -143,7 +143,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr2/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -543,6 +543,8 @@
         
           
         
+          
+        
       
       
         
@@ -585,6 +587,20 @@
     <li class="md-nav__item">
       <a href="../overview/i_ovr_c_supported_langs.html" class="md-nav__link">
         Supported languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/ic_r_accessibility_features.html" class="md-nav__link">
+        Accessibility features for HCL Connections
       </a>
     </li>
   
@@ -35293,7 +35309,7 @@
 
 <h1 class="task" id="t_upgrading_to_7">Performing an in-place or hybrid upgrade</h1>
 <p>Upgrade to an HCL Connections 8.0 CR1 deployment by running the Installation Manager Update function on a Connections 7.0 deployment. This can be done either in-place (in your existing production environment) or using a hybrid approach of installing 7.0 in a new environment identical to production then running the upgrade to 7.0.</p>
-<p>Download Connections and Component Pack 8.0. Connections Server packages are as follows:</p>
+<p>Download Connections and Component Pack 8 CR1. Connections Server packages are as follows:</p>
 <ul>
 <li>HCL_Connections_8.0 (download package for Connections 8.0 CR1 including system requirements)</li>
 <li>Websphere Application Server 8.5.5 and Select Fix Packs (download package for IBM WebSphere including FixPacks)</li>
@@ -35353,6 +35369,7 @@
 </li>
 <li>
 <p>In the Topology panel, select the topology that matches the deployment</p>
+<p><strong>Note:</strong> By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.</p>
 </li>
 <li>
 <p>Validate the Feature Foundation database</p>
