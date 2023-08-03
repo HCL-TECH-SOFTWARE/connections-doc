@@ -411,7 +411,7 @@ nav:
             - The Toolbar customization syntax: admin/install/tiny_editors/r_toolbar-syntax.md
             - List of predefined Toolbar objects: admin/install/tiny_editors/r_toolbar-predefined-identifiers.md
             - Default fonts list: admin/install/tiny_editors/r_fonts-default.md
-          # - Sample fonts list configurations: admin/install/tiny_editors/r_fonts-samples.md
+            - Sample fonts list configurations: admin/install/tiny_editors/r_fonts-samples.md
             - The fonts customization syntax: admin/install/tiny_editors/r_fonts-syntax.md
             - Default colors list: admin/install/tiny_editors/r_colors-default.md
             - Sample colors values: admin/install/tiny_editors/r_colors-samples.md
