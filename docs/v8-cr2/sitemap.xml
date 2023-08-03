@@ -1971,11 +1971,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/admin/t_admin_oauth_cust_app_access_rquest_ui.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/admin/t_admin_profiles_cache_operation.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -2736,11 +2731,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/admin_customize_login_page_redirect.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_admin_profiles_biz_cards.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -2766,32 +2756,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_customize_images.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_customize_javascript.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_customize_notifications.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_customize_overview.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_itm_iframe_assets.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/c_itm_iframe_intro.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2896,11 +2866,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_admin_MIME_icons.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_admin_common_oauth_config_homepage_gadgets-N.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -2956,27 +2921,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_customize_js_files.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_customize_lang_codes.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_customize_properties_files.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_customize_sharebox_gadgets_optional.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_customize_war_osgi_file_locations.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2991,27 +2936,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/r_itm_configuration_object.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_add_gadget_to_share.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_common_add_footer_link.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_common_change_font_styles.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_common_customize_login_screen.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3027,26 +2952,6 @@
     </url>
     <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_communities_include_biz_card_domino.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_files_customize_icons.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_navbar_change_style.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_navbar_create_files.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_admin_profiles_add_custom_strings.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3156,52 +3061,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_change_logo.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_communities_new_theme.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_connections_iframe.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_email_digests.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_enable_custom_debugging.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_error_page.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_extend_js.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_find_custom_directory.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_getstarted_tab_on.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_getting_started_page.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3216,22 +3081,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_notification_strings.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_notifications.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_override_js.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_replace_logo.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3241,27 +3091,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_strings_global.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_strings_via_javascript.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_customize_tag_files.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_edit_notification_templates_container.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/customize/t_itm_iframe_integrating.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3761,11 +3591,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/install/r_aix_libraries-N.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/install/r_attribute_mapping_profiles.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -3867,11 +3692,6 @@
     </url>
     <url>
          <loc>https://opensource.hcltechsw.com/connections/admin/install/t_create_multiple_db2_database_instances.html</loc>
-         <lastmod>2023-08-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://opensource.hcltechsw.com/connections/admin/install/t_create_multiple_db2_instances_on_aix.html</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
