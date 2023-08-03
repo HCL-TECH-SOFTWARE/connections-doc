@@ -40,8 +40,6 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - md_in_html
-  - toc:
-      title: On this page
 
 extra:
 #  analytics: 
@@ -137,6 +135,7 @@ nav:
                 - Creating IBM DB2 databases manually: admin/install/t_install_dbs_db2.md
                 - Creating multiple DB2 database instances:
                   - admin/install/t_create_multiple_db2_database_instances.md
+                  - Creating multiple DB2 database instances on AIX: admin/install/t_create_multiple_db2_instances_on_aix.md
                   - Creating multiple DB2 database instances on Linux: admin/install/t_create_multiple_db2_instances_on_linux.md
                   - Creating multiple DB2 database instances on Windows: admin/install/t_create_multiple_db2_instances_on_windows.md
               - Enabling NO FILE SYSTEM CACHING for DB2® on System z: admin/install/t_enable_no-file-system-caching.md
@@ -149,7 +148,7 @@ nav:
                 - Creating Oracle databases manually: admin/install/t_install_dbs_oracle.md
                 - Creating multiple Oracle databases:
                   - admin/install/t_create_multiple_oracle_databases.md
-                  - Creating multiple Oracle databases on Linux: admin/install/t_create_multiple_oracle_databases_on_aix_and_linux.md
+                  - Creating multiple Oracle databases on AIX and Linux: admin/install/t_create_multiple_oracle_databases_on_aix_and_linux.md
                   - Creating multiple Oracle databases on Windows: admin/install/t_create_multiple_oracle_databases_on_windows.md
               - Creating SQL Server databases:
                 - admin/install/c_inst_create_database_sql.md
@@ -189,6 +188,7 @@ nav:
             - Before installing:
               - admin/install/r_before_installing.md
               - Linux libraries: admin/install/r_linux_libraries.md
+              - AIX libraries: admin/install/r_aix_libraries-N.md
           - Installing HCL Connections:
             - admin/install/c_installing_overview.md
             - Installing as a non-root user: admin/install/t_non-root_install.md
@@ -237,7 +237,7 @@ nav:
               - admin/install/cp_config_om_intro.md
               - Configuring the HTTP server for Orient Me: admin/install/cp_config_om_http_server.md
               - Enabling profiles events for Orient Me: admin/install/cp_config_om_enable_profiles_events.md
-              - Configuring the Top Updates home page: admin/install/cp_config_om_enable_notifications.md
+              - Configuring the Orient Me home page: admin/install/cp_config_om_enable_notifications.md
               - Creating WebSEAL junctions for Orient Me: admin/install/cp_config_om_create_webseal_junctions.md
               - Enabling and securing Redis traffic to Orient Me:
                 - admin/install/cp_config_om_redis_traffic.md
@@ -245,7 +245,7 @@ nav:
                 - Securing Redis traffic to Orient Me (Linux): admin/install/cp_config_om_redis_secure_linux.md
                 - Securing Redis traffic to Orient Me (Windows): admin/install/cp_config_om_redis_secure_windows.md
                 - Verifying Redis server traffic: admin/install/cp_config_om_redis_verify.md
-              - Populating the Top Updates home page:
+              - Populating the Orient Me home page:
                 - admin/install/cp_config_om_populate_home_page.md
                 - Preparing to migrate data: admin/install/cp_config_om_prepare_migrate_profiles.md
                 - Migrating the data for the Orient Me home page: admin/install/cp_config_om_migrate_profiles.md
@@ -366,7 +366,7 @@ nav:
               - Configure additional TinyMCE settings: admin/install/tiny_editors/t_configure_14-additional-tinymce-settings.md
             - Installing Tiny Editors integration:
               - admin/install/tiny_editors/t_01-setup_03-editors_02-install_00-summary.md
-              - Install on Linux or Unix: admin/install/tiny_editors/t_01-setup_03-editors_02-install_01-install-on-linux-unix-or-aix.md
+              - Install on Linux, Unix or AIX: admin/install/tiny_editors/t_01-setup_03-editors_02-install_01-install-on-linux-unix-or-aix.md
               - Install on Windows: admin/install/tiny_editors/t_01-setup_03-editors_02-install_02-install-on-windows.md
               - Install manually: admin/install/tiny_editors/t_01-setup_03-editors_02-install_03-install-manually.md
           - Upgrading Tiny Editors for HCL Connections: admin/install/tiny_editors/t_01-setup_04-upgrading.md
@@ -392,7 +392,7 @@ nav:
             - admin/install/tiny_editors/t_03-uninst_00-summary.md
             - Uninstalling Tiny Editors Integration: 
               - admin/install/tiny_editors/t_03-uninst_01-editors_00-summary.md
-              - Uninstall the Tiny Editors Integration on Linux or Unix: admin/install/tiny_editors/t_03-uninst_01-editors_01-uninstall-on-linux-unix-or-aix.md
+              - Uninstall the Tiny Editors Integration on Linux, Unix or AIX: admin/install/tiny_editors/t_03-uninst_01-editors_01-uninstall-on-linux-unix-or-aix.md
               - Uninstall the Tiny Editors Integration on Windows: admin/install/tiny_editors/t_03-uninst_01-editors_02-uninstall-on-windows.md
               - Uninstall the Tiny Editors Integration manually: admin/install/tiny_editors/t_03-uninst_01-editors_03-uninstall-manually.md
             - Uninstalling the Tiny Editors Services: admin/install/tiny_editors/t_03-uninst_02-services-uninstall.md
@@ -410,7 +410,7 @@ nav:
             - The Toolbar customization syntax: admin/install/tiny_editors/r_toolbar-syntax.md
             - List of predefined Toolbar objects: admin/install/tiny_editors/r_toolbar-predefined-identifiers.md
             - Default fonts list: admin/install/tiny_editors/r_fonts-default.md
-          # - Sample fonts list configurations: admin/install/tiny_editors/r_fonts-samples.md
+            - Sample fonts list configurations: admin/install/tiny_editors/r_fonts-samples.md
             - The fonts customization syntax: admin/install/tiny_editors/r_fonts-syntax.md
             - Default colors list: admin/install/tiny_editors/r_colors-default.md
             - Sample colors values: admin/install/tiny_editors/r_colors-samples.md
@@ -1178,21 +1178,48 @@ nav:
               - Managing file resources used in the "include-files" property: admin/customize/custom_customizer_props_include_files.md
             - Customizing the user interface: 
               - admin/customize/t_admin_common_customize_main.md
-              - Creating custom config extensions:
-                  - admin/customize/creating-custom-config-extensions.md
-                  - Enabling the Connections app registry service for customization: admin/customize/enabling-app-registry.md
-                  - Customizing using window-scoped JavaScript objects: admin/customize/customization-using-window-scoped-javascript-objects.md
-              - Customizing the header: admin/customize/customizing-header.md
-              - Customizing search: admin/customize/customizing-search.md
-              - Customizing share: admin/customize/customizing-share.md
-              - Customizing the footer: admin/customize/customizing-footer.md
-              - Customizing navigation:
-                  - admin/customize/customizing-navigation.md
-                  - Customizing the side navigation bar: admin/customize/customizing-side-navigation.md
-              - Customizing the welcome tour: admin/customize/customizing-welcome-tour.md
-              - Customizing the Important To Me (ITM) bar: admin/customize/customizing-itm.md
-              - Customizing the main content: admin/customize/customizing-main-content.md
-              - Customizing the look and feel of HCL Connections: admin/customize/customizing-look-and-feel.md
+              - Determining where to save your customizations: 
+                - admin/customize/t_customize_find_custom_directory.md
+                - Application WAR files and OSGi bundles: admin/customize/r_customize_war_osgi_file_locations.md
+                - Language codes: admin/customize/r_customize_lang_codes.md
+              - Enabling live user interface customization editing mode: admin/customize/t_customize_enable_custom_debugging.md
+              - Customizing the navigation bar: admin/customize/t_admin_navbar_create_files.md
+              - Adding an Important To Me bar to a Connections component: 
+                - admin/customize/c_itm_iframe_intro.md
+                - iframe integration files: admin/customize/c_itm_iframe_assets.md
+                - Integrating the iframe: admin/customize/t_itm_iframe_integrating.md
+                - Important To Me bar reference: admin/customize/r_itm_configuration_object.md
+              - Customizing images: 
+                - admin/customize/c_customize_images.md
+                - Replacing images: admin/customize/t_customize_replace_logo.md
+                - Changing the HCL Connections logo: admin/customize/t_customize_change_logo.md
+                - Customizing file type icons: 
+                  - admin/customize/t_admin_files_customize_icons.md
+                  - File type icons: admin/customize/r_admin_MIME_icons.md
+              - Adding styles to the HCL Connections style sheet: admin/customize/t_admin_navbar_change_style.md
+              - Making extensive color and style changes: admin/customize/t_admin_common_change_font_styles.md
+              - Customizing the login page: 
+                - admin/customize/t_admin_common_customize_login_screen.md
+                - Customizing the login page redirect parameter: admin/customize/admin_customize_login_page_redirect.md
+              - Customizing the footer: admin/customize/t_admin_common_add_footer_link.md
+              - Customizing the error page: admin/customize/t_customize_error_page.md
+              - Customizing the Getting Started view: admin/customize/t_customize_getting_started_page.md
+              - Customizing product strings: 
+                - admin/customize/t_customize_strings_global.md
+                - Property file strings: admin/customize/r_customize_properties_files.md
+                - Customizing strings sourced in JavaScript: 
+                  - admin/customize/t_customize_strings_via_javascript.md
+                  - JavaScript resource strings: admin/customize/r_customize_js_files.md
+                - Adding custom strings for widgets and other specified scenarios: admin/customize/t_admin_profiles_add_custom_strings.md
+                - Customizing notification strings: admin/customize/t_customize_notification_strings.md
+              - Overriding and extending JavaScript in HCL Connections: 
+                - admin/customize/c_customize_javascript.md
+                - Overriding JavaScript in HCL Connections: admin/customize/t_customize_override_js.md
+                - Extending JavaScript in HCL Connections: admin/customize/t_customize_extend_js.md
+              - Extending JSP files with custom tags: admin/customize/t_customize_tag_files.md
+              - Customizing the Application Access and Access Request interfaces: admin/admin/t_admin_oauth_cust_app_access_rquest_ui.md
+              - Embedding Connections in an IFrame: admin/customize/t_customize_connections_iframe.md
+              - Customizing the Hikari theme: admin/customize/t_customize_communities_new_theme.md
             - Customizing notifications: 
               - admin/customize/c_customize_notifications.md
               - Customizing basic notification settings CR4 and later: admin/customize/t_customize_new_template.md
@@ -1243,7 +1270,6 @@ nav:
               - Specifying properties to expose in the search index: admin/customize/t_admin_profiles_expose_props_search.md
               - Customizing login attributes: admin/customize/t_admin_profiles_customize_login_attbs.md
               - Creating a simple profile data model and template customization: admin/customize/t_admin_profiles_custom_example.md
-              - Configuring Profiles directory search options: admin/customize/t_admin_profiles_configure_adv_search.md
             - Using Profiles and Communities business cards: 
               - admin/customize/c_admin_profiles_biz_cards.md
               - Integrating the Communities business card: 
