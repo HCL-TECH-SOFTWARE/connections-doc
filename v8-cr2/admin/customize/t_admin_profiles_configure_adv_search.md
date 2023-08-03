@@ -35,7 +35,7 @@ A directory search in Profiles allows the user to search using multiple fields. 
         http://yourco.com/profiles/html/advancedSearch.do?keyword=&displayName=&preferredFirstName=Joseph&preferredLastName=&profileTags=&jobResp=&experience=&background=&organizationTitle=&workLocation%24city=&workLocation%24state=&countryDisplayValue=&email=&telephoneNumber=&extattr%24schoolName=yourschool&lang=en_us
         ```
 
-        **Note:** For more information about adding custom extension attributes to Profiles, see [Adding custom extension attributes for Profiles](t_admin_profiles_enable_custom_fields.md). For information about how to add custom strings in Profiles, see [Adding custom strings for widgets and other specified scenarios](t_admin_profiles_add_custom_strings.md).
+        **Note:** For more information about adding custom extension attributes to Profiles, see [Adding custom extension attributes for Profiles](t_admin_profiles_enable_custom_fields.md). For information about how to add custom strings in Profiles, see [Adding custom strings for widgets and other specified scenarios](https://help.hcltechsw.com/connections/v7/admin/customize/t_admin_profiles_add_custom_strings.html) in the 7.0 documentation.
 
     For example:
 
