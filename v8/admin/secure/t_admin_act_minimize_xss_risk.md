@@ -12,6 +12,7 @@ Most web browsers have security applications that prevent scripts which originat
 
 3.  Open the httpd.conf file, which is the configuration file for HCL HTTP Server, in a text editor. By default, the file is stored in the following directory:
 
+    -   AIX®: /usr/IBM/HTTPServer/conf
     -   Linux®: /opt/IBM/HTTPServer/conf
     -   Microsoft® Windows®: `C:\IBM\HTTPServer\conf`
 4.  Enable the rewrite module. If the following line of text is commented out, uncomment it. If the statement is not present, add it.

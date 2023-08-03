@@ -77,7 +77,7 @@ The notification types listed in the following table include the application/emb
 
     For example:
 
-    -   Linux:
+    -   AIX or Linux:
 
         ```
         LCConfigService.checkOutNotificationConfig("/opt/temp","foo01Cell01")

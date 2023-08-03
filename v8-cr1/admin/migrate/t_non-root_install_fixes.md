@@ -2,7 +2,7 @@
 
 Grant permissions to a non-root user to install fixes.
 
-This task applies only to HCL Connections™ deployments on Linux®.
+This task applies only to HCL Connections™ deployments on AIX® or Linux®.
 
 By default, only root users have the necessary permissions to install fixes for an Connections deployment. You can permit non-root users to install fixes by changing their permissions to access certain data directories.
 

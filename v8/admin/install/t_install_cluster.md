@@ -14,7 +14,6 @@ Consider the following guidelines for a successful installation:
 -   It is best that you change the SOAP Request Timeout in the soap.client.props file to com.ibm.SOAP.requestTimeout=0, to ensure that no requests time out during the installation.
 -   Make sure that the JVM heap size of your Deployment Manager is high enough to prevent your system from crashing with OutOfMemory errors during the upgrade. At least temporarily, modify the JVM heap size to an initial and maximum value of 2048.
 -   After making any of the modifications above, restart the Deployment Manager and start the HTTP services afterwards.
--   HCL Connections 8.0 requires IBM Installation Manager 1.9 or above. If you are using an earlier version of IBM Installation Manager than 1.9 than you need to upgrade before installing Connections. The IBM Installation Manager 1.9.2 which can be found at `HCL_Connections_Install\IM\<operatingSystem>`
 
 Assuming you made any of the modifications suggested, restart the Deployment Manager and then start the HTTP services before you proceed to install Connections.
 
@@ -28,7 +27,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
     3.  Enter the startNode command for your operating system:
 
-        -   Linux: ./startNode.sh
+        -   AIX or Linux: ./startNode.sh
         -   Windows: startNode.bat
 3.  Copy the installation files to the system that hosts the Deployment Manager.
 
@@ -36,20 +35,20 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
 4.  From the Installation Manager directory, run the file to start the Installation Manager and add the repository to it as follows:
 
-    -   Linux: IBMIM
+    -   AIX or Linux: IBMIM
     -   Windows: IBMIM.exe
-    
     Repository:
 
-    -   Linux: Connections set-up\\HCL\_Connections\_Install\\HCLConnections\\repository.config
+    -   AIX or Linux: Connections set-up\\HCL\_Connections\_Install\\HCLConnections\\repository.config
     -   Windows: Connections set-up\\HCL\_Connections\_Install\\HCLConnections\\repository.config
-    
+    **Note:** Installation Manager might ask you to upgrade the Installation Manager. Connections bundles only the 64-bit, version 1.8.5.1 Installation Manager.
 
 5.  When IBM Installation Manager is launched, in the Select packages to install window, select the packages that you want to install, and then click **Next** to continue.
 
     **Notes:**
 
     -   Accept the default setting for **Show all versions**.
+    -   If you are using an earlier version of IBM Installation Manager than 1.8.5.1, the 1.8.5.1 package is selected in this window.
     -   Click **Check for Other Versions and Extensions** to search for updates to IBM Installation Manager.
 6.  Review and accept the license agreement by clicking **I accept the terms in the license agreements**. Click **Next**.
 
@@ -66,10 +65,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
         **Note:** If you install Communities and want users to be able to add the Rich Content app in a community, you must also install Wikis now.
 
     -   Install Metrics now so that your application data is captured from the moment that HCL Connections is deployed. If you install Metrics at a later stage, you will not have any data reports for the period before you installed Metrics.
-
-    |Section|Description|
-    |-------|-----------|
-    |**HCL Connections 8.0**|Install all HCL Connections applications.|
+        |**HCL Connections 8.0**|Install all HCL Connections applications.|
     |**Activities**|Collaborate with colleagues.|
     |**Blogs**|Write personal perspectives about projects.|
     |**Communities**|Interact with people on shared projects.|
@@ -90,6 +86,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
         Note the default path to the WebSphere Application Server installation:
 
+        -   AIX: /usr/IBM/WebSphere/AppServer
         -   Linux: /opt/IBM/WebSphere/AppServer
         -   Windows: C:\\Program Files \(x86\)\\IBM\\WebSphere\\AppServer
     2.  Enter the properties of the WebSphere Application Server Deployment Manager \(DM\):
@@ -112,7 +109,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
     3.  Click **Validate** to verify the DM information that you entered and that application security is enabled on WebSphere Application Server. If the verification fails, IBM Installation Manager displays an error message.
 
-        **Note:** \(Linux\) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the **Open File Descriptor limit**, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.
+        **Note:** \(AIX and Linux\) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the **Open File Descriptor limit**, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.
 
     4.  When the verification test is successful, click **Next**.
 
@@ -181,6 +178,10 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
         If your installed applications use different database servers or instances, enter the port number for each database server or instance.
 
     5.  Enter the **JDBC driver location**. For example:
+
+        -   AIX:
+
+            /usr/IBM/WebSphere/AppServer/lib
 
         -   Linux:
 
@@ -338,7 +339,7 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
 
 20. Restart the Deployment Manager:
 
-    -   Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the `./stopManager.sh` command and then enter the `./startManager.sh`command.
+    -   AIX or Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the `./stopManager.sh` command and then enter the `./startManager.sh`command.
     -   Windows: Stop and restart the Deployment Manager service.
 
         Run C:\\IBM\\WebSphere\\AppServer\\profiles\\Dmgr01\\bin\\startManager.bat and change directory to
@@ -401,7 +402,6 @@ Assuming you made any of the modifications suggested, restart the Deployment Man
     -   Push Notification cluster
     -   Rich Text Editor cluster
     -   Widget Container cluster
-    
     The other features include.
 
     -   Activities cluster

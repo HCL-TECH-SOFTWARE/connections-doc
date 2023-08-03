@@ -625,6 +625,7 @@ To set up SSO using Security Verify Access, complete the following steps:
 
 16. Determine how you want the system to behave when users log out of Connections. By default, when users click **Log out** in the SSO environment, they are not fully logged out of Connections. Edit the HTTP Server httpd.conf configuration file to implement the post-log out behavior. By default, the file is located in the following directory:
 
+    -   AIX®: /usr/IBM/HTTPServer/conf
     -   Linux™: /opt/IBM/HTTPServer/conf
     -   Windows™: C:\\IBM\\HTTPServer\\conf
     To capture requests to /ibm\_security\_logout and redirect them to /pkmslogout, add the following rewrite rules to the httpd.conf file:

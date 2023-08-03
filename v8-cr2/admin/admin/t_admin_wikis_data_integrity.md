@@ -8,7 +8,7 @@ You can check integrity between database data and file system data by running th
 
 Before you run the WikisDataIntegrityService.checkFiles command, create the path\_to\_extra\_filesDirectory target folder. This folder is used to save unused files during the integrity check. Create the folder on the device where you run the command.
 
-If you are running the command on Linux™, ensure that you have the appropriate write permissions for the folder.Ensure that you have the appropriate write permissions for the folder.
+If you are running the command on Linux™ or AIX®, ensure that you have the appropriate write permissions for the folder.Ensure that you have the appropriate write permissions for the folder.
 
 1.  Start the wsadmin client.
 
@@ -20,7 +20,7 @@ If you are running the command on Linux™, ensure that you have the appropriate
 
 3.  Check the integrity of data in the database and file system directory with the following command:
 
-    -   Linux: WikisDataIntegrityService.checkFiles\("/opt/path\_to\_extra\_wikisDirectory"\)
+    -   AIX or Linux: WikisDataIntegrityService.checkFiles\("/opt/path\_to\_extra\_wikisDirectory"\)
     -   Windows™: WikisDataIntegrityService.checkFiles\("C:\\path\_to\_extra\_wikisDirectory"\)
 
 **Parent topic:**[Backing up Wikis data](../admin/t_admin_wikis_backup.md)

@@ -40,7 +40,7 @@ A configuration option in the notification-config.xml file allows you to enable 
 
     For example:
 
-    -   Linux:
+    -   AIX or Linux:
 
         ```
         LCConfigService.checkOutNotificationConfig("/opt/temp","foo01Cell01")

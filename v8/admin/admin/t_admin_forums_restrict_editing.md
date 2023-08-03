@@ -13,6 +13,12 @@ To restrict the editing of forum topics to the users who created them, you must 
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
+        AIX:
+        /usr/IBM/WebSphere/AppServer
+        
+        ```
+
+        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -32,7 +38,7 @@ To restrict the editing of forum topics to the users who created them, you must 
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -43,7 +49,7 @@ To restrict the editing of forum topics to the users who created them, you must 
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 2.  Use the wsadmin client to access and check out the HCL Connections configuration files:
 
@@ -59,7 +65,7 @@ To restrict the editing of forum topics to the users who created them, you must 
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you modify them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-            Linux only: The directory must grant write permissions or the command does not run successfully.
+            AIX and Linux only: The directory must grant write permissions or the command does not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections applications. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:
 
@@ -67,7 +73,7 @@ To restrict the editing of forum topics to the users who created them, you must 
 
         For example:
 
-        -   Linux:LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
+        -   AIX or Linux:LCConfigService.checkOutConfig\("/opt/temp","foo01Cell01"\)
         -   Microsoft Windows:LCConfigService.checkOutConfig\("c:/temp","foo01Cell01"\)
 3.  Open the `LotusConnections-config.xml` file in an editor, and then add the following content:
 

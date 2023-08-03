@@ -22,13 +22,13 @@ To configure the proxy-ecm-config.tpl file for library widgets, complete the fol
 
         -   working\_directory is the temporary working directory to which the file is copied and are stored while you make changes. Use forward slashes to separate directories in the file path, even if you are using the Microsoft® Windows® operating system.
 
-            Linux® only: The directory must grant write permissions or the command does not run successfully.
+            AIX® and Linux® only: The directory must grant write permissions or the command does not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, type the following command while in the wsadmin command processor:print AdminControl.getCell\(\)
         
         For example:
 
-        -   Linux: LCConfigService.checkOutProxyEcmConfig\("/opt/temp","foo01Cell01"\)
+        -   AIXor Linux: LCConfigService.checkOutProxyEcmConfig\("/opt/temp","foo01Cell01"\)
         
         -   Microsoft Windows:LCConfigService.checkOutProxyEcmConfig\("c:/temp","foo01Cell01"\)
 

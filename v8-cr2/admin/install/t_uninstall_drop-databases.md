@@ -16,7 +16,7 @@ Complete the following steps for your database type:
 
     1.  Log in to the database server with an authorized administrator account.
 
-        **Note:** The default administrator account is db2inst1 on Linux™, and db2admin on Windows™.
+        **Note:** The default administrator account is db2inst1 on AIX® and Linux™, and db2admin on Windows™.
 
     2.  Run the following command for Communities:
 
@@ -30,7 +30,7 @@ Complete the following steps for your database type:
 
         The SQL scripts are located in the following directory:
 
-        -   Linux: Wizard/connections.sql/application\_subdirectory/db2
+        -   AIX or Linux: Wizard/connections.sql/application\_subdirectory/db2
 
             **Notes:**
 
@@ -61,11 +61,11 @@ Complete the following steps for your database type:
 
     5.  Run the following command for Communities:
 
-        -   Linux:@Wizards/connections.sql/communities/oracle/calendar-dropDb.sql
+        -   AIX or Linux:@Wizards/connections.sql/communities/oracle/calendar-dropDb.sql
         -   Windows:@Wizards\\connections.sql\\communities\\oracle\\calendar-dropDb.sql
     6.  Run the following command for the other applications:
 
-        -   Linux:@Wizards/connections.sql/application\_subdirectory/oracle/dropDb.sql
+        -   AIX or Linux:@Wizards/connections.sql/application\_subdirectory/oracle/dropDb.sql
         -   Windows:@Wizards\\connections.sql\\application\_subdirectory\\oracle\\dropDb.sql
         where application\_subdirectory is the directory for an HCL Connections application.
 

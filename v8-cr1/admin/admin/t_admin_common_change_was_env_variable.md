@@ -27,6 +27,10 @@ Unless you change the directory paths during the installation, the default IBM®
 
 [Changing the location of the Search index](../admin/t_admin_homepage_change_index_location.md)
 
+[Determining where to save your customizations](../customize/t_customize_find_custom_directory.md)
+
+[JavaScript resource strings](../customize/r_customize_js_files.md)
+
 [Synchronizing user data by using administrative commands](../admin/c_admin_common_sync_via_admin_commands1.md)
 
 [News repository error messages](../troubleshoot/r_error_codes_news.md)

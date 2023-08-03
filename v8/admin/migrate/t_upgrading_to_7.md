@@ -53,8 +53,6 @@ Download Connections and Component Pack 8.0. Connections Server packages are as 
 
 13. In the Topology panel, select the topology that matches the deployment
 
-    **Note:** By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.
-
 14. Validate the Feature Foundation database
 
 15. Click **OK** \> **Next** \> **Update** \> **Finish**.

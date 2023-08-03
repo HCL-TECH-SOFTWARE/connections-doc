@@ -11,17 +11,15 @@ The following sections define the commands that you can use when you are working
 
 ## HomepageCellConfig commands {#HomepageCellConfig .section}
 
-**HomepageCellConfig.checkInGettingstartedConfig\("working\_directory", "cell\_name"\)**
+HomepageCellConfig.checkInGettingstartedConfig\("working\_directory", "cell\_name"\)
+:   Checks in the configuration files for the Getting Started wizard where the working\_directory and cell\_name parameters contain the same values you specified for the checked out location. See the description for the HomepageCellConfig.checkOutGettingstartedConfig command for more information.
 
-Checks in the configuration files for the Getting Started wizard where the working\_directory and cell\_name parameters contain the same values you specified for the checked out location. See the description for the HomepageCellConfig.checkOutGettingstartedConfig command for more information.
-
-**HomepageCellConfig.checkOutGettingstartedConfig\("working\_directory","cell\_name"\)**
-
-Checks out the configuration files for the Getting Started wizard where:
+HomepageCellConfig.checkOutGettingstartedConfig\("working\_directory","cell\_name"\)
+:   Checks out the configuration files for the Getting Started wizard where:
 
     -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft™ Windows™ operating system.
 
-        **Note:** Linux™ only: The directory must grant write permissions or the command does not run successfully.
+        **Note:** AIX®, and Linux™ only: The directory must grant write permissions or the command does not run successfully.
 
     -   cell\_name is the name of the WebSphere® Application Server cell that hosts the IBM® Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -32,7 +30,7 @@ Checks out the configuration files for the Getting Started wizard where:
 
     For example:
 
-    -   Linux:
+    -   AIX/Linux:
 
         ```
         HomepageCellConfig.checkOutGettingstartedConfig("/opt/act/temp","foo01Cell01")
@@ -47,13 +45,11 @@ Checks out the configuration files for the Getting Started wizard where:
 
 ## HomepagePersonService commands {#HomepagePersonService .section}
 
-**HomepagePersonService.resetWelcomeFlagAllMembers\(\)**
+HomepagePersonService.resetWelcomeFlagAllMembers\(\)
+:   Forces the Getting Started view to be the default Home page view for all users.
 
-Forces the Getting Started view to be the default Home page view for all users.
-
-**HomepagePersonService.resetWelcomeFlagMemberByEmail\(String email\)**
-
-Forces the Getting Started view to be the default Home page view for the user specified by email address.
+HomepagePersonService.resetWelcomeFlagMemberByEmail\(String email\)
+:   Forces the Getting Started view to be the default Home page view for the user specified by email address.
 
     For example:
 
@@ -61,9 +57,8 @@ Forces the Getting Started view to be the default Home page view for the user sp
     HomepagePersonService.resetWelcomeFlagMemberByEmail("jsmith@example.com")
     ```
 
-**HomepagePersonService.resetWelcomeFlagMemberByLoginName\(String loginName\)**
-
-Forces the Getting Started view to be the default Home page view for the user specified by login name.
+HomepagePersonService.resetWelcomeFlagMemberByLoginName\(String loginName\)
+:   Forces the Getting Started view to be the default Home page view for the user specified by login name.
 
     For example:
 
@@ -71,9 +66,8 @@ Forces the Getting Started view to be the default Home page view for the user sp
     HomepagePersonService.resetWelcomeFlagMemberByLoginName("Joe Smith")
     ```
 
-**HomepagePersonService.resetWelcomeFlagBatchMembersByEmail\(String fileName\)**
-
-Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's email per line.
+HomepagePersonService.resetWelcomeFlagBatchMembersByEmail\(String fileName\)
+:   Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's email per line.
 
     For example:
 
@@ -81,9 +75,8 @@ Forces the Getting Started view to be the default Home page view for the users l
     HomepagePersonService.resetWelcomeFlagBatchMembersByEmail("/opt/Homepage/emails.txt")
     ```
 
-**HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName\(String fileName\)**
-
-Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's login name per line.
+HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName\(String fileName\)
+:   Forces the Getting Started view to be the default Home page view for the users listed in the specified text file. Define the people by adding one person's login name per line.
 
     For example:
 
@@ -91,12 +84,14 @@ Forces the Getting Started view to be the default Home page view for the users l
     HomepagePersonService.resetWelcomeFlagBatchMembersByLoginName("/opt/Homepage/logins.txt")
     ```
 
-**Parent topic:** [Administering the Home page using the wsadmin client](../admin/c_admin_homepage_wsadmin.md)
+**Parent topic:**[Administering the Home page using the wsadmin client](../admin/c_admin_homepage_wsadmin.md)
 
 **Related information**  
 
 
 [Forcing the Getting Started view to be the default Home page view](../customize/t_customize_getstarted_tab_on.md)
+
+[Customizing the Getting Started view](../customize/t_customize_getting_started_page.md)
 
 [Synchronizing user data by using administrative commands](../admin/c_admin_common_sync_via_admin_commands1.md)
 

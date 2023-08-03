@@ -8,7 +8,7 @@ The HCL Connections Installation Manager program requires that you revert the Co
 
 2.  On the deployment manager, open a command prompt, and then change to the following directory on the WebSphere Application Server hosting the HCL Connections server:
 
-    -   On Linux™:
+    -   On AIX® or Linux™:
 
         ```
         /opt/IBM/Connections/ConfigEngine
@@ -22,7 +22,7 @@ The HCL Connections Installation Manager program requires that you revert the Co
 
 3.  Enter the following command to run the script that reverts the Common application to the News cluster:
 
-    -   On Linux:
+    -   On AIX o Linux:
 
         ```
         ./ConfigEngine.sh revert-common-ear -DWasUserid=<was_admin_username> -DWasPassword=<was_admin_password> > /tmp/revert-common-ear.log 2>&1
@@ -42,7 +42,7 @@ The HCL Connections Installation Manager program requires that you revert the Co
 
 4.  Enter the following command to run the script that reverts the WidgetContainer application to the News cluster:
 
-    -   On Linux:
+    -   On AIX, Linux:
 
         ```
         ./ConfigEngine.sh revert-widgetcontainer-ear -DWasUserid=<was_admin_username> -DWasPassword=<was_admin_password> > /tmp/revert-widgetcontainer-ear.log 2>&1

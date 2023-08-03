@@ -60,7 +60,7 @@ To change moderation configuration settings, complete the following steps:
 
         For example:
 
-        -   Linux:
+        -   AIX/Linux:
 
             ```
             LCConfigService.checkOutContentReviewConfig("/opt/temp","foo01Cell01")

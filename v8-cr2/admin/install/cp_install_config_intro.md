@@ -8,7 +8,7 @@ Customers with credentials to access Connections in the HCL Software License & D
 
 Component Pack for HCL Connections introduces several offerings that enhance collaboration and boost productivity. Read on to understand the offerings, what resources Component Pack requires, some sizing considerations for Kubernetes, and information on automating installation or upgrade.
 
-To see what's new in Component Pack 8 CR2, see [What's New in HCL Connections](../overview/i_ovr_r_whats_new_cr1.md).
+To see what's new in Component Pack 8 CR1, see [What's New in HCL Connections](../overview/i_ovr_r_whats_new_cr1.md).
 
 -   **[Component Pack offerings](../install/cp_install_offerings.md)**  
 The Component Pack for HCL Connections introduces new connectivity capabilities that enhance collaboration and boost productivity.

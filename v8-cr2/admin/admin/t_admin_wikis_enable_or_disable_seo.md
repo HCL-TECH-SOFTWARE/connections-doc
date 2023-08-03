@@ -10,8 +10,8 @@ To change the scheduled SEO task, complete the following steps:
 
 1.  Open the wikis-config.xml file. The default location of the file is:
 
-    -   Linux™: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/config/wikis-config.xml
-    -   Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/config/wikis-config.xml
+    -   AIX® or Linux™: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/config/wikis-config.xml
+    -   AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/config/wikis-config.xml
     -   Windows: [connections\_root](../plan/i_ovr_r_directory_conventions.md)\\config\\wikis-config.xml
 2.  Find the stanza for the **SitemapGenerator** task.
 
@@ -23,8 +23,8 @@ To change the scheduled SEO task, complete the following steps:
 
 6.  To edit the number of URLs per sitemap or the output path of the sitemap file, open the web.xml file. The default location of the file is:
 
-    -   Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
-    -   Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
+    -   AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
+    -   AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/Wikis.ear/wikis.web.war/WEB-INF/web.xml
     -   Windows: [connections\_root](../plan/i_ovr_r_directory_conventions.md)\\Wikis.ear\\wikis.web.war\\WEB-INF\\web.xml
 7.  Change the output path by changing the value of the **WIKI\_SITEMAP\_STORAGE\_ROOT** parameter.
 

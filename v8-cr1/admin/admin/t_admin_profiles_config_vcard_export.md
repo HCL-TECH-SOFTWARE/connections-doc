@@ -31,13 +31,14 @@ Profiles users can export vCards from people's profiles and then import the prof
 
             **Note:** In order for the command to complete successfully, the directory must grant write permissions if you are using one of the following operating systems:
 
+            -   AIX
             -   Linux
             **Note:** The directory must grant write permissions or the command does not complete successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the Profiles application. This argument is required. It is also case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor: print AdminControl.getCell\(\)
         For example:
 
-        -   Linux:
+        -   AIX or Linux:
 
             ```
             ProfilesConfigService.checkOutConfig("/opt/prof/temp","foo01Cell01")
@@ -117,4 +118,6 @@ Profiles users can export vCards from people's profiles and then import the prof
 
 
 [Applying property changes in Profiles](../admin/t_admin_profiles_save_changes.md)
+
+[Adding custom strings for widgets and other specified scenarios](../customize/t_admin_profiles_add_custom_strings.md)
 

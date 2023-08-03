@@ -2,7 +2,7 @@
 
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.
 
-Side-by-side migration differs from the approach in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.
+Side-by-side migration differs from the approach in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) in that, with two server clusters side by side, the data on the production cluster can be transferred to the new cluster before switching over, decreasing system downtime. Otherwise, the steps to upgrade Component Pack are similar to the sample steps for upgrading on one cluster.
 
 Side-by-side migration makes particular sense in certain cases, such as upgrading the whole Kubernetes cluster from a very old version to the latest one, upgrading the underlying container runtime engine, or migrating from one CRI \(container runtime interface\) to another.
 

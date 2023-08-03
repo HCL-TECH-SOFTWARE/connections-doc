@@ -20,8 +20,8 @@ To perform a silent installation, complete the following steps:
 
 2.  Run the silent installation script:
 
-    -   Linux™ \(root user\): ./installc -input response\_file -log log\_file -acceptLicense
-    -   Linux \(non-root user\): ./userinstc -input response\_file -log log\_file -acceptLicense
+    -   AIX® or Linux™ \(root user\): ./installc -input response\_file -log log\_file -acceptLicense
+    -   AIX or Linux \(non-root user\): ./userinstc -input response\_file -log log\_file -acceptLicense
     -   Windows™ \(administrator\): installc.exe -input response\_file -log log\_file -acceptLicense
     -   Windows \(non-administrator\): userinstc.exe -input response\_file -log log\_file -acceptLicense
     where response\_file is the full path and name of the response file and log\_file is the full path and name of the log file. The default name of the file is LC.rsp.

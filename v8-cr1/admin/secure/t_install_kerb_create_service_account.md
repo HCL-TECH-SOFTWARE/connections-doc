@@ -6,7 +6,7 @@ Configure HCL Connections to use Active Directory as the user directory. For mor
 
 Do not perform this procedure until after the Profiles database has been populated. For more information, see the [Populating the Profiles database](../install/t_prof_install_profiles_db.md) topic.
 
-Active Directory and the domain controller must be hosted on Windows™ systems, but Connections may be installed on Linux™ or Windows systems.
+Active Directory and the domain controller must be hosted on Windows™ systems, but Connections may be installed on AIX®, Linux™, or Windows systems.
 
 If you want to use Kerberos, then you need to make sure the actual system hostname is in the keytab. For example, if you have two application server machines, host1.austin.ibm.com and host2.austin.ibm.com, the Kerberos keytab file must contain the <service\_name\>/host1.us.example.com and <service\_name\>/host2.us.example.com SPNs and their Kerberos keys. Refer to [Configuring Kerberos as the authentication mechanism using the administrative console](https://www.ibm.com/docs/was-nd/8.5.5?topic=sukaamwas-configuring-kerberos-as-authentication-mechanism-using-administrative-console) for more information.
 
@@ -37,9 +37,9 @@ To create a service principal name and keytab file, complete the following steps
 
     Where Kerberos is used, if the host clocks are not synchronized with the Kerberos server clock, authentication will fail.
 
-    -   Linux:
+    -   AIX or Linux:
 
-        For information about synchronizing the system clocks in a Linux environment, refer to your operating system documentation.
+        For information about synchronizing the system clocks in an AIX or Linux environment, refer to your operating system documentation. For examples of the ntpdate command, refer to the [ntpdate Command](http://publib.boulder.ibm.com/infocenter/aix/v7r1/topic/com.ibm.aix.cmds/doc/aixcmds4/ntpdate.htm) topic in the AIX information center.
 
     -   Windows:
 
@@ -149,7 +149,7 @@ To create a service principal name and keytab file, complete the following steps
 
     2.  Open a command prompt on the system hosting the Deployment Manager and start the wsadmin client with the following parameters:
 
-        -   Linux:
+        -   AIX or Linux:
 
             ```
             ./wsadmin.sh -lang jacl -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS Port

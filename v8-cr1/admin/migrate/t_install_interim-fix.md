@@ -20,14 +20,14 @@ To install a fix in interactive mode, complete the following steps:
 
 2.  If you are running on the Windows™ operating system, skip this step.
 
-    Linux: Change permissions by running chmod on the updateInstaller file.
+    AIX/Linux: Change permissions by running chmod on the updateInstaller file.
 
     1.  Navigate to the following directory: [connections\_root](../plan/i_ovr_r_directory_conventions.md) /opt/IBM/Connections.
     2.  Change directory to the following directory: /opt/IBM/Connections/updateInstaller.
     3.  Run chmod ugo+x \*
 3.  Start the installation wizard from the updateInstaller directory in the [connections\_root](../plan/i_ovr_r_directory_conventions.md) directory and run the following script:
 
-    -   Linux: ./updateWizard.sh
+    -   AIX/Linux: ./updateWizard.sh
     -   Microsoft Windows:updateWizard.bat
 4.  On the Welcome page, click **Next** to continue.
 

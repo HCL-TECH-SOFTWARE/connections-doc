@@ -20,6 +20,7 @@ To update the web addresses to your HCL Connections applications, complete the f
 
 2.  Check out the LotusConnections-config.xml file. The file is stored by default in the following directory:
 
+    -   AIX®: /usr/IBM/WebSphere/AppServer/profiles/profile\_name/config/cells/cell\_name/LotusConnections-config
     -   Linux™: /opt/IBM/WebSphere/AppServer/profiles/profile\_name/config/cells/cell\_name/LotusConnections-config
     -   Windows™: C:\\IBM\\WebSphere\\AppServer\\profiles\\profile\_name\\config\\cells\\cell\_name\\LotusConnections-config
 3.  For each application, edit the LotusConnections-config.xml directly to update the web addresses specified in the href and ssl\_href properties:

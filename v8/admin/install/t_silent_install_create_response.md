@@ -24,7 +24,7 @@ This task describes the procedure to generate a response file for the following 
 
 For each procedure, run a simulated instance of the IBM Installation Manager and record your input to a response file. Later, you can run a silent command that uses this response file as an input parameter.
 
-Default response files on Linux:
+Default response files on AIX or Linux:
 
 Install
 :   LC.rsp
@@ -52,7 +52,7 @@ To create a response file, complete the following steps:
 
 3.  Run the command to record a response file. This command uses the -skipInstall agentDataLocation argument, which records the installation commands without installing HCL Connections. Substitute your own file name and path for the response file. Verify that the file paths that you enter exist because IBM Installation Manager does not create directories for the response file.
 
-    -   Linux:./IBMIM -record /response\_files/install\_product.xml -skipInstall agentDataLocation
+    -   AIX and Linux:./IBMIM -record /response\_files/install\_product.xml -skipInstall agentDataLocation
     -   Microsoft Windows:IBMIM.exe -record responseFile.rsp -skipInstall agentDataLocation
     where agentDataLocation is the file path to the skip directory, which stores IBM Installation Manager data files.
 

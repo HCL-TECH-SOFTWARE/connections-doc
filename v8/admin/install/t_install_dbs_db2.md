@@ -6,6 +6,8 @@ Use this procedure if you do not want to use the database wizard to create your 
 
 The SQL scripts are located in a compressed file, located in the HCL\_Connections\_Install\\HCLConnections\\native\\connections.sql.zip\\connections.sql directory of the HCL Connections setup directory or installation media. Extract this file before proceeding. When extracted, the SQL scripts are located in the HCL\_Connections\_Install/HCLConnections/native/connections.sql/application\_subdirectory directory of the HCL Connections set-up directory or installation media, where application\_subdirectory is the directory that contains the SQL scripts for each application.
 
+If you are using AIX®, see the note in the *Preparing the database wizard* topic about decompressing TAR files.
+
 **Notes:**
 
 -   If you are using Linux™ on IBM System z® with the DASD driver, the SQL scripts are located in the HCL\_Connections\_Install\_s390/IBMConnections/connections.s390.sql directory.
@@ -13,11 +15,16 @@ The SQL scripts are located in a compressed file, located in the HCL\_Connection
 
 If the database server and HCL Connections are installed on different systems, copy the SQL scripts to the system that hosts the database server.
 
+\(AIX only\) Configure the AIX system that hosts the DB2 databases to use the enhanced journaled file system \(JFS2\), which supports file sizes larger than 2 GB. To enable large files in the JFS system, complete the following steps:
+
+1.  In the SMIT tool, select **System Storage Management****\>File System\>****Add/Change/Show/Delete File Systems**
+2.  Select the file system type you want to use and specify other characteristics as wanted. If you use a Journaled File System, set the **Large File Enabled** setting to true.
+
 **Attention:** The HCL Connections 7.0 database wizard does not create the XCC or ESSAPPS databases. XCC is the database for Community Highlights / Connections Engagement Center \(CEC\), and ESSAPPS is the database for Feature Foundation, which provides the basis for Export to PDF and Tailored Experience. The Community Highlights database scripts are located in the folder - /Wizards/connections.sql/icec. The Feature Foundation database scripts are located in the folder - /Wizards/connections.sql/ic360. Refer to the procedure in this section to create the databases. You will need to manually run the SQL scripts that are provided with HCL Connections™. See [Creating databases](c_install_db_over.md) for more information.
 
 **Notes:**
 
--   When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft Windows, and db2inst1 on Linux. For Oracle, the default value on Linux is oracle, and system administrator on Windows. For SQL Server, the default value is the system administrator.
+-   When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft Windows, and db2inst1 on Linux and AIX. For Oracle, the default value on AIX and Linux is oracle, and system administrator on Windows. For SQL Server, the default value is the system administrator.
 -   Before removing \(or dropping\) a database, stop Connections first to ensure that no database connection is in use; otherwise you will not drop the user and the database removal will not occur.
 -   If you run dbWizard.bat but the database wizard does not launch, check whether you have 32-bit DB2 installed. You need to have 64-bit DB2 on a 64-bit system.
 

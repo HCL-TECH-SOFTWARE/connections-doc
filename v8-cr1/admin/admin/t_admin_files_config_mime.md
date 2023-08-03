@@ -30,7 +30,7 @@ You can also map extensions to icons. See the topic *Customizing file type icons
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied. The files are kept in this working directory while you make changes to them.
 
-            **Note:** Linux™ only: The directory must grant write permissions or the command will not run successfully.
+            **Note:** AIX® and Linux™ only: The directory must grant write permissions or the command will not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the HCL Connections application. This argument is required. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -82,6 +82,8 @@ You can also map extensions to icons. See the topic *Customizing file type icons
 
 **Related information**  
 
+
+[Customizing file type icons](../customize/t_admin_files_customize_icons.md)
 
 [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
 

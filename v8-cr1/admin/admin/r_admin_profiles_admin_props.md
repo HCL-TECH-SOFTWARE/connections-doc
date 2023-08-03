@@ -25,7 +25,7 @@ ProfilesConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
 
         For example:
 
-        -  Linux™:
+        -   AIX® or Linux™:
 
             ```
             ProfilesConfigService.checkOutConfig("/opt/my_temp_dir",
@@ -67,7 +67,7 @@ ProfilesConfigService.checkOutPolicyConfig\("working\_directory", "cell\_name"\)
 
         For example:
 
-        -   Linux:
+        -   AIX or Linux:
 
             ```
             ProfilesConfigService.checkOutPolicyConfig("/opt/my_temp_dir",

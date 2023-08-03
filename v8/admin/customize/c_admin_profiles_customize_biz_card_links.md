@@ -21,3 +21,7 @@ Customize the action links that display on the Profiles business card by editing
 
 [Administering Profiles](../admin/c_admin_profiles_intro.md)
 
+[Adding custom strings for widgets and other specified scenarios](../customize/t_admin_profiles_add_custom_strings.md)
+
+[Adding Sametime awareness though the Sametime client](../admin/t_admin_common_add_st_awareness.md)
+

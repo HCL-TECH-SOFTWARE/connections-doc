@@ -13,6 +13,11 @@ Before starting this task,
 1.  In order to manually populate the Profiles database, ensure you have [Set up the Security Directory Integrator Solutions directory \(tdisol\)](t_setting_up_security_dir_integ_solutions_dir.md).
 2.  Complete the steps in the [Mapping fields manually](t_prof_tdi_mapfields.md) topic. You must set up the mapping file before starting this task.
 
+    \(AIX® only\). An AIX limitation causes a file naming error when you extract the tdisol.tar archive. The system renames the profile-links.xsd to profile-links.xs. To resolve this issue, use the GNU Tar program, version 1.14 or higher, to extract the archive. Download the program from [ftp://ftp.gnu.org/gnu/tar/](ftp://ftp.gnu.org/gnu/tar/) and install it as the default tar utility in the path. The default location for GNU Tar is /usr/local/bin.
+
+    The internal name of the Profiles database is PEOPLEDB.
+
+
 After installing the Profiles database, and setting up the SDI Solutions Directory, and defining mapping and validation, complete the following steps to populate the Profiles database:
 
 1.  Update the profiles\_tdi.properties file to specify values for the following properties. To locate this file, change to the SDI solution directory that you created in the topic [Setting up the Security Directory Integrator Solutions directory \(tdisol\)](t_setting_up_security_dir_integ_solutions_dir.md). The profiles\_tdi.properties file is located in the tdisol/TDI directory. For example: /opt/IBM/TDI/V7.2/tdisol/TDI.

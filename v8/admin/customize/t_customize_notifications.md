@@ -132,6 +132,10 @@ HCL Connections™ CR4 offers new ways to customize the standard email messages 
 
 [Configuring notifications](../admin/t_admin_common_config_notification.md)
 
+[Customizing notification strings](../customize/t_customize_notification_strings.md)
+
+[Language codes](../customize/r_customize_lang_codes.md)
+
 [Customizing email digests](../customize/t_customize_email_digests.md)
 
 [Customizing shared resources for notifications \(default templates\)](../customize/t_customize_notification_resources.md)

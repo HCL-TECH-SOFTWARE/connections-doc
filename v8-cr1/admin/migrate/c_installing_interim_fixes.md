@@ -15,7 +15,7 @@ Ensure that you meet the following prerequisites:
         <DMGR_HOME>\bin\setupCmdLine.bat
         ```
 
-    -   Run the following command for Linux™ or System z®:
+    -   Run the following command for Linux™, System z® or AIX:
 
         ```
         . <DMGR_HOME>/bin/setupCmdLine.sh
@@ -24,7 +24,9 @@ Ensure that you meet the following prerequisites:
         Where <DMR\_HOME\> is, for example: /opt/IBM/WebSphere/AppServer/profiles/Dmgr01
 
 -   You downloaded the fix package. For more information, see [Downloading fixes](t_downloading_fixes.md).
--   \(Linux\) You have **rwx** permissions for the Deployment Manager profile directory that hosts HCL Connections™ applications.
+-   \(AIX® and Linux\) You have **rwx** permissions for the Deployment Manager profile directory that hosts HCL Connections™ applications.
+-   \(AIX only\) You installed all the required libraries. For more information, see [AIX libraries](https://help.hcltechsw.com/connections/v65/admin/install/r_aix_libraries-N.html).
+-   You backed up any customizations that you made. For more information, see [Saving your customizations](c_configuration_changes_after_update.md).
 
 You can run the update wizard in one of two modes:
 

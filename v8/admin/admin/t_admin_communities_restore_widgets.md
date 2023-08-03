@@ -19,6 +19,7 @@ After you restart a failed Communities database or another HCL Connections appli
         -   ErrorDocument 403 /upgrading.htm
     2.  Add the following element to the IBM HTTP Server configuration file, httpd.conf, to block all unauthorized IP addresses from the server and send the user to the upgrading.htm page. The httpd.conf file is stored in the following directory by default:
 
+        -   AIX®: /usr/IBM/HTTPServer/conf
         -   Linux™: /opt/IBM/HTTPServer/conf
         -   Microsoft™ Windows™: C:\\IBM\\HTTPServer\\conf
         You must have an Allow element for every WebSphere Application Server in your deployment.

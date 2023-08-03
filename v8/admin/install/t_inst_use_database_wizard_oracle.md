@@ -4,7 +4,7 @@ Use the database wizard to create databases for the HCL Connections applications
 
 Before you use the wizard for the first time, you must complete the steps that are described in the [Preparing the database wizard for Oracle](t_inst_prepare_database_wizard_oracle.md) topic.
 
-When you are creating a database either with the database wizard or SQL scripts, you must log in to the system where the database is hosted with the database administrator account. For Oracle, the default value on Linux™ is oracle, and system administrator on Windows™.
+When you are creating a database either with the database wizard or SQL scripts, you must log in to the system where the database is hosted with the database administrator account. For Oracle, the default value on AIX® and Linux™ is oracle, and system administrator on Windows™.
 
 Oracle connects to HCL Connections databases with the user accounts that are configured during database creation. The passwords of those user accounts are defined later in this task.
 
@@ -32,6 +32,7 @@ To create databases with the wizard, complete the following steps:
 
 1.  From the HCL Connections Wizards directory, open the following file to start the wizard:
 
+    -   AIX: ./dbWizard.sh
     -   Linux: ./dbWizard.sh
     -   Microsoft™ Windows: dbWizard.bat
 2.  Click **Next** to continue.

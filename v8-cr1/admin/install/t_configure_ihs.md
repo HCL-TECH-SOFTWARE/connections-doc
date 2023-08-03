@@ -67,6 +67,9 @@ To configure IBM HTTP Server for encrypted connections, complete the following s
     -   path\_to\_stash\_file is the path to the associated stash file.
     For example:
 
+    -   AIX®:
+        -   Keyfile "/usr/IBM/keyfiles/key\_file.kdb"
+        -   SSLStashFile "/usr/IBM/keyfiles/key\_file.sth"
     -   Linux™:
         -   Keyfile "/opt/IBM/keyfiles/key\_file.kdb"
         -   SSLStashFile "/opt/IBM/keyfiles/key\_file.sth"
