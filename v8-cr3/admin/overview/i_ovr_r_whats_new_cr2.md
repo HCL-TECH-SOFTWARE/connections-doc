@@ -17,6 +17,8 @@ Also, updates have been made to HCL Support Statement. For details, see the [HCL
 -   Refer to the [HCL Connections 8.0 CR2 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104521).
 -   For Component Pack 8 CR2, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr2/admin/install/cp_prereqs.html).
 
+Note that `userprefs-service` and references to it in the code have been removed, but this does not affect the integrity of the build, including Component Pack functionality.
+
 ## Using HCL Leap with HCL Connections {#hclleap.section}
 
 HCL Leap can be used to create applications, including but not limited to polls and surveys, for your community. To install, refer to [Installing Leap Surveys](../install/leap_surveys.md).
