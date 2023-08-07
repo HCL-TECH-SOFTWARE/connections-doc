@@ -6,7 +6,7 @@ When you create multiple database instances, you must install the databases on e
 
 Complete the following steps for your operating system:
 
--   **[Creating multiple Oracle databases on AIX and Linux](../install/t_create_multiple_oracle_databases_on_aix_and_linux.md)**  
+-   **[Creating multiple Oracle databases on Linux](../install/t_create_multiple_oracle_databases_on_aix_and_linux.md)**  
 
 -   **[Creating multiple Oracle databases on Windows](../install/t_create_multiple_oracle_databases_on_windows.md)**  
 

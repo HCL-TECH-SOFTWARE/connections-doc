@@ -22,12 +22,6 @@ If you disable or stop an application, cancel any scheduled tasks that are assoc
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -47,7 +41,7 @@ If you disable or stop an application, cancel any scheduled tasks that are assoc
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -58,7 +52,7 @@ If you disable or stop an application, cancel any scheduled tasks that are assoc
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 2.  Use the wsadmin client to access the HCL Connections configuration files.
 
@@ -186,7 +180,7 @@ If you disable or stop an application, cancel any scheduled tasks that are assoc
 
     The SQL scripts are in the following locations:
 
-    AIX or Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/connections.sql .
+    Linux: [connections\_root](../plan/i_ovr_r_directory_conventions.md)/connections.sql .
 
     Microsoft Windows: C:\\IBM\\Connections\\xkit\\connections.sql.
 

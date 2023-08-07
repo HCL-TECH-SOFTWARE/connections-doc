@@ -4,7 +4,7 @@ Use the database wizard to create databases for the HCL Connections applications
 
 Before using the wizard for the first time, you must complete the steps described in the [Preparing the database wizard for DB2®](t_inst_prepare_database_wizard_db2.md) topic.
 
-When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft™ Windows™, and db2inst1 on Linux™ and AIX®.
+When you are creating a database either with the database wizard or SQL scripts, you must log into the system where the database is hosted with the database administrator account. The default values for DB2 are db2admin on Microsoft™ Windows™, and db2inst1 on Linux™.
 
 If you use only one database instance and if that instance includes other databases besides HCL Connections, configure the numdb parameter to match the total number of databases on the instance. For more information, go to the [numdb](https://www.ibm.com/docs/db2/11.1?topic=dmcp-numdb-maximum-number-concurrently-active-databases-including-host-system-i-databases) topic in the IBM DB2 documentation.
 
@@ -16,12 +16,6 @@ DB2 uses a user account called `lcuser`. If you are creating a DB2 database with
 
 -   If you are using DASD driver, the SQL scripts are located in the connections.s390.sql/application\_subdirectory directory of the HCL Connections setup directory or installation media.
 -   If you are using SCSI driver, back up the connections.s390.sql directory and rename the connections.sql directory to connections.s390.sql.
--   \(AIX only\) Download and install the following packages from the [AIX Toolbox for Linux Applications](http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/date.html) webpage:
-
-    gtk2-2.10.6, pango-1.14.5, fontconfig-2.4.2, pkg-config-0.19, libjpeg-6b, freetype2-2.3.9, expat-2.0.1, zlib-1.2.3, xft-2.1.6, xcursor-1.1.7, glib-1.2.10, glib2-2.12.4, atk-1.12.3, gettext-0.10.40, libpng-1.2.32, and libtiff-3.8.2
-
-    **Note:** Some of these packages have dependencies on other packages. The AIX package installer alerts you to any additional packages that might be required.
-
 
 Use the HCL Connections database wizard to create, update, and remove databases.
 
@@ -39,7 +33,6 @@ To create databases with the wizard, complete the following steps:
 
 2.  From the HCL Connections Wizards directory in a command line, enter the following command to launch the wizard:
 
-    -   AIX: ./dbWizard.sh
     -   Linux: ./dbWizard.sh
     -   Microsoft Windows: dbWizard.bat
 3.  Click **Next** to continue.

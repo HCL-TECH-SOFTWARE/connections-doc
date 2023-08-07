@@ -9,7 +9,7 @@ The Tiny Editors Selector is a WebSphere application which allows the editor to 
 2.  [Optional: Installing Tiny Editors Services](t_01-setup_02-services_00-summary.md)  
  The Tiny Editors Services provide the following functionality for the Tiny Editors: spellchecking, link checking, and automatic embedding linked media. This task can be skipped if the spellchecking, link checking, and embed media features are not required.
 3.  [Installing the Tiny Editors integration](t_01-setup_03-editors_00-summary.md)  
-This section covers the installation of the Tiny Editors for HCL Connections integration package, providing TinyMCE and Textbox.io for HCL Connections.
+This section covers the installation of the TinyMCE Editor for the HCL Connections integration package.
 
 **Parent topic:**[Tiny Editors for HCL Connections](c_tiny-editors.md)
 

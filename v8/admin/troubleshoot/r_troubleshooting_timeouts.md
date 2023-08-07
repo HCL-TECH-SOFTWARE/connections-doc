@@ -35,7 +35,7 @@ You have the following options:
     2.  Change the requestTimeout custom property using the administrative console:
         1.  For servers or cluster members, click ******Servers** \> **Application servers** \> **server\_name** \> **Server Infrastructure** \> **Administration** \> **Administration Services** \> **Additional properties** \> **JMX Connectors** \> **SOAPConnector** \> **Additional Properties** \> **Custom properties**. Then locate the requestTimeout custom property, and modify its value.
         2.  For the deployment manager, click **System administration** \> **Deployment manager** \> **Additional Properties** \> **Administration Services** \> **Additional properties** \> **JMX Connectors** \> **SOAPConnector** \> **Additional Properties** \> **Custom properties**. Then locate the requestTimeout custom property, and modify its value.
-        3.  For the node agents, click **System administration****Node agents****node\_agent\_name****Additional Properties****Administration Services****Additional properties****JMX Connectors****SOAPConnector****Additional Properties****Custom properties**. Then locate the requestTimeout custom property, and modify its value.
+        3.  For the node agents, click **System administration** \> **Node agents** \> **node\_agent\_name** \> **Additional Properties** \> **Administration Services** \> **Additional properties** \> **JMX Connectors** \> **SOAPConnector** \> **Additional Properties** \> **Custom properties**. Then locate the requestTimeout custom property, and modify its value.
 
 **Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 

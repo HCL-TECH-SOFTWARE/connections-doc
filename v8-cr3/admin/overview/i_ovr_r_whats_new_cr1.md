@@ -45,7 +45,7 @@ The Connections 8.0 CR1 UI supports Arabic and Hebrew. Refer to [Supported langu
 
 Users visiting Connections for the first time, in general or since upgrading to 8.0, can quickly get acquainted with the latest offerings through the welcome tour. The tour provides a succinct introduction to the new UI and its features, for example the supercharged search, new navigation, and universal share and upload.
 
-**Note:** You can configure the tour in many ways, including enabling or disabling it and defining when it should appear to users. For more information on configuring the welcome tour, see the [Connections UI Git documentation](https://github.com/HCL-TECH-SOFTWARE/connections-ui-docs/tree/master/components/welcome-tour).
+**Note:** You can configure the tour in many ways, including enabling or disabling it and defining when it should appear to users. For more information on configuring the welcome tour, see [Customizing the welcome tour](../customize/customizing-welcome-tour.md).
 
 **Interested in Connections Mobile?**
 

@@ -11,12 +11,6 @@ You can edit the Activities configuration files in two ways: by using the wsadmi
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -36,7 +30,7 @@ You can edit the Activities configuration files in two ways: by using the wsadmi
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -47,7 +41,7 @@ You can edit the Activities configuration files in two ways: by using the wsadmi
             2.  In the Additional properties section expand **Ports**, and then look for the SOAP\_CONNECTOR\_ADDRESS port entry to find the port number.
         For example:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
 2.  Access and check out the Activities configuration files.
 
@@ -70,7 +64,7 @@ You can edit the Activities configuration files in two ways: by using the wsadmi
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you make changes to them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-            **Note:** AIX, and Linux: The directory must grant write permissions or the command will not run successfully.
+            **Note:** Linux: The directory must grant write permissions or the command will not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the HCL Connections application. This argument is case-sensitive, so type it with care. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -80,7 +74,7 @@ You can edit the Activities configuration files in two ways: by using the wsadmi
 
         For example:
 
-        -   AIX and Linux:
+        -   Linux:
 
             ```
             ActivitiesConfigService.checkOutConfig("/opt/act/temp","foo01Cell01")

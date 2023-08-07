@@ -17,6 +17,8 @@ Also, updates have been made to HCL Support Statement. For details, see the [HCL
 -   Refer to the [HCL Connections 8.0 CR2 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104521).
 -   For Component Pack 8 CR2, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr2/admin/install/cp_prereqs.html).
 
+Note that `userprefs-service` and references to it in the code have been removed, but this does not affect the integrity of the build, including Component Pack functionality.
+
 ## Using HCL Leap with HCL Connections {#hclleap.section}
 
 HCL Leap can be used to create applications, including but not limited to polls and surveys, for your community. To install, refer to [Installing Leap Surveys](../install/leap_surveys.md).
@@ -37,11 +39,7 @@ HCL Connections no longer supports context roots customization starting from Con
 
 A new release of TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, refer to [Optional: Installing and configuring Tiny Editors for HCL Connections](https://opensource.hcltechsw.com/connections-doc/v8-cr1/admin/install/tiny_editors/c_tiny-editors.html).
 
-## Connections Engagement Center in HCL Connections {#cec .section}
-
-Updated the installation instructions for the Connections Engagement Center to work with HCL Connections 8.0. This will allow customers to view the Connections Engagement Center 8.0 in the HCL Software License & Download Portal when they purchase. Refer to [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) for details.
 
 **Interested in Connections Mobile?**
 
 Check out the App Store for iOS or Google Play for Android for the latest information and release. Refer to [HCL Connections Mobile](https://help.hcltechsw.com/connectionsmobile/index.html) product documentation for additional information.
-

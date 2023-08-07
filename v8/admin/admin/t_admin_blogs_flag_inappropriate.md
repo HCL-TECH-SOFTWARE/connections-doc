@@ -60,7 +60,7 @@ To change moderation configuration settings, complete the following steps:
 
         For example:
 
-        -   AIX/Linux:
+        -   Linux:
 
             ```
             LCConfigService.checkOutContentReviewConfig("/opt/temp","foo01Cell01")
@@ -172,6 +172,7 @@ To change moderation configuration settings, complete the following steps:
 8.  Configure moderation for communities so that owners can review and manage the blog, file, and forum content directly in the community as described in the following section.
 
 
+
 -   **[Moderating content before it is published](../admin/t_admin_common_moderation_pre-modui.md)**  
 Review before it is published to make sure it meets your standards.
 -   **[Moderating published content that is flagged](../admin/t_admin_common_moderation_post-modui.md)**  
@@ -181,7 +182,7 @@ If email is disabled or if users do not have email addresses, some parts of the 
 -   **[Configuring moderation for communities](../admin/t_admin_moderation_comms.md)**  
 Owners can control what content is added by members \(pre-moderation\) and remove anything that might be considered inappropriate in your organization \(post-moderation\).
 
-**Parent topic:**[Administering Moderation](../install/c_config_moderation_app.md)
+**Parent topic:** [Administering Moderation](../install/c_config_moderation_app.md)
 
 **Related information**  
 

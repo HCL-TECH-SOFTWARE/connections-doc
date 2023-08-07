@@ -195,7 +195,7 @@ To edit configuration files, you must use the wsadmin client. See [Starting the 
 10. Stop and restart the Profiles server.
 
 
-**Parent topic:**[Profile-types](../customize/r_admin_profiles_ovr_types.md)
+**Parent topic:** [Profile-types](../customize/r_admin_profiles_ovr_types.md)
 
 **Related information**  
 

@@ -14,7 +14,7 @@ The Orient Me \(Top Updates\) page on the home page provides your users with a c
 
 Opensearch is installed as a step of the Component Pack installation process. This service is used as the storage and retrieval service for the Metrics, Type-ahead Search, Orient Me, and Elastic Stack features.
 
-Starting with Component Pack 8, Opensearch is the default and only backend for Metrics, Search, and Orient Me.
+Starting with Component Pack 8 CR2, Opensearch is the default and only backend for Metrics, Search, and Orient Me.
 
 ## Tailored experience for communities {#section_r4z_ytr_snb .section}
 

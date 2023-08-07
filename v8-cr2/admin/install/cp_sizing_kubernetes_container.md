@@ -4,7 +4,7 @@ Before you start sizing Kubernetes, let's consider the needs of Component Pack, 
 
 ## Component Pack requirements {#section_w1x_kfc_jmb .section}
 
-With Component Pack 8, it is possible that at some point you'll have both Elasticsearch 7 and OpenSearch installed while or until you are done with migration. If you are installing a fresh cluster, you will install only OpenSearch.
+With Component Pack 8 CR3, it is possible that at some point you'll have both Elasticsearch 7 and OpenSearch installed while or until you are done with migration. If you are installing a fresh cluster, you will install only OpenSearch.
 
 The rule of thumb for the full-blown production Kubernetes cluster is determined by whether or not you need high availability. If not, up to 1000 concurrent users, or one single node with **m5a.large** as master and three **m5a.2xlarge** nodes would do the job. For more than 1000 concurrent users, you must look into scaling specific pods, starting with Customizer, and rather than into scaling your environment.
 

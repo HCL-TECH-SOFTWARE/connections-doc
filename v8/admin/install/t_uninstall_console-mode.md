@@ -18,7 +18,7 @@ To uninstall HCL Connections in console mode, complete the following steps:
 
 4.  Start the installation wizard by opening the following file:
 
-    -   AIX or Linux: ./imcl -c
+    -   Linux: ./imcl -c
     -   Windows: imcl.exe -c
 5.  Select the applications that you want to remove and then type N to proceed.
 
@@ -48,11 +48,11 @@ To uninstall HCL Connections in console mode, complete the following steps:
 
     6.  Delete all .py files from the /opt/IBM/WebSphere/AppServer/profiles/profile\_name/bin directory on the deployment manager server as follows:
 
-        -   AIX/Linux: /opt/IBM/WebSphere/AppServer/profiles/profile\_name/bin
+        -   Linux: /opt/IBM/WebSphere/AppServer/profiles/profile\_name/bin
         -   Windows: drive:\\Program Files\\IBM\\WebSphere\\AppServer\\profiles\\profile\_name\\bin
     7.  Clear the WebSphere Application Server profile's temp and wstemp folders. For example:
 
-        -   AIX/Linux:
+        -   Linux:
 
             /opt/IBM/WebSphere/AppServer/profiles/profile\_name/temp
 

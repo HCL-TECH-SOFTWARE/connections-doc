@@ -21,8 +21,3 @@ You can control whether the My Page view is available to your users by enabling 
 
 **Parent topic:**[Administering the Home page](../admin/c_admin_homepage_intro.md)
 
-**Related information**  
-
-
-[Customizing the Getting Started view](../customize/t_customize_getting_started_page.md)
-

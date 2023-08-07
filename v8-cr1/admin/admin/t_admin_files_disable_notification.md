@@ -29,7 +29,7 @@ Email notifications can also be enabled or disabled for all applications. See th
 
     For example:
 
-    -   AIX® or Linux™:
+    -   Linux™:
 
         ```
         FilesConfigService.checkOutConfig("/opt/my_temp_dir", "CommServerNode01Cell")

@@ -48,7 +48,5 @@ You can enable links to the HCL Connections Mobile service from notifications by
 
 [Customizing email digests](../customize/t_customize_email_digests.md)
 
-[Customizing notification strings](../customize/t_customize_notification_strings.md)
-
 [Customizing notifications sent as single emails](../customize/t_customize_notifications.md)
 

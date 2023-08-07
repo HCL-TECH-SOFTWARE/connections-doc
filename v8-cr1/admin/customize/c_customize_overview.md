@@ -2,7 +2,7 @@
 
 Customize HCL Connections™ to fit your environment.
 
-Customize HCL Connections to fit your environment. This documentation is provided to help you customize your deployment ofConnections.**HCL Support can address questions about the customization process, but cannot address questions about the particulars of your customization.** If you customized an earlier version of Connections, there is no migration path provided for importing your changes into Connections 4.5 or later. Before upgrading, review and make a note of your existing customizations so that you can verify them post-migration and rework if necessary. In addition, customization work might no longer be valid if a customized file is updated with a subsequent fix pack or interim fix.
+This documentation helps you customize your deployment of Connections. **HCL Support can address questions about the customization process, but cannot address questions about the particulars of your customization.** If you customized an earlier version of Connections, there is no migration path provided for importing your changes into Connections 8.0 or later. Before upgrading, review and make a note of your existing customizations so that you can verify them post-migration and rework if necessary. In addition, customization work might no longer be valid if a customized file is updated with a subsequent fix pack or interim fix.
 
 Additional information about the CSS and HTML markup structure used in Connections is available in the [Connections Developer Guide](https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=API%20Documentation).
 
@@ -13,7 +13,7 @@ Use the following guidelines to help you to implement and manage customizations 
 -   **[Injecting customizations into Connections pages](../customize/customize_inject_customizations.md)**  
 HCL Connections™ Customizer is a proxy service that lets you modify the HCL Connections™ user experience. Customizer intercepts and modifies requests from clients and responses from servers, so it can customize anything that flows through it, such as the behavior of APIs or the look-and-feel of the user interface.
 -   **[Customizing the user interface](../customize/t_admin_common_customize_main.md)**  
-The procedure to customize HCL Connections is the same for each application. You must edit a copy of the relevant source file and save it in the appropriate customization directory.
+The user interface has been redesigned in Connections 8.0, and with it, the way of applying customizations.
 -   **[Customizing notifications](../customize/c_customize_notifications.md)**  
 The content of the notifications sent by HCL Connections is defined in templates that are processed by the FreeMarker engine.
 -   **[Adding new ways to share content](../customize/t_customize_sharebox_gadgets.md)**  

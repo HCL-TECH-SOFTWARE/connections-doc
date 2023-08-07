@@ -43,7 +43,7 @@ For users to be able to reply to emails, certain of their HCL Connections settin
 
         -   working\_dir is the temporary directory to which you want to check out the cell-level configuration file. This directory must exist on the server where you are running wsadmin.
 
-            **Note:** AIX, and Linux only: The directory must grant write permissions or the command will not run successfully.
+            **Note:** Linux only: The directory must grant write permissions or the command will not run successfully.
 
         -   cellName is the name of the cell that the home page node belongs to. This argument is required. It is also case-sensitive, so type it with care. If you do not know the cell name, type the following command in the wsadmin command processor to determine it:
 

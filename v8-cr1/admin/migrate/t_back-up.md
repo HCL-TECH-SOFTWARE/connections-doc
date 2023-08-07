@@ -18,14 +18,14 @@ Follow these steps to back up your Connections deployment. You can use this back
 
     By default the FileNet Storage Area is in the following directory:
 
-    -   For Linux™, AIX®, or Linux on System z®: [<shared\_data\_directory\_root\>](../plan/i_ovr_r_directory_conventions.md)/ccm
+    -   For Linux™ or Linux on System z®: [<shared\_data\_directory\_root\>](../plan/i_ovr_r_directory_conventions.md)/ccm
     -   For Windows: [<shared\_data\_directory\_root\>](../plan/i_ovr_r_directory_conventions.md)\\ccm
     **Note:** You need to back up FileNet Storage Area if it is reconfigured outside of <shared\_data\_directory\_root\> only.
 
     By default, the Engine-ws.ear is in the following directory:
 
     -   For Connections 6:
-        -   For Linux, AIX, or Linux on System z:
+        -   For Linux or Linux on System z:
 
             ```
             <connections_root>/addons/ccm/ContentEngine/tools/configure/profiles/CCM/ear
@@ -38,7 +38,7 @@ Follow these steps to back up your Connections deployment. You can use this back
             ```
 
     -   For Connections 6 CR6:
-        -   For Linux, AIX, or Linux on System z:
+        -   For Linux or Linux on System z:
 
             ```
             <connections_root>/FileNet/ContentEngine/tools/configure/profiles/CCM/ear
@@ -92,7 +92,7 @@ Follow these steps to back up your Connections deployment. You can use this back
         -   [shared\_data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)
 7.  Back up the Shared Resources directory:
 
-    -   AIX or Linux: [shared\_resources\_root](../plan/i_ovr_r_directory_conventions.md)
+    -   Linux: [shared\_resources\_root](../plan/i_ovr_r_directory_conventions.md)
     -   Windows: [shared\_resources\_root](../plan/i_ovr_r_directory_conventions.md)
     **Note:** For shared and remote network file system requirements, be sure to review the footnotes for each supported operating system in the detailed [system requirements](https://support.hcltechsw.com/csm?sys_kb_id=2010cc82db30acd0a45ad9fcd3961971&id=kb_article_view).
 
@@ -100,8 +100,8 @@ Follow these steps to back up your Connections deployment. You can use this back
 
     **Note:** This step is necessary only if you are planning an in-place migration of Connections. That is, where you use the same systems to host the new deployment.
 
-    -   AIX or Linux: /var/ibm/InstallationManager
-    -   AIX or Linux \(non-root user\): /home/user/var/ibm/Installation Manager
+    -   Linux: /var/ibm/InstallationManager
+    -   Linux \(non-root user\): /home/user/var/ibm/Installation Manager
 
         Where user is the account name of the non-root user.
 
@@ -120,10 +120,7 @@ Follow these steps to back up your Connections deployment. You can use this back
         -   /opt/IBM/InstallationManager
         -   /var/ibm/InstallationManager
         -   /opt/IBM/IMShared
-    -   AIX:
-        -   /var/ibm/InstallationManager
-        -   /usr/IBM/InstallationManager
-        -   /usr/IBM/IMShared
+
 9.  Back up any customized configuration files. For more information, see [Saving your customizations](c_configuration_changes_after_update.md).
 
     **Note:**  Most of the backup steps are covered in [Saving your customizations](c_configuration_changes_after_update.md), however, this procedure does not cover backing up security role mapping for users and groups. So be sure to back up security role mapping for users and groups before the servers are stopped. Otherwise, you have to start server again to back up this information.

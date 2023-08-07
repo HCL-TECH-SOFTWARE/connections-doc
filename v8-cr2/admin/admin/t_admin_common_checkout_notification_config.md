@@ -41,7 +41,7 @@ After changing notification configuration settings, you must check in the config
 
     For example:
 
-    -   AIX or Linux:
+    -   Linux:
 
         ```
         LCConfigService.checkOutNotificationConfig("/opt/temp","foo01Cell01")

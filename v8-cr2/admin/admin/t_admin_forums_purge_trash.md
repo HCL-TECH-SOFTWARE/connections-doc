@@ -37,7 +37,7 @@ The trash purge job is scheduled to run periodically to permanently remove conte
 
         -   working\_directory is the temporary working directory to which the XML and XSD configuration files are copied. The files are kept in this working directory while you modify them.
 
-            **Note:** AIX and Linux only: The directory must grant write permissions or the command fails.
+            **Note:** Linux only: The directory must grant write permissions or the command fails.
 
         -   cell\_name is the name of the WebSphere Application Server cell that hosts the HCL Connections applications. This argument is required. It is also case-sensitive, so type it with care. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 

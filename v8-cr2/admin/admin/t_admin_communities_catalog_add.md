@@ -24,7 +24,7 @@ When you add HCL Connections nodes to an existing Communities catalog, you must 
 
         The following path is an example only and might be different on your operating system:
 
-        -   AIX® or Linux™: /opt/IBM/Connections/DataLocal/catalog/index/Places
+        -   Linux™: /opt/IBM/Connections/DataLocal/catalog/index/Places
         -   Windows™: C:\\IBM\\Connections\\data\\local\\catalog\\index\\places
 5.  To enable source metadata collection, select **More actions** \> **Enable Schedule**.
 

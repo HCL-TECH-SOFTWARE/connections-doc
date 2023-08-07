@@ -35,7 +35,7 @@ WikisConfigService.checkOutConfig\("working\_directory", "cell\_name"\)
 
     For example:
 
-    -   AIX or Linux:
+    -   Linux:
 
         ```
         WikisConfigService.checkOutConfig("/opt/my_temp_dir", 
