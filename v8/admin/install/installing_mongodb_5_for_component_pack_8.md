@@ -93,7 +93,7 @@ Ensure you have the following:
 
         Replace all variables in curly braces "{ }" with values that are appropriate to your cluster configuration. For instance, if you deploy your cluster in a specific namespace named "connections", you need to replace the `{{ _default_namespace }}` variable with that namespace name, "connections". Another variable is `{{ replica_count }}` which depends on the number of end users accessing the application.
         
-        Explanations of all these variables are available in [HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/VARIABLES.md).
+        Explanations of some of these variables are available in [HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/VARIABLES.md).
 
         For an idea on how to make the substitutions, take the following example. This is tailored to the Connections internal environment, so it is purely for reference and is not meant to prescribe which values to use and which variables are available to override. The values you set in the `infrastructure.yml` file should fit to your own environment.
 
@@ -101,7 +101,7 @@ Ensure you have the following:
         global:
           onPrem: true
           image:
-            repository: connections-docker.artifactory.cwp.pnp-hcl.com
+            repository: hclcr.io/cnx
         haproxy:
           namespace: connections
           replicaCount: 1
@@ -129,7 +129,7 @@ Ensure you have the following:
             nginx.ingress.kubernetes.io/rewrite-target: /$1
             enabled: true
             hosts:
-            - host: "*.cnx.cwp.pnp-hcl.com"
+            - host: "*.example.com"
             paths: []
             name: cnx-ingress-appreg
             tls: []
@@ -146,7 +146,7 @@ Ensure you have the following:
               nginx.ingress.kubernetes.io/rewrite-target: /
             enabled: true
             hosts:
-            - host: "*.cnx.cwp.pnp-hcl.com"
+            - host: "*.example.com"
               paths: []
             name: cnx-ingress-jsonapi
             tls: []
