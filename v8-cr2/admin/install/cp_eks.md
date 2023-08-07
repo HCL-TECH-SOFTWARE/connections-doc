@@ -4,7 +4,7 @@ This document outlines the steps for EKS deployment. For details on the overall 
 
 ## Order of installation
 
-To install Component Pack using EKS, perfom the following steps chronologically. Note that this document elaborates only on the steps that are unique to the EKS approach (steps 3, 4, 5, and 22 in the following list). The rest of the steps in this list can be found in [Steps to install or upgrade to Component Pack 8 CR1](cp_install_services_tasks.md).
+To install Component Pack using EKS, perfom the following steps chronologically. Note that this document elaborates only on the steps that are unique to the EKS approach (steps 3, 4, 5, and 22 in the following list). The rest of the steps in this list can be found in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md).
 
 1.  Install or upgrade HCL Connections
 2.  [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb)

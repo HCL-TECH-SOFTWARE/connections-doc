@@ -4,7 +4,7 @@ HCL Connections provides several batch files that automate the collection and pr
 
 ## Batch file functions { .section}
 
-**Note:** The name of each batch file ends with the .sh suffix for the IBM® AIX® and Linux™ operating systems and with the .bat suffix for the Microsoft™ Windows™ operating system.
+**Note:** The name of each batch file ends with the .sh suffix for the Linux™ operating systems and with the .bat suffix for the Microsoft™ Windows™ operating system.
 
 The following list describes each batch file and its functions. You can search for more information about these files in the help topics.
 

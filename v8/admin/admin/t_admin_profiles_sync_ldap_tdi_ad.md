@@ -18,7 +18,7 @@ If you get all data from one or more LDAPs that are TSS and/or AD, you can creat
 4.  Process changes by using one of the following options:
 
     -   For Tivoli Security Directory Server, use the following script to process changes made to the LDAP directory and propagate those changes to the corresponding records in your database:
-        -   IBM® AIX® or Linux®:
+        -   Linux®:
 
             chmod +x process\_tds\_changes.sh
 
@@ -29,7 +29,7 @@ If you get all data from one or more LDAPs that are TSS and/or AD, you can creat
             process\_tss\_changes.bat
 
     -   For Microsoft Active Directory, use the following script to process changes made after the initial population:
-        -   AIX or Linux:
+        -   Linux:
 
             chmod +x process\_ad\_changes.sh
 
@@ -42,7 +42,7 @@ If you get all data from one or more LDAPs that are TSS and/or AD, you can creat
 5.  The process\_tss\_changes task tracks the changelog number in a persistent field. If your LDAP directory is reset, you can select from the following options:
 
     -   Delete the changelog number value by using the following script:
-        -   AIX or Linux:
+        -   Linux:
 
             chmod +x reset\_changelog\_state.sh
 
@@ -53,7 +53,7 @@ If you get all data from one or more LDAPs that are TSS and/or AD, you can creat
             reset\_changelog\_state.bat
 
     -   Set a particular value by using the following script and passing it the count value to set:
-        -   AIX or Linux:
+        -   Linux:
 
             chmod +x set\_changelog\_count.sh
 

@@ -152,5 +152,5 @@ Before migrating your data, check the verification section below to understand h
 
     4.  Perform the previous data migration procedure and verify the `community-template-service` screen. If the steps are correctly done, the community-template-service screen should populate the data from Mongo3, as seen in step 5a.
 
-**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to  CR2](../install/cp_install_services_tasks.md)
 

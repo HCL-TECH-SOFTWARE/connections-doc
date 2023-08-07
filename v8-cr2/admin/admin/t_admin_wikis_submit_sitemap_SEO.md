@@ -12,7 +12,7 @@ This address returns the sitemapindex.xml file that contains all the sitemap URL
 
 The default location of the sitemap is
 
--   AIX® or Linux™: /opt/IBM/Connections/data/wikis/upload/sitemap
+-   Linux™: /opt/IBM/Connections/data/wikis/upload/sitemap
 -   Windows™: C:\\IBM\\Connections\\data\\wikis\\upload\\sitemap
 
 To submit a sitemap, complete the following steps:

@@ -2,8 +2,8 @@
 
 Removing the Tiny Editors integration will return HCL Connections™ to the base state.
 
--   **[Uninstall the Tiny Editors Integration on Linux, Unix or AIX](t_03-uninst_01-editors_01-uninstall-on-linux-unix-or-aix.md)**  
-Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux, Unix or AIX.
+-   **[Uninstall the Tiny Editors Integration on Linux or Unix](t_03-uninst_01-editors_01-uninstall-on-linux-unix-or-aix.md)**  
+Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux or Unix.
 -   **[Uninstall the Tiny Editors Integration on Windows](t_03-uninst_01-editors_02-uninstall-on-windows.md)**  
 Running the uninstall program will remove the Tiny Editors integration on Windows.
 -   **[Uninstall the Tiny Editors Integration manually](t_03-uninst_01-editors_03-uninstall-manually.md)**  

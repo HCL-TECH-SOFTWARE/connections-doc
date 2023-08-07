@@ -77,7 +77,7 @@ You must ensure that the values of either the uid or the email address in the ex
 
 9.  Synchronize the data so that the values from the new LDAP deployment are updated in the Profiles database by running the following script:
 
-    -   IBM AIX® or Linux:
+    -   Linux:
 
         ```
         chmod +x sync_all_dns.sh

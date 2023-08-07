@@ -45,7 +45,7 @@ IBM Connections supports the indexing of file attachment content from the Files,
 
     -   working\_dir is the temporary directory to which you want to check out the cell level configuration file. This directory must exist on the server where you are running the wsadmin client. Use forward slashes to separate directories in the file path, even if you are using the Microsoft Windows operating system.
 
-        **Note:** AIX, and Linux only: The directory must grant write permissions or the command does not run successfully.
+        **Note:** Linux only: The directory must grant write permissions or the command does not run successfully.
 
     -   cellName is the name of the cell that the Search node belongs to. The command is case-sensitive. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 

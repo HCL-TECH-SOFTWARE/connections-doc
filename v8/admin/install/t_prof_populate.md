@@ -20,13 +20,13 @@ To populate the Profiles database, complete the following steps:
 
 1.  Log into the system where Tivoli Directory Integrator is installed as the root user or system administrator.
 
-2.  \(AIX® and Linux™\): Grant display authority to all users by running the following commands under the root user or system administrator:
+2.  \(Linux™\): Grant display authority to all users by running the following commands under the root user or system administrator:
 
     ```
     xhost +
     ```
 
-    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your AIX or Linux administrator guide.
+    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your Linux administrator guide.
 
     ```
     echo $DISPLAY
@@ -42,7 +42,6 @@ To populate the Profiles database, complete the following steps:
 
 6.  Run the following script from the Wizards directory:
 
-    -   AIX: ./populationWizard.sh
     -   Linux: ./populationWizard.sh
 
         **Note:** If the wizard does not run correctly, you might need to edit the populationWizard.sh file and enter the correct JRE/JVM path for your system The populationWizard.sh file expects the path to be jvm/linux/jre/bin.
@@ -115,7 +114,7 @@ To populate the Profiles database, complete the following steps:
 
     1.  Start the iKeyman utility by running the following file:
 
-        -   AIX or Linux:TDI\_Install\_directory/jvm/jre/bin/./ikeyman
+        -   Linux:TDI\_Install\_directory/jvm/jre/bin/./ikeyman
         -   Windows: TDI\_Install\_directory\\jvm\\jre\\bin\\ikeyman.exe
         where TDI\_Install\_directory is the directory where Tivoli Directory Integrator is installed.
 

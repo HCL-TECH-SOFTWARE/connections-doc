@@ -10,26 +10,16 @@ If you need to configure multiple systems with Profiles data, you can run the wi
 
 You can also modify the mappings files manually. For more information, see the [Mapping fields manually](t_prof_tdi_mapfields.md) topic.
 
-**Note:**
-
--   \(AIX® only\) If you are downloading the wizard, the TAR program available by default with AIX does not handle path lengths longer than 100 characters. To overcome this restriction, use the GNU file archiving program instead. This program is an open source package that IBM® distributes through the AIX Toolbox for Linux™ Applications at the [IBM AIX Toolbox](http://www-03.ibm.com/systems/power/software/aix/linux/toolbox/download.html) web site. Download and install the GNU-compatible TAR package. You do not need to install the RPM Package Manager because it is provided with AIX.
-
-    After you have installed the GNU-compatible TAR program, change to the directory where you downloaded the HCL Connections TAR file, and enter the following command to extract the files from it:
-
-    gtar -xvf HCL\_Connections\_6.5\_wizards\_lin\_aix.tar
-
-    This command creates a directory named after the wizard.
-
 
 To run the Profiles population wizard in silent mode, complete the following steps:
 
 1.  Log in to your database server as the root user or system administrator.
 
-2.  \(AIX and Linux only\) Grant display authority to all users by running the following commands under the root user or system administrator:
+2.  \(Linux only\) Grant display authority to all users by running the following commands under the root user or system administrator:
 
     xhost +
 
-    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your AIX or Linux administrator guide.
+    **Note:** If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult your Linux administrator guide.
 
     echo $DISPLAY
 
@@ -37,7 +27,7 @@ To run the Profiles population wizard in silent mode, complete the following ste
 
 4.  Open a command prompt, change to the TDIPopulation directory, and enter the following commands to launch the wizard in silent mode:
 
-    -   AIX/Linux:
+    -   Linux:
         -   ./populationWizard.sh -silent response\_file
 
             \[ -mappingFile mapping\_file\]

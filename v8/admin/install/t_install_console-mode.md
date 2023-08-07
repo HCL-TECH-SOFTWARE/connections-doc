@@ -25,18 +25,16 @@ To install HCL Connections in console mode, complete the following steps:
     **Note:** Run IBM Installation Manager on the system where the Deployment Manager is installed.
 
     -   If Installation Manager is already installed, open a command prompt and change to the IBM Installation Manager installation directory. Then run the following command:
-        -   AIX® or Linux™: /opt/IBM/InstallationManager/eclipse/tools/imcl -c
+        -   Linux™: /opt/IBM/InstallationManager/eclipse/tools/imcl -c
         -   Windows™: \\Program Files\\IBM\\Installation Manager\\eclipse\\tools\\imcl.exe -c
     -   To install both IBM Installation Manager and HCL Connections, open a command prompt and change to the IBM Installation Manager installation directory. Then run the following command:
 
-        -   AIX: HCL\_Connections\_Install/IM/aix/install.console.sh
         -   Linux: HCL\_Connections\_Install/IM/linux/install.console.sh
         -   Windows: HCL\_Connections\_Install\\IM\\windows\\install.console.bat
         The batch script calls a response file, which contains information about the repositories for both IBM Installation Manager and HCL Connections.
 
     -   To use another language for the installation process, open a command prompt, change to the IBM Installation Manager installation directory, and run the following command:
 
-        -   AIX: HCL\_Connections\_Install/IM/aix/tools/imcl -c -nl language\_code
         -   Linux: HCL\_Connections\_Install/IM/linux/tools/imcl -c -nl language\_code
         -   Windows: \\HCL\_Connections\_Install\\IM\\windows\\tools\\imcl.exe -c -nl language\_code
         where language\_code is the two-letter code for a language, such as fr for French.
@@ -122,7 +120,6 @@ To install HCL Connections in console mode, complete the following steps:
 
         Note the default path to the WebSphere Application Server installation:
 
-        -   AIX: /usr/IBM/WebSphere/AppServer
         -   Linux: /opt/IBM/WebSphere/AppServer
         -   Windows: C:\\Program Files \(x86\)\\IBM\\WebSphere\\AppServer
     2.  Enter the properties of the WebSphere Application Server Deployment Manager \(DM\):
@@ -148,7 +145,7 @@ To install HCL Connections in console mode, complete the following steps:
 
     3.  Press Enter to verify the DM information that you entered. The verification process also checks that application security is enabled on WebSphere Application Server. If the verification fails, IBM Installation Manager displays an error message.
 
-        **Note:** \(AIX and Linux\) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the **Open File Descriptor limit**, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.
+        **Note:** \(Linux\) The validation process checks the number of open files that are supported by your system. If the value for this parameter, which is known as the **Open File Descriptor limit**, is too low, a file open error, memory allocation failure, or connection establishment error could occur. If one of these errors occurs, exit the installation wizard and increase the open file limit before restarting the wizard. To set the file limit, refer to the [Installation error messages](../troubleshoot/r_error_codes_install.md) topic and search for error code CLFRP0042E. The recommended value for HCL Connections is 8192. For more information about the Open File Descriptor limit, see the documentation for your operating system.
 
     4.  If the verification check is successful, type N to proceed. If verification fails, press B to reenter the required information.
 
@@ -202,7 +199,7 @@ To install HCL Connections in console mode, complete the following steps:
 
     2.  Select a **Database type** from one of the following options:
 
-        If installing on Windows, Linux, or AIX:
+        If installing on Windows or Linux:
 
         -   IBM DB2 Universal Database™
         -   Oracle Enterprise Edition
@@ -214,10 +211,6 @@ To install HCL Connections in console mode, complete the following steps:
     4.  Enter the **Port** number of the database server. The default values are: 50000 for DB2, 1521 for Oracle, and 1433 for SQL Server.
 
     5.  Enter the **JDBC driver location**. For example:
-
-        -   AIX:
-
-            /usr/IBM/WebSphere/AppServer/lib
 
         -   Linux:
 
@@ -379,7 +372,7 @@ To install HCL Connections in console mode, complete the following steps:
 
 23. Restart the Deployment Manager.
 
-    -   AIX or Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the./stopManager.sh command and then enter the ./startManager.sh command.
+    -   Linux: Open a command prompt and change to the [app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/Dmgr01/bin directory. Enter the./stopManager.sh command and then enter the ./startManager.sh command.
     -   Windows: Stop and restart the Deployment Manager service.
 24. Start all the federated nodes and enter the startNode command. Repeat these steps for each node:
 
@@ -389,7 +382,7 @@ To install HCL Connections in console mode, complete the following steps:
 
     3.  Enter the startNode command for your operating system:
 
-        -   AIX or Linux:./startNode.sh
+        -   Linux:./startNode.sh
         -   Windows:startNode.bat
 25. Log in to the Integrated Solutions Console on the DM to perform a full synchronization of all nodes.
 

@@ -45,7 +45,5 @@ The following types of change cannot be made using the customization directory:
 
 [Customizing the user interface](../customize/t_admin_common_customize_main.md)
 
-[Replacing images](../customize/t_customize_replace_logo.md)
-
 [Saving your customizations](../migrate/c_configuration_changes_after_update.md)
 

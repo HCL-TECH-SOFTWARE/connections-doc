@@ -8,7 +8,12 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 
 ## Create the Azure bot and app registration {#section_pd1_rrf_vnb .section}
 
-1.  Log in as the Microsoft Teams administrator.
+1.  Log in as the AD administrator with sufficient rights to create applications, for example Application Developer or Application Administrator.
+
+    !!! note
+
+        For details on the permissions required by the administrator, refer to [Azure AD built-in roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference) in the Microsoft documentation.
+
 2.  Navigate to Microsoft Teams and in the navigation, select the **Apps catalog** and find the Developer Portal app from Microsoft. Add this app if needed and open it.
 3.  In the top navigation of the app, select **Tools**.
 4.  Choose **Bot Management**, and click the **+ New Bot** button.
@@ -26,7 +31,12 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 
 ## Add single sign-on permissions to your Azure app {#section_t3f_trf_vnb .section}
 
-1.  Log into the Azure portal to complete the single sign on permissions, at https://portal.azure.com.
+1.  Log into the [Azure portal](https://portal.azure.com) to complete the single sign-on permissions. You must use an AD administrator account with sufficient rights to manage applications.
+
+    !!! note
+
+        For details on the permissions required by the administrator, refer to [Azure AD built-in roles](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference) in the Microsoft documentation.
+    
 2.  Select or find **App Registrations** and then click on the Azure app that was just created.
 3.  Navigate to **Manage** \> **Authentication**. Under **Supported account types**, make sure that **Accounts in any organizational directory \(Any Azure AD Directory - Multitenant\)** is selected.
 4.  Navigate to **Manage** \> **API Permissions**.

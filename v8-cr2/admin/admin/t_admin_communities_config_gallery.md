@@ -23,7 +23,7 @@ Check out gallery-config.xml, edit the gallery configuration properties, and the
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied and are stored while you change them. Use forward slashes to separate directories in the file path, even if you are using the Microsoft™ Windows™ operating system.
 
-            **Note:** AIX®, and Linux™ only: The directory must grant write permissions or the command does not run successfully.
+            **Note:** Linux™ only: The directory must grant write permissions or the command does not run successfully.
 
         -   cell\_name is the name of the WebSphere® Application Server cell that hosts the HCL Connections application. If you do not know the cell name, type the following command while in the wsadmin command processor: print AdminControl.getCell\(\)
 
@@ -31,7 +31,7 @@ Check out gallery-config.xml, edit the gallery configuration properties, and the
 
         For example:
 
-        -   AIX or Linux: LCConfigService.checkOutGalleryConfig\("/opt/temp","foo01Cell01"\)
+        -   Linux: LCConfigService.checkOutGalleryConfig\("/opt/temp","foo01Cell01"\)
         -   Microsoft Windows: LCConfigService.checkOutGalleryConfig\("c:/temp","foo01Cell01"\)
 4.  Open gallery-config.xml in an editor and edit any of the configuration properties that are outlined in table 1.
 
