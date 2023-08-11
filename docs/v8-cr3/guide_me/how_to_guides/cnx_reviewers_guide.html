@@ -18,7 +18,7 @@
     
     
       
-        <title>HCL Connections Version 8 Performance Tuning Guide - HCL Connections 8.0 CR3 Help Center</title>
+        <title>Connections Performance and Tuning guide - HCL Connections 8.0 CR3 Help Center</title>
       
     
     
@@ -176,7 +176,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HCL Connections Version 8 Performance Tuning Guide
+              Connections Performance and Tuning guide
             
           </span>
         </div>
@@ -314,10 +314,12 @@
         
   
   
+    
+  
 
 
   <li class="md-tabs__item">
-    <a href="../guide_me.html" class="md-tabs__link">
+    <a href="../guide_me.html" class="md-tabs__link md-tabs__link--active">
       Guide Me
     </a>
   </li>
@@ -4600,8 +4602,6 @@
         
           
         
-          
-        
       
       
         
@@ -4630,20 +4630,6 @@
     <li class="md-nav__item">
       <a href="../../admin/install/inst_managing_os_index_cnx_typeahead_search.html" class="md-nav__link">
         Managing the OpenSearch index for Connections type-ahead search
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../admin/install/inst_tasearch_no_metrics.html" class="md-nav__link">
-        Setting up certificates for type-ahead search
       </a>
     </li>
   
@@ -34749,12 +34735,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -34785,15 +34773,19 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" checked>
       
       
       
+        
+          
         
           
         
@@ -34818,6 +34810,680 @@
           How to guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Connections Performance and Tuning guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="cnx_reviewers_guide.html" class="md-nav__link md-nav__link--active">
+        Connections Performance and Tuning guide
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-document" class="md-nav__link">
+    About this document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-new-in-connections-8" class="md-nav__link">
+    What's New in Connections 8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-tuning-overview" class="md-nav__link">
+    Performance Tuning Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-recommendations" class="md-nav__link">
+    Environment Recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#64-bit" class="md-nav__link">
+    64-bit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-multi-threading-hyper-threading" class="md-nav__link">
+    Hardware Multi-threading (Hyper-threading)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtualization" class="md-nav__link">
+    Virtualization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hcl-connections-topologies" class="md-nav__link">
+    HCL Connections Topologies
+  </a>
+  
+    <nav class="md-nav" aria-label="HCL Connections Topologies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-server-topology" class="md-nav__link">
+    Single-Server Topology
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    Deployment Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustered-deployments" class="md-nav__link">
+    Clustered Deployments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hcl-connections-and-horizontal-clustering" class="md-nav__link">
+    HCL Connections and Horizontal Clustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hcl-connections-and-vertical-clustering" class="md-nav__link">
+    HCL Connections and Vertical Clustering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#considerations-for-network-file-sharing" class="md-nav__link">
+    Considerations for Network File Sharing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-content-conversion" class="md-nav__link">
+    Files Content Conversion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-server-hardware" class="md-nav__link">
+    Database Server Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-server-architecture" class="md-nav__link">
+    Database Server Architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-caching-and-compression-overview" class="md-nav__link">
+    Content Caching and Compression Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Caching and Compression Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-caching-details-and-implementation-choices" class="md-nav__link">
+    Content Caching Details and Implementation Choices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-compression-details-and-implementation-choices" class="md-nav__link">
+    Content Compression Details and Implementation Choices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-server" class="md-nav__link">
+    HTTP Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-file-downloads-through-the-http-server" class="md-nav__link">
+    Configuring file downloads through the HTTP Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-file-uploads-through-the-http-server" class="md-nav__link">
+    Configuring file uploads through the HTTP Server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-considerations" class="md-nav__link">
+    Other Considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-system-used-for-performance-measurements" class="md-nav__link">
+    Benchmark System Used for Performance Measurements:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-deployments" class="md-nav__link">
+    Benchmark Deployments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-hardware-operating-systems" class="md-nav__link">
+    Benchmark Hardware &amp; Operating Systems
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-the-connections-system" class="md-nav__link">
+    Tuning the Connections System
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning the Connections System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-application-server-environment" class="md-nav__link">
+    Tuning the Application Server Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-via-the-integrated-solutions-console" class="md-nav__link">
+    Tuning via the Integrated Solutions Console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-jvm" class="md-nav__link">
+    Tuning the JVM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heap-size" class="md-nav__link">
+    Heap Size
+  </a>
+  
+    <nav class="md-nav" aria-label="Heap Size">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nursery-size" class="md-nav__link">
+    Nursery Size
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-data-sources" class="md-nav__link">
+    Tuning the Data sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning the Data sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-pool-size" class="md-nav__link">
+    Connection Pool Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepared-statement-cache-size" class="md-nav__link">
+    Prepared Statement Cache Size
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-container-thread-pools" class="md-nav__link">
+    Web Container Thread Pools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-integration-bus-message-stores" class="md-nav__link">
+    Service Integration Bus Message Stores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-web-server" class="md-nav__link">
+    Tuning the Web Server
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning the Web Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#process-and-thread-settings-in-http-conf" class="md-nav__link">
+    Process and Thread Settings in http conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-nginx-conf" class="md-nav__link">
+    Tuning the NGINX conf
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-caching-in-ihs" class="md-nav__link">
+    Enabling Caching in IHS
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling Caching in IHS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-set-disk-caching" class="md-nav__link">
+    How to Set Disk Caching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    Performance Considerations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-compression-directives" class="md-nav__link">
+    Content Compression Directives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-http-server-activity" class="md-nav__link">
+    Monitoring HTTP Server Activity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-logging-problem-determination" class="md-nav__link">
+    HTTP Logging / Problem Determination
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-the-database-db2" class="md-nav__link">
+    Tuning the Database – DB2®
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-tuning" class="md-nav__link">
+    General Tuning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autonomic-features" class="md-nav__link">
+    Autonomic Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db2minimizelistprefetch" class="md-nav__link">
+    DB2\MINIMIZE\LISTPREFETCH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db2selectivity" class="md-nav__link">
+    DB2\SELECTIVITY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db2-data-compression" class="md-nav__link">
+    DB2 Data Compression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-compression-and-compress" class="md-nav__link">
+    Enable compression and compress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-the-operating-system" class="md-nav__link">
+    Tuning the Operating System
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning the Operating System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swapping" class="md-nav__link">
+    Swapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-tuning-on-linux" class="md-nav__link">
+    Network Tuning on Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-shell-limits-on-the-db2-database-system" class="md-nav__link">
+    Setting Shell Limits on the DB2 Database System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-shell-limits-for-the-connection-user-on-the-application-server-tier" class="md-nav__link">
+    Setting Shell Limits for the Connection User on the Application Server Tier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-hcl-connections-applications" class="md-nav__link">
+    Tuning HCL Connections Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning HCL Connections Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profiles-login-attributes" class="md-nav__link">
+    Profiles Login Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-the-social-analytics-indexer" class="md-nav__link">
+    Tuning the Social Analytics Indexer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-blogs-page-cache-control" class="md-nav__link">
+    Public Blogs Page Cache-Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-activities-subject-cache" class="md-nav__link">
+    Tuning Activities Subject Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-push-notifications-for-filesync-and-notifications-center" class="md-nav__link">
+    Tuning Push Notifications for FileSync and Notifications Center
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-monitoring" class="md-nav__link">
+    System Monitoring
+  </a>
+  
+    <nav class="md-nav" aria-label="System Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#areas-to-monitor" class="md-nav__link">
+    Areas to Monitor
+  </a>
+  
+    <nav class="md-nav" aria-label="Areas to Monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    Metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems" class="md-nav__link">
+    Systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtualised-environments" class="md-nav__link">
+    Virtualised Environments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-look-for" class="md-nav__link">
+    What to look for
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-reference-material" class="md-nav__link">
+    Appendix A - Reference Material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-c-db2-compress-homepage" class="md-nav__link">
+    Appendix C – DB2 Compress Homepage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trademarks" class="md-nav__link">
+    Trademarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terms-and-conditions" class="md-nav__link">
+    Terms and Conditions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
           
             
               
