@@ -306,7 +306,7 @@ nav:
              - Setting up type-ahead search:
                - admin/install/inst_tasearch_intro.md
                - Managing the OpenSearch index for Connections type-ahead search: admin/install/inst_managing_os_index_cnx_typeahead_search.md
-               - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
+#              - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
              - Installing Customizer Lite:
                - admin/install/cp_install_customizer_lite.md
                - Configuring Customizer Lite: admin/install/cp_install_customizer_lite_config.md
@@ -2003,7 +2003,7 @@ nav:
         - guide_me/guide_me.md
         - How to guides:
           - guide_me/how_to_guides/how_to_guides.md
-          # - Connections Performance and Tuning guide: guide_me/how_to_guides/cnx_reviewers_guide.md
+          - Connections Performance and Tuning guide: guide_me/how_to_guides/cnx_reviewers_guide.md
           - Connections 8.0 CR1 Sizing Guide: guide_me/how_to_guides/connections8_sizing_guide.pdf
           - Connections 8.0 CR1 Troubleshooting Component Pack: guide_me/how_to_guides/troubleshooting_cnx_cp.pdf
           
