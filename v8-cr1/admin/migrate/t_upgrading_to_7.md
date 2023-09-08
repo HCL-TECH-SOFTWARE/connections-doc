@@ -2,7 +2,7 @@
 
 Upgrade to an HCL Connections 8.0 CR1 deployment by running the Installation Manager Update function on a Connections 7.0 deployment. This can be done either in-place \(in your existing production environment\) or using a hybrid approach of installing 7.0 in a new environment identical to production then running the upgrade to 7.0.
 
-Download Connections and Component Pack 8.0. Connections Server packages are as follows:
+Download Connections and Component Pack 8 CR1. Connections Server packages are as follows:
 
 -   HCL\_Connections\_8.0 \(download package for Connections 8.0 CR1 including system requirements\)
 -   Websphere Application Server 8.5.5 and Select Fix Packs \(download package for IBM WebSphere including FixPacks\)
@@ -52,6 +52,9 @@ Download Connections and Component Pack 8.0. Connections Server packages are as 
     **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
 
 13. In the Topology panel, select the topology that matches the deployment
+
+    **Note:** By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.
+
 
 14. Validate the Feature Foundation database
 

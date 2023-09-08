@@ -85,7 +85,7 @@ Make sure that secure connections are established in your deployment, as explain
 
     4.  Synchronize the nodes and then restart the servers or clusters that are running the Search and Common applications \(including the Deployment Manager and nodes\).
 
-    5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [inst\_tasearch\_no\_metrics.md](inst_tasearch_no_metrics.md).
+    5.  If you are using type-ahead search on a separate cluster, add the SSL configuration as explained in [Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md).
 
 
 Deploy OpenSearch-based metrics for Connections as explained in [cp\_config\_os\_metrics\_no\_cognos.md](cp_config_os_metrics_no_cognos.md).

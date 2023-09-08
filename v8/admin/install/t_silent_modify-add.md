@@ -2,7 +2,7 @@
 
 Add applications to your deployment of HCL Connections without using the installation wizard.
 
-Create a response file for this task by running a simulated modification. Response files are provided for silent installations on AIX® and Linux™. For silent installations on Microsoft™ Windows™, refer to the topics [Installing in console mode](t_install_console-mode.md) and [Modifying the installation in console mode](t_modify_installation_console.md) .
+Create a response file for this task by running a simulated modification. Response files are provided for silent installations on Linux™. For silent installations on Microsoft™ Windows™, refer to the topics [Installing in console mode](t_install_console-mode.md) and [Modifying the installation in console mode](t_modify_installation_console.md) .
 
 Instead of generating a new response file, you can edit the default response file that is provided with the product. However, if you edit the default response file, you need to add encrypted passwords to the file. For more information, see the [Creating encrypted passwords for a response file](t_silent_create_encrypted_passwords.md) topic.
 

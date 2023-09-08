@@ -88,7 +88,7 @@ You can copy any existing widget with the following steps:
 			* @param createCustomwidget {function} Function which should be called when rendering
 			* the widget
 			* @param CreateCustomEditor {function} optional: Use an own Editor instance!
-			* @param synchUiTowidgetDataObjekt {function} optional: Synch your Data from the UI into the widget.
+			* @param synchUiToWidgetDataObject {function} optional: Synch your Data from the UI into the widget.
 			* @param dontShowIn {String} optional: e.g.: Should not show in ":cloud:communites:cnx5:"
 			*/
 			XCC.W.registerCustomWidget({
@@ -97,7 +97,7 @@ You can copy any existing widget with the following steps:
 				icon: "flag",
 				createCustomwidget: myCustomwidget,
 				customEditor: myCustomEditor,
-				synchUiTowidgetDataObject: save
+				synchUiToWidgetDataObject: save
 			});
 			XCC.X.NewsSliderCopy();
 		},

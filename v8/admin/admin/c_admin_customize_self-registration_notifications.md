@@ -6,7 +6,7 @@ You can customize the content of the email notifications related to the self-reg
 
 The source files for all following customization options are in the following installation directory for the self-registration feature: app\_server\_root/profiles/profile\_root/installedApps/cell\_name/Invite.ear/ \(hereafter referred to as the invite\_install directory\)
 
-Copy the source files that you want to edit to the customization directory defined in selfregistration-config.xml. By default this directory is the invite directory in the Connections customization path as described in [Determining where to save your customizations](../customize/t_customize_find_custom_directory.md). Hereafter, this directory is referred to as invite\_customization.
+Copy the source files that you want to edit to the customization directory defined in selfregistration-config.xml. By default this directory is the invite directory in the Connections customization path as described in [Determining where to save your customizations](https://help.hcltechsw.com/connections/v7/admin/customize/t_customize_find_custom_directory.html). Hereafter, this directory is referred to as invite\_customization.
 
 ## Customizing email notifications { .section}
 

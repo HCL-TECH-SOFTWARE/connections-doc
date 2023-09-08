@@ -1,6 +1,6 @@
-# Install on Linux, Unix or AIX {#setup-editors-install-install-on-linux-unix-or-aix .task}
+# Install on Linux or Unix {#setup-editors-install-install-on-linux-unix-or-aix .task}
 
-The installation of Tiny Editors for HCL Connections on Linux, Unix or AIX is automated using a shell script.
+The installation of Tiny Editors for HCL Connections on Linux, Unix is automated using a shell script.
 
 Before you begin:
 

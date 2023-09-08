@@ -19,32 +19,14 @@ Add the strings from table 1 to log level details. Then, restart Connections and
 |---------|-------------|
 |WebSphere Application Server OAuth TAI and endpoint servlets|`com.ibm.ws.security.oauth20.*=all`|
 |Connections OAuth Provider initializer, platform, DAO, and MBeans|`com.ibm.lconn.oauth.*=all`|
-|CRE OAuth Consumer Proxy|```
-
-org.apache.shindig.gadgets.oauth2.*=all
-com.ibm.mm.proxy.*=all (MuM proxy)
-```
-
-|
-|Connections CRE integration layer|```
-
-com.ibm.lconn.core.services.cre.*=all
-com.ibm.lconn.news.shindig.oauth.service.*=all
-com.ibm.lconn.news.service.impl.oauth.*=all
-```
-
-|
+|CRE OAuth Consumer Proxy|```org.apache.shindig.gadgets.oauth2.*=all com.ibm.mm.proxy.*=all (MuM proxy)```|
+|Connections CRE integration layer|`com.ibm.lconn.core.services.cre.*=all` <br> `com.ibm.lconn.news.shindig.oauth.service.*=all` <br> `com.ibm.lconn.news.service.impl.oauth.*=all`|
 
 ## Troubleshooting { .section}
 
 |Type|Error|URL|Reason|Solution|
 |----|-----|---|------|--------|
-|Response in the user interface|```
-Error 404: javax.servlet.ServletException: 
-Filter [OAuth20ClientAuthnFilter]: filter is unavailable.
-```
-
-|http://server:port/oauth2/endpoint/connectionsProvider/authorize?client\_id=<client\_id\>&redirect\_uri=<redirect\_uri\>&response\_type=code&scope=Connections&state=<state\>|The authorization screen URL is invalid. This happens if the \{oauthSvcUrl\} placeholder in the authorization URL parameter was not replaced successfully.|Make sure the ProviderInitializer context listener completes initialization successfully. Check errors in the logs to find an appropriate solution for each case.|
+|Response in the user interface|`Error 404: javax.servlet.ServletException: Filter [OAuth20ClientAuthnFilter]: filter is unavailable.`|http://server:port/oauth2/endpoint/connectionsProvider/authorize?client\_id=<client\_id\>&redirect\_uri=<redirect\_uri\>&response\_type=code&scope=Connections&state=<state\>|The authorization screen URL is invalid. This happens if the \{oauthSvcUrl\} placeholder in the authorization URL parameter was not replaced successfully.|Make sure the ProviderInitializer context listener completes initialization successfully. Check errors in the logs to find an appropriate solution for each case.|
 
 **Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 

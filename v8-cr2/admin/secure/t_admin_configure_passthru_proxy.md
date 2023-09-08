@@ -17,12 +17,6 @@ To configure the AJAX proxy to work with a pass-through proxy, complete the foll
         app\_server\_root/profiles/dm\_profile\_root/bin. Where app\_server\_root represents the IBM WebSphere Application Server installation directory, for example:
 
         ```
-        AIX:
-        /usr/IBM/WebSphere/AppServer
-        
-        ```
-
-        ```
         Linux:
         /opt/IBM/WebSphere/AppServer
         
@@ -42,7 +36,7 @@ To configure the AJAX proxy to work with a pass-through proxy, complete the foll
 
     2.  Enter the following command to start the wsadmin client:
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
+        -   Linux: ./wsadmin.sh -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         -   Microsoft Windows: wsadmin -lang jython -user admin\_user\_id -password admin\_password -port SOAP\_CONNECTOR\_ADDRESS\_PORT
         where:
 
@@ -53,7 +47,7 @@ To configure the AJAX proxy to work with a pass-through proxy, complete the foll
             2.  In the **Additional properties** section expand **Ports**, and then look for the **SOAP\_CONNECTOR\_ADDRESS\_PORT** entry to find the port number.
         For example;
 
-        -   AIX or Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
+        -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
     3.  Use the following command to access the configuration file:
 

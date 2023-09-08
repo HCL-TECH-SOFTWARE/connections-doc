@@ -1,6 +1,6 @@
-# Uninstall the Tiny Editors Integration on Linux, Unix or AIX {#uninst-editors-uninstall-on-linux-unix-or-aix .task}
+# Uninstall the Tiny Editors Integration on Linux or Unix {#uninst-editors-uninstall-on-linux-unix-or-aix .task}
 
-Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux, Unix or AIX.
+Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux or Unix.
 
 Before you begin:
 
@@ -75,5 +75,5 @@ The following script makes numerous connections, and connection prompts for a pa
     **Note:** If after performing this step Tiny Editors for HCL Connections is still available then [restarting the Common enterprise application](t_restart-common-app.md) may be necessary to force a cache update.
 
 
-**Parent topic:**[Uninstalling Tiny Editors Integration](../../install/tiny_editors/t_03-uninst_01-editors_00-summary.md)
+**Parent topic:**[Uninstalling Tiny Editors Integration](t_03-uninst_01-editors_00-summary.md)
 

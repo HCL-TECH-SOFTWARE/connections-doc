@@ -72,7 +72,7 @@ Manually update settings in tdi-profiles-config.xml on your Tivoli® Directory I
     -   `cell\_name` is the name of the WebSphere Application Server cell that hosts the Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: `print AdminControl.getCell()`
     For example:
 
-    -   AIX® or Linux®:
+    -   Linux®:
 
         ```
         ProfilesConfigService.checkOutConfig("/opt/temp","foo01Cell01")

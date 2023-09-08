@@ -99,7 +99,7 @@ Refer to [Installing Component Pack on OpenShift](cp_openshift.md) for details.
 Refer to [Installing Component Pack using EKS](cp_eks.md) for details.
 
 -   **[Upgrade considerations for Component Pack 8 CR1](../install/upgrade_considerations.md)**  
-The upgrade path described in [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
+The upgrade path described in [Steps to install or upgrade to Component Pack 8 CR1](../install/cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
 -   **[Upgrade considerations for side-by-side migration of data](../install/cp_upgrade_considerations_for_side_by_side_migration.md)**  
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.

@@ -21,5 +21,3 @@ Customize the action links that display on the Profiles business card by editing
 
 [Administering Profiles](../admin/c_admin_profiles_intro.md)
 
-[Adding custom strings for widgets and other specified scenarios](../customize/t_admin_profiles_add_custom_strings.md)
-

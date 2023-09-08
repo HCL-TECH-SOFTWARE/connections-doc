@@ -1,6 +1,6 @@
-# Uninstall the Tiny Editors Integration on Linux, Unix or AIX {#uninst-editors-uninstall-on-linux-unix-or-aix .task}
+# Uninstall the Tiny Editors Integration on Linux or Unix {#uninst-editors-uninstall-on-linux-unix-or-aix .task}
 
-Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux, Unix or AIX.
+Running the uninstaller script will automate the removal of the Tiny Editors Integration on Linux or Unix.
 
 Before you begin:
 

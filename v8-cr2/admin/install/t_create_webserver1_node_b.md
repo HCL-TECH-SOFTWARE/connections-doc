@@ -10,9 +10,8 @@ To define IBM HTTP Server, complete the following steps:
 
 1.  Start the IBM HTTP Administration Server:
 
-    -   AIX® or Linux®:
+    -   Linux®:
         1.  Open a command prompt and navigate to the following directory:
-            -   AIX: `/usr/IBM/HTTPServer/bin`
             -   Linux: `/opt/IBM/HTTPServer/bin`
         2.  Enter the following command: `./adminctl start`
     -   Windows®:

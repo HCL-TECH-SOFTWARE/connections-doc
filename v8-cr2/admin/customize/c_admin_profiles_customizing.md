@@ -14,6 +14,8 @@ You can manually configure which properties are made available in the search ind
 By default, Profiles looks at the login table and various login attributes in the Profiles database. To improve performance, comment out login attributes that are not used in your environment.
 -   **[Creating a simple profile data model and template customization](../customize/t_admin_profiles_custom_example.md)**  
 This example demonstrates the required steps for customizing the profile data model and template files to complete a simple customization.
+-   **[Configuring Profiles directory search options](../customize/t_admin_profiles_configure_adv_search.md)**
+Configure directory search options to specify the fields that can be used when performing a search.
 
 **Parent topic:**[Customizing](../customize/c_customize_overview.md)
 

@@ -26,6 +26,13 @@ Ensure you have the following:
 
     -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
     -   `image_tag` is the user-defined tag for the image, for example `current timestamp` .
+    
+    Ensure you see following output after image is built:
+
+    ```
+    Successfully built <system generated docker image id>
+    Successfully tagged hclcr.io/cnx/middleware-mongodb5:{{ image_tag }}
+    ```
 
 3.  Save this image to a `tar` file:
 
@@ -84,7 +91,67 @@ Ensure you have the following:
 10. Install MongoDB 5 using Helm charts.
     1.  On your Component Pack node, download [infrastructure.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars). Then, rename the file to infrastructure.yml and open it.
 
-        Replace variables in curly braces with the appropriate values.
+        Replace all variables in curly braces "{ }" with values that are appropriate to your cluster configuration. For instance, if you deploy your cluster in a specific namespace named "connections", you need to replace the `{{ _default_namespace }}` variable with that namespace name, "connections". Another variable is `{{ replica_count }}` which depends on the number of end users accessing the application.
+        
+        Explanations of some of these variables are available in [HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/VARIABLES.md).
+
+        For an idea on how to make the substitutions, take the following example. This is tailored to the Connections internal environment, so it is purely for reference and is not meant to prescribe which values to use and which variables are available to override. The values you set in the `infrastructure.yml` file should fit to your own environment.
+
+        ```
+        global:
+          onPrem: true
+          image:
+            repository: hclcr.io/cnx
+        haproxy:
+          namespace: connections
+          replicaCount: 1
+        redis:
+          namespace: connections
+          replicaCount: 1
+        redis-sentinel:
+          namespace: connections
+          replicaCount: 1
+        mongodb:
+          namespace: connections
+          createSecret: false
+          replicaCount: 1
+        mongo5:
+          clusterDomain: cluster.local
+          namespace: connections
+          createSecret: false
+          replicaCount: 1
+        appregistry-client:
+          namespace: connections
+          replicaCount: 1
+          ingress:
+            annotations:
+            kubernetes.io/ingress.class: nginx
+            nginx.ingress.kubernetes.io/rewrite-target: /$1
+            enabled: true
+            hosts:
+            - host: "*.example.com"
+            paths: []
+            name: cnx-ingress-appreg
+            tls: []
+        appregistry-service:
+          namespace: connections
+          deploymentType: hybrid_cloud
+          replicaCount: 1
+        middleware-jsonapi:
+          namespace: connections
+          replicaCount: 1
+          ingress:
+            annotations:
+              kubernetes.io/ingress.class: nginx
+              nginx.ingress.kubernetes.io/rewrite-target: /
+            enabled: true
+            hosts:
+            - host: "*.example.com"
+              paths: []
+            name: cnx-ingress-jsonapi
+            tls: []
+        replicaCount: 1
+        ```
 
     2.  Install or upgrade the infrastructure chart using the following steps. You'll use infrastructure charts as it contains MongoDB 5 charts. To install these charts:
         1.  Find infrastructure chart version:

@@ -1,10 +1,10 @@
-# Upgrade considerations for Component Pack 8 CR1 {#upgrade_considerations .concept}
+# Upgrade considerations for Component Pack 8 CR2 {#upgrade_considerations .concept}
 
-The upgrade path described in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
+The upgrade path described in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
 ## Side-by-side vs. in-place {#section_jch_yrx_bvb .section}
 
-You can upgrade to HCL Connections 8.0 CR2 by doing either a side-by-side or an in-place upgrade. The approach described in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
+You can upgrade to HCL Connections 8.0 CR2 by doing either a side-by-side or an in-place upgrade. The approach described in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
 
 If your upgrade strategy requires a side-by-side migration on a mirrored set of both WebSphere and Kubernetes machines, you can still use the installation document. The difference between the two approaches is the transfer of data from source to destination system.
 
@@ -22,7 +22,7 @@ For more information, see [Upgrade considerations for side-by-side migration of 
 
 ## Docker {#section_qcg_btx_bvb .section}
 
-To deploy Component Pack, we use the Harbor container registry. Modify the reference according to your environment. When provisioning Component Pack 8 CR1, you can empty your local Docker repository or manually delete the Connections 7 parts before starting the upgrade to version 8 CR1.
+To deploy Component Pack, we use the Harbor container registry. Modify the reference according to your environment. When provisioning Component Pack 8 CR2, you can empty your local Docker repository or manually delete the Connections 7 parts before starting the upgrade to version 8 CR1.
 
 ## Switch container runtime {#section_sqh_ktx_bvb .section}
 
@@ -48,7 +48,7 @@ See [HCL Connections 8.0 CR2 System Requirements](https://support.hcltechsw.com/
 
 Connections 8.0 CR2 defines OpenSearch 1.3.0 as the default backend for Orient Me, search and Metrics – this is what we'll deploy and configure in our installation scenario. Previous Connections releases used an older Elasticsearch 7 version, which is no longer needed.
 
-**Note:** In case you already have Metrics deployed and its data collected, and you do not want to start Metrics from scratch, you will have to migrate these data into the new release. [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) covers both scenarios.
+**Note:** In case you already have Metrics deployed and its data collected, and you do not want to start Metrics from scratch, you will have to migrate these data into the new release. [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) covers both scenarios.
 
 **Parent topic:** [Installation and upgrade](../install/cp_install_upgrade_container.md)
 

@@ -26,8 +26,3 @@ libpam.so.0
 
 **Parent topic:**[Before installing](../install/r_before_installing.md)
 
-**Related information**  
-
-
-[AIX libraries](../install/r_aix_libraries-N.md)
-
