@@ -4,7 +4,7 @@ Configure HCL Connections notifications to be sent from a specific SMTP server t
 
 Mail is configured as part of the installation process. Only perform this procedure if you did not enable mail during the installation or you want to change the mail configuration.
 
-You can choose to configure notifications to be sent from a single SMTP or have HCL Connections perform a lookup of multiple SMTP server to find one that is available to send the message. If you are interested in the latter configuration, see *Sending mail from any available mail server*.
+You can choose to configure notifications to be sent from a single SMTP or have HCL Connections perform a lookup of multiple SMTP server to find one that is available to send the message. If you are interested in the latter configuration, see [Sending mail from any available mail server](t_admin_common_config_mail_dnx.md).
 
 1.  Log into the IBM® WebSphere Application Server Integrated Solutions Console.
 
@@ -14,11 +14,11 @@ You can choose to configure notifications to be sent from a single SMTP or have 
 
 4.  Specify values for the following fields:
 
-    Name
-    :   Specify HCL Connections Notification or another descriptive string.
+    **Name**
+       Specify `HCL Connections Notification` or another descriptive string.
 
-    JNDI name
-    :   Specify mail/notification as the value of the JNDI name.
+    **JNDI name**
+       Specify `mail/notification` as the value of the JNDI name.
 
 5.  Specify the following custom properties to define time outs that will prevent resources from being consumed in the event that the SMTP server is unavailable:
 
@@ -37,28 +37,28 @@ You can choose to configure notifications to be sent from a single SMTP or have 
 
 7.  If the SMTP server requires authentication, then provide values for the following fields:
 
-    User
-    :   User ID used to connect to the SMTP server.
+    **User**
+       User ID used to connect to the SMTP server.
 
-    Password
-    :   Password associated with the user ID used to connect to the SMTP server.
+    **Password**
+       Password associated with the user ID used to connect to the SMTP server.
 
-    Verify Password
-    :   Repeat the password specified in the previous field.
+    **Verify Password**
+       Repeat the password specified in the previous field.
 
 8.  If the SMTP server requires traffic to be sent over SSL, then add the following customer properties, and then specify values for them by clicking the **Custom properties** link, and then clicking **New**:
 
-    mail.smtp.port
-    :   Specifies the SMTP port number, which is often 465.
+    **mail.smtp.port**
+       Specifies the SMTP port number, which is often 465.
 
-    mail.smtp.socketfactory.port
-    :   Specifies the SMTP port number, which is often 465.
+    **mail.smtp.socketfactory.port**
+       Specifies the SMTP port number, which is often 465.
 
-    mail.smtp.socketfactory.class
-    :   Specifies the SSL socket factory class.
+    **mail.smtp.socketfactory.class**
+       Specifies the SSL socket factory class.
 
-    mail.smtp.socketFactory.fallback
-    :   Specifies whether an unsecure connection can be made if SSL is not available. This property accepts the following values: true or false.
+    **mail.smtp.socketFactory.fallback**
+       Specifies whether an unsecure connection can be made if SSL is not available. This property accepts the following values: true or false.
 
     For example:
 
@@ -82,7 +82,7 @@ You can choose to configure notifications to be sent from a single SMTP or have 
     app\_server\_root\profiles\dm\_profile\_root\bin
     ```
 
-    **Note:** You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the *Starting the wsadmin client* topic.
+    **Note:** You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the [Starting the wsadmin client](t_admin_wsadmin_starting.md) topic.
 
 11. Update the notification configuration file to indicate that you want to use a mail session managed by WebSphere Application Server.
 
@@ -118,9 +118,9 @@ You can choose to configure notifications to be sent from a single SMTP or have 
     7.  Stop and restart HCL Connections.
 
 
-You must complete the steps described in *Enabling email notifications* before users can send and receive email notifications.
+You must complete the steps described in [Enabling email notifications](t_admin_common_enable_template.md) before users can send and receive email notifications.
 
-**Parent topic:**[Configuring notifications](../admin/t_admin_common_config_notification.md)
+**Parent topic:** [Configuring notifications](../admin/t_admin_common_config_notification.md)
 
 **Related information**  
 
