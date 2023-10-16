@@ -35028,9 +35028,18 @@ spec:
 </li>
 </ol>
 <h2 id="set-up-community-ingress">Set up community ingress</h2>
-<p>Install ingress-nginx using the following command:</p>
-<div class="highlight"><pre><span></span><code>helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace &lt;namespace&gt; --set controller.image.allowPrivilegeEscalation=false --set controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath=&quot;/healthz&quot;,controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 –wait
+<ol>
+<li>
+<p>If not already added, add the community Helm repository:</p>
+<div class="highlight"><pre><span></span><code>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 </code></pre></div>
+</li>
+<li>
+<p>Install ingress-nginx using the following command:</p>
+<div class="highlight"><pre><span></span><code>helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace &lt;namespace&gt; --set controller.image.allowPrivilegeEscalation=false --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath=&quot;/healthz&quot;,controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --wait
+</code></pre></div>
+</li>
+</ol>
 <p>Where <code>&lt;namespace&gt;</code> is your namespace (the default is "connections").</p>
 <h2 id="set-up-activities-plus">Set up Activities Plus</h2>
 <p>Persistent Volume Claim needs to be added to the Persistent Volume definition.  </p>
