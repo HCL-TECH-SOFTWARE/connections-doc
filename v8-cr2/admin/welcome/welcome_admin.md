@@ -2,33 +2,33 @@
 
 Welcome to the HCL Connections documentation site. HCL Connections is social networking software designed for the workplace. Its features help you to establish dynamic networks that connect you to the people and information you need to achieve your business goals.
 
-**Getting started with a new deployment**  
+**Getting started with a new deployment**
 
 
-[What is HCL Connections?](https://opensource.hcltechsw.com/connections-doc/admin/overview/c_what_is_lc.html)
+[What is HCL Connections?](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/overview/c_what_is_lc.html)
 
-[What is new in HCL Connections?](https://opensource.hcltechsw.com/connections-doc/admin/overview/i_ovr_r_whats_new_cr1.html)
+[What is new in HCL Connections?](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/overview/i_ovr_r_whats_new_cr1.html)
 
-[System requirements](https://opensource.hcltechsw.com/connections-doc/admin/plan/r_install_prerqs.html)
+[System requirements](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/plan/r_install_prerqs.html)
 
-[Planning your deployment](https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html)
+[Planning your deployment](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/plan/c_installation_overview.html)
 
-**Installing or updating an existing deployment**  
+**Installing or updating an existing deployment**
 
 
 [Download Connections 8.0 CR2, including Component Pack 8 CR2, from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/entitledDownloadFile.action?downloadPkgId=HCL_Connections_7.0&orgId=HCL&fromRecentFile=false&fromRecentPkg=false&fromDL=true)
 
-**Troubleshooting and support**  
+**Troubleshooting and support**
 
 
-[Troubleshooting](https://opensource.hcltechsw.com/connections-doc/admin/troubleshoot/ts_c_welcome.html)
+[Troubleshooting](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/troubleshoot/ts_c_welcome.html)
 
 [HCL Support Services](https://support.hcltechsw.com/)
 
 [HCL Articles](https://support.hcltechsw.com/)
 
-**Developer Documentation**  
+**Developer Documentation**
 
 
-[Developing with HCL Connections API](https://opensource.hcltechsw.com/connections-doc/admin/develop/dev_intro.html)
+[Developing with HCL Connections API](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/develop/dev_intro.html)
 
