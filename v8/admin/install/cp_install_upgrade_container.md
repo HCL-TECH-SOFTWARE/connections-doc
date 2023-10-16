@@ -2,11 +2,12 @@
 
 Experienced customers can download a package to do an automated installation or upgrade of Component Pack for HCL Connections. It is best for new customers to read this introduction and at least initially to do the manual steps in this section to gain a better understanding of Component Pack.
 
-## Ansible automation option provided by HCL {#section_lly_2sn_tnb .section}
+## Ansible deployment automation framework provided by HCL {#section_lly_2sn_tnb .section}
 
-Starting with version 7, HCL Software is providing Ansible automation tested in house as a preferred way of setting up Component Pack and its dependencies. If you don't have any experience with managing Kubernetes and its dependencies, or you simply want to see what the automation experience looks like, you can use the Ansible package to create your first single-node or distributed Component Pack cluster. This automation will, from Component Pack point of view, set up Kubernetes, kubectl, Helm, and execute all the steps needed to provide an out-of-the-box set up of Component Pack.
+If you are unfamiliar with Kubernetes management and its associated dependencies, or if you wish to gain insights on how to automate the
+deployment process, we encourage you to explore our HCL Connections and Component Pack Deployment Automation Framework. This framework provides insights into the automation of deployment workflows and can be used as an accelerator to reduce the overhead of deploying a Connections environment.  It orchestrates the seamless setup of Kubernetes, kubectl, Helm, and performs the necessary tasks to facilitate creation of a deployment of HCL Connections and Component Pack.
 
-For more specifics on how to use the automation, see HCL's open-source GitHub for the documents [Quickstart for setting up HCL Connections and Component Pack using Ansible automation](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md) and [HCL Connections and Component Pack automation scripts](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md).
+For more specifics on how to use the automation, see HCL's open-source GitHub for the documents [Quickstart for setting up HCL Connections and Component Pack Deployment Automation Framework](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/documentation/QUICKSTART.md) and [HCL Connections and Component Pack Deployment Automation Framework](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md).
 
 ## Replacing Component Pack {#section_g34_mfp_tnb .section}
 
