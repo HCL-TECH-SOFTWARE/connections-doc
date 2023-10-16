@@ -124,11 +124,17 @@ Now, download the infrastructure chart from the HCL Harbor repository and modify
 
 ## Set up community ingress
 
-Install ingress-nginx using the following command:
+1. If not already added, add the community Helm repository:
 
-```
-helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace <namespace> --set controller.image.allowPrivilegeEscalation=false --set controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 –wait
-```
+    ```
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    ```
+
+2. Install ingress-nginx using the following command:
+
+    ```
+    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace <namespace> --set controller.image.allowPrivilegeEscalation=false --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --wait
+    ```
 
 Where `<namespace>` is your namespace (the default is "connections").
 

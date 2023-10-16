@@ -34798,7 +34798,7 @@
 <h1 class="task" id="t_admin_common_config_mail_was">Sending mail from a dedicated mail server</h1>
 <p>Configure HCL Connections notifications to be sent from a specific SMTP server that is managed by WebSphere® Application Server. If the designated mail server is unavailable, then notification emails fail to be delivered.</p>
 <p>Mail is configured as part of the installation process. Only perform this procedure if you did not enable mail during the installation or you want to change the mail configuration.</p>
-<p>You can choose to configure notifications to be sent from a single SMTP or have HCL Connections perform a lookup of multiple SMTP server to find one that is available to send the message. If you are interested in the latter configuration, see <em>Sending mail from any available mail server</em>.</p>
+<p>You can choose to configure notifications to be sent from a single SMTP or have HCL Connections perform a lookup of multiple SMTP server to find one that is available to send the message. If you are interested in the latter configuration, see <a href="t_admin_common_config_mail_dnx.html">Sending mail from any available mail server</a>.</p>
 <ol>
 <li>
 <p>Log into the IBM® WebSphere Application Server Integrated Solutions Console.</p>
@@ -34811,10 +34811,10 @@
 </li>
 <li>
 <p>Specify values for the following fields:</p>
-<p>Name
-:   Specify HCL Connections Notification or another descriptive string.</p>
-<p>JNDI name
-:   Specify mail/notification as the value of the JNDI name.</p>
+<p><strong>Name</strong>
+   Specify <code>HCL Connections Notification</code> or another descriptive string.</p>
+<p><strong>JNDI name</strong>
+   Specify <code>mail/notification</code> as the value of the JNDI name.</p>
 </li>
 <li>
 <p>Specify the following custom properties to define time outs that will prevent resources from being consumed in the event that the SMTP server is unavailable:</p>
@@ -34830,23 +34830,23 @@ mail.smtp.sendpartial=true
 </li>
 <li>
 <p>If the SMTP server requires authentication, then provide values for the following fields:</p>
-<p>User
-:   User ID used to connect to the SMTP server.</p>
-<p>Password
-:   Password associated with the user ID used to connect to the SMTP server.</p>
-<p>Verify Password
-:   Repeat the password specified in the previous field.</p>
+<p><strong>User</strong>
+   User ID used to connect to the SMTP server.</p>
+<p><strong>Password</strong>
+   Password associated with the user ID used to connect to the SMTP server.</p>
+<p><strong>Verify Password</strong>
+   Repeat the password specified in the previous field.</p>
 </li>
 <li>
 <p>If the SMTP server requires traffic to be sent over SSL, then add the following customer properties, and then specify values for them by clicking the <strong>Custom properties</strong> link, and then clicking <strong>New</strong>:</p>
-<p>mail.smtp.port
-:   Specifies the SMTP port number, which is often 465.</p>
-<p>mail.smtp.socketfactory.port
-:   Specifies the SMTP port number, which is often 465.</p>
-<p>mail.smtp.socketfactory.class
-:   Specifies the SSL socket factory class.</p>
-<p>mail.smtp.socketFactory.fallback
-:   Specifies whether an unsecure connection can be made if SSL is not available. This property accepts the following values: true or false.</p>
+<p><strong>mail.smtp.port</strong>
+   Specifies the SMTP port number, which is often 465.</p>
+<p><strong>mail.smtp.socketfactory.port</strong>
+   Specifies the SMTP port number, which is often 465.</p>
+<p><strong>mail.smtp.socketfactory.class</strong>
+   Specifies the SSL socket factory class.</p>
+<p><strong>mail.smtp.socketFactory.fallback</strong>
+   Specifies whether an unsecure connection can be made if SSL is not available. This property accepts the following values: true or false.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>mail.smtp.port=465
 mail.smtp.socketfactory.port=465
@@ -34863,7 +34863,7 @@ mail.smtp.socketFactory.fallback=false
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>app\_server\_root\profiles\dm\_profile\_root\bin
 </code></pre></div>
-<p><strong>Note:</strong> You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the <em>Starting the wsadmin client</em> topic.</p>
+<p><strong>Note:</strong> You must start the client from this directory or subsequent commands that you try to run will not execute properly. For more information, see the <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> topic.</p>
 </li>
 <li>
 <p>Update the notification configuration file to indicate that you want to use a mail session managed by WebSphere Application Server.</p>
@@ -34901,8 +34901,8 @@ mail.smtp.socketFactory.fallback=false
 </ol>
 </li>
 </ol>
-<p>You must complete the steps described in <em>Enabling email notifications</em> before users can send and receive email notifications.</p>
-<p><strong>Parent topic:</strong><a href="t_admin_common_config_notification.html">Configuring notifications</a></p>
+<p>You must complete the steps described in <a href="t_admin_common_enable_template.html">Enabling email notifications</a> before users can send and receive email notifications.</p>
+<p><strong>Parent topic:</strong> <a href="t_admin_common_config_notification.html">Configuring notifications</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a></p>
 

@@ -120,8 +120,9 @@ You can choose to configure notifications to be sent from a single SMTP or have 
 
 You must complete the steps described in [Enabling email notifications](t_admin_common_enable_template.md) before users can send and receive email notifications.
 
-**Parent topic**  
-[Configuring notifications](../admin/t_admin_common_config_notification.md)
+
+**Parent topic:** [Configuring notifications](../admin/t_admin_common_config_notification.md)
+
 
 **Related information**  
 [Starting the wsadmin client](../admin/t_admin_wsadmin_starting.md)
