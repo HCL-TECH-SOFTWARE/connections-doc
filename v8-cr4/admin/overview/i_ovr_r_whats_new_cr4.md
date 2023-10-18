@@ -13,7 +13,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   Refer to the [HCL Connections 8.0 CR4 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966).
 
--   For Component Pack 8 CR4, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr4/admin/install/cp_prereqs.html).
+-   For Component Pack 8 CR4, see [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
 
 ## OpenSearch 2.0 for HCL Connections 8.0 {#opensearch2.section}
 
@@ -34,7 +34,7 @@ The duration of an invitation and password reset is now configurable in HCL Conn
 
 ## A power editing experience in HCL Connections {tinymce.section}
 
-An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md)refer to for details.
+An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md) refer to for details.
 
 ## HCL Connections Update Wizard {updateinstaller.sections}
 
