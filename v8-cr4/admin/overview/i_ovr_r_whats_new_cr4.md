@@ -13,7 +13,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   Refer to the [HCL Connections 8.0 CR4 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966).
 
--   For Component Pack 8 CR4, see [Prerequisites for Component Pack](https://pages.git.cwp.pnp-hcl.com/CWPdoc/Connections-MkDocs/v8-cr4/admin/install/cp_prereqs.html).
+-   For Component Pack 8 CR4, see [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
 
 ## OpenSearch 2.0 for HCL Connections 8.0 {#opensearch2.section}
 
