@@ -62,11 +62,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -35062,7 +35072,7 @@ ProxyPass &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/b
 ProxyPassReverse &quot;/boards&quot; &quot;http://cpmaster.internal.example.com:32080/boards&quot; 
 ProxyPass &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot; 
 ProxyPassReverse &quot;/api-boards&quot; &quot;http://cpmaster.internal.example.com:32080/api-boards&quot;
-# If used in Connections 8.0, don&#39;t allow loading of Connections 7.0 header
+# If used in Connections 8.0, don&#39;t allow loading of Connections 7.0 header to properly display the Important To Me bar and side navigation. Otherwise, the UI might not render correctly.
 RewriteCond %{HTTP_REFERER} /boards/
 RewriteRule ^/homepage/web/pageHeader - [L,F]
 </code></pre></div>

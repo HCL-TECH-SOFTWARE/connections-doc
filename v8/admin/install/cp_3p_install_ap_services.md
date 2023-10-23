@@ -6,7 +6,7 @@ Prerequisites for installing Activities Plus are:
 
 -   As of January 2023, image hosting for Activities Plus (kudosboard/huddoboards) has moved to Quay.io. Refer to [Using latest releases directly from Huddo](https://docs.huddo.com/boards/images/) to configure your Kubernetes with access to huddoboards images hosted in Quay.io. There are new [Huddo charts](https://docs.huddo.com/boards/helm-charts/) to utilize these images.
 
--   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The value for 'imagePullSecret' is the one which was noted in step 3d of [Using latest releases directly from Huddo](https://docs.huddo.com/boards/images/) in the Huddo documentation.
+-   Download the [kudosboard.yml file](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars/kudosboards.yml.j2) and modify it according to your environment. The value for 'imagePullSecret' is the one  noted in step 3d of [Using latest releases directly from Huddo](https://docs.huddo.com/boards/images/) in the Huddo documentation.
 
 -   Get a free license key from the ISW site.
 
@@ -45,7 +45,7 @@ Prerequisites for installing Activities Plus are:
     ProxyPassReverse "/boards" "http://cpmaster.internal.example.com:32080/boards" 
     ProxyPass "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards" 
     ProxyPassReverse "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards"
-    # If used in Connections 8.0, don't allow loading of Connections 7.0 header
+    # If used in Connections 8.0, don't allow loading of Connections 7.0 header to properly display the Important To Me bar and side navigation. Otherwise, the UI might not render correctly.
     RewriteCond %{HTTP_REFERER} /boards/
     RewriteRule ^/homepage/web/pageHeader - [L,F]
     ```
@@ -55,5 +55,5 @@ For more information, see [Deploying Huddo Boards into HCL Connections](https://
 
 Complete any applicable configuration tasks in [Configuring Activities Plus services](cp_3p_config_ap_intro.md).
 
-**Parent topic:**[Integrating with Activities Plus](../install/cp_3p_integrate_intro.md)
+**Parent topic:** [Integrating with Activities Plus](../install/cp_3p_integrate_intro.md)
 

@@ -45,7 +45,7 @@ Prerequisites for installing Activities Plus are:
     ProxyPassReverse "/boards" "http://cpmaster.internal.example.com:32080/boards" 
     ProxyPass "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards" 
     ProxyPassReverse "/api-boards" "http://cpmaster.internal.example.com:32080/api-boards"
-    # If used in Connections 8.0, don't allow loading of Connections 7.0 header
+    # If used in Connections 8.0, don't allow loading of Connections 7.0 header to properly display the Important To Me bar and side navigation. Otherwise, the UI might not render correctly.
     RewriteCond %{HTTP_REFERER} /boards/
     RewriteRule ^/homepage/web/pageHeader - [L,F]
     ```
@@ -55,5 +55,5 @@ For more information, see [Deploying Huddo Boards into HCL Connections](https://
 
 Complete any applicable configuration tasks in [Configuring Activities Plus services](cp_3p_config_ap_intro.md).
 
-**Parent topic:**[Integrating with Activities Plus](../install/cp_3p_integrate_intro.md)
+**Parent topic:** [Integrating with Activities Plus](../install/cp_3p_integrate_intro.md)
 
