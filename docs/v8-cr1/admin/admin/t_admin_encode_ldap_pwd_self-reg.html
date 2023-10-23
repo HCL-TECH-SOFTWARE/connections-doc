@@ -62,11 +62,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -34772,8 +34782,8 @@
 <p>Linux:</p>
 <div class="highlight"><pre><span></span><code>./wsadmin.sh -lang jython \
  -host dmgr.connections.example.com \
- -javaoption &quot;-Dpython.path=app_server_root/lib&quot; \
- -wsadmin_classpath &quot;app_server_root/lib/lccfg.jar;app_server_root/lib/jose4j-0.6.3.jar&quot; \
+ -javaoption &quot;-Dpython.path=connections_root/lib&quot; \
+ -wsadmin_classpath &quot;connections_root/lib/lccfg.jar;connections_root/lib/jose4j-0.6.3.jar&quot; \
  -f &quot;connections_root/bin/set_invite_pass.py&quot;\
  --password ldap_bind_password
 </code></pre></div>
@@ -34782,8 +34792,8 @@
 <p>Windows:</p>
 <div class="highlight"><pre><span></span><code>wsadmin.bat -lang jython ^
  -host dmgr.connections.example.com ^
- -javaoption &quot;-Dpython.path=app_server_root\lib&quot; ^
- -wsadmin_classpath &quot;app_server_root\lib\lccfg.jar;app_server_root\lib\jose4j-0.6.3.jar&quot; ^
+ -javaoption &quot;-Dpython.path=connections_root\lib&quot; ^
+ -wsadmin_classpath &quot;connections_root\lib\lccfg.jar;connections_root\lib\jose4j-0.6.3.jar&quot; ^
  -f &quot;connections_root\bin\set_invite_pass.py&quot; ^
  --password ldap_bind_password
 </code></pre></div>

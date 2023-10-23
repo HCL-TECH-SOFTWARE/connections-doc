@@ -62,11 +62,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -35681,16 +35691,22 @@ ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 <p>Installing the OpenSearch chart creates an additional secret – use the default secret from the bootstrap installation instead. See <a href="#bootstrap">Set up bootstrap charts</a>.</p>
 <p><strong>Note:</strong> OpenSearch, because of the way it is set up starting with version 8, will not work if bootstrap didn't create its secrets and certificates beforehand.</p>
 <p><strong>Prerequisites for installing the OpenSearch chart:</strong></p>
-<p>For production workloads, refer to <a href="https://opensearch.org/docs/1.3/opensearch/install/important-settings/">important settings</a> in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.</p>
+<ol>
+<li>
+<p>For production workloads, refer to <a href="https://opensearch.org/docs/1.3/opensearch/install/important-settings/">important settings</a> in the OpenSearch official documentation. Make sure Linux setting vm.max_map_count is set accordingly.</p>
 <p>OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:</p>
-<div class="highlight"><pre><span></span><code>fs.file-max=65536
-</code></pre></div>
-<p>Then run <code>sudo sysctl -p</code> to reload configurarions.</p>
+<p><code>fs.file-max=65536</code> </p>
+<p>Then run <code>sudo sysctl -p</code> to reload configurations.</p>
+</li>
+<li>
+<p>Review the official Elasticsearch documentation on <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-quorums.html">quorum-based election protocol</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html#add-elasticsearch-nodes-master-eligible">master-eligible nodes</a> before determining the number of master-eligible nodes for your cluster.</p>
+</li>
+</ol>
 <p><strong>Steps to install the OpenSearch chart:</strong></p>
 <ol>
 <li>
 <p>Get chart and version:</p>
-<div id="codeblock_ixs_ltr_bvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep opensearch | awk {&#39;print $2&#39;}
+<div id="codeblock_ixs_ltr_bvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep opensearch | grep -vE &quot;opensearch-&quot; | grep -vE opensearchstack | awk {&#39;print $2&#39;}
 1.3.0-20220520-092636
 </code></pre></div>
 </li>
@@ -35722,8 +35738,12 @@ ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 </code></pre></div>
 </li>
 <li>
-<p>Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:</p>
+<p>This step is optional. Refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/voting-config-exclusions.html">Voting configuration exclusions API</a>. </p>
+<p>The default setting for this chart is to install three master nodes. If you wish to reduce this to just one master node during deployment, you can achieve that by utilizing the "voting_config_exclusions" API. This API reduces the voting configuration to include fewer than three nodes or remove more than half of the master-eligible nodes in the cluster at once by manually removing departing nodes from the voting configuration. For each specified node, the API will add an entry to the cluster's voting configuration exclusions list. It then waits until the cluster has reconfigured its voting configuration to exclude the specified nodes. For example, add nodes 'opensearch-cluster-master-1','opensearch-cluster-master-2' to the voting configuration exclusions list:</p>
 <div id="codeblock_oxs_ltr_bvb" class="highlight"><pre><span></span><code>kubectl exec opensearch-cluster-master-0 -n connections -- bash -c &quot;/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2&quot;
+</code></pre></div>
+<p>If your cluster needs to reverse the voting configuration exclusions for nodes that you no longer needed, you can do so by using the DELETE voting_config_exclusions API as below:</p>
+<div class="highlight"><pre><span></span><code>kubectl exec opensearch-cluster-master-0 -n connections -- bash -c &quot;/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false&quot;
 </code></pre></div>
 </li>
 </ol>
