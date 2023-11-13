@@ -1,6 +1,6 @@
 # Migrating data from MongoDB 3 to 5 
 
-Back up, copy, restore, and validate your MongoDB databases. If you have a large set of data to migrate, consider the process in [Migrating large-scale data from MongoDB 3 to 5](migrating_large_data_mongodb.md) for a more efficient approach.
+Back up, copy, restore, and validate your MongoDB databases.
 
 ## Before you begin {#prereq_vpw_z1n_t5b .section}
 

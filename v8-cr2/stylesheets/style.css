@@ -9,7 +9,7 @@
 
 .md-tabs__link {
     opacity: 1;
-	
+
 }
 
 .md-typeset h1 {
@@ -36,7 +36,7 @@
 
 .md-banner {
     height: 50px;
-    background-color: black;  
+    background-color: black;
 	overflow: hidden;
 }
 
@@ -49,11 +49,11 @@
     background-color: #212121;
 }
 
- 
+
 .nav-link {
 	margin-right: 20px;
 }
- 
+
  .md-footer-hcl  {
     text-align: center;
     bottom: 0;
@@ -62,9 +62,9 @@
     font-size: 13px;
     min-height: 34px;
 	margin-left: 120px;
-	   
+
  }
- 
+
  .footer-launch::after {
     content: url("../assets/new-tab.svg");
     width: 20px;
@@ -73,7 +73,7 @@
     padding-top: 3px;
     display: inline-block;
     vertical-align: text-bottom;
-	
+
 }
 
 .dropbtn {
@@ -97,7 +97,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 9999;
   font-size: 14px;
-  
+
 }
 
 .dropdown-content a {
@@ -117,3 +117,6 @@ text-align: center;
 
 }
 
+dt {
+    font-weight: bold;
+}
