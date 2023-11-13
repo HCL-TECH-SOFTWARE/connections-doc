@@ -34,11 +34,12 @@ The duration of an invitation and password reset is now configurable in HCL Conn
 
 ## A power editing experience in HCL Connections {tinymce.section}
 
-An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md) refer to for details.
+An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md)refer to for details.
 
 ## HCL Connections Update Wizard {updateinstaller.sections}
 
-A new release of HCL Connections Update Wizard (updateinstaller) is now available. The Update Wizard now supports all previous and future releases of HCL Connections 8.0. To install, refer to [Downloading the latest version of the Update Wizard (updateInstaller)](../../admin/migrate/t_im_upgrade.md) for details.
+A new release of HCL Connections Update Wizard (updateinstaller) is now available. The Update Wizard now supports all previous and future releases of HCL Connections 8.0. To install, refer to [Downloading the latest version of the Update Wizard (updateInstaller)](../../admin/migrate/t_im_upgrade.md) for details. 
+
 
 ## AIX support discontinued for HCL Connections 8.0 {#aixcp.section}
 

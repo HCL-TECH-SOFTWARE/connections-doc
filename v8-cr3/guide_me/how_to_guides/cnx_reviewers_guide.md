@@ -12,7 +12,7 @@ This document does, however, provide tuning values specific to the hardware, top
 
 ## What's New in Connections 8
 
-[Find out about features that are new or updated in this release of HCL Connections](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/overview/whats_new.html)
+[Find out about features that are new or updated in this release of HCL Connections](https://opensource.hcltechsw.com/connections-doc/v8-cr2/admin/overview/whats_new.html)
 
 ## Performance Tuning Overview
 
@@ -26,8 +26,8 @@ Tuning the HCL Connections environment involves tuning and configuring the vario
 
 When tuning specific systems, it is important to begin with a baseline and monitor performance metrics to determine if any parameters should be changed. When a change is made, another measurement should be made to determine the effectiveness of the change.
 
-In addition to the tuning changes made in HCL's measurement environments, there are some additional tuning options available, which can improve performance in certain circumstances; these are discussed in the [Other Considerations](#OC) section.
- 
+In addition to the tuning changes made in HCL's measurement environments, there are some additional tuning options available, which can improve performance in certain circumstances; these are discussed in the [Other Considerations](#_bookmark2) section.
+
 ## Environment Recommendations
 
 Before installing HCL Connections, you should consider how the environment will be used to achieve ideal performance.
@@ -88,10 +88,11 @@ When installing HCL Connections Version 8, the HCL Installation Manager presents
 
 Note that this configuration was used for HCL's performance benchmarks.
 
-**Note:** If you expect users to frequently download multiple big files in a single download session, we strongly recommend a Large deployment.
-For a more in-depth overview and deployment diagrams, Refer to [HCL Connections Version 8 documentation](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_installation_overview.html)
+**Note:** If you expect users to frequently download multiple big files in a single download session, we strongly recommend a Large deployment. See also the suggestion to [Disable Servlet Caching for Files Server](#_bookmark3).
 
-You can also review the [Other Considerations](#OC) section.
+For a more in-depth overview and deployment diagrams, see the HCL Connections Version 8 documentation on HCL Knowledge Center at: [https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html](https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html)
+
+You can also review the "Other Considerations" section in this whitepaper.
 
 ### Clustered Deployments
 
@@ -101,7 +102,7 @@ A clustered HCL Connections deployment utilizes the clustering capability of Web
 
 Horizontal clustering has two main purposes: increasing capacity and increasing reliability. Since horizontal clusters run on multiple nodes, more resources are available, increasing the total number of users that can be supported by the cluster. A horizontal cluster also provides greater reliability, as the failure of a single node does not cause a failure of the entire cluster.
 
-Production deployment strategies are discussed in more detail in the [Planning section of the HCL Connections Version 8 product documentation](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_installation_overview.html)
+Production deployment strategies are discussed in more detail in the Planning section of the HCL Connections Version 8 product documentation, available at: [https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html](https://opensource.hcltechsw.com/connections-doc/admin/plan/c_installation_overview.html)
 
 All performance benchmarks were run on single-node environments.
 
@@ -124,7 +125,7 @@ In a clustered environment, HCL Connections employs a shared file system to stor
 - When using NFS, NFSv4 should be used as NFSv3 lacks advanced locking capability.
 - Microsoft Distributed FileSystem (DFS) lacks a distributed locking facility for files, thus it cannot be used for HCL Connections environments.
 
-To plan the installation, refer to [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_planning_the_installation.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_planning_the_installation.html).
+To plan the installation, refer to [https://opensource.hcltechsw.com/connections-doc/v8/admin/plan/c_planning_the_installation.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/plan/c_planning_the_installation.html).
 
 A shared file system may cause performance issues. Therefore, it is important to pay attention to network tuning, hardware, and other areas to limit this risk. For example, in one performance deployment, the anti-virus software on the application server was scanning the content on the mapped network drive. This is an extra level of precaution but imposes a performance cost.
 
@@ -228,7 +229,7 @@ We suggest having the HTTP server reside on a different server than Connections 
 A reverse proxy can be used:
 
 - as an alternative to an HTTP server to cache and compress public content
-- to support a high number of concurrent "LongPoll" connections.
+- to support a high number of concurrent "LongPoll" connections (see [Tuning the Push Notifications server for FileSync and Notifications Center](#_bookmark0)).
 
 Other configurations are viable, but make sure that large cacheable resources are cached and compressed.
 
@@ -241,11 +242,11 @@ We used IBM HTTP Server 8.5 in our measurement environments. Our Single-Server c
 #### Content Compression Details and Implementation Choices
 
 HCL Connections makes use of a significant amount of readily-compressible content, such as JavaScript files and style sheets. Therefore we recommend compressing all content except images. This reduces the demand for network bandwidth and provides better performance for clients connecting over slower network.
-HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_ihs_config_not_compressing_files.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_ihs_config_not_compressing_files.html)
+HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_ihs_config_not_compressing_files.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_ihs_config_not_compressing_files.html)
 
 **Key point:** Caching and compressing content is recommended to reduce network bandwidth usage and for an improved client experience, especially over slow networks.
 
-Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_install_deploy_caching_proxy.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_install_deploy_caching_proxy.html)
+Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_deploy_caching_proxy.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_deploy_caching_proxy.html)
 
 ### HTTP Server
 
@@ -282,7 +283,7 @@ In the default deployment with an HCL HTTP Server, file download requests are pa
 
 When large numbers of users are downloading files, this deployment is inefficient. This is partly because WebSphere Application Server has a limited thread pool that is tuned for short-lived transactions. Additionally, WebSphere Application Server is optimized for Java Platform, Enterprise Edition applications and not for file downloads. In this type of deployment, you might have to create a cluster to handle downloads, especially if you have slow transfer rates.
 
-Configuring IBM HTTP Server to download files makes down loading much more efficient,because IBM HTTP Server is designed specifically for serving files. This configuration leaves WebSphere Application Server to carry out tasks such as security checking and cache validation.
+ConfiguringIBMHTTPServertodownloadfilesmakesdownloadingmuchmoreefficient,becauseIBMHTTPServer is designed specifically for serving files. This configuration leaves WebSphereApplication Server to carry out tasks such as security checking and cache validation.
 
 If you choose not to configure the IBM HTTPServer to download files, you must configure the WebSphere Application Server to transfer data synchronously instead of asynchronously to avoid errors related to using too much memory.Forinstructions,seethe"ExcessivenativememoryuseinHCLWebSphereApplicationServer"technoteat:
 
@@ -296,7 +297,7 @@ This feature was introduced from HCL Connections 5.5 and allows you to Configure
 
 Instructions for configuring file uploads through HTTP Servers are provided in the HCL Connections Version 8 Help Center at: [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_uploads.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_uploads.html)
 
-## <span id="OC">Other Considerations</span>
+## Other Considerations
 
 ### Search
 
@@ -319,9 +320,11 @@ Figure 2: Disable Files servlet caching
 
 Additional Resources:
 
-- HCL Connections Version 8 Product Documentation at [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/welcome/welcome_admin.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/welcome/welcome_admin.html)
+- WebSphere Application Server Performance Cookbook at [http://publib.boulder.ibm.com/httpserv/cookbook/](http://publib.boulder.ibm.com/httpserv/cookbook/)
+- HCL Connections Version 8 Product Documentation at [https://opensource.hcltechsw.com/connections-doc/v8/admin/welcome/welcome_admin.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/welcome/welcome_admin.html)
 - WebSphere Application Server Network Deployment Version 8.5 documentation at [http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html)
 - DB2 11.5 Information Center at [https://www.ibm.com/docs/en/db2/11.5](https://www.ibm.com/docs/en/db2/11.5)
+- Tuning System x Servers for Performance at [http://www.redbooks.ibm.com/abstracts/sg245287.html](http://www.redbooks.ibm.com/abstracts/sg245287.html)
 
 ### Benchmark System Used for Performance Measurements:
 
@@ -434,6 +437,8 @@ On HCL's benchmark systems, we saw good performance using the heap sizes given i
 
 Table 1: Base HCL Connections Version 8 Maximum Heap Sizes
 
+![Shape3](RackMultipart20230621-1-5oqiqy_html_517615b5fdef4bd.gif)
+
 **JVM Minimum and Maximum Heap Sizes**
 
 | Application | GB |
@@ -494,7 +499,7 @@ The nursery size is set with the JVM argument -Xmn (for example, **–Xmn512M** 
 
 #### Connection Pool Size
 
-By default, when installing HCL Connections Version 8, the HCL Installation Manager sets the minimum connection pool size to 1 and the maximum connection pool size to 25. These are good values to start with. You should then monitor their usage and adjust to your workload requirements. See [Data Sources Tuning](#DST) used for our tests. Note that each application has its own connection pool.
+By default, when installing HCL Connections Version 8, the HCL Installation Manager sets the minimum connection pool size to 1 and the maximum connection pool size to 25. These are good values to start with. You should then monitor their usage and adjust to your workload requirements. See [Table 2: Data Sources Tuning](#_bookmark5) used for our tests. Note that each application has its own connection pool.
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
@@ -515,7 +520,7 @@ Be aware that specifying a larger prepared statement cache size can lead to OutO
 
 Below table summarizes sizes used in HCL's benchmarks:
 
-Table 2: <span id="DST">Data Sources Tuning</span>
+Table 2: Data Sources Tuning
 
 | **Data Source** | **JDBC Pool (min/max)** | **Statement Cache Size** |
 | --- | --- | --- |

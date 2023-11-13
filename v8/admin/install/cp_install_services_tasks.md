@@ -608,7 +608,7 @@ Learn more about configuring Customizer in [Configuring the Customizer component
 
 ## Migrate MongoDB data {#migrate_mongo3 .section}
 
-Two approaches are available for MongoDB migration from version 3 to 5. The most suitable option depends on your needs, in relation to the volume of data to be migrated. For a relatively small set of data, perform the steps in [Migrating data from MongoDB 3 to 5](migrating_data_mongodb_v3_v5.md). For substantial amounts of data, the process in [Migrating large-scale data from MongoDB 3 to 5](migrating_large_data_mongodb.md) provides a more efficient alternative.
+Perform the steps in [Migrating data from MongoDB 3 to 5](migrating_data_mongodb_v3_v5.md).
 
 ## Set up OpenSearch {#os_chart .section}
 
@@ -620,22 +620,20 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 **Prerequisites for installing the OpenSearch chart:**
 
-1. For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation. Make sure Linux setting vm.max_map_count is set accordingly.
+For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.
 
-    OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
-
-    ``` fs.file-max=65536 ``` 
-    
-    Then run `sudo sysctl -p` to reload configurations.
-    
-2. Review the official Elasticsearch documentation on [quorum-based election protocol](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-quorums.html) and [master-eligible nodes](https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html#add-elasticsearch-nodes-master-eligible) before determining the number of master-eligible nodes for your cluster.
+OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
+```
+fs.file-max=65536
+```
+Then run `sudo sysctl -p` to reload configurarions.
 
 **Steps to install the OpenSearch chart:**
 
 1.  Get chart and version:
 
     ``` {#codeblock_ixs_ltr_bvb}
-    helm search repo v-connections-helm --devel | grep opensearch | grep -vE "opensearch-" | grep -vE opensearchstack | awk {'print $2'}
+    helm search repo v-connections-helm --devel | grep opensearch | awk {'print $2'}
     1.3.0-20220520-092636
     ```
 
@@ -668,18 +666,10 @@ Installing the OpenSearch chart creates an additional secret – use the default
     kubectl get pods -n connections | grep -i "opensearch-cluster-"
     ```
 
-8. This step is optional. Refer to the [Voting configuration exclusions API](https://www.elastic.co/guide/en/elasticsearch/reference/current/voting-config-exclusions.html). 
-
-    The default setting for this chart is to install three master nodes. If you wish to reduce this to just one master node during deployment, you can achieve that by utilizing the "voting_config_exclusions" API. This API reduces the voting configuration to include fewer than three nodes or remove more than half of the master-eligible nodes in the cluster at once by manually removing departing nodes from the voting configuration. For each specified node, the API will add an entry to the cluster's voting configuration exclusions list. It then waits until the cluster has reconfigured its voting configuration to exclude the specified nodes. For example, add nodes 'opensearch-cluster-master-1','opensearch-cluster-master-2' to the voting configuration exclusions list:
+8.  Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:
 
     ``` {#codeblock_oxs_ltr_bvb}
     kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"
-    ```
-
-    If your cluster needs to reverse the voting configuration exclusions for nodes that you no longer needed, you can do so by using the DELETE voting_config_exclusions API as below:
-
-    ```
-    kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false"
     ```
 
 ## Migrate ElasticSearch data { .section}
