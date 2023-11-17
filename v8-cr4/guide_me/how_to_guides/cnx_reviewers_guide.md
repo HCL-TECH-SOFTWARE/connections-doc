@@ -12,7 +12,7 @@ This document does, however, provide tuning values specific to the hardware, top
 
 ## What's New in Connections 8
 
-[Find out about features that are new or updated in this release of HCL Connections](../../admin/overview/whats_new.html)
+[Find out about features that are new or updated in this release of HCL Connections](../../admin/overview/whats_new.md)
 
 ## Performance Tuning Overview
 
@@ -90,7 +90,7 @@ Note that this configuration was used for HCL's performance benchmarks.
 
 !!! note annotate
     If you expect users to frequently download multiple big files in a single download session, we strongly recommend a Large deployment.
-    For a more in-depth overview and deployment diagrams, Refer to [HCL Connections Version 8 documentation](../../admin/plan/c_installation_overview.html)
+    For a more in-depth overview and deployment diagrams, Refer to [HCL Connections Version 8 documentation](../../admin/plan/c_installation_overview.md)
 
 You can also review the [Other Considerations](#OC) section.
 
@@ -102,7 +102,7 @@ A clustered HCL Connections deployment utilizes the clustering capability of Web
 
 Horizontal clustering has two main purposes: increasing capacity and increasing reliability. Since horizontal clusters run on multiple nodes, more resources are available, increasing the total number of users that can be supported by the cluster. A horizontal cluster also provides greater reliability, as the failure of a single node does not cause a failure of the entire cluster.
 
-Production deployment strategies are discussed in more detail in the [Planning section of the HCL Connections Version 8 product documentation](../../admin/plan/c_installation_overview.html)
+Production deployment strategies are discussed in more detail in the [Planning section of the HCL Connections Version 8 product documentation](../../admin/plan/c_installation_overview.md)
 
 All performance benchmarks were run on single-node environments.
 
@@ -125,7 +125,7 @@ In a clustered environment, HCL Connections employs a shared file system to stor
 - When using NFS, NFSv4 should be used as NFSv3 lacks advanced locking capability.
 - Microsoft Distributed FileSystem (DFS) lacks a distributed locking facility for files, thus it cannot be used for HCL Connections environments.
 
-To plan the installation, refer to [Deployment Options](../../admin/plan/c_planning_the_installation.html).
+To plan the installation, refer to [Deployment Options](../../admin/plan/c_planning_the_installation.md).
 
 A shared file system may cause performance issues. Therefore, it is important to pay attention to network tuning, hardware, and other areas to limit this risk. For example, in one performance deployment, the anti-virus software on the application server was scanning the content on the mapped network drive. This is an extra level of precaution but imposes a performance cost.
 
@@ -243,11 +243,11 @@ We used IBM HTTP Server 8.5 in our measurement environments. Our Single-Server c
 #### Content Compression Details and Implementation Choices
 
 HCL Connections makes use of a significant amount of readily-compressible content, such as JavaScript files and style sheets. Therefore we recommend compressing all content except images. This reduces the demand for network bandwidth and provides better performance for clients connecting over slower network.
-HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [Determining which files to compress](../../admin/install/t_ihs_config_not_compressing_files.html)
+HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [Determining which files to compress](../../admin/install/t_ihs_config_not_compressing_files.md)
 
 **Key point:** Caching and compressing content is recommended to reduce network bandwidth usage and for an improved client experience, especially over slow networks.
 
-Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [Configuring a reverse caching proxy](../../admin/install/t_install_deploy_caching_proxy.html)
+Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [Configuring a reverse caching proxy](../../admin/install/t_install_deploy_caching_proxy.md)
 
 ### HTTP Server
 
@@ -284,13 +284,13 @@ Configuring IBM HTTP Server to download files makes down loading much more effic
 
 If you choose not to configure the IBM HTTP Server to download files, you must configure the WebSphere Application Server to transfer data synchronously instead of asynchronously to avoid errors related to using too much memory. For instructions, see the [Excessive native memory use in IBM WebSphere Application Server technote](http://www.ibm.com/support/docview.wss?uid=swg21317658)
 
-Instructions for configuring file downloads through IBM HTTP Server are provided in [Configuring file downloads through IBM HTTP Server](../../admin/install/t_install_post_files_downloads.html)
+Instructions for configuring file downloads through IBM HTTP Server are provided in [Configuring file downloads through IBM HTTP Server](../../admin/install/t_install_post_files_downloads.md)
 
 ### Configuring file uploads through the HTTP Server
 
 This feature was introduced from HCL Connections 5.5 and allows you to Configure the IBM HTTP Server to manage file uploads from Activities and Files.  As we explained for file downloads in the preceding section, this approach is more efficient than using the IBM WebSphere® Application Server to receive files.
 
-Instructions for configuring file uploads through HTTP Servers are provided in [Configuring file uploads through IBM HTTP Server](../../admin/install/t_install_post_files_uploads.html)
+Instructions for configuring file uploads through HTTP Servers are provided in [Configuring file uploads through IBM HTTP Server](../../admin/install/t_install_post_files_uploads.md)
 
 ## <span id="OC">Other Considerations</span>
 
@@ -298,7 +298,7 @@ Instructions for configuring file uploads through HTTP Servers are provided in [
 
 The Search application is responsible for indexing all the searchable content in HCL Connections and handling search requests. It also powers the social analytics widgets, such as Recommendations, Do You Know, Things in Common, and Who Connects Us. Depending on the size of the deployment (Medium or Large options), it may be beneficial to dedicate an individual node to the Search application.
 
-See [Making Search-Related Configuration Changes to Newly Added Nodes](../../admin/admin/t_admin_search_add_search_node.html).
+See [Making Search-Related Configuration Changes to Newly Added Nodes](../../admin/admin/t_admin_search_add_search_node.md).
 
 To ensure smooth downloads of multiple large files in a single session, follow these steps for large deployments:
 
@@ -316,7 +316,7 @@ Figure 2: Disable Files servlet caching
 
 Additional Resources:
 
-- [HCL Connections Version 8 Product Documentation](../../admin/welcome/welcome_admin.html)
+- [HCL Connections Version 8 Product Documentation](../../admin/welcome/welcome_admin.md)
 - [WebSphere Application Server Network Deployment Version 8.5 documentation](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html){:target="_blank"}
 - [DB2 11.5 Information Center](https://www.ibm.com/docs/en/db2/11.5){:target="_blank"}
 
@@ -629,7 +629,7 @@ More information on configuring disk caching can be found in this blog post on d
 
 To reduce network traffic, GZIP compression was enabled on the HTTP server for all benchmarks.
 
-Follow the steps documented in the HCL Knowledge Center: [https://help.hcltechsw.com/connections/v7/admin/install/t_ihs_config_not_compressing_files.html](https://help.hcltechsw.com/connections/v7/admin/install/t_ihs_config_not_compressing_files.html)
+Follow the steps documented in: [Determining which files to compress](../../admin/install/t_ihs_config_not_compressing_files.md)
 
 If a proxy server is used, then we recommend to enable compression on the Proxy server instead.
 
@@ -908,7 +908,7 @@ To build the Social Analytics (SaND) index there is a trade-off between the time
 
 For more information, see:
 
-[../../admin/admin/t_admin_search_tune_sand_indexing.html?h=service+tuning+social+analytics+indexing](../../admin/admin/t_admin_search_tune_sand_indexing.html?h=service+tuning+social+analytics+indexing)
+- [Tuning social analytics indexing](../../admin/admin/t_admin_search_tune_sand_indexing.md)
 
 ### Public Blogs Page Cache-Control
 
@@ -1007,9 +1007,9 @@ The heartbeat will continue between the client and server with steps above until
 
 **Note**: For more than 5,000 concurrent connections a Proxy server that supports "non-blocking I/O" such as WebSphereApplicationServer(WAS)Proxy,F5serverorNGINXisneededtoroutethe_Long-Poll_connectionstothe _PushNotifications_ server cluster.
 
-For instructions on how to configure and tune the WebSphere Application Server (WAS) Proxy, please refer to the HCL Connections 8 product documentation in Knowledge Center at [../../admin/secure/t_admin_config_was_proxy.html](../../admin/secure/t_admin_config_was_proxy.html).
+For instructions on how to configure and tune the WebSphere Application Server (WAS) Proxy, please refer to the HCL Connections 8 product documentation in Knowledge Center at [Setting up and configuring a WAS proxy server for long poll testing](../../admin/secure/t_admin_config_was_proxy.md).
 
-For instructions on how to configure NGINX server for long polling, please refer to the HCL Connections 8 product documentation in the Knowledge Center at [../../admin/install/inst_post_nginx.html?h=tasks+configuring+nginx+server+long+polling](../../admin/install/inst_post_nginx.html?h=tasks+configuring+nginx+server+long+polling).
+For instructions on how to configure NGINX server for long polling, please refer to the HCL Connections 8 product documentation in the Knowledge Center at [Configuring an NGINX server for long polling](../../admin/install/inst_post_nginx.md).
 
 Further instructions to configure NGINX can be found at [https://developer.ibm.com/wasdev/docs/nginx-websphere-application-server/](https://developer.ibm.com/wasdev/docs/nginx-websphere-application-server/).
 
