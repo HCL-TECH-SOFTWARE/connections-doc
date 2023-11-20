@@ -559,6 +559,10 @@ The configmap for connections-env contains all the variables needed for the Cust
 
 2. Download the j2 template for connections-env.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
+    **Note:** Use "true" as the value for the `onPrem` (***___on_prem***) and "connections" for the `namespace` parameter (***__default_namespace***) in your connections-env.yml. In a high available Kubernetes environment, the `replicaCount` (***__replica_count***) is set to "3".
+
+    For sample values of other variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
+
 3. Run the connections-env installation:
 
     ``` {#codeblock_lc1_cvt_hvb}
