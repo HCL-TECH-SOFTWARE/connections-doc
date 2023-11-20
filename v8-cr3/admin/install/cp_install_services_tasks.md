@@ -821,7 +821,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
         ``` {#codeblock_pyp_xkg_fvb}
-        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        cd /opt/IBM/WebSphere/AppServer/profiles/node01/bin
         sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
         ```
 
@@ -864,7 +864,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
             ``` {#codeblock_jhv_b1p_fvb}
-            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+            cd /opt/IBM/WebSphere/AppServer/profiles/node01/bin
             sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
             ```
 
@@ -880,7 +880,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
     1.  On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
         ``` {#codeblock_nlm_lmg_fvb}
-        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        cd /opt/IBM/WebSphere/AppServer/profiles/node01/bin
         sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
         ```
 
@@ -939,7 +939,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:
 
         ``` {#codeblock_d3h_fvw_fvb}
-        cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+        cd /opt/IBM/WebSphere/AppServer/profiles/node01/bin
         ./wsadmin.sh -lang jython -user User_name -password Password
         execfile('searchAdmin.py')
         ```
