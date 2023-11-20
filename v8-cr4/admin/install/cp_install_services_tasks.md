@@ -536,6 +536,10 @@ Bootstrap installation overwrites existing secrets only if the 'force_regenerate
 
 3. Download the j2 template for bootstrap.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
+    **Note:** Use "hclcr.io/cnx" as the value for the `image.repository` (**__docker_registry**) and "connections" for the `namespace` parameter (***__default_namespace***) in your bootstrap.yml. In a high available Kubernetes environment, the `replicaCount` (***__replica_count***) is set to "3".
+
+    For sample values of other variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
+
 4. Run the bootstrap installation:
 
     ``` {#codeblock_vk4_ytt_hvb}
