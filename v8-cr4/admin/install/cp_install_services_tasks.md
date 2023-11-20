@@ -632,13 +632,18 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.
 
-OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
+OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. 
+
+OpenSearch also needs a larger virtual address space to work properly. More then is usually configured on Linux distributions.
+
+To increase these values to working levels, add the following lines to `/etc/sysctl.d/opensearch.conf`, creating the file on all Kubernetes hosts, if necessary:
 
 ```
 fs.file-max=65536
+vm.max_map_count=262144
 ```
 
-Then run `sudo sysctl -p` to reload configurarions.
+Then run `sudo sysctl -p` to reload configurations. If possible, restart the host machines.
 
 **Steps to install the OpenSearch chart:**
 
@@ -653,6 +658,10 @@ Then run `sudo sysctl -p` to reload configurarions.
 
 3. Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch\_master.yml, opensearch\_data.yml, and opensearch\_client.yml files:
     `pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD`
+
+    **Note:** Use "hclcr.io/cnx" as the value for the `image.repository` (**__docker_registry_url**) in your opensearch_*.ym filesl. In a high available Kubernetes environment, the `replicas` (***__opensearch_replica_count***) is set to "3".
+
+    For sample values of other variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
 
 4. Install OpenSearch master:
 
