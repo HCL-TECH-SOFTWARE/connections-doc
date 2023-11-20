@@ -498,15 +498,17 @@ Make sure that the network configuration of your NFS environment is correct befo
 
 4.  Download the j2 template for connections-volumes.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
-5.  Then, run installation:
+    **Note:** Use your destination **nfs.server** and **persistentVolumePath** as parameters in connections-volumes.yml as defined in the chapter [Set up NFS](#section_e4p_jrp_tnb). ***namespace*** should be set to "connections".
+
+    For further sample values of these variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
+
+5. Then, run installation:
 
     ``` {#codeblock_qx1_vkr_bvb}
     helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
     ```
 
-    **Note:** Use your destination **nfs.server** and **persistentVolumePath** as parameters in connections-volumes.yml.
-
-6.  Verify that all PVCs are in "bound" state:
+6. Verify that all PVCs are in "bound" state:
 
     ``` {#codeblock_sx1_vkr_bvb}
     kubectl get pvc -n connections
