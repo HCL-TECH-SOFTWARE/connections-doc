@@ -349,8 +349,7 @@ As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubern
 kubectl label --overwrite ns connections \
 pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
 pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
-pod-security.kub
-ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 ```
 We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.
 
