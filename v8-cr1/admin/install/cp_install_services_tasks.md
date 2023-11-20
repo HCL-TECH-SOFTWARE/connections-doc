@@ -391,28 +391,36 @@ For more details, see [Pod Security Admission](https://kubernetes.io/docs/concep
     
         -   << helm repo path \>\> is the Helm chart path in Harbor repository, that is `https://hclcr.io/chartrepo/cnx`
         -   << helm\_repo\_username \>\> is the Harbor username
-        -   << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secretsecret**\)
+        - << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secret**\)
 
-    -   If Harbor is already added, update the repo:
-    
+    - If Harbor is already added, update the repo:
+
         ``` {#codeblock_eqf_5hr_bvb}
         helm repo update
-        ```    
+        ```
 
-2.  Since you'll be switching the Docker registry to Harbor, you need to recreate the secret called `myregkey`:
+2. Add Harbor credentials as Kubernetes secret
 
-    1.  First, delete the credentials:
+    In addition to the helm repro created in the previous step, HCL Connections Component Pack expects a Kubernetes secret containing the HCL Harbor credentials (earlier versions: Docker registry credentials) by the name of `myregkey`:
+
+    1. If you are switching from Docker registry to Harbor, delete the old private Docker registry credentials:
 
         ``` {#codeblock_ug2_zhr_bvb}
         kubectl delete secret myregkey -n connections
         ```
 
-    2.  Set up credentials for a private Docker registry:
+    2. Add Harbor credentials as `myregkey` Kubernetes secret
+
+        The default for the `docker-server` parameter should be "hclcr.io", in order to point the installer to HCL Harbor for the containerd image downloads.
 
         ``` {#codeblock_vg2_zhr_bvb}
-        kubectl create secret docker-registry myregkey -n connections --docker-server=<< docker_registry_url >> --docker-username=<< docker_registry_username >> --docker-password << docker_registry_password >>
+        kubectl create secret docker-registry myregkey -n connections --docker-server=hclcr.io --docker-username=<< `helm_repo_username >> --docker-password << helm_repo_password >>
         ```
 
+        Where:
+
+        - << helm\_repo\_username \>\> is the Harbor username
+        - << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secret**\)
 
 ## Set up Helm charts {#setup_helm .section}
 
