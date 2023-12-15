@@ -44,7 +44,7 @@ window.ScCustomLangSelector = function(cfg) {
         display: flex;
 		width: fit-content;
         align-items: center;
-        background: #262626;
+        background: black;
         padding: 10px 20px;
         color: white !important;
         line-height: 13px;
