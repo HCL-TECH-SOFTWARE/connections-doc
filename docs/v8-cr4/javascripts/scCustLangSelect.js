@@ -134,7 +134,7 @@ window.ScCustomLangSelector = function(cfg) {
     }
 
     .scLangItem.scLangItem-selected {
-        background: white;
+        background: black;
         color: black;
     }
 
@@ -143,7 +143,7 @@ window.ScCustomLangSelector = function(cfg) {
     }
 
     .scLangItem.scLangItem-selected:hover {
-        background: white;
+        background: black;
     }
 
     .scLangItem {
