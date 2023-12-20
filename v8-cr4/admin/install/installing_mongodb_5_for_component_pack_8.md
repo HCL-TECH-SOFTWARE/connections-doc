@@ -69,7 +69,7 @@ Ensure you have the following:
 
         Replace variables in curly braces with the appropriate values.
 
-    2.  Find out the connections-volumes chart version available on the harbor:
+    2.  Find out the connections-volumes chart version available on Harbor:
 
         ``` {#codeblock_ajf_r14_y5b}
         helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {'print $2'}
