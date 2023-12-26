@@ -1,0 +1,145 @@
+{% if page.meta.comments %}
+<html>
+ 
+  <body>
+    <hr color="grey"/> 
+<h3 id="__comments">{{ lang.t("To add feedback about this topic, select the following checkbox:") }}</h3>
+  <!-- Insert generated snippet here -->
+  <input id="checkid" type="checkbox" name="commentbox" value="1" onclick="toggleRateCheckbox()"></input>
+  <label for="checkid" style="font-size:10px">By clicking this box, you acknowledge that you are NOT a U.S. Federal Government employee or agency, nor are you submitting information with respect to or on behalf of one.  HCL provides software and services to U.S. Federal Government customers through its partners Four, Inc. Contact this team at <a href="https://hcltechsw.com/resources/us-government-contact">https://hcltechsw.com/resources/us-government-contact</a>. Do not include any personal data in this Comment box.</label>
+   
+<div id="gscid" class="custom-style">
+<script src="https://giscus.app/client.js"
+        data-repo="hCL-TECH-SOFTWARE/hCLSoftware-Documentation-Home"
+        data-repo-id="R_kgDOKLDvsw"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKLDvs84CZZk9"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="https://opensource.hcltechsw.com/HCLSoftware-Documentation-Home/giscus.css"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+    
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      if(ref) {
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    }
+    
+    });
+  </script>
+
+
+<script>
+
+function toggleRateCheckbox() {
+	
+  let checkid = document.getElementById("checkid");
+  let gscid = document.getElementById('gscid');
+
+  document.addEventListener('click', () => {
+    
+    sessionStorage.setItem("checkboxState", checkid.checked);
+
+  });  
+
+if(checkid.checked != true) {
+
+document.getElementById("gscid").classList.add("custom-style");
+
+} else {
+
+ document.getElementById("gscid").classList.remove("custom-style");
+
+}
+  //alert(checkid.checked);
+
+  //var x = localStorage.getItem('checkboxState');
+  //alert(x);
+ 
+ /* checkboxes.checked = localStorage.getItem(checkboxes.value) === 'true' ? true:false;
+  //alert(checkboxes.checked);
+  if(checkid.checked === true) {
+    document.getElementById("checkid").checked = true;
+    document.getElementById("gscid").classList.remove("custom-style");
+  } */
+  
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve the checkbox state from local storage
+    let checkid = document.getElementById("checkid");
+    let gscid = document.getElementById('gscid');
+
+    const checkboxState = sessionStorage.getItem("checkboxState");
+
+    // If there is a stored state, set the checkbox accordingly
+    if (checkboxState === "true") {
+        document.getElementById("checkid").checked = true;
+    }
+
+    // Add an event listener to the checkbox to update its state in local storage
+    document.getElementById("checkid").addEventListener("change", function() {
+        sessionStorage.setItem("checkboxState", this.checked);
+
+    });
+
+    window.onload = onPageload();
+
+    function onPageload() {
+      let checkid = document.getElementById("checkid");
+
+      let gscid = document.getElementById('gscid');
+      if(checkid.checked == true) {
+
+        document.getElementById("gscid").classList.remove("custom-style");
+
+      }
+
+    }
+
+});
+
+
+</script>
+</div>
+  </body>
+  </html>
+{% endif %}

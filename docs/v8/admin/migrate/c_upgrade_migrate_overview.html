@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -3165,6 +3175,8 @@
         
           
         
+          
+        
       
       
         
@@ -3207,6 +3219,20 @@
     <li class="md-nav__item">
       <a href="../install/migrating_data_mongodb_v3_v5.html" class="md-nav__link">
         Migrating data from MongoDB 3 to 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/migrating_large_data_mongodb.html" class="md-nav__link">
+        Migrating large-scale data from MongoDB 3 to 5
       </a>
     </li>
   
@@ -19923,6 +19949,8 @@
         
           
         
+          
+        
       
       
         
@@ -20064,6 +20092,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../customize/customizing-favicon.html" class="md-nav__link">
+        Changing the favicon for Connections apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../customize/customizing-footer.html" class="md-nav__link">
         Customizing the footer
       </a>
@@ -20081,7 +20123,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_6" type="checkbox" id="__nav_3_11_2_5_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_7" type="checkbox" id="__nav_3_11_2_5_7" >
       
       
       
@@ -20095,14 +20137,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../customize/customizing-navigation.html">Customizing navigation</a>
           
-            <label for="__nav_3_11_2_5_6">
+            <label for="__nav_3_11_2_5_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Customizing navigation" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_11_2_5_6">
+        <label class="md-nav__title" for="__nav_3_11_2_5_7">
           <span class="md-nav__icon md-icon"></span>
           Customizing navigation
         </label>
@@ -34480,26 +34522,23 @@
 
 
 <h1 class="concept" id="c_upgrade_migrate_overview">Upgrading and updating</h1>
-<p>Upgrade HCL Connections and its supporting software to the latest release and then update the installation with the latest interim fixes or cumulative fixes. Refer to the <a href="../overview/i_ovr_r_whats_new.html">What's New in HCL Connections</a> to review the features in the latest release and gather download links or links to the latest fix list and update strategy information.</p>
-<p><strong>Important:</strong> If Feature Foundation is included in your HCL Connections 7.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to <a href="https://help.hcltechsw.com/connections/v8/admin/migrate/t_back-up.html">Backing up HCL Connections</a> for details. You can use this backup to restore your existing deployment if the upgrade or update fails.</p>
-<p>The following sections provide background and instructions on the different approaches to upgrading Connections, as well as instructions for applying updates to the new version over time.</p>
-<ul>
-<li><strong><a href="t_prepare_migrate_upgrade.html">Getting ready for upgrading or updating</a></strong><br />
-Take steps to inform users and protect data before starting an HCL Connections upgrade or update.</li>
-<li><strong><a href="c_3_ways_to_upgrade.html">Ways to upgrade to Connections 8</a></strong><br />
-You can upgrade to HCL Connections 8.0 by by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.</li>
-<li><strong><a href="c_sbs_upgrade_container.html">Side-by-side upgrades</a></strong><br />
-You can upgrade to Connections 8.0 by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.</li>
-<li><strong><a href="c_inplace_upgrade.html">In-place and hybrid upgrades</a></strong><br />
- With the Update function in IBM Installation Manager, you can upgrade the existing version of Connections to the next version, either in your production environment or in a in a new environment identical to production.</li>
-<li><strong><a href="enabling_cnx8_ux.html">Enabling the Connections 8.0 user experience</a></strong><br />
-If you are upgrading from previous versions of Connections to 8.0, the new user experience is initially disabled. This allows you to adopt the infrastructural benefits of Connections 8.0 – such as updated platform versions and security fixes – without any user disruption.</li>
-<li><strong><a href="c_updating_interim_fixes.html">Updating Connections 8.0 with the latest fixes</a></strong><br />
-There are two types of fixes for HCL Connections 8.0 - interim fixes (iFixes) and cumulative fixes (CFixes). iFixes address single issues, while cumulative fixes address groups of issues. Both iFixes and CFixes are installed in the same manner and will be referred to as "fixes" in the installation instructions.</li>
-<li><strong><a href="t_synch_updates.html">Synchronizing nodes</a></strong><br />
-Synchronize all the nodes in a cluster.</li>
-</ul>
-<p><strong>Parent topic:</strong><a href="../welcome/welcome_admin.html">Administering Connections 8.0</a></p>
+<p>Upgrade HCL Connections and its supporting software to the latest release and then update the installation with the latest fixes or cummulative refresh (CR) . Refer to the <a href="../overview/i_ovr_r_whats_new.html">What's New in HCL Connections</a> to review the features in the latest release and gather download links or links to the latest fix list and update strategy information.</p>
+<p><strong>Important:</strong> If Feature Foundation is included in your HCL Connections 8.0 installation, both Rollback and Uninstall will fail in the IBM Installation Manager. Make sure you have a full backup of the Connections server before upgrading. Refer to <a href="https://help.hcltechsw.com/connections/v8/admin/migrate/t_back-up.html">Backing up HCL Connections</a> for details. You can use this backup to restore your existing deployment if the upgrade or update fails.</p>
+<p>The following sections provide background and instructions on the different approaches to upgrading Connections, as well as instructions for applying updates to the new version over time.
+CR
+-   <strong><a href="t_prepare_migrate_upgrade.html">Getting ready for upgrading or updating</a></strong><br />
+Take steps to inform users and protect data before starting an HCL Connections upgrade or update.
+-   <strong><a href="c_3_ways_to_upgrade.html">Ways to upgrade to Connections 8.0</a></strong><br />
+You can upgrade to HCL Connections 8.0 by doing either a side-by-side or an in-place upgrade, or by taking an approach that is a hybrid of the two.
+-   <strong><a href="c_sbs_upgrade_container.html">Side-by-side upgrades</a></strong><br />
+You can upgrade to to the latest Connections 8.0 CR by installing it in a new environment and then migrating data, configurations, and customizations from the existing production environment before switching over.
+-   <strong><a href="c_inplace_upgrade.html">In-place and hybrid upgrades</a></strong><br />
+ With the Update function in IBM Installation Manager, you can upgrade the existing version of Connections to the next version, either in your production environment or in a in a new environment identical to production.
+-   <strong><a href="c_updating_interim_fixes.html">Updating Connections 8.0 with the latest fixes</a></strong><br />
+Install the latest fixes for HCL Connections.
+-   <strong><a href="t_synch_updates.html">Synchronizing nodes</a></strong><br />
+Synchronize all the nodes in a cluster.</p>
+<p><strong>Parent topic:</strong> <a href="../welcome/welcome_admin.html">Administering Connections 8.0</a></p>
 
 
 

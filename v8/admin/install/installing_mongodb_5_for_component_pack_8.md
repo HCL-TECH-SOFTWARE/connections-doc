@@ -1,6 +1,6 @@
 # Installing MongoDB 5 for Component Pack 8 {#installing_mongodb_5_for_component_pack_8 .concept}
 
-Install MongoDB 5 for Component Pack 8.
+Install MongoDB 5 for the latest CR version of Component Pack 8.
 
 ## Before you begin {#section_zhd_414_y5b .section}
 
@@ -69,7 +69,7 @@ Ensure you have the following:
 
         Replace variables in curly braces with the appropriate values.
 
-    2.  Find out the connections-volumes chart version available on the harbor:
+    2.  Find out the connections-volumes chart version available on Harbor:
 
         ``` {#codeblock_ajf_r14_y5b}
         helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {'print $2'}

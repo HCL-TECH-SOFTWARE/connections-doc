@@ -63,11 +63,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -3163,6 +3173,8 @@
         
           
         
+          
+        
       
       
         
@@ -3205,6 +3217,20 @@
     <li class="md-nav__item">
       <a href="../../admin/install/migrating_data_mongodb_v3_v5.html" class="md-nav__link">
         Migrating data from MongoDB 3 to 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/install/migrating_large_data_mongodb.html" class="md-nav__link">
+        Migrating large-scale data from MongoDB 3 to 5
       </a>
     </li>
   
@@ -19919,6 +19945,8 @@
         
           
         
+          
+        
       
       
         
@@ -20060,6 +20088,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../admin/customize/customizing-favicon.html" class="md-nav__link">
+        Changing the favicon for Connections apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../admin/customize/customizing-footer.html" class="md-nav__link">
         Customizing the footer
       </a>
@@ -20077,7 +20119,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_6" type="checkbox" id="__nav_3_11_2_5_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_7" type="checkbox" id="__nav_3_11_2_5_7" >
       
       
       
@@ -20091,14 +20133,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../admin/customize/customizing-navigation.html">Customizing navigation</a>
           
-            <label for="__nav_3_11_2_5_6">
+            <label for="__nav_3_11_2_5_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Customizing navigation" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_11_2_5_6">
+        <label class="md-nav__title" for="__nav_3_11_2_5_7">
           <span class="md-nav__icon md-icon"></span>
           Customizing navigation
         </label>
@@ -34494,486 +34536,401 @@
 <h1 class="reference" id="r_files_prefs_and_policies_windows">Preferences and policies for the HCL Connections Desktop Plug-ins for Microsoft Windows</h1>
 <p>Set preferences and policies to control how users interact with the HCL Connections Desktop plug-in for Microsoft™ Windows.</p>
 <p>The following table shows preference and policy settings that control the behavior of the HCL Connections Desktop plug-in for Microsoft Windows. These registry values are not created during installation. You must create the keys/values as needed. If a key/value does not exist, the appropriate default is assumed. Setting values to anything other than the values listed in the table produces unpredictable results.</p>
-<p><strong>Note:</strong> Note: For 64-bit computers, the registry settings are stored in HKLM/SOFTWARE/Wow6432Node/IBM instead of in HKLM/SOFTWARE/IBM (used for 32-bit computers).</p>
-<p>|Key/SubKey: <br />
- (HKLM/SOFTWARE/IBM) or <br />
- (HKLM/SOFTWARE/Wow6432Node/IBM on 64-bit)</p>
-<p>|Name (Type = String)|Values|Description|
-|------------------------------------------------------------------------------------------|----------------------|------|-----------|
-|Social Connectors/Settings</p>
-<p>|Hide ShellExt</p>
-<p>|0 - Display Context Menu (Default)</p>
-<p>1 - Do not display Context Menu</p>
-<p>|Controls the default visibility preference of the Windows Explorer context menu extension.</p>
-<p>Setting this value overrides a user preference if the policy is also set to Disable (value = 1)</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Hide ShellExt Policy</p>
-<p>|0 - Enable Preference (Default)</p>
-<p>1 - Disable Preference</p>
-<p>|Controls whether users can modify the preferences value.</p>
-<p>|
-|HKCU/SOFTWARE/Microsoft/Windows/<br />
- CurrentVersion/Explorer/<br />
- HideDesktopIcons/ClassicStartMenu</p>
-<p>|32-bit OS {A0D85EDF-50B5-4B12-9D74-0D69E6729A11}</p>
-<p>64-bit OS {21034BDC-B57E-400b-A5D5-2B1E98502805}</p>
-<p>Type = DWORD|0 - Show (Default)</p>
-<p>1 - Hide</p>
-<p>|Controls hiding of the Desktop Icon when using the classic Start Menu. This must be set per user (HKCU).</p>
-<p>|
-|HKCU/SOFTWARE/Microsoft/<br />
- Windows/CurrentVersion/Explorer/<br />
- HideDesktopIcons/NewStartPanel</p>
-<p>|32-bit OS {A0D85EDF-50B5-4B12-9D74-0D69E6729A11} 64-bit OS {21034BDC-B57E-400b-A5D5-2B1E98502805}</p>
-<p>Type = DWORD|0 - Show (Default)</p>
-<p>1 - Hide</p>
-<p>|Controls hiding of the Desktop Icon when using the default Start Menu. This must be set per user (HKCU).</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Hide Desktop Icon Policy</p>
-<p>|0 - Enable Preference (Default)</p>
-<p>1 - Disable Preference</p>
-<p>|Controls whether users can modify the value via the General tab of the Preferences dialog.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|SendLink MailApp</p>
-<p>|mailto - Use mailto: protocol &lt;MAPI program> - Registered name of email program</p>
-<p>Example: IBM Notes</p>
-<p>|Sets the default email application in the General tab of the Preferences dialog.</p>
-<p>If set to mailto the mailto: protocol is used instead of MAPI.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|UnpublishedPrompt</p>
-<p>|0 - Do not display prompt</p>
-<p>1 - Display prompt (Default)</p>
-<p>|Controls the default setting of the unpublished draft warning.</p>
-<p>Setting this value will override the user's preference if the policy is also set to Disabled.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|UnpublishedPrompt Policy</p>
-<p>|0 - Allow Hiding (Default)</p>
-<p>1 - Disable Hiding</p>
-<p>|Controls whether end users can elect to hide the unpublished draft warning.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|ShowInfoBubbles</p>
-<p>|0 - Do not show Alerts</p>
-<p>1 - Show Alerts (Default)</p>
-<p>|Controls the default setting for alerting that local drafts need to be saved.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|ShowInfoBubbles Policy</p>
-<p>|0 - Enable Preference (Default)</p>
-<p>1 - Disable Preference</p>
-<p>|Controls whether users can change the ShowInfoBubbles preference.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|MonitorWarnOnClose</p>
-<p>|0 - Do not warn on close</p>
-<p>1 - Warn on close (Default)</p>
-<p>|Controls display of warning message when drafts monitor is closed.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|MonitorWarnOnClose Policy</p>
-<p>|0 - Enable Preference (Default)</p>
-<p>1 - Disable Preference</p>
-<p>|Controls whether warning dialog can be suppressed by users.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|EnableCacheCleanup</p>
-<p>|0 - Disable Cache Cleanup (Default)</p>
-<p>1 - Enable Cache Cleanup</p>
-<p>|Default setting for enabling/disabling cache cleanup.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|EnableCacheCleanup Policy</p>
-<p>|0 - Enable Preferences (Default)</p>
-<p>1 - Disable Preferences</p>
-<p>|Controls whether users can change any of the Cache settings.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|CacheAge</p>
-<p>|&lt;days> - number of days</p>
-<p>Min - 1 (Default)</p>
-<p>Max - 100</p>
-<p>|Files not accessed within the specified number of days will be deleted.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|CacheFrequency</p>
-<p>|&lt;minutes> - number of minutes</p>
-<p>Min - 5</p>
-<p>Max - 1,440</p>
-<p>Default -120</p>
-<p>|How often to check temporary files in minutes.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|ScanIgnoreExtensions</p>
-<p>|&lt;Comma separated extensions></p>
-<p>|List of extensions to ignore changes on. This list will be merged with any user preferences unless the policy is set to Disable.</p>
-<p>Example: gif, jpeg, mpg</p>
-<p><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|ScanIgnoreExtensions Policy</p>
-<p>|0 - Enable Preference (Default)</p>
-<p>1 - Disable Preference</p>
-<p>|Setting the policy to disable will prevent users from adding file extensions to the ignore list.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Password Save Policy</p>
-<p>|0 - Allow Saving (Default)</p>
-<p>1 - Do not Allow Saving</p>
-<p>|Controls whether users can persist passwords locally. Passwords are stored in the Windows Credential Store.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Default Auth Type</p>
-<p>|0 - Basic Authentication (Default)</p>
-<p>1 - Custom</p>
-<p>|Controls the default authentication type in the <strong>Add Site</strong> dialog.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Default Auth Type Policy</p>
-<p>|0 - Enable Authentication dropdown (default)</p>
-<p>1 - Disable Authentication dropdown</p>
-<p>|Setting the policy to disable will prevent users from selecting and changing the authentication type in the <strong>Add Site</strong> dialog.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Default Auth Ext</p>
-<p>|When 'Default Auth Type' is set to custom, this setting controls which custom extension is used designated by GUID</p>
-<p>{864B3A20-AC5D-4109-A55F-A1BD2FA6BDE9} - HCL Connections Cloud</p>
-<p>{EA483EAD-9E64-4ECC-BDDD-BF8B1D72A1C6} - Siteminder</p>
-<p>{4B9448AB-DF3D-4859-A3CA-365389096497} - SPNEGO</p>
-<p>{B5BAD66C-CF6F-4FA5-9BC7-EF36C76D331A} - TAM</p>
-<p>{FB5CF435-95ED-4FE6-BB7D-95F82DB65C5C} - TAM+SPNEGO</p>
-<p>{CCD9158D-BCD9-4DCD-81B2-48E21D670F5C} - SiteMinder+SPNEGO</p>
-<p>|Controls which custom authentication module will display by default. For example, to use Tivoli Access Manger authentication, set this to {B5BAD66C-CF6F-4FA5-9BC7-EF36C76D331A} and then set Default Auth Type to Custom.If this preference is not configured there is no default.</p>
-<p>|
-|Social Connectors</p>
-<p>|BasicAuthEncoding (Type is DWORD)</p>
-<p>|28591 - (ISO8895-1) (Default)</p>
-<p>65001 - (UTF8)</p>
-<p>|Select encoding type for credentials when using basic authentication.</p>
-<p>|
-|Social Connectors</p>
-<p>|LFFilesRoot</p>
-<p>|&lt;path to existing directory></p>
-<p>%HOMEPATH%\ LFFiles (Default)</p>
-<p>|Default root directory for downloaded files. This must be set to a non-shared local directory on the client system. Once set, it only affects newly added servers, communities, or people. Make sure you designate a valid URL. For example, do not specify a path to a removable device. Test the path to make sure it is accessible for your users.</p>
-<p><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Enable Metrics</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Disable Metrics Support (Default)</p>
-<p>1 - Enable Metrics Support</p>
-<p>|When support is enabled for metrics, usage data about certain operations is gathered from the client. Operations such as displaying a View, for example, the "My Files" view, provides metrics that display in the HCL Connections server metrics reports.</p>
-<p><strong>Note:</strong> Metrics are not available for Connections Cloud.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Activities</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Activities (Default)</p>
-<p>1 - Disable Activities</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Activities feature, such as <strong>Add to Activities</strong>.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins.</p>
-<p>You might use this setting if you have no sites available that support Activities.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Blogs</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Blogs (Default)</p>
-<p>1 - Disable Blogs</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Blogs feature, such as <strong>Add to Blogs</strong>.</p>
-<p>Menu items and ribbon controls will be hidden.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins</p>
-<p>You might use this setting if you have no Sites available that support Blogs.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Bookmarks</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Bookmarks (Default)</p>
-<p>1 - Disable Bookmarks</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Bookmarks feature, such as <strong>Insert Bookmark</strong>.</p>
-<p>Menu items and ribbon controls are hidden.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins</p>
-<p>You might use this setting if you have no Sites available that support Bookmarks.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Profiles</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Profiles (Default)</p>
-<p>1 - Disable Profiles</p>
-<p>|Setting this value to 1 disables all of the user interface options related to the Profiles feature, such as <strong>Invite to my network</strong>.</p>
-<p>Menu items and ribbon controls are visible but disabled.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins.</p>
-<p>You might use this setting if you have no Sites available that support Profiles.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Wikis</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Wikis (Default)</p>
-<p>1 - Disable Wikis</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Wikis feature, such as <strong>Add to Wikis</strong>.</p>
-<p>Menu items and ribbon controls are hidden.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins.</p>
-<p>You might use this setting if you have no Sites available that support Wikis.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Search</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 - Enable Search (Default)</p>
-<p>1 - Disable Search</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Search feature.</p>
-<p>Menu items and ribbon controls are hidden.</p>
-<p>This setting affects the Explorer, Office, and Outlook plug-ins</p>
-<p>You might use this setting if you have no Search service available.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Community Bookmarks</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = community bookmarks enabled, allows adding bookmarks to community bookmarks (Default)</p>
-<p>1 = community bookmarks disabled, prohibits adding bookmarks to community bookmarks.</p>
-<p>|Setting this value to 1 hides all of the user interface options related to the Community bookmarks feature.</p>
-<p>Menu items and ribbon controls are hidden.</p>
-<p>This setting affects the Office plug-ins.</p>
-<p>You might use this setting if you have no Communities support or no Community Bookmarks support.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Groups</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = groups enabled, allows sharing with Groups where appropriate in sharing dialogs (Default)</p>
-<p>1 = groups disabled, will disable sharing with groups where appropriate in sharing dialogs</p>
-<p>|This setting disables the ability for users to share with groups. This corresponds to the server policy.</p>
-<p>There is no "Disable Groups Policy" setting.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Disable Public Sharing</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>Default behavior is enabled for public sharing</p>
-<p>0 = public sharing enabled, will allow sharing with <strong>Everyone (Public)</strong> or <strong>Everyone in Organization</strong> (for Connections Cloud) where appropriate in sharing dialogs (Default)</p>
-<p>1 = public sharing disabled, disables sharing with <strong>Everyone (Public)</strong> or <strong>Everyone in Organization</strong> (for Connections Cloud) where appropriate in sharing dialogs</p>
-<p>|This setting disables the ability for users to share with <strong>Everyone (Public)</strong> for Connections, or with <strong>Everyone in Organization</strong> for Connection Cloud.</p>
-<p>There is no "Disable Public Sharing Policy."</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Sharing Intent</p>
-<p>|String Default - null (not in registry)</p>
-<p>Default behavior is Sharing Intent enabled</p>
-<p>0 = Do not normally allow outside access for new content, but ask me about new content added to a folder permitting outside access</p>
-<p>1 = Allow all new content to be shared with people outside this organization, except for folders added to a folder that denies outside access.</p>
-<p>2 = Only allow outside access to new content if created in a folder permitting outside access.</p>
-<p>|This setting sets the default value for the sharing intent setting on new file and new folder dialogs, as well as the default sharing intent for new content added to the local My Drive folder. The sharing intent values correspond to the External Sharing Preferences listed under &lt;site name> -> <strong>My Files</strong> in the preferences panel.</p>
-<p>Files and folders added to the local My Drive folder will be created as external or internal based on this value.</p>
-<p>For new file and new folder dialogs, the sharing intent checkbox will be checked by default only when this value equals null or 1.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Sharing Intent Policy</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = user can change the sharing intent setting</p>
-<p>1 = user cannot change the sharing intent setting</p>
-<p>|This setting controls whether the user can change the default value for the sharing intent setting on new file and new folder dialogs and files and folders add to the local My Drive folder. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Enforce File Sharing</p>
-<p>|String</p>
-<p>Default - null (not in registry) Share now option is not checked by default</p>
-<p>0 = share now setting is not checked (Default)</p>
-<p>1 = share now setting is checked</p>
-<p>|This setting sets the default value for the <strong>I want to share the file(s) now</strong> option when a user adds new file to a cloud server.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Enforce File Sharing Policy</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = user can change the share now setting (Default)</p>
-<p>1 = user cannot change the share now setting</p>
-<p>|This setting controls whether the user can change the default value for the <strong>I want to share the file(s) now</strong> setting on new file and new folder and sharing dialogs. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Sharing Propagation</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = sharing propagation setting is not checked</p>
-<p>1 = sharing propagation setting is checked (Default)</p>
-<p>|This setting sets the default value for the sharing propagation setting on new file and new folder and sharing dialogs.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Sharing Propagation Policy</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = user can change the sharing propagation setting (Default)</p>
-<p>1 = user cannot change the sharing propagation setting</p>
-<p>|This setting controls whether the user can change the default value for the sharing propagation setting on new file and new folder and sharing dialogs. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Encrypt</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = Encrypt option is not checked (Default)</p>
-<p>1 = Encrypt option is checked</p>
-<p>|This setting sets the default value for the Encryption setting on New File dialogs and the dialog for creating a My Drive folder.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|Encrypt Policy</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = user can change the Encryption setting (Default)</p>
-<p>1 = user cannot change the Encryption setting</p>
-<p>|This setting controls whether the user can change the default value for the Encryption setting on New File dialogs and the dialog for creating a My Drive folder. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|DefaultConnectURL</p>
-<p>|&lt;server url></p>
-<p>|Enter the URL to use as the default site URL in the Connect to a Site dialog.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|DefaultConnectName</p>
-<p>|&lt;server display name></p>
-<p>|This display name is the default server display name in the Connect to a Site dialog.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|HelpURL</p>
-<p>|https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html (Default)</p>
-<p><strong>Note:</strong> "http://" or "https://" is required as part of the url</p>
-<p>|The url for help for the entire product.</p>
-<p>|
-|Social Connectors/Settings</p>
-<p>|HelpConnectURL</p>
-<p>|https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html (Default)</p>
-<p><strong>Note:</strong> "http://" or "https://" is required as part of the url</p>
-<p>|The URL for help on the Connect to Site dialog. This setting overrides the setting for HelpURL</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DefaultConnectURL</p>
-<p>|String</p>
-<p>Default - null</p>
-<p>|The URL that shows by default in the Connect to Site dialog for a new server.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DefaultConnectName</p>
-<p>|String</p>
-<p>Default - null</p>
-<p>|The name that will show by default in the Connect to Site dialog for a new server</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DarkDeployment</p>
-<p>|0 - Disables Features (default)</p>
-<p>1 - Enable Features</p>
-<p>|Dark Deployment are features that are beta ready. When this preference is enabled, users can check the <strong>Enable Beta Features</strong> option on the Preferences panel to access preview features.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DarkDeployment Policy</p>
-<p>|Default - null (not in registry)</p>
-<p>0 = user can change the DarkDeployment setting</p>
-<p>1 = user cannot change the DarkDeployment setting</p>
-<p>|Controls whether users can change the <strong>Enable Beta Features</strong> setting in General Preferences.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|Hide AddTo Group</p>
-<p>|String</p>
-<p>Default - null</p>
-<p>0 = Add To group displays in Office ribbon</p>
-<p>1 = Add To group does not display in Office ribbon</p>
-<p>|If set to 1, the Add To group in the Office ribbon is hidden. The default behavior is to show the Add To group.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|Disable Connect Cloud</p>
-<p>|String</p>
-<p>0 – allow untrusted certificates (default)</p>
-<p>1 – block untrusted certificates</p>
-<p>|Controls whether users see the <strong>Connect to Cloud</strong> option in the Connections menu.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|Block Sync|String</p>
-<p>Default - null</p>
-<p>0 – Sync Enabled for servers</p>
-<p>1 – Sync Disabled for servers</p>
-<p>|Controls whether user is able to use sync. When sync is disabled, users will not get a local My Drive folder in Windows Explorer.</p>
-<p><strong>Note:</strong> Setting the registry value does not disable sync for sites which were already syncing when the registry value was set. Sync will be disabled for these sites once they either stop using sync or disconnect from the site.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|FailInvalidCerts|String</p>
-<p>0 – allow untrusted certificates (default)</p>
-<p>1 – block untrusted certificates</p>
-<p>|When FailInvalidCert is set to 0, the user is warned that the certificate is invalid or incorrect but user can choose to accept the certificate. When FailInvalidCert is set to 1, it will block untrusted certificates. An error message informs users that the certificate is invalid or incorrect.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|EndpointFiles|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /files</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointFile=/files</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|EndpointProfiles|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /profiles</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointProfiles=/profiles</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|EndpointPush|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /push</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointPush=/push</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|ReadAllAlways|String</p>
-<p>Default – null (not in registry)</p>
-<p>0 = User must select "Get All" from folder context menu to view more than 500 items in the folder.</p>
-<p>1 = All items within a folder are displayed, even if the amount of child files and/or folders exceed 500.</p>
-<p>|When a server folder is selected, the Explorer window only displays up to 500 items in the folder view. If the folder contains more than 500 items and the user would like to see all of them, they must right-click in the folder view, and select "Get All" from the context menu.</p>
-<p>This setting specifies that all of the folder’s contents should always be retrieved for any folder selected regardless of whether or not the amount of immediate children files/folders is greater than 500.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DownloadUnscannedFiles|String</p>
-<p>Default – null (not in registry)</p>
-<p>0 = unscanned files are not downloaded by default. User is prompted via message or sync issue.</p>
-<p>1 = unscanned files are downloaded by default.</p>
-<p><strong>Warning:</strong> This behavior is not recommended as the files may not be safe</p>
-<p>|Allows override of the download behavior for files that have not yet been scanned for viruses on the server.</p>
-<p><strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|DownloadLargeUnscannedFiles|String</p>
-<p>Default – null (not in registry)</p>
-<p>0 = files too large to be scanned are not downloaded by default. User is prompted via message or sync issue.</p>
-<p>1 = files too large to be scanned are downloaded by default.</p>
-<p><strong>Warning:</strong> This behavior is not recommended as the files may not be safe</p>
-<p>|Allows override of the download behavior for files that are too large to be scanned for viruses on the server.</p>
-<p><strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</p>
-<p>|
-|Social Connectors\Settings</p>
-<p>|EnableSmartLinks|String</p>
-<p>Default – null (not in registry)</p>
-<p>0 = does not display the Copy Application Link menu option on the app menu.</p>
-<p>1 = displays the Copy Application Link menu option on the app menu.</p>
-<p>|When this feature is enabled, the "Copy application link" menu item appears in the right-click context menu of a file. Clicking an application link on a Windows desktop downloads and opens the file (the same action as double-clicking on this file in Windows Explorer), using the ibmcsp:// protocol.</p>
-<p>Use application links when you want the recipient of the link to open the file locally. Standard links open the details view for the file in the browser.</p>
-<p>|</p>
-<p>The following table shows preference and policy settings that control the behavior of community libraries. These registry values are not created during installation. You must create the keys/values as needed. If a key/value does not exist, the appropriate default is assumed. Setting values to anything other than the values listed in the table produces unpredictable results.</p>
-<p><strong>Restriction:</strong> CCM libraries are not supported on HCL Connections Cloud.</p>
-<p><strong>Note:</strong> Note: For 64-bit computers, the registry settings are stored in HKLM/SOFTWARE/Wow6432Node/IBM instead of in HKLM/SOFTWARE/IBM (used for 32-bit computers).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For 64-bit computers, the registry settings are stored in HKLM/SOFTWARE/Wow6432Node/IBM instead of in HKLM/SOFTWARE/IBM (used for 32-bit computers).</p>
+</div>
 <table>
 <thead>
 <tr>
-<th>Key/SubKey (HKLM/SOFTWARE/IBM) or (HKLM/SOFTWARE/Wow6432Node/IBM on 64-bit)</th>
+<th>Key/SubKey:</br>(HKLM/SOFTWARE/IBM) or </br>(HKLM/SOFTWARE/Wow6432Node/IBM on 64-bit)</th>
+<th>Name (Type = String)</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Hide ShellExt</td>
+<td>0 - Display Context Menu (Default)</br></br>1 - Do not display Context Menu</td>
+<td>Controls the default visibility preference of the Windows Explorer context menu extension. </br></br>Setting this value overrides a user preference if the policy is also set to Disable (value = 1)</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Hide ShellExt Policy</td>
+<td>0 - Enable Preference (Default)</br></br>1 - Disable Preference</td>
+<td>Controls whether users can modify the preferences value.</td>
+</tr>
+<tr>
+<td>HKCU/SOFTWARE/Microsoft/Windows/CurrentVersion/Explorer/</br>HideDesktopIcons/ClassicStartMenu</td>
+<td>32-bit OS {A0D85EDF-50B5-4B12-9D74-0D69E6729A11}</br> </br>64-bit OS {21034BDC-B57E-400b-A5D5-2B1E98502805}</br></br>Type = DWORD</td>
+<td>0 - Show (Default)</br> </br>1 - Hide</td>
+<td>Controls hiding of the Desktop Icon when using the classic Start Menu. This must be set per user (HKCU).</td>
+</tr>
+<tr>
+<td>HKCU/SOFTWARE/Microsoft/</br>Windows/CurrentVersion/Explorer/</br>HideDesktopIcons/NewStartPanel</td>
+<td>32-bit OS {A0D85EDF-50B5-4B12-9D74-0D69E6729A11}</br></br>64-bit OS {21034BDC-B57E-400b-A5D5-2B1E98502805}</br></br>Type = DWORD</td>
+<td>0 - Show (Default)</br></br>1 - Hide</td>
+<td>Controls hiding of the Desktop Icon when using the default Start Menu. This must be set per user (HKCU).</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Hide Desktop Icon Policy</td>
+<td>0 - Enable Preference (Default)</br></br>1 - Disable Preference</td>
+<td>Controls whether users can modify the value via the General tab of the Preferences dialog.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>SendLink MailApp</td>
+<td>mailto - Use mailto: protocol &lt;MAPI program> - Registered name of email program</br></br>Example: IBM Notes</td>
+<td>Sets the default email application in the General tab of the Preferences dialog.</br></br>If set to mailto the mailto: protocol is used instead of MAPI.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>UnpublishedPrompt</td>
+<td>0 - Do not display prompt</br></br>1 - Display prompt (Default)</td>
+<td>Controls the default setting of the unpublished draft warning.</br></br>Setting this value will override the user's preference if the policy is also set to Disabled.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>UnpublishedPrompt Policy</td>
+<td>0 - Allow Hiding (Default)</br></br>1 - Disable Hiding</td>
+<td>Controls whether end users can elect to hide the unpublished draft warning.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>ShowInfoBubbles</td>
+<td>0 - Do not show Alerts</br></br>1 - Show Alerts (Default)</td>
+<td>Controls the default setting for alerting that local drafts need to be saved.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>ShowInfoBubbles Policy</td>
+<td>0 - Enable Preference (Default)</br></br>1 - Disable Preference</td>
+<td>Controls whether users can change the ShowInfoBubbles preference.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>MonitorWarnOnClose</td>
+<td>0 - Do not warn on close</br></br>1 - Warn on close (Default)</td>
+<td>Controls display of warning message when drafts monitor is closed.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>MonitorWarnOnClose Policy</td>
+<td>0 - Enable Preference (Default)</br></br>1 - Disable Preference</td>
+<td>Controls whether warning dialog can be suppressed by users.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>EnableCacheCleanup</td>
+<td>0 - Disable Cache Cleanup (Default)</br></br>1 - Enable Cache Cleanup</td>
+<td>Default setting for enabling/disabling cache cleanup.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>EnableCacheCleanup Policy</td>
+<td>0 - Enable Preferences (Default)</br></br>1 - Disable Preferences</td>
+<td>Controls whether users can change any of the Cache settings.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>CacheAge</td>
+<td>&lt;days> - number of days</br></br>Min - 1 (Default)</br></br>Max - 100</td>
+<td>Files not accessed within the specified number of days will be deleted.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>CacheFrequency</td>
+<td>&lt;minutes> - number of minutes</br></br>Min - 5</br></br>Max - 1,440</br></br>Default -120</td>
+<td>How often to check temporary files in minutes.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>ScanIgnoreExtensions</td>
+<td>&lt;Comma separated extensions></td>
+<td>List of extensions to ignore changes on. This list will be merged with any user preferences unless the policy is set to Disable.</br></br>Example: gif, jpeg, mpg</br></br><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>ScanIgnoreExtensions Policy</td>
+<td>0 - Enable Preference (Default)</br></br>1 - Disable Preference</td>
+<td>Setting the policy to disable will prevent users from adding file extensions to the ignore list.</td>
+</tr>
+<tr>
+<td>Social Connectors/Servers</td>
+<td>Password Save Policy</td>
+<td>0 - Allow Saving (Default)</br></br>1 - Do not Allow Saving</td>
+<td>Controls whether users can persist passwords locally. Passwords are stored in the Windows Credential Store.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Default Auth Type</td>
+<td>0 - Basic Authentication (Default)</br></br>1 - Custom</td>
+<td>Controls the default authentication type in the <strong>Add Site</strong> dialog.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Default Auth Type Policy</td>
+<td>0 - Enable Authentication dropdown (default)</br></br>1 - Disable Authentication dropdown</td>
+<td>Setting the policy to disable will prevent users from selecting and changing the authentication type in the <strong>Add Site</strong> dialog.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Default Auth Ext</td>
+<td>When 'Default Auth Type' is set to custom, this setting controls which custom extension is used designated by GUID</br></br>{864B3A20-AC5D-4109-A55F-A1BD2FA6BDE9} - HCL Connections Cloud</br></br>{EA483EAD-9E64-4ECC-BDDD-BF8B1D72A1C6} - Siteminder</br></br>{4B9448AB-DF3D-4859-A3CA-365389096497} - SPNEGO</br></br>{B5BAD66C-CF6F-4FA5-9BC7-EF36C76D331A} - TAM</br></br>{FB5CF435-95ED-4FE6-BB7D-95F82DB65C5C} - TAM+SPNEGO</br></br>{CCD9158D-BCD9-4DCD-81B2-48E21D670F5C} - SiteMinder+SPNEGO</td>
+<td>Controls which custom authentication module will display by default. For example, to use Tivoli Access Manger authentication, set this to {B5BAD66C-CF6F-4FA5-9BC7-EF36C76D331A} and then set Default Auth Type to Custom.If this preference is not configured there is no default.</td>
+</tr>
+<tr>
+<td>Social Connectors</td>
+<td>BasicAuthEncoding (Type is DWORD)</td>
+<td>28591 - (ISO8895-1) (Default)</br></br>65001 - (UTF8)</td>
+<td>Select encoding type for credentials when using basic authentication.</td>
+</tr>
+<tr>
+<td>Social Connectors</td>
+<td>LFFilesRoot</td>
+<td>&lt;path to existing directory></br></br>%HOMEPATH%\ LFFiles (Default)</td>
+<td>Default root directory for downloaded files. This must be set to a non-shared local directory on the client system. Once set, it only affects newly added servers, communities, or people. Make sure you designate a valid URL. For example, do not specify a path to a removable device. Test the path to make sure it is accessible for your users.</br></br><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Enable Metrics</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Disable Metrics Support (Default)</br></br>1 - Enable Metrics Support</td>
+<td>When support is enabled for metrics, usage data about certain operations is gathered from the client. Operations such as displaying a View, for example, the "My Files" view, provides metrics that display in the HCL Connections server metrics reports.</br></br><strong>Note:</strong> Metrics are not available for Connections Cloud.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Activities</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Activities (Default)</br></br>1 - Disable Activities</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Activities feature, such as <strong>Add to Activities</strong>.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins.</br></br>You might use this setting if you have no sites available that support Activities.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Blogs</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Blogs (Default)</br></br>1 - Disable Blogs</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Blogs feature, such as <strong>Add to Blogs</strong>.</br></br>Menu items and ribbon controls will be hidden.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins.</br></br>You might use this setting if you have no Sites available that support Blogs.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Bookmarks</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Bookmarks (Default)</br></br>1 - Disable Bookmarks</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Bookmarks feature, such as <strong>Insert Bookmark</strong>.</br></br>Menu items and ribbon controls are hidden.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins</br></br>You might use this setting if you have no Sites available that support Bookmarks.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Profiles</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Profiles (Default)</br></br>1 - Disable Profiles</td>
+<td>Setting this value to 1 disables all of the user interface options related to the Profiles feature, such as <strong>Invite to my network</strong>.</br></br>Menu items and ribbon controls are visible but disabled.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins.</br></br>You might use this setting if you have no Sites available that support Profiles.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Wikis</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Wikis (Default)</br></br>1 - Disable Wikis</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Wikis feature, such as <strong>Add to Wikis</strong>.</br></br>Menu items and ribbon controls are hidden.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins.</br></br>You might use this setting if you have no Sites available that support Wikis.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Search</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 - Enable Search (Default)</br></br>1 - Disable Search</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Search feature.</br></br>Menu items and ribbon controls are hidden.</br></br>This setting affects the Explorer, Office, and Outlook plug-ins</br></br>You might use this setting if you have no Search service available.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Community Bookmarks</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = community bookmarks enabled, allows adding bookmarks to community bookmarks (Default)</br></br>1 = community bookmarks disabled, prohibits adding bookmarks to community bookmarks.</td>
+<td>Setting this value to 1 hides all of the user interface options related to the Community bookmarks feature.</br></br>Menu items and ribbon controls are hidden.</br></br>This setting affects the Office plug-ins.</br></br>You might use this setting if you have no Communities support or no Community Bookmarks support.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Groups</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = groups enabled, allows sharing with Groups where appropriate in sharing dialogs (Default)</br></br>1 = groups disabled, will disable sharing with groups where appropriate in sharing dialogs</td>
+<td>This setting disables the ability for users to share with groups. This corresponds to the server policy.</br></br>There is no "Disable Groups Policy" setting.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Disable Public Sharing</td>
+<td>String</br></br>Default - null (not in registry)</br></br>Default behavior is enabled for public sharing</br></br>0 = public sharing enabled, will allow sharing with <strong>Everyone (Public)</strong> or <strong>Everyone in Organization</strong> (for Connections Cloud) where appropriate in sharing dialogs (Default)</br></br>1 = public sharing disabled, disables sharing with <strong>Everyone (Public)</strong> or <strong>Everyone in Organization</strong> (for Connections Cloud) where appropriate in sharing dialogs</td>
+<td>This setting disables the ability for users to share with <strong>Everyone (Public)</strong> for Connections, or with <strong>Everyone in Organization</strong> for Connection Cloud.</br></br>There is no "Disable Public Sharing Policy."</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Sharing Intent</td>
+<td>String Default - null (not in registry)</br></br>Default behavior is Sharing Intent enabled</br></br>0 = Do not normally allow outside access for new content, but ask me about new content added to a folder permitting outside access</br></br>1 = Allow all new content to be shared with people outside this organization, except for folders added to a folder that denies outside access.</br></br>2 = Only allow outside access to new content if created in a folder permitting outside access.</td>
+<td>This setting sets the default value for the sharing intent setting on new file and new folder dialogs, as well as the default sharing intent for new content added to the local My Drive folder. The sharing intent values correspond to the External Sharing Preferences listed under &lt;site name> -> <strong>My Files</strong> in the preferences panel.</br></br>Files and folders added to the local My Drive folder will be created as external or internal based on this value.</br></br>For new file and new folder dialogs, the sharing intent checkbox will be checked by default only when this value equals null or 1.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Sharing Intent Policy</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = user can change the sharing intent setting</br></br>1 = user cannot change the sharing intent setting</td>
+<td>This setting controls whether the user can change the default value for the sharing intent setting on new file and new folder dialogs and files and folders add to the local My Drive folder. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Enforce File Sharing</td>
+<td>String</br></br>Default - null (not in registry) Share now option is not checked by default</br></br>0 = share now setting is not checked (Default)</br></br>1 = share now setting is checked</td>
+<td>This setting sets the default value for the <strong>I want to share the file(s) now</strong> option when a user adds new file to a cloud server.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Enforce File Sharing Policy</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = user can change the share now setting (Default)</br></br>1 = user cannot change the share now setting</td>
+<td>This setting controls whether the user can change the default value for the <strong>I want to share the file(s) now</strong> setting on new file and new folder and sharing dialogs. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Sharing Propagation</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = sharing propagation setting is not checked</br></br>1 = sharing propagation setting is checked (Default)</td>
+<td>This setting sets the default value for the sharing propagation setting on new file and new folder and sharing dialogs.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Sharing Propagation Policy</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = user can change the sharing propagation setting (Default)</br></br>1 = user cannot change the sharing propagation setting</td>
+<td>This setting controls whether the user can change the default value for the sharing propagation setting on new file and new folder and sharing dialogs. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Encrypt</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = Encrypt option is not checked (Default)</br></br>1 = Encrypt option is checked</td>
+<td>This setting sets the default value for the Encryption setting on New File dialogs and the dialog for creating a My Drive folder.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>Encrypt Policy</td>
+<td>String</br></br>Default - null (not in registry)</br></br>0 = user can change the Encryption setting (Default)</br></br>1 = user cannot change the Encryption setting</td>
+<td>This setting controls whether the user can change the default value for the Encryption setting on New File dialogs and the dialog for creating a My Drive folder. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>DefaultConnectURL</td>
+<td>&lt;server url></td>
+<td>Enter the URL to use as the default site URL in the Connect to a Site dialog.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>DefaultConnectName</td>
+<td>&lt;server display name></td>
+<td>This display name is the default server display name in the Connect to a Site dialog.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>HelpURL</td>
+<td><a href="https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html">https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html</a> (Default)</br></br><strong>Note:</strong> "http://" or "https://" is required as part of the url</td>
+<td>The url for help for the entire product.</td>
+</tr>
+<tr>
+<td>Social Connectors/Settings</td>
+<td>HelpConnectURL</td>
+<td><a href="https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html">https://apps.na.collabserv.com/help/index.jsp?topic=/com.ibm.imb.msplugin.doc/c_files_window_install_ovr.html</a> (Default)</br></br><strong>Note:</strong> "http://" or "https://" is required as part of the url</td>
+<td>The URL for help on the Connect to Site dialog. This setting overrides the setting for HelpURL</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DefaultConnectURL</td>
+<td>String</br></br>Default - null</td>
+<td>The URL that shows by default in the Connect to Site dialog for a new server.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DefaultConnectName</td>
+<td>String</br></br>Default - null</td>
+<td>The name that will show by default in the Connect to Site dialog for a new server</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DarkDeployment</td>
+<td>0 - Disables Features (default)</br></br>1 - Enable Features</td>
+<td>Dark Deployment are features that are beta ready. When this preference is enabled, users can check the <strong>Enable Beta Features</strong> option on the Preferences panel to access preview features.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DarkDeployment Policy</td>
+<td>Default - null (not in registry)</br></br>0 = user can change the DarkDeployment setting</br></br>1 = user cannot change the DarkDeployment setting</td>
+<td>Controls whether users can change the <strong>Enable Beta Features</strong> setting in General Preferences.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>Hide AddTo Group</td>
+<td>String</br></br>Default - null</br></br>0 = Add To group displays in Office ribbon</br></br>1 = Add To group does not display in Office ribbon</td>
+<td>If set to 1, the Add To group in the Office ribbon is hidden. The default behavior is to show the Add To group.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>Disable Connect Cloud</td>
+<td>String</br></br>0 – allow untrusted certificates (default)</br></br>1 – block untrusted certificates</td>
+<td>Controls whether users see the <strong>Connect to Cloud</strong> option in the Connections menu.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>Block Sync</td>
+<td>String</br></br>Default - null</br></br>0 – Sync Enabled for servers</br></br>1 – Sync Disabled for servers</td>
+<td>Controls whether user is able to use sync. When sync is disabled, users will not get a local My Drive folder in Windows Explorer.</br></br><strong>Note:</strong> Setting the registry value does not disable sync for sites which were already syncing when the registry value was set. Sync will be disabled for these sites once they either stop using sync or disconnect from the site.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>FailInvalidCerts</td>
+<td>String</br></br>0 – allow untrusted certificates (default)</br></br>1 – block untrusted certificates</td>
+<td>When FailInvalidCert is set to 0, the user is warned that the certificate is invalid or incorrect but user can choose to accept the certificate. When FailInvalidCert is set to 1, it will block untrusted certificates. An error message informs users that the certificate is invalid or incorrect.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>EndpointFiles</td>
+<td>String</br></br>Default – null (not in registry)\</br></br>Endpoint override. For example, /files</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</br></br><code>EndpointFile=/files</code></br></br>where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>EndpointProfiles</td>
+<td>String</br></br>Default – null (not in registry)\</br></br>Endpoint override. For example, /profiles</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</br></br><code>EndpointProfiles=/profiles</code></br></br>where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>EndpointPush</td>
+<td>String</br></br>Default – null (not in registry)\</br></br>Endpoint override. For example, /push</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</br></br><code>EndpointPush=/push</code></br></br>where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>ReadAllAlways</td>
+<td>String</br></br>Default – null (not in registry)</br></br>0 = User must select "Get All" from folder context menu to view more than 500 items in the folder.</br></br>1 = All items within a folder are displayed, even if the amount of child files and/or folders exceed 500.</td>
+<td>When a server folder is selected, the Explorer window only displays up to 500 items in the folder view. If the folder contains more than 500 items and the user would like to see all of them, they must right-click in the folder view, and select "Get All" from the context menu.</br></br>This setting specifies that all of the folder’s contents should always be retrieved for any folder selected regardless of whether or not the amount of immediate children files/folders is greater than 500.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DownloadUnscannedFiles</td>
+<td>String</br></br>Default – null (not in registry)</br></br>0 = unscanned files are not downloaded by default. User is prompted via message or sync issue.</br></br>1 = unscanned files are downloaded by default</br></br><strong>Warning:</strong> This behavior is not recommended as the files may not be safe</td>
+<td>Allows override of the download behavior for files that have not yet been scanned for viruses on the server.</br></br><strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>DownloadLargeUnscannedFiles</td>
+<td>String</br></br>Default – null (not in registry)</br></br>0 = files too large to be scanned are not downloaded by default. User is prompted via message or sync issue.</br></br>1 = files too large to be scanned are downloaded by default.</br></br><strong>Warning:</strong> This behavior is not recommended as the files may not be safe</td>
+<td>Allows override of the download behavior for files that are too large to be scanned for viruses on the server.</br></br><strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>EnableSmartLinks</td>
+<td>String</br></br>Default – null (not in registry)</br></br>0 = does not display the Copy Application Link menu option on the app menu.</br></br>1 = displays the Copy Application Link menu option on the app menu.</td>
+<td>When this feature is enabled, the "Copy application link" menu item appears in the right-click context menu of a file. Clicking an application link on a Windows desktop downloads and opens the file (the same action as double-clicking on this file in Windows Explorer), using the ibmcsp:// protocol.</br></br>Use application links when you want the recipient of the link to open the file locally. Standard links open the details view for the file in the browser.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table shows preference and policy settings that control the behavior of community libraries. These registry values are not created during installation. You must create the keys/values as needed. If a key/value does not exist, the appropriate default is assumed. Setting values to anything other than the values listed in the table produces unpredictable results.</p>
+<div class="admonition restrictions">
+<p class="admonition-title">Restrictions</p>
+<p>CCM libraries are not supported on HCL Connections Cloud.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For 64-bit computers, the registry settings are stored in HKLM/SOFTWARE/Wow6432Node/IBM instead of in HKLM/SOFTWARE/IBM (used for 32-bit computers).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Key/SubKey:</br>(HKLM/SOFTWARE/IBM) or</br>(HKLM/SOFTWARE/Wow6432Node/IBM on 64-bit)</th>
 <th>Name (Type = String)</th>
 <th>Values</th>
 <th>Description</th>
@@ -34982,57 +34939,43 @@
 <tbody>
 <tr>
 <td>Social Connectors\Settings\Libraries</td>
-<td></td>
-<td></td>
-<td></td>
+<td>AddDocument</td>
+<td>Default - null (not in registry)</br></br>0 = Always check in documents</br></br>1 = Always add as private drafts</br></br>2 = Prompt me (Default)</td>
+<td>This setting defines the default behavior of the plug-in when the user adds a document to a Library. The default behavior is to prompt the user to choose the action.</br></br>Overrides user preference if policy is also set.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings\Libraries</td>
+<td>AddDocument Policy</td>
+<td>Default - null (not in registry)</br></br>0 = user can change the AddDocument setting (Default)</br></br>1 = user cannot change the AddDocument setting</td>
+<td>Controls whether users can modify the AddDocument setting.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings\Libraries</td>
+<td>DoubleClick</td>
+<td>Default - null (not in registry)</br></br>0 = Always check out</br></br>1 = Always open without check out</br></br>2 = Prompt me (Default)</td>
+<td>This setting defines the default behavior of the plug-in when the user double-clicks a document in a library.</br></br>Overrides user preference if policy is also set.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings\Libraries</td>
+<td>DoubleClick Policy</td>
+<td>Default - null (not in registry)</br></br>0 = user can change the DoubleClick setting (Default)</br></br>1 = user cannot change the DoubleClick setting</td>
+<td>Controls whether users can change the DoubleClick setting.</td>
+</tr>
+<tr>
+<td>Social Document Management\Desktop Integration</td>
+<td>CCMLibrariesRoot</td>
+<td>&lt;path to existing directory></td>
+<td>Default root directory for downloaded library files. This must be set to a non-shared local directory on the client system. Once set, it only affects newly added servers, communities, or people. Make sure you designate a valid URL. For example, do not specify a path to a removable device. Test the path to make sure it is accessible for your users.</br></br><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</td>
+</tr>
+<tr>
+<td>Social Connectors\Settings</td>
+<td>Enable CCM Library Trash</td>
+<td>default - null (not in registry)</br></br>Default behavior is CCM Library Trash View not shown</br></br>0 - CCM Library Trash View not shown</br></br>1 - CCM Library Trash View is shown</td>
+<td>Setting this value to 1 enables the CCM Library Trash View. The CCM Library Trash folder will appear within the specific library's folder.</td>
 </tr>
 </tbody>
 </table>
-<p>|AddDocument</p>
-<p>|Default - null (not in registry)</p>
-<p>0 = Always check in documents</p>
-<p>1 = Always add as private drafts</p>
-<p>2 = Prompt me (Default)</p>
-<p>|This setting defines the default behavior of the plug-in when the user adds a document to a Library. The default behavior is to prompt the user to choose the action.</p>
-<p>Overrides user preference if policy is also set.</p>
-<p>|
-|Social Connectors\Settings\Libraries</p>
-<p>|AddDocument Policy</p>
-<p>|Default - null (not in registry)</p>
-<p>0 = user can change the AddDocument setting (Default)</p>
-<p>1 = user cannot change the AddDocument setting</p>
-<p>|Controls whether users can modify the AddDocument setting.</p>
-<p>|
-|Social Connectors\Settings\Libraries</p>
-<p>|DoubleClick</p>
-<p>|Default - null (not in registry)</p>
-<p>0 = Always check out</p>
-<p>1 = Always open without check out</p>
-<p>2 = Prompt me (Default)</p>
-<p>|This setting defines the default behavior of the plug-in when the user double-clicks a document in a library.</p>
-<p>Overrides user preference if policy is also set.</p>
-<p>|
-|Social Connectors\Settings\Libraries</p>
-<p>|DoubleClick Policy</p>
-<p>|Default - null (not in registry)</p>
-<p>0 = user can change the DoubleClick setting (Default)</p>
-<p>1 = user cannot change the DoubleClick setting</p>
-<p>|Controls whether users can change the DoubleClick setting.</p>
-<p>|
-|Social Document Management\Desktop Integration</p>
-<p>|CCMLibrariesRoot</p>
-<p>|&lt;path to existing directory></p>
-<p>|Default root directory for downloaded library files. This must be set to a non-shared local directory on the client system. Once set, it only affects newly added servers, communities, or people. Make sure you designate a valid URL. For example, do not specify a path to a removable device. Test the path to make sure it is accessible for your users.</p>
-<p><strong>Note:</strong> Changing this setting requires that you restart your computer for the changes to take effect.</p>
-<p>|
-|Social Connectors\Settings|Enable CCM Library Trash</p>
-<p>|default - null (not in registry)</p>
-<p>Default behavior is CCM Library Trash View not shown</p>
-<p>0 - CCM Library Trash View not shown</p>
-<p>1 - CCM Library Trash View is shown</p>
-<p>|Setting this value to 1 enables the CCM Library Trash View. The CCM Library Trash folder will appear within the specific library's folder.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="c_files_window_install_ovr.html">HCL Connections Desktop Plug-ins for Microsoft Windows</a></p>
+<p><strong>Parent topic:</strong> <a href="c_files_window_install_ovr.html">HCL Connections Desktop Plug-ins for Microsoft Windows</a></p>
 
 
 

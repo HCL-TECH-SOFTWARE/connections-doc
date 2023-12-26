@@ -1,6 +1,6 @@
 # Migrating data from Elasticsearch 7 to OpenSearch
 
-To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.
+To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for the latest CR version of Connections 8.0.
 
 ## Before you begin 
 

@@ -62,11 +62,21 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-169645537-2');
-</script>
  
-<!--  Global site tag (gtag.js) - Google Analytics end -->
 
+  gtag('config', 'UA-169645537-2');
+  gtag('config', 'G-7LF0XY95M1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
+  <!-- End Google Tag Manager -->
+  
+<!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
@@ -143,7 +153,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr3/"> 
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -20164,6 +20174,8 @@
         
           
         
+          
+        
       
       
         
@@ -20305,6 +20317,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../customize/customizing-favicon.html" class="md-nav__link">
+        Changing the favicon for Connections apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../customize/customizing-footer.html" class="md-nav__link">
         Customizing the footer
       </a>
@@ -20322,7 +20348,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_6" type="checkbox" id="__nav_3_11_2_5_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_11_2_5_7" type="checkbox" id="__nav_3_11_2_5_7" >
       
       
       
@@ -20336,14 +20362,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../customize/customizing-navigation.html">Customizing navigation</a>
           
-            <label for="__nav_3_11_2_5_6">
+            <label for="__nav_3_11_2_5_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Customizing navigation" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_11_2_5_6">
+        <label class="md-nav__title" for="__nav_3_11_2_5_7">
           <span class="md-nav__icon md-icon"></span>
           Customizing navigation
         </label>
@@ -34977,14 +35003,6 @@
 <p><strong>Note:</strong> All of the installed applications are selected by default. All of the installed applications are typically selected by default. If you clear any of the selected applications, those applications will be uninstalled. If there are any non-selected applications, and you select those applications, they will be installed.</p>
 </li>
 <li>
-<p>Enter the administrative ID and password of the Deployment Manager and click <strong>Validate</strong>.</p>
-<p><strong>Note:</strong> This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the <em>Switching to unique administrator IDs for system level communication</em> topic.</p>
-</li>
-<li>
-<p>In the Topology panel, select the topology that matches the deployment</p>
-<p><strong>Note:</strong> By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.</p>
-</li>
-<li>
 <p>Validate the Feature Foundation database</p>
 </li>
 <li>
@@ -35030,6 +35048,13 @@
 <li>Alternatively, you can allow user's browsers to load new web services and artifacts by updating the &lt;versionStamp value="####"/> in the LotusConnections-config.xml so users will see the changes the next time they log in, without having to clear their web browser cache. See <a href="../customize/t_admin_common_customize_postreq.html">Post-customization step</a> after a Connections 8.0 upgrade is deployed so users will receive changes the next time they log in without having to clear their web browser cache. If the browser cache is not updated problems such as the Community Catalog not displaying correctly may occur.</li>
 </ul>
 <p><strong>Parent topic:</strong> <a href="c_inplace_upgrade.html">In-place and hybrid upgrades</a></p>
+<!--12. Enter the administrative ID and password of the Deployment Manager and click **Validate**.
+
+    **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
+
+    13. In the Topology panel, select the topology that matches the deployment
+
+    **Note:** By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.-->
 
 
 
