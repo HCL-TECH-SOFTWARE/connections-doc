@@ -1,6 +1,6 @@
-# Installing MongoDB 5 for Component Pack 8 CR1 {#installing_mongodb_5_for_component_pack_8 .concept}
+# Installing MongoDB 5 for Component Pack 8 {#installing_mongodb_5_for_component_pack_8 .concept}
 
-Install MongoDB 5 for Component Pack 8 CR1.
+Install MongoDB 5 for the latest CR version of Component Pack 8.
 
 ## Before you begin {#section_zhd_414_y5b .section}
 
@@ -18,8 +18,7 @@ Ensure you have the following:
 2.  Go to the extracted folder \(from step 1\) and check if the Dockerfile exists there. Use this Dockerfile to build a new MongoDB 5 image:
 
     ``` {#codeblock_s3f_r14_y5b}
-    docker build --no-cache --tag {{ docker_registry_url 
-    }}/middleware-mongodb5:{{ image_tag }} -f Dockerfile .
+    docker build --no-cache --tag {{ docker_registry_url }}/middleware-mongodb5:{{ image_tag }} -f Dockerfile .
     ```
 
     Where:
@@ -37,8 +36,7 @@ Ensure you have the following:
 3.  Save this image to a `tar` file:
 
     ``` {#codeblock_u3f_r14_y5b}
-    docker save -o mongodb5.tar {{ docker_registry_url
-    }}/middleware-mongodb5:{{ image_tag }}
+    docker save -o mongodb5.tar {{ docker_registry_url }}/middleware-mongodb5:{{ image_tag }}
     ```
 
     Where:
@@ -69,7 +67,7 @@ Ensure you have the following:
 
         Replace variables in curly braces with the appropriate values.
 
-    2.  Find out the connections-volumes chart version available on the harbor:
+    2.  Find out the connections-volumes chart version available on Harbor:
 
         ``` {#codeblock_ajf_r14_y5b}
         helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {'print $2'}
