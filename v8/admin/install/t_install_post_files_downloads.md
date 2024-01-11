@@ -34,24 +34,21 @@ To configure IBM HTTP Server to download files, complete the following steps:
     -   /linuxs390\_x64-ap22
     -   /linux\_amd64-ap22
     -   /win\_ia32-ap22
-    For example, on Linux systems, go to the following directory:
 
-    ```
-    /IBM/Connections/plugins/ihs/mod_ibm_local_redirect/linux_ia32-ap22/mod_ibm_local_redirect.so
-    ```
+    For example, on Linux systems, go to the following directory:<br>
+    `/IBM/Connections/plugins/ihs/mod_ibm_local_redirect/linux_ia32-ap22/mod_ibm_local_redirect.so`
 
     **Notes:**
 
     -   These directories are valid whether you installed IBM HTTP Server from the 32-bit or 64-bit supplemental package, because the IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.
 3.  Copy the module to the appropriate directory on the system that hosts IBM HTTP Server. By default, modules are stored in the [ibm\_http\_server\_root](../plan/i_ovr_r_directory_conventions.md)/modules directory.
 
-4.  Open the `httpd.conf` file \(in the [ibm\_http\_server\_root](../plan/i_ovr_r_directory_conventions.md)/conf directory by default\) and add the following statements to load the `ibm_local_redirect_module`, and the `mod_env` environment variable module:
-
-    LoadModule ibm\_local\_redirect\_module path\_to\_module/mod\_ibm\_local\_redirect.so
+4.  Open the `httpd.conf` file \(in the [ibm\_http\_server\_root](../plan/i_ovr_r_directory_conventions.md)/conf directory by default\) and add the following statements to load the `ibm_local_redirect_module`, and the `mod_env` environment variable module:<br>
+    <pre>LoadModule ibm_local_redirect_module *path_to_module*/mod_ibm_local_redirect.so</pre>
 
     For example: `LoadModule ibm_local_redirect_module modules/mod_ibm_local_redirect.so`
 
-    LoadModule env\_module path\_to\_mod\_env/mod\_env.so
+    <pre>LoadModule env_module *path_to_mod_env*/mod_env.so</pre>
 
     For example: `LoadModule env_module modules/mod_env.so`
 
@@ -80,9 +77,7 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
     2.  To create an alias for the data directory root, add the following line:
 
-        ```
-        alias /alias "[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)"
-        ```
+        <pre>alias */alias "[data_directory_root](../plan/i_ovr_r_directory_conventions.md)"*</pre>
 
         For example, if the Files data directory root on a Linux system is /opt/IBM/Connections/Data/Files, the following line creates the files\_content alias for that directory:
 
@@ -118,12 +113,13 @@ To configure IBM HTTP Server to download files, complete the following steps:
     -   The example assumes that the HTTP server is on the same system as HCL Connections. If the HTTP server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as: `alias /files_content "//server/sharename/Files"`.
 7.  To make the alias more secure, add the following lines to the `httpd.conf` file, adding them after the lines that you added in Step 7:
 
-    ```
-    <Directory "[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)">
+    <pre>
+    &lt;Directory "*[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)*">
      Order Deny,Allow
      Deny from all
-     Allow from env=REDIRECT\_FILES\_CONTENT or REDIRECT\_MOBILE\_CONTENT or REDIRECT\_WIKIS\_CONTENT</Directory>
-    ```
+     Allow from env=REDIRECT_FILES_CONTENT or REDIRECT_MOBILE_CONTENT or REDIRECT_WIKIS_CONTENT
+    &lt;/Directory>
+    </pre>
 
     For example:
 
@@ -138,19 +134,19 @@ To configure IBM HTTP Server to download files, complete the following steps:
      Order Deny,Allow
      Deny from all
      Allow from env=REDIRECT_FILES_CONTENT
-     </Directory>
+    </Directory>
     
     <Directory "/opt/IBM/Connections/data/shared/mobile">
      Order Deny,Allow
      Deny from all
      Allow from env=REDIRECT_MOBILE_CONTENT
-     </Directory>
+    </Directory>
     
     <Directory "/opt/IBM/Connections/data/shared/wikis">
      Order Deny,Allow
      Deny from all
      Allow from env=REDIRECT_WIKIS_CONTENT
-     </Directory>
+    </Directory>
     
     ```
 
@@ -160,44 +156,44 @@ To configure IBM HTTP Server to download files, complete the following steps:
     -   The example assumes that IBM HTTP Server is on the same system as HCL Connections. If IBM HTTP Server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as the following example: : `<Directory "//server/sharename/Files">`
     -   For Activities, a separate Directory element must be defined for each content store root.
 8.  To enable the modules for Activities, Files, Mobile, and Wikis, add the following lines to the httpd.conf file, adding them after the lines that you added in Step 8:
-
-    ```
-    <Location application\_context\_root>
+    
+    <pre>
+    &lt;Location *application_context_root*>
      IBMLocalRedirect On
-     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
-    Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
-     SetEnv FILES_CONTENT or MOBILE_CONTENT or WIKIS_CONTENTtrue
-    </Location>
-    ```
+     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,\
+            Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
+     SetEnv FILES_CONTENT or MOBILE_CONTENT or WIKIS_CONTENT true
+    &lt;/Location>
+    </pre>
 
     For example:
 
     ```
     <Location /activities>
      IBMLocalRedirect On
-     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
-    Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
+     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,\
+            Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
      SetEnv ACTIVITIES_CONTENT true
     </Location>
     
     <Location /connections/filediff>
      IBMLocalRedirect On
-     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
-    Last-Modified,ETag,Content-Language,Set-Cookie,X-Content-Length
+     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,\
+            Last-Modified,ETag,Content-Language,Set-Cookie,X-Content-Length
      SetEnv MOBILE_CONTENT true
     </Location>
     
     <Location /files>
      IBMLocalRedirect On
-     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
-    Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
+     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,\
+            Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
      SetEnv FILES_CONTENT true
     </Location>
     
     <Location /wikis>
      IBMLocalRedirect On
-     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
-    Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
+     IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,\
+            Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
      SetEnv WIKIS_CONTENT true
     </Location>
     
@@ -225,7 +221,7 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
     ```
     <download>
-    <modIBMLocalRedirect enabled="true" hrefPathPrefix="/alias" />
+        <modIBMLocalRedirect enabled="true" hrefPathPrefix="/alias" />
     </download>
     ```
 
@@ -237,16 +233,16 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
         For example:
 
-        ```
-        <store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore">
-              <id>filesystem</id>
-              <property name="use.historic">false</property>
-              <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-              **<download\>
-                    <modIBMLocalRedirect enabled="true" hrefPathPrefix="/activities\_content" /\>
-              </download\>**
-        </store>
-        ```
+        <pre>
+        &lt;store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore">
+              &lt;id>filesystem&lt;/id>
+              &lt;property name="use.historic">false&lt;/property>
+              &lt;property name="root.directory">${ACTIVITIES_CONTENT_DIR}&lt;/property>
+              **&lt;download\>
+                    &lt;modIBMLocalRedirect enabled="true" hrefPathPrefix="/activities_content" /\>
+              &lt;/download\>**
+        &lt;/store>
+        </pre>
 
 11. Restart Activities, Files, Mobile, or Wikis, depending on which applications you are configuring.
 
@@ -258,14 +254,13 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
         For example:
 
-        ```
-        <Directory "[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)">
+        <pre>
+        &lt;Directory "*[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)"*>
          Order Deny,Allow
          Deny from all
-        #Allow from env=REDIRECT_FILES_CONTENT or REDIRECT_MOBILE_CONTENT or REDIRECT_WIKIS_CONTENT
-        
-        </Directory>
-        ```
+         \#Allow from env=REDIRECT_FILES_CONTENT or REDIRECT_MOBILE_CONTENT or REDIRECT_WIKIS_CONTENT
+        &lt;/Directory>
+        </pre>
 
         For example:
 
