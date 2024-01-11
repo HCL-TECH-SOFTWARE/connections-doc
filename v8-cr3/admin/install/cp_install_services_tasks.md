@@ -1,18 +1,18 @@
-# Steps to install or upgrade to Component Pack 8 CR3 {#cp_install_services_tasks .concept}
+# Steps to install or upgrade to Component Pack 8 {#cp_install_services_tasks .concept}
 
-Use these steps to help you install Component Pack 8 CR3 or replace Component Pack 7 or 8 with 8 CR3.
+Use these steps to help you install the latest CR version of Component Pack 8 or replace Component Pack 7 or 8 with its latest CR version.
 
 ## Before you begin {#section_awd_rwp_tnb .section}
 
 For background information and where to get the latest download, see [Installation and upgrade](cp_install_upgrade_container.md).
 
-When preparing to install or upgrade to Component Pack 8 CR3, consider the recommendations in [Upgrade considerations for Component Pack 8 CR3](upgrade_considerations.md).
+When preparing to install or upgrade to the latest CR version of Component Pack 8, consider the recommendations in [Upgrade considerations for Component Pack 8](upgrade_considerations.md).
 
 Before starting the steps, note the following:
 
 **Ensure you have these:**
 
--   A system running Connections \(if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack deployed\).
+-   A system running Connections \(if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack and the latest CFix deployed\).
 
 -   Kubernetes up and running.
 
@@ -53,7 +53,7 @@ Starting with Connections 7.0, it is possible to use different types of storage.
 
 ## Installation vs. upgrade steps {#section_v5r_1dj_dvb .section}
 
-This document uses the preceding assumptions to walk you through the below steps to deploy Component Pack 8 CR3. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to 8 CR3. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
+This document uses the preceding assumptions to walk you through the below steps to deploy the latest CR version of Component Pack 8. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to its latest CR version. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
@@ -185,7 +185,7 @@ Back up data with x509 Authentication activated.
     ```
 
     ``` {#codeblock_nck_b1q_bvb}
-    o/p: 2022-08-19T05:22:09.909+0000	writing admin.system.users to 2022-08-19T05:22:09.914+0000	done dumping admin.system.users (27 documents)
+    o/p: 2022-08-19T05:22:09.909+0000 writing admin.system.users to 2022-08-19T05:22:09.914+0000 done dumping admin.system.users (27 documents)
     ……………
     ……………
     ```
@@ -287,7 +287,7 @@ Register the snapshot repository in Elasticsearch 7:
     mkdir -p /pv-connections/opensearchbackup
     ```
 
-    Connections 8.0 CR3 uses OpenSearch 1.3.0 as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
+    HCL Connections 8.0 uses OpenSearch as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.
 
 3.  Similarly with MongoDB 5, you need PVs for all the replicas of mongo5 pod. So, create additional MongoDB volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group:
 
@@ -349,8 +349,7 @@ As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubern
 kubectl label --overwrite ns connections \
 pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
 pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
-pod-security.kub
-ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 ```
 We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.
 
@@ -392,7 +391,7 @@ For more details, see [Pod Security Admission](https://kubernetes.io/docs/concep
     
         -   << helm repo path \>\> is the Helm chart path in Harbor repository, that is `https://hclcr.io/chartrepo/cnx`
         -   << helm\_repo\_username \>\> is the Harbor username
-        -   << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secretsecret**\)
+        -   << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secret**\)
 
     -   If Harbor is already added, update the repo:
     
@@ -417,7 +416,7 @@ For more details, see [Pod Security Admission](https://kubernetes.io/docs/concep
 
 ## Set up Helm charts {#setup_helm .section}
 
-Install or upgrade to the Connections 8.0 CR3 Kubernetes by deploying the Helm charts delivered with Component Pack 8 CR3.
+Install or upgrade to the latest CR version of Connections 8.0 Kubernetes by deploying the Helm charts delivered with the latest CR version of Component Pack 8.
 
 The [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) includes a set of templates to override the default values to values that are appropriate to your environment. The resulting files are the ones used by the following Helm upgrade commands using the -f option.
 
@@ -435,11 +434,17 @@ clusterName:                opensearch-cluster
 
 For sample values of these variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
 
-**Note:** If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
+**Note:** 
 
-``` {#codeblock_fpg_x2j_dvb}
-helm -n connections get values <chart_name>
-```
+- In your connections-env.yml, use "connections" for the `namespace` parameter (*__default_namespace*). In a high available Kubernetes environment, the `replicaCount` (*__replica_count*) is set to "3".
+
+- In your values .yml files, use `hclcr.io/cnx` as the value for image.repository (*__docker_registry_url*).
+
+- If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
+
+    ``` {#codeblock_fpg_x2j_dvb}
+    helm -n connections get values <chart_name>
+    ```
 
 ## Set up persistent volumes and persistent volume claims on NFS {#pv_pvc .section}
 
@@ -491,13 +496,15 @@ Make sure that the network configuration of your NFS environment is correct befo
 
 4.  Download the j2 template for connections-volumes.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
+    **Note**: In connections-volumes.yml, use your destination `nfs.server` and `persistentVolumePath` as parameters, as defined in [Set up NFS](#set-up-nfs-section_e4p_jrp_tnb-section).
+
 5.  Then, run installation:
 
     ``` {#codeblock_qx1_vkr_bvb}
     helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
     ```
 
-    **Note:** Use your destination **nfs.server** and **persistentVolumePath** as parameters in connections-volumes.yml.
+    **Note:** In connections-volumes.yml, use your destination `nfs.server` and `persistentVolumePath` as parameters.
 
 6.  Verify that all PVCs are in "bound" state:
 
@@ -552,6 +559,8 @@ The configmap for connections-env contains all the variables needed for the Cust
 
 2.  Download the j2 template for connections-env.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
+    **Note**: Use "true" as the value for onPrem (*___on_prem*).
+
 3.  Run the connections-env installation:
 
     ``` {#codeblock_lc1_cvt_hvb}
@@ -569,7 +578,7 @@ kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk
 
 ## Install MongoDB 5 {#inst_mongo5 .section}
 
-Perform the steps in [Installing MongoDB 5 for Component Pack 8 CR3](installing_mongodb_5_for_component_pack_8.md).
+Perform the steps in [Installing MongoDB 5 for Component Pack 8](installing_mongodb_5_for_component_pack_8.md).
 
 ## Set up infrastructure charts {#infra_chart .section}
 
@@ -620,13 +629,19 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 **Prerequisites for installing the OpenSearch chart:**
 
-For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.
+1.  For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation. Make sure Linux setting vm.max_map_count is set accordingly.
 
-OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
-```
-fs.file-max=65536
-```
-Then run `sudo sysctl -p` to reload configurarions.
+    OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. 
+
+    OpenSearch also needs a larger virtual address space to work properly. More then is usually configured on Linux distributions.
+
+    To increase these values to working levels, add the following lines to `/etc/sysctl.d/opensearch.conf`, creating the file on all Kubernetes hosts, if necessary:
+
+    ``` vm.max_map_count=262144 ``` 
+
+    Then run `sudo sysctl -p` to reload configurations. If possible, restart the host machines.
+    
+2.  Review the official Elasticsearch documentation on [quorum-based election protocol](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-quorums.html) and [master-eligible nodes](https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html#add-elasticsearch-nodes-master-eligible) before determining the number of master-eligible nodes for your cluster.
 
 **Steps to install the OpenSearch chart:**
 
@@ -666,10 +681,18 @@ Then run `sudo sysctl -p` to reload configurarions.
     kubectl get pods -n connections | grep -i "opensearch-cluster-"
     ```
 
-8.  Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:
+8.  This step is optional. Refer to the [Voting configuration exclusions API](https://www.elastic.co/guide/en/elasticsearch/reference/current/voting-config-exclusions.html). 
+
+    The default setting for this chart is to install three master nodes. If you wish to reduce this to just one master node during deployment, you can achieve that by utilizing the "voting_config_exclusions" API. This API reduces the voting configuration to include fewer than three nodes or remove more than half of the master-eligible nodes in the cluster at once by manually removing departing nodes from the voting configuration. For each specified node, the API will add an entry to the cluster's voting configuration exclusions list. It then waits until the cluster has reconfigured its voting configuration to exclude the specified nodes. For example, add nodes 'opensearch-cluster-master-1','opensearch-cluster-master-2' to the voting configuration exclusions list:
 
     ``` {#codeblock_oxs_ltr_bvb}
     kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"
+    ```
+
+    If your cluster needs to reverse the voting configuration exclusions for nodes that you no longer needed, you can do so by using the DELETE voting_config_exclusions API as below:
+
+    ```
+    kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false"
     ```
 
 ## Migrate ElasticSearch data { .section}
@@ -713,7 +736,7 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
     kubectl get pods -n connections | grep -iE "orient|itm-services|community-suggestions|middleware-graphql|people-idmapping|people-migrate|people-relation|people-scoring|userprefs-service"
     ```
 
-5.  If you are upgrading to Connections 8.0 CR3, perform these additional steps:
+5.  If you are upgrading to the latest CR version of Connections 8.0, perform these additional steps:
 
     1.  Check if the Home page works fine from your browser by navigating to the /homepage URL.
 
@@ -747,7 +770,7 @@ Learn more about configuring Orient Me in [Configuring the Orient Me component](
 
 **Before you begin**
 
-Component Pack for HCL Connections 8.0 CR3 comes with OpenSearch enabled by default – this is the only backend for Metrics starting from Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for Component Pack 8 CR3.
+Component Pack for the latest CR version of HCL Connections 8.0 comes with OpenSearch enabled by default – this is the only backend for Metrics starting from Connections 8.0. If you are upgrading from Connections 7.0, you need to update Metrics and switch from the Elasticsearch 7 service in your Component Pack 7 deployment, to OpenSearch for the latest CR version of Component Pack 8.
 
 If you are on HCL Connections 6.5.0.1 or earlier, and using ElasticSearch 5, there are two options:
 
@@ -904,7 +927,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
         
         -   `--namespace`: Set to `connections`
 
-        **Note:** If Connections is configured to force traffic to use TLS 1.3, Python 3.7 or later is required to be the default for Python3
+        **Note:** If Connections is configured to force traffic to use TLS 1.3, Python 3.7 or later is required to be the default for Python3.
 
     6.  Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.
 
@@ -1163,12 +1186,12 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
 
 To enable the Connections add-in for Microsoft Outlook, see [Making the Connections Add-in for Outlook available to users](cp_3p_outlook_make_available_to_users.md).
 
--   **[Installing MongoDB 5 for Component Pack 8 CR3](../install/installing_mongodb_5_for_component_pack_8.md)**  
-Install MongoDB 5 for Component Pack 8 CR3.
+-   **[Installing MongoDB 5 for Component Pack 8](../install/installing_mongodb_5_for_component_pack_8.md)**  
+Install MongoDB 5 for the latest CR version of Component Pack 8.
 -   **[Migrating data from MongoDB 3 to 5](../install/migrating_data_mongodb_v3_v5.md)**  
 Back up, copy, restore, and validate your MongoDB databases.
 -   **[Migrating data from Elasticsearch 7 to OpenSearch](../install/cp_migrate_data_from_es7_to_opensearch.md)**  
-To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for Connections 8.0 CR3.
+To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsearch 7 for your Connections 7 deployment, you must migrate that data to the OpenSearch service provided with Component Pack for the latest CR version of Connections 8.0.
 
 **Parent topic:** [Installation and upgrade](../install/cp_install_upgrade_container.md)
 

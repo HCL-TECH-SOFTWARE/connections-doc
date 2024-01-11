@@ -46,7 +46,11 @@
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
-      
+       
+ <!-- SmartCat script-->
+  <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>
+  <!-- End SmartCat script -->
+  
 <!--  OneTrust Cookies Consent Notice start  -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>
@@ -76,12 +80,15 @@
   })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
   <!-- End Google Tag Manager -->
   
+  
 <!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
+
   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />
-  
+
+
 
   </head>
   
@@ -112,13 +119,18 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
+
+    
 <div>
+
    <a href="https://www.hcltechsw.com/"> 
   <img width="150" height="30" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>
   
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   
 <div class="dropdown">
+
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
@@ -127,7 +139,11 @@
 
 </div>
 </div>
-  
+
+<div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
+     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+</div>
+
   <!-- Uncomment the following announcement if you need it -->
   <!--
  <div class="md-banner--feedback" style="display:inline">
@@ -140,6 +156,8 @@
 -->
 
 </div>
+  
+
 
           </div>
           
@@ -152,10 +170,13 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
+
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-documentation/v8-cr4/">    
     <strong>Click here to go to the latest.</strong>
   </a>
+
+
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -3198,6 +3219,8 @@
         
           
         
+          
+        
       
       
         
@@ -3240,6 +3263,20 @@
     <li class="md-nav__item">
       <a href="migrating_data_mongodb_v3_v5.html" class="md-nav__link">
         Migrating data from MongoDB 3 to 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="migrating_large_data_mongodb.html" class="md-nav__link">
+        Migrating large-scale data from MongoDB 3 to 5
       </a>
     </li>
   
@@ -34901,7 +34938,7 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 <table>
 <thead>
 <tr>
-<th>Installing Component Pack 8 CR2</th>
+<th>Installing the latest CR version of Component Pack 8</th>
 </tr>
 </thead>
 <tbody>
@@ -34915,10 +34952,10 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 <td>3.  <a href="cp_install_services_tasks.html#section_ln3_qp3_dvb">Create the Connections namespace</a></td>
 </tr>
 <tr>
-<td>4.  <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
+<td>4.  <a href="cp_install_services_tasks.html#harbor_repo">Log in to a Harbor OCI registry</a></td>
 </tr>
 <tr>
-<td>5.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
+<td>5.  <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
 </tr>
 <tr>
 <td>6.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
@@ -34974,8 +35011,8 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 <table>
 <thead>
 <tr>
-<th>Upgrading Component Pack 7 to 8 CR1</th>
-<th>Upgrading Component Pack 8 to 8 CR2</th>
+<th>Upgrading Component Pack 7 to 8</th>
+<th>Upgrading Component Pack 8 to the latest CR version</th>
 </tr>
 </thead>
 <tbody>
@@ -34997,75 +35034,75 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 </tr>
 <tr>
 <td>5.  <a href="cp_install_services_tasks.html#setup_nfs">Set up OpenSearch and MongoDB volumes on NFS</a></td>
-<td>5. <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
+<td>5. <a href="cp_install_services_tasks.html#harbor_repo">Log in to a Harbor OCI registry</a></td>
 </tr>
 <tr>
 <td>6. <a href="cp_install_services_tasks.html#uninstall_charts_k8s125">Uninstall k8s-psp, Infrastructure and if applicable, opensearch-master, opensearch-data, opensearch-client and kudos-boards-cp</a></td>
-<td>6. <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
+<td>6. <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
 </tr>
 <tr>
 <td>7. <a href="cp_install_services_tasks.html#del_ingress">Delete ingresses</a></td>
-<td>7. <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
+<td>7. <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
 </tr>
 <tr>
 <td>8. Upgrade system to Kubernetes v1.25</td>
-<td>8. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
+<td>8. <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
 </tr>
 <tr>
 <td>9. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
-<td>9. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
+<td>9. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
 </tr>
 <tr>
-<td>10. <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
-<td>10. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
+<td>10. <a href="cp_install_services_tasks.html#harbor_repo">Log in to a Harbor OCI registry</a></td>
+<td>10. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
 </tr>
 <tr>
-<td>11. <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
-<td>11.  <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
+<td>11. <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
+<td>11. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
 </tr>
 <tr>
 <td>12.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
-<td>12.  <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
+<td>12.  <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
 </tr>
 <tr>
 <td>13. <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
-<td>13. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
+<td>13.  <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
 </tr>
 <tr>
 <td>14. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
-<td>14. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
+<td>14. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
 </tr>
 <tr>
 <td>15. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
-<td>15. <a href="cp_install_services_tasks.html#orientme_os">Set up Orient Me for OpenSearch</a></td>
+<td>15. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
 </tr>
 <tr>
 <td>16. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
-<td>16. <a href="cp_install_services_tasks.html#metrics_os">Set up Metrics for OpenSearch</a></td>
+<td>16. <a href="cp_install_services_tasks.html#orientme_os">Set up Orient Me for OpenSearch</a></td>
 </tr>
 <tr>
 <td>17. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
-<td>17. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
+<td>17. <a href="cp_install_services_tasks.html#metrics_os">Set up Metrics for OpenSearch</a></td>
 </tr>
 <tr>
 <td>18. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate MongoDB data</a></td>
-<td>18. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) chart</a></td>
+<td>18. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
 </tr>
 <tr>
 <td>19. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
-<td>19. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
+<td>19. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) chart</a></td>
 </tr>
 <tr>
 <td>20. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
-<td>20. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
+<td>20. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
 </tr>
 <tr>
 <td>21. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate ElasticSearch 7 data</a></td>
-<td>21. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
+<td>21. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
 </tr>
 <tr>
 <td>22. <a href="cp_install_services_tasks.html#orientme_os">Reconfigure Orient Me for OpenSearch</a></td>
-<td></td>
+<td>22. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
 </tr>
 <tr>
 <td>22. <a href="cp_install_services_tasks.html#metrics_os">Reconfigure Metrics for OpenSearch</a></td>
@@ -35113,7 +35150,7 @@ If your Connections upgrade strategy requires a side-by-side migration, understa
 </li>
 <li>
 <p><strong><a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8 CR2</a></strong><br />
-Use these steps to help you install Component Pack 8 CR2 or replace Component Pack 7 or 8 with 8 CR2.</p>
+Use these steps to help you install the latest CR version of Component Pack 8 or replace Component Pack 7 or 8 with its latest CR version.</p>
 </li>
 <li>
 <p><strong><a href="cp_openshift.html">Installing Component Pack on OpenShift</a></strong><br />
