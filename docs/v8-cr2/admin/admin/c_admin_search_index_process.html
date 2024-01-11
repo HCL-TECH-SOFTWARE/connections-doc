@@ -172,7 +172,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-documentation/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -34886,35 +34886,25 @@
 <h2 class="section" id="indexing-overview">Indexing overview</h2>
 <p>Search indexing happens in several stages:</p>
 <p>Crawling
-:   Crawling is the process of accessing and reading content from each application in order to create entries for indexing.</p>
-<pre><code>During the crawling process, the Search application requests a seedlist from each HCL Connections application. This seedlist is generated when each application runs queries on the data stored in its database, based on the parameters that the Search application submits in its HTTP request.
-
-The contents of the seedlists are persisted to disk. They are deleted when the next incremental indexing task completes successfully.
-</code></pre>
+: Crawling is the process of accessing and reading content from each application in order to create entries for indexing.
+: During the crawling process, the Search application requests a seedlist from each HCL Connections application. This seedlist is generated when each application runs queries on the data stored in its database, based on the parameters that the Search application submits in its HTTP request.</p>
+<p>: The contents of the seedlists are persisted to disk. They are deleted when the next incremental indexing task completes successfully.</p>
 <p>File content extraction
-:   Search provides a document conversion service to extract the content of the files to be indexed. During the file content extraction stage, the document conversion service downloads files to a temporary folder in the index directory, converts them to plain text, and stores this in the folder defined by the WebSphere Application Server variable, EXTRACTED_FILE_STORE. The extracted text is then indexed.</p>
-<pre><code>HCL Connections supports the indexing of file attachment content from the Files and Wikis applications.
-
-File content extraction takes place on the schedule defined for the file content extraction task, which runs every 20 minutes by default. File content is not searchable until the file content conversion is complete and the next indexing task has also completed.
-</code></pre>
+: Search provides a document conversion service to extract the content of the files to be indexed. During the file content extraction stage, the document conversion service downloads files to a temporary folder in the index directory, converts them to plain text, and stores this in the folder defined by the WebSphere Application Server variable, <code>EXTRACTED_FILE_STORE</code>. The extracted text is then indexed.
+: HCL Connections supports the indexing of file attachment content from the Files and Wikis applications.
+: File content extraction takes place on the schedule defined for the file content extraction task, which runs every 20 minutes by default. File content is not searchable until the file content conversion is complete and the next indexing task has also completed.</p>
 <p>Indexing
-:   During the indexing phase, the entries in the persisted seedlists are processed into Lucene documents, which are serialized into a database table that acts as an index cache.</p>
-<pre><code>When the indexing phase is complete, the seedlists are removed from disk. A resume token marks where the last seedlist request finished so that the Search application can start from this point on the next seedlist request. This resume token enables Search to retrieve only the new data that was added after the last seedlists were generated and crawled.
-
-The crawling and indexing stages for multiple applications take place concurrently in incremental foreground indexing. For example, if an indexing task that indexes Files, Activities, and Blogs is created, each of these applications is crawled and added to the database cache at the same time. During initial and background indexing, only the crawling stage for multiple applications takes place concurrently.
-
-During incremental foreground indexing, after the crawling and indexing stages are complete, all the nodes are notified that they can build their index. At this point, the index builder on each node begins extracting entries from the database cache and storing them in the index on the local file system.
-</code></pre>
+: During the indexing phase, the entries in the persisted seedlists are processed into Lucene documents, which are serialized into a database table that acts as an index cache.</p>
+<p>: When the indexing phase is complete, the seedlists are removed from disk. A resume token marks where the last seedlist request finished so that the Search application can start from this point on the next seedlist request. This resume token enables Search to retrieve only the new data that was added after the last seedlists were generated and crawled.</p>
+<p>: The crawling and indexing stages for multiple applications take place concurrently in incremental foreground indexing. For example, if an indexing task that indexes Files, Activities, and Blogs is created, each of these applications is crawled and added to the database cache at the same time. During initial and background indexing, only the crawling stage for multiple applications takes place concurrently.</p>
+<p>: During incremental foreground indexing, after the crawling and indexing stages are complete, all the nodes are notified that they can build their index. At this point, the index builder on each node begins extracting entries from the database cache and storing them in the index on the local file system.</p>
 <p>Index building
-:   Index building refers to the deserialization and writing of the Lucene documents into the Search index. This process only occurs during incremental foreground indexing. During index building, the index builder takes entries from the database cache and stores them in an index on the local file system. Each node has its own index builder, so crawling and preparing entries only takes place once in a network deployment, and then the index is created on each node from the information that has already been processed.</p>
-<pre><code>During initial and background indexing, the indexing stage and the index building stage are merged, and no database serialization or deserialization occurs.
-</code></pre>
+: Index building refers to the deserialization and writing of the Lucene documents into the Search index. This process only occurs during incremental foreground indexing. During index building, the index builder takes entries from the database cache and stores them in an index on the local file system. Each node has its own index builder, so crawling and preparing entries only takes place once in a network deployment, and then the index is created on each node from the information that has already been processed.</p>
+<p>: During initial and background indexing, the indexing stage and the index building stage are merged, and no database serialization or deserialization occurs.</p>
 <p>Post processing
-:   After index building (for incremental foreground indexing) or indexing (for initial or background indexing), post-processing work takes place on the new index entries to add additional metadata to the search results. This work includes bookmark rollup and the addition of file content to Files search results.</p>
-<pre><code>Bookmark rollup refers to the process of aggregating the information for public bookmarks that point to the same URL. For example, if 1000 users create a public bookmark for the same URL, when someone searches for that URL, a single bookmark is returned instead of 1000 search results. The bookmark that is returned includes the information for all 1000 bookmarks rolled up into a single search result, so that all of the tags and people associated with each of the individual bookmarks are now associated with the one document.
-
-In addition, if two users bookmark the same internal document, for example, a wiki page, then the wiki page gets rolled up with the bookmark so if the user then searches for the wiki page or the bookmark that they created to the wiki page, only one result is returned in the search results. The tags and people associated with the bookmark and the wiki page are combined into a single document.
-</code></pre>
+: After index building (for incremental foreground indexing) or indexing (for initial or background indexing), post-processing work takes place on the new index entries to add additional metadata to the search results. This work includes bookmark rollup and the addition of file content to Files search results.</p>
+<p>: Bookmark rollup refers to the process of aggregating the information for public bookmarks that point to the same URL. For example, if 1000 users create a public bookmark for the same URL, when someone searches for that URL, a single bookmark is returned instead of 1000 search results. The bookmark that is returned includes the information for all 1000 bookmarks rolled up into a single search result, so that all of the tags and people associated with each of the individual bookmarks are now associated with the one document.</p>
+<p>: In addition, if two users bookmark the same internal document, for example, a wiki page, then the wiki page gets rolled up with the bookmark so if the user then searches for the wiki page or the bookmark that they created to the wiki page, only one result is returned in the search results. The tags and people associated with the bookmark and the wiki page are combined into a single document.</p>
 <h2 class="section" id="indexing-types">Indexing types</h2>
 <p>The following table explains the differences between the various types of indexing:</p>
 <table>
@@ -34928,49 +34918,46 @@ In addition, if two users bookmark the same internal document, for example, a wi
 <tbody>
 <tr>
 <td>Initial indexing</td>
-<td>The initial index is built by using the default 15 min-search-indexing-task.Alternatively, it can be built by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow(String applicationNames).</td>
-<td></td>
+<td>The initial index is built by using the default 15 min-search-indexing-task.Alternatively, it can be built by a custom indexing task that is created by the <code>SearchService.addIndexingTask</code> command or a command that is run once, such as <code>SearchService.indexNow(String applicationNames)</code>.<br>This index is used for searching and for further indexing. The database cache is not used.<br></td>
+<td>An index is built by using the <code>SearchService.startBackgroundIndex</code> command.The background indexing command creates a one-off index in a specified location on disk.<br>This index is not used for searching. The database cache is not used.</td>
+</tr>
+<tr>
+<td>Incremental indexing</td>
+<td>The index is updated by using the default <code>15min-search-indexing-task</code>. Alternatively, the index can be updated by a custom indexing task that is created by the <code>SearchService.addIndexingTask</code> command or a command that is run once, such as <code>SearchService.indexNow</code>.<br>This index is used for searching and for further indexing. The database cache is used.</td>
+<td>A background index can be updated by using the <code>SearchService.startBackgroundIndex</code> command.This index is not used for searching. The database cache is not used.</td>
 </tr>
 </tbody>
 </table>
-<p>This index is used for searching and for further indexing. The database cache is not used.</p>
-<p>|An index is built by using the SearchService.startBackgroundIndex command.The background indexing command creates a one-off index in a specified location on disk.</p>
-<p>This index is not used for searching. The database cache is not used.</p>
-<p>|
-|Incremental indexing|The index is updated by using the default 15min-search-indexing-task.Alternatively, the index can be updated by a custom indexing task that is created by the SearchService.addIndexingTask command or a command that is run once, such as SearchService.indexNow.</p>
-<p>This index is used for searching and for further indexing. The database cache is used.</p>
-<p>|A background index can be updated by using the SearchService.startBackgroundIndex command.This index is not used for searching. The database cache is not used.</p>
-<p>|</p>
 <h2 class="section" id="indexing-steps">Indexing steps</h2>
 <p>The indexing process involves the following steps:</p>
 <p>Initial and background indexing
-:   1.  Crawl all pages of the seedlist and persist them to disk.
+: 1.  Crawl all pages of the seedlist and persist them to disk.
 2.  Extract the file content and persist it to disk.
 3.  Crawl a seedlist page from disk.
 4.  Index the seedlist entries into Lucene documents.
 5.  Write the documents to the Lucene index.
 6.  Repeat until all the persisted seedlist pages have been crawled.</p>
 <p>Incremental foreground indexing
-:   1.  The node that has the scheduler lease crawls all the pages of the seedlist and persists them to disk.
+: 1.  The node that has the scheduler lease crawls all the pages of the seedlist and persists them to disk.
 2.  Crawl a seedlist page from disk.
 3.  Index the seedlist entries into Lucene documents.
 4.  Serialize the Lucene documents into the database cache.
 5.  Send a JMS message to all Search nodes to alert them of the completion of the serialization.
 6.  Each node deserializes the Lucene documents into the Lucene index.</p>
 <ul>
-<li><strong><a href="c_admin_search_file_index_issues.html">Investigating file content search issues</a></strong><br />
+<li><strong><a href="c_admin_search_file_index_issues.html">Investigating file content search issues</a></strong>
 An overview of file content search issues.</li>
-<li><strong><a href="c_admin_search_folder_structure.html">Search index directory structure</a></strong><br />
+<li><strong><a href="c_admin_search_folder_structure.html">Search index directory structure</a></strong>
 Each HCL Connections application has its own index directory. The Search index directory is defined by the WebSphere Application Server variable SEARCH_INDEX_DIR.</li>
-<li><strong><a href="t_search_add_service_to_index.html">Adding a service to the search index</a></strong><br />
+<li><strong><a href="t_search_add_service_to_index.html">Adding a service to the search index</a></strong>
 Use administrative commands to update the Search index with data from a newly added service.</li>
-<li><strong><a href="t_admin_search_fault_tolerance_during_indexing.html">Checking fault tolerance during the initial indexing process</a></strong><br />
+<li><strong><a href="t_admin_search_fault_tolerance_during_indexing.html">Checking fault tolerance during the initial indexing process</a></strong>
 Review the serverStatus web page to determine whether any exceptions occurred while building an initial index.</li>
-<li><strong><a href="t_admin_search_man_resume_token.html">Manipulating the resume tokens for HCL Connections services</a></strong><br />
+<li><strong><a href="t_admin_search_man_resume_token.html">Manipulating the resume tokens for HCL Connections services</a></strong>
 Use administrative commands to manipulate the resume tokens in the Search index.</li>
 </ul>
 <p><strong>Parent topic:</strong><a href="c_admin_search_manage_index.html">Managing the Search index</a></p>
-<p><strong>Related information</strong>  </p>
+<p><strong>Related information</strong></p>
 <p><a href="t_admin_search_configure_persisted_data.html">Configuring page persistence settings</a></p>
 <p><a href="t_admin_search_set_max_indexing_threads.html">Configuring the number of indexing threads</a></p>
 <p><a href="t_admin_search_create_index.html">Recreating the Search index</a></p>
