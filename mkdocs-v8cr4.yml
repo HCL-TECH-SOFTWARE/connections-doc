@@ -14,6 +14,7 @@ theme:
   favicon: assets/favicon.png
   language: en
   features:
+    - content.code.copy
     - navigation.tabs
     - navigation.indexes
     - navigation.top
@@ -311,7 +312,7 @@ nav:
                - admin/install/inst_tasearch_intro.md
                - Managing the OpenSearch index for Connections type-ahead search: admin/install/inst_managing_os_index_cnx_typeahead_search.md
 #              - Setting up certificates for type-ahead search: admin/install/inst_tasearch_no_metrics.md
-             - Setting up OpenSearch Stack for search and data analytics: admin/install/setup_opensearch_stack.md 
+#            - Setting up OpenSearch Stack for search and data analytics: admin/install/setup_opensearch_stack.md 
              - Upgrading OpenSearch 1.x to 2.x in HCL Connections: admin/install/upgrade_opensearch.md 
              - Installing Customizer Lite:
                - admin/install/cp_install_customizer_lite.md

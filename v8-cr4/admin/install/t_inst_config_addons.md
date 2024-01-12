@@ -4,8 +4,6 @@ You must perform additional tasks to enable type-ahead search, and configurin Sh
 
 -   **[Setting up type-ahead search](../install/inst_tasearch_intro.md)**  
 Enable type-ahead search in HCL Connections™ to suggest items in the search box based on content that is relevant to each user.
--   **[Setting up OpenSearch Stack for search and data analytics](../install/setup_opensearch_stack.md)**  
-OpenSearch Stack is a collection of open-source tools that collect log data and help you visualize those logs in a central location. Specific tools in OpenSearch Stack include OpenSearch Dashboards (forked from Kibana), Logstash, and FileBeat-8.
 -   **[Upgrading OpenSearch 1.x to 2.x in HCL Connections](../install/upgrade_opensearch.md)**
 In HCL Connections 8.0 OpenSearch replaces Elasticsearch 7. OpenSearch regularly releases updates which includes enhancements and fixes, thus, it is important to upgrade OpenSearch to apply these changes.
 -   **[Installing Customizer Lite](../install/cp_install_customizer_lite.md)**  

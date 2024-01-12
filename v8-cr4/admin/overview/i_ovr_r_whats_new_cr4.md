@@ -17,11 +17,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 ## OpenSearch 2.0 for HCL Connections 8.0 {#opensearch2.section}
 
-The following sections are added in support of OpenSearch 2:
-
--   [Setting up OpenSearch Stack for search and data analytics](../../admin/install/setup_opensearch_stack.md)
--   [Upgrading OpenSearch 1.x to 2.x in HCL Connections](../../admin/install/upgrade_opensearch.md)
-
+[Upgrading OpenSearch 1.x to 2.x in HCL Connections](../../admin/install/upgrade_opensearch.md) has been added in support of OpenSearch 2.
 
 ## IBM Red Hat Enterprise Linux (RHEL) Server 9.0 Certification {#rhel9cert.section}
 
