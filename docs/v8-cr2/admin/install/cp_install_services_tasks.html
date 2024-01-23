@@ -172,7 +172,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr5/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -34895,15 +34895,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#psa_namespace" class="md-nav__link">
-    Apply Pod security restrictions at the namespace level
+  <a href="#harbor_repo" class="md-nav__link">
+    Log in to a Harbor OCI registry
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#harbor_repo" class="md-nav__link">
-    Add or update Harbor Helm repository
+  <a href="#psa_namespace" class="md-nav__link">
+    Apply Pod security restrictions at the namespace level
   </a>
   
 </li>
@@ -35345,7 +35345,7 @@ mkdir -p /pv-connections/mongo5-node-2
 </li>
 </ol>
 <h2 class="section" id="uninstall_charts_k8s125">Uninstall charts before upgrading to Kubernetes v1.25</h2>
-<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, the following charts should be uninstalled before upgrading to Kubernetes v1.25: </p>
+<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, the following charts should be uninstalled before upgrading to Kubernetes v1.25:</p>
 <div class="highlight"><pre><span></span><code>k8s-psp
 infrastructure
 opensearch-master
@@ -35360,70 +35360,67 @@ kudos-boards-cp
 <div class="highlight"><pre><span></span><code>helm uninstall &lt;chart name&gt; --namespace connections
 </code></pre></div>
 <p>For more details, see <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable">PodSecurityPolicy is removed</a> in the Kubernetes changelog.</p>
-<h2 class="section" id="psa_namespace">Apply Pod security restrictions at the namespace level</h2>
-<p><strong>This step applies when installing on Kubernetes version 1.25.0 or higher:</strong></p>
-<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.</p>
-<p><div class="highlight"><pre><span></span><code>kubectl label --overwrite ns connections \
-pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
-pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
-pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
-</code></pre></div>
-We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.</p>
-<p>For more details, see <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Pod Security Admission</a> and <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/">Pod Security Standards</a> in the Kubernetes documentation.</p>
-<p><strong>If installing on Kubernetes to 1.25 is not possible, install/upgrade the k8s-psp Helm chart:</strong></p>
+<h2 class="section" id="harbor_repo">Log in to a Harbor OCI registry</h2>
 <ol>
 <li>
-<p>Start by finding out the k8s-psp chart version available on Harbor:</p>
-<div id="codeblock_t4g_f5t_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep k8s-psp | awk {&#39;print $2&#39;}
-</code></pre></div>
-<div id="codeblock_ed5_f5t_hvb" class="highlight"><pre><span></span><code>o/p 0.1.0-20210909-112534
-</code></pre></div>
-</li>
-<li>
-<p>Then install or upgrade:</p>
-<div id="codeblock_g2j_g5t_hvb" class="highlight"><pre><span></span><code>helm upgrade k8s-psp v-connections-helm/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
-</code></pre></div>
-</li>
-</ol>
-<h2 class="section" id="harbor_repo">Add or update Harbor Helm repository</h2>
-<ol>
-<li>
-<p>Check if Harbor repository is already added:</p>
-<div id="codeblock_eqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo list | grep v-connections-helm | grep &lt;&lt; harbor repo path &gt;&gt;
-</code></pre></div>
-<ul>
-<li>
-<p>If not, add Harbor using the following command:</p>
-<div id="codeblock_fqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo add v-connections-helm &lt;&lt; helm repo path &gt;&gt; --username &lt;&lt; helm_repo_username &gt;&gt; --password &lt;&lt; helm_repo_password &gt;&gt; --pass-credentials
+<p>Log in to a Harbor OCI registry using the following command:</p>
+<div id="codeblock_fqf_5hr_bvb" class="highlight"><pre><span></span><code>$ helm registry login -u &lt;&lt;helm_repo_username&gt;&gt; -p &lt;&lt;helm_repo_password&gt;&gt; &lt;&lt;helm_repo_path&gt;&gt;
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li>&lt;&lt; helm repo path >> is the Helm chart path in Harbor repository, that is <code>https://hclcr.io/chartrepo/cnx</code></li>
-<li>&lt;&lt; helm_repo_username >> is the Harbor username</li>
-<li>&lt;&lt; helm_repo_password >> is the CLI secret (to access, log in to Harbor > at the top-right corner, click on your name > <strong>User Profile</strong> > <strong>CLI Secret</strong>)</li>
+<li><code>&lt;&lt;helm_repo_username&gt;&gt;</code> is the Harbor username</li>
+<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to Harbor, then click on your name &gt; <strong>User Profile</strong> &gt; CLI Secret)</li>
+<li><code>&lt;&lt;helm_repo_path&gt;&gt;</code> is the Harbor repository to log into, that is https://hclcr.io</li>
 </ul>
 </li>
 <li>
-<p>If Harbor is already added, update the repo:</p>
-<div id="codeblock_eqf_5hr_bvb" class="highlight"><pre><span></span><code>helm repo update
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p>Since you'll be switching the Docker registry to Harbor, you need to recreate the secret called <code>myregkey</code>:</p>
+<p>Add Harbor credentials as Kubernetes secret. </p>
+<p>In addition to the helm repo created in the previous step, Component Pack expects a Kubernetes secret containing the HCL Harbor credentials (in earlier versions, these are Docker registry credentials) by the name of <code>myregkey</code>:</p>
 <ol>
 <li>
-<p>First, delete the credentials:</p>
+<p>If this is your first time switching the Docker registry to Harbor, you'll need to recreate the secret named <code>myregkey</code>.</p>
+<p>Start by deleting the credentials:</p>
 <div id="codeblock_ug2_zhr_bvb" class="highlight"><pre><span></span><code>kubectl delete secret myregkey -n connections
 </code></pre></div>
 </li>
 <li>
-<p>Set up credentials for a private Docker registry:</p>
-<div id="codeblock_vg2_zhr_bvb" class="highlight"><pre><span></span><code>kubectl create secret docker-registry myregkey -n connections --docker-server=&lt;&lt; docker_registry_url &gt;&gt; --docker-username=&lt;&lt; docker_registry_username &gt;&gt; --docker-password &lt;&lt; docker_registry_password &gt;&gt;
+<p>Add Harbor credentials as <code>myregkey</code> Kubernetes secret.</p>
+<p>The default for the <code>docker-server</code> parameter should be "hclcr.io", in order to point the installer to HCL Harbor for the containerd image downloads.</p>
+<div id="codeblock_vg2_zhr_bvb" class="highlight"><pre><span></span><code>kubectl create secret docker-registry myregkey -n connections --docker-server=hclcr.io/cnx --docker-username=&lt;&lt;helm_repo_username&gt;&gt; --docker-password &lt;&lt;helm_repo_password&gt;&gt;
 </code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>&lt;&lt;helm_repo_username&gt;&gt;</code> is the Harbor username</li>
+<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to Harbor, then click on your name &gt; <strong>User Profile</strong> &gt; CLI Secret)</li>
+</ul>
 </li>
 </ol>
+</li>
+</ol>
+<h2 class="section" id="psa_namespace">Apply Pod security restrictions at the namespace level</h2>
+<p><strong>This step applies when installing on Kubernetes version 1.25.0 or higher:</strong></p>
+<p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.</p>
+<div class="highlight"><pre><span></span><code>kubectl label --overwrite ns connections \
+pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
+pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
+pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+</code></pre></div>
+<p>We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.</p>
+<p>For more details, see <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Pod Security Admission</a> and <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/">Pod Security Standards</a> in the Kubernetes documentation.</p>
+<p><strong>If installing on Kubernetes version 1.25 or above is not feasible, then install/upgrade the k8s-psp Helm chart:</strong></p>
+<ol>
+<li>
+<p>Start by finding out the k8s-psp chart version available on Harbor OCI:</p>
+<div id="codeblock_t4g_f5t_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/k8s-psp --devel | grep &quot;^version:&quot;
+</code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
+<div id="codeblock_ed5_f5t_hvb" class="highlight"><pre><span></span><code>o/p version: 0.1.0-20210909-112534
+</code></pre></div>
+</li>
+<li>
+<p>Then install or upgrade:</p>
+<div id="codeblock_g2j_g5t_hvb" class="highlight"><pre><span></span><code>helm upgrade k8s-psp &lt;&lt;oci_registry_url&gt;&gt;/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
+</code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="setup_helm">Set up Helm charts</h2>
@@ -35436,13 +35433,13 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 <div id="codeblock_dpg_x2j_dvb" class="highlight"><pre><span></span><code>clusterName:                opensearch-cluster
 </code></pre></div>
 <p>For sample values of these variables, refer to the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml">HCL Connections deployment automation Git repository</a>.</p>
-<p><strong>Note:</strong> </p>
+<p><strong>Note:</strong></p>
 <ul>
 <li>
 <p>In your connections-env.yml, use "connections" for the <code>namespace</code> parameter (<em>__default_namespace</em>). In a high available Kubernetes environment, the <code>replicaCount</code> (<em>__replica_count</em>) is set to "3".</p>
 </li>
 <li>
-<p>In your values .yml files, use <code>hclcr.io/cnx</code> as the value for image.repository (<em>__docker_registry_url</em>).</p>
+<p>In your values .yml files, use <code>hclcr.io/cnx</code> as the value for <code>image.repository</code> (<em>__docker_registry_url</em>).</p>
 </li>
 <li>
 <p>If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:</p>
@@ -35475,21 +35472,22 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 </li>
 <li>
 <p>Install connections-volumes chart.</p>
-<p>Find out the connections-volumes chart version that is available on Harbor:</p>
-<div id="codeblock_ox1_vkr_bvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {&#39;print $2&#39;}
+<p>Find out the connections-volumes chart version that is available on Harbor OCI:</p>
+<div id="codeblock_ox1_vkr_bvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/connections-persistent-storage-nfs --devel | grep &quot;^version:&quot;
 </code></pre></div>
-<div id="codeblock_px1_vkr_bvb" class="highlight"><pre><span></span><code>o/p 0.1.1-20220505-090030
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
+<div id="codeblock_px1_vkr_bvb" class="highlight"><pre><span></span><code>o/p version: 0.1.1-20220505-090030
 </code></pre></div>
 </li>
 <li>
 <p>Download the j2 template for connections-volumes.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
-<p><strong>Note</strong>: In connections-volumes.yml, use your destination <code>nfs.server</code> and <code>persistentVolumePath</code> as parameters, as defined in <a href="#set-up-nfs-section_e4p_jrp_tnb-section">Set up NFS</a>.</p>
+<p><strong>Note:</strong> In connections-volumes.yml, use your destination <strong>nfs.server</strong> and <strong>persistentVolumePath</strong> as parameters, as defined in <a href="#section_e4p_jrp_tnb">Set up NFS</a>. </p>
 </li>
 <li>
 <p>Then, run installation:</p>
-<div id="codeblock_qx1_vkr_bvb" class="highlight"><pre><span></span><code>helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
+<div id="codeblock_qx1_vkr_bvb" class="highlight"><pre><span></span><code>helm upgrade connections-volumes &lt;&lt;oci_registry_url&gt;&gt;/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
 </code></pre></div>
-<p><strong>Note:</strong> In connections-volumes.yml, use your destination <code>nfs.server</code> and <code>persistentVolumePath</code> as parameters.</p>
+<p><strong>Note:</strong> In connections-volumes.yml, use your destination <strong>nfs.server</strong> and <strong>persistentVolumePath</strong> as parameters.</p>
 </li>
 <li>
 <p>Verify that all PVCs are in "bound" state:</p>
@@ -35508,10 +35506,11 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 </code></pre></div>
 </li>
 <li>
-<p>Find out the bootstrap chart version available on Harbor:</p>
-<div id="codeblock_tk4_ytt_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel  | grep bootstrap | awk {&#39;print $2&#39;}
+<p>Find out the bootstrap chart version available on Harbor OCI:</p>
+<div id="codeblock_tk4_ytt_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/bootstrap --devel | grep &quot;^version:&quot;
 </code></pre></div>
-<div id="codeblock_uk4_ytt_hvb" class="highlight"><pre><span></span><code>o/p 0.1.0-20220714-190047
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
+<div id="codeblock_uk4_ytt_hvb" class="highlight"><pre><span></span><code>o/p version: 0.1.0-20220714-190047
 </code></pre></div>
 </li>
 <li>
@@ -35519,7 +35518,7 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 </li>
 <li>
 <p>Run the bootstrap installation:</p>
-<div id="codeblock_vk4_ytt_hvb" class="highlight"><pre><span></span><code>helm upgrade bootstrap v-connections-helm/bootstrap -i --version 0.1.0-20220411-104621 --namespace connections -f bootstrap.yml --wait
+<div id="codeblock_vk4_ytt_hvb" class="highlight"><pre><span></span><code>helm upgrade bootstrap &lt;&lt;oci_registry_url&gt;&gt;/bootstrap -i --version 0.1.0-20220714-190047 --namespace connections -f bootstrap.yml --wait
 </code></pre></div>
 </li>
 </ol>
@@ -35527,18 +35526,19 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 <p>The configmap for connections-env contains all the variables needed for the Customizer and Orient Me to function properly. Note that Customizer always points to the IBM HTTP Server directly, whereas Orient Me requests point to the front door proxy.</p>
 <ol>
 <li>
-<p>Find out the connections-env version available on Harbor:</p>
-<div id="codeblock_kc1_cvt_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel  | grep connections-env | awk {&#39;print $2&#39;}
+<p>Find out the connections-env chart version that is available on Harbor OCI:</p>
+<div id="codeblock_kc1_cvt_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/connections-env --devel | grep &quot;^version:&quot;
 0.1.40-20220616-233100
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 template for connections-env.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
-<p><strong>Note</strong>: Use "true" as the value for onPrem (<em>___on_prem</em>).</p>
+<p><strong>Note:</strong> Use "true" as the value for <code>onPrem</code> (<strong><em>___on_prem</em></strong>).</p>
 </li>
 <li>
 <p>Run the connections-env installation:</p>
-<div id="codeblock_lc1_cvt_hvb" class="highlight"><pre><span></span><code>helm upgrade connections-env v-connections-helm/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait
+<div id="codeblock_lc1_cvt_hvb" class="highlight"><pre><span></span><code>helm upgrade connections-env &lt;&lt;oci_registry_url&gt;&gt;/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait
 </code></pre></div>
 </li>
 </ol>
@@ -35560,17 +35560,18 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 </code></pre></div>
 </li>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_a2f_sqt_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep mw-proxy | awk {&#39;print $2&#39;}
-0.1.0-20220414-134118
+<p>Get the mw-proxy chart version that is available on Harbor OCI:</p>
+<div id="codeblock_a2f_sqt_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/mw-proxy --devel | grep &quot;^version:&quot;
+o/p version: 0.1.0-20220414-134118
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 template for customizer.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
 <p>Install chart:</p>
-<div id="codeblock_b2f_sqt_hvb" class="highlight"><pre><span></span><code>helm upgrade mw-proxy v-connections-helm/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
+<div id="codeblock_b2f_sqt_hvb" class="highlight"><pre><span></span><code>helm upgrade mw-proxy &lt;&lt;oci_registry_url&gt;&gt;/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
 </code></pre></div>
 </li>
 <li>
@@ -35598,34 +35599,35 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 <p>Review the official Elasticsearch documentation on <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-quorums.html">quorum-based election protocol</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html#add-elasticsearch-nodes-master-eligible">master-eligible nodes</a> before determining the number of master-eligible nodes for your cluster.</p>
 </li>
 </ol>
-<p><strong>Steps to install the OpenSearch chart:</strong></p>
+<p><strong>Steps to install the OpenSearch chart</strong></p>
 <ol>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_ixs_ltr_bvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep opensearch | awk {&#39;print $2&#39;}
-1.3.0-20220520-092636
+<p>Get the OpenSearch chart version that is available on Harbor OCI:</p>
+<div id="codeblock_ixs_ltr_bvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/opensearch --devel | grep &quot;^version:&quot;
+o/p version: 1.3.0-20220520-092636
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 templates for opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
-<p>Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml files:
-    <code>pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD</code></p>
+<p>Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml files:</p>
+<p><code>pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD</code></p>
 </li>
 <li>
 <p>Install OpenSearch master:</p>
-<div id="codeblock_jxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-master v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
+<div id="codeblock_jxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-master &lt;&lt;oci_registry_url&gt;&gt;/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
 </code></pre></div>
 </li>
 <li>
 <p>Install OpenSearch data:</p>
-<div id="codeblock_kxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-data v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
+<div id="codeblock_kxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-data &lt;&lt;oci_registry_url&gt;&gt;/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
 </code></pre></div>
 </li>
 <li>
 <p>Install OpenSearch client:</p>
-<div id="codeblock_mxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-client v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
+<div id="codeblock_mxs_ltr_bvb" class="highlight"><pre><span></span><code>helm upgrade opensearch-client &lt;&lt;oci_registry_url&gt;&gt;/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
 </code></pre></div>
 </li>
 <li>
@@ -35658,10 +35660,11 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 <p><strong>Procedure</strong></p>
 <ol>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_cdt_rr3_dvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep orientme | awk {&#39;print $2&#39;}
-0.1.0-20220617-050009
+<p>Get the orientme chart version that is available on Harbor OCI:</p>
+<div id="codeblock_cdt_rr3_dvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/orientme --devel | grep &quot;^version:&quot;
+o/p version: 0.1.0-20220617-050009
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 template for orientme.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a>, then update these settings:</p>
@@ -35672,7 +35675,7 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 </li>
 <li>
 <p>Install chart:</p>
-<div id="codeblock_ccz_ztr_bvb" class="highlight"><pre><span></span><code>helm upgrade orientme v-connections-helm/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait
+<div id="codeblock_ccz_ztr_bvb" class="highlight"><pre><span></span><code>helm upgrade orientme &lt;&lt;oci_registry_url&gt;&gt;/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait
 </code></pre></div>
 </li>
 <li>
@@ -35871,7 +35874,7 @@ enableSslForESSearch(&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;, &#39;pa
 <p><code>--namespace</code>: Set to <code>connections</code></p>
 </li>
 </ul>
-<p><strong>Note:</strong> If Connections is configured to force traffic to use TLS 1.3, Python 3.7 or later is required to be the default for Python3.</p>
+<p><strong>Note:</strong> If Connections is configured to force traffic to use TLS 1.3, Python 3.7 or later is required to be the default for Python3</p>
 </li>
 <li>
 <p>Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.</p>
@@ -35951,17 +35954,18 @@ execfile(&#39;searchAdmin.py&#39;)
 <p>Once the configmap and secret are configured, continue to install the microservices that rely on them for configuration.</p>
 <ol>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_w25_1bt_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep teams | awk {&#39;print $2&#39;}
-1.0.0-20220818-170013
+<p>Get the Teams chart version that is available on Harbor OCI:</p>
+<div id="codeblock_w25_1bt_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/teams --devel | grep &quot;^version:&quot;
+o/p version: 1.0.0-20220818-170013
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
 </li>
 <li>
 <p>Download the j2 template for teams.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
 <p>Install the chart:</p>
-<div id="codeblock_cp2_bbt_hvb" class="highlight"><pre><span></span><code>helm upgrade teams v-connections-helm/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
+<div id="codeblock_cp2_bbt_hvb" class="highlight"><pre><span></span><code>helm upgrade teams &lt;&lt;oci_registry_url&gt;&gt;/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
 </code></pre></div>
 </li>
 </ol>
@@ -35977,17 +35981,18 @@ execfile(&#39;searchAdmin.py&#39;)
 <h2 class="section" id="comm_tailored">Set up Tailored Experience features for communities</h2>
 <ol>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_pcf_fct_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep tailored-exp| awk {&#39;print $2&#39;}
-1.0.0-20220818-170013
+<p>Get the Tailored Experience chart version that is available on Harbor OCI:</p>
+<div id="codeblock_pcf_fct_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/tailored-exp  --devel | grep &quot;^version:&quot;
+o/p version: 1.0.0-20220818-170013
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 template for tailoredexperience.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
 <p>Install the chart:</p>
-<div id="codeblock_anp_fct_hvb" class="highlight"><pre><span></span><code>helm upgrade tailored-exp v-connections-helm/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
+<div id="codeblock_anp_fct_hvb" class="highlight"><pre><span></span><code>helm upgrade tailored-exp &lt;&lt;oci_registry_url&gt;&gt;/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
 </code></pre></div>
 </li>
 <li>
@@ -36075,10 +36080,11 @@ execfile(&#39;searchAdmin.py&#39;)
 </code></pre></div>
 </li>
 <li>
-<p>Get chart and version:</p>
-<div id="codeblock_gsn_5ct_hvb" class="highlight"><pre><span></span><code>helm search repo v-connections-helm --devel | grep connections-outlook-desktop | awk {&#39;print $2&#39;}
-0.1.0-20220707-082629
+<p>Get the connections-outlook-desktop chart version that is available on Harbor OCI:</p>
+<div id="codeblock_gsn_5ct_hvb" class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/connections-outlook-desktop --devel | grep &quot;^version:&quot;
+o/p version: 0.1.0-20220707-082629
 </code></pre></div>
+<p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps. </p>
 </li>
 <li>
 <p>Download the j2 template outlook-addin.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
@@ -36087,14 +36093,14 @@ execfile(&#39;searchAdmin.py&#39;)
 <p>Update the add-in Docker environment variables, which are located in the outlook-addin.yaml file. These are passed into the Outlook add-in Docker instance on startup:</p>
 <ul>
 <li>What must be overriden:<ul>
-<li>CONNECTIONS_URL - URL of your Connections environment without a trailing slash (eg https://my.connections.server.com). The same URL has to be used when generating secret in the first step.</li>
+<li>CONNECTIONS_URL - URL of your Connections environment without a trailing slash (eg &lt;https://my.connections.server.com>). The same URL has to be used when generating secret in the first step.</li>
 <li>CONNECTIONS_CLIENT_SECRET - Client secret generated by Connections when registering OAuth provider in the first step.</li>
 <li>CONNECTIONS_CLIENT_ID - Client ID (aka. app ID) used when registering OAuth provider in Connections in the first step (default: hcl-cnx-office-addin)</li>
 </ul>
 </li>
 <li>What may be overriden:<ul>
 <li>CONTEXT_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS_URL. Do NOT start or end with `/. (default: outlook-addin)</li>
-<li>SUPPORT_URL - URL that a user can go to for support (help). (default: https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html)</li>
+<li>SUPPORT_URL - URL that a user can go to for support (help). (default: &lt;https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html>)</li>
 <li>CONNECTIONS_NAME – A custom name for the add-in. (default: 'HCL Connections')</li>
 <li>EWS_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')</li>
 </ul>
@@ -36104,7 +36110,7 @@ execfile(&#39;searchAdmin.py&#39;)
 </li>
 <li>
 <p>Install chart:</p>
-<div id="codeblock_iwr_wct_hvb" class="highlight"><pre><span></span><code>helm upgrade connections-outlook-desktop v-connections-helm/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
+<div id="codeblock_iwr_wct_hvb" class="highlight"><pre><span></span><code>helm upgrade connections-outlook-desktop &lt;&lt;oci_registry_url&gt;&gt;/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
 </code></pre></div>
 </li>
 <li>
@@ -36157,7 +36163,7 @@ To preserve the Metrics, Orient Me, and Recent History data stored in Elasticsea
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
