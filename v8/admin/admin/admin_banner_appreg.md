@@ -44,35 +44,18 @@ To set up the banner, you first need to create a new app registry extension. Aft
 5.  Click **Save**.
 
 
-## Updating the admin banner { .section}
+## Customizing the admin banner { .section}
 
 If you want to change when and with what message the banner is displayed, you can do so by defining the following properties. If not previously added, all property values are set to the default that is mentioned in the preceding example.
 
 |Property|Definition|
 |--------|----------|
 |**open**|Defines whether the component is displayed or not. If an administrator defines a message, set this property to **true**. Otherwise, set to **false**.|
-|**message**|Defines a comma-separated array of React text components, which is shown to the user concatenated. Enter simple messages such as the following:```
-['This is my message.']
-```
+|**message**|Defines a comma-separated array of React text components, which is shown to the user concatenated. Enter simple messages such as the following: <br> `['This is my message.']` <br> Or complex messages that contain text formatting, for example: <br> `message={['A message with ', '<strong>bold</strong>', ' and ', '<i>italic</i>', ' text']}` <br> This component internally evaluates the given HTML and turns it into the corresponding elements. <br> <br> **Note:** Although this method is implemented to be XSS-safe and to prevent script execution, it is intended only for simple HTML. Complex HTML should work, but use it at your own discretion.|
+|**severity**|Defines how your message looks on the banner based on your selection from the following types: <br> -    **Info**: Shows an info icon, with a violet background <br> -   **Success**: Shows a check icon, with a green background <br> -   **Warning**: Shows an attention or warning icon, with a yellow background <br> -   **Error**: Shows an exclamation icon, with a red background|
+|**cacheExpiration**|Defines whether the payload of the request should be cached by the frontend. By default, the payload is not cached and fetched each time the page loads. This allows changes to the configuration to reflect immediately, but adds more load while the page renders. <br> To cache the configuration for a given time interval, enter a time in milliseconds. For example, if you want it to cache every 5 minutes, enter 300000 milliseconds.|
 
-Or complex messages that contain text formatting, for example:```
-message={['A message with ', '<strong>bold</strong>', ' and ', '<i>italic</i>', ' text']}
-```
+For style customizations, refer to [Customizing the look and feel of HCL Connections](../customize/customizing-look-and-feel.md#administrative-banner) in the "Customizing" section of the documentation.
 
-This component internally evaluates the given HTML and turns it into the corresponding elements.**Note:** Although this method is implemented to be XSS-safe and to prevent script execution, it is intended only for simple HTML. Complex HTML should work, but use it at your own discretion.
-
-|
-|**severity**|Defines how your message looks on the banner based on your selection from the following types:-   **Info**: Shows an info icon, with a violet background
--   **Success**: Shows a check icon, with a green background
--   **Warning**: Shows an attention or warning icon, with a yellow background
--   **Error**: Shows an exclamation icon, with a red background
-
-|
-|**cacheExpiration**|Defines whether the payload of the request should be cached by the frontend. By default, the payload is not cached and fetched each time the page loads. This allows changes to the configuration to reflect immediately, but adds more load while the page renders.
-
- To cache the configuration for a given time interval, enter a time in milliseconds. For example, if you want it to cache every 5 minutes, enter 300000 milliseconds.
-
-|
-
-**Parent topic:**[Administering the display of a site-wide banner](../admin/admin_banner_onprem.md)
+**Parent topic:** [Administering the display of a site-wide banner](../admin/admin_banner_onprem.md)
 
