@@ -6,6 +6,10 @@
   <noscript>
     <meta http-equiv="refresh" content="1; url=../v8_cr4/" />
   <script>
+    window.location.replace("../v8_cr5/" + window.location.hash);
+  </script>	
+  </noscript>
+  <script>
     window.location.replace("../v8_cr4/" + window.location.hash);
   </script>	
   </noscript>
@@ -27,6 +31,6 @@
 <body>
 </head>
 <body>
-  Redirecting to <a href="../v8_cr4/">../v8/</a>...
+  Redirecting to <a href="../v8_cr5/">../v8/</a>...
 </body>
 </html>
