@@ -49,23 +49,15 @@ Download Connections and Component Pack 8 CR3. Connections Server packages are a
 
     **Note:** All of the installed applications are selected by default. All of the installed applications are typically selected by default. If you clear any of the selected applications, those applications will be uninstalled. If there are any non-selected applications, and you select those applications, they will be installed.
 
-12. Enter the administrative ID and password of the Deployment Manager and click **Validate**.
+12. Validate the Feature Foundation database
 
-    **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
+13. Click **OK** \> **Next** \> **Update** \> **Finish**.
 
-13. In the Topology panel, select the topology that matches the deployment
+14. Close Installation Manager.
 
-    **Note:** By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.
+15. When the installation is complete, start the node agent to deploy the updated Connections applications.
 
-14. Validate the Feature Foundation database
-
-15. Click **OK** \> **Next** \> **Update** \> **Finish**.
-
-16. Close Installation Manager.
-
-17. When the installation is complete, start the node agent to deploy the updated Connections applications.
-
-18. Generate a new plug-in <!--\(to include the new Highlights app and refresh all app endpoint definitions\)--> by completing the following steps:
+16. Generate a new plug-in <!--\(to include the new Highlights app and refresh all app endpoint definitions\)--> by completing the following steps:
 
     1.  Still in the Integrated Solutions Console, click **Servers** \> **Server Types** \> **Webservers**.
 
@@ -73,11 +65,11 @@ Download Connections and Component Pack 8 CR3. Connections Server packages are a
 
     3.  Select the Webserver again and click **Propagate Plug-in**.
 
-19. Stop the node agent so the temp directory can be cleaned out in the next step.
+17. Stop the node agent so the temp directory can be cleaned out in the next step.
 
-20. Delete the contents of the cache under the App Server.
+18. Delete the contents of the cache under the App Server.
 
-21. Start the node agents, then perform a full synchronization to push the update to all nodes.
+19. Start the node agents, then perform a full synchronization to push the update to all nodes.
 
     Check the SystemOut.log of each node agent to ensure synchronization completed successfully.
 
@@ -90,3 +82,10 @@ Download Connections and Component Pack 8 CR3. Connections Server packages are a
 
 **Parent topic:** [In-place and hybrid upgrades](../migrate/c_inplace_upgrade.md)
 
+<!--12. Enter the administrative ID and password of the Deployment Manager and click **Validate**.
+
+    **Note:** This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the *Switching to unique administrator IDs for system level communication* topic.
+    
+    13. In the Topology panel, select the topology that matches the deployment
+
+    **Note:** By default, the IC360 application will be selected to be deployed as a new application. In medium and large deployments, it will deploy to a new WebSphere cluster called IC360Cluster. If you prefer to deploy the application to an existing WebSphere cluster, use the topology panel to override this option and select an existing cluster for deployment.-->

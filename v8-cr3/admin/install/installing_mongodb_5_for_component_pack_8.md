@@ -68,20 +68,36 @@ Ensure you have the following:
 
         Replace variables in curly braces with the appropriate values.
 
-    2.  Find out the connections-volumes chart version available on Harbor:
+    2.  Log in to a Harbor OCI registry using the following command:
+
+        ``` {#codeblock_fqf_5hr_bvb}
+        $ helm registry login -u <<helm_repo_username>> -p <<helm_repo_password>> <<helm repo path>>
+        ```
+
+        Where:
+
+        - `<<helm_repo_username>>` is the Harbor username
+        - `<<helm_repo_password>>` is the CLI secret (to access, log in to Harbor then click on your name > **User Profile** > CLI Secret)
+        - `<<helm_repo_path>>` is the Harbor repository to log into, that is https://hclcr.io
+        
+    3.  Find out the connections-volumes chart version available on Harbor:
 
         ``` {#codeblock_ajf_r14_y5b}
-        helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {'print $2'}
-        o/p 0.1.1-20220505-090030
+        helm show all <<oci_registry_url>>/connections-persistent-storage-nfs --devel | grep "^version:"
+        o/p version: 0.1.1-20220505-090030
         ```
 
-    3.  Install connections-volumes chart:
+        Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`.
+
+    4.  Install connections-volumes chart:
 
         ``` {#codeblock_bjf_r14_y5b}
-        helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 -f connections-volumes.yml --wait
+        helm upgrade connections-volumes <<oci_registry_url>>/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
         ```
 
-    4.  Verify it by running `kubectl get pvc -n connections | grep mongo5`
+        Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`.
+
+    5.  Verify it by running `kubectl get pvc -n connections | grep mongo5`
 
         All PVCs are in BOUND state.
 
@@ -156,31 +172,32 @@ Ensure you have the following:
         1.  Find infrastructure chart version:
 
             ``` {#codeblock_g52_1b4_y5b}
-            helm search repo v-connections-helm --devel | grep
-            infrastructure | awk {'print $2'}
-            o/p: 0.1.0-20220617-050009
+            helm show all <<oci_registry_url>>/infrastructure --devel | grep "^version:"
+            o/p: version: 0.1.0-20220617-050009
             ```
+
+            Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`.
 
         2.  Install infrastructure charts:
 
             **Note:** You need only one --set option with a comma-separated list of properties.
 
             ``` {#codeblock_dv3_bwv_dvb}
-            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20220617-050009 --namespace connections -f infrastructure.yml --set mongo5.image.tag={{ image_tag }}
+            helm upgrade infrastructure <<oci_registry_url>>/infrastructure -i --version 0.1.0-20220617-050009 --namespace connections -f infrastructure.yml --set mongo5.image.tag={{ image_tag }}
             ```
 
             Where:
 
-            -   `0.1.0-20220617-050009` is the version number identified from step 10b.
-            -   `docker_registry_url` is the registry URL for Harbor, that is `hclcr.io/cnx`.
-            -   `image_tag` is the user-defined tag for the image defined in step 2.
+            - `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`
+            - `0.1.0-20220617-050009` is the version number identified from step 10b
+            - `image_tag` is the user-defined tag for the image defined in step 2
             
             For example:
 
             ``` {#codeblock_grg_fwv_dvb}
-            helm upgrade infrastructure v-connections-helm/infrastructure -i --version 0.1.0-20221006-050011 --namespace connections -f infrastructure.yml --set mongo5.image.tag=20221010-9977
+            helm upgrade infrastructure oci://hclcr.io/cnx/infrastructure -i --version 0.1.0-20221006-050011 --namespace connections -f infrastructure.yml --set mongo5.image.tag=20221010-9977
             ```
 
 
-**Parent topic:** [Steps to install or upgrade to Component Pack 8 CR3](../install/cp_install_services_tasks.md)
+**Parent topic:** [Steps to install or upgrade to Component Pack 8](../install/cp_install_services_tasks.md)
 

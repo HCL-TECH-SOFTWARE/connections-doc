@@ -34,22 +34,12 @@ To grant the necessary permissions to a non-root user, complete the following st
 
         |Directory|Permissions|chmod command|chown command|
         |---------|-----------|-------------|-------------|
-        |app\_server\_root|RWX|chgrp -R non-root\_user\_group app\_server\_root chmod -R g+wrx app\_server\_rootwhere non-root\_user\_group is a user group that contains the non-root user account.
-
-|chown -R non-root\_ID:group app\_server\_rootwhere non-root\_ID is the non-root user account and group is the user group that contains this account.
-
-|
-        |HCL\_ Connections set-up directory
-
-|RWX|chgrp -R non-root\_user\_group HCL\_Connections\_set-up\_directory chmod -R g+wrx HCL\_Connections\_set-up\_directory|chown -R non-root\_ID:group HCL\_Connections\_set-up\_directory|
+        |app\_server\_root|RWX|chgrp -R non-root\_user\_group app\_server\_root chmod -R g+wrx app\_server\_rootwhere non-root\_user\_group is a user group that contains the non-root user account.|chown -R non-root\_ID:group app\_server\_rootwhere non-root\_ID is the non-root user account and group is the user group that contains this account.|
+        |HCL\_ Connections set-up directory|RWX|chgrp -R non-root\_user\_group HCL\_Connections\_set-up\_directory chmod -R g+wrx HCL\_Connections\_set-up\_directory|chown -R non-root\_ID:group HCL\_Connections\_set-up\_directory|
         |[connections\_root](../plan/i_ovr_r_directory_conventions.md)|RWX|chgrp -R non-root\_user\_group connections\_root chmod -R g+wrx connections\_root|chown -R non-root\_ID:group connections\_root|
         |[IM\_root](../plan/i_ovr_r_directory_conventions.md)|RWX|chgrp -R non-root\_user\_group IM\_root chmod -R g+wrx IM\_root|chown -R non-root\_ID:group IM\_root|
         |[shared\_resources\_root](../plan/i_ovr_r_directory_conventions.md)|RWX|chgrp -R non-root\_user\_group shared\_resources\_root chmod -R g+wrx shared\_resources\_root|chown -R non-root\_ID:group shared\_resources\_root|
-        |var/ibm/InstallationManager
-
-|RWX|chmod -R ugo+rwx /var/ibm/InstallationManager**Note:** Grant permissions to this folder only if the root user installed IBM Installation Manager.
-
-|chown -R non-root\_ID:group /var/ibm/InstallationManager|
+        |var/ibm/InstallationManager|RWX|chmod -R ugo+rwx /var/ibm/InstallationManager <br><br> **Note:** Grant permissions to this folder only if the root user installed IBM Installation Manager.|chown -R non-root\_ID:group /var/ibm/InstallationManager|
 
 5.  Install HCL Connections using either the wizard, the console, or a silent installation method.
 
