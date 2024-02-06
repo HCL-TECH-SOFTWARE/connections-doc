@@ -5,9 +5,15 @@
 
 ## Contributing
 
-Bug reports on **product documentation** and pull requests are welcome on GitHub at https://github.com/HCL-TECH-SOFTWARE/connections-doc. This is the Connections 8 on-premises and Connections MT product documentation site, not a product support platform. All bug reports and pull requests must pertain to product documentation.
+Bug reports on **product documentation** and pull requests are welcome on GitHub at https://github.com/HCL-TECH-SOFTWARE/connections-doc. This is the Connections 8 on-premises and Connections MT product documentation site, not a product support platform. All bug reports and pull requests must pertain to the product documentation.
 
-Updates may be performed only to markdown files under **connections-doc/src_8 or scr_mt**.
+Updates should be performed only to the markdown files in the following folders
+- v8
+- v8-cr1
+- v8-cr2
+- v8-cr3
+- v8-cr4
+- v8-cr5
 
 ### Updating the documentation and validating changes
 
