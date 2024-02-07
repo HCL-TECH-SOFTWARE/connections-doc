@@ -346,7 +346,7 @@ For more details, see [PodSecurityPolicy is removed](https://github.com/kubernet
     
     - `<<helm_repo_username>>` is the Harbor username
     - `<<helm_repo_password>>` is the CLI secret (to access, log in to Harbor, then click on your name > **User Profile** > CLI Secret)
-    - `<<helm_repo_path>>` is the Harbor repository to log into, that is https://hclcr.io
+    - `<<helm_repo_path>>` is the Harbor repository to log into, that is `https://hclcr.io/chartrepo/cnx`
 
 2.  Add Harbor credentials as Kubernetes secret. 
 
