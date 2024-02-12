@@ -63,6 +63,8 @@ edit_uri: edit/main/docs
 # Customization
 extra_css:
   - stylesheets/style.css
+extra_javascript:
+  - javascripts/current.js
 
 plugins:
   - section-index
