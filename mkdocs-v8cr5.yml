@@ -2,7 +2,7 @@
 site_name: HCL Connections 8.0 CR5 Help Center 
 site_description: >-
   A next-gen documentation site for HCL Connections.
-site_url: https://opensource.hcltechsw.com/connections
+site_url: https://opensource.hcltechsw.com/connections/v8-cr4/
 use_directory_urls: false
 docs_dir: v8-cr5
 site_dir: docs/v8-cr5
@@ -64,7 +64,7 @@ edit_uri: edit/main/docs
 extra_css:
   - stylesheets/style.css
 extra_javascript:
-    - javascripts/current.js
+  - javascripts/current.js
 
 plugins:
   - section-index

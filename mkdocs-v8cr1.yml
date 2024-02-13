@@ -2,7 +2,7 @@
 site_name: HCL Connections 8.0 CR1 Help Center 
 site_description: >-
   A next-gen documentation site for HCL Connections.
-site_url: https://opensource.hcltechsw.com/connections
+site_url: https://opensource.hcltechsw.com/connections/v8-cr4/
 use_directory_urls: false
 docs_dir: v8-cr1
 site_dir: docs/v8-cr1
@@ -229,6 +229,7 @@ nav:
               - admin/install/cp_install_services_tasks.md
               - Installing MongoDB 5 for Component Pack 8: admin/install/installing_mongodb_5_for_component_pack_8.md
               - Migrating data from MongoDB 3 to 5: admin/install/migrating_data_mongodb_v3_v5.md
+              - Migrating large-scale data from MongoDB 3 to 5: admin/install/migrating_large_data_mongodb.md
               - Migrating data from Elasticsearch 7 to OpenSearch: admin/install/cp_migrate_data_from_es7_to_opensearch.md             
             - Installing Component Pack on OpenShift: admin/install/cp_openshift.md
             - Installing Component Pack using EKS: admin/install/cp_eks.md
