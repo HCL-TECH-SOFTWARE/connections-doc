@@ -11,7 +11,7 @@
       
       
       
-        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/admin/admin/t_admin_enabling_file_sync.html">
+        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/v8-cr4/admin/admin/t_admin_enabling_file_sync.html">
       
       <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
@@ -50,6 +50,8 @@
  <!-- SmartCat script-->
   <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>
   <!-- End SmartCat script -->
+
+  <link rel="canonical" href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">
   
 <!--  OneTrust Cookies Consent Notice start  -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
@@ -14333,9 +14335,42 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Enabling sync for files and folders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_admin_enabling_file_sync.html" class="md-nav__link md-nav__link--active">
         Enabling sync for files and folders
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -34995,6 +35030,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -35099,6 +35149,11 @@
 <p>If you changed the sync setting, restart the Files application.</p>
 </li>
 </ol>
+<h2 id="limitations">Limitations</h2>
+<p>The sync capability in the Connections Desktop Plug-ins is designed to allow for instant access to your most commonly used files. Access to the remainder of your files is available through the browser interface or the Windows explorer plugin. The sync support is not designed or architected to serve as a complete backup solution. As such, there are performance limitations to how many files can be reliably supported in sync.</p>
+<p>The Connections for Mac plugin and Connections Desktop Plug-ins for Microsoft Windows will support no more than 10,000 files and/or folders in the sync folder tree. This includes all files and folders in the top level folder and in all subfolders.  Attempting to sync more than 10,000 will cause degraded performance and eventual sync failures; at a certain point, the initial sync from the server will be unable to complete, showing timeout errors.  Customers with sync failures using more than 10,000 files and/or folders will be asked to recreate the issue on a system with less than 10,000 in sync.</p>
+<p>Additionally, there is a limit of 5,000 files and/or folders supported for each copy operation from the desktop into the local sync folder.  Copying more than 5,000 at one time may cause sync errors.  Folders containing more than 5,000 can either be moved into the sync folder (no limits) or broken into multiple copy operations.</p>
+<p>Windows users have easy access to all their files using the windows explorer plugin.  The HCL Connections node provides a virtual view of all files available on the server.  Unlike the sync support, these files are not downloaded locally until opened. HCL recommends adding your commonly accessed files to sync and accessing the remainder of your files through the virtual interface provided by the Windows explorer plugin.</p>
 <p><strong>Parent topic:</strong><a href="c_admin_files_overview.html">Administering Files</a></p>
 
 
