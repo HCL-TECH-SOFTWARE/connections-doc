@@ -6,6 +6,10 @@ Use HCL Connections for Mac to keep local files in sync with copies of those fil
 
 When installation of the plug-in is complete, a new folder named **Server-name My Drive** is created under Favorites in the Finder window. You can add files that you have created or stored locally as well as files that others have shared with you.
 
+**Restriction:**
+
+-   The Connections for Mac plugin will support no more than 10,000 files and/or folders in the sync folder tree. This includes all files and folders in the top level folder and in all subfolders.  Attempting to sync more than 10,000 will cause degraded performance and eventual sync failures. Additionally, there is a limit of 5,000 files and/or folders supported for each copy operation from the desktop into the local sync folder. HCL recommends adding your commonly accessed files to sync and accessing the remainder of your files through the browser.
+
 The sync feature works as follows:
 
 1.  After successfully connecting to a server, you are notified that a folder named <Server Name\> **My Drive** is added to your Finder Favorites folder.
