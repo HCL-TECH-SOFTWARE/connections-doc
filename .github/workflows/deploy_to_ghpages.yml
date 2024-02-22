@@ -45,11 +45,15 @@ jobs:
           chmod -c -R +rX "docs/" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
+      - name: bearings
+        run: |
+          pwd
+          ls -laR
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload docs directory
-          path: 'docs'
+          path: 'docs/'
 
   # deploy job for static content
   deploy:
