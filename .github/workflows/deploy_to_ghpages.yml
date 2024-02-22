@@ -4,7 +4,8 @@ name: Deploy connections content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [$default-branch]
+    branches:
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,10 +38,6 @@ jobs:
           chmod -c -R +rX "docs/" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
-      - name: bearings
-        run: |
-          pwd
-          ls -laR
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
