@@ -30,14 +30,6 @@ jobs:
         uses: actions/checkout@v4
       - name: genrate mkdocs
         run: echo Here shall be dragons
-
-  # upload the artefacts to staging
-  upload:
-    environment:
-      name: github-pages
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Fix permissions
@@ -61,7 +53,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: upload
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
