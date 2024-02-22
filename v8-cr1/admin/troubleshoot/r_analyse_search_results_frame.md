@@ -27,7 +27,7 @@ The search serverStatus page highlights any configuration issues along with an a
     The primary function of search serverStatus page is to help debug issues on a system. The page is not a system monitoring tool.
 
 !!! warning
-    Do not add the `search-admin` role to a normal user account. The advanced search does not return results for user having this role!
+    Do not add the `search-admin` role to a normal user account. The advanced search does not return any results for users having this role!
 
 There are four status colors on the search serverStatus page
 
