@@ -23,15 +23,9 @@ The following table shows the population functions that are used in TDI scripts 
 
 |LDAP implementations|LDAP attribute type names|LDAP syntax|TDI scripts with functions|
 |--------------------|-------------------------|-----------|--------------------------|
-|HCL Lotus® Domino® Server|dominoUNID|Directory String \(in Byte String Format\)|\{function\_map\_from\_dominoUNID\}
-
-|
-|Novell eDirectory Server|GUID|Octet String \(in Binary Format\)|\{function\_map\_from\_GUID\}
-
-|
-|Microsoft® Active Directory Server/Service|objectGUID|Octet String \(in Binary Format\)|\{function\_map\_from\_objectGUID\}
-
-|
+|HCL Lotus® Domino® Server|dominoUNID|Directory String \(in Byte String Format\)|\{function\_map\_from\_dominoUNID\}|
+|Novell eDirectory Server|GUID|Octet String \(in Binary Format\)|\{function\_map\_from\_GUID\}|
+|Microsoft® Active Directory Server/Service|objectGUID|Octet String \(in Binary Format\)|\{function\_map\_from\_objectGUID\}|
 |IBM Security Directory Server|ibm-entryUUID|Directory String \(in Canonical Format\)|n/a|
 |Sun Java™ Directory Server|nsuniqueid|Directory String \(in Canonical Format\)|n/a|
 
