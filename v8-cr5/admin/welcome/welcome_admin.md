@@ -16,7 +16,7 @@ Welcome to the HCL Connections documentation site. HCL Connections is social net
 **Installing or updating an existing deployment**  
 
 
-[Download Connections 8.0 CR3, including Component Pack 8 CR3, from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/entitledDownloadFile.action?downloadPkgId=HCL_Connections_7.0&orgId=HCL&fromRecentFile=false&fromRecentPkg=false&fromDL=true)
+[Download Connections 8.0 CR5, including the latest Component Pack, from the HCL License & Delivery Portal](https://hclsoftware.flexnetoperations.com/)
 
 **Troubleshooting and support**  
 
