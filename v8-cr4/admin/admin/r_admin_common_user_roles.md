@@ -14,7 +14,8 @@ For information about assigning roles, see the *Assigning people to Java™ EE r
 
 ## Application roles { .section}
 
-Table 1. Activities roles
+*Table 1. Activities roles*
+
 |Java EE Role|Description|
 |------------|-----------|
 |admin|Used by an administrator to manage application content. For more information, see the *Administering application content* topic.|
@@ -25,7 +26,8 @@ Table 1. Activities roles
 |search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 2. Blogs roles
+*Table 2. Blogs roles*
+
 |Java EE Role|Description|
 |------------|-----------|
 |admin|Used by an administrator to manage application content. For more information, see the *Administering application content* topic.|
@@ -37,7 +39,7 @@ Table 2. Blogs roles
 |search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 3. Bookmarks roles
+*Table 3. Bookmarks roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -47,7 +49,7 @@ Table 3. Bookmarks roles
 |reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
 |search-admin|Used by the Search application to read public and private data for creating search indexes.|
 
-Table 4. Common roles
+*Table 4. Common roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -61,7 +63,7 @@ Table 4. Common roles
 |person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
 |reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.|
 
-Table 5. Communities roles
+*Table 5. Communities roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -77,7 +79,7 @@ Table 5. Communities roles
 |search-admin|Used by the Search application to read public and private data for creating search indexes.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 6. ConnectionsProxy
+*Table 6. ConnectionsProxy*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -86,14 +88,14 @@ Table 6. ConnectionsProxy
 |person|Logical role for read/write access to the application. Mapped to allAuthenticated by default.|
 |reader|Logical role for read-only access to the application. Mapped to everyone by default.|
 
-Table 7. FileNet® Collaboration Services (libraries)
+*Table 7. FileNet® Collaboration Services (libraries)*
 
 |Java EE Role|Description|
 |------------|-----------|
 |Anonymous|By default, this role is mapped to Everyone. For more information, see the *Setting up anonymous access for a new FileNet deployment*topic.|
 |Authenticated|When you install and configure FileNet Collaboration Services, this role is set to Everyone in order to use the HCL Connections login page. Ensure that this role and the Anonymous role are mapped to the same users and groups.|
 
-Table 8. Files roles
+*Table 8. Files roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -108,7 +110,7 @@ Table 8. Files roles
 |search-admin|Used by the Search application to read public and private data for creating search indexes.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 9. Forums roles
+*Table 9. Forums roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -123,7 +125,7 @@ Table 9. Forums roles
 |search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 10. Home page roles
+*Table 10. Home page roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -133,7 +135,7 @@ Table 10. Home page roles
 |person|This role is used to secure the Home page user interface. By default, this role is mapped to the All Authenticated in Application's Realm group, which means that all authenticated users can access the Home page. Users must authenticate to access the Home page so, this role must not be mapped to the Everyone group. If you must restrict access to a smaller set of users, modify the mapping of this role as necessary.|
 |reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group. <br></br> **Notes:** <br></br> -    The Home page application uses this role to access the Search APIs. <br></br> -   Modifying this role has no effect on the Home page.|
 
-Table 11. Metrics roles
+*Table 11. Metrics roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -145,7 +147,7 @@ Table 11. Metrics roles
 |person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
 |reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
 
-Table 12. Mobile roles
+*Table 12. Mobile roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -154,7 +156,7 @@ Table 12. Mobile roles
 |person|Used to secure all Mobile pages other than the login page. By default, this role is mapped to the All Authenticated in Application's Realm group so that all authenticated users can access the Mobile pages. If you want to restrict access to a smaller set of users, modify the mapping of this role. However, do not map this role to the Everyone group because the Mobile application must not be available to unauthenticated users.|
 |reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
 
-Table 13. Moderation roles
+*Table 13. Moderation roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -163,7 +165,7 @@ Table 13. Moderation roles
 |person|Used to secure the Atom APIs for "top stories" or "saved stories" and to secure the Email preferences page. Users must authenticate to access the New APIs and preferences page. By default, this role is mapped to the All Authenticated in Application's Realm group. If you want to restrict access to a smaller set of users, modify the mapping of this role. Do not map this role to the Everyone group because the email preferences page must not be available to unauthenticated users.|
 |reader|Applies to public Atom APIs. Modifying this role limits access to the public APIs. <br></br> Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
 
-Table 14. News roles
+*Table 14. News roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -176,7 +178,7 @@ Table 14. News roles
 |sharebox-reader|Allows read/write access to sharebox resources. By default, this role is mapped to the Everyone group.|
 |widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|
 
-Table 15. Profiles roles
+*Table 15. Profiles roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -189,7 +191,7 @@ Table 15. Profiles roles
 |reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
 |search-admin|Used by the Search application to read public and private data for creating search indexes.|
 
-Table 16. Search roles
+*Table 16. Search roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -199,9 +201,9 @@ Table 16. Search roles
 |metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
 |person|Restricts access to the user interface for the Search application and personal Atom API searches \(/atom/mysearch\). By default, this role is mapped to the Everyone group but this mapping can be changed to a more restricted group if needed.|
 |reader|Used to protect the Atom APIs, except for /atom/mysearch. Modifying this role limits access to the public APIs. Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
-|search-admin|This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page.|
+|search-admin|This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page. <br><br> **Note:** Users with this role may experience certain limitations with UI-based search functionality.|
 
-Table 17. WidgetContainer roles
+*Table 17. WidgetContainer roles*
 
 |Java EE Role|Description|
 |------------|-----------|
@@ -215,7 +217,7 @@ Table 17. WidgetContainer roles
 |reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application.|
 |trustedExternalApplication|Used to distribute third-party events on behalf of other users. This role supports targeting to individual users and Communities and the impersonation of existing users for OpenSocial POST APIs. Connections Content Manager uses this role to publish events to the Connections activity stream.|
 
-Table 18. Wikis roles
+*Table 18. Wikis roles*
 
 |Java EE Role|Description|
 |------------|-----------|
