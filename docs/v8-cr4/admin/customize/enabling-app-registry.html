@@ -35098,6 +35098,10 @@
 <h1 id="enabling-the-connections-app-registry-service-for-customization">Enabling the Connections app registry service for customization</h1>
 <p>To leverage custom config extensions, enable the app registry service. You need Component Pack installed to do so. If Component Pack is not available, you can inject customizations using window-scoped JavaScript objects. For more information, refer to <a href="customization-using-window-scoped-javascript-objects.html">Customizing through window-scoped JavaScript objects</a>.</p>
 <p>By default, Connections applications do not attempt to make requests to the app registry service if the app registry service has not been deployed as part of a Component Pack installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When adding new entries to the App Registry, it is important to ensure that no other entries with the same namespace are enabled or active within the system. This is to prevent conflicts, maintain system integrity, and ensure seamless functionality across all applications.</p>
+</div>
 <h2 id="procedure">Procedure</h2>
 <p>To enable the app registry service:</p>
 <ol>
@@ -35133,7 +35137,7 @@
 <p><img alt="App Registry - Apps Overview" src="images/appreg-apps.png" /></p>
 </li>
 <li>
-<p>Click on the <strong>New App +</strong> button and select <strong>Code Editor</strong> in the side menu. </p>
+<p>Click on the <strong>New App +</strong> button and select <strong>Code Editor</strong> in the side menu.</p>
 <p><img alt="App Registry - App Editor" src="images/appreg-app-editor.png" /></p>
 </li>
 <li>

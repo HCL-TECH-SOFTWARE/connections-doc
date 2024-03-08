@@ -35007,28 +35007,89 @@
 <p>The global content administrator access for Libraries is configured in the FileNet® domain and object store. For more information, see the <em>Setting an LDAP group to be domain administrator instead of specific user</em> topic.</p>
 <p>For information about assigning roles, see the <em>Assigning people to Java™ EE roles</em> topic.</p>
 <h2 class="section" id="application-roles">Application roles</h2>
-<p>Table 1. Activities roles
-|Java EE Role|Description|
-|------------|-----------|
-|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
-|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
-<p>Table 2. Blogs roles
-|Java EE Role|Description|
-|------------|-----------|
-|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
-|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
-<p>Table 3. Bookmarks roles</p>
+<p><em>Table 1. Activities roles</em></p>
+<table>
+<thead>
+<tr>
+<th>Java EE Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 2. Blogs roles</em></p>
+<table>
+<thead>
+<tr>
+<th>Java EE Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3. Bookmarks roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35059,7 +35120,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 4. Common roles</p>
+<p><em>Table 4. Common roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35106,7 +35167,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 5. Communities roles</p>
+<p><em>Table 5. Communities roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35161,7 +35222,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 6. ConnectionsProxy</p>
+<p><em>Table 6. ConnectionsProxy</em></p>
 <table>
 <thead>
 <tr>
@@ -35188,7 +35249,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 7. FileNet® Collaboration Services (libraries)</p>
+<p><em>Table 7. FileNet® Collaboration Services (libraries)</em></p>
 <table>
 <thead>
 <tr>
@@ -35207,7 +35268,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 8. Files roles</p>
+<p><em>Table 8. Files roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35258,7 +35319,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 9. Forums roles</p>
+<p><em>Table 9. Forums roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35309,7 +35370,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 10. Home page roles</p>
+<p><em>Table 10. Home page roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35340,7 +35401,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 11. Metrics roles</p>
+<p><em>Table 11. Metrics roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35379,7 +35440,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 12. Mobile roles</p>
+<p><em>Table 12. Mobile roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35406,7 +35467,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 13. Moderation roles</p>
+<p><em>Table 13. Moderation roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35433,7 +35494,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 14. News roles</p>
+<p><em>Table 14. News roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35476,7 +35537,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 15. Profiles roles</p>
+<p><em>Table 15. Profiles roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35519,7 +35580,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 16. Search roles</p>
+<p><em>Table 16. Search roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35554,11 +35615,11 @@
 </tr>
 <tr>
 <td>search-admin</td>
-<td>This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page.</td>
+<td>This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page. <br><br> <strong>Note:</strong> Users with this role may experience certain limitations with UI-based search functionality.</td>
 </tr>
 </tbody>
 </table>
-<p>Table 17. WidgetContainer roles</p>
+<p><em>Table 17. WidgetContainer roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35605,7 +35666,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 18. Wikis roles</p>
+<p><em>Table 18. Wikis roles</em></p>
 <table>
 <thead>
 <tr>
