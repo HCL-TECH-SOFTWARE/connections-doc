@@ -86,7 +86,6 @@ Sync is available on the client by default, but is only visible when users conne
 8.  If you changed the sync setting, restart the Files application.
 
 ## Limitations
-
 The sync capability in the Connections Desktop Plug-ins is designed to allow for instant access to your most commonly used files. Access to the remainder of your files is available through the browser interface or the Windows explorer plugin. The sync support is not designed or architected to serve as a complete backup solution. As such, there are performance limitations to how many files can be reliably supported in sync.
 
 The Connections for Mac plugin and Connections Desktop Plug-ins for Microsoft Windows will support no more than 10,000 files and/or folders in the sync folder tree. This includes all files and folders in the top level folder and in all subfolders.  Attempting to sync more than 10,000 will cause degraded performance and eventual sync failures; at a certain point, the initial sync from the server will be unable to complete, showing timeout errors.  Customers with sync failures using more than 10,000 files and/or folders will be asked to recreate the issue on a system with less than 10,000 in sync.
@@ -95,5 +94,5 @@ Additionally, there is a limit of 5,000 files and/or folders supported for each 
  
 Windows users have easy access to all their files using the windows explorer plugin.  The HCL Connections node provides a virtual view of all files available on the server.  Unlike the sync support, these files are not downloaded locally until opened. HCL recommends adding your commonly accessed files to sync and accessing the remainder of your files through the virtual interface provided by the Windows explorer plugin.
 
-**Parent topic:** [Administering Files](../admin/c_admin_files_overview.md)
+**Parent topic:**[Administering Files](../admin/c_admin_files_overview.md)
 
