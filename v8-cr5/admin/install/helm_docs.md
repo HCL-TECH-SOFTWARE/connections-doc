@@ -28,4 +28,4 @@ If the helm chart hasn't been pulled from Harbor, do the following:
     tar -xvf <<chartname.tgz>>
     ```
 
-4.  View the Markdown file for the helm charts. There will be a docs folder for each chart, which will have the Markdown file containing chart metadata named <chart_name.md\>. Some packages like OrientMe bundle multiple charts in one package.
+4.  View the Markdown file for the helm charts. There will be a docs folder for each chart, which will have the Markdown file containing chart metadata named &lt;chart_name.md&gt;. Some packages like OrientMe bundle multiple charts in one package.
