@@ -133,7 +133,7 @@ Now, download the infrastructure chart from the HCL Harbor repository and modify
 2. Install ingress-nginx using the following command:
 
     ```
-    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx  --namespace <namespace> --set controller.image.allowPrivilegeEscalation=false --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller^CivenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60,controller.opentelemetry.containerSecurityContext.runAsUser=null,controller.admissionWebhooks.createSecretJob.securityContext.runAsUser=null,controller.admissionWebhooks.patchWebhookJob.securityContext.runAsUser=null
+    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx  --namespace <namespace> --set controller.image.allowPrivilegeEscalation=false --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60,controller.opentelemetry.containerSecurityContext.runAsUser=null,controller.admissionWebhooks.createSecretJob.securityContext.runAsUser=null,controller.admissionWebhooks.patchWebhookJob.securityContext.runAsUser=null --wait
     ```
 
 Where `<namespace>` is your namespace (the default is "connections").
