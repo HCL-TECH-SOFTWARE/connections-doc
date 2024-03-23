@@ -30,17 +30,17 @@ SearchService
 1.  To initialize the Search configuration environment, complete the following steps.
 2.  Start the wsadmin client from one of the following directories on the system on which you installed the Deployment Manager:
 
-    Linux: `[app\_server\_root](../plan/i_ovr_r_directory_conventions.md)\profiles\dm\_profile\_root\bin`
+    Linux: [app_server_root](../plan/i_ovr_r_directory_conventions.md)`/profiles/dm_profile_root/bin`
 
-    Windows: `[app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/dm\_profile\_root/bin`
+    Windows: [app_server_root](../plan/i_ovr_r_directory_conventions.md)`\profiles\dm_profile_root\bin`
 
-    where app\_server\_root is the WebSphere® Application Server installation directory and dm\_profile\_root is the Deployment Manager profile directory, typically dmgr01.
+    where `app_server_root` is the WebSphere® Application Server installation directory and `dm_profile_root` is the Deployment Manager profile directory, typically `Dmgr01`.
 
     You must start the client from this directory or subsequent commands that you enter do not execute correctly.
 
 3.  After the wsadmin command environment has initialized, enter the following command to initialize the Search environment and start the Search script interpreter:
 
-    ```
+    ```python
     execfile("searchAdmin.py")
     ```
 
@@ -48,14 +48,14 @@ SearchService
 
     When the command is run successfully, the following message displays:
 
-    ```
+    ```Python
     Search Administration initialized
     ```
 
 
 **Parent topic:**[Administering Search](../admin/c_admin_search.md)
 
-**Related information**  
+**Related information**
 
 
 [SearchCellConfig commands](../admin/r_admin_searchcellconfig_commands.md)
