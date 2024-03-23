@@ -15,7 +15,7 @@ SearchCellConfig
 
     The SearchCellConfig MBean also provides the user with a means of checking out and checking in the Search Ajax proxy configuration file, proxy-search-config.xml.
 
-    For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see *SearchCellConfig commands*.
+    For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see [SearchCellConfig commands](../admin/r_admin_searchcellconfig_commands.md).
 
 SearchService
 :   An MBean used to create, retrieve, update, and delete scheduled task definitions of the following Search operations. This includes a facility to trigger one of these operations.
@@ -25,22 +25,22 @@ SearchService
 
     This is implemented by scheduling a one-off task that is scheduled to run within 30 seconds of issuing the corresponding SearchService command.
 
-    For more information about the syntax of the SearchService commands and a description of what each command does, see *SearchService commands*.
+    For more information about the syntax of the SearchService commands and a description of what each command does, see [SearchService commands](../admin/r_admin_searchservice_commands.md).
 
 1.  To initialize the Search configuration environment, complete the following steps.
 2.  Start the wsadmin client from one of the following directories on the system on which you installed the Deployment Manager:
 
-    Linux: `[app\_server\_root](../plan/i_ovr_r_directory_conventions.md)\profiles\dm\_profile\_root\bin`
+    Linux: [app_server_root](../plan/i_ovr_r_directory_conventions.md)`/profiles/dm_profile_root/bin`
 
-    Windows: `[app\_server\_root](../plan/i_ovr_r_directory_conventions.md)/profiles/dm\_profile\_root/bin`
+    Windows: [app_server_root](../plan/i_ovr_r_directory_conventions.md)`\profiles\dm_profile_root\bin`
 
-    where app\_server\_root is the WebSphere® Application Server installation directory and dm\_profile\_root is the Deployment Manager profile directory, typically dmgr01.
+    where `app_server_root` is the WebSphere® Application Server installation directory and `dm_profile_root` is the Deployment Manager profile directory, typically `Dmgr01`.
 
     You must start the client from this directory or subsequent commands that you enter do not execute correctly.
 
 3.  After the wsadmin command environment has initialized, enter the following command to initialize the Search environment and start the Search script interpreter:
 
-    ```
+    ```python
     execfile("searchAdmin.py")
     ```
 
@@ -48,14 +48,14 @@ SearchService
 
     When the command is run successfully, the following message displays:
 
-    ```
+    ```Python
     Search Administration initialized
     ```
 
 
 **Parent topic:**[Administering Search](../admin/c_admin_search.md)
 
-**Related information**  
+**Related information**
 
 
 [SearchCellConfig commands](../admin/r_admin_searchcellconfig_commands.md)
