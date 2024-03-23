@@ -15,7 +15,7 @@ SearchCellConfig
 
     The SearchCellConfig MBean also provides the user with a means of checking out and checking in the Search Ajax proxy configuration file, proxy-search-config.xml.
 
-    For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see *SearchCellConfig commands*.
+    For more information about the syntax of the SearchCellConfig commands and a description of what each command does, see [SearchCellConfig commands](../admin/r_admin_searchcellconfig_commands.md).
 
 SearchService
 :   An MBean used to create, retrieve, update, and delete scheduled task definitions of the following Search operations. This includes a facility to trigger one of these operations.
@@ -25,7 +25,7 @@ SearchService
 
     This is implemented by scheduling a one-off task that is scheduled to run within 30 seconds of issuing the corresponding SearchService command.
 
-    For more information about the syntax of the SearchService commands and a description of what each command does, see *SearchService commands*.
+    For more information about the syntax of the SearchService commands and a description of what each command does, see [SearchService commands](../admin/r_admin_searchservice_commands.md).
 
 1.  To initialize the Search configuration environment, complete the following steps.
 2.  Start the wsadmin client from one of the following directories on the system on which you installed the Deployment Manager:
