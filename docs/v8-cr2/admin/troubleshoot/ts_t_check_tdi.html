@@ -23903,9 +23903,42 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Troubleshooting Security Directory Integrator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="ts_t_check_tdi.html" class="md-nav__link md-nav__link--active">
         Troubleshooting Security Directory Integrator
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -34842,6 +34875,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -34862,11 +34910,19 @@
 
 <h1 class="task" id="ts_t_check_tdi">Troubleshooting Security Directory Integrator</h1>
 <p>If you experience problems when using IBM Security Directory Integrator to work with Profiles data, explore the different trace areas available for Profiles to find information that might help to identify and resolve the problem.</p>
-<p>The IBM Security Directory Integrator solution used to perform actions on your Profiles deployment is made up of several interconnected components. When you are trying to determine the cause of an error, you might first need to determine which architectural layer is likely to be involved in the error, before you enable tracing for a specific component to resolve the problem.</p>
-<p>Profiles-specific output can come from the Security Directory Integrator configuration (profiles_tdi.xml) or from the component JAR files that are part of the solution. The JAR files contain business-layer functionality that is shared by the Profiles web application as well the Profiles SDI solution. Adjusting trace levels for these back-end components is very similar to the process used for the web application, and the same class hierarchical subsets can be used to view different tracing level outputs.</p>
-<p>For more detailed information about determining the cause of problems with Security Directory Integrator, refer to its <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=troubleshooting-pdf">Problem Determination Guide</a> on the IBM Documentation site.</p>
+<p>The IBM Security Directory Integrator solution that is used to perform actions on your Profiles deployment is made up of several interconnected components. When you are trying to determine the cause of an error, you might first need to determine which architectural layer is likely to be involved in the error, before you enable tracing for a specific component to resolve the problem.</p>
+<p>Profiles-specific output can come from the Security Directory Integrator configuration (profiles_tdi.xml) or from the component JAR files that are part of the solution. The JAR files contain business-layer functionality that is shared by the Profiles web application as well as the Profiles SDI solution. Adjusting trace levels for these backend components is very similar to the process used for the web application, and the same class hierarchical subsets can be used to view different tracing level outputs.</p>
+<p>For more detailed information about determining the cause of problems with Security Directory Integrator, refer to its <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=troubleshooting-pdf">Problem Determination Guide</a> on the IBM documentation site.</p>
+<h2 id="procedure">Procedure</h2>
+<p>Here are some general tips for troubleshooting issues that you might encounter when using Security Directory Integrator to work with profile data.</p>
 <ul>
-<li>Here are some general tips for troubleshooting issues that you might encounter when using Security Directory Integrator to work with profile data.</li>
+<li>
+<p>If you are using an earlier version of IBM Security Directory Integrator Version 7.2.0 Fix Pack 8, in the \tdisol\TDI\etc\log4j.properties file, look for
+<code>log4j.rootCategory=INFO, Default</code>.</p>
+<p>Change it to <code>log4j.rootCategory=DEBUG, Default</code>.</p>
+<p>If you are using IBM Security Directory Integrator Version 7.2.0 Fix Pack 8 or later, in the \tdisol\TDI\etc\log4j2.xml file look for <code>&lt;Configuration status="info"&gt;</code>.</p>
+<p>Change it to <code>&lt;Configuration status="debug"&gt;</code>.</p>
+</li>
 <li>
 <p>Enable trace logging for Security Directory Integrator to help you determine whether processes are running correctly.</p>
 <p>Tracing for the Security Directory Integrator processes is similar to tracing for WebSphere® Application Server. The trace output is recorded in the ibmdi.log file in the tdi_installation_directory\logs directory.</p>
@@ -34879,11 +34935,14 @@
 <li>WARN</li>
 <li>ERROR</li>
 <li>FATAL</li>
-<li>OFF
-When a given level is enabled, all levels that are lower in severity are automatically enabled. For more information about how to configure tracing, see <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide172.htm#logging">Logging and debugging</a> in the IBM Security Directory Integrator documentation.</li>
+<li>OFF</li>
 </ul>
-<p><strong>Note:</strong> Depending on the tracing level enabled, the output can be very lengthy, so try to perform small operations only when tracing is enabled.</p>
-<p>Profiles service layer logging</p>
+<p>When a given level is enabled, all levels that are lower in severity are automatically enabled. For more information about how to configure tracing, see <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide172.htm#logging">Logging and debugging</a> in the IBM Security Directory Integrator documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the tracing level enabled, the output can be very lengthy, so try to perform small operations only when tracing is enabled.</p>
+</div>
+<p><em>Profiles service layer logging</em></p>
 <p>If you are troubleshooting a Profiles or IBM Security Directory Integrator problem and are unsure about the cause of the problem, the best strategy is to start with a general trace setting at the lowest severity level. If you run a targeted task at a low severity setting, then you might get more information about the problem to help narrow down the trace configuration. The most general trace setting to use to encompass the set of Profiles service classes is:</p>
 <div class="highlight"><pre><span></span><code>log4j.logger.com.ibm.lconn.profiles=ALL
 </code></pre></div>
@@ -34893,8 +34952,11 @@ When a given level is enabled, all levels that are lower in severity are automat
 <p>You might also want to enable event log tracing. Whenever database operations are performed, they are recorded in the event log. By enabling tracing at this level, you can see indirectly what was done via the service level API to the database. To enable event log tracing, include the following line in the etc\log4j.properties file:</p>
 <div class="highlight"><pre><span></span><code>log4j.logger.com.ibm.lconn.profiles.internal.service=ALL
 </code></pre></div>
-<p><strong>Note:</strong> This setting is very verbose, so be sure to enable it for targeted operations.</p>
-<p>Database layer logging</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting is very verbose, so be sure to enable it for targeted operations.</p>
+</div>
+<p><em>Database layer logging</em></p>
 <p>It is often useful to enable tracing at the database layer to troubleshoot problems. To enable database tracing, include the following line in the etc\log4j.properties file:</p>
 <div class="highlight"><pre><span></span><code>log4j.logger.java.sql=ALL
 </code></pre></div>
@@ -34903,7 +34965,7 @@ When a given level is enabled, all levels that are lower in severity are automat
 <p>Examine the information in the different log files in the logs directory.</p>
 <p>The log files produced by running Profiles Security Directory Integrator assembly lines are all stored in the logs subdirectory of the solution. Most assembly lines create a log file that is specific to the assembly line, for example, PopulateDBFromDNFile.log or SyncUpdates.log.</p>
 <p>When a task is run at a subsequent time, based on the logging implementation of the assembly line, the logs are either renamed with an incremented trailing digit or named with a date suffix to ensure that previous logs are preserved.</p>
-<p>All other output, in addition to some assembly-line output, is recorded in the logs\ibmdi.log file. Standard output and error information is recorded in this file by default, but you can modify this configuration in the etc\log4j.properties file. For more information, refer to the<a href="https://www.ibm.com/docs/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide259.htm#log4j.properties">Log4J.properties</a> topic in the IBM Security Directory Integrator product documentation.</p>
+<p>All other output, in addition to some assembly-line output, is recorded in the logs\ibmdi.log file. Standard output and error information is recorded in this file by default, but you can modify this configuration in the etc\log4j.properties file. For more information, refer to th e<a href="https://www.ibm.com/docs/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide259.htm#log4j.properties">Log4J.properties</a> topic in the IBM Security Directory Integrator product documentation.</p>
 </li>
 <li>
 <p>Use the debug settings in the Log4J.properties file. For more information about the debug settings in the file, refer to <a href="https://www.ibm.com/docs/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide174.htm#loggingconfig">Logging using the default Log4J class</a> in the IBM Security Directory Integrator product documentation.</p>
@@ -34920,7 +34982,7 @@ When a given level is enabled, all levels that are lower in severity are automat
 <p>By checking this information, you can find out if you have any incorrect attribute mappings.</p>
 </li>
 <li>
-<p>The validation result of each attribute</p>
+<p>The validation result of each attribute.</p>
 <p>By checking this information, you can find out which field did not pass the validation and verify the value of this field.</p>
 </li>
 </ul>
@@ -34931,10 +34993,10 @@ When a given level is enabled, all levels that are lower in severity are automat
 <p>In addition to the prefix identifier, the last letter of the error message code indicates the severity of the message. For example, a code ending with an I is an informational message. Error and warning codes are designated by E and W respectively.</p>
 </li>
 <li>
-<p>Security Directory Integrator Configuration Editor port issue: If you see the message Invalid value specified for 'api.remote.naming.port' when working with the Security Directory Integrator Configuration Editor, you can resolve the issue by manually setting the api.remote.naming.port in the solution.properties file located in the TDI_solution _directory.</p>
+<p>Security Directory Integrator Configuration Editor port issue: If you see the message <code>Invalid value specified for 'api.remote.naming.port'</code> when working with the Security Directory Integrator Configuration Editor, you can resolve the issue by manually setting the api.remote.naming.port in the solution.properties file located in the TDI_solution _directory.</p>
 </li>
 <li>
-<p>Linux® 32 -bit issue: Note that the Linux 32-bit system is not officially supported by HCL Connections. If you are using a Security Directory Integrator solution without any specified setting on a Linux 32-bit platform, you will experience issues with your processor becoming unresponsive. In addition, you will not be able to populate the Profiles database using the Population Wizard or the solution script provided by IBM Security Directory Integrator. As a workaround, you need to edit the ibmdisvr shell script located in the TDI_installation_directory as follows:</p>
+<p>Linux® 32-bit issue: Note that the Linux 32-bit system is not officially supported by HCL Connections. If you are using a Security Directory Integrator solution without any specified setting on a Linux 32-bit platform, you will experience issues with your processor becoming unresponsive. In addition, you will not be able to populate the Profiles database using the Population Wizard or the solution script provided by IBM Security Directory Integrator. As a workaround, you need to edit the ibmdisvr shell script located in the TDI_installation_directory as follows:</p>
 <div class="highlight"><pre><span></span><code>&quot;$TDI_JAVA_PROGRAM&quot; $TDI_MIXEDMODE_FLAG -Xms256M -Xmx1024M -Xnojit -cp &quot;$TDI_HOME_DIR/IDILoader.jar&quot; &quot;$LOG_4J&quot; com.ibm.di.loader.IDILoader com.ibm.di.server.RS &quot;$@&quot;
 </code></pre></div>
 </li>
