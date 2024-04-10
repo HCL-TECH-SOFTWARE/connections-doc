@@ -52,62 +52,63 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     You can find the data\_directory\_root path by searching for storage rootDirectory in **files-config.xml**. This attribute contains either the path itself or a WebSphere Application Server variable whose value is the path. For example, if the value is `${FILES_CONTENT_DIR}`, then `FILES_CONTENT_DIR` is the path for the WebSphere Application Server console. Information about opening the **files-config.xml** can be found in *Changing configuration property values*. For more information about WebSphere variables, see *Changing WebSphere Application Server environment variables*.
 
-    In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of `FILES_CONTENT_DIR` is \\\\server\\Shared\\files\\upload. In this case, the user has no rights to share and cannot be given READ access. You must instead give the user READ access at the share point of \\\\server\\Shared.
+    In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of `FILES_CONTENT_DIR` is \\\\server\\Shared\\files\\upload. In this case, the user has no rights to share and cannot be given **READ** access. You must instead give the user **READ** access at the share point of \\\\server\\Shared.
 
-    <!--You must give the HTTP server the appropriate level of access to each content store root defined in the **oa-config.xml** file. The content store roots are defined in the `root.directory` property of each `<store>` element. For example:
+[comment]: # ( THE FOLLOWING COMMENTS SHOULD BE REMOVED (WE NOW HAVE GIT TO GET THE CONTENT BACK IF NECESSARY )
+[comment]: # (    You must give the HTTP server the appropriate level of access to each content store root defined in the **oa-config.xml** file. The content store roots are defined in the `root.directory` property of each `<store>` element. For example: )
 
-    ```
-    <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-    ```-->
+[comment]: # (    ```)
+[comment]: # (    <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>)
+[comment]: # (    ``` )
 
 6.  On all virtual hosts in the same domain as Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:
 
-    <!--For Activities:
-
-    ```
-    <IfModule mod_rewrite.c>
-    RewriteEngine On
-    #RewriteLog logs/rewrite.log
-    #RewriteLogLevel 9
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/activitynode$ /ihs/activities/service/atom2/activitynode[PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/activity$ /ihs/activities/service/atom2/activity [PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/forms/activitynode$ /ihs/activities/service/atom2/forms/activitynode [PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/forms/activity$ /ihs/activities/service/atom2/forms/activity [PT,L]
-    
-    </IfModule>-->
-    ```
+[comment]: # (    For Activities:)
+[comment]: # ()
+[comment]: # (    ```)
+[comment]: # (    <iFmODULE MOD_REWRITE.C>)
+[comment]: # (    rEWRITEeNGINE oN)
+[comment]: # (    #rEWRITElOG LOGS/REWRITE.LOG)
+[comment]: # (    #rEWRITElOGlEVEL 9)
+[comment]: # (    )
+[comment]: # (    rEWRITEcOND %{env:env-skip-ibm-upload-handler} !=TRUE [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-method} PHASES [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-token} [0-9A-Za-z-] [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=get [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=option [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=head [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=delete [nc])
+[comment]: # (    rEWRITErULE ^/ACTIVITIES/SERVICE/ATOM2/ACTIVITYNODE$ /IHS/ACTIVITIES/SERVICE/ATOM2/ACTIVITYNODE[pt,l])
+[comment]: # (    )
+[comment]: # (    rEWRITEcOND %{env:env-skip-ibm-upload-handler} !=TRUE [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-method} PHASES [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-token} [0-9A-Za-z-] [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=get [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=option [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=head [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=delete [nc])
+[comment]: # (    rEWRITErULE ^/ACTIVITIES/SERVICE/ATOM2/ACTIVITY$ /IHS/ACTIVITIES/SERVICE/ATOM2/ACTIVITY [pt,l])
+[comment]: # (    )
+[comment]: # (    rEWRITEcOND %{env:env-skip-ibm-upload-handler} !=TRUE [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-method} PHASES [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-token} [0-9A-Za-z-] [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=get [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=option [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=head [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=delete [nc])
+[comment]: # (    rEWRITErULE ^/ACTIVITIES/SERVICE/ATOM2/FORMS/ACTIVITYNODE$ /IHS/ACTIVITIES/SERVICE/ATOM2/FORMS/ACTIVITYNODE [pt,l])
+[comment]: # (    )
+[comment]: # (    rEWRITEcOND %{env:env-skip-ibm-upload-handler} !=TRUE [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-method} PHASES [nc])
+[comment]: # (    rEWRITEcOND %{http:x-ibm-upload-token} [0-9A-Za-z-] [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=get [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=option [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=head [nc])
+[comment]: # (    rEWRITEcOND %{request_method} !=delete [nc])
+[comment]: # (    rEWRITErULE ^/ACTIVITIES/SERVICE/ATOM2/FORMS/ACTIVITY$ /IHS/ACTIVITIES/SERVICE/ATOM2/FORMS/ACTIVITY [pt,l])
+[comment]: # (    )
+[comment]: # (    </iFmODULE>)
+[comment]: # (    ```)
 
     For Files:
 
@@ -225,18 +226,19 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
 7.  Configure the upload module as follows:
 
-    <!--For Activities:
-
-    ```
-    <Location /ihs/activities>
-    IBMUploadHandler On
-    SetHandler ibm_upload_handler
-    IBMUploadBaseStore "/opt/IBM/Connections/data/activities/content"
-    IBMUploadMethods POST,PUT
-    IBMUploadURLPrefix /ihs
-    </Location>
-    ```-->
-
+[comment]: # ( THE FOLLOWING COMMENTS SHOULD BE REMOVED (WE NOW HAVE GIT TO GET THE CONTENT BACK IF NECESSARY ) )
+[comment]: # (     For Activities: )
+[comment]: # (  )
+[comment]: # (     ``` )
+[comment]: # (     <Location /ihs/activities> )
+[comment]: # (     IBMUploadHandler On )
+[comment]: # (     SetHandler ibm_upload_handler )
+[comment]: # (     IBMUploadBaseStore "/opt/IBM/Connections/data/activities/content" )
+[comment]: # (     IBMUploadMethods POST,PUT )
+[comment]: # (     IBMUploadURLPrefix /ihs )
+[comment]: # (     </Location> )
+[comment]: # (     ``` )
+ 
     For Files:
 
     ```
@@ -251,34 +253,35 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
 8.  Configure the Files application to work with the upload module as follows:
 
-    <!--For Activities:
-
-    Add the `fileUploadPluginEnabled` property to the default store configuration in the **oa-config.xml** file to indicate whether the file upload plug-in is enabled in the environment. For example:
-
-    ```
-    <store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore">
-    <id>filestore</id>            
-    <property name="use.historic">false</property>
-    <property name="fileUploadPluginEnabled">true</property>            
-    <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-    </store>
-    ```
-
-    Then, limit the old API to allow only smaller file uploads as follows:
-
-    Add the `formFileUploadSizeLimit` property to the object store configuration in the **oa-config.xml** file to specify the maximum file size that can be uploaded through the old file upload solution. For example:
-
-    ```
-    <objectStore>  
-    ...  
-    <sizeLimits>            
-    <limit mimeFilenameRegex=".*">2147483648</limit>        
-    </sizeLimits>        
-    <formFileUploadSizeLimit>31457280</formFileUploadSizeLimit>
-    <max-concurrent-downloads>10</max-concurrent-downloads> 
-    </objectStore>
-    ```-->
-
+[comment]: # ( THE FOLLOWING COMMENTS SHOULD BE REMOVED (WE NOW HAVE GIT TO GET THE CONTENT BACK IF NECESSARY ) )
+[comment]: # (     For Activities: )
+[comment]: # (  )
+[comment]: # (     Add the `fileUploadPluginEnabled` property to the default store configuration in the **oa-config.xml** file to indicate whether the file upload plug-in is enabled in the environment. For example: )
+[comment]: # (  )
+[comment]: # (     ``` )
+[comment]: # (     <store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore"> )
+[comment]: # (     <id>filestore</id>             )
+[comment]: # (     <property name="use.historic">false</property> )
+[comment]: # (     <property name="fileUploadPluginEnabled">true</property>             )
+[comment]: # (     <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property> )
+[comment]: # (     </store> )
+[comment]: # (     ``` )
+[comment]: # (  )
+[comment]: # (     Then, limit the old API to allow only smaller file uploads as follows: )
+[comment]: # (  )
+[comment]: # (     Add the `formFileUploadSizeLimit` property to the object store configuration in the **oa-config.xml** file to specify the maximum file size that can be uploaded through the old file upload solution. For example: )
+[comment]: # (  )
+[comment]: # (     ``` )
+[comment]: # (     <objectStore>   )
+[comment]: # (     ...   )
+[comment]: # (     <sizeLimits>             )
+[comment]: # (     <limit mimeFilenameRegex=".*">2147483648</limit>         )
+[comment]: # (     </sizeLimits>         )
+[comment]: # (     <formFileUploadSizeLimit>31457280</formFileUploadSizeLimit> )
+[comment]: # (     <max-concurrent-downloads>10</max-concurrent-downloads>  )
+[comment]: # (     </objectStore> )
+[comment]: # (     ``` )
+ 
     For Files:
 
     Change the `modIBMUpload` property to be enabled in the **files-config.xml** file. For example:
@@ -295,8 +298,8 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     ```
     <api>   
-    <simpleUploadAPI maximumSizeInKb="512000">
-    </simpleUploadAPI> 
+        <simpleUploadAPI maximumSizeInKb="512000">
+        </simpleUploadAPI> 
     </api>
     ```
 
@@ -306,7 +309,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     <api>   
         <simpleUploadAPI maximumSizeInKb="2097152">
         </simpleUploadAPI> 
-        </api>
+    </api>
     ```
 
 9.  Restart the HTTP server and the Files application.
