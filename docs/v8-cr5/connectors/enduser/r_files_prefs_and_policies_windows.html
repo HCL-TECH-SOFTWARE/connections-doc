@@ -174,7 +174,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr5/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35302,13 +35302,13 @@
 </tr>
 <tr>
 <td>Social Connectors/Settings</td>
-<td>Sharing External</td>
-<td>String Default - null (not in registry)</br></br>Default behavior is enabled</br></br>0 = Do not normally allow outside access for new content, but ask me about new content added to a folder permitting outside access</br></br>1 = Allow all new content to be shared with people outside this organization, except for folders added to a folder that denies outside access.</br></br>2 = Only allow outside access to new content if created in a folder permitting outside access.</td>
-<td>This setting sets the default value for the sharing external (sharing intent) setting on new file and new folder dialogs, as well as the default sharing external for new content added to the local My Drive folder. The sharing external values correspond to the External Sharing Preferences listed under &lt;site name> -> <strong>My Files</strong> in the preferences panel.</br></br>Files and folders added to the local My Drive folder will be created as external or internal based on this value.</br></br>For new file and new folder dialogs, the sharing external checkbox will be checked by default only when this value equals null or 1.</td>
+<td>Sharing External (v24.08 or later) OR Sharing Intent</td>
+<td>String Default - null (not in registry)</br></br>Default - 0 (v24.04 and later), 1 (v23.08 and earlier)</br></br>0 = Do not normally allow outside access for new content, but ask me about new content added to a folder permitting outside access</br></br>1 = Allow all new content to be shared with people outside this organization, except for folders added to a folder that denies outside access.</br></br>2 = Only allow outside access to new content if created in a folder permitting outside access.</td>
+<td>This setting sets the default value for the sharing external (sharing intent) setting on new file and new folder dialogs, as well as the default sharing external for new content added to the local My Drive folder. The sharing external values correspond to the External Sharing Preferences listed under &lt;site name> -> <strong>My Files</strong> in the preferences panel.</br></br>Files and folders added to the local My Drive folder will be created as external or internal based on this value.</br></br>For new file and new folder dialogs, the sharing external checkbox will be checked by default based on this value.</td>
 </tr>
 <tr>
 <td>Social Connectors/Settings</td>
-<td>Sharing External Policy</td>
+<td>Sharing External Policy (v24.08 or later) OR Sharing Intent</td>
 <td>String</br></br>Default - null (not in registry)</br></br>0 = user can change the sharing external (sharing intent) setting</br></br>1 = user cannot change the sharing external setting</td>
 <td>This setting controls whether the user can change the default value for the sharing external setting on new file and new folder dialogs and files and folders add to the local My Drive folder. If the policy is set, the user cannot change the setting.</td>
 </tr>

@@ -174,7 +174,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr5/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35081,48 +35081,34 @@
 <p>MongoDB administration tasks include monitoring system health.</p>
 <h2 class="section" id="verifying-the-status-of-the-mongodb-pods">Verifying the status of the MongoDB pods</h2>
 <p>Run the following command to retrieve information on the status of the MongoDB pods:</p>
-<div class="highlight"><pre><span></span><code>kubectl get pod -n connections -o wide --selector app=mongo
+<div class="highlight"><pre><span></span><code>kubectl get pod -n connections -o wide | grep mongo5
 </code></pre></div>
 <p>The response includes the status of each pod:</p>
-<div class="highlight"><pre><span></span><code>NAME      READY     STATUS    RESTARTS   AGE       IP            NODE
-mongo-0   2/2       Running   0          5m        10.1.18.168   9.32.164.232
-mongo-1   2/2       Running   0          4m        10.1.18.171   9.32.164.232
-mongo-2   2/2       Running   0          4m        10.1.18.170   9.32.164.232
+<div class="highlight"><pre><span></span><code>NAME       READY     STATUS    RESTARTS   AGE       IP            NODE
+mongo5-0   2/2       Running   0          5m        10.1.18.168   9.32.164.232
+mongo5-1   2/2       Running   0          4m        10.1.18.171   9.32.164.232
+mongo5-2   2/2       Running   0          4m        10.1.18.170   9.32.164.232
 </code></pre></div>
 <h2 class="section" id="verifying-the-mongodb-database-status">Verifying the MongoDB database status</h2>
-<p>The command to determine the MongoDB database status varies depending on whether x.509 authentication is enabled, which you can determine by running the following command:</p>
-<div class="highlight"><pre><span></span><code>helm get values infrastructure -a | grep x509Enabled
+<p>Run the following command to retrieve information on the health of the MongoDB database:</p>
+<div class="highlight"><pre><span></span><code>kubectl exec -it mongo5-0 -c mongo5 -n connections -- mongo --tls --tlsCertificateKeyFile /etc/mongodb/x509/user_admin.pem --tlsCAFile /etc/mongodb/x509/mongo-CA-cert.crt --host mongo5-0.mongo5.connections.svc.cluster.local --authenticationDatabase &#39;$external&#39; --authenticationMechanism MONGODB-X509 -u C=IE,ST=Ireland,L=Dublin,O=IBM,OU=Connections-Middleware-Clients,CN=admin,emailAddress=admin@mongodb --eval &quot;rs.status().members&quot; | grep &quot;id\|name\|health\|stateStr\|ok&quot;
 </code></pre></div>
-<p>For example, if x.509 authentication is enabled, the response will be: x509Enabled: true</p>
-<p>Then run the appropriate command to retrieve information on the health of the MongoDB database:</p>
-<ul>
-<li>
-<p>When x.509 authentication is enabled:</p>
-<div class="highlight"><pre><span></span><code>kubectl exec -it mongo-0 -c mongo -n connections -- mongo --ssl --sslPEMKeyFile /etc/mongodb/x509/user_admin.pem --sslCAFile /etc/mongodb/x509/mongo-CA-cert.crt --host mongo-1.mongo.connections.svc.cluster.local --authenticationMechanism=MONGODB-X509 --authenticationDatabase &#39;$external&#39; -u C=IE,ST=Ireland,L=Dublin,O=IBM,OU=Connections-Middleware-Clients,CN=admin,emailAddress=admin@mongodb --eval &quot;rs.status().members&quot; | grep &quot;id\|name\|health\|stateStr\|ok&quot;
-</code></pre></div>
-</li>
-<li>
-<p>When x.509 authentication is disabled:</p>
-<div class="highlight"><pre><span></span><code>kubectl exec -n connections -it mongo-0 -c mongo -- mongo mongo-0.mongo:27017 --eval &quot;rs.status()&quot; | grep &quot;id\|name\|health\|stateStr\|ok&quot;
-</code></pre></div>
-</li>
-</ul>
 <p>The response includes the "health" of the database hosted on each pod; the value "1' indicates good health:</p>
 <div class="highlight"><pre><span></span><code>    &quot;_id&quot; : 0,
-    &quot;name&quot; : &quot;mongo-0.mongo.connections.svc.cluster.local:27017&quot;,
+    &quot;name&quot; : &quot;mongo5-0.mongo5.connections.svc.cluster.local:27017&quot;,
     &quot;health&quot; : 1,
     &quot;stateStr&quot; : &quot;PRIMARY&quot;,
     &quot;_id&quot; : 1,
-    &quot;name&quot; : &quot;mongo-1.mongo.connections.svc.cluster.local:27017&quot;,
+    &quot;name&quot; : &quot;mongo5-1.mongo5.connections.svc.cluster.local:27017&quot;,
     &quot;health&quot; : 1,
     &quot;stateStr&quot; : &quot;SECONDARY&quot;,
     &quot;_id&quot; : 2,
-    &quot;name&quot; : &quot;mongo-2.mongo.connections.svc.cluster.local:27017&quot;,
+    &quot;name&quot; : &quot;mongo5-2.mongo5.connections.svc.cluster.local:27017&quot;,
     &quot;health&quot; : 1,
     &quot;stateStr&quot; : &quot;SECONDARY&quot;,
-&quot;ok&quot; : 1
+&quot;ok&quot;: 1
 </code></pre></div>
-<p><strong>Parent topic:</strong><a href="c_admin_component_pack_intro.html">Administering Component Pack for Connections</a></p>
+<p><strong>Parent topic:</strong> <a href="c_admin_component_pack_intro.html">Administering Component Pack for Connections</a></p>
 
 
 
