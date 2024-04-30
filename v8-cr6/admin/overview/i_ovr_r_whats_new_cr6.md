@@ -11,7 +11,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 **System requirements**
 
--   Refer to the [HCL Connections 8.0 CR6 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966).
+-   Refer to the [HCL Connections 8.0 CR6 System Requirements](system_requirements.md).
 
 -   For the Connections 8.0 CR6 Component Pack, see [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
 
