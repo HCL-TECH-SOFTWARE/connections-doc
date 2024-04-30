@@ -174,7 +174,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr5/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -35031,86 +35031,55 @@
 <tbody>
 <tr>
 <td>1</td>
-<td></td>
+<td>Open a command prompt (cmd.exe) and then change to the following directory of the system on which you installed the deployment manager: <br><br> <code>app_server_root/profiles/dm_profile_root/bin</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enter the following command to start the wsadmin client: <br><br> <code>wsadmin -lang jython -user {admin_user_id} -password {admin_password} -port {SOAP_CONNECTIOR_ADRESS_PORT}</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Enter the following command to access the HCL Connections configuration: <br><br> <code>execfile(mobileAdmin.py)</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Check out the mobile config file to a directory of your choice and make a back-up of this file: <br><br> <code>MobileConfigService.checkOutConfig ("&lt;directory&gt;", "&lt;cell-name&gt;")</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Open the mobile-config.xml file, locate the <code>&lt;Applications&gt;</code> section, and add the following configuration to that section. <br><br> If you have already integrated another application, add the Connections Engagement Center configuration at the end of the section. <br><br> <code>&lt;Applications&gt;</code> <br>&nbsp; <code>&lt;Application name="icec-app" enabled="true"&gt;</code> <br>&nbsp;&nbsp; <code>&lt;ApplicationIcon&gt;</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;Android&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;XXXHdpi&gt;/icec/xxxhdpi/home_icec.png&lt;/XXXHdpi&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;XXHdpi&gt;/icec/xxhdpi/home_icec.png&lt;/XXHdpi&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;XHdpi&gt;/icec/xhdpi/home_icec.png&lt;/XHdpi&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;Hdpi&gt;/icec/hdpi/home_icec.png&lt;/Hdpi&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;Mdpi&gt;/icec/mdpi/home_icec.png&lt;/Mdpi&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;Ldpi&gt;/icec/ldpi/home_icec.png&lt;/Ldpi&gt;</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;/Android&gt;</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;IOS&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;Reg&gt;/icec/IOS/home_icec_normal.png&lt;/Reg&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;Retina&gt;/icec/IOS/home_icec_normal@2x.png&lt;/Retina&gt;</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;/IOS&gt;</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;BB&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;HighDensity&gt;/icec/hdpi/home_icec.png&lt;/HighDensity&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;MedDensity&gt;/icec/mdpi/home_icec.png&lt;/MedDensity&gt;</code> <br>&nbsp;&nbsp;&nbsp;&nbsp; <code>&lt;LowDensity&gt;/icec/ldpi/home_icec.png&lt;/LowDensity&gt;</code> <br>&nbsp;&nbsp;&nbsp;</BB> <code>&lt;DefaultLocation&gt;/icec/xxhdpi/home_icec.png</code> <br>&nbsp;&nbsp;&nbsp; <code>&lt;/DefaultLocation&gt;</code> <br>&nbsp;&nbsp; <code>&lt;/ApplicationIcon&gt;</code> <br>&nbsp;&nbsp;<code>&lt;ApplicationLabel&gt;{LABEL for Connections Engagement Center}&lt;/ApplicationLabel&gt;</code> <br>&nbsp;&nbsp; <code>&lt;ApplicationURL&gt;{YOUR_DOMAIN}/xcc/mobile?page={MOBILE_PAGE}&lt;/ApplicationURL&gt;</code> <br>&nbsp; <code>&lt;/Application&gt;</code> <br> <code>&lt;/Applications&gt;</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Locate the <code>&lt;ApplicationsList&gt;</code> section, and add the Connections Engagement Center application to this list. <br><br> <code>&lt;ApplicationsList&gt;icec-app,profiles,communities,files,filesync,wikis,activities,forums,blogs,bookmarks&lt;/ApplicationsList&gt;</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>(Optional) To select the Connections Engagement Center as Default Application in the Connections Mobile App, locate the <code>&lt;DefaultApplication&gt;Updates&lt;/DefaultApplication&gt;</code> section and replace it with the name you used for the <code>&lt;Application enabled=true name=icec-app&gt;</code> setting. <br><br> <code>&lt;!-- DefaultApplication: The application that the user is taken to after the login.--&gt; &lt;DefaultApplication&gt;Updates&lt;/DefaultApplication&gt;</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>(Optional) To hide the navigation or address bar, locate the <code>&lt;ApplicationURL&gt;</code> section and add the following parameter: <code>ibmextintegrated=hideAddressBar</code> or <code>ibmextintegrated=hideNavigation</code>. <br><br> <code>ibmextintegrated=hideAddressBar</code> hides just the address. The navigation buttons and action button will remain. <br><br> <code>ibmextintegrated=hideNavigation</code> hides the whole navigation bar. The web page must have web-based controls for navigation to provide previous, next, and reload functionality. <br><br> For example, to remove the address bar you would create the following URL:<code>&lt;ApplicationURL&gt;https://{YOUR_DOMAIN}/xcc/mobile?page={MOBILE_PAGE}&amp;ibmextintegrated=hideAddressBar&lt;/ApplicationURL&gt;</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Check in the configured file with the following command: <br><br> <code>MobileConfigService.checkInConfig(&lt;directory&gt;, &lt;cell-name&gt;)</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Open the &lt;CUSTOMIZATION_DIR>/mobile directory, then copy the icec folder from of the Connections Engagement Center package's mobile folder to the &lt;CUSTOMIZATION_DIR>/mobile folder.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Finally, fully synchronize the nodes first and restart the HCL Connections servers.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Now you can use the Connections Engagement Center in the HCL Connections Mobile App on iOS and Android devices.</td>
 </tr>
 </tbody>
 </table>
-<p>|Open a command prompt (cmd.exe) and then change to the following directory of the system on which you installed the deployment manager:</p>
-<p><code>app\_server\_root/profiles/dm\_profile\_root/bin</code>|
-|2</p>
-<p>|Enter the following command to start the wsadmin client:</p>
-<p><code>wsadmin -lang jython -user {admin_user_id} -password {admin_password} -port {SOAP_CONNECTIOR_ADRESS_PORT}</code>|
-|3</p>
-<p>|Enter the following command to access the HCL Connections configuration</p>
-<p><code>execfile(mobileAdmin.py)</code>|
-|4</p>
-<p>|Check out the mobile config file to a directory of your choice and make a back-up of this file.</p>
-<p><code>MobileConfigService.checkOutConfig ("&lt;directory&gt;", "&lt;cell-name&gt;")</code>|
-|5</p>
-<p>|Open the mobile-config.xml file, locate the <code>&lt;Applications&gt;</code> section, and add the following configuration to that section.</p>
-<p>If you have already integrated another application, add the Connections Engagement Center configuration at the end of the section.</p>
-<p>```</p>
-<p><Applications>
-    <Application name="icec-app" enabled="true"> 
-        <ApplicationIcon> 
-            <Android> 
-                <XXXHdpi>/icec/xxxhdpi/home_icec.png</XXXHdpi> 
-                <XXHdpi>/icec/xxhdpi/home_icec.png</XXHdpi> 
-                <XHdpi>/icec/xhdpi/home_icec.png</XHdpi> 
-                <Hdpi>/icec/hdpi/home_icec.png</Hdpi> 
-                <Mdpi>/icec/mdpi/home_icec.png</Mdpi> 
-                <Ldpi>/icec/ldpi/home_icec.png</Ldpi> 
-            </Android> 
-            <IOS> 
-                <Reg>/icec/IOS/home_icec_normal.png</Reg> 
-                <Retina>/icec/IOS/home_icec_normal@2x.png</Retina>
-            </IOS> 
-            <BB> 
-                <HighDensity>/icec/hdpi/home_icec.png</HighDensity> 
-                <MedDensity>/icec/mdpi/home_icec.png</MedDensity> 
-                <LowDensity>/icec/ldpi/home_icec.png</LowDensity> 
-            </BB> <DefaultLocation>/icec/xxhdpi/home_icec.png
-            </DefaultLocation> 
-        </ApplicationIcon> 
-        <ApplicationLabel>{LABEL for Connections Engagement Center}</ApplicationLabel> 
-        <ApplicationURL>{YOUR_DOMAIN}/xcc/mobile?page={MOBILE_PAGE}</ApplicationURL> 
-    </Application>
-</Applications>
-<div class="highlight"><pre><span></span><code>|
-|6
-
-|Locate the `&lt;ApplicationsList&gt;` section, and add the Connections Engagement Center application to this list.
-
- `&lt;ApplicationsList&gt;icec-app,profiles,communities,files,filesync,wikis,activities,forums,blogs,bookmarks&lt;/ApplicationsList&gt;`|
-|7
-
-|\(Optional\) To select the Connections Engagement Center as Default Application in the Connections Mobile App, locate the `&lt;DefaultApplication&gt;Updates&lt;/DefaultApplication&gt;` section and replace it with the name you used for the `&lt;Application enabled=true name=icec-app&gt;` setting.
-
- ```
-&lt;!-- DefaultApplication: The application that the user is taken to after the login. --&gt; 
-&lt;DefaultApplication&gt;Updates&lt;/DefaultApplication&gt;
-</code></pre></div></p>
-<p>|
-|8|(Optional) To hide the navigation or address bar, locate the <code>&lt;ApplicationURL&gt;</code> section and add the following parameter: <code>ibmextintegrated=hideAddressBar</code> or <code>ibmextintegrated=hideNavigation</code>.</p>
-<p><code>ibmextintegrated=hideAddressBar</code> hides just the address. The navigation buttons and action button will remain.</p>
-<p><code>ibmextintegrated=hideNavigation</code> hides the whole navigation bar. The web page must have web-based controls for navigation to provide previous, next, and reload functionality.</p>
-<p>For example, to remove the address bar you would create the following URL:<code>&lt;ApplicationURL&gt;https://{YOUR_DOMAIN}/xcc/mobile?page={MOBILE_PAGE}&amp;ibmextintegrated=hideAddressBar&lt;/ApplicationURL&gt;</code></p>
-<p>|
-|9</p>
-<p>|Check in the configured file with the following command:</p>
-<div class="highlight"><pre><span></span><code>MobileConfigService.checkInConfig(&lt;directory&gt;, &lt;cell-name&gt;)
-</code></pre></div>
-<p>|
-|10</p>
-<p>|Open the &lt;CUSTOMIZATION_DIR>/mobile directory, then copy the icec folder from of the Connections Engagement Center package's mobile folder to the &lt;CUSTOMIZATION_DIR>/mobile folder.</p>
-<p>|
-|11</p>
-<p>|Finally, fully synchronize the nodes first and restart the HCL Connections servers.</p>
-<p>|
-|12</p>
-<p>|Now you can use the Connections Engagement Center in the HCL Connections Mobile App on iOS and Android devices.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="cec-inst-configure-modes.html">Mode configuration</a></p>
+<p><strong>Parent topic:</strong> <a href="cec-inst-configure-modes.html">Mode configuration</a></p>
 
 
 

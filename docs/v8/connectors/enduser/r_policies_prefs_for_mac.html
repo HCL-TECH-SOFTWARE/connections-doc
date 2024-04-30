@@ -175,7 +175,7 @@
               
 
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr5/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
 
@@ -34623,171 +34623,157 @@
 </li>
 </ul>
 <p><strong>Note:</strong> If there is a conflict between the plists, the Managed Preference list on the server override the library and user preferences, and library preferences override user preferences.</p>
-<p>|Key/SubKey  </p>
-<p>|Name (Type = String)|Values|Description|
-|---------------|----------------------|------|-----------|
-|Root/Policies</p>
-<p>|Default Auth Type</p>
-<p>|0 - Basic Authentication (Default)</p>
-<p>1 - Custom</p>
-<p>|Controls the default authentication type in the <strong>Add Account</strong> dialog.</p>
-<p>|
-|Root/Policies</p>
-<p>|Default Auth Type Policy</p>
-<p>|0 - Enable Authentication dropdown (default)</p>
-<p>1 - Disable Authentication dropdown</p>
-<p>|Setting the policy to disable will prevent users from selecting and changing the authentication type in the <strong>Add Account</strong> dialog.</p>
-<p>|
-|Root/Policies</p>
-<p>|Default Auth Ext</p>
-<p>|Bundle ID</p>
-<p>|When Default Auth Type is set to Custom this setting controls which custom authentication module will display by default. Supported bundle IDs include:-   Basic - basic.authexct
--   Smart Cloud - smartcloud.authext
--   TAM - tam.authext
--   SiteMinder - siteminder.authext
--   IBM Connect Cloud - ibmsc.authext
--   Federated - federatedcloud.authext
--   Web Forms Authentication - html.authtext</p>
-<p>.|
-|Root/Policies</p>
-<p>|Sharing Intent</p>
-<p>|String</p>
-<p>0 = sharing intent setting is not checked</p>
-<p>1 = sharing intent setting is checked (Default)</p>
-<p>|This setting sets the default value for the sharing intent setting on new file and new folder dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog.</p>
-<p>|
-|Root/Policies</p>
-<p>|Sharing Intent Policy</p>
-<p>|String</p>
-<p>0 = user can change the sharing intent setting (Default)</p>
-<p>1 = user cannot change the sharing intent setting</p>
-<p>|This setting controls whether the user can change the default value for the sharing intent setting on new file and new folder dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Root/Policies</p>
-<p>|Encryption</p>
-<p>|String</p>
-<p>0 = Encrypt option is not checked (Default)</p>
-<p>1 = Encrypt option is checked</p>
-<p>|This setting sets the default value for the Encryption setting on new file dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog</p>
-<p>|
-|Root/Policies</p>
-<p>|Encryption Policy</p>
-<p>|String</p>
-<p>0 = user can change the Encryption setting (Default)</p>
-<p>1 = user cannot change the Encryption setting</p>
-<p>|This setting controls whether the user can change the default value for the Encryption setting on new file dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog. If the policy is set, the user cannot change the setting.</p>
-<p>|
-|Root/Policies</p>
-<p>|Help URL</p>
-<p>|http://www-01.ibm.com/support/knowledgecenter/SSYGQH_5.0.0/connectors/admin/msdesktop_mac_over.dita (Default)</p>
-<p><strong>Note:</strong> "http://" or "https://" is required as part of the url</p>
-<p>|The URL for help for the product.</p>
-<p>|
-|Root/Policies</p>
-<p>|DefaultConnectURL</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>|The URL that shows by default in the dd New Account dialog for a new server.</p>
-<p>|
-|Root/Policies</p>
-<p>|DefaultConnectName</p>
-<p>|String</p>
-<p>Default - null</p>
-<p>|The name that will show by default in the dd New Account dialog for a new server</p>
-<p>|
-|Root/Policies</p>
-<p>|Disable Public Sharing</p>
-<p>|String</p>
-<p>0 = public sharing enabled, will allow sharing with Everyone (public) or Everyone in Organization (for smartcloud) where appropriate in sharing dialogs</p>
-<p>1 = groups disabled, will disable sharing with Everyone (public) or Everyone in Organization (for smartcloud) where appropriate in sharing dialogs (default)</p>
-<p>|This setting disables the ability for users to share with Everyone (the Public) for Connections, or with Everyone in Organization for Connections Cloud. There is no 'Disable Public Sharing Policy.'</p>
-<p>|
-|Root/Policies</p>
-<p>|ScanIgnoreExtensions</p>
-<p>|&lt;Dictionary of extensions>|List of extensions to ignore changes on; for example: gif, jpeg, mpg. This list will be merged with any user preferences unless the policy is set to Disable.</p>
-<p><strong>Note:</strong> Setting this option requires a reboot.</p>
-<p>|
-|Root/Policies</p>
-<p>|ScanIgnoreExtensions Policy</p>
-<p>|0 - Enable Preference (default)</p>
-<p>1 - Disable Preference</p>
-<p>|Setting the policy to disable will prevent users from adding file extensions to the ignore list.</p>
-<p>|
-|Root/Policies</p>
-<p>|DarkDeployment</p>
-<p>|0 - Disable Features (default)</p>
-<p>1 - Enable Features</p>
-<p>|Dark Deployment are features that are beta ready.</p>
-<p>|
-|Root/Policies</p>
-<p>|DarkDeployment Policy</p>
-<p>|String</p>
-<p>Default - null (not in registry)</p>
-<p>0 = user can change the DarkDeployment setting (default)</p>
-<p>1= user cannot change the DarkDeployment setting</p>
-<p>|Controls whether users can change the DarkDeployment setting in the General Preferences panel.</p>
-<p>|
-|Root/Policies</p>
-<p>|DisableConnectCloud</p>
-<p>|0 - Show (Default)</p>
-<p>1 - Hide</p>
-<p>|Controls whether users see the <strong>Connect to Cloud</strong> option in the Connections menu.</p>
-<p>|
-|Root</p>
-<p>|DebugMode</p>
-<p>|1 - Report any Error Message (default)</p>
-<p>2 - Report any Warning or Error message</p>
-<p>3 - Report any Debug, Warning, or Error message</p>
-<p>|Setting this policy will enable the application to log different levels of messages</p>
-<p>|
-|Root</p>
-<p>|LogEnabled</p>
-<p>|0- Logs are not saved (default)</p>
-<p>1 - Write logs to log file</p>
-<p>|Setting this policy will enable the application to create a physical log that is located in: /Users/{USERNAME}/Library/Application Support/com.ibm.AutoSyncMonitor/Logs</p>
-<p><strong>Note:</strong> Log files are kept for one week, then the oldest is automatically removed each day as a new log file is created.</p>
-<p>|
-|Root/Policies</p>
-<p>|FailInvalidCerts</p>
-<p>|String</p>
-<p>0 – allow untrusted certificates (default)</p>
-<p>1 – block untrusted certificates</p>
-<p>|When FailInvalidCert is set to 0, the user is warned that the certificate is invalid or incorrect but user can choose to accept the certificate. When FailInvalidCert is set to 1, it will block untrusted certificates. An error message informs users that the certificate is invalid or incorrect.</p>
-<p>|
-|Root/Policies</p>
-<p>|EndpointFiles|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /files</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointFile=/files</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Root/Policies</p>
-<p>|EndpointProfiles|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /profiles</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointProfiles=/profiles</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Root/Policies</p>
-<p>|EndpointPush|String</p>
-<p>Default – null (not in registry)\</p>
-<p>Endpoint override. For example, /push</p>
-<p>|Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form:</p>
-<p><code>EndpointPush=/push</code></p>
-<p>where the destination is indicated with a leading slash (/) but no trailing slash.</p>
-<p>|
-|Root/Policies</p>
-<p>|DownloadUnscannedFiles|String</p>
-<p>Default – null (not in registry)</p>
-<p>0 = unscanned files are not downloaded by default. User is prompted via message or sync issue.</p>
-<p>1 = unscanned files are downloaded by default.</p>
-<p><strong>Warning:</strong> This behavior is not recommended as the files may not be safe</p>
-<p>|Allows override of the download behavior for files that have not yet been scanned for viruses on the server.</p>
-<p><strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</p>
-<p>|</p>
-<p><strong>Parent topic:</strong><a href="msdesktop_mac_over.html">HCL Connections for Mac</a></p>
+<table>
+<thead>
+<tr>
+<th>Key/SubKey</th>
+<th>Name</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Root/Policies</td>
+<td>Default Auth Type</td>
+<td><ul><li>0 - Basic Authentication (Default)</li><li>1 - Custom</li></ul></td>
+<td>Controls the default authentication type in the <strong>Add Account</strong> dialog.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Default Auth Type Policy</td>
+<td><ul><li>0 - Enable Authentication dropdown (default)</li><li>1 - Disable Authentication dropdown</li></ul></td>
+<td>Setting the policy to disable will prevent users from selecting and changing the authentication type in the <strong>Add Account</strong> dialog.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Default Auth Ext</td>
+<td>Bundle ID</td>
+<td>When Default Auth Type is set to Custom this setting controls which custom authentication module will display by default. Supported bundle IDs include: Basic - basic.authexct, Smart Cloud - smartcloud.authext, TAM - tam.authext, SiteMinder - siteminder.authext, IBM Connect Cloud - ibmsc.authext, Federated - federatedcloud.authext, Web Forms Authentication - html.authtext</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Sharing Intent</td>
+<td>String, Default 0 (v24.04 or later), 1 (v23.03 or earlier)<ul><li>0 - Do not normally allow outside access for new content, but ask me about new content added to a folder permitting outside access (Default)</li><li>1 - Allow all new content to be shared with people outside this organization, except for folders added to a folder that denies outside access</li><li>2 - Only allow outside access to new content if created in a folder permitting outside access.</li></ul></td>
+<td>This setting sets the default value for the sharing intent setting on new file and new folder dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Sharing Intent Policy</td>
+<td>String<ul><li>0 = user can change the sharing intent setting (Default)</li><li>1 = user cannot change the sharing intent setting</li></ul></td>
+<td>This setting controls whether the user can change the default value for the sharing intent setting on new file and new folder dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Encryption</td>
+<td>String<ul><li>0 = Encrypt option is not checked (Default)</li><li>1 = Encrypt option is checked</li></ul></td>
+<td>This setting sets the default value for the Encryption setting on new file dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Encryption Policy</td>
+<td>String<ul><li>0 = user can change the Encryption setting (Default)</li><li>1 = user cannot change the Encryption setting</li></ul></td>
+<td>This setting controls whether the user can change the default value for the Encryption setting on new file dialogs and <strong>Add New Account Panel for Cloud Account</strong> dialog. If the policy is set, the user cannot change the setting.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Help URL</td>
+<td>http://www-01.ibm.com/support/knowledgecenter/SSYGQH_5.0.0/connectors/admin/msdesktop_mac_over.dita (Default) <strong>Note:</strong> "http://" or "https://" is required as part of the url</td>
+<td>The URL for help for the product.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DefaultConnectURL</td>
+<td>String Default - null (not in registry)</td>
+<td>The URL that shows by default in the dd New Account dialog for a new server.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DefaultConnectName</td>
+<td>String Default - null</td>
+<td>The name that will show by default in the dd New Account dialog for a new server</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>Disable Public Sharing</td>
+<td>String<ul><li>0 = public sharing enabled, will allow sharing with Everyone (public) or Everyone in Organization (for smartcloud) where appropriate in sharing dialogs</li><li>1 = groups disabled, will disable sharing with Everyone (public) or Everyone in Organization (for smartcloud) where appropriate in sharing dialogs (default)</li></ul></td>
+<td>This setting disables the ability for users to share with Everyone (the Public) for Connections, or with Everyone in Organization for Connections Cloud. There is no 'Disable Public Sharing Policy.'</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>ScanIgnoreExtensions</td>
+<td><Dictionary of extensions></td>
+<td>List of extensions to ignore changes on; for example: gif, jpeg, mpg. This list will be merged with any user preferences unless the policy is set to Disable. <strong>Note:</strong> Setting this option requires a reboot.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>ScanIgnoreExtensions Policy</td>
+<td><ul><li>0 - Enable Preference (default)</li><li>1 - Disable Preference</li></ul></td>
+<td>Setting the policy to disable will prevent users from adding file extensions to the ignore list.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DarkDeployment</td>
+<td><ul><li>0 - Disable Features (default)</li><li>1 - Enable Features</li></ul></td>
+<td>Dark Deployment are features that are beta ready.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DarkDeployment Policy</td>
+<td>String, Default = null (not in registry)<ul><li>0 - user can change the DarkDeployment setting (default)</li><li>1 - user cannot change the DarkDeployment setting</li></ul></td>
+<td>Controls whether users can change the DarkDeployment setting in the General Preferences panel.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DisableConnectCloud</td>
+<td><ul><li>0 - Show (Default)</li><li>1 - Hide</li></ul></td>
+<td>Controls whether users see the <strong>Connect to Cloud</strong> option in the Connections menu.</td>
+</tr>
+<tr>
+<td>Root</td>
+<td>DebugMode</td>
+<td><ul><li>1 - Report any Error Message (default)</li><li>2 - Report any Warning or Error message</li><li>3 - Report any Debug, Warning, or Error message</li></ul></td>
+<td>Setting this policy will enable the application to log different levels of messages</td>
+</tr>
+<tr>
+<td>Root</td>
+<td>LogEnabled</td>
+<td><ul><li>0- Logs are not saved (default)</li><li>1 - Write logs to log file</li></ul></td>
+<td>Setting this policy will enable the application to create a physical log that is located in: /Users/{USERNAME}/Library/Application Support/com.ibm.AutoSyncMonitor/Logs <strong>Note:</strong> Log files are kept for one week, then the oldest is automatically removed each day as a new log file is created.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>FailInvalidCerts</td>
+<td>String<ul><li>0 – allow untrusted certificates (default)</li><li>1 – block untrusted certificates</li></ul></td>
+<td>When FailInvalidCert is set to 0, the user is warned that the certificate is invalid or incorrect but user can choose to accept the certificate. When FailInvalidCert is set to 1, it will block untrusted certificates. An error message informs users that the certificate is invalid or incorrect.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>EndpointFiles</td>
+<td>String, Default – null (not in registry) Endpoint override. For example, /files</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form: <code>EndpointFile=/files</code> where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>EndpointProfiles</td>
+<td>String, Default – null (not in registry) Endpoint override. For example, /profiles</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form: <code>EndpointProfiles=/profiles</code> where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>EndpointPush</td>
+<td>String, Default – null (not in registry) Endpoint override. For example, /push</td>
+<td>Allows override of Connections endpoint. Plug-ins have hardcoded values for 3 endpoints, which can be overridden using these settings. Overrides must take this form: <code>EndpointPush=/push</code> where the destination is indicated with a leading slash (/) but no trailing slash.</td>
+</tr>
+<tr>
+<td>Root/Policies</td>
+<td>DownloadUnscannedFiles</td>
+<td>String, Default – null (not in registry)<ul><li>0 = unscanned files are not downloaded by default. User is prompted via message or sync issue.</li><li>1 = unscanned files are downloaded by default. <strong>Warning:</strong> This behavior is not recommended as the files may not be safe</li></ul></td>
+<td>Allows override of the download behavior for files that have not yet been scanned for viruses on the server. <strong>Warning:</strong> Downloading unscanned files can allow unsafe files to be downloaded.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parent topic:</strong>  <a href="msdesktop_mac_over.html">HCL Connections for Mac</a></p>
 
 
 
