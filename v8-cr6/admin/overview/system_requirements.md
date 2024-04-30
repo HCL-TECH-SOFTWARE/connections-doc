@@ -204,7 +204,7 @@ Additional details:
 |Calico|3.25|8.0 CR2|Supported Configuration|
 |HAProxy|2.6.6|8.0 CR2|Supported Configuration|
 |Helm|3.11.3|8.0 CR3|Supported Configuration|
-|MongoDB|5.0.21 <br> 5.0.14 <br> 3.x|8.0 CR6 <br> 8.0 CR2 <br> N/A|Supported Configuration <br> Supported Configuration <br> **Unsupported Configuration**|
+|MongoDB|5.0.25 <br> 5.0.14 <br> 3.x|8.0 CR6 <br> 8.0 CR2 <br> N/A|Supported Configuration <br> Supported Configuration <br> **Unsupported Configuration**|
 |NGINX|1.24|8.0 CR2|Supported Configuration|
 |OpenSearch|2.12.0 <br> 2.9.0 <br> 2.7.0 <br> 1.3.9|8.0 CR6 <br> N/A <br> 8.0 CR4 <br> 8.0 CR2|Supported Configuration <br> **Unsupported Configuration** <br> Supported Configuration <br> Supported Configuration|
 
@@ -215,7 +215,7 @@ Additional details:
 |Amazon EKS|1.28.3 <br> 1.24|8.0 CR5 <br> 8.0 CR2|Supported Configuration <br> Supported Configuration|
 |Containerd|1.6.26 <br> 1.6.24 <br> 1.6.21 <br> 1.6.20|8.0 CR6 <br> 8.0 CR5 <br> 8.0 CR4 <br> 8.0 CR3|Supported Configuration <br> Supported Configuration <br> Supported Configuration <br> Supported Configuration|
 |Kubernetes|1.29 <br> 1.28 <br> 1.27|8.0 CR6 <br> 8.0 CR5 <br> 8.0 CR3|Supported Configuration <br> Supported Configuration <br> Supported Configuration|
-|OpenShift|5.15 <br> 4.11.25|8.0 CR6 <br> 8.0 CR2|Supported Configuration <br> Supported Configuration|
+|OpenShift|4.15 <br> 4.11.25|8.0 CR6 <br> 8.0 CR2|Supported Configuration <br> Supported Configuration|
 
 #### End of support for system requirements
 
