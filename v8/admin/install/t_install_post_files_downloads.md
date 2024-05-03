@@ -2,6 +2,8 @@
 
 Configure IBM® HTTP Server to manage file downloads from Activities, Files, Mobile, and Wikis. This approach is more efficient than using IBM WebSphere® Application Server to serve file downloads.
 
+## Before you begin
+
 Activities, Files, Mobile, and Wikis data must be stored on a shared file system, as described in the [Deployment options](../plan/c_planning_the_installation.md) topic. The Connections Content Manager uses an optional file cache on the file system for serving files through the HTTP server.
 
 All IBM HTTP Servers in the deployment must have READ access to the files, and all WebSphere Application Servers must have WRITE access. This task is required after installing Connections whether you configure an IBM HTTP Server as part of the install or not.
@@ -9,6 +11,8 @@ All IBM HTTP Servers in the deployment must have READ access to the files, and a
 **Note:** For shared and remote network file system requirements, review the footnotes for each supported operating system in the detailed [system requirements](https://support.hcltechsw.com/csm?sys_kb_id=2010cc82db30acd0a45ad9fcd3961971&id=kb_article_view).
 
 If you choose not to configure IBM HTTP Server to download files, you must configure WebSphere Application Server to transfer data synchronously instead of asynchronously. This configuration avoids errors that are related to using too much memory. For more information, see the [Excessive native memory use in IBM WebSphere Application Server](http://www.ibm.com/support/docview.wss?uid=swg21317658) technote.
+
+## About this task
 
 In a default deployment with IBM HTTP Server, file download requests are passed from IBM HTTP Server to WebSphere Application Server. WebSphere Application Server accesses the files in a data directory on the file system and returns them to IBM HTTP Server, which passes them to the browser.
 
@@ -24,6 +28,8 @@ If you use the add-on module, you must use an IBM HTTP Server address for the HC
 
 To configure IBM HTTP Server to download files, complete the following steps:
 
+## Procedure
+
 1.  Install the HCL Connections applications you plan to configure for file downloads if you have not already done so: Activities, Files, Mobile, or Wikis.
 
 2.  On the server where you installed HCL Connections \(on the deployment manager\), navigate to the [connections\_root](../plan/i_ovr_r_directory_conventions.md)/plugins/ihs/mod\_ibm\_local\_redirect/platform directory to find the module file \(mod\_ibm\_local\_redirect.so\). On supported operating systems, search the following directories:
@@ -34,15 +40,15 @@ To configure IBM HTTP Server to download files, complete the following steps:
     -   /linuxs390\_x64-ap22
     -   /linux\_amd64-ap22
     -   /win\_ia32-ap22
+    
     For example, on Linux systems, go to the following directory:
 
     ```
     /IBM/Connections/plugins/ihs/mod_ibm_local_redirect/linux_ia32-ap22/mod_ibm_local_redirect.so
     ```
 
-    **Notes:**
+    **Note:** These directories are valid whether you installed IBM HTTP Server from the 32-bit or 64-bit supplemental package, because the IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.
 
-    -   These directories are valid whether you installed IBM HTTP Server from the 32-bit or 64-bit supplemental package, because the IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.
 3.  Copy the module to the appropriate directory on the system that hosts IBM HTTP Server. By default, modules are stored in the [ibm\_http\_server\_root](../plan/i_ovr_r_directory_conventions.md)/modules directory.
 
 4.  Open the `httpd.conf` file \(in the [ibm\_http\_server\_root](../plan/i_ovr_r_directory_conventions.md)/conf directory by default\) and add the following statements to load the `ibm_local_redirect_module`, and the `mod_env` environment variable module:
@@ -61,11 +67,15 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
     -   Linux: Give the IBM HTTP Server user READ and EXECUTE access to the data directory root.
     -   Microsoft Windows: Give the IBM HTTP Server user READ access to the data directory root. For optimal security, do not grant WRITE access.
+    
     **Notes:**
 
     -   You can find the [data\_directory\_root](../plan/i_ovr_r_directory_conventions.md) path by searching for "storage rootDirectory" in the `files-config.xml` or `wikis-config.xml` file. This attribute contains either the path itself, or a WebSphere Application Server variable whose value is the path. For information about opening the `files-config.xml` or `wikis-config.xml` files, see the *Changing configuration property values* topic. If the attribute contains a variable, for example, if the value is `${FILES_CONTENT_DIR}`, examine the FILES\_CONTENT\_DIR variable in the WebSphere Application Server console to find the path. For more information about WebSphere variables, see the *Changing WebSphere Application Server environment variables* topic.
+    
     -   If the Connections Mobile service is installed, you must also give IBM HTTP Server access to the FileDiff StoragePath. You can find the FileDiff StoragePath attribute in the FileDiff section of the mobile-config.xmlfile. For information about editing the mobile-config.xml file, see the *Changing configuration property values* topic. This attribute contains either the path itself, or a WebSphere variable whose value is the path. For example, if the value of the variable is $\{MOBILE\_CONTENT\_DIR\}, examine the MOBILE\_CONTENT\_DIR variable in the WebSphere Application Server console to find the path. For more information about WebSphere variables, see the *Changing WebSphere Application Server environment variables* topic.
+    
     -   In some situations, granting access at the data directory root might not work for you. For example, where the value of FILES\_CONTENT\_DIR is \\\\server\\Shared\\files\\upload, giving READ access to the user is not useful because they do not have any rights to the share. Instead, give the user Read access at the share point of \\\\server\\Shared.
+    
     -   You must give the HTTP server the appropriate level of access to each content store root defined in the oa-config.xml file. The content store roots are defined in the root.directory property of each `<store>` element.
 
         For example:
@@ -111,11 +121,15 @@ To configure IBM HTTP Server to download files, complete the following steps:
             ```
 
         -   You must create the directory that is used in this step.
-    **Note:**
+    
+    **Notes:**
 
     -   Do not use the application context root \(/connections/filediff, /dm, /files, /mobile, or /wikis\) as part of the alias. You can use any other value. For example, use /files\_content, but not /files/content. The application context root is the path part of the application URL. For example the application context root of a Files application with the URL www.my.example.com/files is /files. You can see the value in the `files.href.prefix` property in the `LotusConnections-config.xml file`. See the topic *Changing common configuration property values* for information on opening the configuration file.
+
     -   Include quotation marks around the file path on Windows systems, and always use forward slashes, for example: "C:/Program Files/IBM/Connections/Data/Files"
+
     -   The example assumes that the HTTP server is on the same system as HCL Connections. If the HTTP server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as: `alias /files_content "//server/sharename/Files"`.
+
 7.  To make the alias more secure, add the following lines to the `httpd.conf` file, adding them after the lines that you added in Step 7:
 
     ```
@@ -157,8 +171,11 @@ To configure IBM HTTP Server to download files, complete the following steps:
     **Notes:**
 
     -   This definition secures the data by allowing requests where REDIRECT\_FILES\_CONTENT or REDIRECT\_MOBILE\_CONTENT or REDIRECT\_WIKIS\_CONTENT only is specified. Use any environment variable that you want, provided it is not already in the IBM HTTP Server environment.
+
     -   The example assumes that IBM HTTP Server is on the same system as HCL Connections. If IBM HTTP Server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as the following example: : `<Directory "//server/sharename/Files">`
+
     -   For Activities, a separate Directory element must be defined for each content store root.
+
 8.  To enable the modules for Activities, Files, Mobile, and Wikis, add the following lines to the httpd.conf file, adding them after the lines that you added in Step 8:
 
     ```
@@ -206,13 +223,21 @@ To configure IBM HTTP Server to download files, complete the following steps:
     **Notes:**
 
     -   The application\_context\_root value is the last part of the application URL. For example, the application context root of a Files application with the URL `www.my.example.com/files` is /files. This root is /files, /wikis, or /dm by default, but can be changed during post-installation steps. You can see the value in the `files.href.prefix` property in the LotusConnections-config.xml file. See the topic *Changing common configuration property values* for information on opening the configuration file.
+
     -   For mobile, the application\_context\_root is the FileDiff context root; by default, this root is /connections/filediff.
+
     -   The location for /connections/filediff must include the X-Content-Length header.
+
     -   Specifying `IBMLocalRedirectKeepHeaders` instructs the plug-in to keep the specified headers from the application server, instead of recomputing them. This specification is critical because the applications set such directives as the content-type and content-disposition that the IBM HTTP Server would not know about.
+
     -   If your environment requires more headers \(for example for a proxy cache\), you can add them to the comma-delimited `IBMLocalRedirectKeepHeaders` list. This addition ensures that the module retains them during redirection.
+
     -   Header names must be comma-delimited with no space before or after commas. Also, all header names must be on one line regardless of how many there are.
+
     -   The SetEnv value sets the token that the data directory requires to be accessible. It must match the value after REDIRECT\_ that you set in `Allow from env=` in Step 8. For example, if you set REDIRECT\_FILES\_CONTENT in Step 7, this value must be SetEnv FILES\_CONTENT true.
+
     -   You can think of this setting as a lock and key mechanism: only requests that go through the Files, Library, Mobile, or Wikis applications get a key, and the applications ensure that only authorized users can unlock particular files.
+
 9.  Test that IBM HTTP Server is configured properly and securely:
 
     1.  Restart IBM HTTP Server. Make sure that it loads properly and there are no log errors about loading modules or configuration. If there are problems, make sure that the load module and configuration directives do not contain typographical errors.
@@ -232,19 +257,21 @@ To configure IBM HTTP Server to download files, complete the following steps:
     **Notes:**
 
     -   The alias must have a forward slash in front of it.
+
     -   The modBMLocalRedirect element is in the FileDiff section of the mobile-config.xml file.
+
     -   For Activities, you must add separate `<download>` elements to each `<store>` element in `oa-config.xml`. Each `<download>` element references an Alias defined in Step 7.
 
         For example:
 
         ```
         <store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore">
-              <id>filesystem</id>
-              <property name="use.historic">false</property>
-              <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-              **<download\>
+            <id>filesystem</id>
+            <property name="use.historic">false</property>
+            <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
+            **<download\>
                     <modIBMLocalRedirect enabled="true" hrefPathPrefix="/activities\_content" /\>
-              </download\>**
+            </download\>**
         </store>
         ```
 
@@ -310,16 +337,15 @@ To configure IBM HTTP Server to download files, complete the following steps:
 
         If you do not see extended descriptions and if downloaded files have 0 length, then the configuration was not completed correctly.
 
+## What to do next
 
 -   If you get a permission denied error when you try to download a file, IBM HTTP Server might not have access to the content. You can temporarily disable security on the directory, and ensure you can access it directly first, then re-enable security. You can determine whether WebSphere Application Server or IBM HTTP Server is encountering an issue by the error page that is displayed, and by the path. If IBM HTTP Server is having a problem with the module that started, the path includes `/<alias>`.
+
 -   If you get log errors about loading the module, make sure that it is only loaded once. Also, check that you selected the correct binary, and that you are using a supported operating system.
+
 -   If it works for HTTP but not HTTPS \(or vice versa\), make sure that the configuration lines are in a global context or in each virtual host, depending on your setup.
 
-**Parent topic:**[Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
-
-**Previous topic:**[Allow Upload To Files Application](../install/t_allow_uploads_to_files.md)
-
-**Next topic:**[Configuring file uploads through IBM HTTP Server](../install/t_install_post_files_uploads.md)
+**Parent topic:** [Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
 
 **Related information**  
 
