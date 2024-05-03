@@ -4502,9 +4502,63 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuring file downloads through IBM® HTTP erver
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_install_post_files_downloads.html" class="md-nav__link md-nav__link--active">
         Configuring file downloads through IBM® HTTP erver
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-task" class="md-nav__link">
+    About this task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-next" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -34538,6 +34592,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-task" class="md-nav__link">
+    About this task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-do-next" class="md-nav__link">
+    What to do next
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -34558,10 +34648,12 @@
 
 <h1 class="task" id="configuringforlarge-scalefilesdownloads">Configuring file downloads through IBM HTTP Server</h1>
 <p>Configure IBM® HTTP Server to manage file downloads from Activities, Files, Mobile, and Wikis. This approach is more efficient than using IBM WebSphere® Application Server to serve file downloads.</p>
+<h2 id="before-you-begin">Before you begin</h2>
 <p>Activities, Files, Mobile, and Wikis data must be stored on a shared file system, as described in the <a href="../plan/c_planning_the_installation.html">Deployment options</a> topic. The Connections Content Manager uses an optional file cache on the file system for serving files through the HTTP server.</p>
 <p>All IBM HTTP Servers in the deployment must have READ access to the files, and all WebSphere Application Servers must have WRITE access. This task is required after installing Connections whether you configure an IBM HTTP Server as part of the install or not.</p>
 <p><strong>Note:</strong> For shared and remote network file system requirements, review the footnotes for each supported operating system in the detailed <a href="https://support.hcltechsw.com/csm?sys_kb_id=2010cc82db30acd0a45ad9fcd3961971&amp;id=kb_article_view">system requirements</a>.</p>
 <p>If you choose not to configure IBM HTTP Server to download files, you must configure WebSphere Application Server to transfer data synchronously instead of asynchronously. This configuration avoids errors that are related to using too much memory. For more information, see the <a href="http://www.ibm.com/support/docview.wss?uid=swg21317658">Excessive native memory use in IBM WebSphere Application Server</a> technote.</p>
+<h2 id="about-this-task">About this task</h2>
 <p>In a default deployment with IBM HTTP Server, file download requests are passed from IBM HTTP Server to WebSphere Application Server. WebSphere Application Server accesses the files in a data directory on the file system and returns them to IBM HTTP Server, which passes them to the browser.</p>
 <p>When large numbers of users are downloading files, this deployment is inefficient, partly because WebSphere Application Server has a limited thread pool that is tuned for short-lived transactions. In addition, WebSphere Application Server is optimized for Java™ Platform, Enterprise Edition applications and not for file downloads. In this type of deployment, you might have to create a cluster to handle downloads, especially if you have slow transfer rates.</p>
 <p>Configuring IBM HTTP Server to download files makes downloading much more efficient, because IBM HTTP Server is designed specifically for serving files. This configuration leaves WebSphere Application Server to carry out tasks such as security checking and cache validation.</p>
@@ -34569,6 +34661,7 @@
 <p>This configuration requires making the Files, Mobile, and Wikis data directories available to IBM HTTP Server by using an alias. (Optionally, you can also make available the content cache directory from Connections Content Manager.) This configuration creates a security concern, so you must configure the access control at the IBM HTTP Server level. After you configure security, access to the data through IBM HTTP Server is denied unless a specific variable is set. Requests to the applications on WebSphere Application Server are then configured to set the variable. In other words, only requests that pass through WebSphere Application Server can access the data directory, with WebSphere Application Server acting as the authorizer.</p>
 <p>If you use the add-on module, you must use an IBM HTTP Server address for the HCL Connections inter-service URL. For information on setting an inter-service URL, see the <a href="../troubleshoot/t_troubleshooting_server_communication.html">Troubleshooting inter-server communication</a> topic.</p>
 <p>To configure IBM HTTP Server to download files, complete the following steps:</p>
+<h2 id="procedure">Procedure</h2>
 <ol>
 <li>
 <p>Install the HCL Connections applications you plan to configure for file downloads if you have not already done so: Activities, Files, Mobile, or Wikis.</p>
@@ -34581,16 +34674,15 @@
 <li>/linux_ppc64-ap22</li>
 <li>/linuxs390_x64-ap22</li>
 <li>/linux_amd64-ap22</li>
-<li>/win_ia32-ap22
-For example, on Linux systems, go to the following directory:</li>
+<li>/win_ia32-ap22</li>
 </ul>
+<p>For example, on Linux systems, go to the following directory:</p>
 <div class="highlight"><pre><span></span><code>/IBM/Connections/plugins/ihs/mod_ibm_local_redirect/linux_ia32-ap22/mod_ibm_local_redirect.so
 </code></pre></div>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>These directories are valid whether you installed IBM HTTP Server from the 32-bit or 64-bit supplemental package, because the IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.</li>
-<li>Copy the module to the appropriate directory on the system that hosts IBM HTTP Server. By default, modules are stored in the <a href="../plan/i_ovr_r_directory_conventions.html">ibm_http_server_root</a>/modules directory.</li>
-</ul>
+<p><strong>Note:</strong> These directories are valid whether you installed IBM HTTP Server from the 32-bit or 64-bit supplemental package, because the IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.</p>
+</li>
+<li>
+<p>Copy the module to the appropriate directory on the system that hosts IBM HTTP Server. By default, modules are stored in the <a href="../plan/i_ovr_r_directory_conventions.html">ibm_http_server_root</a>/modules directory.</p>
 </li>
 <li>
 <p>Open the <code>httpd.conf</code> file (in the <a href="../plan/i_ovr_r_directory_conventions.html">ibm_http_server_root</a>/conf directory by default) and add the following statements to load the <code>ibm_local_redirect_module</code>, and the <code>mod_env</code> environment variable module:</p>
@@ -34604,15 +34696,19 @@ For example, on Linux systems, go to the following directory:</li>
 <p>Grant access to the data directory root:</p>
 <ul>
 <li>Linux: Give the IBM HTTP Server user READ and EXECUTE access to the data directory root.</li>
-<li>
-<p>Microsoft Windows: Give the IBM HTTP Server user READ access to the data directory root. For optimal security, do not grant WRITE access.
-<strong>Notes:</strong></p>
-</li>
+<li>Microsoft Windows: Give the IBM HTTP Server user READ access to the data directory root. For optimal security, do not grant WRITE access.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
 <li>
 <p>You can find the <a href="../plan/i_ovr_r_directory_conventions.html">data_directory_root</a> path by searching for "storage rootDirectory" in the <code>files-config.xml</code> or <code>wikis-config.xml</code> file. This attribute contains either the path itself, or a WebSphere Application Server variable whose value is the path. For information about opening the <code>files-config.xml</code> or <code>wikis-config.xml</code> files, see the <em>Changing configuration property values</em> topic. If the attribute contains a variable, for example, if the value is <code>${FILES_CONTENT_DIR}</code>, examine the FILES_CONTENT_DIR variable in the WebSphere Application Server console to find the path. For more information about WebSphere variables, see the <em>Changing WebSphere Application Server environment variables</em> topic.</p>
 </li>
-<li>If the Connections Mobile service is installed, you must also give IBM HTTP Server access to the FileDiff StoragePath. You can find the FileDiff StoragePath attribute in the FileDiff section of the mobile-config.xmlfile. For information about editing the mobile-config.xml file, see the <em>Changing configuration property values</em> topic. This attribute contains either the path itself, or a WebSphere variable whose value is the path. For example, if the value of the variable is ${MOBILE_CONTENT_DIR}, examine the MOBILE_CONTENT_DIR variable in the WebSphere Application Server console to find the path. For more information about WebSphere variables, see the <em>Changing WebSphere Application Server environment variables</em> topic.</li>
-<li>In some situations, granting access at the data directory root might not work for you. For example, where the value of FILES_CONTENT_DIR is \\server\Shared\files\upload, giving READ access to the user is not useful because they do not have any rights to the share. Instead, give the user Read access at the share point of \\server\Shared.</li>
+<li>
+<p>If the Connections Mobile service is installed, you must also give IBM HTTP Server access to the FileDiff StoragePath. You can find the FileDiff StoragePath attribute in the FileDiff section of the mobile-config.xmlfile. For information about editing the mobile-config.xml file, see the <em>Changing configuration property values</em> topic. This attribute contains either the path itself, or a WebSphere variable whose value is the path. For example, if the value of the variable is ${MOBILE_CONTENT_DIR}, examine the MOBILE_CONTENT_DIR variable in the WebSphere Application Server console to find the path. For more information about WebSphere variables, see the <em>Changing WebSphere Application Server environment variables</em> topic.</p>
+</li>
+<li>
+<p>In some situations, granting access at the data directory root might not work for you. For example, where the value of FILES_CONTENT_DIR is \\server\Shared\files\upload, giving READ access to the user is not useful because they do not have any rights to the share. Instead, give the user Read access at the share point of \\server\Shared.</p>
+</li>
 <li>
 <p>You must give the HTTP server the appropriate level of access to each content store root defined in the oa-config.xml file. The content store roots are defined in the root.directory property of each <code>&lt;store&gt;</code> element.</p>
 <p>For example:</p>
@@ -34648,18 +34744,26 @@ For example, on Linux systems, go to the following directory:</li>
 </code></pre></div>
 </li>
 <li>
-<p>You must create the directory that is used in this step.
-    <strong>Note:</strong></p>
+<p>You must create the directory that is used in this step.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>
+<p>Do not use the application context root (/connections/filediff, /dm, /files, /mobile, or /wikis) as part of the alias. You can use any other value. For example, use /files_content, but not /files/content. The application context root is the path part of the application URL. For example the application context root of a Files application with the URL www.my.example.com/files is /files. You can see the value in the <code>files.href.prefix</code> property in the <code>LotusConnections-config.xml file</code>. See the topic <em>Changing common configuration property values</em> for information on opening the configuration file.</p>
+</li>
+<li>
+<p>Include quotation marks around the file path on Windows systems, and always use forward slashes, for example: "C:/Program Files/IBM/Connections/Data/Files"</p>
+</li>
+<li>
+<p>The example assumes that the HTTP server is on the same system as HCL Connections. If the HTTP server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as: <code>alias /files_content "//server/sharename/Files"</code>.</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Do not use the application context root (/connections/filediff, /dm, /files, /mobile, or /wikis) as part of the alias. You can use any other value. For example, use /files_content, but not /files/content. The application context root is the path part of the application URL. For example the application context root of a Files application with the URL www.my.example.com/files is /files. You can see the value in the <code>files.href.prefix</code> property in the <code>LotusConnections-config.xml file</code>. See the topic <em>Changing common configuration property values</em> for information on opening the configuration file.</p>
-</li>
-<li>Include quotation marks around the file path on Windows systems, and always use forward slashes, for example: "C:/Program Files/IBM/Connections/Data/Files"</li>
-<li>The example assumes that the HTTP server is on the same system as HCL Connections. If the HTTP server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as: <code>alias /files_content "//server/sharename/Files"</code>.</li>
-<li>To make the alias more secure, add the following lines to the <code>httpd.conf</code> file, adding them after the lines that you added in Step 7:</li>
-</ol>
+<p>To make the alias more secure, add the following lines to the <code>httpd.conf</code> file, adding them after the lines that you added in Step 7:</p>
 <div class="highlight"><pre><span></span><code>&lt;Directory &quot;[data\_directory\_root](../plan/i_ovr_r_directory_conventions.md)&quot;&gt;
  Order Deny,Allow
  Deny from all
@@ -34692,11 +34796,19 @@ For example, on Linux systems, go to the following directory:</li>
 </code></pre></div>
 <p><strong>Notes:</strong></p>
 <ul>
-<li>This definition secures the data by allowing requests where REDIRECT_FILES_CONTENT or REDIRECT_MOBILE_CONTENT or REDIRECT_WIKIS_CONTENT only is specified. Use any environment variable that you want, provided it is not already in the IBM HTTP Server environment.</li>
-<li>The example assumes that IBM HTTP Server is on the same system as HCL Connections. If IBM HTTP Server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as the following example: : <code>&lt;Directory "//server/sharename/Files"&gt;</code></li>
-<li>For Activities, a separate Directory element must be defined for each content store root.</li>
-<li>To enable the modules for Activities, Files, Mobile, and Wikis, add the following lines to the httpd.conf file, adding them after the lines that you added in Step 8:</li>
+<li>
+<p>This definition secures the data by allowing requests where REDIRECT_FILES_CONTENT or REDIRECT_MOBILE_CONTENT or REDIRECT_WIKIS_CONTENT only is specified. Use any environment variable that you want, provided it is not already in the IBM HTTP Server environment.</p>
+</li>
+<li>
+<p>The example assumes that IBM HTTP Server is on the same system as HCL Connections. If IBM HTTP Server is on a different system, specify the data directory by using the network share path appropriate to your environment. For example, use a UNC network share format such as the following example: : <code>&lt;Directory "//server/sharename/Files"&gt;</code></p>
+</li>
+<li>
+<p>For Activities, a separate Directory element must be defined for each content store root.</p>
+</li>
 </ul>
+</li>
+<li>
+<p>To enable the modules for Activities, Files, Mobile, and Wikis, add the following lines to the httpd.conf file, adding them after the lines that you added in Step 8:</p>
 <div class="highlight"><pre><span></span><code>&lt;Location application\_context\_root&gt;
  IBMLocalRedirect On
  IBMLocalRedirectKeepHeaders X-LConn-Auth,Cache-Control,Content-Type,Content-Disposition,
@@ -34735,17 +34847,35 @@ Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
 </code></pre></div>
 <p><strong>Notes:</strong></p>
 <ul>
-<li>The application_context_root value is the last part of the application URL. For example, the application context root of a Files application with the URL <code>www.my.example.com/files</code> is /files. This root is /files, /wikis, or /dm by default, but can be changed during post-installation steps. You can see the value in the <code>files.href.prefix</code> property in the LotusConnections-config.xml file. See the topic <em>Changing common configuration property values</em> for information on opening the configuration file.</li>
-<li>For mobile, the application_context_root is the FileDiff context root; by default, this root is /connections/filediff.</li>
-<li>The location for /connections/filediff must include the X-Content-Length header.</li>
-<li>Specifying <code>IBMLocalRedirectKeepHeaders</code> instructs the plug-in to keep the specified headers from the application server, instead of recomputing them. This specification is critical because the applications set such directives as the content-type and content-disposition that the IBM HTTP Server would not know about.</li>
-<li>If your environment requires more headers (for example for a proxy cache), you can add them to the comma-delimited <code>IBMLocalRedirectKeepHeaders</code> list. This addition ensures that the module retains them during redirection.</li>
-<li>Header names must be comma-delimited with no space before or after commas. Also, all header names must be on one line regardless of how many there are.</li>
-<li>The SetEnv value sets the token that the data directory requires to be accessible. It must match the value after REDIRECT_ that you set in <code>Allow from env=</code> in Step 8. For example, if you set REDIRECT_FILES_CONTENT in Step 7, this value must be SetEnv FILES_CONTENT true.</li>
-<li>You can think of this setting as a lock and key mechanism: only requests that go through the Files, Library, Mobile, or Wikis applications get a key, and the applications ensure that only authorized users can unlock particular files.</li>
+<li>
+<p>The application_context_root value is the last part of the application URL. For example, the application context root of a Files application with the URL <code>www.my.example.com/files</code> is /files. This root is /files, /wikis, or /dm by default, but can be changed during post-installation steps. You can see the value in the <code>files.href.prefix</code> property in the LotusConnections-config.xml file. See the topic <em>Changing common configuration property values</em> for information on opening the configuration file.</p>
+</li>
+<li>
+<p>For mobile, the application_context_root is the FileDiff context root; by default, this root is /connections/filediff.</p>
+</li>
+<li>
+<p>The location for /connections/filediff must include the X-Content-Length header.</p>
+</li>
+<li>
+<p>Specifying <code>IBMLocalRedirectKeepHeaders</code> instructs the plug-in to keep the specified headers from the application server, instead of recomputing them. This specification is critical because the applications set such directives as the content-type and content-disposition that the IBM HTTP Server would not know about.</p>
+</li>
+<li>
+<p>If your environment requires more headers (for example for a proxy cache), you can add them to the comma-delimited <code>IBMLocalRedirectKeepHeaders</code> list. This addition ensures that the module retains them during redirection.</p>
+</li>
+<li>
+<p>Header names must be comma-delimited with no space before or after commas. Also, all header names must be on one line regardless of how many there are.</p>
+</li>
+<li>
+<p>The SetEnv value sets the token that the data directory requires to be accessible. It must match the value after REDIRECT_ that you set in <code>Allow from env=</code> in Step 8. For example, if you set REDIRECT_FILES_CONTENT in Step 7, this value must be SetEnv FILES_CONTENT true.</p>
+</li>
+<li>
+<p>You can think of this setting as a lock and key mechanism: only requests that go through the Files, Library, Mobile, or Wikis applications get a key, and the applications ensure that only authorized users can unlock particular files.</p>
+</li>
+</ul>
+</li>
 <li>
 <p>Test that IBM HTTP Server is configured properly and securely:</p>
-</li>
+<ol>
 <li>
 <p>Restart IBM HTTP Server. Make sure that it loads properly and there are no log errors about loading modules or configuration. If there are problems, make sure that the load module and configuration directives do not contain typographical errors.</p>
 </li>
@@ -34755,7 +34885,7 @@ Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
 <li>
 <p>Access the application and download a file to make sure that it functions. The module is not yet enabled.</p>
 </li>
-</ul>
+</ol>
 </li>
 <li>
 <p>Check out the <code>files-config.xml</code>, mobile-config.xml, <code>oa-config.xml</code>, or <code>wikis-config.xml</code> file by using the steps in the topic <em>Editing configuration files</em>, and specifying the following property attributes:</p>
@@ -34765,18 +34895,22 @@ Last-Modified,ETag,Content-Language,Set-Cookie,Title,X-UA-Compatible
 </code></pre></div>
 <p><strong>Notes:</strong></p>
 <ul>
-<li>The alias must have a forward slash in front of it.</li>
-<li>The modBMLocalRedirect element is in the FileDiff section of the mobile-config.xml file.</li>
+<li>
+<p>The alias must have a forward slash in front of it.</p>
+</li>
+<li>
+<p>The modBMLocalRedirect element is in the FileDiff section of the mobile-config.xml file.</p>
+</li>
 <li>
 <p>For Activities, you must add separate <code>&lt;download&gt;</code> elements to each <code>&lt;store&gt;</code> element in <code>oa-config.xml</code>. Each <code>&lt;download&gt;</code> element references an Alias defined in Step 7.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>&lt;store default=&quot;true&quot; class=&quot;com.ibm.openactivities.objectstore.filesystem.ContentStore&quot;&gt;
-      &lt;id&gt;filesystem&lt;/id&gt;
-      &lt;property name=&quot;use.historic&quot;&gt;false&lt;/property&gt;
-      &lt;property name=&quot;root.directory&quot;&gt;${ACTIVITIES_CONTENT_DIR}&lt;/property&gt;
-      **&lt;download\&gt;
+    &lt;id&gt;filesystem&lt;/id&gt;
+    &lt;property name=&quot;use.historic&quot;&gt;false&lt;/property&gt;
+    &lt;property name=&quot;root.directory&quot;&gt;${ACTIVITIES_CONTENT_DIR}&lt;/property&gt;
+    **&lt;download\&gt;
             &lt;modIBMLocalRedirect enabled=&quot;true&quot; hrefPathPrefix=&quot;/activities\_content&quot; /\&gt;
-      &lt;/download\&gt;**
+    &lt;/download\&gt;**
 &lt;/store&gt;
 </code></pre></div>
 </li>
@@ -34851,15 +34985,20 @@ Deny from all
 </li>
 </ol>
 </li>
+</ol>
+<h2 id="what-to-do-next">What to do next</h2>
+<ul>
 <li>
 <p>If you get a permission denied error when you try to download a file, IBM HTTP Server might not have access to the content. You can temporarily disable security on the directory, and ensure you can access it directly first, then re-enable security. You can determine whether WebSphere Application Server or IBM HTTP Server is encountering an issue by the error page that is displayed, and by the path. If IBM HTTP Server is having a problem with the module that started, the path includes <code>/&lt;alias&gt;</code>.</p>
 </li>
-<li>If you get log errors about loading the module, make sure that it is only loaded once. Also, check that you selected the correct binary, and that you are using a supported operating system.</li>
-<li>If it works for HTTP but not HTTPS (or vice versa), make sure that the configuration lines are in a global context or in each virtual host, depending on your setup.</li>
-</ol>
-<p><strong>Parent topic:</strong><a href="c_add_ihs_over.html">Configuring IBM HTTP Server</a></p>
-<p><strong>Previous topic:</strong><a href="t_allow_uploads_to_files.html">Allow Upload To Files Application</a></p>
-<p><strong>Next topic:</strong><a href="t_install_post_files_uploads.html">Configuring file uploads through IBM HTTP Server</a></p>
+<li>
+<p>If you get log errors about loading the module, make sure that it is only loaded once. Also, check that you selected the correct binary, and that you are using a supported operating system.</p>
+</li>
+<li>
+<p>If it works for HTTP but not HTTPS (or vice versa), make sure that the configuration lines are in a global context or in each virtual host, depending on your setup.</p>
+</li>
+</ul>
+<p><strong>Parent topic:</strong> <a href="c_add_ihs_over.html">Configuring IBM HTTP Server</a></p>
 <p><strong>Related information</strong>  </p>
 <p><a href="../admin/r_admin_files_config_properties2.html">Files configuration properties</a></p>
 <p><a href="../admin/r_admin_wikis_config_properties2.html">Wikis configuration properties</a></p>
