@@ -2,9 +2,13 @@
 
 Configure the IBM® HTTP Server to manage file uploads from Files. This approach is more efficient than using the IBM WebSphere® Application Server to receive files larger than 500 MB.
 
+## Before you begin
+
 All Files data must first be stored on a shared file system as described in [Deployment options](../plan/c_planning_the_installation.md). The IBM HTTP Servers in the deployment must also have READ and WRITE access to the files and folders, and the WebSphere Application Servers must have WRITE access.
 
 **Note:** For shared and remote network file system requirements, review the footnotes for each supported operating system in the detailed system requirements.
+
+## About this task
 
 The default deployment for the IBM HTTP Server passes file upload requests from the IBM HTTP Server to the WebSphere Application Server. The WebSphere Application Server then saves the files in a data directory on the file system. When too many users upload large files this deployment becomes inefficient because the WebSphere Application Server has a limited thread pool that is tuned for short-lived transactions. Configuring the IBM HTTP Server to upload large files allows the WebSphere Application Server to run tasks such as security checking and quota validation. During the upload of a large file, the WebSphere Application Server can serve other requests while the HTTP server is receiving file content.
 
@@ -12,7 +16,9 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
 **Note:** If you use the add-on module, you must use an IBM HTTP Server address for the HCL Connections inter-service URL. For information on setting an inter-service URL, see *Troubleshooting inter-server communication*.
 
-1.  Install the HCL Connections applications that you plan to configure for file uploads. These can be Activities or Files or both.
+## Procedure
+
+1.  Install the HCL Connections Files applications to configure it for file uploads. This can only be configured for Files.
 
 2.  On the server where HCL Connections is installed, go to the connections\_root/ihs/mod\_ibm\_upload/platform directory and locate the module file named **mod\_ibm\_upload.so**. Depending on your operating system, search for one of the following directories:
 
@@ -29,9 +35,7 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     The path for a Linux System for example, would look like the following: /opt/IBM/Connections/ihs/mod\_ibm\_local\_upload/ihs.linux.ia32/mod\_ibm\_upload.so
 
-    **Note:**
-
-    These directories are valid whether you installed the IBM HTTP Server from the 32-bit or 64-bit supplemental package. The IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.
+    **Note:** These directories are valid whether you installed the IBM HTTP Server from the 32-bit or 64-bit supplemental package. The IBM HTTP Server process is 32-bits in both cases and requires 32-bit modules.
 
 3.  Copy the module to the appropriate directory on the system that hosts the IBM HTTP Server. By default, modules are stored in the ibm\_http\_server\_root/modules directory.
 
@@ -48,66 +52,12 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     -   For Linux: Give the IBM HTTP Server user READ, WRITE, and EXECUTEaccess to the data directory root.
     -   For Microsoft Windows: Give the IBM HTTP Server user READ and WRITE access to the data directory root. For optimal security, do not grant WRITE access.
-    **Note:**
+    
+    **Note:** You can find the data\_directory\_root path by searching for storage rootDirectory in **files-config.xml**. This attribute contains either the path itself or a WebSphere Application Server variable whose value is the path. For example, if the value is `${FILES_CONTENT_DIR}`, then `FILES_CONTENT_DIR` is the path for the WebSphere Application Server console. Information about opening the **files-config.xml** can be found in *Changing configuration property values*. For more information about WebSphere variables, see *Changing WebSphere Application Server environment variables*.
 
-    You can find the data\_directory\_root path by searching for storage rootDirectory in **files-config.xml**. This attribute contains either the path itself or a WebSphere Application Server variable whose value is the path. For example, if the value is `${FILES_CONTENT_DIR}`, then `FILES_CONTENT_DIR` is the path for the WebSphere Application Server console. Information about opening the **files-config.xml** can be found in *Changing configuration property values*. For more information about WebSphere variables, see *Changing WebSphere Application Server environment variables*.
-
-    In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of `FILES_CONTENT_DIR` is \\\\server\\Shared\\files\\upload. In this case, the user has no rights to share and cannot be given READ access. You must instead give the user READ access at the share point of \\\\server\\Shared.
-
-    <!--You must give the HTTP server the appropriate level of access to each content store root defined in the **oa-config.xml** file. The content store roots are defined in the `root.directory` property of each `<store>` element. For example:
-
-    ```
-    <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-    ```-->
+        In some situations, granting access at the data directory root might not work for you. This failure might occur if the value of `FILES_CONTENT_DIR` is \\\\server\\Shared\\files\\upload. In this case, the user has no rights to share and cannot be given READ access. You must instead give the user READ access at the share point of \\\\server\\Shared.
 
 6.  On all virtual hosts in the same domain as Files that include both HTTP and HTTPS, configure the rewrite rules to match as follows:
-
-    <!--For Activities:
-
-    ```
-    <IfModule mod_rewrite.c>
-    RewriteEngine On
-    #RewriteLog logs/rewrite.log
-    #RewriteLogLevel 9
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/activitynode$ /ihs/activities/service/atom2/activitynode[PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/activity$ /ihs/activities/service/atom2/activity [PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/forms/activitynode$ /ihs/activities/service/atom2/forms/activitynode [PT,L]
-    
-    RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]
-    RewriteCond %{HTTP:X-IBM-UPLOAD-TOKEN} [0-9a-zA-Z-] [NC]
-    RewriteCond %{REQUEST_METHOD} !=GET [NC]
-    RewriteCond %{REQUEST_METHOD} !=OPTION [NC]
-    RewriteCond %{REQUEST_METHOD} !=HEAD [NC]
-    RewriteCond %{REQUEST_METHOD} !=DELETE [NC]
-    RewriteRule ^/activities/service/atom2/forms/activity$ /ihs/activities/service/atom2/forms/activity [PT,L]
-    
-    </IfModule>-->
-    ```
 
     For Files:
 
@@ -115,9 +65,9 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     <IfModule mod_rewrite.c>    
     RewriteEngine On    
     
-    # Uncomment to create log messages.    
-    # RewriteLog logs/rewrite.log    
-    # RewriteLogLevel 9    
+    #Uncomment to create log messages.    
+    #RewriteLog logs/rewrite.log    
+    #RewriteLogLevel 9    
     
     RewriteCond %{ENV:ENV-SKIP-IBM-UPLOAD-HANDLER} !=true [NC]    
     RewriteCond %{HTTP:X-IBM-UPLOAD-METHOD} phases [NC]    
@@ -225,18 +175,6 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
 7.  Configure the upload module as follows:
 
-    <!--For Activities:
-
-    ```
-    <Location /ihs/activities>
-    IBMUploadHandler On
-    SetHandler ibm_upload_handler
-    IBMUploadBaseStore "/opt/IBM/Connections/data/activities/content"
-    IBMUploadMethods POST,PUT
-    IBMUploadURLPrefix /ihs
-    </Location>
-    ```-->
-
     For Files:
 
     ```
@@ -250,34 +188,6 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
     ```
 
 8.  Configure the Files application to work with the upload module as follows:
-
-    <!--For Activities:
-
-    Add the `fileUploadPluginEnabled` property to the default store configuration in the **oa-config.xml** file to indicate whether the file upload plug-in is enabled in the environment. For example:
-
-    ```
-    <store default="true" class="com.ibm.openactivities.objectstore.filesystem.ContentStore">
-    <id>filestore</id>            
-    <property name="use.historic">false</property>
-    <property name="fileUploadPluginEnabled">true</property>            
-    <property name="root.directory">${ACTIVITIES_CONTENT_DIR}</property>
-    </store>
-    ```
-
-    Then, limit the old API to allow only smaller file uploads as follows:
-
-    Add the `formFileUploadSizeLimit` property to the object store configuration in the **oa-config.xml** file to specify the maximum file size that can be uploaded through the old file upload solution. For example:
-
-    ```
-    <objectStore>  
-    ...  
-    <sizeLimits>            
-    <limit mimeFilenameRegex=".*">2147483648</limit>        
-    </sizeLimits>        
-    <formFileUploadSizeLimit>31457280</formFileUploadSizeLimit>
-    <max-concurrent-downloads>10</max-concurrent-downloads> 
-    </objectStore>
-    ```-->
 
     For Files:
 
@@ -302,17 +212,14 @@ Installing an add-on module that directs the IBM HTTP Server to upload files is 
 
     **Note:** The upload module can be used only when WebSphere Application Server is not run as user root. Otherwise, file permissions prevent the application server and the IBM HTTP Server from exchanging files. For security reasons, do not run the application server as root, but if that is not an option, then large files still can be uploaded. If WebSphere Application Server is run as root, consider making the following change to the `maximumSizeInKb` property for thesimpleUploadAPI file:
 
-    ```
-    <api>   
-        <simpleUploadAPI maximumSizeInKb="2097152">
-        </simpleUploadAPI> 
-        </api>
-    ```
+        ```
+        <api>   
+            <simpleUploadAPI maximumSizeInKb="2097152">
+            </simpleUploadAPI> 
+            </api>
+        ```
 
 9.  Restart the HTTP server and the Files application.
 
 
-**Parent topic:**[Configuring IBM HTTP Server](../install/c_add_ihs_over.md)
-
-**Previous topic:**[Configuring file downloads through IBM HTTP Server](../install/t_install_post_files_downloads.md)
-
+**Parent topic:** [Configuring IBM HTTP Server](../install/c_add_ihs_over.md)

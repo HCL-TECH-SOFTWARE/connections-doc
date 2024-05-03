@@ -4,6 +4,9 @@ To leverage custom config extensions, enable the app registry service. You need 
 
 By default, Connections applications do not attempt to make requests to the app registry service if the app registry service has not been deployed as part of a Component Pack installation.
 
+!!! note
+    When adding new entries to the App Registry, it is important to ensure that no other entries with the same namespace are enabled or active within the system. This is to prevent conflicts, maintain system integrity, and ensure seamless functionality across all applications.
+
 ## Procedure
 
 To enable the app registry service:

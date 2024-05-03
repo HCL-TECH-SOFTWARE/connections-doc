@@ -2,6 +2,10 @@
 
 Review the steps that are required to install HCL Connections.
 
+!!! note
+
+    For HCL Connections 7.0 and above, the  Feature Foundation is not supported on AIX if the third party application does not support AIX.
+
 Installing HCL Connections in a production environment involves several procedures to deploy the different components of the environment.
 
 1.  Review the software and hardware requirements for the systems that hosts HCL Connections.
