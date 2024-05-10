@@ -35,7 +35,7 @@ The following tasks are required to enable all of the Microsoft Teams integratio
 
 1.  [Enable the app registry extensions for Microsoft Teams integration](t_ms_teams_enable_reg_ext.md)
 2.  [Enable Connections to use the app registry service](t_ms_teams_enable_conn_use_appreg.md)
-3.  [Updating WebSphere to support single sign-on with Connections for Microsoft Teams](t_ms_teams_update_websphere_for_sso.md)
+3.  [Configure SSO between Microsoft Teams and Connections](t_ms_teams_configure_sso.md)
 4.  [Configure an Azure app to support the Microsoft Teams app](t_ms_teams_config_azure_app.md)
 5.  Deploy the microservices and configure IBM HTTP Server for Teams. See the *Set up Microsoft Teams integration* section in [Sample steps to install or upgrade to Component Pack 7](../../admin/install/cp_install_services_tasks.md).
 6.  [Set up the Connections app for the Microsoft Teams client](t_ms_teams_set_up_conn_app_for_ms.md).

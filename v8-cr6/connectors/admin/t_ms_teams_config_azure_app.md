@@ -2,7 +2,7 @@
 
 This task is accomplished using the Developer Portal app within Microsoft Teams.
 
-## Before you begin: {#section_nrf_51g_vnb .section}
+## Before you begin {#section_nrf_51g_vnb .section}
 
 Make sure you've completed the steps in [Updating WebSphere to support single sign-on with Connections for Microsoft Teams](t_ms_teams_update_websphere_for_sso.md).
 
@@ -58,5 +58,6 @@ Make sure you've completed the steps in [Updating WebSphere to support single si
 14. Select the option to add an optional claim, and choose the **Access** token. From the list of claims, select email and then click **Add**.
 
 ## What to do next {#section_w2g_3bg_vnb .section}
+
 [Setting up the Connections app for the Microsoft Teams client](#t_ms_teams_set_up_conn_app_for_ms.task)
 
