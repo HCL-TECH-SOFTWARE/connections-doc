@@ -1984,7 +1984,10 @@ nav:
               - connectors/admin/c_ms_teams_integration_container.md
               - Enabling app registry extensions for Microsoft Teams integration: connectors/admin/t_ms_teams_enable_reg_ext.md
               - Enabling Connections to use the app registry service: connectors/admin/t_ms_teams_enable_conn_use_appreg.md
-              - Updating WebSphere to support single sign-on with Connections for Microsoft Teams: connectors/admin/t_ms_teams_update_websphere_for_sso.md
+              - Configuring single sign-on between Microsoft Teams and Connections:
+                - connectors/admin/t_ms_teams_configure_sso.md
+                - Updating WebSphere to support single sign-on with Connections for Microsoft Teams: connectors/admin/t_ms_teams_update_websphere_for_sso.md
+                - Configuring custom token URL single sign-on with Connections for Microsoft Teams: connectors/admin/t_ms_teams_sso_configure_customer_token_url.md
               - Configuring an Azure app to support the Microsoft Teams app: connectors/admin/t_ms_teams_config_azure_app.md
               - Setting up the Connections app for the Microsoft Teams client: connectors/admin/t_ms_teams_set_up_conn_app_for_ms.md
           - Using Connections and Microsoft Teams together:

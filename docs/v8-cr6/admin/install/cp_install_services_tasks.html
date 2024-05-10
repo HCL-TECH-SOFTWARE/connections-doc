@@ -34449,10 +34449,69 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6_3" type="checkbox" id="__nav_5_6_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../connectors/admin/t_ms_teams_configure_sso.html">Configuring single sign-on between Microsoft Teams and Connections</a>
+          
+            <label for="__nav_5_6_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Configuring single sign-on between Microsoft Teams and Connections" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring single sign-on between Microsoft Teams and Connections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../connectors/admin/t_ms_teams_update_websphere_for_sso.html" class="md-nav__link">
         Updating WebSphere to support single sign-on with Connections for Microsoft Teams
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connectors/admin/t_ms_teams_sso_configure_customer_token_url.html" class="md-nav__link">
+        Configuring custom token URL single sign-on with Connections for Microsoft Teams
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -36196,12 +36255,35 @@ execfile(&#39;searchAdmin.py&#39;)
 </li>
 </ol>
 <h2 class="section" id="teams_integ">Set up Microsoft Teams integration</h2>
-<p>The Microsoft Teams integration microservices rely on a configmap (integrations-msteams-env) and secret (ms-teams-secret) that are part of the overall connections-env deployment. Three specific pieces of information are required which should have been created and noted while performing the steps in <a href="../../connectors/admin/t_ms_teams_config_azure_app.html">Configuring an Azure app to support the Microsoft Teams app</a>.</p>
-<p>The items of information needed for this setup are:</p>
+<p>The Microsoft Teams integration microservices rely on a configmap (integrations-msteams-env) and secret (ms-teams-secret) that are part of the overall connections-env deployment. </p>
+<p>Three specific pieces of information are required, which should have been created and noted while performing the steps in <a href="../../connectors/admin/t_ms_teams_config_azure_app.html">Configuring an Azure app to support the Microsoft Teams app</a>.</p>
+<p>The items of information required for this setup are:</p>
 <ul>
 <li>Teams tenant ID</li>
 <li>Bot (app) ID</li>
 <li>Bot (app) password (secret)</li>
+</ul>
+<p>Additionally you will need to set the authentication schema type:</p>
+<ul>
+<li>Authentication schema type</li>
+<li>WebSphere SSO ('3') or custom token URL SSO ('4')</li>
+</ul>
+<p>If the custom token URL SSO authentication schema is selected, two additional configmap values apply. Both values are ignored if the schema value is not set to '4'.</p>
+<ul>
+<li>
+<p>SSO token exchange URL</p>
+<ul>
+<li>
+<p>This URL will be responsible for exchanging the Azure JWT for a session cookie (or cookies) that can be used on subsequent Connections API requests. When authentication is required, the Connections plugin within Teams will invoke this endpoint with the Azure token in the Authentication header. Any redirects will be followed. The authentication will be considered complete when successful response with cookies is received. Those cookies will be included on any subsequent Connections API calls.</p>
+</li>
+<li>
+<p>The customer should configure the authentication endpoints and/or proxy (for example, ISAM/WebSeal) and Azure as needed to allow the trust relationship with the Azure token and return suitable session cookie(s). If required, the session cookies can be later substituted at the proxy server for Connections session cookies.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(Optional) reloginTimerMins, which defines time in minutes, after which the Connections plugin within Teams will refresh the login tokens automatically in the background. This prevents edge cases where a user with expired tokens may end up acting as an anonymous user. If set to 0 or not configured, this behavior is disabled. The suggested practice is to configure this to a time shorter than the session cookie timeout.</p>
+</li>
 </ul>
 <p>With this information, if the values were not provided when installing the <a href="cp_install_services_tasks.html#cnx_env">connections-env</a> chart, update the connections-env.yml configuration override file and reinstall the chart.</p>
 <p>Once the configmap and secret are configured, continue to install the microservices that rely on them for configuration.</p>

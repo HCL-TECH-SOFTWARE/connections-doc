@@ -1011,14 +1011,31 @@ For optional procedures to configure Metrics, see [Configuring the OpenSearch Me
 
 ## Set up Microsoft Teams integration {#teams_integ .section}
 
-The Microsoft Teams integration microservices rely on a configmap \(integrations-msteams-env\) and secret \(ms-teams-secret\) that are part of the overall connections-env deployment. Three specific pieces of information are required which should have been created and noted while performing the steps in [Configuring an Azure app to support the Microsoft Teams app](../../connectors/admin/t_ms_teams_config_azure_app.md).
+The Microsoft Teams integration microservices rely on a configmap \(integrations-msteams-env\) and secret \(ms-teams-secret\) that are part of the overall connections-env deployment. 
 
-The items of information needed for this setup are:
+Three specific pieces of information are required, which should have been created and noted while performing the steps in [Configuring an Azure app to support the Microsoft Teams app](../../connectors/admin/t_ms_teams_config_azure_app.md).
+
+The items of information required for this setup are:
 
 - Teams tenant ID
 - Bot \(app\) ID
 - Bot \(app\) password \(secret\)
 
+Additionally you will need to set the authentication schema type:
+
+- Authentication schema type
+- WebSphere SSO ('3') or custom token URL SSO ('4')
+
+If the custom token URL SSO authentication schema is selected, two additional configmap values apply. Both values are ignored if the schema value is not set to '4'.
+
+-   SSO token exchange URL
+
+    -   This URL will be responsible for exchanging the Azure JWT for a session cookie (or cookies) that can be used on subsequent Connections API requests. When authentication is required, the Connections plugin within Teams will invoke this endpoint with the Azure token in the Authentication header. Any redirects will be followed. The authentication will be considered complete when successful response with cookies is received. Those cookies will be included on any subsequent Connections API calls.
+
+    -   The customer should configure the authentication endpoints and/or proxy (for example, ISAM/WebSeal) and Azure as needed to allow the trust relationship with the Azure token and return suitable session cookie(s). If required, the session cookies can be later substituted at the proxy server for Connections session cookies.
+
+-   (Optional) reloginTimerMins, which defines time in minutes, after which the Connections plugin within Teams will refresh the login tokens automatically in the background. This prevents edge cases where a user with expired tokens may end up acting as an anonymous user. If set to 0 or not configured, this behavior is disabled. The suggested practice is to configure this to a time shorter than the session cookie timeout.
+  
 With this information, if the values were not provided when installing the [connections-env](cp_install_services_tasks.md#cnx_env) chart, update the connections-env.yml configuration override file and reinstall the chart.
 
 Once the configmap and secret are configured, continue to install the microservices that rely on them for configuration.
