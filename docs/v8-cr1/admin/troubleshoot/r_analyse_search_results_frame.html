@@ -34838,9 +34838,9 @@
 
 
 <h1 class="reference" id="analyzingresultsfromthesearchserverstatuspage">Analyzing results from the search serverStatus page</h1>
-<p>TheHCL Connections™ Search Engine provides the search serverStatus web page that you can use to troubleshoot search issues.</p>
+<p>The HCL Connections™ Search Engine provides the search serverStatus web page that you can use to troubleshoot search issues.</p>
 <h2 class="section" id="accessing-the-search-serverstatus-page">Accessing the search serverStatus page</h2>
-<p>To access the search serverStatus page, your user ID must be added to the search-admin role for the Search service. To add this role, take the following steps:</p>
+<p>To access the search serverStatus page, your user ID must be added to the <code>search-admin</code> role for the Search service. To add this role, take the following steps:</p>
 <ul>
 <li>Log in to the WebSphere administration console.</li>
 <li>Click <strong>Applications</strong> > <strong>Application Types</strong> > <strong>WebSphere enterprise applications</strong>.</li>
@@ -34849,11 +34849,21 @@
 <li>Search for the user you want to add to the role and click <strong>OK</strong>.</li>
 </ul>
 <p>To access the search serverStatus page, browse to the following URL:</p>
-<div class="highlight"><pre><span></span><code>http://servername/search/serverStatus
+<div class="highlight"><pre><span></span><code>https://servername/search/serverStatus
 </code></pre></div>
-<p><strong>Note:</strong> The Search application uses the search-admin role to read public and private data for creating search indexes. Create a new user account solely for the search-admin role for the Search application.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Search application uses the <code>search-admin</code> role to read public and private data for creating search indexes. Create a new user account solely for the <code>search-admin</code> role for the Search application.</p>
+</div>
 <p>The search serverStatus page highlights any configuration issues along with an analysis of the latest search logs for the node.</p>
-<p><strong>Note:</strong> The primary function of search serverStatus page is to help debug issues on a system. The page is not a system monitoring tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The primary function of search serverStatus page is to help debug issues on a system. The page is not a system monitoring tool.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not add the <code>search-admin</code> role to a normal user account. The advanced search does not return any results for users having this role!</p>
+</div>
 <p>There are four status colors on the search serverStatus page</p>
 <ul>
 <li>Fields that are highlighted in blue indicate the message that is returned is informational and no action is required.</li>
@@ -34863,15 +34873,15 @@
 </ul>
 <p>There are five tabs on the search serverStatus page you can use to help you troubleshoot issues:</p>
 <ul>
-<li><strong><a href="r_analyse_search_results.html">Reviewing the Server Status tab</a></strong><br />
+<li><strong><a href="r_analyse_search_results.html">Reviewing the Server Status tab</a></strong>
 The Server Status tab checks the Search log file, the crawling version file, and the index ready file from the node that the request is sent to.</li>
-<li><strong><a href="r_review_initial_indexing_exceptions_tab.html">Reviewing the Initial Indexing Exceptions tab</a></strong><br />
+<li><strong><a href="r_review_initial_indexing_exceptions_tab.html">Reviewing the Initial Indexing Exceptions tab</a></strong>
 The Initial Indexing Exceptions tab returns any exceptions encountered when crawling the services during an initial index building task.</li>
-<li><strong><a href="r_review_systemout_tab.html">Reviewing the SystemOut Log Exceptions tab</a></strong><br />
+<li><strong><a href="r_review_systemout_tab.html">Reviewing the SystemOut Log Exceptions tab</a></strong>
 Any exceptions in the current SystemOut.log on this node are highlighted in a red text box.</li>
-<li><strong><a href="r_review_seedlist_validation_tab.html">Reviewing the Seedlists Validation tab</a></strong><br />
+<li><strong><a href="r_review_seedlist_validation_tab.html">Reviewing the Seedlists Validation tab</a></strong>
 The Seedlists Validation tab validates that the application seedlists can be accessed for search engine crawling.</li>
-<li><strong><a href="r_review_SAND_validation_tab.html">Reviewing the SAND Validation tab</a></strong><br />
+<li><strong><a href="r_review_SAND_validation_tab.html">Reviewing the SAND Validation tab</a></strong>
 The SAND validation tabs checks the files needed for the SAND index are in place..</li>
 </ul>
 <p><strong>Parent topic:</strong><a href="c_ts_search.html">Troubleshooting Search</a></p>
