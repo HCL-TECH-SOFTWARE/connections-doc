@@ -35330,6 +35330,7 @@
 <h2 class="section" id="section_v5r_1dj_dvb">Installation vs. upgrade steps</h2>
 <p>This document uses the preceding assumptions to walk you through the below steps to deploy the latest CR version of Component Pack 8. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to its latest CR version. Some of the following steps apply only to one scenario (install <em>or</em> upgrade), while others apply to both (install <em>and</em> upgrade). Refer to <a href="cp_install_upgrade_container.html#order_cp_install">Order of installation</a> for the complete list of steps for each scenario.</p>
 <h2 class="section" id="section_e4p_jrp_tnb">Set up NFS</h2>
+<p>As Connections supports various operating systems, each deployment environment must meet specific NFS requirements. The NFS prerequisites need to be determined by the system administrator for their deployment.</p>
 <p>We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.</p>
 <p>Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.</p>
 <p><strong>Requirements for persistent volumes</strong></p>
@@ -35400,10 +35401,18 @@
 <p>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a> to a directory of your choice (for example, /tmp).</p>
 </li>
 <li>
-<p>Provide execution permission to nfsSetup.sh and run it in order for NFS to be configured:</p>
-<div id="codeblock_oxc_p5t_hvb" class="highlight"><pre><span></span><code>sudo chmod +x nfsSetup.sh
-sudo bash nfsSetup.sh
-</code></pre></div>
+<p>Provide execution permission to nfsSetup.sh and run it, then complete the configuration for NSF by doing the following:</p>
+<ol>
+<li>
+<p>Install the required NFS packages, if not already installed by default.</p>
+</li>
+<li>
+<p>Enable and start the required NFS services.</p>
+</li>
+<li>
+<p>Restart the NFS server and configure the firewall.</p>
+</li>
+</ol>
 </li>
 <li>
 <p><strong>(Optional)</strong> Export file systems:</p>

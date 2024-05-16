@@ -57,6 +57,8 @@ This document uses the preceding assumptions to walk you through the below steps
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
 
+As Connections supports various operating systems, each deployment environment must meet specific NFS requirements. The NFS prerequisites need to be determined by the system administrator for their deployment.
+
 We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
 
 Use the following guidelines to help you set up persistent volumes for Component Pack services for a high availability deployment.
@@ -109,12 +111,13 @@ These guidelines and sample files describe how to set up all of the persistent v
 
     4. Download nfsSetup.sh and volumes.txt from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) to a directory of your choice \(for example, /tmp\).
 
-    5. Provide execution permission to nfsSetup.sh and run it in order for NFS to be configured:
+    5. Provide execution permission to nfsSetup.sh and run it, then complete the configuration for NSF by doing the following:
 
-        ``` {#codeblock_oxc_p5t_hvb}
-        sudo chmod +x nfsSetup.sh
-        sudo bash nfsSetup.sh
-        ```
+        1. Install the required NFS packages, if not already installed by default.
+
+        2. Enable and start the required NFS services.
+
+        3. Restart the NFS server and configure the firewall.
 
     6. **\(Optional\)** Export file systems:
 
