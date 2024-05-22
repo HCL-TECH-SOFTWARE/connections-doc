@@ -8,9 +8,11 @@ When installation of the plug-in is complete, a new folder named **My Drive on s
 
 Syncing is a way to automatically replicate changes to your content, whether you created it or whether it was shared with you, even when multiple people are acting on the content. You can access the files from your local desktop, from the Connections Files app, or from another device, and feel confident that you always have the latest version.
 
-**Restriction:**
+**Restrictions:**
 
 -   We do not recommend adding Microsoft Access files to your sync folder.
+-   The Connections Desktop Plug-ins for Microsoft Windows will support no more than 10,000 files and/or folders in the sync folder tree. This includes all files and folders in the top level folder and in all subfolders.  Attempting to sync more than 10,000 will cause degraded performance and eventual sync failures. Additionally, there is a limit of 5,000 files and/or folders supported for each copy operation from the desktop into the local sync folder. The HCL Connections node in windows explorer provides a virtual view of all files available on the server.  Unlike the sync support, these files are not downloaded locally until opened. HCL recommends adding your commonly accessed files to sync and accessing the remainder of your files through the virtual view provided by the Windows explorer plugin.
+
 
 Sync works as follows:
 

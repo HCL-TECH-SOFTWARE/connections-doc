@@ -11,7 +11,7 @@
       
       
       
-        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/connectors/icec/cec-inst-gneral-configuration.html">
+        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/v8-cr4/connectors/icec/cec-inst-gneral-configuration.html">
       
       <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
@@ -46,7 +46,13 @@
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
-      
+       
+ <!-- SmartCat script-->
+  <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>
+  <!-- End SmartCat script -->
+
+  <link rel="canonical" href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">
+  
 <!--  OneTrust Cookies Consent Notice start  -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>
@@ -76,12 +82,15 @@
   })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
   <!-- End Google Tag Manager -->
   
+  
 <!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
+
   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />
-  
+
+
 
   </head>
   
@@ -112,13 +121,18 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
+
+    
 <div>
+
    <a href="https://www.hcltechsw.com/"> 
   <img width="150" height="30" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>
   
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   
 <div class="dropdown">
+
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
@@ -127,7 +141,11 @@
 
 </div>
 </div>
-  
+
+<div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
+     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+</div>
+
   <!-- Uncomment the following announcement if you need it -->
   <!--
  <div class="md-banner--feedback" style="display:inline">
@@ -140,6 +158,8 @@
 -->
 
 </div>
+  
+
 
           </div>
           
@@ -152,10 +172,13 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
+
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
+
+
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -3208,6 +3231,8 @@
         
           
         
+          
+        
       
       
         
@@ -3250,6 +3275,20 @@
     <li class="md-nav__item">
       <a href="../../admin/install/migrating_data_mongodb_v3_v5.html" class="md-nav__link">
         Migrating data from MongoDB 3 to 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin/install/migrating_large_data_mongodb.html" class="md-nav__link">
+        Migrating large-scale data from MongoDB 3 to 5
       </a>
     </li>
   
@@ -34947,7 +34986,7 @@
 
 
 <h1 class="reference" id="id_name">General configuration</h1>
-<p>After installing Connections Engagement Center you will see a configuration page. Here you can set up Connections Engagement Center configurations in your browser. If you want to make changes later, you can open the configuration page manually <strong>https://&lt;your_server>/xcc/admin</strong> and edit your settings.</p>
+<p>After installing Connections Engagement Center you will see a configuration page. Here you can set up Connections Engagement Center configurations in your browser. If you want to make changes later, you can open the configuration page manually at <code>https://&lt;your_server&gt;/xcc/admin</code> and edit your settings.</p>
 <table>
 <thead>
 <tr>
@@ -34958,42 +34997,26 @@
 <tbody>
 <tr>
 <td><strong>1</strong></td>
-<td></td>
+<td><strong>Context-Roots:</strong><br>First make sure to save the Connections Context Roots by clicking the save Button in the lower right corner.<br>You will be redirected to the Connections Engagement Center-Page where you can enter a license key. If you are not being redirected, please open the Connections Engagement Center-Page (<code>https://&lt;your_server&gt;/xcc/main</code>) manually and enter your license key.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Customization Path:</strong><br>Navigate to the Admin Dashboard (<code>https://&lt;your_server&gt;/xcc/admin</code>). Please navigate to Connections Environment via the navigation on the left side. The customization path is required for backing up Connections Engagement Center pages in XML format. Please note that this path should be the same path that you configured in your system's WebSphere Environment Variables under <code>CONNECTIONS_CUSTOMIZATION_PATH</code>.<br> <img alt="image" src="images/image72.png" /><br><strong>Windows:</strong><br><strong>file system:</strong> <code>C:\IBM\Connections\data\shared\\customization</code><br><strong>network path:</strong> <code>\\sharednetwork.cnx.local\icshare\customization</code><br><strong>Linux:</strong><br><strong>file system:</strong> <code>/opt/IBM/Connections/data/shared/customization</code><br><strong>network path:</strong> <code>//sharednetwork.cnx.local/icshare/customization</code></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Connections Themes:</strong><br>At this release, only the Hikari theme is available; which looks like the following image.<br><strong>hikariTheme:</strong><br><img alt="Hikari theme" src="images/image74.png" /></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Connections Settings:</strong><br>To allow Connections Engagement Center to adopt your Connections layout, please fill out the fields <strong>Connections Version</strong> (only necessary, if we cannot get the information automatically) and <strong>Connections Theme</strong>.<br><img alt="image" src="images/image75.png" /></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Automatic Backup:</strong><br>Check the Enable Backup property in the Backup tab, if you want to enable the automatic backup feature. Select one of three options: Daily, weekly or monthly to set up the backup schedule respectively.<br>By default, automatic backup is disabled for the Connections Engagement Center application.<br><img alt="image" src="images/image76.png" /></td>
 </tr>
 </tbody>
 </table>
-<p>|<strong>Context-Roots:</strong></p>
-<p>First make sure to save the Connections Context Roots by clicking the save Button in the lower right corner.</p>
-<p>You will be redirected to the Connections Engagement Center-Page where you can enter a license key. If you are not being redirected, please open the Connections Engagement Center-Page (https://&lt;server>/xcc/main) manually and enter your license key.</p>
-<p>|
-|<strong>2</strong></p>
-<p>|<strong>Customization Path:</strong></p>
-<p>Navigate to the Admin Dashboard (https://&lt;server>/xcc/admin). Please navigate to Connections Environment via the navigation on the left side. The customization path is required for backing up Connections Engagement Center pages in XML format. Please note that this path should be the same path that you configured in your system's WebSphere Environment Variables under CONNECTIONS_CUSTOMIZATION_PATH.</p>
-<p><img alt="image" src="images/image72.png" /></p>
-<p><strong>Windows:</strong></p>
-<p><strong>file system:</strong> C:\IBM\Connections\data\shared\customization</p>
-<p><strong>network path:</strong> \\sharednetwork.cnx.local\icshare\customization</p>
-<p><strong>Linux:</strong></p>
-<p><strong>file system:</strong> /opt/IBM/Connections/data/shared/customization</p>
-<p><strong>network path:</strong> //sharednetwork.cnx.local/icshare/customization</p>
-<p>|
-|<strong>3</strong></p>
-<p>|<strong>Connections Themes:</strong></p>
-<p>At this release, only the Hikari theme is available; which looks like the following image.</p>
-<p><strong>hikariTheme:</strong></p>
-<p><img alt="Hikari theme" src="images/image74.png" /></p>
-<p>|
-|<strong>4</strong></p>
-<p>|<strong>Connections Settings:</strong></p>
-<p>To allow Connections Engagement Center to adopt your Connections layout, please fill out the fields <strong>Connections Version</strong> (only necessary, if we cannot get the information automatically) and <strong>Connections Theme</strong>.</p>
-<p><img alt="image" src="images/image75.png" /></p>
-<p>|
-|<strong>5</strong></p>
-<p>|<strong>Automatic Backup:</strong></p>
-<p>Check the Enable Backup property in the Backup tab, if you want to enable the automatic backup feature. Select one of three options: Daily, weekly or monthly to set up the backup schedule respectively.</p>
-<p>By default, automatic backup is disabled for the Connections Engagement Center application.</p>
-<p><img alt="image" src="images/image76.png" /></p>
-<p>|</p>
 <p><strong>Parent topic:</strong><a href="cec-inst-configuring.html">Configuring</a></p>
 
 
@@ -35031,10 +35054,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="../../javascripts/current.js"></script>
       
     
   </body>

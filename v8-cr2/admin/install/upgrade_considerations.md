@@ -1,10 +1,10 @@
-# Upgrade considerations for Component Pack 8 {#upgrade_considerations .concept}
+# Upgrade considerations for Component Pack 8 CR2 {#upgrade_considerations .concept}
 
-The upgrade path described in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
+The upgrade path described in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.
 
 ## Side-by-side vs. in-place {#section_jch_yrx_bvb .section}
 
-You can upgrade to HCL Connections 8.0 CR2 by doing either a side-by-side or an in-place upgrade. The approach described in [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
+You can upgrade to HCL Connections 8.0 CR2 by doing either a side-by-side or an in-place upgrade. The approach described in [Steps to install or upgrade to Component Pack 8 CR2](cp_install_services_tasks.md) focuses on upgrading Connections 7 to 8 on the same set of machines. This involves an in-place upgrade of an existing Kubernetes environment by touching file shares, and Helm release and charts.
 
 If your upgrade strategy requires a side-by-side migration on a mirrored set of both WebSphere and Kubernetes machines, you can still use the installation document. The difference between the two approaches is the transfer of data from source to destination system.
 

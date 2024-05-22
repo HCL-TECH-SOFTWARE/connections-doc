@@ -11,8 +11,8 @@ The password for the LDAP BindDN in Invite’s selfregistration-config.xml can o
         ```
         ./wsadmin.sh -lang jython \
          -host dmgr.connections.example.com \
-         -javaoption "-Dpython.path=app_server_root/lib" \
-         -wsadmin_classpath "app_server_root/lib/lccfg.jar;app_server_root/lib/jose4j-0.6.3.jar" \
+         -javaoption "-Dpython.path=connections_root/lib" \
+         -wsadmin_classpath "connections_root/lib/lccfg.jar;connections_root/lib/jose4j-0.6.3.jar" \
          -f "connections_root/bin/set_invite_pass.py"\
          --password ldap_bind_password
         
@@ -23,8 +23,8 @@ The password for the LDAP BindDN in Invite’s selfregistration-config.xml can o
         ```
         wsadmin.bat -lang jython ^
          -host dmgr.connections.example.com ^
-         -javaoption "-Dpython.path=app_server_root\lib" ^
-         -wsadmin_classpath "app_server_root\lib\lccfg.jar;app_server_root\lib\jose4j-0.6.3.jar" ^
+         -javaoption "-Dpython.path=connections_root\lib" ^
+         -wsadmin_classpath "connections_root\lib\lccfg.jar;connections_root\lib\jose4j-0.6.3.jar" ^
          -f "connections_root\bin\set_invite_pass.py" ^
          --password ldap_bind_password
         

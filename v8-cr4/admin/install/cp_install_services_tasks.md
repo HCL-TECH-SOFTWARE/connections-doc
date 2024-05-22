@@ -12,7 +12,7 @@ Before starting the steps, note the following:
 
 **Ensure you have these:**
 
-- A system running Connections \(if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack deployed\).
+-   A system running Connections \(if you are upgrading from Component Pack 7, a system running Connections 7 with Component Pack and the latest CFix deployed\).
 
 - Kubernetes up and running.
 
@@ -56,6 +56,8 @@ Starting with Connections 7.0, it is possible to use different types of storage.
 This document uses the preceding assumptions to walk you through the below steps to deploy the latest CR version of Component Pack 8. These steps generally appear in chronological order, but note that there are differences between the installation and upgrade procedures, including the upgrade from Component Pack 7 to 8, and Component Pack 8 to its latest CR version. Some of the following steps apply only to one scenario \(install *or* upgrade\), while others apply to both \(install *and* upgrade\). Refer to [Order of installation](cp_install_upgrade_container.md#order_cp_install) for the complete list of steps for each scenario.
 
 ## Set up NFS {#section_e4p_jrp_tnb .section}
+
+As Connections supports various operating systems, each deployment environment must meet specific NFS requirements. The NFS prerequisites need to be determined by the system administrator for their deployment.
 
 We don't recommend or support any particular configuration of NFS – you can use whatever NFS implementation is available. For the sake of this example, however, let's assume that our NFS master is on connections.internal.example.com, you have root access there, you installed NFS, you know how to manage it, and you just need the stuff needed for Component Pack.
 
@@ -109,12 +111,13 @@ These guidelines and sample files describe how to set up all of the persistent v
 
     4. Download nfsSetup.sh and volumes.txt from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) to a directory of your choice \(for example, /tmp\).
 
-    5. Provide execution permission to nfsSetup.sh and run it in order for NFS to be configured:
+    5. Provide execution permission to nfsSetup.sh and run it, then complete the configuration for NSF by doing the following:
 
-        ``` {#codeblock_oxc_p5t_hvb}
-        sudo chmod +x nfsSetup.sh
-        sudo bash nfsSetup.sh
-        ```
+        1. Install the required NFS packages, if not already installed by default.
+
+        2. Enable and start the required NFS services.
+
+        3. Restart the NFS server and configure the firewall.
 
     6. **\(Optional\)** Export file systems:
 
@@ -334,6 +337,45 @@ helm uninstall <chart name> --namespace connections
 
 For more details, see [PodSecurityPolicy is removed](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable) in the Kubernetes changelog.
 
+## Log in to a Harbor OCI registry {#harbor_repo .section}
+
+1. Log in to a Harbor OCI registry using the following command:
+
+    ``` {#codeblock_fqf_5hr_bvb}
+    $ helm registry login -u <<helm_repo_username>> -p <<helm_repo_password>> <<helm_repo_path>>
+    ```
+
+    Where:
+    
+    - `<<helm_repo_username>>` is the Harbor username
+    - `<<helm_repo_password>>` is the CLI secret (to access, log in to Harbor, then click on your name > **User Profile** > CLI Secret)
+    - `<<helm_repo_path>>` is the Harbor repository to log into, that is https://hclcr.io
+
+2.  Add Harbor credentials as Kubernetes secret. 
+
+    In addition to the helm repo created in the previous step, Component Pack expects a Kubernetes secret containing the HCL Harbor credentials (in earlier versions, these are Docker registry credentials) by the name of `myregkey`:
+
+    1.  If this is your first time switching the Docker registry to Harbor, you'll need to recreate the secret named `myregkey`.
+    
+        Start by deleting the credentials:
+
+        ``` {#codeblock_ug2_zhr_bvb}
+        kubectl delete secret myregkey -n connections
+        ```
+
+    2.  Add Harbor credentials as `myregkey` Kubernetes secret.
+
+        The default for the `docker-server` parameter should be "hclcr.io", in order to point the installer to HCL Harbor for the containerd image downloads.
+
+        ``` {#codeblock_vg2_zhr_bvb}
+        kubectl create secret docker-registry myregkey -n connections --docker-server=hclcr.io/cnx --docker-username=<<helm_repo_username>> --docker-password <<helm_repo_password>>
+        ```
+
+         Where:
+
+        - `<<helm_repo_username>>` is the Harbor username
+        - `<<helm_repo_password>>` is the CLI secret (to access, log in to Harbor, then click on your name > **User Profile** > CLI Secret)
+
 ## Apply Pod security restrictions at the namespace level {#psa_namespace .section}
 
 **This step applies when installing on Kubernetes version 1.25.0 or higher:**
@@ -344,73 +386,34 @@ As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubern
 kubectl label --overwrite ns connections \
 pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
 pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
-pod-security.kub
-ernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 ```
 
 We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.
 
 For more details, see [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) and [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) in the Kubernetes documentation.
 
-**If installing on Kubernetes to 1.25 is not possible, install/upgrade the k8s-psp Helm chart:**
+**If installing on Kubernetes version 1.25 or above is not feasible, then install/upgrade the k8s-psp Helm chart:**
 
-1. Start by finding out the k8s-psp chart version available on Harbor:
+1. Start by finding out the k8s-psp chart version available on Harbor OCI:
 
     ``` {#codeblock_t4g_f5t_hvb}
-    helm search repo v-connections-helm --devel | grep k8s-psp | awk {'print $2'}
+    helm show all <<oci_registry_url>>/k8s-psp --devel | grep "^version:"
     ```
 
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
+
     ``` {#codeblock_ed5_f5t_hvb}
-    o/p 0.1.0-20210909-112534
+    o/p version: 0.1.0-20210909-112534
     ```
 
 2. Then install or upgrade:
 
     ``` {#codeblock_g2j_g5t_hvb}
-    helm upgrade k8s-psp v-connections-helm/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
+    helm upgrade k8s-psp <<oci_registry_url>>/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
     ```
 
-## Add or update Harbor Helm repository {#harbor_repo .section}
-
-1. Check if Harbor repository is already added:
-
-    ``` {#codeblock_eqf_5hr_bvb}
-    helm repo list | grep v-connections-helm | grep << harbor repo path >>
-    ```
-
-    - If not, add Harbor using the following command:
-
-        ``` {#codeblock_fqf_5hr_bvb}
-        helm repo add v-connections-helm << helm repo path >> --username << helm_repo_username >> --password << helm_repo_password >> --pass-credentials
-        ```
-
-        Where:
-
-        - << helm repo path \>\> is the Helm chart path in Harbor repository, that is `https://hclcr.io/chartrepo/cnx`
-        - << helm\_repo\_username \>\> is the Harbor username
-        - << helm\_repo\_password \>\> is the CLI secret \(to access, log in to Harbor \> at the top-right corner, click on your name \> **User Profile** \> **CLI Secretsecret**\)
-
-    - If Harbor is already added, update the repo:
-
-        ``` {#codeblock_eqf_5hr_bvb}
-        helm repo update
-        ```
-
-2. Since you'll be switching the Docker registry to Harbor, you need to recreate the secret called `myregkey`:
-
-    1. First, delete the credentials:
-
-        ``` {#codeblock_ug2_zhr_bvb}
-        kubectl delete secret myregkey -n connections
-        ```
-
-    2. Set up credentials for a private Docker registry:
-
-        ``` {#codeblock_vg2_zhr_bvb}
-        kubectl create secret docker-registry myregkey -n connections --docker-server=<< docker_registry_url >> --docker-username=<< docker_registry_username >> --docker-password << docker_registry_password >>
-        ```
-
-## Set up Helm charts {#setup_helm .section}
+## Set up Helm charts {#setup_helm .section} 
 
 Install or upgrade to the latest CR version of Connections 8.0 Kubernetes by deploying the Helm charts delivered with the latest CR version of Component Pack 8.
 
@@ -430,11 +433,17 @@ clusterName:                opensearch-cluster
 
 For sample values of these variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
 
-**Note:** If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
+**Note:**
 
-``` {#codeblock_fpg_x2j_dvb}
-helm -n connections get values <chart_name>
-```
+- In your connections-env.yml, use "connections" for the `namespace` parameter (*__default_namespace*). In a high available Kubernetes environment, the `replicaCount` (*__replica_count*) is set to "3".
+
+- In your values .yml files, use `hclcr.io/cnx` as the value for `image.repository` (*__docker_registry_url*).
+
+- If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
+
+    ``` {#codeblock_fpg_x2j_dvb}
+    helm -n connections get values <chart_name>
+    ```
 
 ## Set up persistent volumes and persistent volume claims on NFS {#pv_pvc .section}
 
@@ -474,25 +483,29 @@ Make sure that the network configuration of your NFS environment is correct befo
 
 3. Install connections-volumes chart.
 
-    Find out the connections-volumes chart version that is available on Harbor:
+    Find out the connections-volumes chart version that is available on Harbor OCI:
 
     ``` {#codeblock_ox1_vkr_bvb}
-    helm search repo v-connections-helm --devel | grep connections-persistent-st | awk {'print $2'}
+    helm show all <<oci_registry_url>>/connections-persistent-storage-nfs --devel | grep "^version:"
     ```
+    
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
     ``` {#codeblock_px1_vkr_bvb}
-    o/p 0.1.1-20220505-090030
+    o/p version: 0.1.1-20220505-090030
     ```
 
 4. Download the j2 template for connections-volumes.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
+    **Note:** In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters, as defined in [Set up NFS](#section_e4p_jrp_tnb). 
+
 5. Then, run installation:
 
     ``` {#codeblock_qx1_vkr_bvb}
-    helm upgrade connections-volumes v-connections-helm/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
+    helm upgrade connections-volumes <<oci_registry_url>>/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
     ```
 
-    **Note:** Use your destination **nfs.server** and **persistentVolumePath** as parameters in connections-volumes.yml.
+    **Note:** In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters.
 
 6. Verify that all PVCs are in "bound" state:
 
@@ -514,14 +527,16 @@ Bootstrap installation overwrites existing secrets only if the 'force_regenerate
     helm uninstall bootstrap -n connections
     ```
 
-2. Find out the bootstrap chart version available on Harbor:
+2. Find out the bootstrap chart version available on Harbor OCI:
 
     ``` {#codeblock_tk4_ytt_hvb}
-    helm search repo v-connections-helm --devel  | grep bootstrap | awk {'print $2'}
+    helm show all <<oci_registry_url>>/bootstrap --devel | grep "^version:"
     ```
 
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
+
     ``` {#codeblock_uk4_ytt_hvb}
-    o/p 0.1.0-20220714-190047
+    o/p version: 0.1.0-20220714-190047
     ```
 
 3. Download the j2 template for bootstrap.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
@@ -529,26 +544,30 @@ Bootstrap installation overwrites existing secrets only if the 'force_regenerate
 4. Run the bootstrap installation:
 
     ``` {#codeblock_vk4_ytt_hvb}
-    helm upgrade bootstrap v-connections-helm/bootstrap -i --version 0.1.0-20220411-104621 --namespace connections -f bootstrap.yml --wait
+    helm upgrade bootstrap <<oci_registry_url>>/bootstrap -i --version 0.1.0-20220714-190047 --namespace connections -f bootstrap.yml --wait
     ```
 
 ## Set up connections-env chart {#cnx_env .section}
 
 The configmap for connections-env contains all the variables needed for the Customizer and Orient Me to function properly. Note that Customizer always points to the IBM HTTP Server directly, whereas Orient Me requests point to the front door proxy.
 
-1. Find out the connections-env version available on Harbor:
+1. Find out the connections-env chart version that is available on Harbor OCI:
 
     ``` {#codeblock_kc1_cvt_hvb}
-    helm search repo v-connections-helm --devel  | grep connections-env | awk {'print $2'}
+    helm show all <<oci_registry_url>>/connections-env --devel | grep "^version:"
     0.1.40-20220616-233100
     ```
 
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
+
 2. Download the j2 template for connections-env.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
+
+    **Note:** Use "true" as the value for `onPrem` (***___on_prem***).
 
 3. Run the connections-env installation:
 
     ``` {#codeblock_lc1_cvt_hvb}
-    helm upgrade connections-env v-connections-helm/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait
+    helm upgrade connections-env <<oci_registry_url>>/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait
     ```
 
 ## Delete ingresses {#del_ingress .section}
@@ -579,19 +598,21 @@ Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – se
     helm uninstall mw-proxy -n connections
     ```
 
-2. Get chart and version:
+2. Get the mw-proxy chart version that is available on Harbor OCI:
 
     ``` {#codeblock_a2f_sqt_hvb}
-    helm search repo v-connections-helm --devel | grep mw-proxy | awk {'print $2'}
-    0.1.0-20220414-134118
+    helm show all <<oci_registry_url>>/mw-proxy --devel | grep "^version:"
+    o/p version: 0.1.0-20220414-134118
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
 3. Download the j2 template for customizer.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
 4. Install chart:
 
     ``` {#codeblock_b2f_sqt_hvb}
-    helm upgrade mw-proxy v-connections-helm/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
+    helm upgrade mw-proxy <<oci_registry_url>>/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
     ```
 
 5. Set up your reverse proxy to forward some traffic to the customizer – see [Configuring the HTTP server](cp_config_proxy_rules.md).
@@ -612,46 +633,53 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 **Prerequisites for installing the OpenSearch chart:**
 
-For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation.  Make sure Linux setting vm.max_map_count is set accordingly.
+1. For production workloads, refer to [important settings](https://opensearch.org/docs/1.3/opensearch/install/important-settings/) in the OpenSearch official documentation. Make sure Linux setting vm.max_map_count is set accordingly.
 
-OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. To increase the value, add the following line to /etc/sysctl.conf:
+    OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher. 
 
-```
-fs.file-max=65536
-```
+    OpenSearch also needs a larger virtual address space to work properly. More then is usually configured on Linux distributions.
 
-Then run `sudo sysctl -p` to reload configurarions.
+    To increase these values to working levels, add the following lines to `/etc/sysctl.d/opensearch.conf`, creating the file on all Kubernetes hosts, if necessary:
 
-**Steps to install the OpenSearch chart:**
+    ``` vm.max_map_count=262144 ``` 
+    
+    Then run `sudo sysctl -p` to reload configurations. If possible, restart the host machines.
+    
+2. Review the official Elasticsearch documentation on [quorum-based election protocol](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-quorums.html) and [master-eligible nodes](https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html#add-elasticsearch-nodes-master-eligible) before determining the number of master-eligible nodes for your cluster.
 
-1. Get chart and version:
+**Steps to install the OpenSearch chart**
+
+1. Get the OpenSearch chart version that is available on Harbor OCI:
 
     ``` {#codeblock_ixs_ltr_bvb}
-    helm search repo v-connections-helm --devel | grep opensearch | awk {'print $2'}
-    1.3.0-20220520-092636
+    helm show all <<oci_registry_url>>/opensearch --devel | grep "^version:"
+    o/p version: 1.3.0-20220520-092636
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
 2. Download the j2 templates for opensearch\_master.yml, opensearch\_data.yml, and opensearch\_client.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
 3. Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch\_master.yml, opensearch\_data.yml, and opensearch\_client.yml files:
+
     `pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD`
 
 4. Install OpenSearch master:
 
     ``` {#codeblock_jxs_ltr_bvb}
-    helm upgrade opensearch-master v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
+    helm upgrade opensearch-master <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
     ```
 
 5. Install OpenSearch data:
 
     ``` {#codeblock_kxs_ltr_bvb}
-    helm upgrade opensearch-data v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
+    helm upgrade opensearch-data <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
     ```
 
 6. Install OpenSearch client:
 
     ``` {#codeblock_mxs_ltr_bvb}
-    helm upgrade opensearch-client v-connections-helm/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
+    helm upgrade opensearch-client <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
     ```
 
 7. Check if the OpenSearch master, data, and client pods are up and running:
@@ -660,10 +688,18 @@ Then run `sudo sysctl -p` to reload configurarions.
     kubectl get pods -n connections | grep -i "opensearch-cluster-"
     ```
 
-8. Remove the OpenSearch master eligible nodes using voting configuration to support scaling down:
+8. This step is optional. Refer to the [Voting configuration exclusions API](https://www.elastic.co/guide/en/elasticsearch/reference/current/voting-config-exclusions.html). 
+
+    The default setting for this chart is to install three master nodes. If you wish to reduce this to just one master node during deployment, you can achieve that by utilizing the "voting_config_exclusions" API. This API reduces the voting configuration to include fewer than three nodes or remove more than half of the master-eligible nodes in the cluster at once by manually removing departing nodes from the voting configuration. For each specified node, the API will add an entry to the cluster's voting configuration exclusions list. It then waits until the cluster has reconfigured its voting configuration to exclude the specified nodes. For example, add nodes 'opensearch-cluster-master-1','opensearch-cluster-master-2' to the voting configuration exclusions list:
 
     ``` {#codeblock_oxs_ltr_bvb}
     kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"
+    ```
+
+    If your cluster needs to reverse the voting configuration exclusions for nodes that you no longer needed, you can do so by using the DELETE voting_config_exclusions API as below:
+
+    ```
+    kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false"
     ```
 
 ## Migrate ElasticSearch data { .section}
@@ -684,12 +720,14 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 
 **Procedure**
 
-1. Get chart and version:
+1. Get the orientme chart version that is available on Harbor OCI:
 
     ``` {#codeblock_cdt_rr3_dvb}
-    helm search repo v-connections-helm --devel | grep orientme | awk {'print $2'}
-    0.1.0-20220617-050009
+    helm show all <<oci_registry_url>>/orientme --devel | grep "^version:"
+    o/p version: 0.1.0-20220617-050009
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
 2. Download the j2 template for orientme.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars), then update these settings:
     - `orient-indexing-service.indexing.opensearch=true and orient-indexing-service.indexing.elasticsearch=false`
@@ -698,7 +736,7 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 3. Install chart:
 
     ``` {#codeblock_ccz_ztr_bvb}
-    helm upgrade orientme v-connections-helm/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait
+    helm upgrade orientme <<oci_registry_url>>/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait
     ```
 
 4. Wait for all these parts to become ready:
@@ -988,19 +1026,21 @@ With this information, if the values were not provided when installing the [conn
 
 Once the configmap and secret are configured, continue to install the microservices that rely on them for configuration.
 
-1. Get chart and version:
+1. Get the Teams chart version that is available on Harbor OCI:
 
     ``` {#codeblock_w25_1bt_hvb}
-    helm search repo v-connections-helm --devel | grep teams | awk {'print $2'}
-    1.0.0-20220818-170013
+    helm show all <<oci_registry_url>>/teams --devel | grep "^version:"
+    o/p version: 1.0.0-20220818-170013
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps.
 
 2. Download the j2 template for teams.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
 3. Install the chart:
 
     ``` {#codeblock_cp2_bbt_hvb}
-    helm upgrade teams v-connections-helm/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
+    helm upgrade teams <<oci_registry_url>>/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
     ```
 
 Once the microservices are installed and running, set up rules in httpd.conf on the IBM HTTP Server – see [Configuring the HTTP server](cp_config_proxy_rules.md).
@@ -1018,19 +1058,21 @@ To enable Microsoft Teams integration, see [Setting up the Connections app for t
 
 ## Set up Tailored Experience features for communities {#comm_tailored .section}
 
-1. Get chart and version:
+1. Get the Tailored Experience chart version that is available on Harbor OCI:
 
     ``` {#codeblock_pcf_fct_hvb}
-    helm search repo v-connections-helm --devel | grep tailored-exp| awk {'print $2'}
-    1.0.0-20220818-170013
+    helm show all <<oci_registry_url>>/tailored-exp  --devel | grep "^version:"
+    o/p version: 1.0.0-20220818-170013
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
 2. Download the j2 template for tailoredexperience.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
 3. Install the chart:
 
     ``` {#codeblock_anp_fct_hvb}
-    helm upgrade tailored-exp v-connections-helm/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
+    helm upgrade tailored-exp <<oci_registry_url>>/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
     ```
 
 4. Once this is all set, set up rules in the httpd.conf on the IBM HTTP servers – see [Configuring the HTTP server](cp_config_proxy_rules.md).
@@ -1124,12 +1166,14 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
     helm uninstall connections-outlook-desktop -n connections
     ```
 
-2. Get chart and version:
+2. Get the connections-outlook-desktop chart version that is available on Harbor OCI:
 
     ``` {#codeblock_gsn_5ct_hvb}
-    helm search repo v-connections-helm --devel | grep connections-outlook-desktop | awk {'print $2'}
-    0.1.0-20220707-082629
+    helm show all <<oci_registry_url>>/connections-outlook-desktop --devel | grep "^version:"
+    o/p version: 0.1.0-20220707-082629
     ```
+
+    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps. 
 
 3. Download the j2 template outlook-addin.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
@@ -1149,7 +1193,7 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
 5. Install chart:
 
     ``` {#codeblock_iwr_wct_hvb}
-    helm upgrade connections-outlook-desktop v-connections-helm/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
+    helm upgrade connections-outlook-desktop <<oci_registry_url>>/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
     ```
 
 6. Once this is all set, add rules to httpd.conf for your IBM HTTP servers – see [Configuring the HTTP server](cp_config_proxy_rules.md).

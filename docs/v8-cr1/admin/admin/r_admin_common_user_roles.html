@@ -11,7 +11,7 @@
       
       
       
-        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/admin/admin/r_admin_common_user_roles.html">
+        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/v8-cr4/admin/admin/r_admin_common_user_roles.html">
       
       <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
@@ -46,7 +46,13 @@
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
-      
+       
+ <!-- SmartCat script-->
+  <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>
+  <!-- End SmartCat script -->
+
+  <link rel="canonical" href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">
+  
 <!--  OneTrust Cookies Consent Notice start  -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>
@@ -76,12 +82,15 @@
   })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
   <!-- End Google Tag Manager -->
   
+  
 <!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
+
   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />
-  
+
+
 
   </head>
   
@@ -112,13 +121,18 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
+
+    
 <div>
+
    <a href="https://www.hcltechsw.com/"> 
   <img width="150" height="30" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>
   
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   
 <div class="dropdown">
+
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
@@ -127,7 +141,11 @@
 
 </div>
 </div>
-  
+
+<div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
+     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+</div>
+
   <!-- Uncomment the following announcement if you need it -->
   <!--
  <div class="md-banner--feedback" style="display:inline">
@@ -140,6 +158,8 @@
 -->
 
 </div>
+  
+
 
           </div>
           
@@ -152,10 +172,13 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
+
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
+
+
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -3178,6 +3201,8 @@
         
           
         
+          
+        
       
       
         
@@ -3220,6 +3245,20 @@
     <li class="md-nav__item">
       <a href="../install/migrating_data_mongodb_v3_v5.html" class="md-nav__link">
         Migrating data from MongoDB 3 to 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/migrating_large_data_mongodb.html" class="md-nav__link">
+        Migrating large-scale data from MongoDB 3 to 5
       </a>
     </li>
   
@@ -34813,28 +34852,89 @@
 <p>The global content administrator access for Libraries is configured in the FileNet® domain and object store. For more information, see the <em>Setting an LDAP group to be domain administrator instead of specific user</em> topic.</p>
 <p>For information about assigning roles, see the <em>Assigning people to Java™ EE roles</em> topic.</p>
 <h2 class="section" id="application-roles">Application roles</h2>
-<p>Table 1. Activities roles
-|Java EE Role|Description|
-|------------|-----------|
-|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
-|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
-<p>Table 2. Blogs roles
-|Java EE Role|Description|
-|------------|-----------|
-|admin|Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.|
-|everyone|Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.|
-|global-moderator|Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.|
-|metrics-reader|Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.|
-|person|Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.|
-|reader|Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.|
-|search-admin|Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.|
-|widget-admin|Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.|</p>
-<p>Table 3. Bookmarks roles</p>
+<p><em>Table 1. Activities roles</em></p>
+<table>
+<thead>
+<tr>
+<th>Java EE Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 2. Blogs roles</em></p>
+<table>
+<thead>
+<tr>
+<th>Java EE Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>Used by an administrator to manage application content. For more information, see the <em>Administering application content</em> topic.</td>
+</tr>
+<tr>
+<td>everyone</td>
+<td>Users with this role can access public pages without signing in to the application. The login page is an example of a page that allows such access. <br></br> Do not change the default mapping for this role because it is used internally by HCL Connections. Changing the mapping might affect the ability to log in to the application.</td>
+</tr>
+<tr>
+<td>global-moderator</td>
+<td>Users with this role can moderate content. They can read, edit, delete, reject, approve, quarantine, and close entries and comments, and flag inappropriate content.</td>
+</tr>
+<tr>
+<td>metrics-reader</td>
+<td>Logical role for metrics read-only access to the application. By default, this role is mapped to the Everyone group.</td>
+</tr>
+<tr>
+<td>person</td>
+<td>Users with this role can read and write to the application. Mapped to the All Authenticated in Application's Realm group by default.</td>
+</tr>
+<tr>
+<td>reader</td>
+<td>Users with this role have read-only access to the application. By default, the role is mapped to the Everyone group. If you map the role to the All Authenticated in Application's Realm group, users must log in before they can use the application. <br></br> This role is also used to restrict access to the Ajax proxy. In a production environment, map this role to the All Authenticated in Application's Realm group.</td>
+</tr>
+<tr>
+<td>search-admin</td>
+<td>Used by the Search application to read public and private data for creating search indexes. In cases where file attachments must be accessed, the user must also be added to the admin role.</td>
+</tr>
+<tr>
+<td>widget-admin</td>
+<td>Used by widget containers to alert widget applications about container changes. <br></br> The role is mapped to the user that is specified in the remoteHandlerAuthenticationAlias attribute. This attribute is defined in the widgets-config.xml file for each application. <br></br> The installation wizard sets this attribute to the connectionsAdmin alias and maps the widget-admin role to the user that is specified in that alias. The same user must also be mapped to the person role.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3. Bookmarks roles</em></p>
 <table>
 <thead>
 <tr>
@@ -34865,7 +34965,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 4. Common roles</p>
+<p><em>Table 4. Common roles</em></p>
 <table>
 <thead>
 <tr>
@@ -34912,7 +35012,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 5. Communities roles</p>
+<p><em>Table 5. Communities roles</em></p>
 <table>
 <thead>
 <tr>
@@ -34967,7 +35067,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 6. ConnectionsProxy</p>
+<p><em>Table 6. ConnectionsProxy</em></p>
 <table>
 <thead>
 <tr>
@@ -34994,7 +35094,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 7. FileNet® Collaboration Services (libraries)</p>
+<p><em>Table 7. FileNet® Collaboration Services (libraries)</em></p>
 <table>
 <thead>
 <tr>
@@ -35013,7 +35113,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 8. Files roles</p>
+<p><em>Table 8. Files roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35064,7 +35164,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 9. Forums roles</p>
+<p><em>Table 9. Forums roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35115,7 +35215,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 10. Home page roles</p>
+<p><em>Table 10. Home page roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35146,7 +35246,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 11. Metrics roles</p>
+<p><em>Table 11. Metrics roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35185,7 +35285,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 12. Mobile roles</p>
+<p><em>Table 12. Mobile roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35212,7 +35312,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 13. Moderation roles</p>
+<p><em>Table 13. Moderation roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35239,7 +35339,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 14. News roles</p>
+<p><em>Table 14. News roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35282,7 +35382,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 15. Profiles roles</p>
+<p><em>Table 15. Profiles roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35325,7 +35425,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 16. Search roles</p>
+<p><em>Table 16. Search roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35360,11 +35460,11 @@
 </tr>
 <tr>
 <td>search-admin</td>
-<td>This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page.</td>
+<td>This role is used for two purposes: <br></br> -   For auditing content in the entire Connections deployment by allowing this user to bypass internal access control in the search index and to search private content across all applications. This capability allows the user to search for a term across all indexed content, but does not allow access to the content itself, but only. The role is typically used to ensure that content does not violate organizational content policies. <br></br> -   For validating the configuration of the Search application by granting access to the Search status page. <br><br> <strong>Note:</strong> Users with this role may experience certain limitations with UI-based search functionality.</td>
 </tr>
 </tbody>
 </table>
-<p>Table 17. WidgetContainer roles</p>
+<p><em>Table 17. WidgetContainer roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35411,7 +35511,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 18. Wikis roles</p>
+<p><em>Table 18. Wikis roles</em></p>
 <table>
 <thead>
 <tr>
@@ -35501,10 +35601,12 @@ Assign roles for HCL Connections users on WebSphere Application Server.</li>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="../../javascripts/current.js"></script>
       
     
   </body>

@@ -26,7 +26,6 @@ HCL does not provide support for Unsupported Configurations. Resolutions to defi
 
 Customers can seek assistance on an additional fee basis from HCL services, from an authorized HCL Business Partner, or from another service provider provided such services fall within the terms and conditions of use under the license grant of the relevant HCL agreement.
 
-
 **Other Configurations**
 
 Many configurations of HCL Programs and other software exist that are not explicitly listed in “Supported Configurations” or “Unsupported Configurations”, but which can reasonably be expected to perform within the accepted bounds of reliability, function, and performance.
@@ -43,5 +42,18 @@ If HCL is not able to resolve the problem on the customer configuration in quest
 
 One possible outcome of a problem in this category is that HCL determines the configuration not to work, and will update the list of Unsupported Configurations accordingly.
 
+**Support for LDAP Servers**
+
+LDAP support spans two (2) categories. These are "Fully tested and supported LDAP servers" and "Untested LDAP servers." The support statement for each category follows:
+
+-   **Fully tested and supported LDAP servers**
+
+    The list of fully tested LDAP servers for each release of Connections is documented in the detailed system requirements for each release. Support accepts problem reports for the appropriate Connections releases using the tested directory servers. These problem reports receive high-priority attention. Features that are tested with these directories include relatively simple search and retrieval functions for user and group objects. Connections Support encourages customers to work with their LDAP provider for additional support on these advanced features. 
+
+-   **Untested LDAP servers and functions**
+
+    In general, Connections Support makes a commercially reasonable effort to support directory servers that have not been tested with Connections. This includes version numbers that differ from what is listed as tested in the [HCL Connections and HCL Docs  System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654). Support accepts problem reports for the appropriate Connections releases using untested directory servers. If Support can recreate the reported problem using a tested LDAP server, staff will attempt to fix the problem. If Support is not able to recreate the problem on a tested LDAP server, customers are referred to the LDAP provider for further assistance. Functions outside this scope, such as dynamic groups, referrals, or the Active Directory Global Catalog feature, are considered advanced features and have not been tested with Connections.
+
+    
 **Parent topic:** [Planning](../plan/c_installation_overview.md)
 

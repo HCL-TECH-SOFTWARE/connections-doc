@@ -12,7 +12,7 @@
       
       
       
-        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/admin/install/cp_install_upgrade_container.html">
+        <link rel="canonical" href="https://opensource.hcltechsw.com/connections/latest/admin/install/cp_install_upgrade_container.html">
       
       <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
@@ -47,7 +47,13 @@
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
-      
+       
+ <!-- SmartCat script-->
+  <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>
+  <!-- End SmartCat script -->
+
+  <link rel="canonical" href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">
+  
 <!--  OneTrust Cookies Consent Notice start  -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>
@@ -77,12 +83,15 @@
   })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>
   <!-- End Google Tag Manager -->
   
+  
 <!--  Global site tag (gtag.js) - Google Analytics end -->
     
     
     
+
   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />
-  
+
+
 
   </head>
   
@@ -113,13 +122,18 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
+
+    
 <div>
+
    <a href="https://www.hcltechsw.com/"> 
   <img width="150" height="30" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>
   
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+   
 <div class="dropdown">
+
   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> 
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
@@ -128,7 +142,11 @@
 
 </div>
 </div>
-  
+
+<div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
+     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+</div>
+
   <!-- Uncomment the following announcement if you need it -->
   <!--
  <div class="md-banner--feedback" style="display:inline">
@@ -141,6 +159,8 @@
 -->
 
 </div>
+  
+
 
           </div>
           
@@ -153,10 +173,13 @@
           <aside class="md-banner md-banner--warning">
             <div class="md-banner__inner md-grid md-typeset">
               
+
   You're not viewing the latest version.
-  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">    
+  <a href="https://opensource.hcltechsw.com/connections-doc/v8-cr6/">    
     <strong>Click here to go to the latest.</strong>
   </a>
+
+
 
             </div>
             <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
@@ -34537,6 +34560,19 @@
     Order of installation
   </a>
   
+    <nav class="md-nav" aria-label="Order of installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cp_install_table" class="md-nav__link">
+    For a fresh installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -34570,9 +34606,12 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 <p>It is possible to simply recreate Kubernetes cluster and reinstall Component Pack and simply continue using it with the data as where you left it before you did it. Removing Component Pack and/or Kubernetes doesn't affect your data at all. Just don't remove the data.</p>
 <p>In theory, you can have multiple Kubernetes clusters with multiple installations of Component Pack, and on Connections side, by manipulating httpd.conf in your IHS, you can decide to which one to point to. Just don't try to have multiple clusters using same PVs at the same time for the sake of data consistency and reliability.</p>
 <h2 class="section" id="section_anp_tfp_tnb">Installation and upgrade general approach</h2>
-<p>You will notice that we are going to use the same commands to install or upgrade Component Pack. For upgrade, the Connections 7 baseline we use includes Kubernetes-based components, like Elasticsearch 7-based Metrics.</p>
+<p>You will notice that we are going to use the same commands to install or upgrade Component Pack. For upgrade from Connections 7.0, the baseline we use includes Kubernetes-based components, like Elasticsearch 7-based Metrics.</p>
 <h2 class="section" id="order_cp_install">Order of installation</h2>
+<p>Refer to the <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">HCL Connections System Requirements</a> for the Kubernetes versions and platforms tested with the Component Pack.</p>
+<p>It is recommended to review all the steps first and perform a system backup before doing the installation/upgrade.</p>
 <p>Perform the following steps chronologically, in the order that they appear in the list, to get your Component Pack deployment up and running:</p>
+<h3 class="section" id="cp_install_table">For a fresh installation</h3>
 <table>
 <thead>
 <tr>
@@ -34587,117 +34626,128 @@ deployment process, we encourage you to explore our HCL Connections and Componen
 </tr>
 <tr>
 <td>2.  <a href="cp_install_services_tasks.html#section_e4p_jrp_tnb">Set up NFS</a></td>
-<td>2.  Ensure that you have NFS up and running and a proper set of NFS folders with specific permissions, which are exported and mountable from all Kubernetes nodes</td>
+<td>2. Refer to <a href="cp_install_services_tasks.html#section_e4p_jrp_tnb">Set up NFS</a> to ensure that you have NFS setup with proper folders and specific permissions.</td>
 </tr>
 <tr>
 <td>3.  <a href="cp_install_services_tasks.html#section_ln3_qp3_dvb">Create the Connections namespace</a></td>
-<td>3.  <a href="cp_install_services_tasks.html#backup_mongo3">Back up MongoDB data</a></td>
+<td>3. <a href="cp_install_services_tasks.html#backup_mongo3">Back up MongoDB data</a></td>
 </tr>
 <tr>
-<td>4.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
+<td>4.  <a href="cp_install_services_tasks.html#harbor_repo">Log in to a Harbor OCI registry</a></td>
 <td>4.  <a href="cp_install_services_tasks.html#backup_es7">Back up Elasticsearch 7 data</a></td>
 </tr>
 <tr>
-<td>5.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
+<td>5.  <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
 <td>5.  <a href="cp_install_services_tasks.html#setup_nfs">Set up OpenSearch and MongoDB volumes on NFS</a></td>
 </tr>
 <tr>
-<td>6.  <a href="cp_install_services_tasks.html#pod_sec">Set up pod security policy</a></td>
-<td>6.  <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor Helm repository</a></td>
+<td>6.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
+<td>6. <a href="cp_install_services_tasks.html#uninstall_charts_k8s125">Uninstall k8s-psp, Infrastructure and if applicable, opensearch-master, opensearch-data, opensearch-client and kudos-boards-cp</a></td>
 </tr>
 <tr>
-<td>7.  <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
-<td>7.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
+<td>7. <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
+<td>7. <a href="cp_install_services_tasks.html#del_ingress">Delete ingresses</a></td>
 </tr>
 <tr>
-<td>8.  <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
-<td>8.  <a href="cp_install_services_tasks.html#pod_sec">Set up pod security policy</a></td>
+<td>8. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
+<td>8. Upgrade system to Kubernetes v1.25</td>
 </tr>
 <tr>
-<td>9.  <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
-<td>9.  <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
+<td>9. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
+<td>9. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
 </tr>
 <tr>
 <td>10. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
-<td>10. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
+<td>10. <a href="cp_install_services_tasks.html#harbor_repo">Log in to a Harbor OCI registry</a></td>
 </tr>
 <tr>
 <td>11. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
-<td>11. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
+<td>11. <a href="cp_install_services_tasks.html#psa_namespace">Apply Pod security restrictions at the namespace level</a></td>
 </tr>
 <tr>
 <td>12. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
-<td>12. <a href="cp_install_services_tasks.html#del_ingress">Delete ingresses</a></td>
+<td>12.  <a href="cp_install_services_tasks.html#setup_helm">Set up Helm charts</a></td>
 </tr>
 <tr>
 <td>13. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
-<td>13. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
+<td>13. <a href="cp_install_services_tasks.html#pv_pvc">Set up persistent volumes and persistent volume claims on NFS</a></td>
 </tr>
 <tr>
 <td>14. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
-<td>14. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
+<td>14. <a href="cp_install_services_tasks.html#bootstrap">Run bootstrap</a></td>
 </tr>
 <tr>
 <td>15. <a href="cp_install_services_tasks.html#orientme_os">Set up Orient Me for OpenSearch</a></td>
-<td>15. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate MongoDB data</a></td>
+<td>15. <a href="cp_install_services_tasks.html#cnx_env">Set up connections-env chart</a></td>
 </tr>
 <tr>
 <td>16. <a href="cp_install_services_tasks.html#metrics_os">Set up Metrics for OpenSearch</a></td>
-<td>16. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
+<td>16. <a href="cp_install_services_tasks.html#inst_mongo5">Build MongoDB 5 image</a></td>
 </tr>
 <tr>
 <td>17. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
-<td>17. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
+<td>17. <a href="cp_install_services_tasks.html#infra_chart">Install infrastructure charts</a></td>
 </tr>
 <tr>
-<td>18. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) charts</a></td>
-<td>18. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate ElasticSearch 7 data</a></td>
+<td>18. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) chart</a></td>
+<td>18. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate MongoDB data</a></td>
 </tr>
 <tr>
 <td>19. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
-<td>19. <a href="cp_install_services_tasks.html#orientme_os">Reconfigure Orient Me for OpenSearch</a></td>
+<td>19. <a href="cp_install_services_tasks.html#section_n3c_xhj_dvb">Set up Customizer</a></td>
 </tr>
 <tr>
 <td>20. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
-<td>20. <a href="cp_install_services_tasks.html#metrics_os">Reconfigure Metrics for OpenSearch</a></td>
+<td>20. <a href="cp_install_services_tasks.html#os_chart">Install OpenSearch</a></td>
 </tr>
 <tr>
 <td>21. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
-<td>21. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
+<td>21. <a href="cp_install_services_tasks.html#migrate_mongo3">Migrate ElasticSearch 7 data</a></td>
 </tr>
 <tr>
 <td></td>
-<td>22. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
+<td>22. <a href="cp_install_services_tasks.html#orientme_os">Reconfigure Orient Me for OpenSearch</a></td>
 </tr>
 <tr>
 <td></td>
-<td>23. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) charts</a></td>
+<td>23. <a href="cp_install_services_tasks.html#comm_ingress">Set up community ingress</a></td>
 </tr>
 <tr>
 <td></td>
-<td>24. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
+<td>24. <a href="cp_install_services_tasks.html#teams_integ">Set up Microsoft Teams integration</a></td>
 </tr>
 <tr>
 <td></td>
-<td>25. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
+<td>25. <a href="cp_install_services_tasks.html#comm_tailored">Install community creation wizard and templates (Tailored Experience) chart</a></td>
 </tr>
 <tr>
 <td></td>
-<td>26. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
+<td>26. <a href="cp_install_services_tasks.html#lotusxml">Configure the LotusConnections-config.xml</a></td>
+</tr>
+<tr>
+<td></td>
+<td>27. <a href="cp_install_services_tasks.html#activities_plus">Set up Activities Plus</a></td>
+</tr>
+<tr>
+<td></td>
+<td>28. <a href="cp_install_services_tasks.html#ms_outlook_addin">Set up Connections add-in for Microsoft Outlook</a></td>
 </tr>
 </tbody>
 </table>
 <p>For more information, see <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a>.</p>
 <ul>
 <li>
-<p><strong><a href="upgrade_considerations.html">Upgrade considerations for Component Pack 8</a></strong>  </p>
+<p><strong><a href="upgrade_considerations.html">Upgrade considerations for Component Pack 8</a></strong><br />
+The upgrade path described in <a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a> is based on a given set of components, versions, and goals. Consider the following information when deciding how best to upgrade based on your deployment and needs.</p>
 </li>
 <li>
 <p><strong><a href="cp_upgrade_considerations_for_side_by_side_migration.html">Upgrade considerations for side-by-side migration of data</a></strong><br />
 If your Connections upgrade strategy requires a side-by-side migration, understand how that process applies to Component Pack.</p>
 </li>
-<li><strong><a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a></strong><br />
-Use these steps to help you install Component Pack 8 or replace Component Pack 7 with 8.</li>
+<li>
+<p><strong><a href="cp_install_services_tasks.html">Steps to install or upgrade to Component Pack 8</a></strong><br />
+Use these steps to help you install the latest CR version of Component Pack 8 or replace Component Pack 7 or 8 with its latest CR version.</p>
+</li>
 </ul>
 <p><strong>Parent topic:</strong> <a href="cp_install_config_intro.html">Installing or upgrading Component Pack for Connections</a></p>
 
@@ -34736,10 +34786,12 @@ Use these steps to help you install Component Pack 8 or replace Component Pack 7
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="../../javascripts/current.js"></script>
       
     
   </body>

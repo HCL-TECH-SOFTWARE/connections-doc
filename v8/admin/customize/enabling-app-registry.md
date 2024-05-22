@@ -4,6 +4,9 @@ To leverage custom config extensions, enable the app registry service. You need 
 
 By default, Connections applications do not attempt to make requests to the app registry service if the app registry service has not been deployed as part of a Component Pack installation.
 
+!!! note
+    When adding new entries to the App Registry, it is important to ensure that no other entries with the same namespace are enabled or active within the system. This is to prevent conflicts, maintain system integrity, and ensure seamless functionality across all applications.
+
 ## Procedure
 
 To enable the app registry service:
@@ -36,7 +39,7 @@ In this example, you can use custom style extensions to update the Connections c
 
     ![App Registry - Apps Overview](images/appreg-apps.png)
 
-2. Click on the **New App +** button and select **Code Editor** in the side menu. 
+2. Click on the **New App +** button and select **Code Editor** in the side menu.
 
     ![App Registry - App Editor](images/appreg-app-editor.png)
 
@@ -88,7 +91,7 @@ The most important properties in the app registry configuration are the `type` a
 
 -   `type` specifies to which component the extension relates. Currently, the following types are available:
 
-    | Extension Type | Description | 
+    | Extension Type | Description |
     |-----------------|------------|
     | com.hcl.connections.nav|Customization of the menu entries on the [side navigation bar](customizing-side-navigation.md)|
     | com.hcl.connections.custom.style|Customization of [header](customizing-header.md) elements and general theming via custom styles|
