@@ -17,10 +17,6 @@ Find out about features that are new or updated in this release of HCL Connectio
 
     -   For deployments using HCL Connections Component Pack 8.0 CR5 and up (new or upgraded), IBM WebSphere 8.5.5 Fix Pack 24 which has an updated Java version is required. Otherwise enabling SSL for Metrics will fail, as the Java version prior to Fix Pack 24 cannot open the keystore built by the newer Java.
 
-<!--## App Registry Updates for Connections
-
-Added a note in enabling appregistry for customization to avoid any conflicts during setup, see [Enabling the Connections app registry service for customization](../../admin/customize/enabling-app-registry.md).-->
-
 
 **Interested in Connections Mobile?**
 
