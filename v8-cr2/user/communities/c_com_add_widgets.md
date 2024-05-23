@@ -36,11 +36,9 @@ With Owner access, you can add one or multiple apps to your community.
 
 1.  From the navigation bar, click **Communities** and select the community that you want to customize.
 2.  Click **Community Actions** and select **Add Apps** from the list.
-3.  Click the app name or the plus icon ![Add app icon](images/add_app.png) next to the app that you want to add.
+3.  Click the app name or the plus icon ![Add app icon](images/add_app.png) next to the app that you want to add to your community.
 
-## What to do next {#section_ykb_pm1_f5b .section}
-
-[Feature apps on your community's **Highlights** page](c_com_highlights_widgets.md) to make it easy for members to find the content that they need.
+Once complete, the added app shows in the community only when the landing page is switched from Highlights to Overview. If you'd like to feature apps on the Highlights page, refer to [Adding apps and widgets to the Highlights page](c_com_highlights_widgets.md).
 
 -   **[Adding the SharePoint app to a community](../communities/t_com_add_sharepoint_widget.md)**  
 In organizations where the HCL Connections for Microsoft SharePoint app is enabled, community owners can add the app to their community so that members can access SharePoint files from there.
