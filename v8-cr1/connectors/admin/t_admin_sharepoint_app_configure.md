@@ -15,12 +15,13 @@ Make sure you've completed all the steps in [Configuring the Sharepoint app in M
             <item name="tenant" value="your\_organization\_url.onmicrosoft.com"/>
         </itemSet> 
     </widgetDef>  
-
     ```
 
 3.  Set the `client ID` to the string that you copied for the application \(client\) ID in the [previous task](t_admin_sharepoint_app_enabling.md).
 
 4.  Change the value for `tenant` to your\_organization\_url.onmicrosoft.com.
+
+    **Tip**: To view the default domain and obtain the tenant value, sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/) or [Azure Portal](https://portal.azure.com/) with your administrator account. Then, locate the Azure Active Directory settings and find the "Custom domains" or "Domains" section. This lists the domains associated with your tenant, including the onmicrosoft.com, which should be marked as the default domain.
 
 5.  Save and close the file according to the topic referenced in step 1.
 
