@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <title>Redirecting</title>
   <noscript>
-    <meta http-equiv="refresh" content="1; url=../v8_cr5/" />
+    <meta http-equiv="refresh" content="1; url=../v8_cr7/" />
+    <script>
+    window.location.replace("../v8_cr7/" + window.location.hash);
+  </script>	
   <script>
     window.location.replace("../v8_cr6/" + window.location.hash);
   </script>	
@@ -34,6 +37,6 @@
 <body>
 </head>
 <body>
-  Redirecting to <a href="../v8_cr6/">../v8/</a>...
+  Redirecting to <a href="../v8_cr7/">../v8/</a>...
 </body>
 </html>
