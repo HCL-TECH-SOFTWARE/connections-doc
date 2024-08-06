@@ -2,6 +2,10 @@
 
 Install MongoDB 5 for the latest CR version of Component Pack 8.
 
+!!! Note
+  
+    If you wish to enable the MongoDB Role-Based Access Control (RBAC), refer to [Enabling MongoDB Role-Based Access Control](../../admin/install/enable_mongo_rbac.md) after succesfully installing MongoDB 5 for Component Pack 8 with the steps detailed in this section.
+
 ## Before you begin {#section_zhd_414_y5b .section}
 
 Ensure you have the following:
