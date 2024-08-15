@@ -1,6 +1,6 @@
 # System requirements
 
-This document provides the minimum system requirements for the 8.0 CR3 (and later) release of HCL Connections. Higher maintenance levels, such as fix packs and service packs, may be supported as they become available. 
+This document provides the minimum system requirements for the 8.0 CR3 (and later) release of HCL Connections. Higher maintenance levels, such as fix packs and service packs, may be supported as they become available.
 
 For detailed system requirements for other HCL Connections releases, refer to [HCL Connections and Connections Docs System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) in the support portal. Detailed system requirements provide complete lists of hardware requirements, supported operating systems, prerequisites and optional supported software, with component-level details and operating system restrictions.
 
@@ -59,10 +59,10 @@ IBM Red Hat Enterprise Linux (RHEL) Server|8.6 (1)|x86-64|64-Tolerate|8.0|Suppor
 
 |Application Server|Version|Product minimum|Support level|
 |------------------|-------|---------------|-------------|
-|IBM WebSphere Application Server Network Deployment|8.5.5.21 (1,2)|8.0|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.22 (1,2, 3)|8.0|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.23 (1,2)|8.0 CR2|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.24 (1,2, 4)|8.0 CR5|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.21 (1, 2)|8.0|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.22 (1, 2, 3)|8.0|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.23 (1, 2)|8.0 CR2|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.24 (1, 2, 4)|8.0 CR5|Supported Configuration|
 |IBM WebSphere Application Server Network Deployment|9.x.x.x|N/A|**Unsupported Configuration**|
 
 Additional details:
