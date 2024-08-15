@@ -59,10 +59,10 @@ IBM Red Hat Enterprise Linux (RHEL) Server|8.6 (1)|x86-64|64-Tolerate|8.0|Suppor
 
 |Application Server|Version|Product minimum|Support level|
 |------------------|-------|---------------|-------------|
-|IBM WebSphere Application Server Network Deployment|8.5.5.21 (2)|8.0|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.22 (2, 3)|8.0|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.23 (2)|8.0 CR2|Supported Configuration|
-|IBM WebSphere Application Server Network Deployment|8.5.5.24 (2, 4)|8.0 CR5|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.21 (1,2)|8.0|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.22 (1,2, 3)|8.0|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.23 (1,2)|8.0 CR2|Supported Configuration|
+|IBM WebSphere Application Server Network Deployment|8.5.5.24 (1,2, 4)|8.0 CR5|Supported Configuration|
 |IBM WebSphere Application Server Network Deployment|9.x.x.x|N/A|**Unsupported Configuration**|
 
 Additional details:
@@ -86,8 +86,8 @@ Additional details:
 |Collaboration|Version|Product minimum|Support level|
 |------------|-------|---------------|-------------|
 |HCL Connections Docs|2.0.2|8.0|Supported Configuration|
-|HCL Leap (PVU)|9.3.5|8.0 CR2|Supported Configuration|
-|HCL Leap (PVU Container)|9.3.5 Container|8.0 CR6|Supported Configuration|
+|HCL Leap (PVU)|9.3.5 (1)|8.0 CR2|Supported Configuration|
+|HCL Leap (PVU Container) (1)|9.3.5 Container|8.0 CR6|Supported Configuration|
 
 #### Databases
 
@@ -131,7 +131,7 @@ Additional details:
 |HCL Domino|11.0, 12.0, 14 (1, 7)|8.0|Supported Configuration|
 |IBM Security Directory Server|6.4 (1, 7)|8.0|Supported Configuration|
 |Microsoft Active Directory|2016 (1, 7)|8.0|Other Configuration|
-|OpenLDAP|2.4 (8)|8.0|Supported Configuration|
+|OpenLDAP|2.4 (1, 8)|8.0|Supported Configuration|
 
 Additional details:
 
