@@ -41,6 +41,7 @@ With Files you can collaborate with others on specific files and groups of files
 Use My Drive to organize all of your important folders and files, whether you created them or whether they were shared with you. If your organization has enabled the sync feature, files you add and edit in My Drive are automatically synchronized so you always have the latest version of the content.
 -   **[Editing a Connections file in HCL Docs](../files/editing_hcl_docs.md)**  
 If your organization uses HCL Connections Docs and you have Editor access to a file, you can work on it directly from your browser.
-
+-   **[Editing a Connections file in Microsoft Office](../files/t_files_edit_file_local_refresh.md)
+If you have the HCL Connections Desktop Plug-ins for Microsoft Windows installed and configured, you can do roundtrip editing of Connections files.
 **Parent topic:** [Using Connections 8.0](../welcome/welcome_end_user.md)
 

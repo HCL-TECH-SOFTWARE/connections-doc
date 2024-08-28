@@ -87,7 +87,7 @@ Additional details:
 |------------|-------|---------------|-------------|
 |HCL Connections Docs|2.0.2|8.0|Supported Configuration|
 |HCL Leap (PVU)|9.3.5 (1)|8.0 CR2|Supported Configuration|
-|HCL Leap (PVU Container) (1)|9.3.5 Container|8.0 CR6|Supported Configuration|
+|HCL Leap (PVU Container)|9.3.5 Container (1)|8.0 CR6|Supported Configuration|
 
 #### Databases
 

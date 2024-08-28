@@ -30,7 +30,7 @@ The duration of an invitation and password reset is now configurable in HCL Conn
 
 ## A power editing experience in HCL Connections {tinymce.section}
 
-An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md) refer to for details.
+An updated release of the TinyMCE Editor v4.9.2. is now available. The TinyMCE Editor is an alternative, rich-text editor that provides extra features and extensive customization options to users. To install, [Optional: Installing and configuring Tiny Editors for HCL Connections](../../admin/install/tiny_editors/c_tiny-editors.md)refer to for details.
 
 ## HCL Connections Update Wizard {updateinstaller.sections}
 

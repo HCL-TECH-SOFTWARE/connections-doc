@@ -117,5 +117,11 @@ ProxyPass "/outlook-addin/" "http://cpmaster.internal.example.com:32080/"
 ProxyPassReverse "/outlook-addin/" "http://cpmaster.internal.example.com:32080/"
 ```
 
+``` {#codeblock_bd4_v3j_gvb}
+# Fix for connections content loading in Outlook iframe tab. Note: combine these settings with Teams ones above if using both
+Header unset Content-Security-Policy
+Header always set Content-Security-Policy "frame-ancestors 'self' *.office365.com"
+```
+
 **Parent topic:** [Configuring the Component Pack](../install/cp_config_intro.md)
 
