@@ -13,8 +13,21 @@ TinyMCE has many options not configured by the integration and they can be set b
       fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt 60pt 72pt 96pt"
     },
     ```
+    
+3.  To change the default styling values within TinyMCE, define a custom class within config.js.
+    ```
+    forced_root_block_attrs: { 'class': 'my-custom-class-name'}
+    ```
+    
+4.  Apply your custom CSS with your defined class name to two places; the TinyMCE CSS file and your Connections custom.css file.
 
-3.  When you have finished making configuration changes, follow the [post-customization steps](https://help.hcltechsw.com/connections/v6/admin/customize/t_admin_common_customize_postreq.html) to ensure the server cache is updated.
+    (a) Edit the file defined in [Modify the Editor CSS](t_configure_02-modify-editor-css.md)
+    (b) Apply the same CSS with your custom class names to the general purpose front-end custom CSS file.
+     ```
+      customizationDir/themes/hikariTheme/custom.css
+     ```
+    
+5.  When you have finished making configuration changes, follow the [post-customization steps](https://help.hcltechsw.com/connections/v6/admin/customize/t_admin_common_customize_postreq.html) to ensure the server cache is updated.
 
     **Note:** If the configuration changes do not take affect, [restart the Common enterprise application](t_restart-common-app.md) to force a cache update.
 

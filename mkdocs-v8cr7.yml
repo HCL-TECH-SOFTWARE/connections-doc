@@ -1300,8 +1300,8 @@ nav:
             - Enabling Keycloak as an OIDC provider for Connections:
               - admin/secure/c_keycloak_oidc.md    
               - Configuring KeyCloak as an OIDC provider for Connections:  admin/secure/t_keycloak_config_conn_oidc.md
-              - Updating WebSphere to support Keycloak OIDC Authentication for Connections:  admin/secure/t_keycloak_oidc_websphere.md
-              - Configuring Connections to support Keycloak OIDC Authentication: admin/secure/t_keycloak_config_auth_oidc.md             
+              - Updating WebSphere to support Keycloak OIDC Authentication for Connections:  admin/secure/t_keycloak_oidc_websphere_copy.md
+              - Configuring Connections to support Keycloak OIDC Authentication: admin/secure/t_keycloak_config_auth_oidc_Updated.md             
             - Enabling single sign-on for Security Verify Access: 
               - admin/secure/t_secure_with_tam.md
               - Using WebSEAL for server to server communication: admin/secure/t_secure_with_tam_s2s.md
@@ -1560,6 +1560,7 @@ nav:
             - Working with folders: user/files/t_files_others_folders.md
           - Organizing, syncing, and editing files in My Drive: user/files/c_files_sync_refresh.md
           - Editing a Connections file in HCL Docs: user/files/editing_hcl_docs.md
+          - Editing a Connections file in Microsoft Office: user/files/t_files_edit_file_local_refresh.md
         - Communities: 
           - user/communities/cframe.md
           - Getting started: 

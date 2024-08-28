@@ -94,7 +94,7 @@
 /* Hero section styles */
 .dx-hero-container {
     padding-top: 0rem;
-    background: url(../assets/cnx_hero.png) no-repeat;
+    background: url(../assets/CNX_hero.jpg) no-repeat;
     background-position: left bottom;
     background-size: cover;
     height: 20rem;
@@ -288,11 +288,6 @@
 .academy-hero__image img {
     width: 495px;
     height: 326px;
-}
-
-.dx-academy-logo img {
-    width: 189px;
-    height: 30px;
 }
 
 .academy-hero__content {
