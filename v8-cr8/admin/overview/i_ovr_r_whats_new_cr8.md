@@ -31,7 +31,7 @@ Added instructions on how to setup and use the new SSO Authentication schema usi
 
 The In this App Search functionality allows users to refine queries by specific content types, providing focused results within Blogs, Forums, and Wikis for a streamlined and efficient search experience.  Refer to [In this App Search](../../user/eucommon/t_eucommon_in_this_app_search.md) for details.
 
-## Notification bells enhancement
+## Notification bell enhancements
 
 The notification bell in HCL Connections has been improved to provide a more efficient and informative experience. With the updated functionality, users can now more easily stay on top of important updates, manage notifications effectively, and navigate between different notification views. Refer to [Keeping up with notifications](../../user/homepage/tile_homepage_notifications.md) for details.
 
