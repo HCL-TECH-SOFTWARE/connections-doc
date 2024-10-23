@@ -166,7 +166,7 @@ Additional details:
 |Apple Safari|8.0|Supported Configuration|
 |Google Chrome|8.0|Supported Configuration|
 |Microsoft Edge|8.0|Supported Configuration|
-|Mozilla Firefox|8.0|Support Configuration|
+|Mozilla Firefox|8.0|Supported Configuration|
 
 !!! note
 
@@ -189,6 +189,16 @@ Additional details:
 (3) Fix packs are available on the HCL License & Delivery Portal in the "WebSphere Application Server 9.0.5 and Select Fix Packs" package.
 
 (4) IBM HTTP Server 9.0.5 FP11 or above is required to support TLS 1.3.
+
+#### Editors
+
+|Tiny Editors|Version|Product minimum|Support level|
+|--|-|--|--|
+|Tiny Editors for HCL Connections|4.9.2.17|8.0 CR1|Supported Configuration|
+|Tiny Editors for HCL Connections|4.9.2.24|8.0 CR2|Supported Configuration|
+|Tiny Editors for HCL Connections|4.9.2.37|8.0 CR4|Supported Configuration|
+|Tiny Editors for HCL Connections|4.9.2.41|8.0 CR5|Supported Configuration|
+|Tiny Editors for HCL Connections|4.9.2.45|8.0 CR8|Supported Configuration|
 
 #### Screen resolution
 

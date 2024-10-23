@@ -35740,11 +35740,13 @@
 
 <h1 class="task" id="t_customize_strings_global">Customizing product strings</h1>
 <p>You can replace a word or phrase in the product user interface with terminology that better suits your environment.</p>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
 <li>You cannot use this method to customize the default notification messages in emails that are sent from HCL Connections applications. See <a href="c_customize_notifications.html">Customizing notifications</a> for information about how to customize notifications.</li>
 <li>You cannot use the customization debugging capability to test edited strings.</li>
 </ul>
+</div>
 <p>Many of the product strings in the user interface are represented by key-value pairs defined in the properties files stored in the application JAR files. Before you can redefine the value of a string, you must find out which key is used to represent it. After you have identified the key-value pair that you want to customize, you can create a properties file that contains the key-value pairs corresponding to your custom strings, and copy it into the customizationDir/strings directory.</p>
 <ol>
 <li>
@@ -35754,7 +35756,10 @@
 <p>Create a properties file in which to store the key-value pair for the custom string. Give the properties file the same name as the properties file that is used to store that key by the application. For example, if you copy the templates.properties file, and paste it into the customizationDir/strings directory, name it as follows:</p>
 <div class="highlight"><pre><span></span><code>com.ibm.lconn.core.strings.templates.properties
 </code></pre></div>
-<p><strong>Note:</strong> You must create the file with the full file name; that is, it must not be a series of directories containing the templates.properties file, such as, com/ibm/lconn/core/strings/templates.properties.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must create the file with the full file name; that is, it must not be a series of directories containing the templates.properties file, such as, <code>com/ibm/lconn/core/strings/templates.properties</code>.</p>
+</div>
 <p>Also, specify a language code for the properties file in the file name. If you do not provide a _language_code value at the end of the properties file name, the value you specify for the key in the properties file is used despite the locale of the web browser accessing the application.</p>
 <p>For example, if you change the key with the current value of "Help" to "Ayuda" and define it in a file named com.ibm.lconn.files.strings.ui.properties (without the _es suffix), then anyone who accesses the product will see Aydua in place of the Help string even if their browser locale is not set to es. In some cases, you might want the same value applied to all languages. If you want to change the term "HCL Connections" to a company name, for example, then you might store the customized key in a properties file without the _language_code suffix and the company name shows as-is to all browsers.</p>
 <p>For a full list of the language codes supported by , see <a href="r_customize_lang_codes.html">Language codes</a>.</p>
@@ -35775,9 +35780,43 @@
 <p>To force all user web browsers to refresh all cached content and display your changes, run the command that updates the product version stamp.</p>
 <ol>
 <li>
-<ol>
-<li></li>
-</ol>
+<p>Enter the following command to load the HCL Connections configuration file: <code>execfile("connectionsConfig.py")</code></p>
+<p>If you are prompted to specify a service to connect to, type 1 to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file by using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
+</li>
+<li>
+<p>Enter the following command to check out HCL Connections configuration files:</p>
+<p><code>LCConfigService.checkOutConfig("working_directory","cell_name")</code></p>
+<p>where:</p>
+<ul>
+<li>
+<p><em>working_directory</em> is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>When you specify a path to the working directory on a system that is running Microsoft® Windows®, use a forward slash for the directory. For example: "C:/temp".</li>
+<li>AIX®, and Linux® only: The directory must grant write permissions or the command fails.</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cell_name</em> is the name of the WebSphere® Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client: <code>print AdminControl.getCell()</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This input parameter is case-sensitive.</p>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p>Enter the following command to increment the value of the versionStamp property:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command is required only when a change is made to the product user interface and the change is to a file checked out using <strong><em>LCConfigService</em></strong>.</p>
+</div>
+<p><code>LCConfigService.updateConfig("versionStamp","gmt_timestamp")</code> where <code>gmt_timestamp</code> is the GMT time. You can specify an empty string for the time stamp or provide a GMT value string. When you specify an empty string, the client calculates the current GMT time and updates the version stamp with that value. If you choose to provide the time, specify it using the following format: yyyyMMdd.HHmmss and specify the time in GMT. It is best to provide an empty string and let the client format the time stamp. For example: <code>LCConfigService.updateConfig("versionStamp","")</code>.</p>
+</li>
+<li>
+<p>When you have made changes, you must check the configuration files back in and you must do so during the same wsadmin session in which you checked them out for the changes to take effect. </p>
 </li>
 </ol>
 </li>
