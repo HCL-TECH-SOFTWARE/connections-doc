@@ -12,7 +12,7 @@ This document does, however, provide tuning values specific to the hardware, top
 
 ## What's New in Connections 8
 
-[Find out about features that are new or updated in this release of HCL Connections](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/overview/whats_new.html)
+[Find out about features that are new or updated in this release of HCL Connections](../../admin/overview/whats_new.md)
 
 ## Performance Tuning Overview
 
@@ -27,7 +27,7 @@ Tuning the HCL Connections environment involves tuning and configuring the vario
 When tuning specific systems, it is important to begin with a baseline and monitor performance metrics to determine if any parameters should be changed. When a change is made, another measurement should be made to determine the effectiveness of the change.
 
 In addition to the tuning changes made in HCL's measurement environments, there are some additional tuning options available, which can improve performance in certain circumstances; these are discussed in the [Other Considerations](#OC) section.
- 
+
 ## Environment Recommendations
 
 Before installing HCL Connections, you should consider how the environment will be used to achieve ideal performance.
@@ -79,17 +79,18 @@ When installing HCL Connections Version 8, the HCL Installation Manager presents
 - In the Small deployment option, all applications run within a single Java Virtual Machine (JVM). This option is typically used for low-volume deployments of HCL Connections, such as proof-of-concept deployments.
 
 - The Medium deployment has changed since HCL Connections 7.0. Applications have been rebalanced in 4 clusters instead of 5:
-  - Infra: Common, Communities, ConnProxy, Help, ICEC, News, Profiles, Search, URLPreview, Oauth, WidgetContainer
-  - Util: Homepage, Invite, Moderation, RichTextEditors, Sharepoint, Sidebar, Touchpoint
-  - Apps: Activities, Blogs, Bookmarks (Dogear), Files, Forums, Metrics, ic360, StrorageProxy, Mobile, MobileAdmin, Wikis
-  - Push: PushNotifications
+    - **Infra**: Common, Communities, ConnProxy, Help, ICEC, News, Profiles, Search, URLPreview, Oauth, WidgetContainer
+    - **Util**: Homepage, Invite, Moderation, RichTextEditors, Sharepoint, Sidebar, Touchpoint
+    - **Apps**: Activities, Blogs, Bookmarks (Dogear), Files, Forums, Metrics, ic360, StrorageProxy, Mobile, MobileAdmin, Wikis
+    - **Push**: PushNotifications
 
 - The Large deployment option provides a predefined cluster name for each application. This option provides the best performance in terms of scalability and availability options, but also requires more system resources. Since HCL Connections 5.5, the following applications are separated out in their own clusters: Common, PushNotification, RichTextEditor, WidgetContainer.
 
 Note that this configuration was used for HCL's performance benchmarks.
 
-**Note:** If you expect users to frequently download multiple big files in a single download session, we strongly recommend a Large deployment.
-For a more in-depth overview and deployment diagrams, Refer to [HCL Connections Version 8 documentation](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_installation_overview.html)
+!!! note annotate
+    If you expect users to frequently download multiple big files in a single download session, we strongly recommend a Large deployment.
+    For a more in-depth overview and deployment diagrams, Refer to [HCL Connections Version 8 documentation](../../admin/plan/c_installation_overview.md)
 
 You can also review the [Other Considerations](#OC) section.
 
@@ -101,7 +102,7 @@ A clustered HCL Connections deployment utilizes the clustering capability of Web
 
 Horizontal clustering has two main purposes: increasing capacity and increasing reliability. Since horizontal clusters run on multiple nodes, more resources are available, increasing the total number of users that can be supported by the cluster. A horizontal cluster also provides greater reliability, as the failure of a single node does not cause a failure of the entire cluster.
 
-Production deployment strategies are discussed in more detail in the [Planning section of the HCL Connections Version 8 product documentation](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_installation_overview.html)
+Production deployment strategies are discussed in more detail in the [Planning section of the HCL Connections Version 8 product documentation](../../admin/plan/c_installation_overview.md)
 
 All performance benchmarks were run on single-node environments.
 
@@ -124,7 +125,7 @@ In a clustered environment, HCL Connections employs a shared file system to stor
 - When using NFS, NFSv4 should be used as NFSv3 lacks advanced locking capability.
 - Microsoft Distributed FileSystem (DFS) lacks a distributed locking facility for files, thus it cannot be used for HCL Connections environments.
 
-To plan the installation, refer to [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_planning_the_installation.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/plan/c_planning_the_installation.html).
+To plan the installation, refer to [Deployment Options](../../admin/plan/c_planning_the_installation.md).
 
 A shared file system may cause performance issues. Therefore, it is important to pay attention to network tuning, hardware, and other areas to limit this risk. For example, in one performance deployment, the anti-virus software on the application server was scanning the content on the mapped network drive. This is an extra level of precaution but imposes a performance cost.
 
@@ -143,7 +144,7 @@ An activity was conducted to understand the I/O requirements regarding NFS Share
 *Scenario:*
 
 - Load: 500 users
-- Duration: 8hrs	
+- Duration: 8hrs
 - Think Time: 10sec
 - Throughput: 50pages/sec
 
@@ -169,7 +170,7 @@ Requirement was how to choose a value based on machine resources with optimal se
 
 Parameters to be modified. All 3 should be kept equal.
 
-MAX_CONVERSIONS_THREADS == maxConcurrentDownloads == tikaFileConversion.maxConversionThreads
+`MAX_CONVERSIONS_THREADS` = `maxConcurrentDownloads` = `tikaFileConversion.maxConversionThreads`
 
  - Note: 1st one to be modified through was console and next two in search-config.xml
  - We have used the 1000 variable size/type file-set and monitored at different settings (2,4,6,8,10,12,14).
@@ -178,17 +179,17 @@ MAX_CONVERSIONS_THREADS == maxConcurrentDownloads == tikaFileConversion.maxConve
 
 *Test Environment/Specs:*
 
-- Disk space- 200
-- RAMP- 64
-- CPUs- 16
+- Disk space: 200 GB
+- RAM: 64 GB
+- CPUs: 16 Cores
 
 A series of tests was performed to identify the best possible settings for file content tika conversion based on environments.
-According to the results, with varied file types/sizes and keeping conversion threads equal 
-MAX_CONVERSIONS_THREADS == maxConcurrentDownloads == tikaFileConversion.maxConversionThreads
+According to the results, with varied file types/sizes and keeping conversion threads equal
+`MAX_CONVERSIONS_THREADS` = `maxConcurrentDownloads` = `tikaFileConversion.maxConversionThreads`
 
-For 5000 Files,
-considering the default settings to 2 - we are getting approx. 220 files per min with 1365 ms is the total conversion time.
+For 5000 Files, considering the default settings to 2
 
+- we are getting approx. 220 files per min with 1365 ms is the total conversion time
 - if we change it to 3 - we can see there is improvement of approx. 30% in conversion time
 - if we change it to 6 - we can see the there is improvement of approx. 60% in conversion time
 
@@ -221,7 +222,8 @@ HCL Connections includes resources that change infrequently, such as static page
 
 There are two choices for caching: using a reverse proxy or enabling caching in the HTTP server. In this section, we discuss both options.
 
-**Note:** For our single server benchmark configurations, we enabled caching on the HTTP server.
+!!! note annotate
+    For our single server benchmark configurations, we enabled caching on the HTTP server.
 
 We suggest having the HTTP server reside on a different server than Connections for high workloads. Caching on the HTTP server is a good solution for this setup.
 
@@ -241,15 +243,15 @@ We used IBM HTTP Server 8.5 in our measurement environments. Our Single-Server c
 #### Content Compression Details and Implementation Choices
 
 HCL Connections makes use of a significant amount of readily-compressible content, such as JavaScript files and style sheets. Therefore we recommend compressing all content except images. This reduces the demand for network bandwidth and provides better performance for clients connecting over slower network.
-HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_ihs_config_not_compressing_files.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_ihs_config_not_compressing_files.html)
+HCL Connections content can be compressed either at the HTTP server or the proxy server. It does not make sense to try to compress content at both locations. In HCL's lab measurements, we chose to compress the content on the HTTP server tier. See [Determining which files to compress](../../admin/install/t_ihs_config_not_compressing_files.md)
 
 **Key point:** Caching and compressing content is recommended to reduce network bandwidth usage and for an improved client experience, especially over slow networks.
 
-Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_install_deploy_caching_proxy.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/install/t_install_deploy_caching_proxy.html)
+Information about configuring HCL Connections with a caching proxy can be found in the HCL Connections Version 8 product documentation at: [Configuring a reverse caching proxy](../../admin/install/t_install_deploy_caching_proxy.md)
 
 ### HTTP Server
 
-The HTTP Server is a mandatory element of HCL Connections deployments, and is typically configured after HCL Connections is installed. Since HCL Connections Version 5.5, the Install Manager can configure IHS if pre-installed with WebSphere before installing Connections. All of HCL's benchmark environments had the HCL HTTP Server (IHS) co-located with the application server for ease of management.
+The HTTP Server is a mandatory element of HCL Connections deployments, and is typically configured after HCL Connections is installed. Since HCL Connections Version 5.5, the Install Manager can configure IHS if pre-installed with WebSphere before installing Connections. All of HCL's benchmark environments had the IBM HTTP Server (IHS) co-located with the application server for ease of management.
 
 IBM HTTP Server on Windows has a Parent process and a single multi-threaded Child process.
 
@@ -264,37 +266,31 @@ Note that all of the HCL Connections Version 8 deployments used for the performa
 
 For more information, see:
 
-"_IBM WebSphere Application Server Performance Cookbook: Web servers_" [http://publib.boulder.ibm.com/httpserv/cookbook/Web_Servers.html](http://publib.boulder.ibm.com/httpserv/cookbook/Web_Servers.html)
-
-"_IBM HTTP Server Performance Tuning_" [http://publib.boulder.ibm.com/httpserv/ihsdiag/ihs_performance.html#ibm-http-server-performance-tuning](http://publib.boulder.ibm.com/httpserv/ihsdiag/ihs_performance.html#ibm-http-server-performance-tuning)
-
-"_Maximizing the number of client connections to WebSphere Application Server by tuning IBM HTTP Server_"
-
-[http://www-01.ibm.com/support/docview.wss?uid=swg21167658](http://www-01.ibm.com/support/docview.wss?uid=swg21167658)
+- [IBM WebSphere Application Server Performance Cookbook: Web servers](http://publib.boulder.ibm.com/httpserv/cookbook/Web_Servers.html)
+- [IBM HTTP Server Performance Tuning](http://publib.boulder.ibm.com/httpserv/ihsdiag/ihs_performance.html#ibm-http-server-performance-tuning)
+- [Maximizing the number of client connections to WebSphere Application Server by tuning IBM HTTP Server](http://www-01.ibm.com/support/docview.wss?uid=swg21167658)
 
 ### Configuring file downloads through the HTTP Server
 
 This section is to stress the importance of the following mandatory post-configuration steps. IBM's benchmark environments were configured in this way.
 
-**Key point:** To increase efficiency in downloading files from Files, Wikis, Activities, and Library applications, configure an HCL HTTP Server to handle most of the download process instead of the WebSphere® Application Server.
+**Key point:** To increase efficiency in downloading files from Files, Wikis, Activities, and Library applications, configure an IBM HTTP Server to handle most of the download process instead of the WebSphere® Application Server.
 
-In the default deployment with an HCL HTTP Server, file download requests are passed from the HCL HTTP Server to the WebSphere Application Server. The WebSphere Application Server accesses the binary files in a data directory on the file system and returns them to the HCL HTTP Server, which then passes them to the browser. This means that one thread on the application server is in use while the download is in progress.
+In the default deployment with an  HTTP Server, file download requests are passed from the IBM HTTP Server to the WebSphere Application Server. The WebSphere Application Server accesses the binary files in a data directory on the file system and returns them to the IBM HTTP Server, which then passes them to the browser. This means that one thread on the application server is in use while the download is in progress.
 
 When large numbers of users are downloading files, this deployment is inefficient. This is partly because WebSphere Application Server has a limited thread pool that is tuned for short-lived transactions. Additionally, WebSphere Application Server is optimized for Java Platform, Enterprise Edition applications and not for file downloads. In this type of deployment, you might have to create a cluster to handle downloads, especially if you have slow transfer rates.
 
 Configuring IBM HTTP Server to download files makes down loading much more efficient,because IBM HTTP Server is designed specifically for serving files. This configuration leaves WebSphere Application Server to carry out tasks such as security checking and cache validation.
 
-If you choose not to configure the IBM HTTPServer to download files, you must configure the WebSphere Application Server to transfer data synchronously instead of asynchronously to avoid errors related to using too much memory.Forinstructions,seethe"ExcessivenativememoryuseinHCLWebSphereApplicationServer"technoteat:
+If you choose not to configure the IBM HTTP Server to download files, you must configure the WebSphere Application Server to transfer data synchronously instead of asynchronously to avoid errors related to using too much memory. For instructions, see the [Excessive native memory use in IBM WebSphere Application Server technote](http://www.ibm.com/support/docview.wss?uid=swg21317658)
 
-[http://www.ibm.com/support/docview.wss?uid=swg21317658](http://www.ibm.com/support/docview.wss?uid=swg21317658)
-
-Instructions for configuring file downloads through HCL HTTP Server are provided in the HCL Connections Version 8 Knowledge Center at: [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_downloads.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_downloads.html)
+Instructions for configuring file downloads through IBM HTTP Server are provided in [Configuring file downloads through IBM HTTP Server](../../admin/install/t_install_post_files_downloads.md)
 
 ### Configuring file uploads through the HTTP Server
 
-This feature was introduced from HCL Connections 5.5 and allows you to Configure the HCL HTTP Server to manage file uploads from Activities and Files.  As we explained for file downloads in the preceding section, this approach is more efficient than using the IBM WebSphere® Application Server to receive files.
+This feature was introduced from HCL Connections 5.5 and allows you to Configure the IBM HTTP Server to manage file uploads from Activities and Files.  As we explained for file downloads in the preceding section, this approach is more efficient than using the IBM WebSphere® Application Server to receive files.
 
-Instructions for configuring file uploads through HTTP Servers are provided in the HCL Connections Version 8 Help Center at: [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_uploads.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/t_install_post_files_uploads.html)
+Instructions for configuring file uploads through HTTP Servers are provided in [Configuring file uploads through IBM HTTP Server](../../admin/install/t_install_post_files_uploads.md)
 
 ## <span id="OC">Other Considerations</span>
 
@@ -302,14 +298,15 @@ Instructions for configuring file uploads through HTTP Servers are provided in t
 
 The Search application is responsible for indexing all the searchable content in HCL Connections and handling search requests. It also powers the social analytics widgets, such as Recommendations, Do You Know, Things in Common, and Who Connects Us. Depending on the size of the deployment (Medium or Large options), it may be beneficial to dedicate an individual node to the Search application.
 
-See "Making Search-Related Configuration Changes to Newly Added Nodes" at [https://help.hcltechsw.com/connections/v6/admin/admin/t_admin_search_add_search_node.html](https://help.hcltechsw.com/connections/v6/admin/admin/t_admin_search_add_search_node.html).
+See [Making Search-Related Configuration Changes to Newly Added Nodes](../../admin/admin/t_admin_search_add_search_node.md).
 
 To ensure smooth downloads of multiple large files in a single session, follow these steps for large deployments:
 
 - Disable servlet caching on the Files application server cluster.
 - Monitor Java heap usage and size accordingly.
 
-Note: These instructions are applicable to the "Large Deployment" option where the Files application is deployed to its own application server cluster.
+!!! note annotate
+    These instructions are applicable to the "Large Deployment" option where the Files application is deployed to its own application server cluster.
 
 To disable Files servlet caching, in the WebSphere Integrated Solutions Console, click: Servers → Server Types → WebSphere application servers → FilesCluster → Container Settings: Web Container Settings → Web container → Un-check "Enable servlet and command caching".
 
@@ -319,9 +316,9 @@ Figure 2: Disable Files servlet caching
 
 Additional Resources:
 
-- HCL Connections Version 8 Product Documentation at [https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/welcome/welcome_admin.html](https://opensource.hcltechsw.com/connections-doc/v8-cr3/admin/welcome/welcome_admin.html)
-- WebSphere Application Server Network Deployment Version 8.5 documentation at [http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html)
-- DB2 11.5 Information Center at [https://www.ibm.com/docs/en/db2/11.5](https://www.ibm.com/docs/en/db2/11.5)
+- [HCL Connections Version 8 Product Documentation](../../admin/welcome/welcome_admin.md)
+- [WebSphere Application Server Network Deployment Version 8.5 documentation](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html){:target="_blank"}
+- [DB2 11.5 Information Center](https://www.ibm.com/docs/en/db2/11.5){:target="_blank"}
 
 ### Benchmark System Used for Performance Measurements:
 
@@ -335,11 +332,12 @@ The teams that evaluate HCL Connections Version 8 performance run two main types
 - The Integrated workload is the main reference benchmark measurement, the results of which are published in the Connections Version 8 Benchmark Report. In this workload, all the components are exercised simultaneously as in a real-world scenario.
 - The purpose of the Single application measurement is to evaluate the performance of the specific Connections Version 8 application, in relative isolation, outside of interaction with the other suite of offerings (although News and Search are always interacting with all components).
 - The metrics gathered from these measurements are also used for the Connections Version 8 sizing tool.
+
 ### Benchmark Deployments
 
 For all measurements (Integrated and Single components), the performance teams used the **Large** deployment option with each application in its own JVM.
 
-All of the components offered in HCL Connections Version 8 were installed and populated - much in the same manner as a production environment. Each application runs in its own JVM, each application database was installed in its own DB2 instance, and each database was stored in its own "logical drive or LUN" to allow us to monitor disk activity in greater detail. However, this is not needed for production deployments. The logical drives were located on a RAID disk subsystem. The HCL HTTP was also configured to cache, compress and handle file downloading. For more information, see the [HTTP Server](#_bookmark1) section of this white paper.
+All of the components offered in HCL Connections Version 8 were installed and populated - much in the same manner as a production environment. Each application runs in its own JVM, each application database was installed in its own DB2 instance, and each database was stored in its own "logical drive or LUN" to allow us to monitor disk activity in greater detail. However, this is not needed for production deployments. The logical drives were located on a RAID disk subsystem. The IBM HTTP was also configured to cache, compress and handle file downloading. For more information, see the [HTTP Server](#_bookmark1) section of this white paper.
 
 ### Benchmark Hardware & Operating Systems
 
@@ -347,9 +345,9 @@ The servers running the measurement use 64-bit hardware, Red Hat Enterprise Linu
 
 The typical environment used for the benchmark workload is as follows:
 
-- 1 WebSphere Application Server node – typically a 16-core server with 64GB of RAM running the HCL Connections Version 8 product in 19 clusters (JVMs) with the HCL HTTP Server co-located. 
+- 1 WebSphere Application Server node – typically a 16-core server with 64GB of RAM running the HCL Connections Version 8 product in 19 clusters (JVMs) with the IBM HTTP Server co-located.
 - WebSphere Deployment Manager (DM) node serving to administer the environment. Note that the DM has minimal impact on the system.
-- 1 database server – typically a 16-core with 64GB of RAM server running IBMDB2® software.
+- 1 database server – typically a 16-core with 64GB of RAM server running IBM DB2® software.
 - 1 LDAP server, running Tivoli® Directory Server – processor load on this tier is minimal.
 - A dedicated network file-system having 2T of disk
 - Note that in a large production environment, a dedicated file server is recommended.
@@ -367,50 +365,35 @@ In general, the following observations about HCL Connections Version 8 can be ma
 
 ### Tuning the Application Server Environment
 
-Because HCL Connections is composed of standard Java web applications, typical tuning practices for WebSphere®
-applications apply. At a minimum, database connection pools, the application server thread pools, and JVM heap should
-be sized and monitored.
+Because HCL Connections is composed of standard Java web applications, typical tuning practices for WebSphere® applications apply. At a minimum, database connection pools, the application server thread pools, and JVM heap should be sized and monitored.
 
 ### Tuning via the Integrated Solutions Console
 
-To get to the WebSphere Application Server (WAS) Integrated Solutions Console, start WebSphere and then log in to
-the WebSphere Integrated Solutions Console via http://yourserver:9060/ibm/console with the administrator user ID
-created during the WAS installation.
+To get to the WebSphere Application Server (WAS) Integrated Solutions Console, start WebSphere and then log in to the WebSphere Integrated Solutions Console via `https://yourserver:9043/ibm/console` with the administrator user ID created during the WAS installation.
 
-The port number, 9060, is the default port number in IBM®'s lab deployments, but other deployments might use
-different ports. To find out the ports in use for your installation, look for ‘adminhost’ in the following path:
+The port number, 9043, is the default port number in IBM®'s lab deployments, but other deployments might use different ports. To find out the ports in use for your installation, look for ‘adminhost_secure’ in the following path:
 
-wasprofileroot/config/cells/cellname/nodes/nodename/serverindex.xml.
+`wasprofileroot/config/cells/cellname/nodes/nodename/serverindex.xml`
 
 For more details on configuring a WebSphere Application Server, see the Tuning section of the product documentation
-located at [https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/as_ditamaps/was855_welcome_ndmp.html](https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/as_ditamaps/was855_welcome_ndmp.html)
+located at [https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/as_ditamaps/was855_welcome_ndmp.html](https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/as_ditamaps/was855_welcome_ndmp.html){:target="_blank"}
 
 ### Tuning the JVM
 
-Reference material: IBM® WebSphere Application Server Information Center “Network Deployment > Tuning
-performance > Tuning the full profile > Tuning the application serving environment > Tuning the JVM” in: [http://www-
-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/container_tune_jvm
-.html](http://www-
-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/container_tune_jvm
-.html)
+Reference material: IBM® WebSphere Application Server Information Center Network Deployment > Tuning performance > Tuning the full profile > Tuning the application serving environment > [Tuning the JVM](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/container_tune_jvm.html)
 
-### Heap Size 
+### Heap Size
 
 When setting the heap size for an application server, keep the following in mind:
 
-- Size the physical memory of the server to fit all of the processes into memory, plus enough for the operating
-system. When more memory is allocated than the available physical memory on the system, paging occurs and
-can result in very poor performance.
-- The total JVM process size is made up by the Java heap, which you set, and the Java native heap, which grows
-to its working size after the system has “warmed-up” to its nominal load. For more information, see the
-developerWorks web site at:
-[http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html](http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html)
+- Size the physical memory of the server to fit all of the processes into memory, plus enough for the operating system. When more memory is allocated than the available physical memory on the system, paging occurs and can result in very poor performance.
+- The total JVM process size is made up by the Java heap, which you set, and the Java native heap, which grows to its working size after the system has “warmed-up” to its nominal load. For more information, see the developerWorks web site at: **Broken Link** [http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html](http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html)
 - We set the minimum and maximum heap sizes to the same values because we are using generational, concurrent (or 'gencon') garbage collection, which helps avoid heap fragmentation. HCL's measurements have shown that generational concurrent garbage collection provides the best throughput and response time results. This is the default setting when installing HCL Connections.
 - Note that running clustered WebSphere nodes might require larger heap sizes compared to stand-alone, non-clustered systems if session replication is being used. This is especially true when using memory-to-memory session replication since session information is also stored in the JVM.
 - After doing any heap size tuning, do the following:
 
-  - Monitor the system to make sure that paging is not occurring.
-  - Monitor the verbose garbage collection output to determine if the selected size is appropriate. Ideally, the system should spend no more than 3-5% of its time in garbage collection.
+    - Monitor the system to make sure that paging is not occurring.
+    - Monitor the verbose garbage collection output to determine if the selected size is appropriate. Ideally, the system should spend no more than 3-5% of its time in garbage collection.
 
 By default, when installing HCL Connections Version 8, the HCL Installation Manager sets the initial heap size to 512MB and the maximum heap size to 2560MB for all deployment options: Small, Medium, and Large.
 
@@ -428,7 +411,8 @@ We have now grouped the min/max Java Heap size recommendations in three categori
 
 **Special case**: PushNotification - see notes below
 
-**Note:** More content will drive a requirement for a bigger heap in Search; therefore, we recommend you monitor the heap usage and adjust accordingly.
+!!! note annotate
+    More content will drive a requirement for a bigger heap in Search; therefore, we recommend you monitor the heap usage and adjust accordingly.
 
 On HCL's benchmark systems, we saw good performance using the heap sizes given in Table 1.
 
@@ -453,11 +437,12 @@ Table 1: Base HCL Connections Version 8 Maximum Heap Sizes
 | Profiles | 2 |
 | PushNotifications | See Note\* |
 | RTE | 1.5 |
-| Search | 2.5-4GB\*\* |
+| Search | 2.5-4\*\* |
 | WidgetContainer | 1.5 |
 | Wikis | 2 |
 
-**Note:** Refer to this chapter [Tuning the Push Notifications server for File Sync and Notifications Center](#_bookmark4)
+!!! note annotate
+    Refer to this chapter [Tuning the Push Notifications server for File Sync and Notifications Center](#tuning-push-notifications-for-filesync-and-notifications-center)
 
 **Search:** Depending on your data population, you might have to increase the heap size to build a full index from scratch. We required a heap of 4GB to build an index of this size:
 
@@ -469,14 +454,14 @@ Table 1: Base HCL Connections Version 8 Maximum Heap Sizes
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
-**Servers → Server Types → WebSphere Application Servers → \<application\_clusterServer\> → Server Infrastructure: Java and Process Management → Process Definition → Java Virtual Machine**
+**Servers → Server Types → WebSphere Application Servers → APPLICATION\_CLUSTER\_SERVER → Server Infrastructure: Java and Process Management → Process Definition → Java Virtual Machine**
 
-  - Initial heap size
-  - Maximum heap size
+    - Initial heap size
+    - Maximum heap size
 
 Regardless of deployment topology, we recommend enabling verbose garbage collection logging and monitoring heap use for all JVMs. Verbose GC logging has a minimal impact on performance and provides valuable performance diagnostic information.
 
-**Servers → Server Types → WebSphere Application Servers → \<application\_clusterServer\> → Server Infrastructure: Java and Process Management → Process Definition → Java Virtual Machine**
+**Servers → Server Types → WebSphere Application Servers → APPLICATION\_CLUSTER\_SERVER → Server Infrastructure: Java and Process Management → Process Definition → Java Virtual Machine**
 
 - Check the Verbose garbage collection check-box.
 
@@ -484,11 +469,11 @@ Regardless of deployment topology, we recommend enabling verbose garbage collect
 
 #### Nursery Size
 
-Benchmarks show that the generational garbage collector gives the best performance; therefore, it is enabled by default since HCL Connections, version 3.0. The string -Xgcpolicy:gencon is present in the Generic JVM Arguments field in the WAS Admin Console.
+Benchmarks show that the generational garbage collector gives the best performance; therefore, it is enabled by default since HCL Connections, version 3.0. The string `-Xgcpolicy:gencon` is present in the Generic JVM Arguments field in the WAS Admin Console.
 
 The generational garbage collector splits the heap into two sections: the nursery and the tenured region. The collector can be fine-tuned by setting the size of the space where new objects are allocated, the nursery. A large nursery is typically good for throughput, while a small nursery is typically good for low pause times. Moreover, good WebSphere Application Server performance (throughput) usually requires a reasonably large nursery. A good starting point would be to size the nursery to ¼ of the Max Heap size, e.g. 512 MB for a 2GB heap size. Next, move up or down to determine optimal value, measure throughput or response times, and analyze GC logs to understand frequency and length of scavenges. In particular, watch the "flipped bytes" count and keep that as low as possible.
 
-The nursery size is set with the JVM argument -Xmn (for example, **–Xmn512M** )
+The nursery size is set with the JVM argument `-Xmn` (for example, **`–Xmn512M`** )
 
 ### Tuning the Data sources
 
@@ -498,7 +483,7 @@ By default, when installing HCL Connections Version 8, the HCL Installation Mana
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
-**Resources → JDBC Providers → \<provider name\> → Data Sources → \<data source name\> → Connection pool properties**
+**Resources → JDBC Providers → PROVIDER_NAME → Data Sources → DATA_SOURCE_NAME → Connection pool properties**
 
 - Maximum connections
 - Minimum connections
@@ -509,7 +494,7 @@ All data sources are configured in a similar manner. By default, HCL Connections
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
-**Resources → JDBC Providers → \<provider name\> → Data Sources → \<data source name\> → WebSphere Application Server data source properties → Statement cache size.**
+**Resources → JDBC Providers → PROVIDER_NAME → Data Sources → DATA_SOURCE_NAME → WebSphere Application Server data source properties → Statement cache size.**
 
 Be aware that specifying a larger prepared statement cache size can lead to OutOfMemory errors in situations where your application memory is already being highly used by your workload. The prepared statement cache size setting is the maximum allowed cache entries per database connection. So increasing the cache size on a data source that has a large number of connections can quickly increase the heap usage for these cache objects. Any changes should be considered for each individual data source independently instead of across all data sources globally. Before increasing a data source's prepared statement cache size, you should monitor your memory usage under a heavy workload to determine if there is enough JVM heap available to handle an additional increase.
 
@@ -558,13 +543,13 @@ A key point to keep in mind is that users should periodically monitor the actual
 For high-volume sites, we recommend tuning the Service Integration Bus (SIB) Message File Store. For example, for the Activities application, the following tuning worked well in HCL's workloads:
 
 - Message Store - High loads on the Activities application generate a high message traffic, which needs a larger message store for the Activities Messaging Engine (ME). We noticed good performance using the following values:
-  - Log size = 500MB
-  - Minimum permanent store size = 500MB
-  - Maximum permanent store size = 3000MB
-  - Minimum temporary store size = 500MB
-  - Maximum temporary store size = 1000MB
+    - Log size = 500MB
+    - Minimum permanent store size = 500MB
+    - Maximum permanent store size = 3000MB
+    - Minimum temporary store size = 500MB
+    - Maximum temporary store size = 1000MB
 
-Other ME candidates for the same tuning based on traffic are News, Communities, and Files. 
+Other ME candidates for the same tuning based on traffic are News, Communities, and Files.
 
 To set the message thresholds, go to the WebSphere Integrated Solutions Console and click on Service integration → Buses → ConnectionsBus → Messaging engines → ActivitiesCluster.000-ConnectionsBus → Message Store.
 
@@ -579,10 +564,7 @@ Similar obersvations for Communities, Files, Metrics and Profiles. Recommended t
 
 ### Tuning the Web Server
 
-All performance benchmark measurements were conducted with the IBM® HTTP Server co-located on the node
-running the WebSphere Application Server. IBM® HTTP Server fast file downloading option was configured for:
-Activities, Files, Mobile and Wikis. This permits the IHS server to download binary content directly, instead of
-passing the download requests to the application server, as we found this increased server capacity.
+All performance benchmark measurements were conducted with the IBM® HTTP Server co-located on the node running the WebSphere Application Server. IBM® HTTP Server fast file downloading option was configured for: Activities, Files, Mobile and Wikis. This permits the IHS server to download binary content directly, instead of passing the download requests to the application server, as we found this increased server capacity.
 
 The IBM HTTP Server provided with IBM WebSphere Application Server ND requires very little tuning, as most of the default settings are set for excellent performance. However, the following performance changes were made, in addition to configuring the HTTP Server for SSL:
 
@@ -608,26 +590,18 @@ The IBM HTTP Server provided with IBM WebSphere Application Server ND requires v
 | proxy_connect_timeout  | 75s |
 | proxy_send_timeout | 600s |
 | proxy_read_timeout | 900s |
-| keepalive timeout  | 160s | 
+| keepalive timeout  | 160s |
 
 
-For Linux, AIX, and z/OS, these values assume that IHS is using the default Worker Multi-Processing Module. This
-module creates multiple processes (servers) to handle requests. Each server, in turn, can create multiple threads. HTTP
-requests are handled by a thread. So, the number of threads determines how many concurrent connections the server can
-service. In the settings table above, notice that the ThreadLimit setting multiplied by the ServerLimit is equal to the
-MaxClient value. If MaxClients is set lower, each server will not be able to start as many threads as are set in
-ThreadLimit.
+For Linux, AIX, and z/OS, these values assume that IHS is using the default Worker Multi-Processing Module. This module creates multiple processes (servers) to handle requests. Each server, in turn, can create multiple threads. HTTP requests are handled by a thread. So, the number of threads determines how many concurrent connections the server can service. In the settings table above, notice that the ThreadLimit setting multiplied by the ServerLimit is equal to the MaxClient value. If MaxClients is set lower, each server will not be able to start as many threads as are set in ThreadLimit.
 
 To increase MaxClients, either the ServerLimit, ThreadLimit, or both must also be increased. Note that UNIX-based HTTP servers cache information in each process. So, when increasing settings, raise the number of threads first before raising the number of processes. This reduces the overall memory needed by the HTTP server.
 
-The values used in the performance benchmarks are set to ensure there are sufficient resources to handle hundreds of
-hits per second from thousands of users. For smaller environments, lower values that use less server resources can be
-used. For example, to serve several hundred hits per second, ServerLimit could be set to 5, ThreadLimit could be set to
-160 and MaxClients could be set to 800.
-These numbers are not exact and depend on many factors. The upper limits become even more restrictive when loading
-other modules such as mod_mem_cache etc.
+The values used in the performance benchmarks are set to ensure there are sufficient resources to handle hundreds of hits per second from thousands of users. For smaller environments, lower values that use less server resources can be used. For example, to serve several hundred hits per second, ServerLimit could be set to 5, ThreadLimit could be set to 160 and MaxClients could be set to 800.
 
-A key point to keep in mind is that the HCL HTTP Server should need very little tuning, but make sure to configure File Serving if appropriate for the deployment and enable compression for file types if not doing so on the proxy server. 
+These numbers are not exact and depend on many factors. The upper limits become even more restrictive when loading other modules such as mod_mem_cache etc.
+
+A key point to keep in mind is that the IBM HTTP Server should need very little tuning, but make sure to configure File Serving if appropriate for the deployment and enable compression for file types if not doing so on the proxy server.
 
 ### Enabling Caching in IHS
 
@@ -655,11 +629,12 @@ More information on configuring disk caching can be found in this blog post on d
 
 To reduce network traffic, GZIP compression was enabled on the HTTP server for all benchmarks.
 
-Follow the steps documented in the HCL Knowledge Center: [https://help.hcltechsw.com/connections/v7/admin/install/t_ihs_config_not_compressing_files.html](https://help.hcltechsw.com/connections/v7/admin/install/t_ihs_config_not_compressing_files.html)
+Follow the steps documented in: [Determining which files to compress](../../admin/install/t_ihs_config_not_compressing_files.md)
 
 If a proxy server is used, then we recommend to enable compression on the Proxy server instead.
 
-**Note:** Do not compress content at both the HTTP server and the proxy server.
+!!! note annotate
+    Do not compress content at both the HTTP server and the proxy server.
 
 ### Monitoring HTTP Server Activity
 
@@ -673,23 +648,30 @@ Access logs are crucial to problem determination. We recommend you enable loggin
 
 We found it useful to add the response time to the access logs. This can be done by adding the %D token (for response times) to the combined log format, 'combined' log format, as in this example:
 
+```
 LogFormat "%h %l %u %t \"%r\" %>s %b RESPONSE_TIME: [%D microseconds] \"%{Referer}i\" \"%
 {User-Agent}i\"" combined
 CustomLog logs/access.log combined
+```
 
 For further debugging, we found it useful to add some additional details, as in this example:
 
+```
 LogFormat "%h:%p %l %u %t RESPONSE_CODE:[%>s] AGE: [%{Age}o] CACHE_MISS: [%{CACHE_MISS}e
 ] CACHE-STATUS: [%{cache-status}e] SIZE: [%b] RESPONSE_TIME: [%T/%D] (microseconds) WAS:
-[%{WAS}e] \"%r\" %>s REFERER: \"%{Referer}i\" USER_AGENT: \"%{User-Agent}i\"" combined  
+[%{WAS}e] \"%r\" %>s REFERER: \"%{Referer}i\" USER_AGENT: \"%{User-Agent}i\"" combined
+```
 
 References: [http://www.ibm.com/developerworks/library/co-websphere-access-feature/](http://www.ibm.com/developerworks/library/co-websphere-access-feature/) [http://www-01.ibm.com/support/docview.wss?uid=swg21570830](http://www-01.ibm.com/support/docview.wss?uid=swg21570830)
 
-**Note:** Make sure you manage logs size and logs rotation to avoid running out of space on the disk where you are writing the logs too.
+!!! note annotate
+    Make sure you manage logs size and logs rotation to avoid running out of space on the disk where you are writing the logs too.
 
 Example:
 
+```
 CustomLog"|/opt/IBM/HTTPServer/bin/rotatelogs-llogs/access\_%Y-%m-%d\_%H\_%M\_%S.log500M"combined
+```
 
 References: [http://publib.boulder.ibm.com/httpserv/manual70/programs/rotatelogs.html](http://publib.boulder.ibm.com/httpserv/manual60/programs/rotatelogs.html)
 
@@ -699,7 +681,8 @@ References: [http://publib.boulder.ibm.com/httpserv/manual70/programs/rotatelogs
 
 DB2 database tuning in general revolves around reorganization and runstats. _Reorganization_ changes the physical arrangement of data on disk, and should be done when a significant amount of data is added to the database. _Runstats_ provides DB2 with statistics about table contents, allowing it to pick efficient paths to evaluate queries. _Runstats_ should be run regularly to ensure that queries are being executed optimally.
 
-**Note:** When applying DB2 fix packs, several steps are needed to ensure a smooth upgrade and good operational performance when the upgrade is all done. Consult the HCL Connections bundles scripts in the product's connections.sql folder to organize and update statistics on each of the application databases. We recommend using the supplied scripts instead of manually doing a subset of tables, as the supplied scripts are optimized for HCL Connections.
+!!! note annotate
+    When applying DB2 fix packs, several steps are needed to ensure a smooth upgrade and good operational performance when the upgrade is all done. Consult the HCL Connections bundles scripts in the product's connections.sql folder to organize and update statistics on each of the application databases. We recommend using the supplied scripts instead of manually doing a subset of tables, as the supplied scripts are optimized for HCL Connections.
 
 We also recommend frequent review of the DB2 general error log – db2diag.log – looking for general and critical warnings.
 
@@ -709,35 +692,42 @@ HCL Connections takes advantage of the self-configuring and self-maintaining fea
 
 **Key point:** Run the reorg and statistics update scripts for each installed application, bundled with the product. These are especially critical after an initial data load or significant shifts in population.
 
-## DB2\MINIMIZE\LISTPREFETCH
+## DB2\_MINIMIZE\_LISTPREFETCH
 
 We recommend applying this setting; otherwise, you might experience high CPU utilization with a relatively small load.
 
-db2set DB2\_MINIMIZE\_LISTPREFETCH=YES
+```sql
+db2set DB2_MINIMIZE_LISTPREFETCH=YES
+```
 
 List prefetch is a special table access method that involves retrieving the qualifying row IDs from an index, sorting them by page number and then prefetching the data pages. Sometimes the optimizer does not have accurate information to determine if list prefetch is a good access method. This might occur when predicate selectivities contain parameter markers or host variables that prevent the optimizer from using catalog statistics to determine the selectivity.
 
 This occurs on a number of the query plans in the HCL Connections databases. Applying this setting reverts the access plan back to simple IXSCAN (index scan), thus reducing database CPU utilization.
 
-**Note:** Apply this setting to each DB2 server instance used for the Connections databases and restart the instance for it to take effect.
+!!! note annotate
+    Apply this setting to each DB2 server instance used for the Connections databases and restart the instance for it to take effect.
 
-For more information on this option see the IBM DB2 11.1 Knowledge Center [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.ht](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html)[ml](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html)
+For more information on this option see the IBM DB2 11.5 Knowledge Center [https://www.ibm.com/docs/en/db2/11.5?topic=variables-query-compiler#r0005664__Q_DB2_MINIMIZE_LISTPREFETCH](https://www.ibm.com/docs/en/db2/11.5?topic=variables-query-compiler#r0005664__Q_DB2_MINIMIZE_LISTPREFETCH){:target="_blank"}
 
-## DB2\SELECTIVITY
+## DB2\_SELECTIVITY
 
 We recommend applying this setting to improve the performance of Connections queries that include selectivity hints.
 
-db2set DB2\SELECTIVITY=YES
+```sql
+db2set DB2_SELECTIVITY=YES
+```
 
-**Note:** Apply this setting to each DB2 server instance used for the Connections databases and restart the instance for it to take effect.
+!!! note annotate
+    Apply this setting to each DB2 server instance used for the Connections databases and restart the instance for it to take effect.
 
-For more information on this option see the IBM DB2 11.1 Knowledge Center [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.ht](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html)[ml](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html)
+For more information on this option see the IBM DB2 11.1 Knowledge Center [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.ht](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html)[ml](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.regvars.doc/doc/r0005664.html){:target="_blank"}
 
 ## DB2 Data Compression
 
 DB2 provides a compression technology option that reduces storage requirements, improves I/O efficiency and performance, and provides quicker access to data from disk.
 
-**Note:** To use compression, you **must** have a license for the DB2 Storage optimization Feature.
+!!! note annotate
+    To use compression, you **must** have a license for the DB2 Storage optimization Feature.
 
 HCL's measurements with table and index compression applied to all the Homepage database tables yielded the following overall performance improvements:
 
@@ -745,13 +735,14 @@ HCL's measurements with table and index compression applied to all the Homepage 
 - A 16% reduction in IOPS (Homepage generates by far the single highest number of IOPS at 64% of the total test workload)
 - The DB2 and WebSphere CPU utilization values were quite similar between the uncompressed and compressed DB workloads at the same throughput, i.e., we did not observe a significant CPU penalty when applying DB compression.
 
-**Note:** In addition to the disk space and disk I/O improvements listed above, DB2 Data Compression typically reduces the DB2 buffer pool memory requirements as well. This means that for memory-limited DB2 servers and DB2 servers having no further capacity to expand memory, DB2 Data Compression can help reduce host memory stresses.
+!!! note annotate
+    In addition to the disk space and disk I/O improvements listed above, DB2 Data Compression typically reduces the DB2 buffer pool memory requirements as well. This means that for memory-limited DB2 servers and DB2 servers having no further capacity to expand memory, DB2 Data Compression can help reduce host memory stresses.
 
 For more information about this compression option, see the following documentation:
 
-- IBM DB2 11.1 Information Center - Data Compression [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c005540](http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0055401.html)[1.html](http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0055401.html)
+- IBM DB2 11.1 Information Center - Data Compression [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c005540](http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0055401.html)[1.html](http://www-01.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0055401.html){:target="_blank"}
 
-- developerWorks – Technical article on data compression in DB2 [http://www.ibm.com/developerworks/data/library/techarticle/dm-0605ahuja/](http://www.ibm.com/developerworks/data/library/techarticle/dm-0605ahuja/)
+- developerWorks – Technical article on data compression in DB2 [http://www.ibm.com/developerworks/data/library/techarticle/dm-0605ahuja/](http://www.ibm.com/developerworks/data/library/techarticle/dm-0605ahuja/){:target="_blank"}
 
 ## Enable compression and compress
 As a companion to this tuning guide we have provided in Appendix C – DB2 Compress Homepage a compression SQL
@@ -762,13 +753,14 @@ Step 1. Enable Compression on the database
 From a DB2 command window on the DB2 server, issue the following command to run the provided compression
 script:
 
+```bash
 su - DB2_instance_name
 
 db2 -td@ -vf Compress_homepage_DB2.sql
+```
 
-Note: DB2_instance_name is the name of the user that owns the DB2 instance serving the database. If you use
-multiple instances e.g. one for each database, you need to switch or login with the user that owns the instance serving
-the Homepage database.
+!!! note annotate
+    DB2_instance_name is the name of the user that owns the DB2 instance serving the database. If you use multiple instances e.g. one for each database, you need to switch or login with the user that owns the instance serving the Homepage database.
 
 Example:
 
@@ -780,7 +772,7 @@ Step 2. Compress the databases
 
 The compression takes effect only once the table/index dictionaries are built, which is usually during the REORG
 phase. The “reorg.sql” scripts are provided for all databases with the IBM® Connections DBWizard. Run the one for the
-Homepage database. 
+Homepage database.
 
 Follow the detailed steps documented in the IBM® Knowledge Center “Improving access
 performance and defragmenting DB2 database data”:
@@ -878,7 +870,7 @@ To increase the shell limits:
 
 2. Add the following line to the /etc/pam.d/login file, if it does not already exist:
 
-session required pam_limits.so 
+session required pam_limits.so
 
 3. Depending on the root user's default shell, make the following changes to the default shell startup file:
 
@@ -896,47 +888,37 @@ Linux Enterprise Server systems):
 
 ### Profiles Login Attributes
 
-A user can log in with a number of attributes, depending on their company policy, (User ID, eMail ID, and so on). These
-attributes can be specified in profiles-config.xml. The default out of the box installation of HCL Connections
-specifies three of the most common attributes that customers might use to login, as in the following example. A
-customer can also specify other attributes:
+A user can log in with a number of attributes, depending on their company policy, (User ID, eMail ID, and so on). These attributes can be specified in profiles-config.xml. The default out of the box installation of HCL Connections specifies three of the most common attributes that customers might use to login, as in the following example. A customer can also specify other attributes:
 
 ![Alt text](image-15.png)
 
-Each attribute listed in the profiles-config.xml incurs a look-up performance cost. For the majority of customers using a
-single attribute login option, the system can be configured to use a single value to avoid unnecessary multiple look-ups
-and therefore improve performance.
+Each attribute listed in the profiles-config.xml incurs a look-up performance cost. For the majority of customers using a single attribute login option, the system can be configured to use a single value to avoid unnecessary multiple look-ups and therefore improve performance.
+
 Here is an example for a customer using the UID as the login attribute:
 
 ![Alt text](image-16.png)
 
 ### Tuning the Social Analytics Indexer
 
-To build the Social Analytics (SaND) index there is a trade-off between the time it takes and the memory it uses for this
-task. There is a configuration option to control the number of iterations of relationship data collection in the graph. This
-affects the trade-off as follows:
+To build the Social Analytics (SaND) index there is a trade-off between the time it takes and the memory it uses for this task. There is a configuration option to control the number of iterations of relationship data collection in the graph. This affects the trade-off as follows:
 
-- The higher the number of iterations, the longer it takes to build the graph, but its memory consumption is much
-lower.
-- The lower the number of iterations, the less time it takes to build the graph, but its memory consumption is
-higher. The default value is set to 100. On large data populations, we saw good performance improvement by lowering this
-value to 20.
+- The higher the number of iterations, the longer it takes to build the graph, but its memory consumption is much lower.
+- The lower the number of iterations, the less time it takes to build the graph, but its memory consumption is higher. The default value is set to 100. On large data populations, we saw good performance improvement by lowering this value to 20.
 - SearchCellConfig.setSandIndexerTuning("graph",20)
 
 For more information, see:
 
-[https://opensource.hcltechsw.com/connections-doc/v8/admin/admin/t_admin_search_tune_sand_indexing.html?h=service+tuning+social+analytics+indexing](https://opensource.hcltechsw.com/connections-doc/v8/admin/admin/t_admin_search_tune_sand_indexing.html?h=service+tuning+social+analytics+indexing)
+- [Tuning social analytics indexing](../../admin/admin/t_admin_search_tune_sand_indexing.md)
 
 ### Public Blogs Page Cache-Control
 
-To reduce the CPU usage of both WAS and the Database servers, the Public Blogs page has a public cache-control
-which makes it cachable by a caching proxy and the browser. The default age is 5 seconds.
+To reduce the CPU usage of both WAS and the Database servers, the Public Blogs page has a public cache-control which makes it cachable by a caching proxy and the browser. The default age is 5 seconds.
 
+```
 Cache-Control:"public, max-age=5, s-maxage=5"
+```
 
-For web sites that don't have frequent blog updates or where a delay of the new items being displayed on the public blog
-page can be tolerated, we can tune the cache control age to a longer time. For example 1 minute or even longer
-depending on the usage.
+For web sites that don't have frequent blog updates or where a delay of the new items being displayed on the public blog page can be tolerated, we can tune the cache control age to a longer time. For example 1 minute or even longer depending on the usage.
 
 To tune this value edit the following file:
 
@@ -948,9 +930,7 @@ http_cache.maxAge.html=5
 
 ### Tuning Activities Subject Cache
 
-In Connections 6.0 we have increased the subject cache to support up to 2000 concurrent users. For Activities workloads
-with more than 2000 concurrent users per cluster member we recommend to tune the Activities Subject Cache
-according to the number of concurrent users accessing the system. 
+In Connections 6.0 we have increased the subject cache to support up to 2000 concurrent users. For Activities workloads with more than 2000 concurrent users per cluster member we recommend to tune the Activities Subject Cache according to the number of concurrent users accessing the system.
 
 NOTE: Communities concurrent users are also implicitly Activities concurrent users as well.
 
@@ -1013,26 +993,23 @@ Cache Size Occupancy
 
 Ensure the InMemoryCacheEntry count is below the cache.instance.0.cacheSize you have set in Step 1
 
-Note: Poor hit rate would also suggest the cache size was not sufficient.
+!!! note annotate
+    Poor hit rate would also suggest the cache size was not sufficient.
 
 ### Tuning Push Notifications for FileSync and Notifications Center
 
-The PushNotifications server is used to push updates to the Notifications Center and to the File Sync clients using a
-technique called “Long Polling”; where the client subscribes to a channel after a successful handshake with the server.
-If the subscription is successful, the client starts a heartbeat mechanism with the server by exchanging connect
-messages without expecting response from each other. The request is return only when:
+The PushNotifications server is used to push updates to the Notifications Center and to the File Sync clients using a technique called “Long Polling”; where the client subscribes to a channel after a successful handshake with the server. If the subscription is successful, the client starts a heartbeat mechanism with the server by exchanging connect messages without expecting response from each other. The request is return only when:
 
 - the server has new information and it pushes it to the client;
 - after default time-out of 215 seconds expires.
 
-The heartbeat will continue between the client and server with steps above until either side decides to
-disconnect.
+The heartbeat will continue between the client and server with steps above until either side decides to disconnect.
 
 **Note**: For more than 5,000 concurrent connections a Proxy server that supports "non-blocking I/O" such as WebSphereApplicationServer(WAS)Proxy,F5serverorNGINXisneededtoroutethe_Long-Poll_connectionstothe _PushNotifications_ server cluster.
 
-For instructions on how to configure and tune the WebSphere Application Server (WAS) Proxy, please refer to the HCL Connections 8 product documentation in Knowledge Center at [https://opensource.hcltechsw.com/connections-doc/v8/admin/secure/t_admin_config_was_proxy.html](https://opensource.hcltechsw.com/connections-doc/v8/admin/secure/t_admin_config_was_proxy.html).
+For instructions on how to configure and tune the WebSphere Application Server (WAS) Proxy, please refer to the HCL Connections 8 product documentation in Knowledge Center at [Setting up and configuring a WAS proxy server for long poll testing](../../admin/secure/t_admin_config_was_proxy.md).
 
-For instructions on how to configure NGINX server for long polling, please refer to the HCL Connections 8 product documentation in the Knowledge Center at [https://opensource.hcltechsw.com/connections-doc/v8/admin/install/inst_post_nginx.html?h=tasks+configuring+nginx+server+long+polling](https://opensource.hcltechsw.com/connections-doc/v8/admin/install/inst_post_nginx.html?h=tasks+configuring+nginx+server+long+polling).
+For instructions on how to configure NGINX server for long polling, please refer to the HCL Connections 8 product documentation in the Knowledge Center at [Configuring an NGINX server for long polling](../../admin/install/inst_post_nginx.md).
 
 Further instructions to configure NGINX can be found at [https://developer.ibm.com/wasdev/docs/nginx-websphere-application-server/](https://developer.ibm.com/wasdev/docs/nginx-websphere-application-server/).
 
@@ -1050,22 +1027,22 @@ Push notifications is very different from the other Connections components in te
 **Servers → Server Types → WebSphere application servers → \<PushNotificationCluster\_server1\> → Server Infrastructure: Java and Process Management → Process Definition → Java Virtual Machine**
 
 - Less than 15,000 concurrent connections per node:
- Initial and maximum heap size: 4096
- Generic JVM arguments: -Xgcpolicy:gencon
+    - Initial and maximum heap size: 4096
+    - Generic JVM arguments: `-Xgcpolicy:gencon`
 
 - Up to 25,000 concurrent connections per node:
- Initial and maximum heap size: 6144 MB
- Generic JVM arguments: -Xgcpolicy:gencon
+    - Initial and maximum heap size: 6144 MB
+    - Generic JVM arguments: `-Xgcpolicy:gencon`
 
 - Up to 35,000 concurrent connections per node:
- Initial and maximum heap size: 8192 MB
- Generic JVM arguments: -Xgcpolicy:gencon
+    - Initial and maximum heap size: 8192 MB
+    - Generic JVM arguments: `-Xgcpolicy:gencon`
 
 **Step 2. Push Notifications Work Manager**
 
 Tune this work manager thread pool larger than the default to avoid threads hanging during peak hours:
 
-**How to Set:**_ In the WebSphere Integrated Solutions Console, click:
+**How to Set:** In the WebSphere Integrated Solutions Console, click:
 
 **Resources → Asynchronous beans → Work managers → PushNotificationWorkManager**
 
@@ -1080,7 +1057,7 @@ Tune this work manager thread pool larger than the default to avoid threads hang
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
-**Resources → JDBC → Data sources → \<pushnotification\> → Connection pool properties**
+**Resources → JDBC → Data sources → `pushnotification` → Connection pool properties**
 
 Maximum connection for the pool: 100
 
@@ -1088,7 +1065,7 @@ Maximum connection for the pool: 100
 
 **How to Set:** In the WebSphere Integrated Solutions Console, click:
 
-**Servers → Server Types → WebSphere application servers → \<PushNotificationCluster\_server1\> → Web Container Settings → Web container transport chains**
+**Servers → Server Types → WebSphere application servers → `<PushNotificationCluster_server1` → Web Container Settings → Web container transport chains**
 
 **Edit the following transport chains:**
 
@@ -1109,11 +1086,11 @@ Click on "TCP Inbound channel" and set Maximum open connections to: 50,000. This
 
 For example, on Linux run:
 
-cat /proc/sys/net/ipv4/ip\_local\_port\_range
+`cat /proc/sys/net/ipv4/ip_local_port_range`
 
 and if the reported range is too small, then adjust the limits accordingly. For example, on Linux do:
 
-echo "102464000" >/proc/sys/net/ipv4/ip\_local\_port\_range
+`echo "102464000" >/proc/sys/net/ipv4/ip_local_port_range`
 
 **Step 6. Web Container Thread Pool**
 
@@ -1181,7 +1158,8 @@ To set the long-poll time-out, edit the following:
 
 Timeout  215000ms
 
-Note: Time-out is expressed in milliseconds.
+!!! note annotate
+    Time-out is expressed in milliseconds.
 
 ## System Monitoring
 
@@ -1197,51 +1175,30 @@ The following metrics are important to monitor in an IBM Connections deployment:
 
 - Processor usage: Typically this is shown as a percentage of the available processor power available, so 50% utilization indicates that half of the available processing power is in use. Hardware multi-threading can make a single physical processor core appear as two or more processors. Keep this in mind when looking at processor usage, since operating systems typically report utilization as a percentage of available processors.
 
-- Physical memory: Monitor the amount of free memory available within the machine. If possible, also monitor
-paging activity (pages swapped in/out). Together, these provide a good picture of whether enough physical
-memory is available.
+- Physical memory: Monitor the amount of free memory available within the machine. If possible, also monitor paging activity (pages swapped in/out). Together, these provide a good picture of whether enough physical memory is available.
 
-- JVM memory: In addition to the total memory on the system, monitor the memory usage within the Java heap
-of all IBM® Connections application servers. Enable verbose garbage collection on those application servers
-so that it is possible to view memory usage statistics within the Java heap.
+- JVM memory: In addition to the total memory on the system, monitor the memory usage within the Java heap of all IBM® Connections application servers. Enable verbose garbage collection on those application servers so that it is possible to view memory usage statistics within the Java heap.
 
-- Disk I/O: The metrics available for monitoring disk I/O will vary by platform. The key is to be able to
-determine if the disk system is overloaded. Look at the portion of time the disk is busy. Another useful metric
-where it's available is the disk queue length
+- Disk I/O: The metrics available for monitoring disk I/O will vary by platform. The key is to be able to determine if the disk system is overloaded. Look at the portion of time the disk is busy. Another useful metric where it's available is the disk queue length
 
 - Network I/O: Look at both read and write rates in bytes per second (or megabytes per second).
 
-- Logs: Periodically check the logs from the servers in the environment. This includes SystemOut.log and
-SystemErr.log on the application servers, db2diag.log on DB2 databases (or corresponding logs on
-other databases), and any logs on the HTTP servers or proxy servers.
+- Logs: Periodically check the logs from the servers in the environment. This includes SystemOut.log and SystemErr.log on the application servers, db2diag.log on DB2 databases (or corresponding logs on other databases), and any logs on the HTTP servers or proxy servers.
 
 ### Systems
 
-Remember to monitor all of the systems which make up the IBM® Connections deployment. Start with the entry point
-to the system, such as a load balancer or reverse proxy, go through the HTTP servers and application servers, to the
-database servers and directory (LDAP) servers. Also make sure to monitor the network link to the system entry point as
-well as network links between different tiers. Network bandwidth and latency have significant impact on the overall
+Remember to monitor all of the systems which make up the IBM® Connections deployment. Start with the entry point to the system, such as a load balancer or reverse proxy, go through the HTTP servers and application servers, to the database servers and directory (LDAP) servers. Also make sure to monitor the network link to the system entry point as well as network links between different tiers. Network bandwidth and latency have significant impact on the overall
 response time of the client (the browser).
 
 ### Virtualised Environments
 
-Virtualised environments provide additional deployment flexibility and might reduce overall hardware costs. However,
-they can make performance monitoring more difficult. It's important to monitor utilization within the virtual machines
-to see if a specific virtual machine is seeing a performance problem. It's equally important to monitor the physical hosts
-where the virtual machines are located. This is especially important if resources on the physical host are over
-committed, where more processors, memory, or other resources are allocated to virtual machines than exist in the
-physical machine. This is especially true for memory which should never swap to disk.
+Virtualised environments provide additional deployment flexibility and might reduce overall hardware costs. However, they can make performance monitoring more difficult. It's important to monitor utilization within the virtual machines to see if a specific virtual machine is seeing a performance problem. It's equally important to monitor the physical hosts where the virtual machines are located. This is especially important if resources on the physical host are over committed, where more processors, memory, or other resources are allocated to virtual machines than exist in the physical machine. This is especially true for memory which should never swap to disk.
 
 ### What to look for
 
-It is hard to make broad, accurate generalisations about what performance metrics indicate a problem. Therefore
-consider these as guidelines rather than hard-and-fast rules of what does or doesn't indicate a problem. With that in
-mind, consider the following:
+It is hard to make broad, accurate generalisations about what performance metrics indicate a problem. Therefore consider these as guidelines rather than hard-and-fast rules of what does or doesn't indicate a problem. With that in mind, consider the following:
 
-- **Processor usage:** On the reverse proxy and application server tiers, a processor load over 70% that is sustained
-for at least 5 minutes indicates that the processor might be heavily loaded. On database servers, a processor
-load over 50% for at least 5 minutes might indicate heavy load. If the processor is heavily loaded, more nodes
-or nodes with more processors might be needed to handle additional load.
+- **Processor usage:** On the reverse proxy and application server tiers, a processor load over 70% that is sustained for at least 5 minutes indicates that the processor might be heavily loaded. On database servers, a processor load over 50% for at least 5 minutes might indicate heavy load. If the processor is heavily loaded, more nodes or nodes with more processors might be needed to handle additional load.
 
 - **Physical Memory:** The system should always have enough physical memory to fit all running processes in memory. Only minimal paging activity should be occurring. Sustained paging activity will cause significant performance problems, particularly on the application server tier. When attempting to estimate the memory requirement for the application server tier, remember that the process size for an application server is larger than just its heap size. For example, a JVM which has a heap size of 1 GB might consume a total of 1.3 GB or more.
 
@@ -1253,57 +1210,58 @@ or nodes with more processors might be needed to handle additional load.
 
 - **Logs:** Logs can contain a wealth of information. The following are messages we have seen, which can indicate performance problems:
 
-  - WebSphereSystemOut-HMGR0152W: CPU Starvation detected. Current thread scheduling delay is 9 seconds. This can indicate excessively high processor load on the application server, or possibly other performance problems. More discussion of this message is available at [http://www.ibm.com/support/docview.wss?uid=swg21236327](http://www.ibm.com/support/docview.wss?uid=swg21236327).
-  
-  - WebSphere SystemOut - WSVR0605W: Thread _threadname_ has been active for _hangtime_ and may be hung. There are _totalthreads_ threads in total in the server that may be hung. If threadname is a WebContainer thread, such as WebContainer:3, this can indicate a problem, as the WebContainer threads should typically handle requests quickly. However, HCL Connections has other threads which perform background work and which might execute for long periods of time, so this message is of less concern if it references one of those background threads.
+    - WebSphereSystemOut-HMGR0152W: CPU Starvation detected. Current thread scheduling delay is 9 seconds. This can indicate excessively high processor load on the application server, or possibly other performance problems. More discussion of this message is available at [http://www.ibm.com/support/docview.wss?uid=swg21236327](http://www.ibm.com/support/docview.wss?uid=swg21236327).
+
+    - WebSphere SystemOut - WSVR0605W: Thread _threadname_ has been active for _hangtime_ and may be hung. There are _totalthreads_ threads in total in the server that may be hung. If threadname is a WebContainer thread, such as WebContainer:3, this can indicate a problem, as the WebContainer threads should typically handle requests quickly. However, HCL Connections has other threads which perform background work and which might execute for long periods of time, so this message is of less concern if it references one of those background threads.
 
 ## Appendix A - Reference Material
 
-- HCL Connections Version 8 Product Documentation: [http://www.lotus.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=Product Documentation](http://www.lotus.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=Product%20Documentation).
+- HCL Connections Version 8 Product Documentation: [http://www.lotus.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=Product Documentation](http://www.lotus.com/ldd/lcwiki.nsf/xpViewCategories.xsp?lookupName=Product%20Documentation){:target="_blank"}.
 
-- WebSphere Application Server Performance Cookbook [http://publib.boulder.ibm.com/httpserv/cookbook/](http://publib.boulder.ibm.com/httpserv/cookbook/)
+- WebSphere Application Server Performance Cookbook [http://publib.boulder.ibm.com/httpserv/cookbook/](http://publib.boulder.ibm.com/httpserv/cookbook/){:target="_blank"}
 
-- WebSphere Application Server Network Deployment Version 8.5 documentation: [http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html)
+- WebSphere Application Server Network Deployment Version 8.5 documentation: [http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html](http://www-01.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.multiplatform.doc/ae/welcome_ndmp.html){:target="_blank"}
 
-- DB2 11.1 Information Center: [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.welcome.doc/doc/welcome.html](https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.welcome.doc/doc/welcome.html)
+- DB2 11.1 Information Center: [https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.welcome.doc/doc/welcome.html](https://www.ibm.com/support/knowledgecenter/SSEPGG\_11.1.0/com.ibm.db2.luw.welcome.doc/doc/welcome.html){:target="_blank"}
 
 - Tuning IBM® System x Servers for Performance:
-[http://www.redbooks.ibm.com/redbooks/SG245287/wwhelp/wwhimpl/js/html/wwhelp.html](http://www.redbooks.ibm.com/redbooks/SG245287/wwhelp/wwhimpl/js/html/wwhelp.html)
+[http://www.redbooks.ibm.com/redbooks/SG245287/wwhelp/wwhimpl/js/html/wwhelp.html](http://www.redbooks.ibm.com/redbooks/SG245287/wwhelp/wwhimpl/js/html/wwhelp.html){:target="_blank"}
 
 - Understanding how the JVM uses native memory on Windows and Linux
-[http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html](http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html)
+[http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html](http://www.ibm.com/developerworks/linux/library/j-nativememory-linux/index.html){:target="_blank"}
 
 - DB2 best practices: Storage optimization with deep compression
-[http://www.ibm.com/developerworks/data/bestpractices/deepcompression/index.html](http://www.ibm.com/developerworks/data/bestpractices/deepcompression/index.html)
+[http://www.ibm.com/developerworks/data/bestpractices/deepcompression/index.html](http://www.ibm.com/developerworks/data/bestpractices/deepcompression/index.html){:target="_blank"}
 
 - DB2 best practices: Managing data growth
-[http://www.ibm.com/developerworks/data/bestpractices/managingdatagrowth/index.html](http://www.ibm.com/developerworks/data/bestpractices/managingdatagrowth/index.html)
+[http://www.ibm.com/developerworks/data/bestpractices/managingdatagrowth/index.html](http://www.ibm.com/developerworks/data/bestpractices/managingdatagrowth/index.html){:target="_blank"}
 
 - Best Practices: Tuning and Monitoring Database System Performance
-[http://www.ibm.com/developerworks/data/bestpractices/systemperformance/](http://www.ibm.com/developerworks/data/bestpractices/systemperformance/)
+[http://www.ibm.com/developerworks/data/bestpractices/systemperformance/](http://www.ibm.com/developerworks/data/bestpractices/systemperformance/){:target="_blank"}
 
 - Troubleshooting:
-[https://www.ibm.com/support/knowledgecenter/en/SSYGQH_6.0.0/admin/troubleshoot/ts_c_welcome.html](https://www.ibm.com/support/knowledgecenter/en/SSYGQH_6.0.0/admin/troubleshoot/ts_c_welcome.html)
+[https://www.ibm.com/support/knowledgecenter/en/SSYGQH_6.0.0/admin/troubleshoot/ts_c_welcome.html](https://www.ibm.com/support/knowledgecenter/en/SSYGQH_6.0.0/admin/troubleshoot/ts_c_welcome.html){:target="_blank"}
 
 - developerWorks IBM® Cognos 10 BI Community
-[https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=8d7e4a2b-2364-4719-9f4e-aa9e24db7465](https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=8d7e4a2b-2364-4719-9f4e-aa9e24db7465)
+[https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=8d7e4a2b-2364-4719-9f4e-aa9e24db7465](https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=8d7e4a2b-2364-4719-9f4e-aa9e24db7465){:target="_blank"}
 
 
 ## Appendix C – DB2 Compress Homepage
 
-Cut and paste the lines between “Begin and End of Compress_homepage_DB2.sql – Do NOT copy this line”
-into a file that you can call Compress_homepage_DB2.sql
+Cut and paste the lines between “Begin and End of Compress_homepage_DB2.sql – Do NOT copy this line” into a file that you can call Compress_homepage_DB2.sql
 
 From a DB2 terminal window on the DB2 server, issue the following commands:
 
+```bash
 su - DB2_instance_name
 
 db2 -td@ -vf Compress_HP_DB2.sql
+```
 
-Note: DB2_instance_name is the name of the DB2 instance serving the Homepage database. If
-you use multiple instances, e.g. one for each database, you need to identify the one serving the
-Homepage database.
+!!! note annotate
+    DB2_instance_name is the name of the DB2 instance serving the Homepage database. If you use multiple instances, e.g. one for each database, you need to identify the one serving the Homepage database.
 
+```sql
 
 CONNECT TO HOMEPAGE@ <br>
 ALTER INDEX HOMEPAGE.PK_APPLICATIONS COMPRESS YES@ <br>
@@ -1379,7 +1337,7 @@ COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_SERVICES_ID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UK_SERVICE_NAME COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_SRVAPP_SERVICE_APPLICATION COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_APPREG_SRV_APP_SRV_ID COMPRESS YES@ <br>
@@ -1391,7 +1349,7 @@ COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_APPREG_SRV_EVN_SRV_ID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_APPREG_SRV_EVN_EVN_ID COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_SRVOBJ_SERVICE_OBJECT COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_APPREG_SRV_OBJ_SRV_ID COMPRESS YES@ <br>
@@ -1421,7 +1379,7 @@ COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_THEMES COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UK_THEMES COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER INDEX HOMEPAGE.BOARD_PK COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.CONTAINER_ID_UNQ COMPRESS YES@ <br>
@@ -1520,7 +1478,7 @@ ALTER INDEX HOMEPAGE.PK_HP_TAB COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_HP_TAB_INST COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER INDEX HOMEPAGE.HP_TAB_INST_UNQ COMPRESS YES@ <br> 
+ALTER INDEX HOMEPAGE.HP_TAB_INST_UNQ COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.TAB_INST_TAB_ID COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -1579,7 +1537,7 @@ COMMIT@ <br>
 ALTER INDEX HOMEPAGE.COMP_PRF_ORG_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.COMP_PRF_PKG_IDX COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_COM_PKG_PREF_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_EXT_BIND_ID COMPRESS YES@ <br>
@@ -1604,7 +1562,7 @@ ALTER INDEX HOMEPAGE.PK_PACKAGES_ID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PKG_ORG_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER INDEX HOMEPAGE.PKG_OWNER_IDX COMPRESS YES@ <br> 
+ALTER INDEX HOMEPAGE.PKG_OWNER_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_PACKAGE_DETAILS_ID COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -1675,7 +1633,7 @@ COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_ORG_NAME COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.PK_ORGANIZATION_ID COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNQ_ORG_EXID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.ACTIONABLE_READERS_ROLLUP_IIIX COMPRESS YES@ <br>
@@ -2098,7 +2056,7 @@ ALTER INDEX HOMEPAGE.STORIES_ITEM_CORR_ID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.STORIES_ITEM_ENTRY_CORR_ID COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER INDEX HOMEPAGE.STORIES_ITEM_ID_IX COMPRESS YES@ <br> 
+ALTER INDEX HOMEPAGE.STORIES_ITEM_ID_IX COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.STORY_CONTAINED_ID COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2130,7 +2088,7 @@ ALTER INDEX HOMEPAGE.TOPICS_READERS_STR_RDR COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.TOPICS_READERS_ROLLUP_IIIX COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER INDEX HOMEPAGE.PK_REPLYTO COMPRESS YES@ <br> 
+ALTER INDEX HOMEPAGE.PK_REPLYTO COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.REPLYTO_RECIP_ID COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2246,7 +2204,7 @@ ALTER INDEX HOMEPAGE.SR_FILESCONTENT_STATUS_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.SR_FILESCONTENT_VERSION_IDX COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER INDEX HOMEPAGE.PK_GSP_ID COMPRESS YES@ <br> 
+ALTER INDEX HOMEPAGE.PK_GSP_ID COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER INDEX HOMEPAGE.UNIQUE_GSP_NAME COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2325,7 +2283,7 @@ COMMIT@ <br>
 ALTER TABLE HOMEPAGE.APPREG_APPLICATION_EXTENSION COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.APPREG_EVENTS COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER TABLE HOMEPAGE.APPREG_EXTENSIONS COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.APPREG_EXTENSION_EVENT COMPRESS YES@ <br>
@@ -2366,7 +2324,7 @@ ALTER TABLE HOMEPAGE.BOARD COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.BOARD_COMMENTS COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER TABLE HOMEPAGE.BOARD_CURRENT_STATUS COMPRESS YES@ <br> 
+ALTER TABLE HOMEPAGE.BOARD_CURRENT_STATUS COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.BOARD_ENTRIES COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2457,7 +2415,7 @@ COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_AS_COLLECTION_CONFIG COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_AS_CONTENT_INDEX_STATS COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_AS_COUNTS COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_AS_CRAWLER_STATUS COMPRESS YES@ <br>
@@ -2489,7 +2447,7 @@ COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_FOLLOWS COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_MENTIONS_READERS COMPRESS YES@ <br>
-COMMIT@ <br> 
+COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_NETWORK COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_NEWS_COMMENT_CONTENT COMPRESS YES@ <br>
@@ -2502,7 +2460,7 @@ ALTER TABLE HOMEPAGE.NR_NEWS_STATUS_NETWORK COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_NOTIFICATION_RECEIV_READERS COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER TABLE HOMEPAGE.NR_NOTIFICATION_SENT_READERS COMPRESS YES@ <br> 
+ALTER TABLE HOMEPAGE.NR_NOTIFICATION_SENT_READERS COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.NR_PROFILES_VIEW COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2548,7 +2506,7 @@ ALTER TABLE HOMEPAGE.OAUTH1_TOKEN COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.OAUTH2_CLIENT COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER TABLE HOMEPAGE.OAUTH2_GADGET_BINDING COMPRESS YES@ <br> 
+ALTER TABLE HOMEPAGE.OAUTH2_GADGET_BINDING COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.OAUTH2_PROVIDER COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2568,7 +2526,7 @@ ALTER TABLE HOMEPAGE.OH2P_CLIENTCFG COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.PERSON COMPRESS YES@ <br>
 COMMIT@ <br>
-ALTER TABLE HOMEPAGE.PERSON_ROLE COMPRESS YES@ <br> 
+ALTER TABLE HOMEPAGE.PERSON_ROLE COMPRESS YES@ <br>
 COMMIT@ <br>
 ALTER TABLE HOMEPAGE.PREREQ COMPRESS YES@ <br>
 COMMIT@ <br>
@@ -2631,50 +2589,25 @@ COMMIT@ <br>
 FLUSH PACKAGE CACHE DYNAMIC@ <br>
 connect reset@ <br>
 terminate@ <br>
+```
 
 End of Compress_homepage_DB2.sql .sql – Do NOT copy this line
 
 ## Trademarks
-HCL, the HCL logo, and ibm.com are trademarks or registered trademarks of International Business Machines
-Corporation in the United States, other countries, or both. If these and other IBM trademarked terms are marked on their
-first occurrence in this information with a trademark symbol (® or ™), these symbols indicate U.S. registered or
-common law trademarks owned by IBM at the time this information was published. Such trademarks might also be
-registered or common law trademarks in other countries. A current list of HCL trademarks is available on the web at
-Copyright and trademark information (www.ibm.com/legal/copytrade.shtml).
+HCL, the HCL logo, and ibm.com are trademarks or registered trademarks of International Business Machines Corporation in the United States, other countries, or both. If these and other IBM trademarked terms are marked on their first occurrence in this information with a trademark symbol (® or ™), these symbols indicate U.S. registered or common law trademarks owned by IBM at the time this information was published. Such trademarks might also be registered or common law trademarks in other countries. A current list of HCL trademarks is available on the web at Copyright and trademark information (www.ibm.com/legal/copytrade.shtml).
 
-Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe
-Systems Incorporated in the United States, and/or other countries.
+Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States, and/or other countries.
 
-Intel, Intel logo, Intel Inside, Intel Inside logo, Intel Centrino, Intel Centrino logo, Celeron, Intel Xeon, Intel SpeedStep,
-Itanium, and Pentium are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United
-States and other countries.
+Intel, Intel logo, Intel Inside, Intel Inside logo, Intel Centrino, Intel Centrino logo, Celeron, Intel Xeon, Intel SpeedStep, Itanium, and Pentium are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United States and other countries.
 
-Java and all Java-based trademarks and logos are trademarks of Sun Microsystems, Inc. in the United States, other
-countries, or both.
-Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.
-Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United
-States, other countries, or both.
+Java and all Java-based trademarks and logos are trademarks of Sun Microsystems, Inc. in the United States, other countries, or both. Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both. Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both.
 
-UNIX is a registered trademark of The Open Group in the United States and other countries.
-Other company, product, or service names might be trademarks or service marks of others.
+UNIX is a registered trademark of The Open Group in the United States and other countries. Other company, product, or service names might be trademarks or service marks of others.
 
 ## Terms and Conditions
 
 Permissions for the use publications is granted subject to the following terms and conditions.
-Personal Use: You may reproduce these publications for your personal, non commercial use provided that all
-proprietary notices are preserved. You may not distribute, display or make derivative work of these publications, or any
-portion thereof, without the express consent of HCL.
-Commercial Use: You may reproduce, distribute and display these publications solely within your enterprise provided
-that all proprietary notices are preserved. You may not make derivative works of these publications, or reproduce,
-distribute or display these publications or any portion thereof outside your enterprise, without the express consent of
-HCL.
-Except as expressly granted in this permission, no other permissions, licenses or rights are granted, either express or
-implied, to the publications or any information, data, software or other intellectual property contained therein.
-IBM reserves the right to withdraw the permissions granted herein whenever, in its discretion, the use of the
-publications is detrimental to its interest or, as determined by HCL, the above instructions are not being properly
-followed.
-You may not download, export or re-export this information except in full compliance with all applicable laws and regulations, including all United States export laws and regulations.
-HCL MAKES NO GUARANTEE ABOUT THE CONTENT OF THESE PUBLICATIONS. THE PUBLICATIONS
-ARE PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
-PARTICULAR PURPOSE.
+Personal Use: You may reproduce these publications for your personal, non commercial use provided that all proprietary notices are preserved. You may not distribute, display or make derivative work of these publications, or any portion thereof, without the express consent of HCL.
+Commercial Use: You may reproduce, distribute and display these publications solely within your enterprise provided that all proprietary notices are preserved. You may not make derivative works of these publications, or reproduce, distribute or display these publications or any portion thereof outside your enterprise, without the express consent of HCL.
+Except as expressly granted in this permission, no other permissions, licenses or rights are granted, either express or implied, to the publications or any information, data, software or other intellectual property contained therein. IBM reserves the right to withdraw the permissions granted herein whenever, in its discretion, the use of the publications is detrimental to its interest or, as determined by HCL, the above instructions are not being properly followed. You may not download, export or re-export this information except in full compliance with all applicable laws and regulations, including all United States export laws and regulations.
+HCL MAKES NO GUARANTEE ABOUT THE CONTENT OF THESE PUBLICATIONS. THE PUBLICATIONS ARE PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
