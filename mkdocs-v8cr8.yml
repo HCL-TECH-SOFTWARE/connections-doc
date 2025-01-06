@@ -1,4 +1,4 @@
-#Project Information
+#  Project Information
 site_name: HCL Connections 8.0 CR8 Help Center 
 site_description: >-
   A next-gen documentation site for HCL Connections.
@@ -67,7 +67,7 @@ extra_javascript:
   - javascripts/current.js
 
 plugins:
-  - section-index
+# - section-index
   - search
   
  #Table of contents 
