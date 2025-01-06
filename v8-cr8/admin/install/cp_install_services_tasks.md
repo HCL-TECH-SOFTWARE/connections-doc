@@ -1123,7 +1123,9 @@ For post-installation tasks required to deploy the community creation wizard and
         print AdminControl.getCell()
         ```
 
-    **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.
+    !!! note 
+        
+        When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.
 
 4. Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the <properties\> </properties\> tag as shown below:
 
