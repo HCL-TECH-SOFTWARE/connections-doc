@@ -2,13 +2,13 @@
 
 On a very high level, to install and successfully run HCL Component Pack, you will need HCL Connections plus additional resources to satisfy the following requirements.
 
--  Fully functioning Kubernetes cluster or containerd as the container runtime, and support for persistent volumes. The Kubernetes workers should have enough disk space to pull the Component Pack images - 50 GB is recommended.
--  Access to the [HCL Harbor repository](https://hclcr.io/harbor/projects/15/repositories), an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.
+-   Fully functioning Kubernetes cluster or containerd as the container runtime, and support for persistent volumes. The Kubernetes workers should have enough disk space to pull the Component Pack images - 50 GB is recommended.
+-   Access to the [HCL Harbor repository](https://hclcr.io/harbor/projects/15/repositories), an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.
 
     When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see [Installation and upgrade](../install/cp_install_upgrade_container.md).
-
+    
     Customers with credentials to access Connections in the HCL Software License & Download portal may apply those credentials to access Harbor.
--  One machine with kubectl, and Helm installed and configured. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.
+-   One machine with kubectl, and Helm installed and configured. This machine can be any machine in the cluster, but must be used exclusively for Component Pack installation, configuration, and upgrades.
 
 For the supported versions of Kubernetes, Helm, and so on, see [HCL Connections 8.0 CR3 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966).
 
@@ -44,7 +44,7 @@ If you are setting up the cluster yourself, see [which containerd versions are s
 
 See [HCL Connections 8.0 CR3 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966). Component Pack for Connections follows the same Kubernetes support pattern that Kubernetes itself is following.
 
-!!! note
+!!! note 
     
     Applications on which Component Pack relies, such as community ingress, have their own Kubernetes support pattern, and should be double-checked before beginning a Component Pack install or upgrade.
 
