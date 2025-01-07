@@ -16,7 +16,9 @@ Before starting the steps, note the following:
 
 - Kubernetes up and running.
 
-    **Note:** This article does not contain the initial steps to get your Kubernetes platform up and running. The base setup depends on your environment, which could be Kubernetes-only.
+    !!! note
+        
+        This article does not contain the initial steps to get your Kubernetes platform up and running. The base setup depends on your environment, which could be Kubernetes-only.
 
 - Access to the [Harbor repository](https://hclcr.io/harbor/projects/15/repositories).
 
@@ -67,7 +69,9 @@ Use the following guidelines to help you set up persistent volumes for Component
 
 These guidelines and sample files describe how to set up all of the persistent volumes required for a full installation of Component Pack. In a high availability configuration, the best practice is to maintain persistent storage away from the Kubernetes masters and worker nodes themselves, on a separate machine that all masters and workers can access.
 
-**Note:** The machine storing the persistent volumes in an HA configuration will not have Docker or Kubernetes installed.
+!!! note    
+    
+    The machine storing the persistent volumes in an HA configuration will not have Docker or Kubernetes installed.
 
 **Exporting the persistent volumes**
 
@@ -339,6 +343,10 @@ For more details, see [PodSecurityPolicy is removed](https://github.com/kubernet
 
 ## Log in to a Harbor OCI registry {#harbor_repo .section}
 
+!!! note
+
+    For security reasons, CLI tokens generated through Harbor's OIDC integration are configured to expire after 30 days. To continue using CLI functionality after token expiration, you need to log out and log back in to Harbor through your OIDC provider to obtain a new token. This ensures continued secure access to Harbor services.
+
 1. Log in to a Harbor OCI registry using the following command:
 
     ``` {#codeblock_fqf_5hr_bvb}
@@ -433,17 +441,17 @@ clusterName:                opensearch-cluster
 
 For sample values of these variables, refer to the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml).
 
-**Note:**
+!!! note
 
-- In your connections-env.yml, use "connections" for the `namespace` parameter (*__default_namespace*). In a high available Kubernetes environment, the `replicaCount` (*__replica_count*) is set to "3".
+    - In your connections-env.yml, use "connections" for the `namespace` parameter (*__default_namespace*). In a high available Kubernetes environment, the `replicaCount` (*__replica_count*) is set to "3".
 
-- In your values .yml files, use `hclcr.io/cnx` as the value for `image.repository` (*__docker_registry_url*).
+    - In your values .yml files, use `hclcr.io/cnx` as the value for `image.repository` (*__docker_registry_url*).
 
-- If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
+    - If you do not have all installation options from your Connections 7.0 environment at hand, you can run the following command to retrieve this information from the deployed charts:
 
-    ``` {#codeblock_fpg_x2j_dvb}
-    helm -n connections get values <chart_name>
-    ```
+        ``` {#codeblock_fpg_x2j_dvb}
+        helm -n connections get values <chart_name>
+        ```
 
 ## Set up persistent volumes and persistent volume claims on NFS {#pv_pvc .section}
 
@@ -497,7 +505,9 @@ Make sure that the network configuration of your NFS environment is correct befo
 
 4. Download the j2 template for connections-volumes.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
-    **Note:** In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters, as defined in [Set up NFS](#section_e4p_jrp_tnb). 
+    !!! note
+    
+        In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters, as defined in [Set up NFS](#section_e4p_jrp_tnb). 
 
 5. Then, run installation:
 
@@ -505,7 +515,9 @@ Make sure that the network configuration of your NFS environment is correct befo
     helm upgrade connections-volumes <<oci_registry_url>>/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait
     ```
 
-    **Note:** In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters.
+    !!! note
+        
+        In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters.
 
 6. Verify that all PVCs are in "bound" state:
 
@@ -562,7 +574,9 @@ The configmap for connections-env contains all the variables needed for the Cust
 
 2. Download the j2 template for connections-env.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars) and modify it according to your environment.
 
-    **Note:** Use "true" as the value for `onPrem` (***___on_prem***).
+    !!! note
+        
+        Use "true" as the value for `onPrem` (***___on_prem***).
 
 3. Run the connections-env installation:
 
@@ -629,7 +643,9 @@ With Connections 8, OpenSearch replaces Elasticsearch 7 as the default backend f
 
 Installing the OpenSearch chart creates an additional secret – use the default secret from the bootstrap installation instead. See [Set up bootstrap charts](#bootstrap).
 
-**Note:** OpenSearch, because of the way it is set up starting with version 8, will not work if bootstrap didn't create its secrets and certificates beforehand.
+!!! note
+    
+    OpenSearch, because of the way it is set up starting with version 8, will not work if bootstrap didn't create its secrets and certificates beforehand.
 
 **Prerequisites for installing the OpenSearch chart:**
 
@@ -1107,7 +1123,9 @@ For post-installation tasks required to deploy the community creation wizard and
         print AdminControl.getCell()
         ```
 
-    **Note:** When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.
+    !!! note 
+        
+        When you specify a path to the working directory on a system that is running Microsoft Windows, use a forward slash for the directory. For example, "C:/temp". On Linux, the directory must grant write permissions or the command fails.
 
 4. Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the <properties\> </properties\> tag as shown below:
 
