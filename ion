@@ -1,0 +1,186 @@
+[1mdiff --git a/docs/.DS_Store b/docs/.DS_Store[m
+[1mindex e081858bc..edac8a896 100644[m
+Binary files a/docs/.DS_Store and b/docs/.DS_Store differ
+[1mdiff --git a/docs/v8-cr1/.DS_Store b/docs/v8-cr1/.DS_Store[m
+[1mdeleted file mode 100644[m
+[1mindex 99ffa7f0b..000000000[m
+Binary files a/docs/v8-cr1/.DS_Store and /dev/null differ
+[1mdiff --git a/docs/v8-cr1/404.html b/docs/v8-cr1/404.html[m
+[1mindex 76e8ca61a..8a04695ce 100644[m
+[1m--- a/docs/v8-cr1/404.html[m
+[1m+++ b/docs/v8-cr1/404.html[m
+[36m@@ -1,4 +1,8 @@[m
+[32m+[m[32m<!-- Custom HTML site displayed as the Home chapter -->[m
+[32m+[m
+ <!-- Elements added to main will be displayed on all pages -->[m
+[32m+[m[32m<!--March2023-->[m
+[32m+[m
+ [m
+ <!doctype html>[m
+ <html lang="en" class="no-js">[m
+[36m@@ -7,22 +11,27 @@[m
+       <meta charset="utf-8">[m
+       <meta name="viewport" content="width=device-width,initial-scale=1">[m
+       [m
+[31m-        <meta name="description" content="A next-gen documentation site for HCL Connections.">[m
+[32m+[m[32m        <meta name="description" content="A next-gen documentation site for HCL <product name>.">[m
+       [m
+       [m
+       [m
+[32m+[m[32m        <link rel="canonical" href="https://opensource.hcltechsw.com/product-name/index.html">[m
+       [m
+       [m
+[31m-      <link rel="icon" href="/connections/v8-cr4/assets/favicon.png">[m
+[31m-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">[m
+[32m+[m[41m      [m
+[32m+[m[32m      <link rel="icon" href="assets/favicon.png">[m
+[32m+[m[32m      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">[m
+     [m
+     [m
+       [m
+[31m-        <title>HCL Connections 8.0 CR1 Help Center</title>[m
+[32m+[m[32m        <title>Home - HCL Connections</title>[m
+       [m
+     [m
+     [m
+[31m-      <link rel="stylesheet" href="/connections/v8-cr4/assets/stylesheets/main.26e3688c.min.css">[m
+[32m+[m[32m      <link rel="stylesheet" href="assets/stylesheets/main.6b71719e.min.css">[m
+[32m+[m[41m      [m
+[32m+[m[41m        [m
+[32m+[m[32m        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">[m
+       [m
+       [m
+ [m
+[36m@@ -38,17 +47,11 @@[m
+       [m
+     [m
+     [m
+[31m-      <link rel="stylesheet" href="/connections/v8-cr4/stylesheets/style.css">[m
+[32m+[m[32m      <link rel="stylesheet" href="stylesheets/style.css">[m
+     [m
+[31m-    <script>__md_scope=new URL("/connections/v8-cr4/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>[m
+[32m+[m[32m    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>[m
+     [m
+[31m-       [m
+[31m- <!-- SmartCat script-->[m
+[31m-  <script id='sc-script' src="https://cdn.smartcat-proxy.com/3c07f7dc8f16449b9e961c35089912a5/script-v1/__translator.js?hash=4875a4cc718c7ca6fb804c818c178bd6"></script>[m
+[31m-  <!-- End SmartCat script -->[m
+[31m-[m
+[31m-  <link rel="canonical" href="https://opensource.hcltechsw.com/connections-doc/v8-cr4/">[m
+[31m-  [m
+[32m+[m[32m      <!--March2023-->[m
+ <!--  OneTrust Cookies Consent Notice start  -->[m
+ <script type="text/javascript" src="https://cdn.cookielaw.org/consent/99b8d579-c52a-43c9-ab7b-a35e60de7103/OtAutoBlock.js"></script>[m
+ <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="99b8d579-c52a-43c9-ab7b-a35e60de7103"></script>[m
+[36m@@ -58,18 +61,16 @@[m
+ <!--  OneTrust Cookies Consent Notice end  -->[m
+ [m
+ <!--  Global site tag (gtag.js) - Google Analytics start -->[m
+[31m-<script src="https://www.googletagmanager.com/gtag/js?id=UA-169645537-2" class="optanon-category-C0002-C0003-C0004-C0005"></script>[m
+[32m+[m[32m<script src="https://www.googletagmanager.com/gtag/js?id=G-7LF0XY95M1" class="optanon-category-C0002-C0003-C0004-C0005"></script>[m
+ <script type="text/plain" class="optanon-category-C0002-C0003-C0004-C0005">[m
+   window.dataLayer = window.dataLayer || [];[m
+   function gtag(){dataLayer.push(arguments);}[m
+   gtag('js', new Date());[m
+ [m
+[31m- [m
+[31m-[m
+   gtag('config', 'UA-169645537-2');[m
+   gtag('config', 'G-7LF0XY95M1');[m
+ </script>[m
+[31m-[m
+[32m+[m[41m [m
+ <!-- Google Tag Manager -->[m
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':[m
+   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],[m
+[36m@@ -78,24 +79,27 @@[m
+   })(window,document,'script','dataLayer','GTM-TNNFCCM');</script>[m
+   <!-- End Google Tag Manager -->[m
+   [m
+[31m-  [m
+ <!--  Global site tag (gtag.js) - Google Analytics end -->[m
+[32m+[m
+     [m
+     [m
+     [m
+[31m-[m
+[32m+[m[41m  [m
+[32m+[m[32m    <meta name="robots" content="index, follow" />[m
+[32m+[m[41m  [m
+   <meta property="og:image" content="https://opensource.hcltechsw.com/digital-experience/site-thumbnail.png" />[m
+ [m
+[31m-[m
+[31m-[m
+   </head>[m
+   [m
+   [m
+[31m-    <body dir="ltr">[m
+[31m-  [m
+     [m
+     [m
+[31m-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>[m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+[32m+[m[32m    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">[m
+[32m+[m[41m  [m
+[32m+[m[41m    [m
+     [m
+     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">[m
+     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">[m
+[36m@@ -109,31 +113,22 @@[m
+           <div class="md-banner__inner md-grid md-typeset">[m
+             [m
+             [m
+[31m-[m
+[31m-    [m
+ <div>[m
+[31m-[m
+    <a href="https://www.hcltechsw.com/"> [m
+   <img width="150" height="30" src="https://help.hcltechsw.com/assets/images/HCL_Software_Logo_White.svg" alt="HCL Logo" target="_blank"></a>[m
+   [m
+[31m-  [m
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">[m
+[31m-   [m
+[31m-<div class="dropdown">[m
+ [m
+[32m+[m[32m<div class="dropdown">[m
+   <button class="dropbtn">Resources <i class="fa fa-caret-down"></i></button> [m
+   <div class="dropdown-content">[m
+   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>[m
+[31m-  <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>[m
+[32m+[m[32m  <a href="https://academy.hcltechsw.com" target="_blank">Software Academy</a>[m
+   <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>[m
+ [m
+ </div>[m
+ </div>[m
+[31m-[m
+[31m-<div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>[m
+[31m-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>[m
+[31m-</div>[m
+[31m-[m
+[32m+[m[41m  [m
+   <!-- Uncomment the following announcement if you need it -->[m
+   <!--[m
+  <div class="md-banner--feedback" style="display:inline">[m
+[36m@@ -146,8 +141,6 @@[m
+ -->[m
+ [m
+ </div>[m
+[31m-  [m
+[31m-[m
+ [m
+           </div>[m
+           [m
+[36m@@ -155,33 +148,14 @@[m
+       [m
+     </div>[m
+     [m
+[31m-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>[m
+[31m-        [m
+[31m-          <aside class="md-banner md-banner--warning">[m
+[31m-            <div class="md-banner__inner md-grid md-typeset">[m
+[31m-              [m
+[31m-[m
+[31m-  You're not viewing the latest version.[m
+[31m-  <a href="ht

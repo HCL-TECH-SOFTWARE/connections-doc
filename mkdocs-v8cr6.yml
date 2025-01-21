@@ -1190,9 +1190,6 @@ nav:
               - Managing file resources used in the "include-files" property: admin/customize/custom_customizer_props_include_files.md
             - Customizing the user interface: 
               - admin/customize/t_admin_common_customize_main.md
-              - Determining where to save your customizations: 
-                - admin/customize/t_customize_find_custom_directory.md
-                - Language code: admin/customize/r_customize_lang_codes.md
               - Creating custom config extensions:
                   - admin/customize/creating-custom-config-extensions.md
                   - Enabling the Connections app registry service for customization: admin/customize/enabling-app-registry.md
@@ -1202,9 +1199,6 @@ nav:
               - Customizing share: admin/customize/customizing-share.md
               - Changing the favicon for Connections apps: admin/customize/customizing-favicon.md
               - Customizing the footer: admin/customize/customizing-footer.md
-              - Customizing product strings: 
-                - admin/customize/t_customize_strings_global.md
-                - Customizing property file strings: admin/customize/r_customize_properties_files.md
               - Customizing navigation:
                   - admin/customize/customizing-navigation.md
                   - Customizing the side navigation bar: admin/customize/customizing-side-navigation.md
