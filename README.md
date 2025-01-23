@@ -1,7 +1,5 @@
 <p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/v8/"> HCL Connections 8 for on-premises product documentation</a></strong></p>
 </p>
-<p align="center"><strong><a href="https://opensource.hcltechsw.com/connections-doc/mt/"> HCL Connections Multi-Tenant product documentation</a></strong></p>
-</p>
 
 ## Contributing
 
@@ -14,6 +12,9 @@ Updates should be performed only to the markdown files in the following folders
 - v8-cr3
 - v8-cr4
 - v8-cr5
+- v8-cr6
+- v8-cr7
+- v8-cr8
 
 ### Updating the documentation and validating changes
 
