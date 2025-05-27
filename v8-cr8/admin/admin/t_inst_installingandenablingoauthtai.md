@@ -36,18 +36,8 @@ You need to install and enable the OAuth TAI in HCL Connections.
 
             |Operator|Condition|Example|
             |--------|---------|-------|
-            |= =|This operator specifies an exact match. The input element must be equal to the comparison value.|From==jones@my.company.com or
-
-provider\_1.filter=From==samluser@xyz.com
-
-provider\_3.filter=applicationNames==DefaultApplication
-
-|
-            |%=|This operator specifies a partial match. The input contains the comparison value.|user-agent%=IE 6or
-
-provider\_2.filter=request-url%=ivtlanding.jsp
-
-|
+            |= =|This operator specifies an exact match. The input element must be equal to the comparison value.|From==jones@my.company.com <br> or <br>provider\_1.filter=From==samluser@xyz.com<br>provider\_3.filter=applicationNames==DefaultApplication|
+            |%=|This operator specifies a partial match. The input contains the comparison value.|user-agent%=IE 6 <br> or <br> provider\_2.filter=request-url%=ivtlanding.jsp|
             |^=|The input contains one of the comparison values.|request-url^=urlApp1\|urlApp2\|urlApp3|
             |!=|The input does not contain the comparison value.|request-url!=Snoop|
             |\>|The input is greater than the comparison value.|remote-address\>192.168.255.130|
@@ -80,44 +70,24 @@ provider\_2.filter=request-url%=ivtlanding.jsp
     |Activities|/activities/oauth|
     |Blogs|/blogs/oauth|
     |Bookmarks|/dogear/oauth|
-    |Calendar|/communities/calendar/oauth
-
-|
-    |Communities|/communities/oauth /communities/service/atom/oauth
-
-/communities/service/html/oauth
-
-|
-    |Related Communities|/communities/recomm/oauth /communities/service/opensocial/oauth
-
-|
-    |CRE|/connections/opensocial/oauth /connections/core/oauth/
-
-|
+    |Calendar|/communities/calendar/oauth|
+    |Communities|/communities/oauth /communities/service/atom/oauth/communities/service/html/oauth|
+    |Related Communities|/communities/recomm/oauth /communities/service/opensocial/oauth|
+    |CRE|/connections/opensocial/oauth /connections/core/oauth/|
     |Files|/files/oauth|
     |Forums|/forums/oauth|
     |Homepage|/homepage/oauth|
     |Libraries|/dm/atom/oauth|
     |Microblogging|N/A \(Located in News and Common ear\)|
     |Metrics|/metrics/service/oauth|
-    |Mobile|/mobile/oauth
-
- /mobileAdmin/oauth
-
- /connections/filesync/oauth
-
- /connections/filediff/oauth
-
-|
+    |Mobile|/mobile/oauth/mobileAdmin/oauth/connections/filesync/oauth/connections/filediff/oauth |
     |Moderation|/moderation/oauth|
-    |News|/news/oauth /news/follow/oauth
-
-|
+    |News|/news/oauth /news/follow/oauth |
     |Profiles|/profiles/oauth|
     |Wikis|/wikis/oauth|
     |Surveys|/surveys-oauth|
 
-    Refer to*Configuring SPNEGO on WebSphere Application Server*.
+    Refer to *Configuring SPNEGO on WebSphere Application Server*.
 
 
 **Parent topic:**[Allowing third-party applications access to data via the OAuth2 protocol](../admin/c_admin_common_oauth.md)
