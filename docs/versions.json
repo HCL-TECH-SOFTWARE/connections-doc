@@ -1,8 +1,13 @@
 [
   {
+    "version": "latest", 
+	"title": "v8-cr11", 
+	"aliases": ["latest"]
+  },
+  {
     "version": "v8-cr10", 
 	"title": "v8-cr10", 
-	"aliases": ["latest"]
+	"aliases": []
   },
   {
     "version": "v8-cr9", 
