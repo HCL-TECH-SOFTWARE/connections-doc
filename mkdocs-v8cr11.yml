@@ -65,6 +65,7 @@ extra_css:
   - stylesheets/style.css
 extra_javascript:
   - javascripts/current.js
+  - javascripts/extra.js
 
 plugins:
 # - section-index

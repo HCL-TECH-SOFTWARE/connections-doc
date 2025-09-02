@@ -2,7 +2,7 @@
 
 Install the Tiny editors: TinyMCE to get a powerful editing experience inside HCL Connections™ with a streamlined user-interface and unparalleled customization.
 
-Before proceeding, download and extract \(unzip\) the Tiny Editors for HCL Connections package from [My HCL Software](https://my.hcltechsw.com/).
+Before proceeding, download and extract \(unzip\) the Tiny Editors for HCL Connections package from [My HCLSoftware](https://my.hcltechsw.com/).
 
 1. [Optional: Installing Tiny Editors Selector](t_01-setup_01-selector_00-summary.md)  
 The Tiny Editors Selector is a WebSphere application which allows the editor to be set for each user or role. This task can be skipped if you want to use the same editor for all users.

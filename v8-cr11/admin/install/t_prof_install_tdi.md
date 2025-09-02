@@ -45,7 +45,7 @@ To configure Security Directory Integrator, complete the following steps:
         **Note:**
 
         -   If you only run the SDI Population scripts in manual mode, you must copy the files.
-        -   The db2jcc4.jar file is certified for Java 8 and is also available from the [My HCL Software](https://my.hcltechsw.com/)
+        -   The db2jcc4.jar file is certified for Java 8 and is also available from the [My HCLSoftware](https://my.hcltechsw.com/)
     -   Oracle: Copy the ojdbc8.jar file from the jdbc/lib subdirectory of the directory where you installed Oracle. If needed download the Oracle JDBC driver ojdbc8.jar from the Oracle web site for [Oracle 19c](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html). Paste the files into a temporary location on the system where SDI is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.
     -   Microsoft SQL: Download the [SQL Server JDBC 4.2 driver](https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42) from the Microsoft™ web site and follow the instructions to extract the driver files. SDI uses the sqljdbc42.jar file.
 

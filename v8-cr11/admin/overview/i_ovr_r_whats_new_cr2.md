@@ -4,7 +4,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates to the Connections Server, including required critical updates.
 
--   **Download** Connections 8.0 CR2 from the [My HCL Software](https://my.hcltechsw.com/), and Component Pack 8 CR2 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
+-   **Download** Connections 8.0 CR2 from the [My HCLSoftware](https://my.hcltechsw.com/), and Component Pack 8 CR2 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
 **Attention:** Connections customers are given a transition period to prepare for the new Connections 8.0 user experience. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
 

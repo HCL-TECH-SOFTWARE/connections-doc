@@ -4,7 +4,7 @@ Administrators can silently upgrade or install the HCL Connections Desktop Plug-
 
 A silent installation uses the same installation program that the graphical user interface \(GUI\) version uses. However, instead of displaying a wizard interface, the silent installation reads all of your responses from parameters that you pass to the command line. In order for the installation to work successfully, you must run the silent installation from the directory where you extracted the plug-in files.
 
-1.  Download the plug-in from the [My HCL Software](https://my.hcltechsw.com/) site download package, the link for which is found in [HCL Article KB0073986](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986).
+1.  Download the plug-in from the [My HCLSoftware](https://my.hcltechsw.com/) site download package, the link for which is found in [HCL Article KB0073986](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986).
 
 2.  Extract the file.
 

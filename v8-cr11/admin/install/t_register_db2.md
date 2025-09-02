@@ -6,7 +6,7 @@ Install IBM DB2 before beginning this task but do not create any application dat
 
 For supported versions of DB2, see the [HCL Connections system requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654).
 
-1.  Navigate to [My HCL Software](https://my.hcltechsw.com/) and log in.
+1.  Navigate to [My HCLSoftware](https://my.hcltechsw.com/) and log in.
 
 2.  Find the `DB2_ESE_AUSI_Activation_11.5.zip` file \(IBM DB2 Enterprise Server Edition - Authorized User Single Install Option - Activation 11.5 for Linux, UNIX and Windows Multilingual\).
 

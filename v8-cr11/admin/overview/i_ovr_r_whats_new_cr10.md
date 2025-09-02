@@ -10,7 +10,7 @@ Find out about features that are new or updated in this release of HCL Connectio
     
         As part of this transition, previous HCL Connections offerings will remain available on the [HCL Software Download and License Management Portal](https://hclsoftware.flexnetoperations.com) until June 30, 2025. Customers are encouraged to begin using the MHS portal to access their entitled software moving forward.
     
-        For more information, see [HCL Connections offerings are now exclusively available on the MyHCLSoftware portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120542).
+        For more information, see [HCL Connections offerings are now exclusively available on the My HCLSoftware portal](https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0120542).
 
         !!! note
 

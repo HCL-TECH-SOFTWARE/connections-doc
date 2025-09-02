@@ -10,7 +10,7 @@ Steps required:
     -   Updating the deployed pod
 -   Verifying the environment variables
 
-**Downloading the Connections Add-in for Outlook**- [Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCL Software](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085519&sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8).
+**Downloading the Connections Add-in for Outlook**- [Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCLSoftware](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085519&sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8).
 
 **Updating the Docker Image**
 

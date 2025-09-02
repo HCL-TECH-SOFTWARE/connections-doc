@@ -12,7 +12,7 @@ To review all tasks that typically precede a Connections installation, see the [
 
 1.  Prepare to install software:
     -   Review the [software and hardware requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073654) for the system that will host Connections 8.0.
-    -   Download Connections 8 and WebSphere Application Server v8.5.5 and the latest fixpack from the **[My HCL Software](https://my.hcltechsw.com/)**.
+    -   Download Connections 8 and WebSphere Application Server v8.5.5 and the latest fixpack from the **[My HCLSoftware](https://my.hcltechsw.com/)**.
     -   Make sure that your servers contain enough free disk space for unpacking the installation files as well as keeping the platform operational.
 2.  [Install IBM Security Directory Integrator](../install/t_prof_tdi_new_deploy.md), which is used to synchronize your LDAP information with Connections profiles.
 3.  If you need to populate the Profiles database with people from your company's LDAP, you will use the Connections 8.0 wizards package and merge its default assembly line with your existing Connections 7.0 configuration. In this case take care to follow the steps in the *Populate the Profiles database* section of the whitepaper.
