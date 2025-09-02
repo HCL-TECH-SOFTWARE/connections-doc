@@ -55363,6 +55363,10 @@
 </thead>
 <tbody>
 <tr>
+<td>SLES 15</td>
+<td><a href="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.opensuse.leap15.x86_64.rpm">SLES</a></td>
+</tr>
+<tr>
 <td>Windows</td>
 <td><a href="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win64.exe">64-bit</a> <a href="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win32.exe">32-bit</a></td>
 </tr>
@@ -55407,7 +55411,10 @@
 <div class="highlight"><pre><span></span><code>wkhtmltopdf [args]
 </code></pre></div>
 <p>on the system's command line (<code>cmd</code> on Windows, <code>shell/bash</code> on Linux). This can be enabled by adding the wkhtmltopdf to the system's path variable. To test this, try to execute above command on the system's command line. If the command is not recognized, this is not configured correctly. Otherwise PDF Export is now ready and can be used.</p>
-<p><strong>Note:</strong> The command needs to be executable by the same user that will start the WebSphere servers/JVMs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command needs to be executable by the same user that will start the WebSphere servers/JVMs.</p>
+</div>
 </li>
 <li>
 <p>Configure PDF Export to invoke wkhtmltopdf in the correct install location</p>
@@ -55517,6 +55524,14 @@ sudo yum install google-noto-sans-cjk-ttc-fonts
 </li>
 </ul>
 </li>
+<li>
+<p>SLES:</p>
+<div class="highlight"><pre><span></span><code>sudo zypper install xorg-x11-fonts
+sudo zypper install xorg-x11-fonts-converted
+sudo zypper install xorg-x11-fonts-core
+sudo zypper install xorg-x11-fonts-legacy
+</code></pre></div>
+</li>
 </ul>
 <h2 id="additional-configuration">Additional configuration</h2>
 <p>You can further adjust the PDF Export feature to meet specific requirements using the configuration options listed in <a href="https://help.hcltechsw.com/connections/api/icxt/configuration.html#Module_PDFExport">ICXT - Configuration parameters</a>.</p>
@@ -55580,6 +55595,8 @@ sudo yum install google-noto-sans-cjk-ttc-fonts
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../javascripts/current.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

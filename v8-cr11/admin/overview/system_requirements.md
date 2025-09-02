@@ -106,7 +106,7 @@ HCL Leap 9.3.8 and Domino Leap 1.1.6 have introduced stricter security measures.
 |--------|-------|---------------|-------------|
 |IBM DB2 Enterprise Server Edition|11.5.6 (1)|8.0|Supported Configuration|
 |IBM DB2 Enterprise Server Edition|11.5.9 (1)|8.0 CR8|Supported Configuration|
-|IBM DB2 Enterprise Server Edition|12.1 (1)|8.0 CR11|Other Configuration|
+|IBM DB2 Enterprise Server Edition|12.1 (1)|8.0 CR11|Supported Configuration|
 |Microsoft SQL Server Enterprise Edition|2019 (1, 2)|8.0|Other Configuration|
 |Microsoft SQL Server Enterprise Edition|2022 (1, 2)|8.0 CR2|Supported Configuration|
 |Oracle Database 19c Standard Edition|19.0.0 (1)|8.0|Supported Configuration|

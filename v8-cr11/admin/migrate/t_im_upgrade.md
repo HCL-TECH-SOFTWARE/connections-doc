@@ -1,10 +1,10 @@
 # Downloading the latest version of the Update Wizard \(updateInstaller\) {#t_im_upgrade .task}
 
-Download the latest version of the Update Wizard \(updateInstaller\) from [My HCL Software](https://my.hcltechsw.com/).
+Download the latest version of the Update Wizard \(updateInstaller\) from [My HCLSoftware](https://my.hcltechsw.com/).
 
--   The terms "Update Wizard" and updateInstaller are used interchangeably. On [My HCL Software](https://my.hcltechsw.com/), it's called "Update Wizard." while on the file system, it is called "updateInstaller." In the Connections user interface it is noted as "Update Wizard."
+-   The terms "Update Wizard" and updateInstaller are used interchangeably. On [My HCLSoftware](https://my.hcltechsw.com/), it's called "Update Wizard." while on the file system, it is called "updateInstaller." In the Connections user interface it is noted as "Update Wizard."
 
-1.  Download the updated version as a zip file from [My HCL Software](https://my.hcltechsw.com/).
+1.  Download the updated version as a zip file from [My HCLSoftware](https://my.hcltechsw.com/).
 
 2.  Extract the contents of the downloaded zip file into a temporary location. The newly extracted Update Wizard will be in the following directory within the temporary location: temporaryLocation/HCL\_Connections\_Install/tools/updateInstaller
 

@@ -4,7 +4,7 @@ If you want to expand the use of Connections Engagement Center throughout Connec
 
 **Note:** You must first purchase a license for the full version of HCL Connections Engagement Center.
 
-1.  Download and extract the **HCL Connections Engagement Center Update Package** from [My HCL Software](https://my.hcltechsw.com/).
+1.  Download and extract the **HCL Connections Engagement Center Update Package** from [My HCLSoftware](https://my.hcltechsw.com/).
 
 2.  Populate the install650.properties file with the values from your server.
 

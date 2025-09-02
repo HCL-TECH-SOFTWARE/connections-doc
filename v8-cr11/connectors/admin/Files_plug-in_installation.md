@@ -8,7 +8,7 @@ There are two ways to install the HCL Connections Plug-ins for HCL Notes. A user
 
 Install the plug-ins so that the HCL Connections features are integrated with the Notes client
 
-1.  Download the plug-in from the [My HCL Software](https://my.hcltechsw.com/) site [download package](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0074310)
+1.  Download the plug-in from the [My HCLSoftware](https://my.hcltechsw.com/) site [download package](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0074310)
 2.  Extract ConnectionsAddonInstaller.zip and click Setup.exe.
 3.  Make sure your Notes client is closed before beginning the installation.
 4.  Accept installation prompts for installing the plug-ins.

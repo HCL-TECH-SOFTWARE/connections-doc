@@ -4,7 +4,7 @@ Users can install HCL Connections for Mac following these steps.
 
 To install HCL Connections for Mac you will need OS X 10.8 or later.
 
-1.  Download the plugin for HCL Connections for Mac from [My HCL Software](https://my.hcltechsw.com/).
+1.  Download the plugin for HCL Connections for Mac from [My HCLSoftware](https://my.hcltechsw.com/).
 
 2.  Extract the file.
 

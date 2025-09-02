@@ -4,7 +4,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
--   **Download** Connections 8.0 CR3 from the [My HCL Software](https://my.hcltechsw.com/), and Component Pack 8 CR3 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
+-   **Download** Connections 8.0 CR3 from the [My HCLSoftware](https://my.hcltechsw.com/), and Component Pack 8 CR3 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
 
 ## What's New in HCL Connections 8.0 CR3 and Component Pack 8 CR3 {#section_hgz_3dy_clb .section}

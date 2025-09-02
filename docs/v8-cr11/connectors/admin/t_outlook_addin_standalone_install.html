@@ -55247,7 +55247,7 @@
 <p>Installing and setting up the HCL Connections Add-in for Microsoft Outlook as a standalone docker image.</p>
 <p>The following are required to install the Connections Add-in for Outlook.</p>
 <ul>
-<li>Downloading the Connections Add-in for Outlook from <a href="https://my.hcltechsw.com/">My HCL Software</a>.</li>
+<li>Downloading the Connections Add-in for Outlook from <a href="https://my.hcltechsw.com/">My HCLSoftware</a>.</li>
 <li>Registering the Connections Add-in for Outlook OAuth application provider with Connections</li>
 <li>Updating the Connections Add-in for Outlook docker environment variables</li>
 <li>Loading the Connections Add-in for Outlook docker image</li>
@@ -55255,7 +55255,7 @@
 <li>Adding the Connections Add-in for Outlook add-in proxy rules to proxy server configuration</li>
 <li>Making the Connections Add-in for Outlook available to users.</li>
 </ul>
-<p><strong>Downloading the Connections Add-in for Outlook</strong> <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0085519&amp;sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8">Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCL Software</a>.</p>
+<p><strong>Downloading the Connections Add-in for Outlook</strong> <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0085519&amp;sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8">Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCLSoftware</a>.</p>
 <p><strong>Registering the Connections Add-in for Outlook OAuth application provider</strong> - In a Standalone deploy, you must manually register the OAuth provider. Refer to <a href="https://help.hcltechsw.com/connections/v7/admin/install/cp_3p_outlook_addin_oauth.html">Registering the Connections Add-in for Outlook OAuth application provider</a> for additional information.</p>
 <p><strong>Updating the Connections Add-in for Outlook docker environment variables</strong></p>
 <p>The Connections Add-in for Outlook relies on environment variables for configuration. These will need to be modified to fit your environment before running the Connections Add-in for Outlook docker image. The environment variables and their default values are located in the <strong>override.yaml</strong> file. Depending on your deployment, you can either modify the <strong>override.yaml</strong> file and pass that on the deployment step, or you can pass the updated individual variables on the command line.</p>
@@ -55404,6 +55404,8 @@ ProxyPassReverse &quot;/outlook-addin/” &quot;https://my.connections.server.
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../javascripts/current.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

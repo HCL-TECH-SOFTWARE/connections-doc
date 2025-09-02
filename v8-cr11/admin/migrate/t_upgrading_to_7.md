@@ -12,8 +12,8 @@ Download Connections and Component Pack 8 CR3. Connections Server packages are a
 **Attention:**
 
 -   On the system where the Deployment Manager is installed, prepare the supporting software for the update:
-    -   Download Connections 8.0 from [My HCL Software](https://my.hcltechsw.com/). Decompress the 8.0 package into a temp directory.
-    -   Verify that you have upgraded to the latest WebSphere Application Server and supplemental software from [My HCL Software](https://my.hcltechsw.com/), and have updated HTTP Server 8.5 and Web Server Plug-ins for IBM® WebSphere® Application Server 8.5.
+    -   Download Connections 8.0 from [My HCLSoftware](https://my.hcltechsw.com/). Decompress the 8.0 package into a temp directory.
+    -   Verify that you have upgraded to the latest WebSphere Application Server and supplemental software from [My HCLSoftware](https://my.hcltechsw.com/), and have updated HTTP Server 8.5 and Web Server Plug-ins for IBM® WebSphere® Application Server 8.5.
     -   Verify that you are running Installation Manager 1.9.1 654-bit.
     -   In the soap.client.props file, change the SOAP Request Timeout to com.ibm.SOAP.requestTimeout=0 to ensure that no requests time out during the installation. Restart the Deployment Manager and start the HTTP services: HTTP Administration for WebSphere Application Server V8.5 and HTTP Server V8.5.
 

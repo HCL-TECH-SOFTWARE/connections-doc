@@ -5,9 +5,9 @@ Install the latest fixes for HCL Connections. Perform the installation instructi
 -   **[Installing fixes as a non-root user](../migrate/t_non-root_install_fixes.md)**  
 Grant permissions to a non-root user to install fixes.
 -   **[Downloading fixes](../migrate/t_downloading_fixes.md)**  
-Download fixes from the [My HCL Software](https://my.hcltechsw.com/).
+Download fixes from the [My HCLSoftware](https://my.hcltechsw.com/).
 -   **[Downloading the latest version of the Update Wizard \(updateInstaller\)](../migrate/t_im_upgrade.md)**  
-Download the latest version of the Update Wizard \(updateInstaller\) from [My HCL Software](https://my.hcltechsw.com/).
+Download the latest version of the Update Wizard \(updateInstaller\) from [My HCLSoftware](https://my.hcltechsw.com/).
 -   **[Installing fixes](../migrate/c_installing_interim_fixes.md)**  
 Use the update wizard in interactive or silent mode to install fixes.
 -   **[Uninstalling fixes](../migrate/c_update_uninstall.md)**  

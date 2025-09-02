@@ -4,7 +4,7 @@ Installing and setting up the HCL Connections Add-in for Microsoft Outlook as a 
 
 The following are required to install the Connections Add-in for Outlook.
 
--   Downloading the Connections Add-in for Outlook from [My HCL Software](https://my.hcltechsw.com/).
+-   Downloading the Connections Add-in for Outlook from [My HCLSoftware](https://my.hcltechsw.com/).
 -   Registering the Connections Add-in for Outlook OAuth application provider with Connections
 -   Updating the Connections Add-in for Outlook docker environment variables
 -   Loading the Connections Add-in for Outlook docker image
@@ -12,7 +12,7 @@ The following are required to install the Connections Add-in for Outlook.
 -   Adding the Connections Add-in for Outlook add-in proxy rules to proxy server configuration
 -   Making the Connections Add-in for Outlook available to users.
 
-**Downloading the Connections Add-in for Outlook** [Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCL Software](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085519&sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8).
+**Downloading the Connections Add-in for Outlook** [Download the HCL Connections Add-in for Microsoft Outlook standalone install from My HCLSoftware](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0085519&sys_kb_id=ecb956cedbb86014a45ad9fcd39619a8).
 
 **Registering the Connections Add-in for Outlook OAuth application provider** - In a Standalone deploy, you must manually register the OAuth provider. Refer to [Registering the Connections Add-in for Outlook OAuth application provider](https://help.hcltechsw.com/connections/v7/admin/install/cp_3p_outlook_addin_oauth.html) for additional information.
 

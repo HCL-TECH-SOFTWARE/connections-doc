@@ -4,13 +4,13 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 -   See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
--   **Download** Connections 8.0 from the [My HCL Software](https://my.hcltechsw.com/), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
+-   **Download** Connections 8.0 from the [My HCLSoftware](https://my.hcltechsw.com/), and Component Pack 8 from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
     Harbor is an open-source container and Helm registry hosted by HCL for the Component Pack build. It simplifies deployment compared to the approach in previous releases, which involves using a zip file and a local Docker registry.
 
     When you install or upgrade Component Pack, you will need to add the HCL Harbor repository to your Helm CLI so that you can pull container images and Helm charts for your deployment directly from Harbor. For more information on the steps you need to perform for installation or upgrade, see [Installation and upgrade](../install/cp_install_upgrade_container.md).
     
-    Customers with credentials to access Connections in the [My HCL Software](https://my.hcltechsw.com/) may apply those credentials to access Harbor.
+    Customers with credentials to access Connections in the [My HCLSoftware](https://my.hcltechsw.com/) may apply those credentials to access Harbor.
 
 **Attention:** Connections customers are given a transition period to prepare for the new Connections 8.0 user experience. During the transition period, no defect fixes or enhancements will be made to the Connections 7.0 UI. Customers must plan to transition to the Connections 8.0 UI by HCL Connections 8.0 CR2. To switch to the 8.0 experience, see [Enabling the Connections 8.0 user experience](../migrate/enabling_cnx8_ux.md).
 
@@ -107,7 +107,7 @@ See [Customizing the Important To Me (ITM) bar](../customize/customizing-itm.md)
 
 ## Connections Engagement Center in HCL Connections {#cec .section}
 
-Expand the use of [Connections Engagement Center](../../connectors/icec/icec_welcome.md) throughout Connections by upgrading to a full version of the Engagement Center by purchasing an additional entitlement. Follow the [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) after downloading the update and license package from the [My HCL Software](https://my.hcltechsw.com/).
+Expand the use of [Connections Engagement Center](../../connectors/icec/icec_welcome.md) throughout Connections by upgrading to a full version of the Engagement Center by purchasing an additional entitlement. Follow the [Installing Connections Engagement Center](../../connectors/icec/cec-install.md) after downloading the update and license package from the [My HCLSoftware](https://my.hcltechsw.com/).
 
 **Interested in Connections Mobile?**
 

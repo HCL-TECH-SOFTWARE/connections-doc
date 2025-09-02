@@ -4,7 +4,7 @@ Use My Drive to organize all of your important folders and files, whether you cr
 
 !!! important 
     
-    To use the following features, your organization must support sync and you must download the Connections Desktop plug-in. See the articles for the [Desktop Plug-in for Windows](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986) and [Desktop Plug-in for Mac](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0074308) on the HCL Support site. To access the download links, you must log into the [My HCL Software](https://my.hcltechsw.com/).
+    To use the following features, your organization must support sync and you must download the Connections Desktop plug-in. See the articles for the [Desktop Plug-in for Windows](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986) and [Desktop Plug-in for Mac](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0074308) on the HCL Support site. To access the download links, you must log into the [My HCLSoftware](https://my.hcltechsw.com/).
 
 ## Organizing files and folders {#section_aqy_gfk_qtb .section}
 

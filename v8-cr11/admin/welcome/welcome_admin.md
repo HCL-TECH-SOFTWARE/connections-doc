@@ -16,7 +16,7 @@ Welcome to the HCL Connections documentation site. HCL Connections is social net
 **Installing or updating an existing deployment**  
 
 
-[Download Connections 8.0 CR7, including the latest Component Pack, from the My HCL Software](https://my.hcltechsw.com/)
+[Download Connections 8.0 CR7, including the latest Component Pack, from the My HCLSoftware](https://my.hcltechsw.com/)
 
 **Troubleshooting and support**  
 

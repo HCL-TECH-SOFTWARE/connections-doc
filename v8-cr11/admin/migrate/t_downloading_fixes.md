@@ -1,6 +1,6 @@
 # Downloading fixes {#downloadingfixes .task}
 
-Download fixes from the [My HCL Software](https://my.hcltechsw.com/).
+Download fixes from the [My HCLSoftware](https://my.hcltechsw.com/).
 
 List all the fixes that are already installed by completing the following steps:
 
@@ -34,7 +34,7 @@ To download fixes, complete the following steps.
 
     **Note:** Refer to the Knowledge Article, [**Road map for Upgrading Connections**](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0076286) for additional information.
 
-2.  From the [My HCL Software](https://my.hcltechsw.com/), find or select the product **Connections**.
+2.  From the [My HCLSoftware](https://my.hcltechsw.com/), find or select the product **Connections**.
 
 <!--3.  Select your currently installed version from the **Installed Version** drop-down menu, then select your platform from the **Platform** menu, and click **Continue**.-->
 

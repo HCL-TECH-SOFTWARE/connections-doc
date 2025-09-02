@@ -14,6 +14,7 @@ You can also leverage available properties to configure PDF Export according to 
 
     |OS|Type|
     |--|----|
+    |SLES 15|[SLES](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.opensuse.leap15.x86_64.rpm)|
     |Windows|[64-bit](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win64.exe) [32-bit](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.msvc2015-win32.exe)|
     |RHEL 7 / CentOS 7|[x86\_64](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm) [i686](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.i686.rpm) [aarch64](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.aarch64.rpm) [ppc64le](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.ppc64le.rpm)|
     |RHEL 8 / CentOS 8|[x86\_64](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos8.x86_64.rpm) [aarch64](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos8.aarch64.rpm) [ppc64le](https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos8.ppc64le.rpm)|
@@ -49,7 +50,9 @@ You can also leverage available properties to configure PDF Export according to 
           
         on the system's command line \(`cmd` on Windows, `shell/bash` on Linux\). This can be enabled by adding the wkhtmltopdf to the system's path variable. To test this, try to execute above command on the system's command line. If the command is not recognized, this is not configured correctly. Otherwise PDF Export is now ready and can be used.
           
-        **Note:** The command needs to be executable by the same user that will start the WebSphere servers/JVMs.
+        !!! note
+            
+            The command needs to be executable by the same user that will start the WebSphere servers/JVMs.
 
     2. Configure PDF Export to invoke wkhtmltopdf in the correct install location
     
@@ -148,7 +151,16 @@ Without installed fonts, the PDF rendering may result in unsatisfactory result. 
         -   Drag and drop the extracted fonts from the ttf folder to the Fonts config window
 
         ![Copy fonts](images/fonts-win_04.png)
-        
+
+-   SLES:
+
+    ```
+    sudo zypper install xorg-x11-fonts
+    sudo zypper install xorg-x11-fonts-converted
+    sudo zypper install xorg-x11-fonts-core
+    sudo zypper install xorg-x11-fonts-legacy
+    ```
+
 ## Additional configuration
 
 You can further adjust the PDF Export feature to meet specific requirements using the configuration options listed in [ICXT - Configuration parameters](https://help.hcltechsw.com/connections/api/icxt/configuration.html#Module_PDFExport).

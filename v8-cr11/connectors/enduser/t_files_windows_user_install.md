@@ -4,7 +4,7 @@ Users can install the HCL Connections Desktop Plug-ins for Microsoftâ„¢ Windowsâ
 
 When you install the plug-in, you can choose to install all components, or customize the installation. You must at least install the plug-in for Microsoft Windows Explorer.
 
-1.  Download the plug-in from the [My HCL Software](https://my.hcltechsw.com/) site download package, the link for which is found in [HCL Article KB0073986](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986).
+1.  Download the plug-in from the [My HCLSoftware](https://my.hcltechsw.com/) site download package, the link for which is found in [HCL Article KB0073986](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0073986).
 
 2.  Extract the file.
 

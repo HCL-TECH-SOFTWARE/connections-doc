@@ -4,7 +4,7 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 - See the article [Update Strategy for HCL Connections 8.0](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0101180) on the HCL Support site to obtain the latest updates Connections Server, including required critical updates.
 
-- **Download** HCL Connections 8.0 CR11 from the [My HCL Software](https://my.hcltechsw.com/) (MHS) portal, and the latest Component Pack from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
+- **Download** HCL Connections 8.0 CR11 from the [My HCLSoftware](https://my.hcltechsw.com/) (MHS) portal, and the latest Component Pack from [Harbor](https://hclcr.io/harbor/projects/15/repositories).
 
 ## What's New in HCL Connections 8.0 CR11 and Component Pack 8 CR11 {#section_hgz_3dy_clb .section}
 
@@ -43,7 +43,7 @@ For more details, refer to [Enabling secure traffic to the ingress controller](.
 
 ## IBM DB2 v12.1 support
 
-HCL Connections now provides entitlement for IBM DB2 version 12.1, giving you access to the latest database features, performance, and security updates. This version is available for customer access and validation while final performance testing completes. We anticipate updating the system requirements to reflect "Supported Configuration" status soon.
+HCL Connections now fully supports IBM DB2 version 12.1, providing entitlement to the latest database features, performance enhancements, and security updates. DB2 12.1 is officially included as a supported configuration in the system requirements and is available for customer use in production environments.
 
 For more details and support confirmation, refer to the [HCL Connections 8.0 CR11 System Requirements](system_requirements.md)
 
