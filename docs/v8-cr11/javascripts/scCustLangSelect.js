@@ -98,7 +98,6 @@ window.ScCustomLangSelector = function(cfg) {
 
     .scLangPanel {
         position: relative;
-        bottom: calc(100% + 3px);
         right: 0;
 
         display: grid;

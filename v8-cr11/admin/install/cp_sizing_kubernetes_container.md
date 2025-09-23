@@ -28,7 +28,9 @@ Worker nodes, in general, can be any type of node, depending on what workload yo
 
 If you can afford downtime for Component Pack, you can still run everything on one big machine \(single node cluster\).
 
-**Important:** One machine is not advised for production environments, as the official recommendation is not to run more then 100 pods on a single node.
+!!! note 
+    
+    One machine is not advised for production environments, as the official recommendation is not to run more then 100 pods on a single node.
 
 Perfect high availability would be at least three master nodes \(to ensure quorum\) and at least three infrastructure worker nodes \(three because of the default of three replicas for each pod\).
 
@@ -36,7 +38,7 @@ To understand what your cluster is really doing and how it is utilized, it is be
 
 ## Guide to suggested topologies {#section_dpf_ftl_tnb .section}
 
-To plan your Connections with Component Pack deployment, you can find detailed information in the [HCL Connections Sizing Guide](https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/connections8_sizing_guide.pdf) on the HCL Software product documentation site.
+To plan your Connections with Component Pack deployment, you can find detailed information in the [HCL Connections Sizing Guide](../../guide_me/how_to_guides/connections8_sizing_guide.pdf) on the HCL Software product documentation site.
 
 Meanwhile, the following topics here provide some general information on single-node versus production-grade options.
 

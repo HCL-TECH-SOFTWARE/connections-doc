@@ -137,7 +137,7 @@
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-connections/connections-forum/22" target="_blank">Community Forums</a>
 
 </div>
 </div>
@@ -55388,11 +55388,14 @@
 <p>Worker nodes, in general, can be any type of node, depending on what workload you want to run on it. Workers don't have to be all the same – they can be sized differently, as Kubernetes will ensure that each worker is utilized based on own resources (which is a function of the number of CPUs and the amount of memory versus the requirements for each pod's CPU and memory).</p>
 <h2 class="section" id="section_e4t_tg4_3mb">With or without high availability</h2>
 <p>If you can afford downtime for Component Pack, you can still run everything on one big machine (single node cluster).</p>
-<p><strong>Important:</strong> One machine is not advised for production environments, as the official recommendation is not to run more then 100 pods on a single node.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One machine is not advised for production environments, as the official recommendation is not to run more then 100 pods on a single node.</p>
+</div>
 <p>Perfect high availability would be at least three master nodes (to ensure quorum) and at least three infrastructure worker nodes (three because of the default of three replicas for each pod).</p>
 <p>To understand what your cluster is really doing and how it is utilized, it is best to set up Prometheus and Grafana. (If you are setting up the cluster using the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/README.md">HCL-provided Ansible automation</a>, you can get Prometheus and Grafana out of the box). As previously mentioned, scaling specific pods helps a great deal more than adding one or more new servers: starving Customizer is still starving Customizer, even if you have 100 nodes.</p>
 <h2 class="section" id="section_dpf_ftl_tnb">Guide to suggested topologies</h2>
-<p>To plan your Connections with Component Pack deployment, you can find detailed information in the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/connections8_sizing_guide.pdf">HCL Connections Sizing Guide</a> on the HCL Software product documentation site.</p>
+<p>To plan your Connections with Component Pack deployment, you can find detailed information in the <a href="../../guide_me/how_to_guides/connections8_sizing_guide.pdf">HCL Connections Sizing Guide</a> on the HCL Software product documentation site.</p>
 <p>Meanwhile, the following topics here provide some general information on single-node versus production-grade options.</p>
 <ul>
 <li><strong><a href="cp_install_sizing_for_single_node.html">Sizing Kubernetes for a single-node environment</a></strong><br />

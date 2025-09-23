@@ -129,14 +129,15 @@ Additional details:
 |--|--|--|--|
 |IBM Security Directory Integrator|7.2 Fix Pack 8 (2)|8.0|Supported Configuration|
 |IBM Security Directory Integrator|7.2 Fix Pack 9 (2, 3)|8.0|Supported Configuration|
-<!--|IBM Security Directory Integrator|7.2 Fix Pack 11 |8.0|Other Configuration|-->
-
+|IBM Security Directory Integrator|7.2 Fix Pack 14 (2, 3, 4) |8.0|Supported Configuration|
 
 Additional details:
 
-(2) IBM Java 8 Runtime is required for the IBM Security Directory Integrator 7.2 Fix Pack 8 & 9.
+(2) IBM Java 8 Runtime is required for the IBM Security Directory Integrator 7.2 Fix Packs.
 
-(3) For important installation details, refer to [Upgrading to SDI 7.2.0 FP9 breaks SDI Solution for Connections Profiles (tdisol)](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104118) in the support portal.
+(3) For important installation details, refer to [Upgrading to SDI 7.2.0 FP9 & FP14 breaks SDI Solution for Connections Profiles (tdisol)](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0104118) in the support portal.
+
+(4) Service Refresh 8 Fix Pack 45 for IBM Java Runtime Technology Version 8.0 for Microsoft Windows is not available on the My HCLSoftware (MHS) portal. Please contact IBM Support to obtain the package.
 
 #### LDAP 
 
