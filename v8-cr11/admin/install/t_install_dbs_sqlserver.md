@@ -1,4 +1,4 @@
-        # Creating SQL Server databases manually {#t_install_services_dbs_sql .task}
+# Creating SQL Server databases manually {#t_install_services_dbs_sql .task}
 
 Create Microsoft™ SQL Server databases with SQL scripts instead of using the HCL Connections database wizard.
 
@@ -35,17 +35,19 @@ This task describes how to use SQL scripts to create SQL Server databases for HC
 
 Download the [Microsoft JDBC Driver 4.0 for SQL Server](https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42) driver from the Microsoft web site and follow the instructions to extract the driver files.  HCL Connections uses the sqljdbc42.jar file..
 
-**Note:** To capture the output of each command to a log file, append the following parameter to each command:
+!!! note
+    
+    To capture the output of each command to a log file, append the following parameter to each command:
 
-\>\> \\file\_path\\db\_application.log
+    ```\>\> \\file\_path\\db\_application.log```
 
-where file\_path is the full path to the log file and application is the name of the log file.
+    where file\_path is the full path to the log file and application is the name of the log file.
 
-For example:
+    For example:
 
-sqlcmd \>\> \\home\\admin\_user\\lc\_logs\\db\_activities.log
+    ```sqlcmd \>\> \\home\\admin\_user\\lc\_logs\\db\_activities.log```
 
-where sqlcmd is a command with parameters and admin\_user is the logged-in user. Ensure that you have write permissions for the directories and log files.
+    where sqlcmd is a command with parameters and admin\_user is the logged-in user. Ensure that you have write permissions for the directories and log files.
 
 To create the application database tables, complete the following steps:
 
@@ -110,10 +112,11 @@ To create the application database tables, complete the following steps:
             -   Wikis: WIKISUSER
             Specify the password to be associated with this user ID.
 
-        **Notes:**
+        !!! note
 
-        -   When you run the installation wizard, you are asked to provide a user ID for the JDBC provider. Specify the user ID created by the database creation script and the password that you defined in this step.
-        -   You can change the passwords for these database users later in SQL Server Management Studio. If you change the passwords there, you must also change them in the J2C authentication alias in the WebSphere® Application Server Integrated Solutions Console.
+            -   When you run the installation wizard, you are asked to provide a user ID for the JDBC provider. Specify the user ID created by the database creation script and the password that you defined in this step.
+            
+            -   You can change the passwords for these database users later in SQL Server Management Studio. If you change the passwords there, you must also change them in the J2C authentication alias in the WebSphere® Application Server Integrated Solutions Console.
 
         Example for SQL Server Account Mode:
 

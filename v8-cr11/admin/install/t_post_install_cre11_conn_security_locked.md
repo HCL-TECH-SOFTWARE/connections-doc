@@ -4,7 +4,7 @@ Assuming that you have completed the server setup previously described, to enabl
 
 ## Enabling locked domains for additional security 
 
-For added security, only the ConnectionsCommon.ear should be mapped to the locked host. Although no SSO tokens will be flowing from the host, this extra precaution limits exposure of your Connections infrastructure to potentially malicious gadgets. For more information about locked domains refer to [Understanding and configuring locked domains](https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf) in the HCL Connections wiki.
+For added security, only the ConnectionsCommon.ear should be mapped to the locked host. Although no SSO tokens will be flowing from the host, this extra precaution limits exposure of your Connections infrastructure to potentially malicious gadgets. For more information about locked domains refer to Understanding and configuring locked domains<!--(https://ds_infolib.hcltechsw.com/ldd/lcwiki.nsf)--> in the HCL Connections wiki.
 
 1.  Add the new attribute to the LotusConnections-config.xml file by completing the following steps:
     1.  Start the wsadmin tool.

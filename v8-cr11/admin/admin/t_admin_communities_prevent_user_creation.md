@@ -6,8 +6,9 @@ To update configuration files, you must use the wsadmin client. See [Starting th
 
 Disabling the ability to create specific community types means that community members can no longer create certain types of community. Instead, only community owners or administrators can create those types of community.
 
-1.  To prevent community members from creating a community, complete the following steps:
-2.  Start the wsadmin client by completing the following steps:
+To prevent community members from creating a community, complete the following steps:
+
+1.  Start the wsadmin client by completing the following steps:
 
     1.  Open a command prompt and then change to the following directory of the system on which you installed the deployment manager:
 
@@ -50,7 +51,7 @@ Disabling the ability to create specific community types means that community me
 
         -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
-3.  Access and check out the Communities configuration files:
+2.  Access and check out the Communities configuration files:
 
     1.  Use the following command to access the Communities configuration files:
 
@@ -88,13 +89,14 @@ Disabling the ability to create specific community types means that community me
         "CommServerNode01Cell")
         ```
 
-4.  From the temporary directory to which you just checked out the HCL Connections configuration files, open the communities-policy.xml file in a text editor.
+3.  From the temporary directory to which you just checked out the HCL Connections configuration files, open the communities-policy.xml file in a text editor.
 
-5.  **(Optional)** Enable or disable one or more of the following permissions that corresponds to the community type that a user is allowed to create by setting the value for each community type to either ***True*** or ***False***
+4.  **(Optional)** Enable or disable one or more of the following permissions that corresponds to the community type that a user is allowed to create by setting the value for each community type to either ***True*** or ***False***
+ 
     If enabled, the admin 
     The sample configuration below shows that a user can only create Public to My Organization and Moderated community types.
 
-6. Comment out one or more of the following permissions corresponding to the community types that users cannot create.
+5. Comment out one or more of the following permissions corresponding to the community types that users cannot create.
 
     ```
     <comm:permission 
@@ -108,21 +110,54 @@ Disabling the ability to create specific community types means that community me
         communityType="private" action="create" />
     ```
 
-7.  Save your changes to the communities-policy.xml file.
+6.  Save your changes to the communities-policy.xml file.
 
-8.  Check in the updated file, enter the following wsadmin client command:
+7.  Check in the updated file, enter the following wsadmin client command:
 
     ```
     CommunitiesConfigService.checkInPolicyConfig("<working\_directory\>",
     "<cell\_name\>")
     ```
 
-9.  To exit the wsadmin client, type exit at the prompt.
+8.  To exit the wsadmin client, type exit at the prompt.
 
-10.  Stop and restart the server that hosts the Communities application.
+9.  Stop and restart the server that hosts the Communities application.
+
+Users are now prevented from creating specific community types
+
+## Using AppReg for TE-enabled environments
+
+Alternatively, if Tailor Experience (TE) is enabled, use AppReg to configure community creation restrictions:
+
+1. Log in as a Connections Administrator and go to `https://<server_name>/appreg`
+2. Add or update the following JSON configuration for `CommunityType`:
+
+    ```json
+    {
+     "name": "te-creation-wizard",
+     "title": "te-creation-wizard",
+     "description": "Configuration for Community Creation Wizard",
+     "services": ["Connections"],
+     "extensions": [{
+       "name": "te-creation-wizard",
+       "type": "com.hcl.social.apps.tecw.config",
+       "payload": {
+         "communityType": {
+           "public": true,
+           "publicInviteOnly": true,
+           "private": false
+         }
+       }
+     }]
+    }
+    ```
+
+3. Save your changes.
+
+!!! note
+
+    Use lowercase `true`/`false` in JSON.
 
 
-Community owners cannot delete communities.
-
-**Parent topic:**[Managing default owner and member permissions](../admin/c_admin_communities_managing_default_permissions.md)
+**Parent topic:** [Managing default owner and member permissions](../admin/c_admin_communities_managing_default_permissions.md)
 

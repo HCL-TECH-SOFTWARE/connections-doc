@@ -6,8 +6,9 @@ To update configuration files, you must use the wsadmin client. See [Starting th
 
 Disabling the ability to create specific community types means that community members can no longer create certain types of community. Instead, only community owners or administrators can create those types of community.
 
-1.  To prevent community members from creating a community, complete the following steps:
-2.  Start the wsadmin client by completing the following steps:
+To prevent community members from creating a community, complete the following steps:
+
+1.  Start the wsadmin client by completing the following steps:
 
     1.  Open a command prompt and then change to the following directory of the system on which you installed the deployment manager:
 
@@ -31,7 +32,9 @@ Disabling the ability to create specific community types means that community me
 
         where dm\_profile\_root is the Deployment Manager profile directory; this directory is usually called dmgr01. For example, on Windows, the directory is C:\\Program Files\\IBM\\WebSphere\\AppServer\\profiles\\Dmgr01\\bin.
 
-        **Attention:** You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile\(\) command does not work correctly.
+        !!! attention 
+            
+            You must run the command to start the wsadmin client from this specific directory because the Jython files for the product are stored there. If you start the client from a different directory, the execfile\(\) command does not work correctly.
 
     2.  Enter the following command to start the wsadmin client:
 
@@ -48,7 +51,7 @@ Disabling the ability to create specific community types means that community me
 
         -   Linux: ./wsadmin.sh -lang jython -username primaryAdmin -password p@assword -port 8879
         -   Microsoft Windows: wsadmin -lang jython -username primaryAdmin -password p@assword -port 8879
-3.  Access and check out the Communities configuration files:
+2.  Access and check out the Communities configuration files:
 
     1.  Use the following command to access the Communities configuration files:
 
@@ -69,7 +72,9 @@ Disabling the ability to create specific community types means that community me
 
         -   working\_directory is the temporary working directory to which the configuration XML and XSD files are copied. The files are kept in this working directory while you make changes to them.
 
-            **Note:** Linux only: The directory must grant write permissions or the command will not run successfully.
+            !!! note
+                
+                Linux only: The directory must grant write permissions or the command will not run successfully.
 
         -   cell\_name is the name of the WebSphere Application Server cell hosting the HCL Connections application. This argument is required. If you do not know the cell name, you can determine it by typing the following command in the wsadmin command processor:
 
@@ -84,9 +89,14 @@ Disabling the ability to create specific community types means that community me
         "CommServerNode01Cell")
         ```
 
-4.  From the temporary directory to which you just checked out the HCL Connections configuration files, open the communities-policy.xml file in a text editor.
+3.  From the temporary directory to which you just checked out the HCL Connections configuration files, open the communities-policy.xml file in a text editor.
 
-5.  Comment out one or more of the following permissions corresponding to the community types that users cannot create.
+4.  **(Optional)** Enable or disable one or more of the following permissions that corresponds to the community type that a user is allowed to create by setting the value for each community type to either ***True*** or ***False***
+ 
+    If enabled, the admin 
+    The sample configuration below shows that a user can only create Public to My Organization and Moderated community types.
+
+5. Comment out one or more of the following permissions corresponding to the community types that users cannot create.
 
     ```
     <comm:permission 
@@ -113,8 +123,41 @@ Disabling the ability to create specific community types means that community me
 
 9.  Stop and restart the server that hosts the Communities application.
 
+Users are now prevented from creating specific community types
 
-Community owners cannot delete communities.
+## Using AppReg for TE-enabled environments
 
-**Parent topic:**[Managing default owner and member permissions](../admin/c_admin_communities_managing_default_permissions.md)
+Alternatively, if Tailor Experience (TE) is enabled, use AppReg to configure community creation restrictions:
+
+1. Log in as a Connections Administrator and go to `https://<server_name>/appreg`
+2. Add or update the following JSON configuration for `CommunityType`:
+
+    ```json
+    {
+     "name": "te-creation-wizard",
+     "title": "te-creation-wizard",
+     "description": "Configuration for Community Creation Wizard",
+     "services": ["Connections"],
+     "extensions": [{
+       "name": "te-creation-wizard",
+       "type": "com.hcl.social.apps.tecw.config",
+       "payload": {
+         "communityType": {
+           "public": true,
+           "publicInviteOnly": true,
+           "private": false
+         }
+       }
+     }]
+    }
+    ```
+
+3. Save your changes.
+
+!!! note
+
+    Use lowercase `true`/`false` in JSON.
+
+
+**Parent topic:** [Managing default owner and member permissions](../admin/c_admin_communities_managing_default_permissions.md)
 

@@ -2,7 +2,7 @@
 
 To extend HCL Connections to offer users a way to view documents, spreadsheets, and presentations within the Files application, install and set up Viewer from HCL Connections Docs.
 
-Users can view files directly within the HCL Connections Files and Communities applications. By viewing an uploaded file from within HCL Connections, users can see the file contents without having to download the file. To learn more about Connections Docs, refer to the [Connections Docs infrastructure for Connections integration](https://help.hcltechsw.com/docs/onprem_2.0/2.0_CR3_install_guide/guide/text/docs_infrastructure_connections.html).
+Users can view files directly within the HCL Connections Files and Communities applications. By viewing an uploaded file from within HCL Connections, users can see the file contents without having to download the file. To learn more about Connections Docs, refer to the [Connections Docs infrastructure for Connections integration](https://help.hcl-software.com/docs/v2.0.2/onprem/install_guide/guide/text/docs_infrastructure_connections.html).
 
 Table 1 lists the file types that can be viewed.
 
