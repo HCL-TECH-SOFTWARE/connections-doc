@@ -22,7 +22,13 @@ Find out about features that are new or updated in this release of HCL Connectio
     
         For deployments using Connections Component Pack 8.0 CR5 or above (new or upgraded), IBM WebSphere 8.5.5 Fix Pack 24 or above, which has an updated Java version is required. Otherwise enabling SSL for Metrics will fail, as the Java version prior to Fix Pack 24 cannot open the keystore built by the newer Java.
 
-## Password Information Banner Support 
+## Outlook Add-in Exchange Tokens in iFix
+
+The Outlook Add-in Exchange Tokens iFix addresses issues related to the use of legacy Exchange tokens in the Outlook add-in. This fix replaces legacy tokens with Microsoft’s Nested App Authentication, improving security and compatibility.
+
+Refer to [Installing Outlook Add-in Exchange Tokens iFix](../../admin/migrate/t_outlook_addin_exchange_tokens_ifix.md) for detailed installation instructions.
+
+## Password Information Banner Support
 
 A new `passwordInformationBanner` element has been introduced in the `selfregistration-config.xml` file, allowing administrators to display localized password policy messages during user registration and password changes. 
 
