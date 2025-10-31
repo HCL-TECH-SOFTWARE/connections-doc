@@ -143,7 +143,7 @@
 </div>
 
 <div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+     <span id='scLangSelectorContainer' style='z-index: 1000; position: absolute; right:200.95px;'/>
 </div>
 
   <!-- Uncomment the following announcement if you need it -->
@@ -8058,9 +8058,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-move-mongodb-data-folders" class="md-nav__link">
+  <a href="#step-5-move-mongodb-data-folders-on-nfs-master-node" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Move MongoDB Data Folders
+      Step 5: Move MongoDB Data Folders on NFS Master Node
     </span>
   </a>
   
@@ -51989,6 +51989,8 @@
       
         
       
+        
+      
     
     
       
@@ -52191,6 +52193,27 @@
   
   <span class="md-ellipsis">
     Upgrading Component Pack Outlook Add-in with a Standalone docker image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate/t_outlook_addin_exchange_tokens_ifix.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Outlook Add-in Exchange Tokens iFix
   </span>
   
 
@@ -55446,9 +55469,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-move-mongodb-data-folders" class="md-nav__link">
+  <a href="#step-5-move-mongodb-data-folders-on-nfs-master-node" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Move MongoDB Data Folders
+      Step 5: Move MongoDB Data Folders on NFS Master Node
     </span>
   </a>
   
@@ -55537,8 +55560,11 @@
 <ol>
 <li><strong>Backup</strong>: Ensure a complete backup of MongoDB 5 data on the NFS master node.</li>
 <li><strong>Kubernetes Cluster</strong>: Confirm that MongoDB 7 is installed and configured on the Kubernetes cluster.</li>
-<li><strong>Internet Access for Bitnami Docker Images</strong>: Ensure internet access is available to download the required Bitnami Docker images (e.g., <code>docker.io/bitnami/mongodb:5.0</code>, <code>docker.io/bitnami/mongodb:6.0</code>, and <code>docker.io/bitnami/mongodb:7.0</code>).</li>
-<li>If the environment has limited internet access, ensure appropriate access is opened to download these images.</li>
+<li><strong>Internet Access for Docker Images</strong>: Ensure internet access is available to download the required Docker images:</li>
+<li><code>docker.io/mongo:5.0</code></li>
+<li><code>docker.io/mongo:6.0</code></li>
+<li><code>docker.io/mongo:7.0</code></li>
+<li>If the environment has limited internet access, ensure the necessary network access is allowed to download these images.</li>
 <li>Alternatively, pre-download the images in an accessible environment and transfer them to the target system.</li>
 <li><strong>Maintenance Window</strong>: Schedule a maintenance window to avoid data loss during migration.</li>
 </ol>
@@ -55548,10 +55574,8 @@
 <p>In your MongoDB 5 environment, note any community templates created. After migration, these templates should appear in MongoDB 7 to confirm data integrity. Taking screenshots or recording details will help with verification post-migration.</p>
 <h3 id="step-2-check-mongodb-7-pod-status-in-kubernetes">Step 2: Check MongoDB 7 Pod Status in Kubernetes</h3>
 <p>Ensure that the MongoDB 7 pod is already deployed on your Kubernetes cluster before starting migration.</p>
-<pre><code>     ```
-     # Check MongoDB 7 pod status
-     kubectl -n connections get pod | grep mongo7
-     ```
+<pre><code>     # Check MongoDB 7 pod status
+     kubectl -n connections get pod | grep mongo7 | grep -vE check-and-update
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -55561,9 +55585,8 @@
 <ol>
 <li>
 <p>Scale down the MongoDB 7 StatefulSet to 0 to prevent conflicts during migration.</p>
-<div class="highlight"><pre><span></span><code># Scale down MongoDB 7 StatefulSet
-kubectl scale sts mongo7 -n connections --replicas 0
-</code></pre></div>
+<p># Scale down MongoDB 7 StatefulSet
+  kubectl scale sts mongo7 -n connections --replicas 0</p>
 </li>
 <li>
 <p>Verify pod termination status using:</p>
@@ -55578,7 +55601,7 @@ kubectl scale sts mongo7 -n connections --replicas 0
 <div class="highlight"><pre><span></span><code>sudo cd /pv-connections
 sudo tar czf $(date +%Y%m%d)-backup.tar.gz mongo5*
 </code></pre></div>
-<h3 id="step-5-move-mongodb-data-folders">Step 5: Move MongoDB Data Folders</h3>
+<h3 id="step-5-move-mongodb-data-folders-on-nfs-master-node">Step 5: Move MongoDB Data Folders on NFS Master Node</h3>
 <ol>
 <li>
 <p>Create the folder movement script. Open a text editor and save the following code into a file named <code>move_mongo_folders.sh</code>.</p>
@@ -55636,10 +55659,10 @@ sudo systemctl status nfs-server
 </li>
 <li>
 <p>Add entries for the MongoDB 7 folders, replacing placeholders with your actual values:</p>
-<p><code>plaintext
- /pv-connections/mongo7-node-0/data/db SERVER1_IP(root_squash,anonuid=1001,rw)
- /pv-connections/mongo7-node-1/data/db SERVER1_IP(root_squash,anonuid=1001,rw)
- /pv-connections/mongo7-node-2/data/db SERVER1_IP(root_squash,anonuid=1001,rw)</code></p>
+<div class="highlight"><pre><span></span><code>/pv-connections/mongo7-node-0/data/db SERVER1_IP(root_squash,anonuid=1001,rw)
+/pv-connections/mongo7-node-1/data/db SERVER1_IP(root_squash,anonuid=1001,rw)
+/pv-connections/mongo7-node-2/data/db SERVER1_IP(root_squash,anonuid=1001,rw)
+</code></pre></div>
 </li>
 <li>
 <p>Replace:</p>
@@ -55653,8 +55676,9 @@ sudo systemctl status nfs-server
 <li>
 <p>Apply NFS Export Change.</p>
 <p>After modifying <code>/etc/exports</code>, restart the NFS server and apply the changes:</p>
-<p><code>sudo systemctl restart nfs-server
-  sudo exportfs -a</code></p>
+<div class="highlight"><pre><span></span><code>sudo systemctl restart nfs-server
+sudo exportfs -a
+</code></pre></div>
 </li>
 <li>
 <p>Mount Shared Folders on Target Server**:</p>
@@ -55681,9 +55705,9 @@ sudo<span class="w"> </span>mount<span class="w"> </span>NFS_MASTER_IP:/pv-conne
 <li>
 <p>Verify NFS Mount. </p>
 <p>Confirm that the shared folders are properly mounted by listing their contents:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-0/data/db
-sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-1/data/db
-sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-2/data/db
+<div class="highlight"><pre><span></span><code>sudo ls /mnt/mongo7-node-0/data/db
+sudo ls /mnt/mongo7-node-1/data/db
+sudo ls /mnt/mongo7-node-2/data/db
 </code></pre></div>
 </li>
 </ol>
@@ -55692,7 +55716,7 @@ sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-2/data/db
 <ol>
 <li>
 <p>Save the <code>mongo_migration.sh</code> script.</p>
-<p>Open a text editor and save the provided <a href="https://github.com/HCL-TECH-SOFTWARE/connections-mongo7/mongo_migration.sh">mongo_migration.sh</a> script into a file named <code>mongo_migration.sh</code>.  </p>
+<p>Open a text editor and save the provided <a href="https://github.com/HCL-TECH-SOFTWARE/connections-mongo7/blob/main/mongo_migration.sh">mongo_migration.sh</a> script into a file named <code>mongo_migration.sh</code>.  </p>
 </li>
 <li>
 <p>Make the script executable:</p>
@@ -55708,8 +55732,9 @@ sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-2/data/db
 <ol>
 <li>
 <p>Once migration is complete, scale up the MongoDB 7 StatefulSet to the desired replica count. For example:</p>
-<p><code># Scale up MongoDB 7 StatefulSet
-  kubectl scale sts mongo7 -n connections --replicas 1</code></p>
+<div class="highlight"><pre><span></span><code># Scale up MongoDB 7 StatefulSet
+kubectl scale sts mongo7 -n connections --replicas 1
+</code></pre></div>
 </li>
 <li>
 <p>Connect to MongoDB Pod to Check Replica Set Status.</p>
@@ -55721,10 +55746,11 @@ sudo<span class="w"> </span>ls<span class="w"> </span>/mnt/mongo7-node-2/data/db
  This command will display the current state of all members in the replica set, helping diagnose any issues.</p>
 </li>
 <li>
-<p>If a member of the replica set remains in the <code>"stateStr": "RECOVERING"</code> state for an extended period and does not transition back to "SECONDARY" or "PRIMARY", you may need to restart the affected pod to help it rejoin the replica set.</p>
+<p>If a member of the replica set remains in the <code>"stateStr": "RECOVERING"</code> state for an extended period and does not transition back to "SECONDARY" or "PRIMARY",  restart the affected pod to help it rejoin the replica set.</p>
 <p>To do this, delete the affected pod using the following command. For example, if mongo7-0 is affected, run:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>mongo7-0<span class="w"> </span>-n<span class="w"> </span>connections
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>mongo7-0<span class="w"> </span>-n<span class="w"> </span>connections
 </code></pre></div>
+ If the issue persists after restart, delete the data on the NFS volume for the recovering MongoDB replica set member. The new pod automatically performs an initial sync from the current PRIMARY and rejoins the replica set with consistent data.</p>
 </li>
 </ol>
 </li>

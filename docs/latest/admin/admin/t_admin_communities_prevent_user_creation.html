@@ -137,13 +137,13 @@
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-connections/connections-forum/22" target="_blank">Community Forums</a>
 
 </div>
 </div>
 
 <div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+     <span id='scLangSelectorContainer' style='z-index: 1000; position: absolute; right:200.95px;'/>
 </div>
 
   <!-- Uncomment the following announcement if you need it -->
@@ -21079,6 +21079,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Preventing members from creating specific community types
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="t_admin_communities_prevent_user_creation.html" class="md-nav__link md-nav__link--active">
         
   
@@ -21088,6 +21099,36 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-appreg-for-te-enabled-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AppReg for TE-enabled environments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -51834,6 +51875,8 @@
       
         
       
+        
+      
     
     
       
@@ -52036,6 +52079,27 @@
   
   <span class="md-ellipsis">
     Upgrading Component Pack Outlook Add-in with a Standalone docker image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate/t_outlook_addin_exchange_tokens_ifix.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Outlook Add-in Exchange Tokens iFix
   </span>
   
 
@@ -55229,6 +55293,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-appreg-for-te-enabled-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AppReg for TE-enabled environments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -55249,8 +55330,8 @@
 <p>You can prevent community members from creating specific community types on a deployment-wide basis.</p>
 <p>To update configuration files, you must use the wsadmin client. See <a href="t_admin_wsadmin_starting.html">Starting the wsadmin client</a> for details.</p>
 <p>Disabling the ability to create specific community types means that community members can no longer create certain types of community. Instead, only community owners or administrators can create those types of community.</p>
+<p>To prevent community members from creating a community, complete the following steps:</p>
 <ol>
-<li>To prevent community members from creating a community, complete the following steps:</li>
 <li>
 <p>Start the wsadmin client by completing the following steps:</p>
 <ol>
@@ -55335,9 +55416,9 @@ For example:</li>
 <p>From the temporary directory to which you just checked out the HCL Connections configuration files, open the communities-policy.xml file in a text editor.</p>
 </li>
 <li>
-<p><strong>(Optional)</strong> Enable or disable one or more of the following permissions that corresponds to the community type that a user is allowed to create by setting the value for each community type to either <strong><em>True</em></strong> or <strong><em>False</em></strong>
-    If enabled, the admin 
-    The sample configuration below shows that a user can only create Public to My Organization and Moderated community types.</p>
+<p><strong>(Optional)</strong> Enable or disable one or more of the following permissions that corresponds to the community type that a user is allowed to create by setting the value for each community type to either <strong><em>True</em></strong> or <strong><em>False</em></strong></p>
+<p>If enabled, the admin 
+The sample configuration below shows that a user can only create Public to My Organization and Moderated community types.</p>
 </li>
 <li>
 <p>Comment out one or more of the following permissions corresponding to the community types that users cannot create.</p>
@@ -55368,8 +55449,41 @@ For example:</li>
 <p>Stop and restart the server that hosts the Communities application.</p>
 </li>
 </ol>
-<p>Community owners cannot delete communities.</p>
-<p><strong>Parent topic:</strong><a href="c_admin_communities_managing_default_permissions.html">Managing default owner and member permissions</a></p>
+<p>Users are now prevented from creating specific community types</p>
+<h2 id="using-appreg-for-te-enabled-environments">Using AppReg for TE-enabled environments</h2>
+<p>Alternatively, if Tailor Experience (TE) is enabled, use AppReg to configure community creation restrictions:</p>
+<ol>
+<li>Log in as a Connections Administrator and go to <code>https://&lt;server_name&gt;/appreg</code></li>
+<li>
+<p>Add or update the following JSON configuration for <code>CommunityType</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;te-creation-wizard&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;te-creation-wizard&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Configuration for Community Creation Wizard&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Connections&quot;</span><span class="p">],</span>
+<span class="w"> </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">   </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;te-creation-wizard&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;com.hcl.social.apps.tecw.config&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;communityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">&quot;public&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">&quot;publicInviteOnly&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">&quot;private&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Save your changes.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use lowercase <code>true</code>/<code>false</code> in JSON.</p>
+</div>
+<p><strong>Parent topic:</strong> <a href="c_admin_communities_managing_default_permissions.html">Managing default owner and member permissions</a></p>
 
 
 
