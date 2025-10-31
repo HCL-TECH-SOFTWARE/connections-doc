@@ -15,7 +15,9 @@ The Outlook Add-in is available as part of Connections Component Pack or as a st
 
 The HCL Connections Add-in for Microsoft-based add-in platform. The Connections Add-in does not have any code physically installed on the user’s Outlook client. For more information on the Outlook add-in framework, see [Outlook add-ins overview](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/outlook-add-ins-overview)
 
-**Note:** The Connections Add-in is not available from the Microsoft Outlook Add-ins store. Your administrator will make the Connections Add-in available to you within Outlook, or provide instructions on how to load the add-in.
+!!! note 
+    
+    The Connections Add-in is not available from the Microsoft Outlook Add-ins store. Your administrator will make the Connections Add-in available to you within Outlook, or provide instructions on how to load the add-in.
 
 -   **[HCL Connections Add-in for Microsoft Outlook System Requirements](../../connectors/admin/c_outlook_connector_addin_sys_req.md)**  
 System Requirements for HCL Connections Add-in for Microsoft Outlook.
@@ -23,6 +25,8 @@ System Requirements for HCL Connections Add-in for Microsoft Outlook.
 The Outlook Add-in is available as part of Connections Component Pack or as a standalone installation
 -   **[Upgrading Component Pack Outlook Add-in with a Standalone docker image](../../connectors/admin/t_outlook_upgrade_cp_w_standalone_docker_image.md)**  
 If you have already deployed the Outlook Add-in via Component Pack, you can update that installation with a newer standalone docker image. This is useful for deploying fixes or if new release of the standalone docker image is available before the corresponding Component Pack release.
+- **[Installing Outlook Add-in Exchange Tokens iFix](../../admin/migrate/t_outlook_addin_exchange_tokens_ifix.md)**  
+If you already deployed the Outlook add-in using Component Pack, update that installation with the newer standalone Docker image to deliver the Exchange token interim fix. This approach is useful for applying fixes or when a new standalone image is available before the corresponding Component Pack release.
 
-**Parent topic:**[Installing integration plug-ins for HCL Connections](../../connectors/admin/c_plugin_admin_help_over.md)
+**Parent topic:** [Installing integration plug-ins for HCL Connections](../../connectors/admin/c_plugin_admin_help_over.md)
 

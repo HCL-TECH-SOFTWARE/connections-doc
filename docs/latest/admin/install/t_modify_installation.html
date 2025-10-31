@@ -137,13 +137,13 @@
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-connections/connections-forum/22" target="_blank">Community Forums</a>
 
 </div>
 </div>
 
 <div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+     <span id='scLangSelectorContainer' style='z-index: 1000; position: absolute; right:200.95px;'/>
 </div>
 
   <!-- Uncomment the following announcement if you need it -->
@@ -51832,6 +51832,8 @@
       
         
       
+        
+      
     
     
       
@@ -52034,6 +52036,27 @@
   
   <span class="md-ellipsis">
     Upgrading Component Pack Outlook Add-in with a Standalone docker image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate/t_outlook_addin_exchange_tokens_ifix.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Outlook Add-in Exchange Tokens iFix
   </span>
   
 
@@ -55254,10 +55277,12 @@
 <li>
 <p>Run the following command:</p>
 <ul>
-<li>Linux: ./launcher</li>
-<li>Windows: launcher.exe</li>
-<li>From the IBM Installation Manager menu, click <strong>File</strong> &gt; <strong>Preferences</strong>.</li>
+<li>Linux: <code>./launcher</code></li>
+<li>Windows: <code>launcher.exe</code></li>
 </ul>
+</li>
+<li>
+<p>From the IBM Installation Manager menu, click <strong>File</strong> &gt; <strong>Preferences</strong>.</p>
 </li>
 <li>
 <p>Click <strong>Repositories</strong>.</p>
@@ -55278,25 +55303,36 @@
 <p>In the Application Selection page, choose the applications you want to add or remove and then click <strong>Next</strong>.</p>
 <ul>
 <li>Add applications: Select the check boxes of any applications that are not already installed and that you want to add to your deployment.</li>
-<li>
-<p>Remove applications: Clear the check boxes of any installed applications that you want to remove from your deployment.
-<strong>Notes:</strong></p>
-</li>
-<li>
-<p>All installed applications are selected by default.</p>
-</li>
-<li>The Home page, News, and Search applications are required and cannot be removed.</li>
-<li>Enter the administrative ID and password of the Deployment Manager.</li>
+<li>Remove applications: Clear the check boxes of any installed applications that you want to remove from your deployment.</li>
 </ul>
-<p><strong>Note:</strong> This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the <em>Switching to unique administrator IDs for system level communication</em> topic.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>All installed applications are selected by default.</li>
+<li>The <strong>Home</strong> page, <strong>News</strong>, and <strong>Search</strong> applications are required and cannot be removed.</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the administrative ID and password of the Deployment Manager.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This ID is set to the connectionsAdmin J2C authentication alias, which is mapped to the following Java™ EE roles: dsx-admin, widget-admin, and search-admin. It is also used by the service integration bus. If you plan to use security management software such as Tivoli® Access Manager or SiteMinder, the ID that you specify here must exist in the LDAP directory. For more information, see the <em>Switching to unique administrator IDs for system level communication</em> topic.</p>
+</div>
 </li>
 <li>
 <p>Configure your topology:</p>
-<p><strong>Notes:</strong></p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
 <ul>
 <li>The panel described in this step appears only if you selected new applications to install.</li>
 <li>If you select an existing cluster on which to deploy applications, the nodes in that cluster are fixed and cannot be modified.</li>
-<li>Small deployment:<ol>
+</ul>
+</div>
+<ul>
+<li>
+<p>Small deployment:</p>
+<ol>
 <li>Select the <strong>Small deployment</strong> topology.</li>
 <li>Enter a <strong>Cluster name</strong> for the topology.</li>
 <li>Select a <strong>Node</strong>.</li>
@@ -55309,65 +55345,104 @@
 <li>Select the <strong>Medium deployment</strong> topology.</li>
 <li>
 <p>Select the default value or enter a <strong>Cluster name</strong> for each application or for groups of applications. For example, use Cluster1 for Activities, Communities, and Forums.</p>
-<p><strong>Note:</strong> IBM Installation Manager creates servers and clusters when required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IBM Installation Manager creates servers and clusters when required.</p>
+</div>
 </li>
 <li>
 <p>Select a <strong>Node</strong> for each cluster. Accept the predefined node or select a different node.</p>
-<p><strong>Note:</strong> These nodes host application server instances that serve HCL Connections applications. You can assign multiple nodes to a cluster, where each node is a server member of that cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These nodes host application server instances that serve HCL Connections applications. You can assign multiple nodes to a cluster, where each node is a server member of that cluster.</p>
+</div>
 </li>
 <li>
 <p>Enter a <strong>Server member</strong> name for the selected node. Choose the default or enter a custom name.</p>
-<p><strong>Note:</strong> If you enter a custom server member name, the name must be unique across all nodes in your deployment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you enter a custom server member name, the name must be unique across all nodes in your deployment.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Next</strong>.</p>
-<ul>
-<li>Large deployment:</li>
-</ul>
 </li>
+</ol>
+</li>
+<li>
+<p>Large deployment:</p>
+<ol>
 <li>Select the <strong>Large deployment</strong> topology.</li>
 <li>
 <p>Enter a <strong>Cluster name</strong> for each application.</p>
-<p><strong>Note:</strong> IBM Installation Manager creates servers and clusters when required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IBM Installation Manager creates servers and clusters when required.</p>
+</div>
 </li>
 <li>
 <p>Select a <strong>Node</strong> for each cluster. Accept the predefined node or select a different node.</p>
-<p><strong>Note:</strong> These nodes host application server instances that serve HCL Connections applications. You can assign multiple nodes to a cluster, where each node is a server member of that cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These nodes host application server instances that serve HCL Connections applications. You can assign multiple nodes to a cluster, where each node is a server member of that cluster.</p>
+</div>
 </li>
 <li>
 <p>Enter a <strong>Server member</strong> name for the selected node. Choose the default or enter a custom name.</p>
-<p><strong>Note:</strong> If you enter a custom server member name, the name must be unique across all nodes in your deployment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you enter a custom server member name, the name must be unique across all nodes in your deployment.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Next</strong>.</p>
 </li>
-<li>Enter the database information.</li>
 </ol>
 </li>
 </ul>
-<p><strong>Note:</strong> The panel described in this step appears only if you selected new applications to install and if the new applications require database configuration.</p>
-<p><strong>Note:</strong> The Connections Content Manager databases will not be shown if you have chosen to use an existing FileNet® deployment.</p>
-<p><strong>Note:</strong> Database information for Global Configuration Data and Object Store must be set correctly or installation will fail.</p>
+</li>
+<li>
+<p>Enter the database information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>The panel described in this step appears only if you selected new applications to install and if the new applications require database configuration.</p>
+</li>
+<li>
+<p>The Connections Content Manager databases will not be shown if you have chosen to use an existing FileNet® deployment.</p>
+</li>
+<li>
+<p>Database information for Global Configuration Data and Object Store must be set correctly or installation will fail.</p>
+</li>
+</ul>
+</div>
 <ol>
 <li>
 <p>Use the same database server or instance: Select <strong>Yes</strong> or <strong>No</strong>.</p>
-<p><strong>Note:</strong> If allowed by your database configuration, you can select multiple database instances as well as different database servers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If allowed by your database configuration, you can select multiple database instances as well as different database servers.</p>
+</div>
 </li>
 <li>
 <p>Select a <strong>Database type</strong> from one of the following options:</p>
 <ul>
 <li>IBM DB2 Universal Database™</li>
 <li>Oracle 19c Enterprise</li>
-<li>Microsoft SQL Server Enterprise Edition<ol>
-<li>Enter the <strong>Database server host name</strong>. For example: appserver.enterprise.example.com</li>
-</ol>
-</li>
+<li>Microsoft SQL Server Enterprise Edition</li>
 </ul>
+</li>
+<li>
+<p>Enter the <strong>Database server host name</strong>. For example: <code>appserver.enterprise.example.com</code></p>
 <p>If your installed applications use different database servers, enter the database host name for each application.</p>
 </li>
 <li>
 <p>Enter the <strong>Port</strong> number of the database server. The default values are: 50000 or 25000 for DB2®, 1521 for Oracle, and 1433 for SQL Server.</p>
-<p><strong>Note:</strong> For DB2, 50000 is the default port number for DB2 v11.5.5 and earlier, and 25000 is the default for DB2 v11.5.6 and later.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For DB2, 50000 is the default port number for DB2 v11.5.5 and earlier, and 25000 is the default for DB2 v11.5.6 and later.</p>
+</div>
 <p>If your installed applications use different database servers or instances, enter the port number for each database server or instance.</p>
 </li>
 <li>
@@ -55375,37 +55450,48 @@
 <ul>
 <li>
 <p>Linux:</p>
-<p>/opt/IBM/WebSphere/AppServer/lib</p>
+<p><code>/opt/IBM/WebSphere/AppServer/lib</code></p>
 </li>
 <li>
 <p>Windows:</p>
-<p>C:\IBM\WebSphere\AppServer\lib</p>
+<p><code>C:\\IBM\\WebSphere\\AppServer\\lib</code></p>
 </li>
 </ul>
 </li>
 <li>
 <p>Ensure that the following JDBC driver libraries are present in the JDBC directory:</p>
-<p>DB2
-:   db2jcc4.jar and db2jcc_license_cu.jar</p>
-<pre><code>**Note:** Ensure that your user account has the necessary permissions to access the DB2 JDBC files.
-</code></pre>
-<p>Oracle
-:   ojdbc8.jar</p>
-<p>SQL Server
-:   Download the <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</p>
-<pre><code>The directory must not contain the sqljdbc.jar file, only the sqljdbc42.jar file. An exception occurs if both files are present in the same directory.
-</code></pre>
+<ul>
+<li>
+<p>DB2:   <code>db2jcc4.jar</code> and <code>db2jcc_license_cu.jar</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that your user account has the necessary permissions to access the DB2 JDBC files.</p>
+</div>
+</li>
+<li>
+<p>Oracle:   <code>ojdbc8.jar</code></p>
+</li>
+<li>
+<p>SQL Server:   Download the <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42">SQL Server JDBC 4</a> driver from the Microsoft website to a local directory and enter that directory name in the <strong>JDBC driver library</strong> field.</p>
+<p>The directory must not contain the sqljdbc.jar file, only the sqljdbc42.jar file. An exception occurs if both files are present in the same directory.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Enter the <strong>User ID</strong>and <strong>Password</strong> for each database.</p>
 <p>If each database uses the same user credentials, select the <strong>Use the same password for all applications</strong> check box and then enter the user ID and password for the first database in the list.</p>
-<p><strong>Note:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>If your database type is Oracle, you must connect to the database with the user ID that you used when you created the application database.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Validate</strong> to verify your database settings. If the validation fails, check your database settings. When the validation succeeds, click <strong>Next</strong>.</p>
 <p>IBM Installation Manager tests your database connection with the database values that you supplied. You can change the database configuration later in the WebSphere® Application Server Integrated Solutions Console.</p>
-<p><strong>Note:</strong> Usually you can continue even if the validation failed because you can change the database settings from WebSphere Application Server Integrated Solutions Console afterward.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually you can continue even if the validation failed because you can change the database settings from WebSphere Application Server Integrated Solutions Console afterward.</p>
+</div>
 </li>
 </ol>
 </li>
@@ -55414,15 +55500,18 @@
 </li>
 <li>
 <p>When the modification process is complete, restart the Deployment Manager and all the nodes.</p>
-<p><strong>Note:</strong> Wait until the DM copies all the application EAR files to the installedApps directory on each of the nodes. This process can take up to 30 minutes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wait until the DM copies all the application EAR files to the installedApps directory on each of the nodes. This process can take up to 30 minutes.</p>
+</div>
 <p>To verify that the DM has distributed the application EAR files to the nodes, check the SystemOut.logfile of each node agent. The default path to the SystemOut.logfile on a node is <a href="../plan/i_ovr_r_directory_conventions.html">profile_root</a>/logs/nodeagent.</p>
 <p>Look for a message such as the following example: ADMA7021I: Distribution of application application_name completed successfully. where application_name is the name of an HCL Connections application.</p>
 </li>
 </ol>
 <p>The log file for IBM Installation Manager records the values that you entered when you ran IBM Installation Manager in interactive mode. To review the log file for IBM Installation Manager, open the date_time.xml file, where date_time represents the date and time of the installation. The file by default is in the following directory:</p>
 <ul>
-<li>Linux (root user): /var/ibm/InstallationManager/logs</li>
-<li>Linux (non-root user): user_home/var/ibm/InstallationManager/logswhere user_home is the non-root user account directory</li>
+<li>Linux (root user): <code>/var/ibm/InstallationManager/logs</code></li>
+<li>Linux (non-root user): <code>user_home/var/ibm/InstallationManager/logs</code> where <code>user\_home</code> is the non-root user account directory</li>
 </ul>
 <p>To check the complete details of the installation, open each of the log files in the <a href="../plan/i_ovr_r_directory_conventions.html">connections_root</a>/logs directory. Each HCL Connections application that you installed has a log file, using the following naming format: applicationInstallog.txt, where application is the name of an HCL Connections application.</p>
 <p><strong>Parent topic:</strong><a href="c_install_silent.html">Installing silently</a></p>

@@ -24,6 +24,7 @@ oc create namespace $ns;
 oc project $ns;
 ```
 ```
+oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx-admission;
 oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx-backend;
 oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx;
 oc adm policy add-scc-to-user anyuid -n $ns -z default;

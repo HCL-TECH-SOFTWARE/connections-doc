@@ -137,13 +137,13 @@
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-connections/connections-forum/22" target="_blank">Community Forums</a>
 
 </div>
 </div>
 
 <div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+     <span id='scLangSelectorContainer' style='z-index: 1000; position: absolute; right:200.95px;'/>
 </div>
 
   <!-- Uncomment the following announcement if you need it -->
@@ -51834,6 +51834,8 @@
       
         
       
+        
+      
     
     
       
@@ -52036,6 +52038,27 @@
   
   <span class="md-ellipsis">
     Upgrading Component Pack Outlook Add-in with a Standalone docker image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate/t_outlook_addin_exchange_tokens_ifix.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Outlook Add-in Exchange Tokens iFix
   </span>
   
 
@@ -55251,16 +55274,20 @@
 <ol>
 <li>
 <p>Ensure that you have installed all the required <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0073654">System Requirements</a>, including Security Directory Integrator, a database server, and an LDAP directory.</p>
-<p><strong>Attention:</strong></p>
-<ol>
-<li>If you are installing Connections with Security Directory Integrator 7.2 on Windows Server 2016. See the IBM technote <a href="http://www-01.ibm.com/support/docview.wss?uid=swg22016815">TDI 7.1.1 and SDI 7.2.0 limited support for Windows Server 2016</a> for information on installing SDI 7.2 on Windows 2016.</li>
-<li>Install Java for SDI, Refer to <a href="t_prof_tdi_new_deploy.html">Deploying Security Directory Integrator into a new install of Connections</a> for additional information.</li>
-<li>Create the Profiles database.</li>
-</ol>
-<p><strong>Note:</strong> The internal name of the Profiles database is PEOPLEDB.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Install Java for SDI, Refer to <a href="t_prof_tdi_new_deploy.html">Deploying Security Directory Integrator into a new install of Connections</a> for additional information.</p>
+</div>
 </li>
 <li>
-<p>If your database uses a database driver that requires Java 8, or you otherwise require Java 8 when running the IBM Security Directory Integrator, see this article for instructions: <a href="https://support.hcltechsw.com/csm?id=kb_article&amp;sysparm_article=KB0094191">Using IBM Security Directory Integrator with Java 8 and HCL Connections 6.5 or 7.0</a>. Perform the following task, and then complete the rest of the tasks in <a href="t_prof_install_profiles_db.html">Populating the Profiles database</a>. Note that you must use the manual population method when using Java 8, not the population wizard.</p>
+<p>Create the Profiles database.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The internal name of the Profiles database is PEOPLEDB.</p>
+</div>
+</li>
+<li>
+<p>Java 8 and a Java 8–compatible JDBC driver are required when using IBM Security Directory Integrator.</p>
 </li>
 </ol>
 <p>Use Security Directory Integrator to populate the Profiles database repository from an LDAP directory. It is assumed you are using the profiles population wizard, as some of the following information pertains specifically to that method.</p>
@@ -55274,52 +55301,82 @@
 </li>
 <li>
 <p>Make the database available to Security Directory Integrator by doing one of the following, depending on the database software provider:</p>
-<p><strong>Note:</strong> The following information assumes that the database server is on a separate system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following information assumes that the database server is on a separate system.</p>
+</div>
 <p>If the database is hosted on a separate system, copy the database JAR file to the system hosting Security Directory Integrator.</p>
-<p><strong>Note:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Download or otherwise obtain a Java 8 certified JDBC database client driver for your relational database that can be used by SDI.</p>
+</div>
 <ul>
 <li>
-<p>DB2®: Copy the db2jcc4.jar and db2jcc4_license_cu.jar files from the java subdirectory of the directory where you installed DB2. <a href="https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads">Download the DB2 files</a> and paste the files into a temporary location on the system where SDI is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.</p>
-<p>For example, if you installed Security Directory Integrator on a Linux™ system in /opt/IBM/TDI/V7.2, the path would be /opt/IBM/TDI/V7.2/jvm/jre/lib/ext. This is the case regardless of the database provider.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>If you only run the SDI Population scripts in manual mode, you must copy the files.</li>
-<li>The db2jcc4.jar file is certified for Java 8 and is also available from the <a href="https://my.hcltechsw.com/">My HCLSoftware</a><ul>
-<li>Oracle: Copy the ojdbc8.jar file from the jdbc/lib subdirectory of the directory where you installed Oracle. If needed download the Oracle JDBC driver ojdbc8.jar from the Oracle web site for <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html">Oracle 19c</a>. Paste the files into a temporary location on the system where SDI is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.</li>
-<li>Microsoft SQL: Download the <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42">SQL Server JDBC 4.2 driver</a> from the Microsoft™ web site and follow the instructions to extract the driver files. SDI uses the sqljdbc42.jar file.</li>
-</ul>
-</li>
-</ul>
-<p>Paste the files into a temporary location on the system where Security Directory Integrator is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.</p>
-</li>
-</ul>
-<p><strong>Note:</strong> As a result of this step, the database files are placed in the jvm/jre/lib/ext SDI directory. This directory is on the SDI classpath, but in rare circumstances may not be close enough to the beginning of the path. If SDI throws an exception that seems to be Java related, try putting the database JAR files in the jars\3rdparty\others SDI directory.</p>
+<p>DB2®: Copy the <code>db2jcc4.jar</code> and <code>db2jcc4_license_cu.jar</code> files from the java subdirectory of the directory where you installed DB2. <a href="https://my.hcltechsw.com/downloads/connections/connections3rd/db2">Download the DB2 Driver for JDBC</a> from My HCLSoftware and paste the files into a temporary location on the system where SDI is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.</p>
+<p>For example, if you installed Security Directory Integrator on a Linux™ system in <code>/opt/IBM/TDI/V7.2</code>, the path would be <code>/opt/IBM/TDI/V7.2/jvm/jre/lib/ext</code>. This is the case regardless of the database provider.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you only run the SDI Population scripts in manual mode, you must copy the files.</p>
+</div>
 </li>
 <li>
-<p>Edit the ibmdisrv file to increase runtime memory. To increase the runtime memory, add the two -Xms1024M -Xmx2048M space-separated arguments to the Java™ invocation command.</p>
-<p><strong>Note:</strong> On Linux systems the file name is ibmdisrv. On Windows systems the file name is ibmdisrv.bat. On both systems the file is located in the main SDI directory.</p>
+<p>Oracle: Copy the ojdbc8.jar file from the jdbc/lib subdirectory of the directory where you installed Oracle. If needed download the Oracle JDBC driver ojdbc8.jar from the Oracle web site for <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html">Oracle 19c</a>. Paste the files into a temporary location on the system where SDI is installed. The wizard will prompt for this location and copy the files into the jvm/jre/lib/ext subdirectory of Security Directory Integrator.</p>
+</li>
+<li>
+<p>Microsoft SQL: Download the <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42">SQL Server JDBC 4.2 driver</a> from the Microsoft™ web site and follow the instructions to extract the driver files. SDI uses the <code>sqljdbc42.jar</code> file.</p>
+<p>Paste the files into a temporary location on the system where Security Directory Integrator is installed. The wizard will prompt for this location and copy the files into the <code>jvm/jre/lib/ext</code> subdirectory of Security Directory Integrator.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a result of this step, the database files are placed in the <code>jvm/jre/lib/ext</code> SDI directory. This directory is on the SDI classpath, but in rare circumstances may not be close enough to the beginning of the path. If SDI throws an exception that seems to be Java related, try putting the database JAR files in the <code>jars\\3rdparty\\others</code> SDI directory.</p>
+</div>
+</li>
+<li>
+<p>Edit the <code>ibmdisrv</code> file to increase runtime memory. To increase the runtime memory, add the two <code>-Xms1024M</code> and <code>-Xmx2048M</code> space-separated arguments to the Java™ invocation command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Linux systems the file name is <code>ibmdisrv</code>. On Windows systems the file name is <code>ibmdisrv.bat</code>. On both systems the file is located in the main SDI directory.</p>
+</div>
 <ul>
 <li>
-<p>Linux:ibmdisrv</p>
+<p>Linux: <code>ibmdisrv</code></p>
 <p>After you add the new arguments to increase runtime memory, the Java invocation command might look like the following example:</p>
 <div class="highlight"><pre><span></span><code>&quot;$TDI_JAVA_PROGRAM&quot; -Xms1024M -Xmx2048M $TDI_MIXEDMODE_FLAG -cp 
 &quot;$TDI_HOME_DIR/IDILoader.jar&quot; &quot;$LOG_4J&quot; com.ibm.di.loader.ServerLauncher &quot;$@&quot; &amp;
 </code></pre></div>
-<p><strong>Note:</strong> Do not copy and paste the example into your ibmdisrv file. Add the two arguments without changing any of the other arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not copy and paste the example into your ibmdisrv file. Add the two arguments without changing any of the other arguments.</p>
+</div>
 </li>
 <li>
-<p>Windows™: ibmdisrv.bat</p>
+<p>Windows™: <code>ibmdisrv.bat</code></p>
 <p>After you add the new arguments, the Java invocation command might look like the following example:</p>
 <div class="highlight"><pre><span></span><code>&quot;%TDI_JAVA_PROGRAM%&quot; -Xms1024M -Xmx2048M -classpath &quot;%TDI_HOME_DIR%\IDILoader.jar&quot; 
 %ENV_VARIABLES% com.ibm.di.loader.ServerLauncher %*
 </code></pre></div>
-<p><strong>Note:</strong> Do not copy and paste the example into your ibmdisrv.bat file. Add the two arguments without changing any of the other arguments.</p>
-<p><strong>Note:</strong> Check the path in ibmdisrv.bat for where SDI is installed - note the following properties:</p>
-<p>path</p>
-<p>Specifies the PATH environment variable used for running the IBM Security Directory Integrator process (this property is usually the same as the PATH variable from ibmdisrv.bat, but you can change it). This is an optional property.</p>
-<p>ibmdiroot</p>
-<p>Specifies the root folder of the IBM Security Directory Integrator (for example, C:\Program Files\IBM\TDI\V7.2). This is a required property.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>Do not copy and paste the example into your ibmdisrv.bat file. Add the two arguments without changing any of the other arguments.</p>
+</li>
+<li>
+<p>Check the path in <code>ibmdisrv.bat</code> for where SDI is installed - note the following properties:</p>
+<ul>
+<li>
+<p><code>path</code>
+    Specifies the PATH environment variable used for running the IBM Security Directory Integrator process (this property is usually the same as the PATH variable from ibmdisrv.bat, but you can change it). This is an optional property.</p>
+</li>
+<li>
+<p><code>ibmdiroot</code>
+    Specifies the root folder of the IBM Security Directory Integrator (for example, <code>C:\\Program Files\\IBM\\TDI\\V7.2\</code>). This is a required property.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </li>
@@ -55327,7 +55384,7 @@
 <p>(Linux only.) In the Solution Directory, execute the <code>chmod +x *.sh</code> command to ensure that the script files are executable.</p>
 </li>
 <li>
-<p>(Linux only.) Ensure that there is a <code>localhost</code> entry in the /etc/hosts file.</p>
+<p>(Linux only.) Ensure that there is a <code>localhost</code> entry in the <code>/etc/hosts</code> file.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>127.0.0.1    localhost
 </code></pre></div>

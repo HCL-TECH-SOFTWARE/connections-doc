@@ -137,13 +137,13 @@
   <div class="dropdown-content">
   <a href="https://support.hcltechsw.com" target="_blank">Customer Support</a>
   <a href="https://hclsoftwareu.hcltechsw.com/" target="_blank">HCLSoftware U</a>
-  <a href="https://support.hcltechsw.com/community" target="_blank">Community Forums</a>
+  <a href="https://developer.ds.hcl-software.com/c/hcl-connections/connections-forum/22" target="_blank">Community Forums</a>
 
 </div>
 </div>
 
 <div style='float: right;display: inline-block;width: 140px;margin-top: -7px;'>
-     <span id='scLangSelectorContainer' style='z-index: 1000;   position: absolute;'/>
+     <span id='scLangSelectorContainer' style='z-index: 1000; position: absolute; right:200.95px;'/>
 </div>
 
   <!-- Uncomment the following announcement if you need it -->
@@ -51834,6 +51834,8 @@
       
         
       
+        
+      
     
     
       
@@ -52036,6 +52038,27 @@
   
   <span class="md-ellipsis">
     Upgrading Component Pack Outlook Add-in with a Standalone docker image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrate/t_outlook_addin_exchange_tokens_ifix.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Outlook Add-in Exchange Tokens iFix
   </span>
   
 
@@ -55249,14 +55272,26 @@
 <p>Use the Profiles population wizard to populate the HCL Connections Profiles database with data from the LDAP directory.</p>
 <p>You can populate the Profiles database with the help of the population wizard, as described here, or manually as described in the <a href="t_prof_populate_manual.html">Manually populating the Profiles database</a> topic. You might choose to use the population wizard to simplify the properties mapping process from your source to the target Profiles database.</p>
 <p>Ensure that you have created a Profiles database, and installed and configured Tivoli® Directory Integrator and an LDAP directory.</p>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
-<li>Run the population wizard on the system where IBM® Tivoli Directory Integrator is installed.</li>
-<li>On Linux, the user account that will run the wizard to populate the database must be a member of the group that owns the database instance (db2inst1 for DB2).</li>
-<li>If you need to configure multiple systems with Profiles data, you can run the wizard in silent mode. For more information, see <a href="t_silent_population_wizard.html">Using the Profiles population wizard in silent mode</a>.</li>
-<li>The population wizard populates only those entries where the value for surname is not null.</li>
-<li>You can run the population wizard before, during, or after installing HCL Connections.</li>
+<li>
+<p>Run the population wizard on the system where IBM® Tivoli Directory Integrator is installed.</p>
+</li>
+<li>
+<p>On Linux, the user account that will run the wizard to populate the database must be a member of the group that owns the database instance (db2inst1 for DB2).</p>
+</li>
+<li>
+<p>If you need to configure multiple systems with Profiles data, you can run the wizard in silent mode. For more information, see <a href="t_silent_population_wizard.html">Using the Profiles population wizard in silent mode</a>.    </p>
+</li>
+<li>
+<p>The population wizard populates only those entries where the value for surname is not null.</p>
+</li>
+<li>
+<p>You can run the population wizard before, during, or after installing HCL Connections.</p>
+</li>
 </ul>
+</div>
 <p>For additional and related information about configuration and mapping properties see <a href="t_prof_populate_manual.html">Manually populating the Profiles database</a>.</p>
 <p>To populate the Profiles database, complete the following steps:</p>
 <ol>
@@ -55267,7 +55302,10 @@
 <p>(Linux™): Grant display authority to all users by running the following commands under the root user or system administrator:</p>
 <div class="highlight"><pre><span></span><code>xhost +
 </code></pre></div>
-<p><strong>Note:</strong> If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your Linux administrator guide.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If granting display authority to all users is a security concern for you, change the command to grant display authority to a specific user or users. For more information about this command, consult with your Linux administrator guide.</p>
+</div>
 <div class="highlight"><pre><span></span><code>echo $DISPLAY
 </code></pre></div>
 </li>
@@ -55279,75 +55317,121 @@
 </li>
 <li>
 <p>Copy the Wizards directory from the HCL Connections installation media to the system where Tivoli Directory Integrator is installed.</p>
-<p><strong>Important:</strong> Microsoft™ Windows™: If you are installing from disk or ISO, change the permissions for the Wizards folder from Read Only to Write or the population wizard will fail.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Microsoft™ Windows™: If you are installing from disk or ISO, change the permissions for the Wizards folder from Read Only to Write or the population wizard will fail.</p>
+</div>
 </li>
 <li>
 <p>Run the following script from the Wizards directory:</p>
 <ul>
 <li>
-<p>Linux: ./populationWizard.sh</p>
-<p><strong>Note:</strong> If the wizard does not run correctly, you might need to edit the populationWizard.sh file and enter the correct JRE/JVM path for your system The populationWizard.sh file expects the path to be jvm/linux/jre/bin.</p>
+<p>Linux: <code>./populationWizard.sh</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the wizard does not run correctly, you might need to edit the <code>populationWizard.sh</code> file and enter the correct JRE/JVM path for your system The <code>populationWizard.sh</code> file expects the path to be jvm/linux/jre/bin.</p>
+</div>
 </li>
 <li>
-<p>Microsoft Windows: populationWizard.bat</p>
+<p>Microsoft Windows: <code>populationWizard.bat</code></p>
 </li>
 <li>On the Welcome page of the wizard, click <strong>Launch Information Center</strong> to open the HCL Connections Information Center in a browser window. Click <strong>Next</strong> to continue.</li>
 </ul>
 </li>
 <li>
 <p>Select <strong>Default settings</strong>or, if you are resuming an earlier session, click <strong>Last successful default settings</strong> and click <strong>Next</strong>.</p>
-<p><strong>Note:</strong> This page is shown only if you have already used the wizard to populate the Profiles database.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is shown only if you have already used the wizard to populate the Profiles database.</p>
+</div>
 </li>
 <li>
 <p>Enter the location of Tivoli Directory Integrator and then click <strong>Next</strong>.</p>
-<p><strong>Note:</strong> This page is shown only if the wizard cannot automatically detect your Tivoli Directory Integrator directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is shown only if the wizard cannot automatically detect your Tivoli Directory Integrator directory.</p>
+</div>
 </li>
 <li>
 <p>Select a database type and click <strong>Next</strong>.</p>
 </li>
 <li>
 <p>Enter the following information about the database, and then click <strong>Next</strong>:</p>
+<ul>
+<li>
 <p>Host name
-:   The name of the system that hosts the database.</p>
+    :   The name of the system that hosts the database.</p>
+</li>
+<li>
 <p>Port
-:   The communications port for connecting to the database. Add a new port number or choose one of the following default port numbers:</p>
-<pre><code>DB2®
-:   50000
-
-Oracle
-:   1521
-
-SQL Server
-:   1433
-</code></pre>
+    :   The communications port for connecting to the database. Add a new port number or choose one of the following default port numbers:</p>
+<ul>
+<li>
+<p>DB2®
+:   50000</p>
+</li>
+<li>
+<p>Oracle
+:   1521</p>
+</li>
+<li>
+<p>SQL Server
+:   1433</p>
+</li>
+</ul>
+</li>
+<li>
 <p>Database name
-:   The default name of the database is PEOPLEDB.</p>
-<pre><code>**Note:** There is no default name for the Oracle database, Instead, enter the name of the database instance.
-</code></pre>
+    :   The default name of the database is PEOPLEDB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no default name for the Oracle database, Instead, enter the name of the database instance.</p>
+</div>
+</li>
+<li>
 <p>JDBC driver library path
-:   Enter the path to the JDBC driver on the host machine. For example: IBM/sqllib/java.</p>
-<pre><code>DB2
-:   You can find the db2jcc.jar and db2jcc\_license\_cu.jar files in the ibm/db2/v11.1/java directory.
-
-Oracle
-:   Download the [Oracle JDBC driver ojdbc7.jar from the Oracle web site](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
-
-SQL Server
-:   Download the [SQL Server JDBC 4.2 driver](https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42) from the Microsoft web site and follow the instructions to extract the driver files. HCL Connections uses the sqljdbc42.jar file.
-</code></pre>
+    :   Enter the path to the JDBC driver on the host machine. For example: IBM/sqllib/java.</p>
+<ul>
+<li>
+<p>DB2
+:   You can find the db2jcc.jar and db2jcc_license_cu.jar files in the ibm/db2/v11.1/java directory.</p>
+</li>
+<li>
+<p>Oracle
+:   Download the <a href="https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html">Oracle JDBC driver ojdbc7.jar from the Oracle web site</a>.</p>
+</li>
+<li>
+<p>SQL Server
+:   Download the <a href="https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16#42">SQL Server JDBC 4.2 driver</a> from the Microsoft web site and follow the instructions to extract the driver files. HCL Connections uses the <code>sqljdbc42.jar</code> file.</p>
+</li>
+</ul>
+</li>
+<li>
 <p>User ID
-:   Enter your user ID. This must be a database user who has write access to the Profiles database. For DB2, the default value is LCUSER. For Oracle and SQL Server, default value is PROFUSER. These user names are automatically created when you create the database.</p>
+    :   Enter your user ID. This must be a database user who has write access to the Profiles database. For DB2, the default value is LCUSER. For Oracle and SQL Server, default value is PROFUSER. These user names are automatically created when you create the database.</p>
+</li>
+<li>
 <p>Password
-:   Enter your password.</p>
+    :   Enter your password.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Enter the following properties for the LDAP server, and then click <strong>Next</strong>:</p>
+<ul>
+<li>
 <p>LDAP server name
-:   The host name or IP address of the LDAP server.</p>
+    :   The host name or IP address of the LDAP server.</p>
+</li>
+<li>
 <p>LDAP server port
-:   The default port is 389. If SSL is selected, the default port is 636.</p>
+    :   The default port is 389. If SSL is selected, the default port is 636.</p>
+</li>
+<li>
 <p>Use SSL communication
-:   Select the check box to enable SSL.</p>
+    :   Select the check box to enable SSL.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>(Optional) Create an empty truststore file where you can store trusted LDAP server certificates. (Complete this step if you want to use SSL. If you already have a truststore file that contains your LDAP server certificates, you can skip this step.) The Profiles population wizard downloads the LDAP server certificates from your LDAP directory for you.</p>
@@ -55355,11 +55439,14 @@ SQL Server
 <li>
 <p>Start the iKeyman utility by running the following file:</p>
 <ul>
-<li>Linux:TDI_Install_directory/jvm/jre/bin/./ikeyman</li>
-<li>Windows: TDI_Install_directory\jvm\jre\bin\ikeyman.exe
-where TDI_Install_directory is the directory where Tivoli Directory Integrator is installed.</li>
+<li>Linux: <code>TDI_Install_directory/jvm/jre/bin/./ikeyman</code></li>
+<li>Windows: <code>TDI_Install_directory\\jvm\\jre\\bin\\ikeyman.exe</code>
+where <code>TDI_Install_directory</code> is the directory where Tivoli Directory Integrator is installed.</li>
 </ul>
-<p><strong>Note:</strong> On the Windows 2008 and Windows 2012 operating systems, right-click <strong>ikeyman.exe</strong> and select <strong>Run as administrator</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On the Windows 2008 and Windows 2012 operating systems, right-click <strong>ikeyman.exe</strong> and select <strong>Run as administrator</strong>.</p>
+</div>
 </li>
 <li>
 <p>Click <strong>Key Database File</strong> from the menu bar and then click <strong>New</strong>.</p>
@@ -55372,7 +55459,10 @@ where TDI_Install_directory is the directory where Tivoli Directory Integrator i
 </li>
 <li>
 <p>Enter a password in the <strong>Password Prompt</strong> dialog box and then confirm the password. Click <strong>OK</strong>.</p>
-<p><strong>Note:</strong> You need this password when you use the Profiles population wizard.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need this password when you use the Profiles population wizard.</p>
+</div>
 </li>
 <li>
 <p>Exit the iKeyman utility.</p>
@@ -55382,18 +55472,29 @@ where TDI_Install_directory is the directory where Tivoli Directory Integrator i
 </li>
 <li>
 <p>If you selected SSL when you entered the LDAP properties, you are asked to enter the following keystore properties:</p>
-<p>Truststore file
-:   File where trusted server certificates are stored. Used when SSL handshaking is performed.</p>
-<p>Keystore password
-:   Password to access the keystore.</p>
-<p>Keystore type
-:   Format of the trusted server certificate. Currently only JKS and PKCS12 are supported in Java™.</p>
+<ul>
+<li>
+<p>Truststore file :   File where trusted server certificates are stored. Used when SSL handshaking is performed.</p>
+</li>
+<li>
+<p>Keystore password :   Password to access the keystore.</p>
+</li>
+<li>
+<p>Keystore type :   Format of the trusted server certificate. Currently only JKS and PKCS12 are supported in Java™.</p>
+</li>
+</ul>
 <p>If the LDAP server certificate is not in the truststore, a message appears that asks you to permanently accept the certificate in the truststore file. If you do not accept it, the wizard cannot connect to the LDAP server with SSL and will not continue with the population task.</p>
-<p><strong>Note:</strong> Ensure that the global.properties file in Security Directory Integrator is configured with the file trust store name, password and type you just created. For further instructions, see <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide69.htm#sslclientside">Client SSL configuration of IBM Security Directory Integrator components</a> in the IBM documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that the global.properties file in Security Directory Integrator is configured with the file trust store name, password and type you just created. For further instructions, see <a href="https://www.ibm.com/docs/en/sdi/7.2.0?topic=SSCQGF_7.2.0/com.ibm.IBMDI.doc_7.2/adminguide69.htm#sslclientside">Client SSL configuration of IBM Security Directory Integrator components</a> in the IBM documentation.</p>
+</div>
 </li>
 <li>
 <p>Enter the authentication details for the <strong>Bind distinguished name (DN)</strong> and <strong>Bind password</strong>, and then click <strong>Next</strong>.</p>
-<p><strong>Note:</strong> The Profiles population wizard does not support anonymous binding for LDAP. To populate the Profiles database using anonymous binding, you must populate the database manually.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Profiles population wizard does not support anonymous binding for LDAP. To populate the Profiles database using anonymous binding, you must populate the database manually.</p>
+</div>
 </li>
 <li>
 <p>Enter the details of the <strong>Base distinguished name (LDAP user search base)</strong>and <strong>LDAP user search filter</strong>, and then click <strong>Next</strong>.</p>
@@ -55401,43 +55502,79 @@ where TDI_Install_directory is the directory where Tivoli Directory Integrator i
 <li>
 <p>Map <strong>LDAP attributes</strong> or <strong>JS Functions</strong> to the Profiles <strong>database fields</strong>.</p>
 <p>For more information about each attribute and function, see <a href="t_prof_tdi_mapfields.html#DefaultValuesForPropertiesInTheMap">Table 2</a> in <a href="t_prof_tdi_mapfields.html">Mapping fields manually</a>.</p>
-<p><strong>Notes:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
-<li>For each user in the LDAP, Tivoli Directory Integrator will create a row in the database, mapping each LDAP attribute or JavaScript™ function to the corresponding column in the database. The wizard automatically validates each mapping. If you need to change the default mapping, select the required LDAP attributes or JavaScript functions and create or modify the field.</li>
-<li>The uid, guid, distinguishedName, surname, and displayName values in the Database Fields column must have mapped attributes in the LDAP Attributes or JS Functions column.</li>
-<li>If you are prompted to supply a profile type value, see the <a href="../customize/r_admin_profiles_ovr_types.html">Profile-types</a> topic for available options.</li>
+<li>
+<p>For each user in the LDAP, Tivoli Directory Integrator will create a row in the database, mapping each LDAP attribute or JavaScript™ function to the corresponding column in the database. The wizard automatically validates each mapping. If you need to change the default mapping, select the required LDAP attributes or JavaScript functions and create or modify the field.</p>
+</li>
+<li>
+<p>The uid, guid, distinguishedName, surname, and displayName values in the Database Fields column must have mapped attributes in the LDAP Attributes or JS Functions column.</p>
+</li>
 </ul>
+</div>
+</li>
+<li>
+<p>If you are prompted to supply a profile type value, see the <a href="../customize/r_admin_profiles_ovr_types.html">Profile-types</a> topic for available options.</p>
 </li>
 <li>
 <p>You can choose to run the following additional tasks:</p>
-<p>Countries
-:   Add country data to each profile.</p>
-<p>Departments
-:   Add department data to each profile.</p>
-<p>Organizations
-:   Add organization data to each profile.</p>
-<p>Employee types
-:   Add employee-type data to each profile.</p>
-<p>Work locations
-:   Add location data to each profile.</p>
-<p>Select <strong>Yes</strong> if you want to mark the profiles of each manager.</p>
-<p><strong>Notes:</strong></p>
 <ul>
-<li>For all the entries in this list (except <em>Mark managers</em>), you need to prepare corresponding CSV files with the required information. An Employee Types CSV file might include regular=HCL Employee and manager=HCL Manager. You can edit the profiles-config.xml file to specify whether you want to display the code or the value, where <em>regular</em> or <em>manager</em> are the employee type codes stored in LDAP and <em>HCL Employee</em> or <em>HCL Manager</em> are the values.</li>
 <li>
-<p>Examine the CSV files in the Wizards/TDIPopulation/TDISOL/OS/samples directory, where OS is your operating system, to see the input file format of the optional tasks:</p>
-<p>Countries task
-:   isocc_sample.csv</p>
-<p>Departments task
-:   deptinfo_sample.csv</p>
-<p>Organizations task
-:   orginfo_sample.csv</p>
-<p>Employee types task
-:   emptype_sample.csv</p>
-<p>Work locations task
-:   workloc_sample.csv</p>
+<p>Countries
+    :   Add country data to each profile.</p>
+</li>
+<li>
+<p>Departments
+    :   Add department data to each profile.</p>
+</li>
+<li>
+<p>Organizations
+    :   Add organization data to each profile.</p>
+</li>
+<li>
+<p>Employee types
+    :   Add employee-type data to each profile.</p>
+</li>
+<li>
+<p>Work locations
+    :   Add location data to each profile.</p>
 </li>
 </ul>
+<p>Select <strong>Yes</strong> if you want to mark the profiles of each manager.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>
+<p>For all the entries in this list (except <em>Mark managers</em>), you need to prepare corresponding CSV files with the required information. An Employee Types CSV file might include regular=HCL Employee and manager=HCL Manager. You can edit the profiles-config.xml file to specify whether you want to display the code or the value, where <em>regular</em> or <em>manager</em> are the employee type codes stored in LDAP and <em>HCL Employee</em> or <em>HCL Manager</em> are the values.</p>
+</li>
+<li>
+<p>Examine the CSV files in the Wizards/TDIPopulation/TDISOL/OS/samples directory, where OS is your operating system, to see the input file format of the optional tasks:</p>
+<ul>
+<li>
+<p>Countries task
+:   <code>isocc\_sample.csv</code></p>
+</li>
+<li>
+<p>Departments task
+:   <code>deptinfo\_sample.csv</code></p>
+</li>
+<li>
+<p>Organizations task
+:   <code>orginfo\_sample.csv</code></p>
+</li>
+<li>
+<p>Employee types task
+:   <code>emptype\_sample.csv</code></p>
+</li>
+<li>
+<p>Work locations task
+:   <code>workloc\_sample.csv</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Review the Summary page to ensure that the information you entered in the previous panels is correct. Click <strong>Configure</strong> to begin populating the database.</p>
