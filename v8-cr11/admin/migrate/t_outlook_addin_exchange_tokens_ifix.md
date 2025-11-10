@@ -13,11 +13,11 @@ This upgrade deprecates the use of legacy Exchange tokens and replaces them with
     -   Update the deployed pod
 -   Update the environment variables
 
-## Updating the Microsoft Entra App Registration
+## Update the Microsoft Entra App Registration
 
 The following steps describe how to manually update the Connections Add-in for Outlook as an OAuth application provider in your Microsoft Entra ID (formerly Azure Active Directory) tenant.
 
-### Microsoft Entra App Registration
+### Register the Microsoft Entra App
 
 Ensure that there is an existing application registration for the Outlook Add-in in your Microsoft Entra ID tenant.
 
@@ -37,7 +37,7 @@ Ensure that there is an existing application registration for the Outlook Add-i
 
 Once the registration is complete, the application's Overview page will be displayed. You will need to copy and save the Application (client) ID (`ENTRA_CLIENT_ID`) and the Directory (tenant) ID (`ENTRA_TENANT_ID`) for later use in your HCL Connections configuration.
 
-### Update the Redirect URI
+### Update the redirect URI
 
 The redirect URI is the URL to which Microsoft Entra ID will send authentication responses. You must configure this correctly for the Outlook Add-in to work.
 

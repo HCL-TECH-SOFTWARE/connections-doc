@@ -14,14 +14,17 @@ theme:
   favicon: assets/favicon.png
   language: en
   features:
-    - content.code.copy
     - navigation.tabs
     - navigation.indexes
     - navigation.top
     - navigation.instant
+    - navigation.prune
     - search.highlight
     - search.share
     - search.suggest
+    - navigation.prune
+    - content.code.copy
+    - content.action.edit
   custom_dir: theme_overrides/
   icon:
     repo: fontawesome/brands/github
@@ -1937,6 +1940,7 @@ nav:
                       - Installing HCL Connections Add-in for Microsoft Outlook with Component Pack: connectors/admin/t_outlook_addin_cp_install.md
                       - Installing and configuring HCL Connections Add-in for Microsoft Outlook Standalone Install: connectors/admin/t_outlook_addin_standalone_install.md
                   - Upgrading Component Pack Outlook Add-in with a Standalone docker image: connectors/admin/t_outlook_upgrade_cp_w_standalone_docker_image.md
+                  - Installing Outlook Add-in Exchange Tokens iFix: admin/migrate/t_outlook_addin_exchange_tokens_ifix.md
               - HCL Connections for Mac: 
                   - connectors/enduser/msdesktop_mac_over.md
                   - Performing a user installation: connectors/enduser/t_files_mac_user_install.md
