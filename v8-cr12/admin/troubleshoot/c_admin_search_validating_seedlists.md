@@ -7,5 +7,5 @@ Use your browser to verify that the Search seedlists for the applications in you
 -   **[Validating seedlists using the wsadmin client](../troubleshoot/t_admin_search_validate_seedlist.md)**  
 If you experience issues when indexing, use the SearchService.validateSeedlist command to validate the seedlist and help you to isolate the problem.
 
-**Parent topic:**[Troubleshooting Search](../troubleshoot/c_ts_search.md)
+**Parent topic:** [Troubleshooting Search](../troubleshoot/c_ts_search.md)
 

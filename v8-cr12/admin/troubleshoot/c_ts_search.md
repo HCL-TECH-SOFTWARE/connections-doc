@@ -17,7 +17,7 @@ Attempts to update the HCL Connections™ Search index on Linux™ can result in
 -   **[Troubleshooting searches in multiple restricted communities](../troubleshoot/r_troubleshooting_restricted_comms.md)**  
 Users who are members of many restricted communities may get incorrect search results.
 
-**Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
+**Parent topic:** [Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 
 **Related information**  
 

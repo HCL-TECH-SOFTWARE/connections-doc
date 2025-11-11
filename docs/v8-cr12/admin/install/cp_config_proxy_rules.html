@@ -55700,12 +55700,12 @@ Header unset Content-Security-Policy
 Header always set Content-Security-Policy &quot;frame-ancestors &#39;self&#39; *.office365.com&quot;
 </code></pre></div>
 <h2 class="section" id="hcl_api_gw_https">HCL API Gateway</h2>
-<p>After installing HCL API Gateway see <a href="cp_install_services_tasks.html#install-hcl_api-gateway-on-hcl-connections-component-pack">Install HCL API Gateway</a>, add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:</p>
+<p>After installing HCL API Gateway (see <a href="cp_install_services_tasks.html#install-hcl_api-gateway-on-hcl-connections-component-pack">Install HCL API Gateway</a>), add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:</p>
 <div id="codeblock_q5b_fjj_gvb" class="highlight"><pre><span></span><code># proxy rules for hcl-api-gateway 
-ProxyPass &quot;/connections/api/v2&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2&quot;
-ProxyPassReverse &quot;/connections/api/v2&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2&quot;
 ProxyPass &quot;/connections/api/v2/explorer&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2/explorer&quot;
 ProxyPassReverse &quot;/connections/api/v2/explorer&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2/explorer&quot;
+ProxyPass &quot;/connections/api/v2&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2&quot;
+ProxyPassReverse &quot;/connections/api/v2&quot; &quot;https://cpmaster.internal.example.com:32443/connections/api/v2&quot;
 ProxyPass &quot;/ui&quot; &quot;https://cpmaster.internal.example.com:32443/ui&quot;
 ProxyPassReverse &quot;/ui&quot; &quot;https://cpmaster.internal.example.com:32443/ui&quot;
 ProxyPass &quot;/apisix&quot; &quot;https://cpmaster.internal.example.com:32443/apisix&quot;

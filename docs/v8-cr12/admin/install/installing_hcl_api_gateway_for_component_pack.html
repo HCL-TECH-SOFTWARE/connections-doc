@@ -55742,11 +55742,11 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Before you begin, ensure the following:</p>
 <ul>
-<li>You have a running HCL Connections Component Pack 8 environment, ready for API Gateway installation or upgrade. If upgrading, confirm your environment is at the required baseline version.</li>
+<li>You have a running HCL Connections Component Pack 8 environment, ready for API Gateway installation or upgrade.</li>
 <li>Helm (v3.0+) and kubectl are installed on the deployment machine. Verify with <code>helm version</code> and <code>kubectl version</code>.</li>
 <li>You have access to the required Helm charts:<ul>
 <li><a href="https://charts.apiseven.com">Apache APISIX Helm chart</a></li>
-<li>HCL API Gateway Helm chart (provided by HCL)</li>
+<li>HCL API Gateway Helm chart (provided by HCL) from the <a href="https://hclcr.io/harbor/projects/15/repositories">HCL Harbor repository</a></li>
 </ul>
 </li>
 <li>All prerequisites are complete, including:<ul>
@@ -55754,7 +55754,7 @@
 <li>Secret creation (TLS, API keys, and others)</li>
 </ul>
 </li>
-<li>Sufficient cluster resources and persistent storage for APISIX and its dependencies.</li>
+<li>Sufficient cluster resources and persistent storage for APISIX and its dependencies. See the <a href="cp_sizing_kubernetes_container.html">Sizing the Kubernetes cluster</a> topic for guidance.</li>
 </ul>
 <h2 id="overview">Overview</h2>
 <p>The API Gateway deployment consists of two main components:</p>
@@ -55801,10 +55801,10 @@
 <p>Create or Update TLS Secret for APISIX gateway</p>
 <ul>
 <li>
-<p>Use the default secret <code>ingress-nginx-tls-secret</code> from the bootstrap installation to enable TLS secret for HTTPS as required by the API Gateway chart.For more information, see <a href="cp_install_services_tasks.html#bootstrap">Set up bootstrap charts</a>.</p>
+<p>Use the default secret <code>ingress-nginx-tls-secret</code> generated from the bootstrap chart installation to enable TLS secret for HTTPS as required by the API Gateway chart.</p>
 </li>
 <li>
-<p>Verify that the secret name (<code>ingress-nginx-tls-secret</code>) matches the value referenced in your custom values file for APISIX and ingress.</p>
+<p>Verify that the secret name (<code>ingress-nginx-tls-secret</code>) matches the value referenced in your custom values file <code>core-apisix-custom-values.yaml</code> used in the <a href="#install-apisix-and-hcl-api-gateway-using-helm">Install APISIX and HCL API Gateway using Helm</a> section for APISIX and ingress.</p>
 </li>
 </ul>
 </li>
@@ -55833,20 +55833,30 @@ helm<span class="w"> </span>repo<span class="w"> </span>update<span class="w"> <
 <p>Complete the following steps to prepare your custom values file for the APISIX Helm chart:</p>
 <ol>
 <li>
-<p>Download the j2 template <code>core-apisix-custom-values.yaml.j2</code> from the <a href="https://git.cwp.pnp-hcl.com/conn-automation/deployment-ansible/blob/develop/ansible/roles/hcl/apisix/helm_charts/templates">HCL Connections deployment automation Git repository</a> and modify it according to your environment. <strong><em>link will be updated to public repo once available</em></strong></p>
+<p>Download the <code>core-apisix-custom-values.yaml.j2</code> template from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/helm_charts/templates">HCL Connections deployment automation Git repository</a> and update it to match your environment.</p>
 </li>
 <li>
-<p>Rename the file to core-apisix-custom-values.yml and open it.</p>
+<p>Rename the file to core-apisix-custom-values.yaml and open it.</p>
 </li>
 <li>
 <p>Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.</p>
 </li>
 <li>
 <p>See the <a href="https://github.com/apache/apisix-helm-chart/tree/master/charts/apisix">APISIX Helm chart documentation</a> for all available options.</p>
-<p>For an idea on how to make the substitutions, take the following example. This is tailored to the Connections internal environment, so it is purely for reference and is not meant to prescribe which values to use and which variables are available to override. The values you set in the <code>core-apisix-custom-values.yml</code> file should fit to your own environment.</p>
-<pre><code>```
-global:
-  imagePullSecrets: []
+<p>For an idea on how to make the substitutions, take the following example. This is tailored to the Connections internal environment, so it is purely for reference and is not meant to prescribe which values to use and which variables are available to override. The values you set in the <code>core-apisix-custom-values.yaml</code> file should match your own environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use imagePullSecrets created in step <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor credentials as Kubernetes secret</a> to pull images from HCL Harbor repository.</p>
+<p>Get the <code>__hcl_api_gateway_config_image_tag</code> for hcl-api-gateway-config image that is available on Harbor OCI by executing the following command:</p>
+<p><div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^tag:&quot; </span>
+<span class="s">o</span>utput:<span class="w"> </span>
+<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251010</span>-082629
+</code></pre></div>
+Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the component pack install steps.</p>
+</div>
+<div class="highlight"><pre><span></span><code>global:
+  imagePullSecrets:
+    - myregkey
 extraVolumes:
   - name: cnx-custom-scripts
     emptyDir: {}
@@ -55855,9 +55865,9 @@ extraVolumeMounts:
     mountPath: /usr/local/apisix/hcl/cnx/scripts
 extraInitContainers:
   - name: copy-cnx-custom-scripts
-    image: hcl-api-gateway-config:latest
+    image: hclcr.io/cnx/hcl-api-gateway-config:20251010-082629
     imagePullPolicy: IfNotPresent
-    command: ["/bin/sh", "-c", "cp -r /app/hcl/cnx/* /usr/local/apisix/hcl/cnx/scripts"]
+    command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;cp -r /app/hcl/cnx/* /usr/local/apisix/hcl/cnx/scripts&quot;]
     securityContext:
       runAsUser: 1001
       runAsGroup: 1001
@@ -55879,16 +55889,20 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
   tls:
     - hosts:
-        - "*.example.com"
+        - &quot;*.internal.example.com&quot;
+        - &quot;*.example.com&quot;
       secretName: ingress-nginx-tls-secret
   hosts:
-    - host: "*.example.com"
+    - host: &quot;*.internal.example.com&quot;
       paths:
         - /connections/api/v2/(.*)?
+    - host: &quot;*.example.com&quot;
+      paths:
+        - /connections/api/v2/(.*)? 
 apisix:
   customPlugins:
     enabled: true
-    luaPath: "/usr/local/apisix/hcl/cnx/scripts/?.lua;;"
+    luaPath: &quot;/usr/local/apisix/hcl/cnx/scripts/?.lua;;&quot;
     plugins: []
   ssl:
     enabled: true
@@ -55905,12 +55919,16 @@ apisix:
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/rewrite-target: /$1$2
       hosts:
-        - host: "*.example.com"
+        - host: &quot;*.internal.example.com&quot;
+          paths:
+            - /(ui|apisix)(/.*)?
+        - host: &quot;*.example.com&quot;
           paths:
             - /(ui|apisix)(/.*)?
       tls:
         - hosts:
-            - "*.example.com"
+            - &quot;*.internal.example.com&quot;
+            - &quot;*.example.com&quot;
           secretName: ingress-nginx-tls-secret
   nginx:
     workerProcesses: 4
@@ -55937,12 +55955,11 @@ etcd:
   persistence:
     enabled: true
     size: 10Gi
-    storageClass: "&lt;&lt;namespace&gt;&gt;-apisix-sc" #e.g. connections-apisix-sc
+    storageClass: &quot;&lt;&lt;namespace&gt;&gt;-apisix-sc&quot; #e.g. connections-apisix-sc
     selector:
       matchLabels:
         attachTo: &lt;&lt;namespace&gt;&gt;-apisix-etcd #e.g. connections-apisix-etcd
-```
-</code></pre>
+</code></pre></div>
 </li>
 </ol>
 </li>
@@ -55986,65 +56003,81 @@ etcd:
 <p>Complete the following steps to install the HCL API Gateway Helm chart:</p>
 <ol>
 <li>
-<p>Get the hcl-api-gateway chart version that is available on Harbor OCI by executing the following command:</p>
+<p>Get the hcl-api-gateway chart version and hcl-api-gateway-config image tag that is available on Harbor OCI by executing the following command:</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^versio</span>n:<span class="s2">&quot; </span>
-<span class="s2">o/p version: 0.1.0-20251010-082629</span>
+<span class="s2">output:</span>
+<span class="s2"> version: 0.1.0-20251010-082629</span>
+</code></pre></div>
+<p>Get the <code>__hcl_api_gateway_config_image_tag</code> for hcl-api-gateway-config image that is available on Harbor OCI by executing the following command:</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^tag:&quot; </span>
+<span class="s">o</span>utput:<span class="w"> </span>
+<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251010</span>-082629
 </code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the component pack install steps.</p>
 </li>
 <li>
 <p>Prepare hcl api gateway custom values.</p>
+<ol>
+<li>
+<p>Download the <code>hcl-api-gateway-custom-values.yaml.j2</code> template from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/helm_charts/templates">HCL Connections deployment automation Git repository</a> and update it to match your environment.</p>
 </li>
 <li>
-<p>Download the j2 template <code>hcl-api-gateway-custom-values.yaml.j2</code> from the <a href="https://git.cwp.pnp-hcl.com/conn-automation/deployment-ansible/tree/develop/ansible/roles/hcl/apisix/helm_charts/templates">HCL Connections deployment automation Git repository</a> and modify it according to your environment. <strong><em>link will be updated to public repo once available</em></strong></p>
-</li>
-<li>
-<p>Rename the file to hcl-api-gateway-custom-values.yml and open it.</p>
+<p>Rename the file to hcl-api-gateway-custom-values.yaml and open it.</p>
 </li>
 <li>
 <p>Replace all variables enclosed in double curly braces "{{  }}" with the values appropriate for your cluster configuration.</p>
-<p>For guidance on making substitutions, refer to the following example. This example is based on the Connections internal environment and is provided for reference only. It does not prescribe specific values or available override variables. The values you define in the <code>hcl-api-gateway-custom-values.yml</code> file should match your own environment.</p>
-<div class="highlight"><pre><span></span><code>productUpstreams:
-  hcl:
-    defaultUpstream: hcl-backend
-upstreams:
-  - name: hcl-backend
-    scheme: https
-    externalNodes:
-      - name: &quot;*.example.com&quot;
-        type: Domain
-        port: 443
-swaggerUi:
-  enabled: true
-  imagePullSecrets: []
-  serverUrl: https://*.example.com/connections/api/v2
-  ingress:
-    enabled: true
-    ingressClass: nginx
-    path: /connections/api/v2
-    tls:
-      enabled: true
-      secretName: ingress-nginx-tls-secret
-      hosts:
-        - &quot;*.example.com&quot;
-  specFiles:
-    - name: &quot;Blogs API&quot;
-      file: &quot;blogs.yaml&quot;
-    - name: &quot;Moderation API&quot;
-      file: &quot;moderation.yaml&quot;
-apisixTLS:
-  enabled: true
-  secretName: ingress-nginx-tls-secret
-  hosts:
-    - &quot;*.example.com&quot;
-ingressClassName: &lt;&lt;namespace&gt;&gt;-apisix-ingress-class #e.g. connections-apisix-ingress-class
+</li>
+</ol>
+<p>For guidance on substitutions, refer to the following example. This example is based on the internal Connections environment and is provided for reference only. It does not define specific values or available override variables. The values you define in the <code>hcl-api-gateway-custom-values.yaml</code> file should match your own environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use imagePullSecrets created in step <a href="cp_install_services_tasks.html#harbor_repo">Add Harbor credentials as Kubernetes secret</a> to pull images from HCL Harbor repository.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">productUpstreams</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hcl</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">defaultUpstream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hcl-backend</span>
+<span class="nt">upstreams</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hcl-backend</span>
+<span class="w">    </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span>
+<span class="w">    </span><span class="nt">externalNodes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;*.example.com&quot;</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Domain</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+<span class="nt">swaggerUi</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hclcr.io/cnx/hcl-api-gateway-config:20251010-082629</span>
+<span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myregkey</span>
+<span class="w">  </span><span class="nt">serverUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://*.example.com/connections/api/v2</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">ingressClass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/connections/api/v2</span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress-nginx-tls-secret</span>
+<span class="w">      </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.internal.example.com&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.example.com&quot;</span>
+<span class="w">  </span><span class="nt">specFiles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Blogs</span><span class="nv"> </span><span class="s">API&quot;</span>
+<span class="w">      </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;blogs.yaml&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Moderation</span><span class="nv"> </span><span class="s">API&quot;</span>
+<span class="w">      </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;moderation.yaml&quot;</span>
+<span class="nt">apisixTLS</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress-nginx-tls-secret</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.internal.example.com&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.example.com&quot;</span>
+<span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;&lt;namespace&gt;&gt;-apisix-ingress-class</span><span class="w"> </span><span class="c1">#e.g. connections-apisix-ingress-class</span>
 </code></pre></div>
 </li>
 <li>
 <p>Execute the following command to install or upgrade hcl-api-gateway chart using your custom values file:</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>hcl-api-gateway<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway -i \</span>
-<span class="s">--versio</span>n<span class="w"> </span><span class="m">0</span>.1.0-20251010-082629<span class="w"> </span>--namespace<span class="w"> </span>&lt;&lt;namespace&gt;&gt;<span class="w"> </span><span class="se">\</span>
--f<span class="w"> </span>hcl-api-gateway-custom-values.yml<span class="w"> </span>--wait
+<span class="s">--versio</span>n<span class="w"> </span><span class="s">&lt;&lt;version from step 1&gt;&gt; --namespace &lt;&lt;namespace&gt;&gt; \</span>
+<span class="s">-f hcl-api-gateway-custom-v</span>alues.yaml<span class="w"> </span>--wait
 </code></pre></div>
 </li>
 <li>

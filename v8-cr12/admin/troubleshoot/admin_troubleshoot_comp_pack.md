@@ -105,4 +105,4 @@ If you are experiencing issues with the Top Updates on the home page, you might 
 
 
 
-**Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
+**Parent topic:** [Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)

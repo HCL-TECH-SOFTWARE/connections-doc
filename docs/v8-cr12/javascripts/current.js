@@ -97,7 +97,7 @@ window.ScCustomLangSelector = function(cfg) {
     }
 
     .scLangPanel {
-        position: absolute;
+        position: relative;
         right: 0;
 
         display: grid;
