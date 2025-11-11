@@ -25,7 +25,7 @@ Messages written to the log use the following syntax:
 
 where:
 
--   Application prefix: Identifies the application that wrote the message. The following prefixes are used to identify Connections applications and components:
+-   **Application prefix**: Identifies the application that wrote the message. The following prefixes are used to identify Connections applications and components:
 
     |Connections application or component|Prefix|
     |------------------------------------|------|
@@ -53,8 +53,8 @@ where:
     |WebSphere® Portal infrastructure|EJPIC|
     |Wikis|EJPVJ|
 
--   Error code: A 4-digit code assigned to the error message to identify it. Code numbers make it easier to search for information about the message. See [Error messages](c_error_codes.md) to see a list of the error codes and what they mean.
--   Message level code: Identifies the level of the message written to the log. The following levels are supported:
+-   **Error code**: A 4-digit code assigned to the error message to identify it. Code numbers make it easier to search for information about the message. See [Error messages](c_error_codes.md) to see a list of the error codes and what they mean.
+-   **Message level code**: Identifies the level of the message written to the log. The following levels are supported:
 
     |Message level code|Message level|
     |------------------|-------------|
@@ -72,5 +72,5 @@ CLFRA0299I
 
 CLFRA identifies the message as coming from the Activities application; 0299 is the error code; I indicates that the message is an Info level message.
 
-**Parent topic:**[Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
+**Parent topic:** [Troubleshooting tips](../troubleshoot/ts_c_ts_tips_overview.md)
 

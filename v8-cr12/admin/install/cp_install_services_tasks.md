@@ -35,21 +35,21 @@ All the nodes are available using their FQDNs and are in a different domain:
 
 All machines in our scenario are configured to use DNS and all of them have internet access. The initial entry point is nginx.example.com, which in our case can be reached from the internet. Your NGINX might reside behind a load balancer instead. To let the machines interoperate properly, consider the following inbound ports to be opened on your firewall:
 
-   - connections.internal.example.com:
-      - 443 from nginx.example.com
-      - 443 from cpmaster.internal.example.com
+   - **`connections.internal.example.com`**:
+      - 443 from `nginx.example.com`
+      - 443 from `cpmaster.internal.example.com`
 
-   - cpmaster.internal.example.com:
-      - 30301 from connections.internal.example.com (Customizer)
-      - 30301 from nginx.example.com (Customizer)
-      - 30098 from connections.internal.example.com (Elasticsearch 7 – Connections 7 only)
-      - 30099 from connections.internal.example.com (OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only)
-      - 30379 from connections.internal.example.com (HAProxy for Redis)
-      - 32080 from connections.internal.example.com (Ingress Controller, 32443 if TLS is enabled)
-      - 31810 from connections.internal.example.com (Microsoft Outlook add-in – Connections 7 only)
-      - 31080 from connections.internal.example.com (API Gateway Service, 31443 if TLS is enabled)
+   - **`cpmaster.internal.example.com`**:
+      - 30301 from `connections.internal.example.com` (Customizer)
+      - 30301 from `nginx.example.com` (Customizer)
+      - 30098 from `connections.internal.example.com` (Elasticsearch 7 – Connections 7 only)
+      - 30099 from `connections.internal.example.com` (OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only)
+      - 30379 from `connections.internal.example.com` (HAProxy for Redis)
+      - 32080 from `connections.internal.example.com` (Ingress Controller, 32443 if TLS is enabled)
+      - 31810 from `connections.internal.example.com` (Microsoft Outlook add-in – Connections 7 only)
+      - 31080 from `connections.internal.example.com` (API Gateway Service, 31443 if TLS is enabled)
 
-   - nginx.example.com:
+   - **`nginx.example.com`**:
       - 443 from everywhere
       - 80 from everywhere (in case you plan to redirect to 443 and no load balancer does this job)
 
@@ -101,15 +101,15 @@ These guidelines and sample files describe how to set up all of the persistent v
       - /pv-connections/mongo7-node-1/data/db with permissions 0700.  The folder should be owned by user ID 1001.
       - /pv-connections/mongo7-node-2/data/db with permissions 0700.  The folder should be owned by user ID 1001.
 
-   4. Download nfsSetup.sh and volumes.txt from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) to a directory of your choice \(for example, /tmp\).
+   4. Download `nfsSetup.sh` and `volumes.txt` from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript) to a directory of your choice \(for example, /tmp\).
 
-   5. Provide execution permission to nfsSetup.sh and run it, then complete the configuration for NSF by doing the following:
+   5. Provide execution permission to `nfsSetup.sh` and run it, then complete the configuration for NSF by doing the following:
 
       1. Install the required NFS packages, if not already installed by default.
       2. Enable and start the required NFS services.
       3. Restart the NFS server and configure the firewall.
 
-   6. **\(Optional\)** Export file systems:
+   6. **(Optional)** Export file systems:
 
       ```exportfs -ra```
 
@@ -123,7 +123,7 @@ Ensure that all of the persistent volumes are exported and mountable from Kubern
 
 On the server which has Helm v3 and kubectl configured for your non-root user, create the Connections namespace in Kubernetes by running the following command:
 
-```{#codeblock_ajc_sp3_dvb}
+```
 kubectl create namespace connections
 ```
 
@@ -137,7 +137,7 @@ Register the snapshot repository in Elasticsearch 7:
 
 2. Enter the following commands, which make use of the sendRequest utility to communicate with Elasticsearch 7:
 
-      ```
+      ```bash
       /opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME} \
       -H 'Content-Type: application/json' \
       -d '{"type": "fs","settings": {"compress" : true, "location": "${BACKUPPATH}"}}'
@@ -147,15 +147,15 @@ Register the snapshot repository in Elasticsearch 7:
 
       ```/opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot/_all?pretty```
 
-      ```
+      ```bash
       o/p: { “${REPONAME}” : { "type" : "fs", "settings" : { "compress" :
       "true", "location" : “${BACKUPPATH}” } } }
       ```
 
       Where:
 
-      - ${REPONAME} is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
-      - ${BACKUPPATH} is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.
+      - `${REPONAME}` is the name of the snapshot repository, which will be used to register and manage the Elasticsearch 7 snapshot. The first time that you perform these steps, you must give the repository an appropriate name, for example, connectionsbackup.
+      - `${BACKUPPATH}` is the mount path of the shared Elasticsearch 7 backup persistent volume (esbackup). By default this path is /backup.
 
       Disconnect from the pod (press Ctrl+D, or type `exit` and press Enter).
 
@@ -221,7 +221,9 @@ Register the snapshot repository in Elasticsearch 7:
       Replace <NAMESPACE> with the component pack namespace.
       Replace <REPLICA_COUNT> with the replica count needed for Core APISIX deployment, starting from 0 to (replica count-1).
 
-      Eg. If component pack namespace is "connections" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders
+      For example: 
+      
+      If component pack namespace is "connections" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders
 
       ```
       mkdir -p /pv-connections/connections-apisix-etcd-0
@@ -248,9 +250,25 @@ Register the snapshot repository in Elasticsearch 7:
       exportfs -ra
       ```
 
-6. If applicable, make sure that the firewall configuration does not block access to NFS.
+6. If applicable, make sure that the firewall configuration does not block access to NFS. Ensure your firewall configuration allows communication between the Kubernetes worker nodes and the NFS server.
 
-7. In `/etc/exports`, validate that the additional PVs are distributed properly.
+7. Validate Additional PV Entries in `/etc/exports`
+
+    **To Validate**
+
+      1. **Verify New Entries:** On the NFS server, check the `/etc/exports` file to confirm that dedicated entries for the API Gateway Persistent Volumes (PVs) (particularly those for `apisix-etcd`) have been added.
+      2. **Verify Export Options:** Ensure that the directory paths are correct and the export options (`rw`, `root_squash`, `network range`) are set to allow the Component Pack nodes to mount them.
+   
+      For example:
+
+      The `/etc/exports` file on your NFS server should contain entries similar to the following, where 192.0.2.1/255.255.0.0 represents the network range of your Component Pack Kubernetes worker nodes:
+
+      ```sh
+      cat /etc/exports
+      /pv-connections/connections-apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/connections-apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/connections-apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
+      ```
 
 ## Uninstall charts before upgrading to Kubernetes v1.25 {#uninstall_charts_k8s125 .section}
 
@@ -318,7 +336,7 @@ For more details, see [PodSecurityPolicy is removed](https://github.com/kubernet
 
 As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.
 
-```
+```bash
 kubectl label --overwrite ns connections \
 pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
 pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
@@ -329,7 +347,11 @@ We are applying baseline Pod Security Standards, which prevents known privilege 
 
 For more details, see [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) and [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) in the Kubernetes documentation.
 
-**If installing on Kubernetes version 1.25 or above is not feasible, then install/upgrade the k8s-psp Helm chart:**
+!!! important
+
+      If installing on Kubernetes version 1.25 or above is not feasible, then install/upgrade the k8s-psp Helm chart. 
+
+Perform the following steps to install or upgrade the k8s-psp Helm chart:
 
 1. Start by finding out the k8s-psp chart version available on Harbor OCI:
 
@@ -433,29 +455,40 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 ## Set up storage class for HCL API Gateway {#setup_sc_apigw .section}
 
-1. Download the j2 template for apisix-storage-class.yml from the [HCL Connections deployment automation Git repository](https://git.cwp.pnp-hcl.com/conn-automation/deployment-ansible/blob/develop/ansible/roles/hcl/apisix/volumes/templates/apisix-storage-class.yaml.j2) and modify it according to your environment. ***link will be updated to public repo once available***
+1. Download the j2 template for apisix-storage-class.yaml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-storage-class.yaml.j2) and update it to match your environment.
 
-2. Rename the file to apisix-storage-class.yml, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
+2. Rename the file to apisix-storage-class.yaml, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
 
 3. For example:
 
       - Replace `__apisix_storage_class_name` with the `<<namespace>>-apisix-sc` or storage class name you want to use.
-      - Replace `__apisix_storage_class_reclaim_policy` with `Retain` or reclaim policy you want to use.
+      - Replace `__apisix_storage_class_reclaim_policy` with `Retain` or [reclaim policy](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming) you want to use.
+      - Sample Configuration:
+
+      ```yaml
+      apiVersion: storage.k8s.io/v1
+      kind: StorageClass
+      metadata:
+      name: "connections-apisix-sc"
+      provisioner: kubernetes.io/no-provisioner
+      reclaimPolicy: "Retain"
+      volumeBindingMode: Immediate
+      ```
 
 4. Run the following command to create the storage class:
 
-      ```kubectl apply -f apisix-storage-class.yml```
+      ```kubectl apply -f apisix-storage-class.yaml```
 
 ## Set up persistent volumes for HCL API Gateway {#setup_pv_apigw .section}
 
-1. Download the j2 template for apisix-nfs-pvs.yaml from the [HCL Connections deployment automation Git repository](https://git.cwp.pnp-hcl.com/conn-automation/deployment-ansible/blob/develop/ansible/roles/hcl/apisix/volumes/templates/apisix-nfs-pvs.yaml.j2) and modify it according to your environment. ***link will be updated to public repo once available***
+1. Download the j2 template for apisix-nfs-pvs.yaml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-nfs-pvs.yaml.j2) and update it to match your environment.
 
 2. Rename the file to apisix-nfs-pvs.yaml, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
 
 3. For example, if you're configuring etcd volumes for 3 replicas, you'll need to replace the variables with your actual values:
 
       - `pv_name`: The persistent volume name (e.g., `<<namespace>>-apisix-etcd`)
-      - `item`: The replica number (0, 1, 2)
+      - `item`: The replica number (0, 1, 2 as the replica count is 3)
       - `__apisix_storage_class_name`: Your storage class name (e.g., `<<namespace>>-apisix-sc`)
       - `__apisix_volume_storage_capacity`: Storage size (e.g., "10Gi")
       - `__apisix_volume_access_mode`: Access mode (e.g., "ReadWriteOnce")
@@ -467,7 +500,29 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
       ```kubectl apply -f apisix-nfs-pvs.yaml```
 
-      > **Note:**  Run the command multiple times after updating the file if you have more than 1 replica for etcd.  
+      Sample configuration: 
+      ```yaml
+      apiVersion: v1
+      kind: PersistentVolume
+      metadata:
+      name: "connections-apisix-etcd-0"
+      labels:
+      attachTo: connections-apisix-etcd
+      spec:
+      storageClassName: connections-apisix-sc
+      capacity:
+      storage: 10Gi
+      accessModes:
+      - ReadWriteOnce
+      persistentVolumeReclaimPolicy: Retain
+      volumeMode: Filesystem
+      nfs:
+      path: /pv-connections/connections-apisix-etcd-0
+      server: 192.0.2.1
+      ```
+
+    !!! note
+        Run the command once for each etcd replica after updating the file variables for that specific replica (for example, updating the `item` from `0` to `1`, and the corresponding `pv_name` and `__persistentVolumePath`).
 
 5. Verify that all PVs are in "available" state:
 
@@ -557,13 +612,13 @@ Remove ingresses before Component Pack deployment, otherwise the infrastructure 
 
 If you are upgrading from v8 CR11 or below, delete the `check-and-update-mongo7-security` Kubernetes job before upgrading the infrastructure chart to avoid image conflicts.
 
-```
+```bash
 kubectl delete job --namespace connections check-and-update-mongo7-security
 ```
 
 It is also recommended to remove existing Redis resources before upgrading the infrastructure chart with Redis 7.  While the infrastructure chart is designed to clean up old resources, running the following `kubectl delete` commands beforehand helps ensure a smooth upgrade process.
 
-```
+```bash
 kubectl delete sts,pdb,svc -n connections redis-server
 kubectl delete deploy,pdb,svc -n connections redis-sentinel
 
@@ -593,11 +648,13 @@ Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – se
 
 1. Delete existing Customizer chart:
 
-      ```helm uninstall mw-proxy -n connections```
+      ```
+      helm uninstall mw-proxy -n connections
+      ```
 
 2. Get the mw-proxy chart version that is available on Harbor OCI:
 
-      ```
+      ```bash
       helm show all <<oci_registry_url>>/mw-proxy --devel | grep "^version:"
       o/p version: 0.1.0-20220414-134118
       ```
@@ -608,7 +665,9 @@ Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – se
 
 4. Install chart:
 
-      ```helm upgrade mw-proxy <<oci_registry_url>>/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait```
+      ```bash
+      helm upgrade mw-proxy <<oci_registry_url>>/mw-proxy -i --version 0.1.0-20220414-134118 --namespace connections -f customizer.yml --wait
+      ```
 
 5. Set up your reverse proxy to forward some traffic to the customizer – see [Configuring the HTTP server](cp_config_proxy_rules.md).
 
@@ -648,7 +707,7 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 1. Get the OpenSearch chart version that is available on Harbor OCI:
 
-      ```
+      ```bash
       helm show all <<oci_registry_url>>/opensearch --devel | grep "^version:"
       o/p version: 1.3.0-20220520-092636
       ```
@@ -663,15 +722,20 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
 4. Install OpenSearch master:
 
-      ```helm upgrade opensearch-master <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m```
+      ```bash
+      helm upgrade opensearch-master <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_master.yml --wait --timeout 10m
+      ```
 
 5. Install OpenSearch data:
 
-      ```helm upgrade opensearch-data <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m```
-
+      ```bash
+      helm upgrade opensearch-data <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_data.yml --wait --timeout 10m
+      ```
 6. Install OpenSearch client:
 
-      ```helm upgrade opensearch-client <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m```
+      ```bash
+      helm upgrade opensearch-client <<oci_registry_url>>/opensearch -i --version 1.3.0-20220520-092636 --namespace connections -f opensearch_client.yml --wait --timeout 10m
+      ```
 
 7. Check if the OpenSearch master, data, and client pods are up and running:
 
@@ -681,11 +745,15 @@ Installing the OpenSearch chart creates an additional secret – use the default
 
       The default setting for this chart is to install three master nodes. If you wish to reduce this to just one master node during deployment, you can achieve that by utilizing the "voting_config_exclusions" API. This API reduces the voting configuration to include fewer than three nodes or remove more than half of the master-eligible nodes in the cluster at once by manually removing departing nodes from the voting configuration. For each specified node, the API will add an entry to the cluster's voting configuration exclusions list. It then waits until the cluster has reconfigured its voting configuration to exclude the specified nodes. For example, add nodes 'opensearch-cluster-master-1','opensearch-cluster-master-2' to the voting configuration exclusions list:
 
-      ```kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"```
+      ```bash
+      kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh POST /_cluster/voting_config_exclusions?node_names=opensearch-cluster-master-1,opensearch-cluster-master-2"
+      ```
 
       If your cluster needs to reverse the voting configuration exclusions for nodes that you no longer needed, you can do so by using the DELETE voting_config_exclusions API as below:
 
-      ```kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false"```
+      ```bash
+      kubectl exec opensearch-cluster-master-0 -n connections -- bash -c "/usr/share/opensearch/probe/sendRequest.sh DELETE /_cluster/voting_config_exclusions?wait_for_removal=false"
+      ```
 
 9. This step is optional. To prevent potential resource exhaustion from a growing volume of security audit logs, it is recommended to implement an Index State Management (ISM) retention policy to manage the lifecycle of audit log indices by deleting old data after a specified period, ensuring the cluster maintains optimal performance and avoids shard exhaustion.  For instructions on how to set it up, refer to the [OpenSearch ISM API](https://docs.opensearch.org/2.19/im-plugin/ism/api/) and [Policy](https://docs.opensearch.org/2.19/im-plugin/ism/policies) documentation.
 
@@ -709,7 +777,7 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 
 1. Get the orientme chart version that is available on Harbor OCI:
 
-      ```
+      ```bash
       helm show all <<oci_registry_url>>/orientme --devel | grep "^version:"
       o/p version: 0.1.0-20220617-050009
       ```
@@ -718,16 +786,20 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 
 2. Download the j2 template for orientme.yml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars), then update these settings:
 
-      - `orient-indexing-service.indexing.opensearch=true and orient-indexing-service.indexing.elasticsearch=false`
-      - `orient-retrieval-service.Retrieval.Opensearch=true and orient-retrieval-service.Retrieval.elasticsearch=false`
+      - `orient-indexing-service.indexing.opensearch=true` and `orient-indexing-service.indexing.elasticsearch=false`
+      - `orient-retrieval-service.Retrieval.Opensearch=true` and `orient-retrieval-service.Retrieval.elasticsearch=false`
 
 3. Install chart:
 
-      ```helm upgrade orientme <<oci_registry_url>>/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait```
+      ```bash
+      helm upgrade orientme <<oci_registry_url>>/orientme -i --version 0.1.0-20220617-050009 --namespace connections -f orientme.yml  --wait
+      ```
 
 4. Wait for all these parts to become ready:
 
-      ```kubectl get pods -n connections | grep -iE "orient|itm-services|community-suggestions|middleware-graphql|people-idmapping|people-migrate|people-relation|people-scoring|userprefs-service"```
+      ```bash
+      kubectl get pods -n connections | grep -iE "orient|itm-services|community-suggestions|middleware-graphql|people-idmapping|people-migrate|people-relation|people-scoring|userprefs-service"
+      ```
 
 5. If you are upgrading to the latest CR version of Connections 8.0, perform these additional steps:
 
@@ -735,7 +807,9 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 
          If the page displays an error, delete the orient-web-client pods using the following command:
 
-         ``kubectl -n connections delete pod $(kubectl get pods -n connections | grep orient-web | awk '{print $1}')``
+         ```bash
+         kubectl -n connections delete pod $(kubectl get pods -n connections | grep orient-web | awk '{print $1}')
+         ```
 
          After the pods have been recreated, check the Home page from your browser again.
 
@@ -745,7 +819,9 @@ Starting with Connections 8.0, the only backend for Orient Me is OpenSearch, so 
 
 6. To migrate profiles, run this:
 
-      ```kubectl exec -n connections -it $(kubectl get pods -n connections | grep people-migrate | awk '{print $1}') -- sh -c "npm run start migrate"```
+      ```bash
+      kubectl exec -n connections -it $(kubectl get pods -n connections | grep people-migrate | awk '{print $1}') -- sh -c "npm run start migrate"
+      ```
 
       If you followed examples and the order of installation, this should work out of the box. If you want to do some customizations, or if you are later changing the database, you can open an interactive terminal session inside the people-migrate pod to see the configuration that was precreated for you during the installation/upgrade of Component Pack in /usr/src/app/migrationConfig.
 
@@ -772,9 +848,13 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
       ```mkdir -p /tmp/es_certs```
 
-      ```kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['chain-ca\.pem']}" | base64 -d > "/tmp/es_certs"/chain-ca.pem```
+      ```bash
+      kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['chain-ca\.pem']}" | base64 -d > "/tmp/es_certs"/chain-ca.pem
+      ```
 
-      ```kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['opensearch-metrics\.p12']}" | base64 -d > "/tmp/es_certs"/opensearch-metrics.p12```
+      ```bash
+      kubectl get secret opensearch-secret -n connections -o=jsonpath="{.data['opensearch-metrics\.p12']}" | base64 -d > "/tmp/es_certs"/opensearch-metrics.p12
+      ```
 
 2. Temporarily remove SSL settings that were configured for type-ahead search in your Connections deployment, so that you can successfully enable Metrics. When you configure Metrics, the SSL settings will be recreated and both features will share the certificate information.
 
@@ -795,35 +875,26 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 4. Configure OpenSearch metrics within Connections:
 
       1. On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
-
-            
-            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
-            sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
-            
+      
+           ``cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password``
 
       2. Merge the Signer certificate into the opensearch-metrics.p12 keystore:
-
+      
+        ```execfile('esSecurityAdmin.py') enableSslForMetrics('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')```
             
-            execfile('esSecurityAdmin.py')  
-            enableSslForMetrics('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
-            
-
          Where:
 
-         - KEYSTORE\_FULL\_PATH: See the following example.
-         - SIGNER\_CA\_FULL\_PATH: See the following example.
-         - OpenSearch\_CA\_PASSWORD: The password that was set while [setting up bootstrap charts](#bootstrap).
-         - OpenSearch\_HTTPS\_PORT: Find the port by running following command on the Component Pack System:
+         - `KEYSTORE\_FULL\_PATH`: See the following example.
+         - `SIGNER\_CA\_FULL\_PATH`: See the following example.
+         - `OpenSearch\_CA\_PASSWORD`: The password that was set while [setting up bootstrap charts](#bootstrap).
+         - `OpenSearch\_HTTPS\_PORT`: Find the port by running following command on the Component Pack System:
 
-         ```kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}```
+         ``kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}``
 
          For example:
 
+          ``execfile('esSecurityAdmin.py') enableSslForMetrics('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')``
             
-            execfile('esSecurityAdmin.py')
-            enableSslForMetrics('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')
-            
-
          Disconnect from the wsadmin environment with **quit**.
 
       3. Copy the updated opensearch-metrics.p12 file from the Deployment Manager to the same location on the WebSphere Application Server nodes.
@@ -834,49 +905,43 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
          1. On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
-               ```
-               cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
-               sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
-               ```
+            ```bash
+            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
+            sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
+            ```
 
          2. Switch users to the OpenSearch Metrics component:
 
-               ```
-               execfile('metricsEventCapture.py')
-               switchMetricsToElasticSearch()
-               ```
+            ```bash
+            execfile('metricsEventCapture.py')
+            switchMetricsToElasticSearch()
+            ```
 
 5. Manage the Elasticsearch index for Connections type-ahead search. The type-ahead search feature uses an index named “quickresults” within the OpenSearch search engine.
 
       1. On the WebSphere Deployment Manager, open wsadmin, making sure that you use the `-lang jython` option. For example, on Linux, run the following commands to open wsadmin:
 
-            
-            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin
-            sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password
+          ``cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password``
             
 
       2. Merge the Signer certificate into the opensearch-metrics.p12 keystore:
-
-            
-            execfile('esSearchAdmin.py')  
-            enableSslForESSearch('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')
-            
-
+      
+        ```execfile('esSearchAdmin.py') enableSslForESSearc('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')```
+         
          Where:
 
-         - KEYSTORE\_FULL\_PATH: See the following example.
-         - SIGNER\_CA\_FULL\_PATH: See the following example.
-         - OpenSearch\_CA\_PASSWORD: The password that was set while [setting up bootstrap charts](#bootstrap).
-         - OpenSearch\_HTTPS\_PORT: Find the port by running following command on the Component Pack System:
+         - `KEYSTORE_FULL_PATH`: See the following example.
+         - `SIGNER_CA_FULL_PATH`: See the following example.
+         - `OpenSearch_CA_PASSWORD`: The password that was set while [setting up bootstrap charts](#bootstrap).
+         - `OpenSearch_HTTPS_PORT`: Find the port by running following command on the Component Pack System:
 
-            ```kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}```
+            ```bash
+            kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}
+            ```
 
          For example:
-
-            
-            execfile('esSearchAdmin.py')
-            enableSslForESSearch('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')
-            
+         
+         ``execfile('esSearchAdmin.py') enableSslForESSearch('/opt/IBM/es_certs/opensearch-metrics.p12','password', '/opt/IBM/es_certs/chain-ca.pem', '30099')``
 
          Disconnect from the wsadmin environment with **quit**.
 
@@ -885,8 +950,8 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
       4. Download config\_blue\_metrics.py from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/files/config_blue_metrics.py). This script sets the OpenSearch server base URL in Metrics.
 
       5. Run the following script on the Connections Component Pack system. This will set highway settings for Connections to connect to OpenSearch:
-
-            /usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost <<hostname>> --namespace connections
+      
+        ```/usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost <<hostname>> --namespace connections```
 
          Where:
 
@@ -901,10 +966,11 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
       6. Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.
 
          Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:
+         
+         ``cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin./wsadmin.sh -lang jython -user User_name -password Password execfile('searchAdmin.py')``
+         
+         ``SearchService.createES7QuickResultsIndex()``
 
-            cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin./wsadmin.sh -lang jython -user User_name -password Password execfile('searchAdmin.py')
-
-            SearchService.createES7QuickResultsIndex()
 
          For information on running SearchService commands, see [SearchService commands](../admin/r_admin_searchservice_commands.md).
 
@@ -914,7 +980,7 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
       8. Update the search-config.xml file in the Deployment Manager profile configuration folder. Add the following statements to the `<propertySettings>`:
 
-         ```
+         ```bash
          <property name="quickResults">
             <propertyField name="quick.results.elasticsearch.indexing.enabled" value="true"/>
             <propertyField name="quick.results.solr.indexing.enabled" value="false"/>
@@ -936,14 +1002,18 @@ For optional procedures to configure Metrics, see [Configuring the OpenSearch Me
 
 1. If not already added, add the community Helm repository:
 
-      ```helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx```
+      ```
+      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+      ```
 
 2. Update the ingress-nginx Helm repository:
       ```helm repo update ingress-nginx```
 
 3. Install ingress-nginx:
 
-      ```helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace connections --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --set controller.extraArgs.default-ssl-certificate=connections/ingress-nginx-tls-secret --wait```
+      ```bash
+      helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace connections --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --set controller.extraArgs.default-ssl-certificate=connections/ingress-nginx-tls-secret --wait
+      ```
 
       Where `default-ssl-certificate` is `<namespace>/<TLS secret name>`.  By default it is `connections/ingress-nginx-tls-secret`.
             
@@ -966,8 +1036,10 @@ Once the configmap and secret are configured, continue to install the microservi
 
 1. Get the Teams chart version that is available on Harbor OCI:
 
-      ```helm show all <<oci_registry_url>>/teams --devel | grep "^version:"
-         o/p version: 1.0.0-20220818-170013```
+      ```bash
+      helm show all <<oci_registry_url>>/teams --devel | grep "^version:"
+      o/p version: 1.0.0-20220818-170013
+      ```
 
       Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps.
 
@@ -975,7 +1047,9 @@ Once the configmap and secret are configured, continue to install the microservi
 
 3. Install the chart:
 
-      ```helm upgrade teams <<oci_registry_url>>/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait```
+      ```bash
+      helm upgrade teams <<oci_registry_url>>/teams -i --version 1.0.0-20220818-170013 --namespace connections -f teams.yml --wait
+      ```
 
 Once the microservices are installed and running, set up rules in httpd.conf on the IBM HTTP Server – see [Configuring the HTTP server](cp_config_proxy_rules.md).
 
@@ -994,8 +1068,10 @@ To enable Microsoft Teams integration, see [Setting up the Connections app for t
 
 1. Get the Tailored Experience chart version that is available on Harbor OCI:
 
-      ```helm show all <<oci_registry_url>>/tailored-exp  --devel | grep "^version:" 
-         o/p version: 1.0.0-20220818-170013```
+      ```bash
+      helm show all <<oci_registry_url>>/tailored-exp  --devel | grep "^version:" 
+      o/p version: 1.0.0-20220818-170013
+      ```
 
       Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps.
 
@@ -1003,7 +1079,9 @@ To enable Microsoft Teams integration, see [Setting up the Connections app for t
 
 3. Install the chart:
 
-      ```helm upgrade tailored-exp <<oci_registry_url>>/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait```
+      ```bash
+      helm upgrade tailored-exp <<oci_registry_url>>/tailored-exp -i --version 1.0.0-20220818-170013 --namespace connections -f tailoredexperience.yml --wait
+      ```
 
 4. Once this is all set, set up rules in the httpd.conf on the IBM HTTP servers – see [Configuring the HTTP server](cp_config_proxy_rules.md).
 
@@ -1024,10 +1102,10 @@ For post-installation tasks required to deploy the community creation wizard and
 
       Where:
 
-      - working_directory is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
-      - cell_name is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client:
+      - `working_directory` is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.
+      - `cell_name` is the name of the WebSphere Application Server cell that hosts the HCL Connections application. If you do not know the cell name, display it by typing the following command in the wsadmin client:
 
-            print AdminControl.getCell()
+            `print AdminControl.getCell()`
       
 
 
@@ -1038,7 +1116,7 @@ For post-installation tasks required to deploy the community creation wizard and
         
 4. Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the <properties\> </properties\> tag as shown below:
 
-      ```
+      ```bash
       <properties>
          <genericProperty name="ignore.lang.param">true</genericProperty>
          <genericProperty name="elasticsearch.eSmajorVersion">7</genericProperty>
@@ -1091,8 +1169,10 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
 
 2. Get the connections-outlook-desktop chart version that is available on Harbor OCI:
 
-      ```helm show all <<oci_registry_url>>/connections-outlook-desktop --devel | grep "^version:" 
-         o/p version: 0.1.0-20220707-082629```
+      ```bash
+      helm show all <<oci_registry_url>>/connections-outlook-desktop --devel | grep "^version:" 
+      o/p version: 0.1.0-20220707-082629
+      ```
 
       Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps.
 
@@ -1101,21 +1181,23 @@ You can find out more about Activities Plus in [Integrating with Activities Plus
 4. Update the add-in Docker environment variables, which are located in the outlook-addin.yaml file. These are passed into the Outlook add-in Docker instance on startup:
 
       - What must be overriden:
-         - CONNECTIONS\_URL - URL of your Connections environment without a trailing slash \(eg [https://my.connections.server.com\](https://my.connections.server.com%5C)). The same URL has to be used when generating secret in the first step.
-         - CONNECTIONS\_CLIENT\_SECRET - Client secret generated by Connections when registering OAuth provider in the first step.
-         - CONNECTIONS\_CLIENT\_ID - Client ID \(aka. app ID\) used when registering OAuth provider in Connections in the first step \(default: hcl-cnx-office-addin\)
+         - `CONNECTIONS_URL` - URL of your Connections environment without a trailing slash \(for example [https://my.connections.server.com\](https://my.connections.server.com%5C)). The same URL has to be used when generating secret in the first step.
+         - `CONNECTIONS_CLIENT_SECRET` - Client secret generated by Connections when registering OAuth provider in the first step.
+         - `CONNECTIONS_CLIENT_ID` - Client ID \(aka. app ID\) used when registering OAuth provider in Connections in the first step \(default: hcl-cnx-office-addin\)
 
       - What may be overriden:
-         - CONTEXT\_ROOT - The path to where the Outlook add-in is being served, relative to the CONNECTIONS\_URL. Do NOT start or end with \`/. \(default: outlook-addin\)
-         - SUPPORT\_URL - URL that a user can go to for support \(help\). \(default: [https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html\](https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html%5C))
-         - CONNECTIONS\_NAME – A custom name for the add-in. \(default: 'HCL Connections'\)
-         - EWS\_HOSTNAME – The hostname for Exchange Web Services. (default: 'outlook.office365.com')
+         - `CONTEXT_ROOT` - The path to where the Outlook add-in is being served, relative to the `CONNECTIONS_URL`. Do NOT start or end with `/.` (default: outlook-addin)
+         - `SUPPORT_URL` - URL that a user can go to for support \(help\). \(default: [https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html\](https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html%5C))
+         - `CONNECTIONS_NAME` – A custom name for the add-in. \(default: 'HCL Connections'\)
+         - `EWS_HOSTNAME` – The hostname for Exchange Web Services. (default: 'outlook.office365.com')
 
       - Take care about ingresses listed there. You should point to both frontend domain and internal domains, if both are used. Otherwise, only point to the one that is used in your case.
 
 5. Install chart:
 
-      ```helm upgrade connections-outlook-desktop <<oci_registry_url>>/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait```
+      ```bash
+      helm upgrade connections-outlook-desktop <<oci_registry_url>>/connections-outlook-desktop -i --version 0.1.0-20220707-082629 --namespace connections -f outlook-addin.yml --wait
+      ```
 
 6. Once this is all set, add rules to httpd.conf for your IBM HTTP servers – see [Configuring the HTTP server](cp_config_proxy_rules.md).
 
