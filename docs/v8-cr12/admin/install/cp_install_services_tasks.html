@@ -56431,63 +56431,70 @@
 <h3 id="exporting-the-persistent-volumes">Exporting the persistent volumes</h3>
 <ol>
 <li>
-<p>Perform these steps on NFS master:</p>
+<p>Perform these steps on the NFS master:</p>
+<ol>
+<li>
+<p>Create the /pv-connections folder on <code>connections.internal.example.com</code> with permissions 0700. You may set the ownership to your desired owner and group.</p>
 </li>
 <li>
-<p>Create /pv-connections folder on connections.internal.example.com with permissions 0700.  You may set the ownership to your desired owner and group.</p>
+<p>Create a user with ID 1000 and another user with ID 1001, if they do not already exist. These users are used by OpenSearch and MongoDB to generate data.</p>
 </li>
-<li>Create a user with ID 1000 and another user with 1001, if not existing already, for OpenSearch and MongoDB to generate data.</li>
 <li>
-<p>Inside the folder, create the following set of subfolders.  You may set the ownership to your desired group while user ownership should be set to the user ID creating data during runtime.</p>
+<p>Inside the folder, create the following subfolders. You may set the ownership to your desired group while user ownership should be set to the user ID creating data during runtime.</p>
 <ul>
-<li>/pv-connections/customizations with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchbackup with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchmaster-0 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchmaster-1 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchmaster-2 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchdata-0 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchdata-1 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchdata-2 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchclient-0 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchclient-1 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/opensearchclient-2 with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/kudos-boards-minio with permissions 0700.  The folder should be owned by user ID 1000.</li>
-<li>/pv-connections/mongo7-node-0/data/db with permissions 0700.  The folder should be owned by user ID 1001.</li>
-<li>/pv-connections/mongo7-node-1/data/db with permissions 0700.  The folder should be owned by user ID 1001.</li>
-<li>/pv-connections/mongo7-node-2/data/db with permissions 0700.  The folder should be owned by user ID 1001.</li>
+<li><code>/pv-connections/customizations</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchbackup</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchmaster-0</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchmaster-1</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchmaster-2</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchdata-0</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchdata-1</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchdata-2</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchclient-0</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchclient-1</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/opensearchclient-2</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/kudos-boards-minio</code> — permissions 0700, owner uid 1000  </li>
+<li><code>/pv-connections/mongo7-node-0/data/db</code> — permissions 0700, owner uid 1001  </li>
+<li><code>/pv-connections/mongo7-node-1/data/db</code> — permissions 0700, owner uid 1001  </li>
+<li><code>/pv-connections/mongo7-node-2/data/db</code> — permissions 0700, owner uid 1001</li>
 </ul>
 </li>
 <li>
-<p>Download <code>nfsSetup.sh</code> and <code>volumes.txt</code> from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a> to a directory of your choice (for example, /tmp).</p>
+<p>Download <code>nfsSetup.sh</code> and <code>volumes.txt</code> from the HCL Connections deployment automation repository to a directory of your choice (for example, <code>/tmp</code>).</p>
 </li>
 <li>
-<p>Provide execution permission to <code>nfsSetup.sh</code> and run it, then complete the configuration for NSF by doing the following:</p>
+<p>Make <code>nfsSetup.sh</code> executable and run it. Then complete the NFS configuration:</p>
 <ol>
-<li>Install the required NFS packages, if not already installed by default.</li>
+<li>Install required NFS packages (if not yet installed by default).</li>
 <li>Enable and start the required NFS services.</li>
 <li>Restart the NFS server and configure the firewall.</li>
 </ol>
 </li>
 <li>
 <p><strong>(Optional)</strong> Export file systems:</p>
-<p><code>exportfs -ra</code></p>
-</li>
-<li>
-<p>Configure NFS clients by enabling and starting the nfs-server on all Kubernetes master and worker nodes:</p>
+<div class="highlight"><pre><span></span><code>exportfs<span class="w"> </span>-ra
+</code></pre></div>
 </li>
 </ol>
-<p><code>systemctl restart nfs-server</code></p>
-<p>Ensure that all of the persistent volumes are exported and mountable from Kubernetes masters and workers nodes before you proceed to the next steps.</p>
+</li>
+<li>
+<p>Configure NFS clients by enabling and starting the NFS service on all Kubernetes master and worker nodes:</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>nfs-server
+</code></pre></div>
+</li>
+</ol>
+<p>Ensure that all persistent volumes are exported and mountable from Kubernetes masters and worker nodes before proceeding.</p>
 <h2 class="section" id="section_ln3_qp3_dvb">Create the namespace</h2>
 <p>On the server which has Helm v3 and kubectl configured for your non-root user, create the Connections namespace in Kubernetes by running the following command:</p>
-<div class="highlight"><pre><span></span><code>kubectl create namespace connections
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>connections
 </code></pre></div>
 <h2 class="section" id="backup_es7">Back up Elasticsearch 7 data</h2>
 <p>Register the snapshot repository in Elasticsearch 7:</p>
 <ol>
 <li>
 <p>Connect to an Elasticsearch 7 client pod by running the following command:</p>
-<p><code>kubectl exec -ti -n connections $(kubectl get pods -n connections | grep es-client | awk '{print $1}') -- bash</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>es-client<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span><span class="w"> </span>--<span class="w"> </span>bash
+</code></pre></div>
 </li>
 <li>
 <p>Enter the following commands, which make use of the sendRequest utility to communicate with Elasticsearch 7:</p>
@@ -56495,8 +56502,10 @@
 -H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;fs&quot;,&quot;settings&quot;: {&quot;compress&quot; : true, &quot;location&quot;: &quot;${BACKUPPATH}&quot;}}&#39;</span>
 </code></pre></div>
-<p><code>o/p: {"acknowledged":true}</code></p>
-<p><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh GET /_snapshot/_all?pretty</code></p>
+<div class="highlight"><pre><span></span><code>o/p:<span class="w"> </span><span class="o">{</span><span class="s2">&quot;acknowledged&quot;</span>:true<span class="o">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh<span class="w"> </span>GET<span class="w"> </span>/_snapshot/_all?pretty
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>o/p:<span class="w"> </span><span class="o">{</span><span class="w"> </span>“<span class="si">${</span><span class="nv">REPONAME</span><span class="si">}</span>”<span class="w"> </span>:<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="s2">&quot;type&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="s2">&quot;fs&quot;</span>,<span class="w"> </span><span class="s2">&quot;settings&quot;</span><span class="w"> </span>:<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="s2">&quot;compress&quot;</span><span class="w"> </span>:
 <span class="s2">&quot;true&quot;</span>,<span class="w"> </span><span class="s2">&quot;location&quot;</span><span class="w"> </span>:<span class="w"> </span>“<span class="si">${</span><span class="nv">BACKUPPATH</span><span class="si">}</span>”<span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">}</span>
 </code></pre></div>
@@ -56509,12 +56518,14 @@
 </li>
 <li>
 <p>Connect to an Elasticsearch 7 client pod in the Elasticsearch 7 cluster by running the following command on a Kubernetes node:</p>
-<p><code>kubectl exec -ti -n connections $(kubectl get pods -n connections -o wide | grep es-client-7 | awk '{print $1}' | head -n 1) – bash</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>-o<span class="w"> </span>wide<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>es-client-7<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="k">)</span><span class="w"> </span>–<span class="w"> </span>bash
+</code></pre></div>
 </li>
 <li>
 <p>Back up all Elasticsearch 7 indexes by running the following command:</p>
-<p><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh PUT /_snapshot/${REPONAME}/snapshot_migration?wait_for_completion=true</code></p>
-<p>Where ${REPONAME} is the name of the snapshot repository, which was previously used to register and manage the Elasticsearch 7 snapshot, for example, connectionsbackup.</p>
+<div class="highlight"><pre><span></span><code>/opt/elasticsearch-7.10.1/probe/sendRequest.sh<span class="w"> </span>PUT<span class="w"> </span>/_snapshot/<span class="si">${</span><span class="nv">REPONAME</span><span class="si">}</span>/snapshot_migration?wait_for_completion<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<p>Where <code>${REPONAME}</code> is the name of the snapshot repository, which was previously used to register and manage the Elasticsearch 7 snapshot, for example, connectionsbackup.</p>
 <p>Disconnect from the pod (press Ctrl+D, or type <code>exit</code> and press Enter).</p>
 </li>
 </ol>
@@ -56522,73 +56533,79 @@
 <ol>
 <li>
 <p>Validate that Helm works properly:</p>
-<p><code>helm list</code></p>
+<div class="highlight"><pre><span></span><code>helm list
+</code></pre></div>
 </li>
 <li>
 <p>Create additional OpenSearch volumes on the NFS master node.  The folders should be owned by user ID 1000 while you may set the ownership to your desired group:</p>
-<div class="highlight"><pre><span></span><code>mkdir -p /pv-connections/opensearchmaster-{0,1,2}
-mkdir -p /pv-connections/opensearchdata-{0,1,2}
-mkdir -p /pv-connections/opensearchclient-{0,1,2}
-mkdir -p /pv-connections/opensearchbackup
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/opensearchmaster-<span class="o">{</span><span class="m">0</span>,1,2<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/opensearchdata-<span class="o">{</span><span class="m">0</span>,1,2<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/opensearchclient-<span class="o">{</span><span class="m">0</span>,1,2<span class="o">}</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/opensearchbackup
 </code></pre></div>
 <p>HCL Connections 8.0 uses OpenSearch as the default backend for Metrics and Search. For previous versions, persistent volumes have been defined to hold data. However, with OpenSearch, you need PVs for OpenSearch masters, OpenSearch data, OpenSearch client, and OpenSearch backup. The main reason for this is stability: without a persistent state, pod recreation can interfere with outdated data, causing OpenSearch to not start properly. The resulting TCP readiness check might summarize and report the whole OpenSearch system to be down then.</p>
 </li>
 <li>
 <p>Similarly with MongoDB 7, you need PVs for all the replicas of mongo7 pod. So, create additional MongoDB volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group:</p>
-<div class="highlight"><pre><span></span><code>mkdir -p /pv-connections/mongo7-node-0
-mkdir -p /pv-connections/mongo7-node-1
-mkdir -p /pv-connections/mongo7-node-2
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/mongo7-node-0
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/mongo7-node-1
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/mongo7-node-2
 </code></pre></div>
 </li>
 <li>
 <p>Make the additional OpenSearch and MongoDB 7 volumes available via NFS.</p>
-</li>
+<ol>
 <li>
 <p>Download nfsSetup.sh and volumes.txt from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/third_party/nfs-install/templates/nfsSetupScript">HCL Connections deployment automation Git repository</a>.</p>
 </li>
 <li>
-<p>Run nfsSetup.sh to set up NFS directories on the NFS master:</p>
-<p><code>sh nfsSetup.sh</code></p>
+<p>Run <code>nfsSetup.sh</code> to set up NFS directories on the NFS master:</p>
+<div class="highlight"><pre><span></span><code>sh nfsSetup.sh
+</code></pre></div>
 <p>If applicable, make sure that the firewall configuration does not block access to NFS. Adjustments might be needed for Component Pack 8 deployment compared to the Component Pack 7 setup.</p>
 </li>
 <li>
-<p>In /etc/exports, validate that the additional PVs are distributed properly.</p>
+<p>In <code>/etc/exports</code>, validate that the additional PVs are distributed properly.</p>
+</li>
+</ol>
 </li>
 </ol>
 <h2 class="section" id="setup_nfs_apigw">Set up HCL API Gateway volumes on NFS</h2>
 <ol>
 <li>
 <p>Validate that Helm works properly:</p>
-<p><code>helm list</code></p>
+<div class="highlight"><pre><span></span><code>helm list
+</code></pre></div>
 </li>
 <li>
 <p>You need PVs for all the replicas of APISIX etcd pod. So, create additional etcd volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group with permissions 0700:</p>
-<p><code>mkdir /pv-connections/&lt;NAMESPACE&gt;-apisix-etcd-&lt;REPLICA_COUNT&gt;</code></p>
-<p>Replace <NAMESPACE> with the component pack namespace.
-  Replace <REPLICA_COUNT> with the replica count needed for Core APISIX deployment, starting from 0 to (replica count-1).</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/pv-connections/&lt;NAMESPACE&gt;-apisix-etcd-&lt;REPLICA_COUNT&gt;
+</code></pre></div>
+<p>Replace <code>&lt;NAMESPACE&gt;</code> with the component pack namespace.
+  Replace <code>&lt;REPLICA_COUNT&gt;</code> with the replica count needed for Core APISIX deployment, starting from 0 to (replica count-1).</p>
 <p>For example: </p>
 <p>If component pack namespace is "connections" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders</p>
-<div class="highlight"><pre><span></span><code>mkdir -p /pv-connections/connections-apisix-etcd-0
-mkdir -p /pv-connections/connections-apisix-etcd-1
-mkdir -p /pv-connections/connections-apisix-etcd-2
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-0
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-1
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-2
 </code></pre></div>
 </li>
 <li>
 <p>Make the additional etcd volumes available via NFS.</p>
 </li>
 <li>
-<p>Modify the file <code>/etc/exports</code> on your NFS Server to include these volumes
-      <div class="highlight"><pre><span></span><code>/pv-connections/&lt;NAMESPACE&gt;-etcd-&lt;REPLICA_COUNT&gt; &lt;IP_RANGE_OF_YOUR_SERVERS&gt;/&lt;SUBNET_MASK&gt;(rw,root_squash)
+<p>Modify the file <code>/etc/exports</code> on your NFS Server to include these volumes</p>
+<div class="highlight"><pre><span></span><code>/pv-connections/&lt;NAMESPACE&gt;-etcd-&lt;REPLICA_COUNT&gt;<span class="w"> </span>&lt;IP_RANGE_OF_YOUR_SERVERS&gt;/&lt;SUBNET_MASK&gt;<span class="o">(</span>rw,root_squash<span class="o">)</span>
 </code></pre></div>
-      For example:
-      <div class="highlight"><pre><span></span><code>/pv-connections/connections-apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
-/pv-connections/connections-apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
-/pv-connections/connections-apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
-</code></pre></div></p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>/pv-connections/connections-apisix-etcd-0<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-1<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-2<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+</code></pre></div>
 </li>
 <li>
 <p>Apply new NFS storage to exports</p>
-<div class="highlight"><pre><span></span><code>exportfs -ra
+<div class="highlight"><pre><span></span><code>exportfs<span class="w"> </span>-ra
 </code></pre></div>
 </li>
 <li>
@@ -56620,9 +56637,11 @@ opensearch-client
 kudos-boards-cp
 </code></pre></div>
 <p>First, check if the chart is already deployed:</p>
-<p><code>helm ls --namespace connections | grep &lt;chart name&gt; | grep -i DEPLOYED</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>ls<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;chart<span class="w"> </span>name&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>DEPLOYED
+</code></pre></div>
 <p>If found, delete the chart using below command:</p>
-<p><code>helm uninstall &lt;chart name&gt; --namespace connections</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>&lt;chart<span class="w"> </span>name&gt;<span class="w"> </span>--namespace<span class="w"> </span>connections
+</code></pre></div>
 <p>For more details, see <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable">PodSecurityPolicy is removed</a> in the Kubernetes changelog.</p>
 <h2 class="section" id="harbor_repo">Log in to a Harbor OCI registry</h2>
 <div class="admonition note">
@@ -56632,12 +56651,13 @@ kudos-boards-cp
 <ol>
 <li>
 <p>Log in to a Harbor OCI registry using the following command:</p>
-<p><code>$ helm registry login -u &lt;&lt;helm_repo_username&gt;&gt; -p &lt;&lt;helm_repo_password&gt;&gt; &lt;&lt;helm_repo_path&gt;&gt;</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>helm<span class="w"> </span>registry<span class="w"> </span>login<span class="w"> </span>-u<span class="w"> </span><span class="s">&lt;&lt;helm_repo_username&gt;&gt; -p &lt;&lt;helm_repo_</span>password&gt;&gt;<span class="w"> </span><span class="s">&lt;&lt;helm_repo_path</span>&gt;&gt;
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>&lt;&lt;helm_repo_username&gt;&gt;</code> is the Harbor username</li>
-<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to Harbor, then click on your name &gt; <strong>User Profile</strong> &gt; CLI Secret)</li>
-<li><code>&lt;&lt;helm_repo_path&gt;&gt;</code> is the Harbor repository to log into, that is https://hclcr.io</li>
+<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to Harbor, then click on your name &gt; <strong>User Profile</strong> &gt; <strong>CLI Secret</strong>)</li>
+<li><code>&lt;&lt;helm_repo_path&gt;&gt;</code> is the Harbor repository to log into, that is <code>https://hclcr.io</code></li>
 </ul>
 </li>
 <li>
@@ -56647,23 +56667,28 @@ kudos-boards-cp
 <li>
 <p>If this is your first time switching the Docker registry to Harbor, you'll need to recreate the secret named <code>myregkey</code>.</p>
 <p>Start by deleting the credentials:</p>
-<p><code>kubectl delete secret myregkey -n connections</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>secret<span class="w"> </span>myregkey<span class="w"> </span>-n<span class="w"> </span>connections
+</code></pre></div>
 </li>
 <li>
 <p>Add Harbor credentials as <code>myregkey</code> Kubernetes secret.</p>
 <p>The default for the <code>docker-server</code> parameter should be "hclcr.io", in order to point the installer to HCL Harbor for the containerd image downloads.</p>
-<p><code>kubectl create secret docker-registry myregkey -n connections --docker-server=hclcr.io/cnx --docker-username=&lt;&lt;helm_repo_username&gt;&gt; --docker-password &lt;&lt;helm_repo_password&gt;&gt;</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>docker-registry<span class="w"> </span>myregkey<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>--docker-server<span class="o">=</span>hclcr.io/cnx<span class="w"> </span>--docker-username<span class="o">=</span><span class="s">&lt;&lt;helm_repo_username&gt;&gt; --docker-password &lt;&lt;helm_repo_</span>password&gt;&gt;
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>&lt;&lt;helm_repo_username&gt;&gt;</code> is the Harbor username</li>
-<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to Harbor, then click on your name &gt; <strong>User Profile</strong> &gt; CLI Secret)</li>
+<li><code>&lt;&lt;helm_repo_password&gt;&gt;</code> is the CLI secret (to access, log in to <strong>Harbor</strong>, then click on your name &gt; <strong>User Profile</strong> &gt; <strong>CLI Secret</strong>)</li>
 </ul>
 </li>
 </ol>
 </li>
 </ol>
 <h2 class="section" id="psa_namespace">Apply Pod security restrictions at the namespace level</h2>
-<p><strong>This step applies when installing on Kubernetes version 1.25.0 or higher:</strong></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This step applies when installing on Kubernetes version 1.25.0 or higher.</p>
+</div>
 <p>As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>label<span class="w"> </span>--overwrite<span class="w"> </span>ns<span class="w"> </span>connections<span class="w"> </span><span class="se">\</span>
 pod-security.kubernetes.io/enforce<span class="o">=</span>baseline<span class="w"> </span>pod-security.kubernetes.io/enforce-version<span class="o">=</span>latest<span class="w"> </span><span class="se">\</span>
@@ -56680,23 +56705,26 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <ol>
 <li>
 <p>Start by finding out the k8s-psp chart version available on Harbor OCI:</p>
-<p><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/k8s-psp --devel | grep "^version:"</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/k8s-psp --devel | grep &quot;^versio</span>n:<span class="s2">&quot;</span>
+</code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
-<p><code>o/p version: 0.1.0-20210909-112534</code></p>
+<div class="highlight"><pre><span></span><code>o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</span>.1.0-20210909-112534
+</code></pre></div>
 </li>
 <li>
 <p>Then install or upgrade:</p>
-<p><code>helm upgrade k8s-psp &lt;&lt;oci_registry_url&gt;&gt;/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>k8s-psp<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/k8s-psp -i --versio</span>n<span class="w"> </span><span class="m">0</span>.1.0-20210909-112534<span class="w"> </span>--set<span class="w"> </span><span class="nv">namespace</span><span class="o">=</span>connections<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>--wait
+</code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="setup_helm">Set up Helm charts</h2>
 <p>Install or upgrade to the latest CR version of Connections 8.0 Kubernetes by deploying the Helm charts delivered with the latest CR version of Component Pack 8.</p>
 <p>The <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> includes a set of templates to override the default values to values that are appropriate to your environment. The resulting files are the ones used by the following Helm upgrade commands using the -f option.</p>
 <p>For example, if you want the opensearch cluster name to be "opensearch-cluster", you need to change the following line from this:</p>
-<div class="highlight"><pre><span></span><code>clusterName:                {{ __opensearch_cluster_name }}
+<div class="highlight"><pre><span></span><code>clusterName:<span class="w">                </span><span class="o">{{</span><span class="w"> </span>__opensearch_cluster_name<span class="w"> </span><span class="o">}}</span>
 </code></pre></div>
 <p>To this:</p>
-<div class="highlight"><pre><span></span><code>clusterName:                opensearch-cluster
+<div class="highlight"><pre><span></span><code>clusterName:<span class="w">                </span>opensearch-cluster
 </code></pre></div>
 <p>For sample values of these variables, refer to the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/vars/main.yml">HCL Connections deployment automation Git repository</a>.</p>
 <div class="admonition note">
@@ -56719,26 +56747,33 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <ol>
 <li>
 <p>Before installing the connections-volumes Helm chart to set up the persistence layer, delete the existing chart volumes:</p>
-<p><code>helm uninstall connections-volumes -n connections</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>connections-volumes<span class="w"> </span>-n<span class="w"> </span>connections
+</code></pre></div>
 <p>It might take some time to delete the existing volumes.</p>
 </li>
 <li>
 <p>If you have upgraded the existing Component Pack 7 charts instead of deleting them and starting with a fresh Component Pack 8 installation, perform this step. Otherwise, skip to the next step.</p>
 <p>This is because if you deleted all Component Pack 7 charts, the linked PVs and PVCs are properly removed and therefore do not need further action. However, if you upgraded the charts, you would need to manually touch those PVs and PVCs.</p>
 <p>First, check the status of PVCs:</p>
-<p><code>kubectl get pvc -n connections</code></p>
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>connections
+</code></pre></div>
+  kubectl get pvc -n connections```</p>
 <p>If the Terminating status shows no progress, remove the persistent volume protection for all blocked elements to get them deleted:</p>
-<p><code>kubectl patch pvc -n connections -p '{"metadata":{"finalizers": []}}' --type=merge &lt;NAME&gt;</code></p>
-<p>For example:</p>
-<p><code>kubectl patch pvc -n connections -p '{"metadata":{"finalizers": []}}' --type=merge es-pvc-es-data-7-0</code></p>
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>patch<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;metadata&quot;:{&quot;finalizers&quot;: []}}&#39;</span><span class="w"> </span>--type<span class="o">=</span>merge<span class="w"> </span>&lt;NAME&gt;
+</code></pre></div>
+  For example:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>patch<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;metadata&quot;:{&quot;finalizers&quot;: []}}&#39;</span><span class="w"> </span>--type<span class="o">=</span>merge<span class="w"> </span>es-pvc-es-data-7-0
+</code></pre></div>
 <p>If the <code>kubectl get pvc -n connections</code> command shows no more Terminating elements, proceed with installation below.</p>
 </li>
 <li>
 <p>Install connections-volumes chart.</p>
 <p>Find out the connections-volumes chart version that is available on Harbor OCI:</p>
-<p><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/connections-persistent-storage-nfs --devel | grep "^version:"</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/co</span>nnections-persistent-storage-nfs<span class="w"> </span>--devel<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^version:&quot;</span>
+</code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
-<p><code>o/p version: 0.1.1-20220505-090030</code></p>
+<div class="highlight"><pre><span></span><code>o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</span>.1.1-20220505-090030
+</code></pre></div>
 </li>
 <li>
 <p>Download the j2 template for connections-volumes.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
@@ -56749,7 +56784,8 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 </li>
 <li>
 <p>Then, run installation:</p>
-<p><code>helm upgrade connections-volumes &lt;&lt;oci_registry_url&gt;&gt;/connections-persistent-storage-nfs -i --version 0.1.1-20220505-090030 --namespace connections -f connections-volumes.yml --wait</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>connections-volumes<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/co</span>nnections-persistent-storage-nfs<span class="w"> </span>-i<span class="w"> </span>--version<span class="w"> </span><span class="m">0</span>.1.1-20220505-090030<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>-f<span class="w"> </span>connections-volumes.yml<span class="w"> </span>--wait
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In connections-volumes.yml, use your destination <strong>nfs.server</strong> and <strong>persistentVolumePath</strong> as parameters.</p>
@@ -56759,7 +56795,8 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <p>Verify that all PVCs are in "bound" state:</p>
 </li>
 </ol>
-<p><code>kubectl get pvc -n connections</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>connections
+</code></pre></div>
 <p>For how to troubleshoot PV and PVC setup, see the <a href="https://opensource.hcltechsw.com/connections-doc/guide_me/how_to_guides/troubleshooting_cnx_cp.pdf">Troubleshooting Component Pack guide</a> document.</p>
 <h2 class="section" id="setup_sc_apigw">Set up storage class for HCL API Gateway</h2>
 <ol>
@@ -56779,7 +56816,7 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StorageClass</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-sc&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-sc&quot;</span>
 <span class="nt">provisioner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.io/no-provisioner</span>
 <span class="nt">reclaimPolicy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Retain&quot;</span>
 <span class="nt">volumeBindingMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Immediate</span>
@@ -56801,37 +56838,38 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <li>
 <p>For example, if you're configuring etcd volumes for 3 replicas, you'll need to replace the variables with your actual values:</p>
 <ul>
-<li><code>pv_name</code>: The persistent volume name (e.g., <code>&lt;&lt;namespace&gt;&gt;-apisix-etcd</code>)</li>
+<li><code>pv_name</code>: The persistent volume name (example: <code>&lt;&lt;namespace&gt;&gt;-apisix-etcd</code>)</li>
 <li><code>item</code>: The replica number (0, 1, 2 as the replica count is 3)</li>
-<li><code>__apisix_storage_class_name</code>: Your storage class name (e.g., <code>&lt;&lt;namespace&gt;&gt;-apisix-sc</code>)</li>
-<li><code>__apisix_volume_storage_capacity</code>: Storage size (e.g., "10Gi")</li>
-<li><code>__apisix_volume_access_mode</code>: Access mode (e.g., "ReadWriteOnce")</li>
-<li><code>__apisix_storage_class_reclaim_policy</code>: Reclaim policy (e.g., "Retain")</li>
-<li><code>__persistentVolumePath</code>: Path on NFS server (e.g., "pv-connections")</li>
+<li><code>__apisix_storage_class_name</code>: Your storage class name (example: <code>&lt;&lt;namespace&gt;&gt;-apisix-sc</code>)</li>
+<li><code>__apisix_volume_storage_capacity</code>: Storage size (example: "10Gi")</li>
+<li><code>__apisix_volume_access_mode</code>: Access mode (example: "ReadWriteOnce")</li>
+<li><code>__apisix_storage_class_reclaim_policy</code>: Reclaim policy (example: "Retain")</li>
+<li><code>__persistentVolumePath</code>: Path on NFS server (example: "pv-connections")</li>
 <li><code>__nfsMasterAddress</code>: IP address of NFS server</li>
 </ul>
 </li>
 <li>
 <p>Run the following command to create the persistent volumes:</p>
-<p><code>kubectl apply -f apisix-nfs-pvs.yaml</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>apisix-nfs-pvs.yaml
+</code></pre></div>
 <p>Sample configuration: 
   <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolume</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-etcd-0&quot;</span>
-<span class="nt">labels</span><span class="p">:</span>
-<span class="nt">attachTo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-etcd</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-etcd-0&quot;</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">attachTo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-etcd</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-sc</span>
-<span class="nt">capacity</span><span class="p">:</span>
-<span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10Gi</span>
-<span class="nt">accessModes</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
-<span class="nt">persistentVolumeReclaimPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Retain</span>
-<span class="nt">volumeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Filesystem</span>
-<span class="nt">nfs</span><span class="p">:</span>
-<span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pv-connections/connections-apisix-etcd-0</span>
-<span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.0.2.1</span>
+<span class="w">  </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-sc</span>
+<span class="w">  </span><span class="nt">capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10Gi</span>
+<span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+<span class="w">  </span><span class="nt">persistentVolumeReclaimPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Retain</span>
+<span class="w">  </span><span class="nt">volumeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Filesystem</span>
+<span class="w">  </span><span class="nt">nfs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pv-connections/connections-apisix-etcd-0</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.0.2.1</span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -56840,7 +56878,8 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 </li>
 <li>
 <p>Verify that all PVs are in "available" state:</p>
-<p><code>kubectl get pv</code>       </p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pv
+</code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="bootstrap">Set up bootstrap charts</h2>
@@ -56870,20 +56909,23 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <ol>
 <li>
 <p>Start by deleting the existing chart:</p>
-<p><code>helm uninstall bootstrap -n connections</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>bootstrap<span class="w"> </span>-n<span class="w"> </span>connections
+</code></pre></div>
 </li>
 <li>
 <p>Find out the bootstrap chart version available on Harbor OCI:</p>
-<p><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/bootstrap --devel | grep "^version:"</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/bo</span>otstrap<span class="w"> </span>--devel<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^version:&quot;</span>
+</code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
-<p><code>o/p version: 0.1.0-20220714-190047</code></p>
+<div class="highlight"><pre><span></span><code>o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</span>.1.0-20220714-190047
+</code></pre></div>
 </li>
 <li>
 <p>Download the j2 template for bootstrap.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Starting with v8 CR11, <code>user_provided_cert_SANs</code> must be specified in bootstrap.yml to set the Subject Alternative Name (SAN) in TLS certificates.  This should be a comma-separated string (eg. <code>'*.example.com,*.sub.example.com'</code>).</p>
-<p>If the environment is running WebSphere Application Server FP27 or later, ensure that the SAN entries meet the <a href="https://www.ibm.com/support/pages/hostname-verification-websphere-application-server-traditional">certificates hostname verification requirements</a>.  The list typically includes the <code>set_master_ip</code> hostname specified in bootstrap.yml and, if applicable, the load balancer hostname (e.g., HAProxy).  Alternatively, wildcard entries can be used.</p>
+<p>If the environment is running WebSphere Application Server FP27 or later, ensure that the SAN entries meet the <a href="https://www.ibm.com/support/pages/hostname-verification-websphere-application-server-traditional">certificates hostname verification requirements</a>.  The list typically includes the <code>set_master_ip</code> hostname specified in bootstrap.yml and, if applicable, the load balancer hostname (for example, HAProxy).  Alternatively, wildcard entries can be used.</p>
 <p>To comply with WebSphere certificate hostname verification, if the environment is upgraded from v8 CR10 or lower, the OpenSearch certificate must be regenerated.  Setting <code>force_regenerate_opensearch: true</code> in bootstrap.yml before upgrading will regenerate the certificates.  Be sure to re-establish SSL interoperability with OpenSearch and restart the related services afterwards.</p>
 </div>
 <div class="admonition note">
@@ -56893,7 +56935,8 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 </li>
 <li>
 <p>Run the bootstrap installation:</p>
-<p><code>helm upgrade bootstrap &lt;&lt;oci_registry_url&gt;&gt;/bootstrap -i --version 0.1.0-20220714-190047 --namespace connections -f bootstrap.yml --wait</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>bootstrap<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/bo</span>otstrap<span class="w"> </span>-i<span class="w"> </span>--version<span class="w"> </span><span class="m">0</span>.1.0-20220714-190047<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>-f<span class="w"> </span>bootstrap.yml<span class="w"> </span>--wait
+</code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="cnx_env">Set up connections-env chart</h2>
@@ -56901,8 +56944,8 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <ol>
 <li>
 <p>Find out the connections-env chart version that is available on Harbor OCI:</p>
-<div class="highlight"><pre><span></span><code>helm show all &lt;&lt;oci_registry_url&gt;&gt;/connections-env --devel | grep &quot;^version:&quot;
-0.1.40-20220616-233100
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/co</span>nnections-env<span class="w"> </span>--devel<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^version:&quot;</span>
+<span class="m">0</span>.1.40-20220616-233100
 </code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
 </li>
@@ -56915,12 +56958,14 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 </li>
 <li>
 <p>Run the connections-env installation:</p>
-<p><code>helm upgrade connections-env &lt;&lt;oci_registry_url&gt;&gt;/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>connections-env<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/co</span>nnections-env<span class="w"> </span>-i<span class="w"> </span>--version<span class="w"> </span><span class="m">0</span>.1.40-20220616-233100<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>-f<span class="w"> </span>connections-env.yml<span class="w"> </span>--wait
+</code></pre></div>
 </li>
 </ol>
 <h2 class="section" id="del_ingress">Delete ingresses</h2>
 <p>Remove ingresses before Component Pack deployment, otherwise the infrastructure will fail:</p>
-<p><code>kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk '{print $1}' | grep -vE "NAME")</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>ingress<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>ingress<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-vE<span class="w"> </span><span class="s2">&quot;NAME&quot;</span><span class="k">)</span>
+</code></pre></div>
 <h2 class="section" id="del_legacy_redis">Delete legacy Mongo security check job and Redis resources</h2>
 <p>If you are upgrading from v8 CR11 or below, delete the <code>check-and-update-mongo7-security</code> Kubernetes job before upgrading the infrastructure chart to avoid image conflicts.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>job<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>check-and-update-mongo7-security
@@ -56947,7 +56992,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>deploy,pdb,svc<span cl
 <ol>
 <li>
 <p>Delete existing Customizer chart:</p>
-<div class="highlight"><pre><span></span><code>helm uninstall mw-proxy -n connections
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>mw-proxy<span class="w"> </span>-n<span class="w"> </span>connections
 </code></pre></div>
 </li>
 <li>
@@ -56982,7 +57027,7 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <h3 id="prerequisites">Prerequisites</h3>
 <ol>
 <li>
-<p>For production workloads, refer to <a href="https://opensearch.org/docs/1.3/opensearch/install/important-settings/">important settings</a> in the OpenSearch official documentation. Make sure Linux setting vm.max_map_count is set accordingly.</p>
+<p>For production workloads, refer to <a href="https://opensearch.org/docs/1.3/opensearch/install/important-settings/">important settings</a> in the OpenSearch official documentation. Make sure Linux setting <code>vm.max_map_count</code> is set accordingly.</p>
 <p>OpenSearch uses a lot of file descriptors or file handles. Running out of file descriptors can be disastrous and will most probably lead to data loss. Make sure to increase the limit on the number of open file descriptors for the user running OpenSearch to 65,536 or higher.</p>
 <p>OpenSearch also needs a larger virtual address space to work properly. More then is usually configured on Linux distributions.</p>
 <p>To increase these values to working levels, add the following lines to <code>/etc/sysctl.d/opensearch.conf</code>, creating the file on all Kubernetes hosts, if necessary:</p>
@@ -57006,8 +57051,9 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 <p>Download the j2 templates for opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
-<p>Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the opensearch_master.yml, opensearch_data.yml, and opensearch_client.yml files:</p>
-<p><code>pemkeyPass: PROVIDE-ANY-USER-DEFINED-PASSWORD</code></p>
+<p>Before you start deploying opensearch chart, we recommend that you override the default password provided in the script. You can provide this user-defined password by adding or updating the following variable in the <code>opensearch_master.yml</code>, <code>opensearch_data.yml</code>, and <code>opensearch_client.yml</code> files:</p>
+<div class="highlight"><pre><span></span><code>pemkeyPass:<span class="w"> </span>PROVIDE-ANY-USER-DEFINED-PASSWORD
+</code></pre></div>
 </li>
 <li>
 <p>Install OpenSearch master:</p>
@@ -57024,7 +57070,8 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 </li>
 <li>
 <p>Check if the OpenSearch master, data, and client pods are up and running:</p>
-<p><code>kubectl get pods -n connections | grep -i "opensearch-cluster-"</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;opensearch-cluster-&quot;</span>
+</code></pre></div>
 </li>
 <li>
 <p>This step is optional. Refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/voting-config-exclusions.html">Voting configuration exclusions API</a>.</p>
@@ -57089,7 +57136,8 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 </li>
 <li>
 <p>Remove Elasticsearch 7 artifacts from your system:</p>
-<p><code>helm uninstall -n connections elasticsearch7</code></p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>elasticsearch7
+</code></pre></div>
 </li>
 </ol>
 </li>
@@ -57117,7 +57165,8 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <ol>
 <li>
 <p>To ensure a secure connection, retrieve the PKCS12 and CA Signer certificates by running the following commands on the Component Pack master node:</p>
-<p><code>mkdir -p /tmp/es_certs</code></p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/es_certs
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>opensearch-secret<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>-o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data[&#39;chain-ca\.pem&#39;]}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;/tmp/es_certs&quot;</span>/chain-ca.pem
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>opensearch-secret<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>-o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data[&#39;opensearch-metrics\.p12&#39;]}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;/tmp/es_certs&quot;</span>/opensearch-metrics.p12
@@ -57142,7 +57191,7 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 </li>
 <li>
 <p>Copy the certificate files to the WebSphere Deployment Manager in a common location that is readable and writable by all WebSphere Application Server nodes.</p>
-<p>For example, copy the two certificate files created in step 1 (that is, <strong>/tmp/es_certs/chain-ca.pem</strong> and <strong>/tmp/es_certs/elasticsearch-metrics.p12</strong>) to the following directory: <strong>/opt/IBM/es_certs</strong> on the WebSphere Deployment Manager.</p>
+<p>For example, copy the two certificate files created in step 1 (that is, <code>/tmp/es_certs/chain-ca.pem</code> and <code>/tmp/es_certs/opensearch-metrics.p12</code>) to the following directory: <code>/opt/IBM/es_certs</code> on the WebSphere Deployment Manager.</p>
 <p>If this directory path does not yet exist, create it.</p>
 </li>
 <li>
@@ -57150,11 +57199,13 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <ol>
 <li>
 <p>On the WebSphere Deployment Manager, open wsadmin, making sure that you use the <code>-lang jython</code> option. For example, on Linux, run the following commands to open wsadmin:</p>
-<p><code>cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>wsadmin.sh<span class="w"> </span>-lang<span class="w"> </span>jython<span class="w"> </span>-user<span class="w"> </span>wasadmin_user<span class="w"> </span>-password<span class="w"> </span>wasadmin_password
+</code></pre></div>
 </li>
 <li>
 <p>Merge the Signer certificate into the opensearch-metrics.p12 keystore:</p>
-<p><code>execfile('esSecurityAdmin.py') enableSslForMetrics('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')</code></p>
+<div class="highlight"><pre><span></span><code>execfile<span class="o">(</span><span class="s1">&#39;esSecurityAdmin.py&#39;</span><span class="o">)</span><span class="w"> </span>enableSslForMetrics<span class="o">(</span><span class="s1">&#39;KEYSTORE_FULL_PATH&#39;</span>,<span class="w"> </span><span class="s1">&#39;OpenSearch_CA_PASSWORD&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIGNER_CA_FULL_PATH&#39;</span>,<span class="w"> </span><span class="s1">&#39;OpenSearch_HTTPS_PORT&#39;</span><span class="o">)</span>
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>KEYSTORE\_FULL\_PATH</code>: See the following example.</li>
@@ -57162,9 +57213,11 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <li><code>OpenSearch\_CA\_PASSWORD</code>: The password that was set while <a href="#bootstrap">setting up bootstrap charts</a>.</li>
 <li><code>OpenSearch\_HTTPS\_PORT</code>: Find the port by running following command on the Component Pack System:</li>
 </ul>
-<p><code>kubectl get svc opensearch-cluster-master --namespace=connections -o jsonpath={.spec.ports[*].nodePort}</code></p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>opensearch-cluster-master<span class="w"> </span>--namespace<span class="o">=</span>connections<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">={</span>.spec.ports<span class="o">[</span>*<span class="o">]</span>.nodePort<span class="o">}</span>
+</code></pre></div>
 <p>For example:</p>
-<p><code>execfile('esSecurityAdmin.py') enableSslForMetrics('/opt/IBM/es_certs/opensearch-metrics.p12', 'password', '/opt/IBM/es_certs/chain-ca.pem', '30099')</code></p>
+<div class="highlight"><pre><span></span><code>execfile<span class="o">(</span><span class="s1">&#39;esSecurityAdmin.py&#39;</span><span class="o">)</span><span class="w"> </span>enableSslForMetrics<span class="o">(</span><span class="s1">&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;</span>,<span class="w"> </span><span class="s1">&#39;password&#39;</span>,<span class="w"> </span><span class="s1">&#39;/opt/IBM/es_certs/chain-ca.pem&#39;</span>,<span class="w"> </span><span class="s1">&#39;30099&#39;</span><span class="o">)</span>
+</code></pre></div>
 <p>Disconnect from the wsadmin environment with <strong>quit</strong>.</p>
 </li>
 <li>
@@ -57197,11 +57250,13 @@ switchMetricsToElasticSearch<span class="o">()</span>
 <ol>
 <li>
 <p>On the WebSphere Deployment Manager, open wsadmin, making sure that you use the <code>-lang jython</code> option. For example, on Linux, run the following commands to open wsadmin:</p>
-<p><code>cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin sudo sh wsadmin.sh -lang jython -user wasadmin_user -password wasadmin_password</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>wsadmin.sh<span class="w"> </span>-lang<span class="w"> </span>jython<span class="w"> </span>-user<span class="w"> </span>wasadmin_user<span class="w"> </span>-password<span class="w"> </span>wasadmin_password
+</code></pre></div>
 </li>
 <li>
 <p>Merge the Signer certificate into the opensearch-metrics.p12 keystore:</p>
-<p><code>execfile('esSearchAdmin.py') enableSslForESSearc('KEYSTORE_FULL_PATH', 'OpenSearch_CA_PASSWORD', 'SIGNER_CA_FULL_PATH', 'OpenSearch_HTTPS_PORT')</code></p>
+<div class="highlight"><pre><span></span><code>execfile<span class="o">(</span><span class="s1">&#39;esSearchAdmin.py&#39;</span><span class="o">)</span><span class="w"> </span>enableSslForESSearc<span class="o">(</span><span class="s1">&#39;KEYSTORE_FULL_PATH&#39;</span>,<span class="w"> </span><span class="s1">&#39;OpenSearch_CA_PASSWORD&#39;</span>,<span class="w"> </span><span class="s1">&#39;SIGNER_CA_FULL_PATH&#39;</span>,<span class="w"> </span><span class="s1">&#39;OpenSearch_HTTPS_PORT&#39;</span><span class="o">)</span>
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>KEYSTORE_FULL_PATH</code>: See the following example.</li>
@@ -57214,7 +57269,8 @@ switchMetricsToElasticSearch<span class="o">()</span>
 </li>
 </ul>
 <p>For example:</p>
-<p><code>execfile('esSearchAdmin.py') enableSslForESSearch('/opt/IBM/es_certs/opensearch-metrics.p12','password', '/opt/IBM/es_certs/chain-ca.pem', '30099')</code></p>
+<div class="highlight"><pre><span></span><code>execfile<span class="o">(</span><span class="s1">&#39;esSearchAdmin.py&#39;</span><span class="o">)</span><span class="w"> </span>enableSslForESSearch<span class="o">(</span><span class="s1">&#39;/opt/IBM/es_certs/opensearch-metrics.p12&#39;</span>,<span class="s1">&#39;password&#39;</span>,<span class="w"> </span><span class="s1">&#39;/opt/IBM/es_certs/chain-ca.pem&#39;</span>,<span class="w"> </span><span class="s1">&#39;30099&#39;</span><span class="o">)</span>
+</code></pre></div>
 <p>Disconnect from the wsadmin environment with <strong>quit</strong>.</p>
 </li>
 <li>
@@ -57225,7 +57281,8 @@ switchMetricsToElasticSearch<span class="o">()</span>
 </li>
 <li>
 <p>Run the following script on the Connections Component Pack system. This will set highway settings for Connections to connect to OpenSearch:</p>
-<p><code>/usr/bin/python3 config_blue_metrics.py --skipSslCertCheck true --pinkhost &lt;&lt;hostname&gt;&gt; --namespace connections</code></p>
+<div class="highlight"><pre><span></span><code>/usr/bin/python3<span class="w"> </span>config_blue_metrics.py<span class="w"> </span>--skipSslCertCheck<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--pinkhost<span class="w"> </span>&lt;&lt;hostname&gt;&gt;<span class="w"> </span>--namespace<span class="w"> </span>connections
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>--skipSslCertCheck</code>: Set to true. Use on systems that use self-signed SSL certificates.</li>
@@ -57242,13 +57299,16 @@ switchMetricsToElasticSearch<span class="o">()</span>
 <li>
 <p>Connect to wsadmin and initialize Search Administration before running the actual wsadmin command.</p>
 <p>Open wsadmin and start the Search service by running the following commands. On Linux, for example, run:</p>
-<p><code>cd /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin./wsadmin.sh -lang jython -user User_name -password Password execfile('searchAdmin.py')</code></p>
-<p><code>SearchService.createES7QuickResultsIndex()</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin./wsadmin.sh<span class="w"> </span>-lang<span class="w"> </span>jython<span class="w"> </span>-user<span class="w"> </span>User_name<span class="w"> </span>-password<span class="w"> </span>Password<span class="w"> </span>execfile<span class="o">(</span><span class="s1">&#39;searchAdmin.py&#39;</span><span class="o">)</span>
+
+SearchService.createES7QuickResultsIndex<span class="o">()</span>
+</code></pre></div>
 <p>For information on running SearchService commands, see <a href="../admin/r_admin_searchservice_commands.html">SearchService commands</a>.</p>
 </li>
 <li>
-<p>Update the LotusConnections-config.xml file in the Deployment Manager profile configuration folder. Add the following statement to the <code>&lt;properties&gt;</code> section of the file:</p>
-<p><code>&lt;genericProperty name="quickResultsEnabled"&gt;true&lt;/genericProperty&gt;</code></p>
+<p>Update the <code>LotusConnections-config.xml</code> file in the Deployment Manager profile configuration folder. Add the following statement to the <code>&lt;properties&gt;</code> section of the file:</p>
+<div class="highlight"><pre><span></span><code>&lt;genericProperty<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;quickResultsEnabled&quot;</span>&gt;true&lt;/genericProperty&gt;
+</code></pre></div>
 </li>
 <li>
 <p>Update the search-config.xml file in the Deployment Manager profile configuration folder. Add the following statements to the <code>&lt;propertySettings&gt;</code>:</p>
@@ -57276,12 +57336,13 @@ switchMetricsToElasticSearch<span class="o">()</span>
 <ol>
 <li>
 <p>If not already added, add the community Helm repository:</p>
-<div class="highlight"><pre><span></span><code>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>ingress-nginx<span class="w"> </span>https://kubernetes.github.io/ingress-nginx
 </code></pre></div>
 </li>
 <li>
-<p>Update the ingress-nginx Helm repository:
-      <code>helm repo update ingress-nginx</code></p>
+<p>Update the ingress-nginx Helm repository:</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>update<span class="w"> </span>ingress-nginx
+</code></pre></div>
 </li>
 <li>
 <p>Install ingress-nginx:</p>
@@ -57357,12 +57418,14 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 <li>Start the wsadmin command. Refer to <a href="../admin/t_admin_wsadmin_starting.html">Starting the wsadmin client</a>.</li>
 <li>
 <p>Load the IBM Connections configuration file:</p>
-<p><code>execfile("connectionsConfig.py")</code></p>
+<div class="highlight"><pre><span></span><code>execfile<span class="o">(</span><span class="s2">&quot;connectionsConfig.py&quot;</span><span class="o">)</span>
+</code></pre></div>
 <p>If you are prompted to specify a service to connect to, type 1 to select the first node in the list. Most commands can run on any node. If the command writes or reads information to or from a file using a local file path, you must select the node where the file is stored. This information is not used by the wsadmin client when you are making configuration changes.</p>
 </li>
 <li>
 <p>Check out the IBM Connections configuration files:</p>
-<p><code>LCConfigService.checkOutConfig("working_directory","cell_name")</code></p>
+<div class="highlight"><pre><span></span><code>LCConfigService.checkOutConfig<span class="o">(</span><span class="s2">&quot;working_directory&quot;</span>,<span class="s2">&quot;cell_name&quot;</span><span class="o">)</span>
+</code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>working_directory</code> is the temporary working directory to which configuration files are copied. The files are kept in this working directory while you edit them.</li>
@@ -57378,7 +57441,7 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 </ul>
 </li>
 <li>
-<p>Open the checked-out LotusConnectionsConfig.xml file in an XML editor of your choice and add the property componentPackInstalled to the &lt;properties&gt; &lt;/properties&gt; tag as shown below:</p>
+<p>Open the checked-out <code>LotusConnectionsConfig.xml</code> file in an XML editor of your choice and add the property componentPackInstalled to the &lt;properties&gt; &lt;/properties&gt; tag as shown below:</p>
 <div class="highlight"><pre><span></span><code>&lt;properties&gt;
 <span class="w">   </span>&lt;genericProperty<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;ignore.lang.param&quot;</span>&gt;true&lt;/genericProperty&gt;
 <span class="w">   </span>&lt;genericProperty<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;elasticsearch.eSmajorVersion&quot;</span>&gt;7&lt;/genericProperty&gt;
@@ -57390,8 +57453,9 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 </code></pre></div>
 </li>
 <li>
-<p>Save and check in the LotusConnections-config.xml file:</p>
-<p><code>LCConfigService.checkInConfig()</code></p>
+<p>Save and check in the <code>LotusConnections-config.xml</code> file:</p>
+<div class="highlight"><pre><span></span><code>LCConfigService.checkInConfig<span class="o">()</span>
+</code></pre></div>
 <p>The file is validated, and you are notified if an error is found.</p>
 </li>
 <li>
@@ -57424,7 +57488,8 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">1</sp
 <ol>
 <li>
 <p>Delete the existing connections-outlook-desktop chart:</p>
-<p><code>helm uninstall connections-outlook-desktop -n connections</code></p>
+<div class="highlight"><pre><span></span><code>helm uninstall connections-outlook-desktop -n connections
+</code></pre></div>
 </li>
 <li>
 <p>Get the connections-outlook-desktop chart version that is available on Harbor OCI:</p>
@@ -57434,10 +57499,10 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the following steps.</p>
 </li>
 <li>
-<p>Download the j2 template outlook-addin.yml from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
+<p>Download the j2 template <code>outlook-addin.yml</code> from the <a href="https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars">HCL Connections deployment automation Git repository</a> and modify it according to your environment.</p>
 </li>
 <li>
-<p>Update the add-in Docker environment variables, which are located in the outlook-addin.yaml file. These are passed into the Outlook add-in Docker instance on startup:</p>
+<p>Update the add-in Docker environment variables, which are located in the <code>outlook-addin.yaml</code> file. These are passed into the Outlook add-in Docker instance on startup:</p>
 <ul>
 <li>
 <p>What must be overriden:</p>
@@ -57453,7 +57518,7 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 <li><code>CONTEXT_ROOT</code> - The path to where the Outlook add-in is being served, relative to the <code>CONNECTIONS_URL</code>. Do NOT start or end with <code>/.</code> (default: outlook-addin)</li>
 <li><code>SUPPORT_URL</code> - URL that a user can go to for support (help). (default: [https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html](https://opensource.hcltechsw.com/connections-doc/connectors/enduser/c_ms_plugins_add_in_outlook.html%5C))</li>
 <li><code>CONNECTIONS_NAME</code> – A custom name for the add-in. (default: 'HCL Connections')</li>
-<li><code>EWS_HOSTNAME</code> – The hostname for Exchange Web Services. (default: 'outlook.office365.com')</li>
+<li><code>EWS_HOSTNAME</code> – The hostname for Exchange Web Services. (default: <code>outlook.office365.com</code>)</li>
 </ul>
 </li>
 <li>

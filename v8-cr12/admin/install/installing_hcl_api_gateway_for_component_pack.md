@@ -121,12 +121,12 @@ Complete the following steps to install the Apache APISIX Helm chart:
             ```sh
             helm show all <<oci_registry_url>>/hcl-api-gateway --devel | grep "^tag:" 
             output: 
-              tag: 20251010-082629
+              tag: 20251028-124319
             ```
             Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the component pack install steps.
 
 
-          ```
+          ```sh
           global:
             imagePullSecrets:
               - myregkey
@@ -138,7 +138,7 @@ Complete the following steps to install the Apache APISIX Helm chart:
               mountPath: /usr/local/apisix/hcl/cnx/scripts
           extraInitContainers:
             - name: copy-cnx-custom-scripts
-              image: hclcr.io/cnx/hcl-api-gateway-config:20251010-082629
+              image: hclcr.io/cnx/hcl-api-gateway-config:20251028-124319
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c", "cp -r /app/hcl/cnx/* /usr/local/apisix/hcl/cnx/scripts"]
               securityContext:
@@ -281,7 +281,7 @@ Complete the following steps to install the HCL API Gateway Helm chart:
     ```sh
     helm show all <<oci_registry_url>>/hcl-api-gateway --devel | grep "^version:" 
     output:
-     version: 0.1.0-20251010-082629
+     version: 0.1.0-20251028-124319
     ```
 
     Get the `__hcl_api_gateway_config_image_tag` for hcl-api-gateway-config image that is available on Harbor OCI by executing the following command:
@@ -289,7 +289,7 @@ Complete the following steps to install the HCL API Gateway Helm chart:
     ```sh
     helm show all <<oci_registry_url>>/hcl-api-gateway --devel | grep "^tag:" 
     output: 
-      tag: 20251010-082629
+      tag: 20251028-124319
     ```
 
     Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the component pack install steps.
@@ -322,7 +322,7 @@ Complete the following steps to install the HCL API Gateway Helm chart:
               port: 443
       swaggerUi:
         enabled: true
-        image: hclcr.io/cnx/hcl-api-gateway-config:20251010-082629
+        image: hclcr.io/cnx/hcl-api-gateway-config:20251028-124319
         imagePullSecrets:
           - myregkey
         serverUrl: https://*.example.com/connections/api/v2

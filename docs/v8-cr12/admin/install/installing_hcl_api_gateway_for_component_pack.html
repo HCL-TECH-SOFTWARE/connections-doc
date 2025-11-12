@@ -55850,115 +55850,115 @@ helm<span class="w"> </span>repo<span class="w"> </span>update<span class="w"> <
 <p>Get the <code>__hcl_api_gateway_config_image_tag</code> for hcl-api-gateway-config image that is available on Harbor OCI by executing the following command:</p>
 <p><div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^tag:&quot; </span>
 <span class="s">o</span>utput:<span class="w"> </span>
-<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251010</span>-082629
+<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251028</span>-124319
 </code></pre></div>
 Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the component pack install steps.</p>
 </div>
 <div class="highlight"><pre><span></span><code>global:
-  imagePullSecrets:
-    - myregkey
+<span class="w">  </span>imagePullSecrets:
+<span class="w">    </span>-<span class="w"> </span>myregkey
 extraVolumes:
-  - name: cnx-custom-scripts
-    emptyDir: {}
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>cnx-custom-scripts
+<span class="w">    </span>emptyDir:<span class="w"> </span><span class="o">{}</span>
 extraVolumeMounts:
-  - name: cnx-custom-scripts
-    mountPath: /usr/local/apisix/hcl/cnx/scripts
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>cnx-custom-scripts
+<span class="w">    </span>mountPath:<span class="w"> </span>/usr/local/apisix/hcl/cnx/scripts
 extraInitContainers:
-  - name: copy-cnx-custom-scripts
-    image: hclcr.io/cnx/hcl-api-gateway-config:20251010-082629
-    imagePullPolicy: IfNotPresent
-    command: [&quot;/bin/sh&quot;, &quot;-c&quot;, &quot;cp -r /app/hcl/cnx/* /usr/local/apisix/hcl/cnx/scripts&quot;]
-    securityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-      allowPrivilegeEscalation: false
-    volumeMounts:
-      - name: cnx-custom-scripts
-        mountPath: /usr/local/apisix/hcl/cnx/scripts
-fullnameOverride: core-apisix
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>copy-cnx-custom-scripts
+<span class="w">    </span>image:<span class="w"> </span>hclcr.io/cnx/hcl-api-gateway-config:20251028-124319
+<span class="w">    </span>imagePullPolicy:<span class="w"> </span>IfNotPresent
+<span class="w">    </span>command:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;/bin/sh&quot;</span>,<span class="w"> </span><span class="s2">&quot;-c&quot;</span>,<span class="w"> </span><span class="s2">&quot;cp -r /app/hcl/cnx/* /usr/local/apisix/hcl/cnx/scripts&quot;</span><span class="o">]</span>
+<span class="w">    </span>securityContext:
+<span class="w">      </span>runAsUser:<span class="w"> </span><span class="m">1001</span>
+<span class="w">      </span>runAsGroup:<span class="w"> </span><span class="m">1001</span>
+<span class="w">      </span>allowPrivilegeEscalation:<span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span>volumeMounts:
+<span class="w">      </span>-<span class="w"> </span>name:<span class="w"> </span>cnx-custom-scripts
+<span class="w">        </span>mountPath:<span class="w"> </span>/usr/local/apisix/hcl/cnx/scripts
+fullnameOverride:<span class="w"> </span>core-apisix
 service:
-  type: NodePort
-  http:
-    nodePort: 31080
-  tls:
-    nodePort: 31443 
+<span class="w">  </span>type:<span class="w"> </span>NodePort
+<span class="w">  </span>http:
+<span class="w">    </span>nodePort:<span class="w"> </span><span class="m">31080</span>
+<span class="w">  </span>tls:
+<span class="w">    </span>nodePort:<span class="w"> </span><span class="m">31443</span><span class="w"> </span>
 ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-  tls:
-    - hosts:
-        - &quot;*.internal.example.com&quot;
-        - &quot;*.example.com&quot;
-      secretName: ingress-nginx-tls-secret
-  hosts:
-    - host: &quot;*.internal.example.com&quot;
-      paths:
-        - /connections/api/v2/(.*)?
-    - host: &quot;*.example.com&quot;
-      paths:
-        - /connections/api/v2/(.*)? 
+<span class="w">  </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span>annotations:
+<span class="w">    </span>kubernetes.io/ingress.class:<span class="w"> </span>nginx
+<span class="w">    </span>nginx.ingress.kubernetes.io/rewrite-target:<span class="w"> </span>/<span class="nv">$1</span>
+<span class="w">  </span>tls:
+<span class="w">    </span>-<span class="w"> </span>hosts:
+<span class="w">        </span>-<span class="w"> </span><span class="s2">&quot;*.internal.example.com&quot;</span>
+<span class="w">        </span>-<span class="w"> </span><span class="s2">&quot;*.example.com&quot;</span>
+<span class="w">      </span>secretName:<span class="w"> </span>ingress-nginx-tls-secret
+<span class="w">  </span>hosts:
+<span class="w">    </span>-<span class="w"> </span>host:<span class="w"> </span><span class="s2">&quot;*.internal.example.com&quot;</span>
+<span class="w">      </span>paths:
+<span class="w">        </span>-<span class="w"> </span>/connections/api/v2/<span class="o">(</span>.*<span class="o">)</span>?
+<span class="w">    </span>-<span class="w"> </span>host:<span class="w"> </span><span class="s2">&quot;*.example.com&quot;</span>
+<span class="w">      </span>paths:
+<span class="w">        </span>-<span class="w"> </span>/connections/api/v2/<span class="o">(</span>.*<span class="o">)</span>?<span class="w"> </span>
 apisix:
-  customPlugins:
-    enabled: true
-    luaPath: &quot;/usr/local/apisix/hcl/cnx/scripts/?.lua;;&quot;
-    plugins: []
-  ssl:
-    enabled: true
-  admin:
-    enabled: true
-    enable_admin_ui: true
-    credentials:
-      secretName: apisix-admin-secret
-      secretAdminKey: admin-password
-      secretViewerKey: viewer-password
-    ingress:
-      enabled: true
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/rewrite-target: /$1$2
-      hosts:
-        - host: &quot;*.internal.example.com&quot;
-          paths:
-            - /(ui|apisix)(/.*)?
-        - host: &quot;*.example.com&quot;
-          paths:
-            - /(ui|apisix)(/.*)?
-      tls:
-        - hosts:
-            - &quot;*.internal.example.com&quot;
-            - &quot;*.example.com&quot;
-          secretName: ingress-nginx-tls-secret
-  nginx:
-    workerProcesses: 4
+<span class="w">  </span>customPlugins:
+<span class="w">    </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>luaPath:<span class="w"> </span><span class="s2">&quot;/usr/local/apisix/hcl/cnx/scripts/?.lua;;&quot;</span>
+<span class="w">    </span>plugins:<span class="w"> </span><span class="o">[]</span>
+<span class="w">  </span>ssl:
+<span class="w">    </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span>admin:
+<span class="w">    </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>enable_admin_ui:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>credentials:
+<span class="w">      </span>secretName:<span class="w"> </span>apisix-admin-secret
+<span class="w">      </span>secretAdminKey:<span class="w"> </span>admin-password
+<span class="w">      </span>secretViewerKey:<span class="w"> </span>viewer-password
+<span class="w">    </span>ingress:
+<span class="w">      </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">      </span>annotations:
+<span class="w">        </span>kubernetes.io/ingress.class:<span class="w"> </span>nginx
+<span class="w">        </span>nginx.ingress.kubernetes.io/rewrite-target:<span class="w"> </span>/<span class="nv">$1$2</span>
+<span class="w">      </span>hosts:
+<span class="w">        </span>-<span class="w"> </span>host:<span class="w"> </span><span class="s2">&quot;*.internal.example.com&quot;</span>
+<span class="w">          </span>paths:
+<span class="w">            </span>-<span class="w"> </span>/<span class="o">(</span>ui<span class="p">|</span>apisix<span class="o">)(</span>/.*<span class="o">)</span>?
+<span class="w">        </span>-<span class="w"> </span>host:<span class="w"> </span><span class="s2">&quot;*.example.com&quot;</span>
+<span class="w">          </span>paths:
+<span class="w">            </span>-<span class="w"> </span>/<span class="o">(</span>ui<span class="p">|</span>apisix<span class="o">)(</span>/.*<span class="o">)</span>?
+<span class="w">      </span>tls:
+<span class="w">        </span>-<span class="w"> </span>hosts:
+<span class="w">            </span>-<span class="w"> </span><span class="s2">&quot;*.internal.example.com&quot;</span>
+<span class="w">            </span>-<span class="w"> </span><span class="s2">&quot;*.example.com&quot;</span>
+<span class="w">          </span>secretName:<span class="w"> </span>ingress-nginx-tls-secret
+<span class="w">  </span>nginx:
+<span class="w">    </span>workerProcesses:<span class="w"> </span><span class="m">4</span>
 ingress-controller:
-  enabled: true
-  config:
-    kubernetes:
-      ingressClass: &lt;&lt;namespace&gt;&gt;-apisix-ingress-class #e.g connections-apisix-ingress-class
-  apisix:
-    adminService:
-      name: core-apisix-admin
-      namespace: &lt;&lt;namespace&gt;&gt; #e.g. connections
-      port: 9180
-  gatewayProxy:
-    createDefault: true
-    provider:
-      controlPlane:
-        auth:
-          adminKey:
-            value: password
-etcd:
-  enabled: true
-  replicaCount: 3
-  persistence:
-    enabled: true
-    size: 10Gi
-    storageClass: &quot;&lt;&lt;namespace&gt;&gt;-apisix-sc&quot; #e.g. connections-apisix-sc
-    selector:
-      matchLabels:
-        attachTo: &lt;&lt;namespace&gt;&gt;-apisix-etcd #e.g. connections-apisix-etcd
+<span class="w">  </span>enabled:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span>config:
+<span class="w">    </span>kubernetes:
+<span class="w">      </span>ingressClass:<span class="w"> </span><span class="s">&lt;&lt;namespace&gt;&gt;-apisix-ingress-class #e.g connections-apisix-ingress-class</span>
+<span class="s">  apisix:</span>
+<span class="s">    adminService:</span>
+<span class="s">      name: core-apisix-admin</span>
+<span class="s">      namespace</span>:<span class="w"> </span><span class="s">&lt;&lt;namespace&gt;&gt; #e.g. connections</span>
+<span class="s">      port: 9180</span>
+<span class="s">  gatewayProxy:</span>
+<span class="s">    createDefault: true</span>
+<span class="s">    provider:</span>
+<span class="s">      controlPlane:</span>
+<span class="s">        auth:</span>
+<span class="s">          adminKey:</span>
+<span class="s">            value: password</span>
+<span class="s">etcd:</span>
+<span class="s">  enabled: true</span>
+<span class="s">  replicaCount: 3</span>
+<span class="s">  persistence:</span>
+<span class="s">    enabled: true</span>
+<span class="s">    size: 10Gi</span>
+<span class="s">    storageClass: &quot;&lt;&lt;namespace</span>&gt;&gt;-apisix-sc<span class="s2">&quot; #e.g. connections-apisix-sc</span>
+<span class="s2">    selector:</span>
+<span class="s2">      matchLabels:</span>
+<span class="s2">        attachTo: &lt;&lt;namespace&gt;&gt;-apisix-etcd #e.g. connections-apisix-etcd</span>
 </code></pre></div>
 </li>
 </ol>
@@ -56006,12 +56006,12 @@ etcd:
 <p>Get the hcl-api-gateway chart version and hcl-api-gateway-config image tag that is available on Harbor OCI by executing the following command:</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^versio</span>n:<span class="s2">&quot; </span>
 <span class="s2">output:</span>
-<span class="s2"> version: 0.1.0-20251010-082629</span>
+<span class="s2"> version: 0.1.0-20251028-124319</span>
 </code></pre></div>
 <p>Get the <code>__hcl_api_gateway_config_image_tag</code> for hcl-api-gateway-config image that is available on Harbor OCI by executing the following command:</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>show<span class="w"> </span>all<span class="w"> </span><span class="s">&lt;&lt;oci_registry_url&gt;&gt;/hcl-api-gateway --devel | grep &quot;^tag:&quot; </span>
 <span class="s">o</span>utput:<span class="w"> </span>
-<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251010</span>-082629
+<span class="w">  </span>tag:<span class="w"> </span><span class="m">20251028</span>-124319
 </code></pre></div>
 <p>Where <code>&lt;&lt;oci_registry_url&gt;&gt;</code> is the Harbor OCI container registry uri, that is <code>oci://hclcr.io/cnx</code>. This applies to other instances of <code>&lt;&lt;oci_registry_url&gt;&gt;</code> in the component pack install steps.</p>
 </li>
@@ -56045,7 +56045,7 @@ etcd:
 <span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
 <span class="nt">swaggerUi</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hclcr.io/cnx/hcl-api-gateway-config:20251010-082629</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hclcr.io/cnx/hcl-api-gateway-config:20251028-124319</span>
 <span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myregkey</span>
 <span class="w">  </span><span class="nt">serverUrl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://*.example.com/connections/api/v2</span>
