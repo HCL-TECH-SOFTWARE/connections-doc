@@ -125,7 +125,7 @@ Header always set Content-Security-Policy "frame-ancestors 'self' *.office365.co
 
 ## HCL API Gateway {#hcl_api_gw_https .section}
 
-After installing HCL API Gateway \(see [Install HCL API Gateway](cp_install_services_tasks.md#install-hcl_api-gateway-on-hcl-connections-component-pack)\), add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
+After installing HCL API Gateway \(see [Install HCL API Gateway](cp_install_services_tasks.md#hcl_api_gateway)\), add the following rules to your httpd.conf on your IBM HTTP servers and restart the service:
 
 ``` {#codeblock_q5b_fjj_gvb}
 # proxy rules for hcl-api-gateway 

@@ -44,6 +44,12 @@ This table provides information about the Kubernetes versions that are tested an
 | CR11         | Kubernetes 1.33.1       |  
 | CR10         | Kubernetes 1.32.1       |      
 
+!!! warning
+    
+    Kubernetes version 1.33 or later no longer supports [kernel version 4.18.0-553.el8_10](https://github.com/kubernetes/system-validators/pull/48), which is used by [Red Hat Enterprise Linux 8](https://access.redhat.com/articles/red-hat-enterprise-linux-release-dates#RHEL8), and installing it on this OS is not supported.
+
+    
+
 !!! note
 
     Connections strives to support the latest three versions of Kubernetes. However, please be aware that OpenShift and EKS may not always align with this support cadence and could lag behind the latest Kubernetes versions.

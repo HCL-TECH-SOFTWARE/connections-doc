@@ -55621,6 +55621,10 @@ If you encounter an issue on an unsupported or untested Kubernetes version, you 
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Kubernetes version 1.33 or later no longer supports <a href="https://github.com/kubernetes/system-validators/pull/48">kernel version 4.18.0-553.el8_10</a>, which is used by <a href="https://access.redhat.com/articles/red-hat-enterprise-linux-release-dates#RHEL8">Red Hat Enterprise Linux 8</a>, and installing it on this OS is not supported.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Connections strives to support the latest three versions of Kubernetes. However, please be aware that OpenShift and EKS may not always align with this support cadence and could lag behind the latest Kubernetes versions.</p>

@@ -31,8 +31,13 @@ For more details, refer to [HCL Connections support statement](https://help.hcl-
 |OS|OS minimum|Hardware|Bitness|Product minimum|Support level|
 |--|----------|--------|-------|---------------|-------------|
 |IBM Red Hat Enterprise Linux (RHEL) Server|9.2 (1)|x86-64|64-Tolerate|8.0 CR4|Supported Configuration|
+|IBM Red Hat Enterprise Linux (RHEL) Server|8.6 (1,2)|x86-64|64-Tolerate|8.0|Supported Configuration|
 |SUSE Linux Enterprise Server (SLES)|15 (1)|x86-64|64-Tolerate|8.0 CR7|Supported Configuration|
 |AlmaLinux|9.3 (1)|x86-64|64-Tolerate|8.0 CR5|Other Configuration|
+
+Additional details:
+
+(2) Kubernetes version 1.33 or later is not supported on Red Hat Enterprise Linux (RHEL) Server 8.0 or later. Refer to [Kubernetes Runtime](https://help.hcl-software.com/connections/latest/admin/install/cp_kubernetes_runtime.html) for more details.
 
 #### Microsoft Windows Family
 
@@ -120,7 +125,7 @@ Additional details:
 
 |E-mail application|Version|Product minimum|Support level|
 |--|--|--|--|
-|HCL Notes|12.0, 14.0 (1)|8.0|Supported Configuration|
+|HCL Notes|12.0, 14.0, 14.5 (1)|8.0|Supported Configuration|
 |Microsoft Outlook|365|8.0|Supported Configuration|
 
 #### Identity management 
@@ -143,7 +148,7 @@ Additional details:
 
 |LDAP Server|Version|Product minimum|Support level|
 |--|--|--|--|
-|HCL Domino|12.0, 14.0 (1, 2)|8.0|Supported Configuration|
+|HCL Domino|12.0, 14.0, 14.5 (1, 2)|8.0|Supported Configuration|
 |IBM Security Verify Directory|10.0 (1, 2)|8.0 CR8|Supported Configuration|
 |Microsoft Active Directory|2016 (1, 2)|8.0|Other Configuration|
 |OpenLDAP|2.6.8 (1, 3)|8.0|Supported Configuration|
@@ -263,7 +268,6 @@ Refer to [Kubernetes Runtime](https://help.hcl-software.com/connections/latest/a
 |IBM HTTP Server|8.5.5.23 and below|
 |IBM Installation Manager|1.8.5|
 |IBM Red Hat Enterprise Linux (RHEL) Server|7.x|
-|IBM Red Hat Enterprise Linux (RHEL) Server|8.x|
 |IBM Security Directory Integrator|7.2 in IBM Java 7 Runtime Environment|
 |IBM Security Directory Server|6.4|
 |IBM WebSphere Application Server Network Deployment|8.5.5.23 and below|
