@@ -14,10 +14,14 @@ Find out about features that are new or updated in this release of HCL Connectio
 
 **System requirements**
 
-- Refer to the [HCL Connections 8.0 CR12 System Requirements](system_requirements.md).
+!!! Attention
 
-- For the Connections 8.0 CR12 Component Pack, see [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
+    The HCL Connections System Requirements and Kubernetes Runtime documentation have been updated to provide clearer guidance on supported packages. The System Requirements now focus solely on the Connections Server, while the Kubernetes Runtime documentation—now titled Kubernetes Runtime and Component Pack Middleware—covers all Kubernetes environment and Component Pack requirements.
 
+- Refer to the [HCL Connections 8.0 CR12 Server System Requirements](system_requirements.md).
+- For the Connections 8.0 CR12 Component Pack, refer to:
+     - [Kubernetes Runtime and Component Pack Middleware](../../admin/install/cp_kubernetes_runtime.md).
+    -  [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
 
 ## Redis 7 support
 
