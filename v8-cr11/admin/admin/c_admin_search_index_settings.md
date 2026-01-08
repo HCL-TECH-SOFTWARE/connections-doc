@@ -18,8 +18,10 @@ By default, the Search index is stored in the search/index subdirectory of the H
 When you install HCL Connections, the installation wizard automatically configures authentication and authorization for each application. Crawling content for indexing occurs over an internal REST API interface, and the credentials used are retrieved from the connectionsAdmin J2C authentication alias that is configured during installation. The user ID from the credentials is also added to the search-admin Java EE role for each application. If you want to further secure the HCL Connections environment, you can override this authentication alias on an application-by-application basis.
 -   **[Search and globalization](../admin/c_admin_search_globalization.md)**  
 You can configure globalization settings to enable users to perform accent-insensitive searches, ignore punctuation in search terms, and perform a one-to-two mapping in search terms. Search globalization settings are disabled by default.
+-   **[Enabling Additional Performance Tuning for Lucene](../admin/c_admin_search_performance_tuning.md)**  
+An additional performance tuning parameter can be enabled to allieviate any issues with Lucene when indexing components that have larger amounts of entries.
 
-**Parent topic:**[Managing the Search index](../admin/c_admin_search_manage_index.md)
+**Parent topic:** [Managing the Search index](../admin/c_admin_search_manage_index.md)
 
 **Related information**  
 

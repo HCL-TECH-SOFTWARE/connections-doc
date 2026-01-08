@@ -248,7 +248,6 @@ nav:
                   - Create a Tiny Editors Services specific SSL configuration: admin/install/tiny_editors/t_01-setup_02-services_02-certificates_03-create-a-services-specific-ssl-config.md
                 -   Installing the Tiny Editors Services: admin/install/tiny_editors/t_01-setup_02-services_03-install.md
                 -   Starting the Tiny Editors Services application: admin/install/tiny_editors/t_01-setup_02-services_04-start.md
-                -   Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
             - Installing the Tiny Editors integration:
               - admin/install/tiny_editors/t_01-setup_03-editors_00-summary.md 
               - Configuring the Tiny Editors integration:
@@ -409,6 +408,7 @@ nav:
         -  Post-installation tasks:
            - admin/install/r_post-installation_tasks.md
            - Registering custom widgets: admin/install/inst_post_reg_custom_widgets.md
+           - Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
            - Reviewing the JVM heap size: admin/install/t_increase_jvm_heap.md
            - Configuring the community creation wizard: admin/install/t_configure_community_wizard.md
            - Configuring IBM HTTP Server:
@@ -1090,6 +1090,7 @@ nav:
                 - Changing the location of the Search index: admin/admin/t_admin_homepage_change_index_location.md
                 - Configuring J2C authentication for Search: admin/admin/t_search_configure_j2c.md
                 - Search and globalization: admin/admin/c_admin_search_globalization.md
+                - Enabling Additional Performance Tuning for Lucene: admin/admin/c_admin_search_performance_tuning.md
               - Verifying Search: 
                 - admin/admin/c_admin_search_verify_search.md
                 - Verifying Search index creation: admin/admin/t_admin_search_verify_index_creation.md

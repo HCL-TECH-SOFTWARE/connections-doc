@@ -64,3 +64,5 @@ Influence the quality and ranking of search results by configuring a boost to th
 
 [Restoring the Search index](../admin/c_admin_search_restore_index.md)
 
+[Enabling Additional Performance Tuning for Lucene](../admin/c_admin_search_performance_tuning.md)
+
