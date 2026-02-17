@@ -901,6 +901,8 @@
       
         
       
+        
+      
     
     
       
@@ -2286,6 +2288,13 @@
 <p>Stop the node agent so the <code>temp</code> directory can be cleaned out in the next step.</p>
 </li>
 <li>
+<p>Delete the contents of the cache under the App Server (for example, <code>C:\\IBM\\WebSphere\\AppServer\\profiles\\AppSrv01\\temp\</code>).</p>
+</li>
+<li>
+<p>Start the node agents, then perform a full synchronization to push the update to all nodes.</p>
+<p>Check the <code>systemOut.log</code> of each nodeagent to ensure synchronization completed successfully.</p>
+</li>
+<li>
 <p>Generate a new plug-in by completing the following steps:</p>
 <ul>
 <li>Still in the <strong>Integrated Solutions Console</strong>, click on <strong>Servers</strong> &gt; <strong>Server Types</strong> &gt; <strong>Webservers</strong>.</li>
@@ -2294,20 +2303,16 @@
 </ul>
 </li>
 <li>
-<p>Delete the contents of the cache under the App Server (for example, <code>C:\\IBM\\WebSphere\\AppServer\\profiles\\AppSrv01\\temp\</code>).</p>
-</li>
-<li>
-<p>Start the node agents, then perform a full synchronization to push the update to all nodes.</p>
-<p>Check the <code>systemOut.log</code> of each nodeagent to ensure synchronization completed successfully.</p>
-</li>
-<li>
 <p><strong>[Optional] Post Installation Task</strong> -  Follow the instructions in the <a href="../customize/t_admin_common_customize_postreq.html">Post-customization step</a> topic to automatically clear the browser cache for end users the next time they login into Connections.</p>
 </li>
 <li>
 <p>Start the Connections server</p>
 </li>
 </ol>
-<p><strong>Note:</strong> If your deployment includes Component Pack, complete the steps in <a href="../install/cp_install_upgrade_container.html">Upgrading Component Pack Services</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your deployment includes Component Pack, complete the steps in <a href="../install/cp_install_upgrade_container.html">Upgrading Component Pack Services</a>.</p>
+</div>
 <p><strong>Parent topic:</strong> <a href="c_installing_fix-packs.html">Updating HCL Connections 8.0 with the latest Cumulative Refresh (CR)</a></p>
 
 
