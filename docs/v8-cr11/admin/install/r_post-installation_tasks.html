@@ -903,6 +903,8 @@
       
         
       
+        
+      
     
     
       
@@ -1020,6 +1022,27 @@
   
   <span class="md-ellipsis">
     Registering custom widgets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tiny_editors/t_regenerate-webserver-plugin.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Regenerate the webserver plugin
   </span>
   
 
@@ -1972,11 +1995,16 @@
 <h2 class="section" id="tasks-to-be-completed">Tasks to be completed</h2>
 <p>After running the wizards to install applications and create databases, check which of the following additional tasks you need to complete.</p>
 <p>Some post-installation tasks are mandatory while others are optional and depend on your deployment choices. Unless <em>optional</em> is indicated, any listed post-installation task should be considered mandatory.</p>
-<p><strong>Important:</strong> Once you complete the mandatory tasks, update the deployment with the latest fixes. For more information, see the <a href="../migrate/c_updating_interim_fixes.html">Updating Connections 8.0 with the latest fixes</a> topic in the <em>Migrating and updating</em> section of this guide.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Once you complete the mandatory tasks, update the deployment with the latest fixes. For more information, see the <a href="../migrate/c_updating_interim_fixes.html">Updating Connections 8.0 with the latest fixes</a> topic in the <em>Migrating and updating</em> section of this guide.</p>
+</div>
 <p>Each post-installation task is described in a separate topic.</p>
 <ul>
 <li><strong><a href="inst_post_reg_custom_widgets.html">Registering custom widgets</a></strong><br />
 Register all custom and third-party widgets starting with HCL Connections™ 6 CR1 \IFR1 to ensure they meet security requirements and can display in communities.</li>
+<li><strong><a href="tiny_editors/t_regenerate-webserver-plugin.html">Regenerate the webserver plugin</a></strong>
+Regenerate and propagate the web server plugin after performing an update or installation that affects the web server configuration.</li>
 <li><strong><a href="t_increase_jvm_heap.html">Reviewing the JVM heap size</a></strong><br />
 Review the size of the Java™ Virtual Machine heap and adjust it, if necessary, to avoid out-of-memory errors or to suit your hardware capabilities.</li>
 <li><strong><a href="t_configure_community_wizard.html">Configuring the community creation wizard</a></strong><br />

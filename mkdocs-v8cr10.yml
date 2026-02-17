@@ -243,7 +243,6 @@ nav:
                   - Create a Tiny Editors Services specific SSL configuration: admin/install/tiny_editors/t_01-setup_02-services_02-certificates_03-create-a-services-specific-ssl-config.md
                 -   Installing the Tiny Editors Services: admin/install/tiny_editors/t_01-setup_02-services_03-install.md
                 -   Starting the Tiny Editors Services application: admin/install/tiny_editors/t_01-setup_02-services_04-start.md
-                -   Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
             - Installing the Tiny Editors integration:
               - admin/install/tiny_editors/t_01-setup_03-editors_00-summary.md 
               - Configuring the Tiny Editors integration:
@@ -356,12 +355,12 @@ nav:
               - Enabling profiles events for Orient Me: admin/install/cp_config_om_enable_profiles_events.md
               - Configuring the Top Updates home page: admin/install/cp_config_om_enable_notifications.md
               - Creating WebSEAL junctions for Orient Me: admin/install/cp_config_om_create_webseal_junctions.md
-              - Enabling and securing Redis traffic to Orient Me:
-                - admin/install/cp_config_om_redis_traffic.md
-                - Manually configuring Redis traffic to Orient Me: admin/install/cp_config_om_redis_enable.md
-                - Securing Redis traffic to Orient Me (Linux): admin/install/cp_config_om_redis_secure_linux.md
-                - Securing Redis traffic to Orient Me (Windows): admin/install/cp_config_om_redis_secure_windows.md
-                - Verifying Redis server traffic: admin/install/cp_config_om_redis_verify.md
+              - Enabling and securing Cache Service traffic to Homepage:
+                - admin/install/cp_config_om_cache_service_traffic.md
+                - Manually configuring Cache Service traffic to Homepage: admin/install/cp_config_om_cache_service_enable.md
+                - Securing Cache Service traffic to Homepage (Linux): admin/install/cp_config_om_cache_service_secure_linux.md
+                - Securing Cache Service traffic to Homepage (Windows): admin/install/cp_config_om_cache_service_secure_windows.md
+                - Verifying Cache Service server traffic: admin/install/cp_config_om_cache_service_verify.md
               - Populating the Top Updates home page:
                 - admin/install/cp_config_om_populate_home_page.md
                 - Preparing to migrate data: admin/install/cp_config_om_prepare_migrate_profiles.md
@@ -401,6 +400,7 @@ nav:
         -  Post-installation tasks:
            - admin/install/r_post-installation_tasks.md
            - Registering custom widgets: admin/install/inst_post_reg_custom_widgets.md
+           - Regenerate the webserver plugin: admin/install/tiny_editors/t_regenerate-webserver-plugin.md
            - Reviewing the JVM heap size: admin/install/t_increase_jvm_heap.md
            - Configuring the community creation wizard: admin/install/t_configure_community_wizard.md
            - Configuring IBM HTTP Server:

@@ -1,11 +1,16 @@
-[ 
+[
   {
     "version": "latest", 
-	"title": "v8-cr12", 
+	"title": "v8-cr13", 
 	"aliases": ["latest"]
   },
   {
-    "version": "latest", 
+    "version": "v8-cr12", 
+	"title": "v8-cr12", 
+	"aliases": []
+  },
+  {
+    "version": "v8-cr11", 
 	"title": "v8-cr11", 
 	"aliases": []
   },
@@ -15,53 +20,8 @@
 	"aliases": []
   },
   {
-    "version": "v8-cr9", 
-	"title": "v8-cr9", 
-	"aliases": []
-  },
-    {
-    "version": "v8-cr8", 
-	"title": "v8-cr8", 
-	"aliases": []
-  },
-  {
-    "version": "v8-cr7",
-	"title": "v8-cr7",
-	"aliases": []
-  },
-  {
-    "version": "v8-cr6", 
-	"title": "v8-cr6", 
-	"aliases": []
-  },
-  {
-	"version": "v8-cr5",
-    "title": "v8-cr5",
-    "aliases": []
-  },
-  {
-    "version": "v8-cr4", 
-	"title": "v8-cr4", 
-	"aliases": []
-  },
-  {
-    "version": "v8-cr3",
-	"title": "v8-cr3", 
-	"aliases": []
-  }, 
-  {
-    "version": "v8-cr2", 
-	"title": "v8-cr2", 
-	"aliases": []
-  }, 
-  {
-    "version": "v8-cr1", 
-	"title": "v8-cr1", 
-	"aliases": []
-  },
-  {
-    "version": "v8", 
-	"title": "v8", 
-	"aliases": []
-  }
+    "version": "Archive",
+    "title": "Archive",
+    "aliases": ["push"]
+  }  
 ]

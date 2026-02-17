@@ -358,12 +358,12 @@ nav:
               - Enabling profiles events for Orient Me: admin/install/cp_config_om_enable_profiles_events.md
               - Configuring the Top Updates home page: admin/install/cp_config_om_enable_notifications.md
               - Creating WebSEAL junctions for Orient Me: admin/install/cp_config_om_create_webseal_junctions.md
-              - Enabling and securing Redis traffic to Homepage:
-                - admin/install/cp_config_om_redis_traffic.md
-                - Manually configuring Redis traffic to Homepage: admin/install/cp_config_om_redis_enable.md
-                - Securing Redis traffic to Homepage (Linux): admin/install/cp_config_om_redis_secure_linux.md
-                - Securing Redis traffic to Homepage (Windows): admin/install/cp_config_om_redis_secure_windows.md
-                - Verifying Redis server traffic: admin/install/cp_config_om_redis_verify.md
+              - Enabling and securing Cache Service traffic to Homepage:
+                - admin/install/cp_config_om_cache_service_traffic.md
+                - Manually configuring Cache Service traffic to Homepage: admin/install/cp_config_om_cache_service_enable.md
+                - Securing Cache Service traffic to Homepage (Linux): admin/install/cp_config_om_cache_service_secure_linux.md
+                - Securing Cache Service traffic to Homepage (Windows): admin/install/cp_config_om_cache_service_secure_windows.md
+                - Verifying Cache Service server traffic: admin/install/cp_config_om_cache_service_verify.md
               - Populating the Top Updates home page:
                 - admin/install/cp_config_om_populate_home_page.md
                 - Preparing to migrate data: admin/install/cp_config_om_prepare_migrate_profiles.md
