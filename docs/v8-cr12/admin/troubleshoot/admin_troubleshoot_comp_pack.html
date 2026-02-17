@@ -8358,7 +8358,7 @@
             
   
   <span class="md-ellipsis">
-    Enabling and securing Cache Service traffic to Homepage
+    Enabling and securing Redis traffic to Homepage
   </span>
   
 
@@ -8368,7 +8368,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_5_7_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5_7_3_6">
             <span class="md-nav__icon md-icon"></span>
-            Enabling and securing Cache Service traffic to Homepage
+            Enabling and securing Redis traffic to Homepage
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -8379,11 +8379,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/cp_config_om_cache_service_traffic.html" class="md-nav__link">
+      <a href="../install/cp_config_om_redis_traffic.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Enabling and securing Cache Service traffic to Homepage
+    Enabling and securing Redis traffic to Homepage
   </span>
   
 
@@ -8400,11 +8400,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/cp_config_om_cache_service_enable.html" class="md-nav__link">
+      <a href="../install/cp_config_om_redis_enable.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Manually configuring Cache Service traffic to Homepage
+    Manually configuring Redis traffic to Homepage
   </span>
   
 
@@ -8421,11 +8421,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/cp_config_om_cache_service_secure_linux.html" class="md-nav__link">
+      <a href="../install/cp_config_om_redis_secure_linux.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Securing Cache Service traffic to Homepage (Linux)
+    Securing Redis traffic to Homepage (Linux)
   </span>
   
 
@@ -8442,11 +8442,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/cp_config_om_cache_service_secure_windows.html" class="md-nav__link">
+      <a href="../install/cp_config_om_redis_secure_windows.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Securing Cache Service traffic to Homepage (Windows)
+    Securing Redis traffic to Homepage (Windows)
   </span>
   
 
@@ -8463,11 +8463,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/cp_config_om_cache_service_verify.html" class="md-nav__link">
+      <a href="../install/cp_config_om_redis_verify.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Verifying Cache Service server traffic
+    Verifying Redis server traffic
   </span>
   
 
@@ -55549,7 +55549,7 @@
 <p><code>kubectl get pods -o wide -n &lt;namespace&gt;</code></p>
 <h2 id="pods-are-in-unknown-state-after-worker-node-goes-down">Pods are in "Unknown" state after worker node goes down</h2>
 <p>This is the expected behavior if a worker nodes has gone down. To verify that one of your worker nodes has gone down, run the command <code>kubectl get nodes</code>. In this scenario, the expected behavior of the pods depend on whether the pod is part of stateful set or stateless set:</p>
-<p>For stateful set pods (Mongo, Valkey, and OpenSearch), the pod that was running on the node that is down will remain in an <strong><em>"Unknown"</em></strong> state. This is because the master does not know whether it was a deliberate shutdown or a network partition. Since the pod might still be running somewhere on the cluster, the master will not recreate the pod on an available worker (to avoid violating the guarantee of stateful sets only having one pod). You can bring back the node that is down and let the pod recover, or you can force-delete the pod and let it recreate on an available worker by running the following command:</p>
+<p>For stateful set pods (Mongo, Redis, and OpenSearch), the pod that was running on the node that is down will remain in an <strong><em>"Unknown"</em></strong> state. This is because the master does not know whether it was a deliberate shutdown or a network partition. Since the pod might still be running somewhere on the cluster, the master will not recreate the pod on an available worker (to avoid violating the guarantee of stateful sets only having one pod). You can bring back the node that is down and let the pod recover, or you can force-delete the pod and let it recreate on an available worker by running the following command:</p>
 <p><code>kubectl delete pod &lt;pod_name&gt; -n connections --grace-period=0 --force</code></p>
 <p>For stateless set pods, the pod that was running on the worker node that is down will be recreated on an available worker node; however the old pod will still be displayed in an <strong><em>"Unknown"</em></strong> state. You can confirm this by counting the number of Running pods (for example, 3 Running pods and 1 Unknown pod). The unknown pod will clear from the list of pods when the worker node is back up again, or you can force-delete it by running the following command:</p>
 <p><code>kubectl delete pod &lt;pod_name&gt; -n connections --grace-period=0 --force</code></p>

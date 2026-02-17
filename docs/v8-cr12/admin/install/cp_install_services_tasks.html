@@ -8847,7 +8847,7 @@
             
   
   <span class="md-ellipsis">
-    Enabling and securing Cache Service traffic to Homepage
+    Enabling and securing Redis traffic to Homepage
   </span>
   
 
@@ -8857,7 +8857,7 @@
         <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_5_7_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5_7_3_6">
             <span class="md-nav__icon md-icon"></span>
-            Enabling and securing Cache Service traffic to Homepage
+            Enabling and securing Redis traffic to Homepage
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -8868,11 +8868,11 @@
   
   
     <li class="md-nav__item">
-      <a href="cp_config_om_cache_service_traffic.html" class="md-nav__link">
+      <a href="cp_config_om_redis_traffic.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Enabling and securing Cache Service traffic to Homepage
+    Enabling and securing Redis traffic to Homepage
   </span>
   
 
@@ -8889,11 +8889,11 @@
   
   
     <li class="md-nav__item">
-      <a href="cp_config_om_cache_service_enable.html" class="md-nav__link">
+      <a href="cp_config_om_redis_enable.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Manually configuring Cache Service traffic to Homepage
+    Manually configuring Redis traffic to Homepage
   </span>
   
 
@@ -8910,11 +8910,11 @@
   
   
     <li class="md-nav__item">
-      <a href="cp_config_om_cache_service_secure_linux.html" class="md-nav__link">
+      <a href="cp_config_om_redis_secure_linux.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Securing Cache Service traffic to Homepage (Linux)
+    Securing Redis traffic to Homepage (Linux)
   </span>
   
 
@@ -8931,11 +8931,11 @@
   
   
     <li class="md-nav__item">
-      <a href="cp_config_om_cache_service_secure_windows.html" class="md-nav__link">
+      <a href="cp_config_om_redis_secure_windows.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Securing Cache Service traffic to Homepage (Windows)
+    Securing Redis traffic to Homepage (Windows)
   </span>
   
 
@@ -8952,11 +8952,11 @@
   
   
     <li class="md-nav__item">
-      <a href="cp_config_om_cache_service_verify.html" class="md-nav__link">
+      <a href="cp_config_om_redis_verify.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Verifying Cache Service server traffic
+    Verifying Redis server traffic
   </span>
   
 
@@ -56400,7 +56400,7 @@
 <li>30301 from <code>nginx.example.com</code> (Customizer)</li>
 <li>30098 from <code>connections.internal.example.com</code> (Elasticsearch 7 – Connections 7 only)</li>
 <li>30099 from <code>connections.internal.example.com</code> (OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only)</li>
-<li>30379 from <code>connections.internal.example.com</code> (HAProxy for Cache Service)</li>
+<li>30379 from <code>connections.internal.example.com</code> (HAProxy for Redis)</li>
 <li>32080 from <code>connections.internal.example.com</code> (Ingress Controller, 32443 if TLS is enabled)</li>
 <li>31810 from <code>connections.internal.example.com</code> (Microsoft Outlook add-in – Connections 7 only)</li>
 <li>31080 from <code>connections.internal.example.com</code> (API Gateway Service, 31443 if TLS is enabled)</li>
@@ -56488,22 +56488,6 @@
 <p>On the server which has Helm v3 and kubectl configured for your non-root user, create the Connections namespace in Kubernetes by running the following command:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>connections
 </code></pre></div>
-<p><strong>Creating namespace for HCL API Gateway</strong></p>
-<p>You have the flexibility to install HCL API Gateway (APISIX) in the same namespace as Connections or in a separate dedicated namespace:</p>
-<ul>
-<li>
-<p><strong>Option 1: Same namespace</strong> - Use the existing <code>connections</code> namespace for APISIX deployment. No additional action is required.</p>
-</li>
-<li>
-<p><strong>Option 2: Dedicated namespace</strong> - Create a separate namespace for APISIX to isolate its resources:</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>apisix
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you choose to use a dedicated namespace for APISIX, ensure you update the namespace parameter in all subsequent APISIX-related configuration files and commands throughout the installation process.</p>
-</div>
 <h2 class="section" id="backup_es7">Back up Elasticsearch 7 data</h2>
 <p>Register the snapshot repository in Elasticsearch 7:</p>
 <ol>
@@ -56595,15 +56579,15 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/mongo7-no
 </li>
 <li>
 <p>You need PVs for all the replicas of APISIX etcd pod. So, create additional etcd volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group with permissions 0700:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/pv-connections/&lt;NAMESPACE&gt;-etcd-&lt;REPLICA_COUNT&gt;
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/pv-connections/&lt;NAMESPACE&gt;-apisix-etcd-&lt;REPLICA_COUNT&gt;
 </code></pre></div>
 <p>Replace <code>&lt;NAMESPACE&gt;</code> with the component pack namespace.
   Replace <code>&lt;REPLICA_COUNT&gt;</code> with the replica count needed for Core APISIX deployment, starting from 0 to (replica count-1).</p>
 <p>For example: </p>
-<p>If component pack namespace is "apisix" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/apisix-etcd-0
-mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/apisix-etcd-1
-mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/apisix-etcd-2
+<p>If component pack namespace is "connections" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-0
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-1
+mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/connections-apisix-etcd-2
 </code></pre></div>
 </li>
 <li>
@@ -56614,9 +56598,9 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/apisix-et
 <div class="highlight"><pre><span></span><code>/pv-connections/&lt;NAMESPACE&gt;-etcd-&lt;REPLICA_COUNT&gt;<span class="w"> </span>&lt;IP_RANGE_OF_YOUR_SERVERS&gt;/&lt;SUBNET_MASK&gt;<span class="o">(</span>rw,root_squash<span class="o">)</span>
 </code></pre></div>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code>/pv-connections/apisix-etcd-0<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
-/pv-connections/apisix-etcd-1<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
-/pv-connections/apisix-etcd-2<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>/pv-connections/connections-apisix-etcd-0<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-1<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-2<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
 </code></pre></div>
 </li>
 <li>
@@ -56637,9 +56621,9 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>/pv-connections/apisix-et
 <p>For example:</p>
 <p>The <code>/etc/exports</code> file on your NFS server should contain entries similar to the following, where 192.0.2.1/255.255.0.0 represents the network range of your Component Pack Kubernetes worker nodes:</p>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/exports
-/pv-connections/apisix-etcd-0<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
-/pv-connections/apisix-etcd-1<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
-/pv-connections/apisix-etcd-2<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-0<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-1<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
+/pv-connections/connections-apisix-etcd-2<span class="w"> </span><span class="m">192</span>.0.2.1/255.255.0.0<span class="o">(</span>rw,root_squash<span class="o">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -56825,14 +56809,14 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <li>
 <p>For example:</p>
 <ul>
-<li>Replace <code>__apisix_storage_class_name</code> with the <code>&lt;&lt;namespace&gt;&gt;-storage-class</code> or storage class name you want to use.</li>
+<li>Replace <code>__apisix_storage_class_name</code> with the <code>&lt;&lt;namespace&gt;&gt;-apisix-sc</code> or storage class name you want to use.</li>
 <li>Replace <code>__apisix_storage_class_reclaim_policy</code> with <code>Retain</code> or <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming">reclaim policy</a> you want to use.</li>
 <li>Sample Configuration:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StorageClass</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apisix-storage-class&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-sc&quot;</span>
 <span class="nt">provisioner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.io/no-provisioner</span>
 <span class="nt">reclaimPolicy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Retain&quot;</span>
 <span class="nt">volumeBindingMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Immediate</span>
@@ -56854,9 +56838,9 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <li>
 <p>For example, if you're configuring etcd volumes for 3 replicas, you'll need to replace the variables with your actual values:</p>
 <ul>
-<li><code>pv_name</code>: The persistent volume name (example: <code>&lt;&lt;namespace&gt;&gt;-etcd</code>)</li>
+<li><code>pv_name</code>: The persistent volume name (example: <code>&lt;&lt;namespace&gt;&gt;-apisix-etcd</code>)</li>
 <li><code>item</code>: The replica number (0, 1, 2 as the replica count is 3)</li>
-<li><code>__apisix_storage_class_name</code>: Your storage class name (example: <code>&lt;&lt;namespace&gt;&gt;-storage-class</code>)</li>
+<li><code>__apisix_storage_class_name</code>: Your storage class name (example: <code>&lt;&lt;namespace&gt;&gt;-apisix-sc</code>)</li>
 <li><code>__apisix_volume_storage_capacity</code>: Storage size (example: "10Gi")</li>
 <li><code>__apisix_volume_access_mode</code>: Access mode (example: "ReadWriteOnce")</li>
 <li><code>__apisix_storage_class_reclaim_policy</code>: Reclaim policy (example: "Retain")</li>
@@ -56872,11 +56856,11 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
   <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolume</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;apisix-etcd-0&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;connections-apisix-etcd-0&quot;</span>
 <span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">attachTo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apisix-etcd</span>
+<span class="w">    </span><span class="nt">attachTo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-etcd</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apisix-storage-class</span>
+<span class="w">  </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connections-apisix-sc</span>
 <span class="w">  </span><span class="nt">capacity</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10Gi</span>
 <span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span>
@@ -56884,7 +56868,7 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <span class="w">  </span><span class="nt">persistentVolumeReclaimPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Retain</span>
 <span class="w">  </span><span class="nt">volumeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Filesystem</span>
 <span class="w">  </span><span class="nt">nfs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pv-connections/apisix-etcd-0</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pv-connections/connections-apisix-etcd-0</span>
 <span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.0.2.1</span>
 </code></pre></div></p>
 <div class="admonition note">
@@ -56899,7 +56883,7 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 </li>
 </ol>
 <h2 class="section" id="bootstrap">Set up bootstrap charts</h2>
-<p>The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Valkey, OpenSearch, MongoDB and Ingress Controller.</p>
+<p>The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis, OpenSearch, MongoDB and Ingress Controller.</p>
 <p>During the bootstrap installation, secrets will be created / overwritten under the following conditions:</p>
 <ul>
 <li>The force_regenerate_all flag is set to true. This will force the regeneration of all component secrets and certificates created by the bootstrap repository.</li>
@@ -56915,11 +56899,6 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <p class="admonition-title">Note</p>
 <p>Starting with v8 CR11, <code>force_regenerate</code> has been renamed to <code>force_regenerate_all</code>.</p>
 <p>When <code>force_regenerate_all</code> is enabled, it takes precedence and will overwrite <strong>all</strong> secrets, regardless of the individual component flags.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Starting with v8 CR13, the Redis cache service has been replaced by Valkey. </p>
-<p>The parameters <code>set_redis_secret</code> and <code>skip_configure_redis</code> have been replaced by <code>set_cache_service_secret</code> and <code>skip_configure_cache_service</code>, respectively. <code>set_redis_secret</code> is only needed if pre-CR13 services are still running that require a different password than <code>set_cache_service_secret</code>.</p>
 </div>
 </li>
 <li>
@@ -56991,15 +56970,13 @@ pod-security.kubernetes.io/audit<span class="o">=</span>baseline<span class="w">
 <p>If you are upgrading from v8 CR11 or below, delete the <code>check-and-update-mongo7-security</code> Kubernetes job before upgrading the infrastructure chart to avoid image conflicts.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>job<span class="w"> </span>--namespace<span class="w"> </span>connections<span class="w"> </span>check-and-update-mongo7-security
 </code></pre></div>
-<p>Starting with v8 CR13, Redis has been replaced by Valkey.  It is recommended to remove any existing Redis resources before upgrading the infrastructure chart.  While the infrastructure chart is designed to clean up old resources, running the following <code>kubectl delete</code> commands beforehand helps ensure a smooth upgrade process.</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>sts,pdb,svc<span class="w"> </span>-n<span class="w"> </span><span class="s">&lt;&lt;namespace&gt;&gt; redis-server --ignore-not-found</span>
-<span class="s">kubectl delete sts,deploy,pdb,svc -n &lt;&lt;namespace</span>&gt;&gt;<span class="w"> </span>redis-sentinel<span class="w"> </span>--ignore-not-found
-kubectl<span class="w"> </span>delete<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span><span class="s">&lt;&lt;namespace&gt;&gt; haproxy-redis --ignore-not-found</span>
+<p>It is also recommended to remove existing Redis resources before upgrading the infrastructure chart with Redis 7.  While the infrastructure chart is designed to clean up old resources, running the following <code>kubectl delete</code> commands beforehand helps ensure a smooth upgrade process.</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>sts,pdb,svc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>redis-server
+kubectl<span class="w"> </span>delete<span class="w"> </span>deploy,pdb,svc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>redis-sentinel
 
-<span class="s">(confirm the resources are deleted, it should return &quot;&lt;resource&gt; not found&quot;):</span>
-<span class="s">kubectl get sts,pdb,svc -n &lt;&lt;namespace</span>&gt;&gt;<span class="w"> </span>redis-server
-kubectl<span class="w"> </span>get<span class="w"> </span>sts,deploy,pdb,svc<span class="w"> </span>-n<span class="w"> </span><span class="s">&lt;&lt;namespace&gt;&gt; redis-sentinel</span>
-<span class="s">kubectl get svc -n &lt;&lt;namespace</span>&gt;&gt;<span class="w"> </span>haproxy-redis
+<span class="o">(</span>confirm<span class="w"> </span>the<span class="w"> </span>resources<span class="w"> </span>are<span class="w"> </span>deleted,<span class="w"> </span>it<span class="w"> </span>should<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;&lt;resource&gt; not found&quot;</span><span class="o">)</span>:
+kubectl<span class="w"> </span>get<span class="w"> </span>sts,pdb,svc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>redis-server
+kubectl<span class="w"> </span>get<span class="w"> </span>deploy,pdb,svc<span class="w"> </span>-n<span class="w"> </span>connections<span class="w"> </span>redis-sentinel
 </code></pre></div>
 <h2 class="section" id="inst_mongo7">Install MongoDB 7</h2>
 <div class="admonition note">
@@ -57035,9 +57012,6 @@ o/p<span class="w"> </span>version:<span class="w"> </span><span class="m">0</sp
 </li>
 <li>
 <p>Set up your reverse proxy to forward some traffic to the customizer – see <a href="cp_config_proxy_rules.html">Configuring the HTTP server</a>.</p>
-</li>
-<li>
-<p>(Optional) Enable TLS (HTTPS) traffic for Customizer in HCL Connections Component Pack environments – see <a href="enable_customizer_tls.md">Enabling Secure Traffic for Customizer</a>.</p>
 </li>
 </ol>
 <p>Learn more about configuring Customizer in <a href="cp_config_customizer_intro.html">Configuring the Customizer component</a>.</p>
