@@ -23,11 +23,11 @@ Find out about features that are new or updated in this release of HCL Connectio
      - [Kubernetes Runtime and Component Pack Middleware](../../admin/install/cp_kubernetes_runtime.md).
     -  [Prerequisites for Component Pack](../../admin/install/cp_prereqs.md).
 
-## Redis 7 support
+<!--## Redis 7 support
 
 HCL Connections 8.0 now supports Redis 7 for the Component Pack. To enhance the security of data in transit, administrators are encouraged to implement SSH tunnels to secure Redis traffic, as outlined in the documentation.
 
-For details, see [Securing Redis traffic to the Component Pack](../install/cp_config_om_redis_secure_linux.md) and [Securing Redis traffic to the Component Pack (Windows)](../install/cp_config_om_redis_secure_windows.md).
+For details, see [Securing Redis traffic to the Component Pack](../install/cp_config_om_redis_secure_linux.md) and [Securing Redis traffic to the Component Pack (Windows)](../install/cp_config_om_redis_secure_windows.md).-->
 
 ## Help Center access from HCL Connections
 

@@ -56,23 +56,24 @@ If you are updating a newly installed or migrated deployment, you only need to u
 
 16. Stop the node agent so the `temp` directory can be cleaned out in the next step.
 
-17. Generate a new plug-in by completing the following steps:
+17. Delete the contents of the cache under the App Server \(for example, `C:\\IBM\\WebSphere\\AppServer\\profiles\\AppSrv01\\temp\`).
 
+18. Start the node agents, then perform a full synchronization to push the update to all nodes.
+
+    Check the `systemOut.log` of each nodeagent to ensure synchronization completed successfully.
+
+19. Generate a new plug-in by completing the following steps:
     -   Still in the **Integrated Solutions Console**, click on **Servers** \> **Server Types** \> **Webservers**.
     -   Select the **Webserver**, click **Generate Plug-in**, and wait for the plug-in to be generated.
     -   Select the **Webserver** again and click **Propagate Plug-in**.
-
-18. Delete the contents of the cache under the App Server \(for example, `C:\\IBM\\WebSphere\\AppServer\\profiles\\AppSrv01\\temp\`).
-
-19. Start the node agents, then perform a full synchronization to push the update to all nodes.
-
-    Check the `systemOut.log` of each nodeagent to ensure synchronization completed successfully.
 
 20. **[Optional] Post Installation Task** -  Follow the instructions in the [Post-customization step](../customize/t_admin_common_customize_postreq.md) topic to automatically clear the browser cache for end users the next time they login into Connections.
 
 21. Start the Connections server
 
 
-**Note:** If your deployment includes Component Pack, complete the steps in [Upgrading Component Pack Services](../install/cp_install_upgrade_container.md).
+!!! note 
+
+    If your deployment includes Component Pack, complete the steps in [Upgrading Component Pack Services](../install/cp_install_upgrade_container.md).
 
 **Parent topic:** [Updating HCL Connections 8.0 with the latest Cumulative Refresh (CR)](../migrate/c_installing_fix-packs.md)

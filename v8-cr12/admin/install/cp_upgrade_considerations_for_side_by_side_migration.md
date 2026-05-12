@@ -44,7 +44,7 @@ Based on all of these considerations, the process to move Component Pack from on
 - Prepare the NFS that you will use to set persistent volumes. Don't use the same NFS paths \(you can use the same NFS server of course\) that your production Component Pack installation uses.
 - Create the namespace in your new Kubernetes cluster and add the myregkey credential.
 - Create persistent volumes and persistent volume claims - PV\(C\)s - using the Helm charts provided for that.
-- Run bootstrap – ensure that it passed, and that it connected successfully to your Connections cluster and imported certificates so it could set up Redis properly.
+- Run bootstrap – ensure that it passed, and that it connected successfully to your Connections cluster and imported certificates so it could set up Cache Service properly.
 - Install all the charts as you installed them on the previous cluster.
 
 Once the process is complete, you have a second Kubernetes cluster pointing to the Connections cluster, but the data still lives in the first Kubernetes cluster, which is still used by Connections for serving requests, as in this diagram:

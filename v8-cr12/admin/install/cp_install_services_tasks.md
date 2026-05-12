@@ -44,7 +44,7 @@ All machines in our scenario are configured to use DNS and all of them have inte
       - 30301 from `nginx.example.com` (Customizer)
       - 30098 from `connections.internal.example.com` (Elasticsearch 7 – Connections 7 only)
       - 30099 from `connections.internal.example.com` (OpenSearch – Connections 7 or 8, Elasticsearch 5 – Connections 6.5 only)
-      - 30379 from `connections.internal.example.com` (HAProxy for Redis)
+      - 30379 from `connections.internal.example.com` (HAProxy for Cache Service)
       - 32080 from `connections.internal.example.com` (Ingress Controller, 32443 if TLS is enabled)
       - 31810 from `connections.internal.example.com` (Microsoft Outlook add-in – Connections 7 only)
       - 31080 from `connections.internal.example.com` (API Gateway Service, 31443 if TLS is enabled)
@@ -130,11 +130,28 @@ Ensure that all persistent volumes are exported and mountable from Kubernetes ma
 
 ## Create the namespace {#section_ln3_qp3_dvb .section}
 
-On the server which has Helm v3 and kubectl configured for your non-root user, create the Connections namespace in Kubernetes by running the following command:
+On the server which has Helm v3 and kubectl configured for your non-root user, create a namespace for the Component Pack in Kubernetes by running the following command.  This documentation uses `connections` as the default namespace:
 
 ```bash
 kubectl create namespace connections
 ```
+
+If you choose to use a custom namespace, ensure you substitute `connections` with your specific namespace name in all subsequent commands throughout this guide.
+
+**Creating namespace for HCL API Gateway**
+
+You have the flexibility to install HCL API Gateway (APISIX) in the same namespace as Connections or in a separate dedicated namespace:
+
+- **Option 1: Same namespace** - Use the existing `connections` namespace for APISIX deployment. No additional action is required.
+
+- **Option 2: Dedicated namespace** - Create a separate namespace for APISIX to isolate its resources:
+
+```bash
+kubectl create namespace apisix
+```
+
+!!! note
+    If you choose to use a dedicated namespace for APISIX, ensure you update the namespace parameter in all subsequent APISIX-related configuration files and commands throughout the installation process.
 
 ## Back up Elasticsearch 7 data {#backup_es7 .section}
 
@@ -242,7 +259,7 @@ Register the snapshot repository in Elasticsearch 7:
 2. You need PVs for all the replicas of APISIX etcd pod. So, create additional etcd volumes on the NFS master node.  The folders should be owned by user ID 1001 while you may set the ownership to your desired group with permissions 0700:
    
       ```bash
-      mkdir /pv-connections/<NAMESPACE>-apisix-etcd-<REPLICA_COUNT>
+      mkdir /pv-connections/<NAMESPACE>-etcd-<REPLICA_COUNT>
       ```
 
       Replace `<NAMESPACE>` with the component pack namespace.
@@ -250,12 +267,12 @@ Register the snapshot repository in Elasticsearch 7:
 
       For example: 
       
-      If component pack namespace is "connections" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders
+      If component pack namespace is "apisix" and replica count needed for Core APISIX deployment is 3 (which is default value), then create following set of subfolders
 
       ```bash
-      mkdir -p /pv-connections/connections-apisix-etcd-0
-      mkdir -p /pv-connections/connections-apisix-etcd-1
-      mkdir -p /pv-connections/connections-apisix-etcd-2
+      mkdir -p /pv-connections/apisix-etcd-0
+      mkdir -p /pv-connections/apisix-etcd-1
+      mkdir -p /pv-connections/apisix-etcd-2
       ```
 
 3. Make the additional etcd volumes available via NFS.
@@ -269,9 +286,9 @@ Register the snapshot repository in Elasticsearch 7:
       For example:
 
       ```sh
-      /pv-connections/connections-apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
-      /pv-connections/connections-apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
-      /pv-connections/connections-apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
       ```
 
 5. Apply new NFS storage to exports
@@ -295,9 +312,9 @@ Register the snapshot repository in Elasticsearch 7:
 
       ```sh
       cat /etc/exports
-      /pv-connections/connections-apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
-      /pv-connections/connections-apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
-      /pv-connections/connections-apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-0 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-1 192.0.2.1/255.255.0.0(rw,root_squash)
+      /pv-connections/apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
       ```
 
 ## Uninstall charts before upgrading to Kubernetes v1.25 {#uninstall_charts_k8s125 .section}
@@ -497,7 +514,7 @@ Make sure that the network configuration of your NFS environment is correct befo
 
     !!! note
     
-        In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters, as defined in [Set up NFS](#section_e4p_jrp_tnb). 
+        In `connections-volumes.yml`, use your destination **nfs.server** and **persistentVolumePath** as parameters, as defined in [Set up NFS](#section_e4p_jrp_tnb). 
 
 5. Then, run installation:
 
@@ -507,7 +524,7 @@ Make sure that the network configuration of your NFS environment is correct befo
 
     !!! note
         
-        In connections-volumes.yml, use your destination **nfs.server** and **persistentVolumePath** as parameters.
+        In `connections-volumes.yml`, use your destination **nfs.server** and **persistentVolumePath** as parameters.
 
 6. Verify that all PVCs are in "bound" state:
 
@@ -519,13 +536,13 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 ## Set up storage class for HCL API Gateway {#setup_sc_apigw .section}
 
-1. Download the j2 template for apisix-storage-class.yaml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-storage-class.yaml.j2) and update it to match your environment.
+1. Download the j2 template for `apisix-storage-class.yaml` from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-storage-class.yaml.j2) and update it to match your environment.
 
 2. Rename the file to apisix-storage-class.yaml, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
 
 3. For example:
 
-      - Replace `__apisix_storage_class_name` with the `<<namespace>>-apisix-sc` or storage class name you want to use.
+      - Replace `__apisix_storage_class_name` with the `<<namespace>>-storage-class` or storage class name you want to use.
       - Replace `__apisix_storage_class_reclaim_policy` with `Retain` or [reclaim policy](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming) you want to use.
       - Sample Configuration:
 
@@ -533,7 +550,7 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
       apiVersion: storage.k8s.io/v1
       kind: StorageClass
       metadata:
-        name: "connections-apisix-sc"
+        name: "apisix-storage-class"
       provisioner: kubernetes.io/no-provisioner
       reclaimPolicy: "Retain"
       volumeBindingMode: Immediate
@@ -545,15 +562,15 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 ## Set up persistent volumes for HCL API Gateway {#setup_pv_apigw .section}
 
-1. Download the j2 template for apisix-nfs-pvs.yaml from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-nfs-pvs.yaml.j2) and update it to match your environment.
+1. Download the j2 template for `apisix-nfs-pvs.yaml` from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/blob/main/roles/hcl/apisix/volumes/templates/apisix-nfs-pvs.yaml.j2) and update it to match your environment.
 
-2. Rename the file to apisix-nfs-pvs.yaml, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
+2. Rename the file to `apisix-nfs-pvs.yaml`, then open it. Replace all variables in curly braces "{{ }}" with values that are appropriate to your cluster configuration.
 
 3. For example, if you're configuring etcd volumes for 3 replicas, you'll need to replace the variables with your actual values:
 
-      - `pv_name`: The persistent volume name (example: `<<namespace>>-apisix-etcd`)
+      - `pv_name`: The persistent volume name (example: `<<namespace>>-etcd`)
       - `item`: The replica number (0, 1, 2 as the replica count is 3)
-      - `__apisix_storage_class_name`: Your storage class name (example: `<<namespace>>-apisix-sc`)
+      - `__apisix_storage_class_name`: Your storage class name (example: `<<namespace>>-storage-class`)
       - `__apisix_volume_storage_capacity`: Storage size (example: "10Gi")
       - `__apisix_volume_access_mode`: Access mode (example: "ReadWriteOnce")
       - `__apisix_storage_class_reclaim_policy`: Reclaim policy (example: "Retain")
@@ -571,11 +588,11 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
       apiVersion: v1
       kind: PersistentVolume
       metadata:
-        name: "connections-apisix-etcd-0"
+        name: "apisix-etcd-0"
         labels:
-          attachTo: connections-apisix-etcd
+          attachTo: apisix-etcd
       spec:
-        storageClassName: connections-apisix-sc
+        storageClassName: apisix-storage-class
         capacity:
           storage: 10Gi
         accessModes:
@@ -583,7 +600,7 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
         persistentVolumeReclaimPolicy: Retain
         volumeMode: Filesystem
         nfs:
-          path: /pv-connections/connections-apisix-etcd-0
+          path: /pv-connections/apisix-etcd-0
           server: 192.0.2.1
       ```
 
@@ -598,14 +615,14 @@ For how to troubleshoot PV and PVC setup, see the [Troubleshooting Component Pac
 
 ## Set up bootstrap charts {#bootstrap .section}
 
-The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Redis, OpenSearch, MongoDB and Ingress Controller.
+The bootstrap chart not only defines the network interoperability parameters but also creates secrets and certificates for various components, including Valkey, OpenSearch, MongoDB and Ingress Controller.
 
 During the bootstrap installation, secrets will be created / overwritten under the following conditions:
 
 - The force_regenerate_all flag is set to true. This will force the regeneration of all component secrets and certificates created by the bootstrap repository.
 - The specific component has **not** yet been deployed on the Kubernetes cluster.
 - One of the following targeted flags is set to `true`, which forces regeneration of secrets for the corresponding component only:
-    - `force_regenerate_ingress`: Regenerates `ingress-nginx` secrets and certificates even if they already exist.
+    - `force_regenerate_ingress`: Regenerates TLS secrets and certificates even if they already exist.
     - `force_regenerate_mongo`: Regenerates `mongo` secrets and certificates even if they already exist.
     - `force_regenerate_opensearch`: Regenerates `opensearch` secrets and certificates even if they already exist.
 
@@ -613,6 +630,11 @@ During the bootstrap installation, secrets will be created / overwritten under t
         Starting with v8 CR11, `force_regenerate` has been renamed to `force_regenerate_all`.
         
         When `force_regenerate_all` is enabled, it takes precedence and will overwrite **all** secrets, regardless of the individual component flags.
+
+    !!! note
+        Starting with v8 CR13, the Redis cache service has been replaced by Valkey. 
+        
+        The parameters `set_redis_secret` and `skip_configure_redis` have been replaced by `set_cache_service_secret` and `skip_configure_cache_service`, respectively. `set_redis_secret` is only needed if pre-CR13 services are still running that require a different password than `set_cache_service_secret`.
 
 - Once bootstrap has been upgraded, remove or set the `force_regenerate_x` flags to false to prevent the certificates from being continuously regenerated which may lead to unexpected behavior.
 
@@ -680,13 +702,90 @@ The configmap for connections-env contains all the variables needed for the Cust
       helm upgrade connections-env <<oci_registry_url>>/connections-env -i --version 0.1.40-20220616-233100 --namespace connections -f connections-env.yml --wait
       ```
 
-## Delete ingresses {#del_ingress .section}
+## Delete ingress-nginx controller {#del_ingress .section}
+!!! note
+      Starting with v8 CR14, the ingress-nginx controller has been replaced by Traefik Proxy. ingress-nginx should be uninstalled prior to installing Traefik.
 
-Remove ingresses before Component Pack deployment, otherwise the infrastructure will fail:
+Complete the following steps to uninstall the ingress-nginx controller before deploying Traefik Proxy.
 
-```bash
-kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk '{print $1}' | grep -vE "NAME")
-```
+1. Delete the ingress-nginx Helm release:
+
+      ```bash
+      helm uninstall cnx-ingress --namespace connections --wait
+      ```
+
+2. Verify the ingress-nginx controller has been removed:
+
+      ```bash
+      kubectl get pods --namespace connections | grep ingress
+      ```
+
+      The command should return no results once ingress-nginx has been fully uninstalled.
+
+3. \(Optional\) Clean up the ingress-nginx Helm repository if you no longer need it:
+
+      ```bash
+      helm repo remove ingress-nginx
+      ```
+
+4. Remove the cnx-ingress-appreg and cnx-ingress-orient-me ingresses:
+
+      As part of the ingress controller migration, the App Registry paths are reorganized to better align with the Component Pack service architecture.  
+      Delete the `cnx-ingress-appreg` and `cnx-ingress-orient-me` ingresses by running the following command:
+
+      ```bash
+      kubectl delete ingress cnx-ingress-appreg cnx-ingress-orient-me --namespace connections
+      ```
+!!! note
+      If you are upgrading from the legacy Component Pack v7 zip installation, remove all ingress resources before deploying Component Pack. Otherwise, the infrastructure will fail. Execute the command below to remove the ingress resources:
+
+      ```kubectl delete ingress -n connections $(kubectl get ingress -n connections | awk '{print $1}' | grep -vE "NAME")```
+
+## Set up community ingress {#comm_ingress .section}
+            
+!!! note
+      Starting with v8 CR11, the bootstrap process automatically generates a self-signed certificate for the ingress controller.
+
+      The TLS secret has been renamed from `ingress-nginx-tls-secret` to `cnx-tls-secret` in Connections v8 CR14. If you are upgrading from a previous release, the bootstrap process automatically detects and removes the legacy `ingress-nginx-tls-secret` and creates the new `cnx-tls-secret`.
+
+      **For users not using the bootstrap repository and manually creating certificates, delete the existing `ingress-nginx-tls-secret` and recreate it using the new name `cnx-tls-secret`.**
+
+!!! critical 
+      After creating or updating the `cnx-tls-secret`, you **must** import the new certificate into your IBM HTTP Server (IHS) keystore. For instructions, see [Import the Certificate into IBM HTTP Server (IHS)](enable_ingress_tls.md#how-to-enable-tls-for-the-ingress-controller). 
+      
+      **If you do not complete this step, communication between IHS and the Component Pack fails when TLS is enabled.**
+
+1. Add and update the Traefik Helm Repository:
+
+      ```
+      helm repo add traefik https://traefik.github.io/charts
+      helm repo update
+      ```
+
+2. Download the custom values template `cnx-ingress-traefik-values.j2` from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/).  Rename it to `cnx-ingress-traefik-values.yml` and then update it with your environment-specific values.
+
+3. Install Traefik:
+
+      ```
+      helm upgrade cnx-ingress traefik/traefik -i --version 39.0.8 --namespace connections -f cnx-ingress-traefik-values.yml --wait --timeout 10m
+      ```
+
+4. Wait for Traefik pods to be ready
+
+      ```
+      kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=traefik --namespace connections --timeout=300s
+      ```
+
+5. Verify Traefik service is created:
+
+      ```
+      kubectl get service cnx-ingress-traefik --namespace connections
+      ```
+
+      The command should return the cnx-ingress-traefik service.
+      
+Follow the detailed procedure in [Import the Certificate into IBM HTTP Server (IHS)](enable_ingress_tls.md#how-to-enable-tls-for-the-ingress-controller) to ensure secure communication is properly configured.
+
 
 ## Delete legacy Mongo security check job and Redis resources {#del_legacy_redis .section}
 
@@ -696,15 +795,17 @@ If you are upgrading from v8 CR11 or below, delete the `check-and-update-mongo7-
 kubectl delete job --namespace connections check-and-update-mongo7-security
 ```
 
-It is also recommended to remove existing Redis resources before upgrading the infrastructure chart with Redis 7.  While the infrastructure chart is designed to clean up old resources, running the following `kubectl delete` commands beforehand helps ensure a smooth upgrade process.
+Starting with v8 CR13, Redis has been replaced by Valkey.  It is recommended to remove any existing Redis resources before upgrading the infrastructure chart.  While the infrastructure chart is designed to clean up old resources, running the following `kubectl delete` commands beforehand helps ensure a smooth upgrade process.
 
 ```bash
-kubectl delete sts,pdb,svc -n connections redis-server
-kubectl delete deploy,pdb,svc -n connections redis-sentinel
+kubectl delete sts,pdb,svc -n <<namespace>> redis-server --ignore-not-found
+kubectl delete sts,deploy,pdb,svc -n <<namespace>> redis-sentinel --ignore-not-found
+kubectl delete svc -n <<namespace>> haproxy-redis --ignore-not-found
 
 (confirm the resources are deleted, it should return "<resource> not found"):
-kubectl get sts,pdb,svc -n connections redis-server
-kubectl get deploy,pdb,svc -n connections redis-sentinel
+kubectl get sts,pdb,svc -n <<namespace>> redis-server
+kubectl get sts,deploy,pdb,svc -n <<namespace>> redis-sentinel
+kubectl get svc -n <<namespace>> haproxy-redis
 ```
 
 ## Install MongoDB 7 {#inst_mongo7 .section}
@@ -750,6 +851,8 @@ Make sure to set up the rules to your httpd.conf on your IBM HTTP servers – se
       ```
 
 5. Set up your reverse proxy to forward some traffic to the customizer – see [Configuring the HTTP server](cp_config_proxy_rules.md).
+
+6. (Optional) Enable TLS (HTTPS) traffic for Customizer in HCL Connections Component Pack environments – see [Enabling Secure Traffic for Customizer](enable_customizer_tls.md).
 
 Learn more about configuring Customizer in [Configuring the Customizer component](cp_config_customizer_intro.md).
 
@@ -1106,30 +1209,6 @@ Before configuring Metrics, make sure that your WebSphere Application servers ar
 
 For optional procedures to configure Metrics, see [Configuring the OpenSearch Metrics component](cp_config_os_intro.md).
 
-## Set up community ingress {#comm_ingress .section}
-
-1. If not already added, add the community Helm repository:
-
-      ```bash
-      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-      ```
-
-2. Update the ingress-nginx Helm repository:
-
-      ```bash
-      helm repo update ingress-nginx
-      ```
-
-3. Install ingress-nginx:
-
-      ```bash
-      helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx --namespace connections --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60 --set controller.extraArgs.default-ssl-certificate=connections/ingress-nginx-tls-secret --wait
-      ```
-
-      Where `default-ssl-certificate` is `<namespace>/<TLS secret name>`.  By default it is `connections/ingress-nginx-tls-secret`.
-            
-!!! note
-      Starting with v8 CR11, bootstrap automatically generates a self-signed certificate for ingress-nginx in secret `ingress-nginx-tls-secret`.
 
 ## Set up Microsoft Teams integration {#teams_integ .section}
 
@@ -1174,6 +1253,40 @@ For more information about the SameSite property,  see:
 Lastly, and again for security reasons, you must change the x-frame-options header to support the way that Microsoft Teams uses an iFrame to embed application content in the tabbed pages. Since Connections also uses an iFrame to display embedded experiences content, this becomes an iFrame within an iFrame. The embedded experiences content cannot be displayed if SAMEORIGIN is used because the Teams UI and Embedded Experiences content do not share a common origin host.
 
 To enable Microsoft Teams integration, see [Setting up the Connections app for the Microsoft Teams client](../../connectors/admin/t_ms_teams_set_up_conn_app_for_ms.md).
+
+### Firewall rules for Microsoft Teams integration {#teams_firewall .section}
+
+The Microsoft Teams integration requires specific network access depending on which features you deploy. Review the rules below and ensure your firewall and any OpenShift NetworkPolicies or egress restrictions allow the required traffic.
+
+#### Teams Tab integration
+
+The Teams Tab is primarily client-side for Azure communication. No outbound internet access is required from the Component Pack or OpenShift cluster; however, the Connections server must perform an OIDC handshake with Microsoft Entra ID.
+
+|Rule type|Source|Destination|Port|Purpose|
+|---------|------|-----------|----|-------|
+|Inbound|Internet \(Teams users\)|Connections Ingress / Proxy|443|Load the Tab UI and API calls|
+|Internal|teams-tab-api pods|Connections WebSphere|443|Authentication and Community APIs|
+|Outbound|Connections WebSphere|`login.microsoftonline.com`|443|SSO – OIDC TAI fetches JWKS keys|
+
+#### Teams Share / Messaging Extension
+
+Unlike the Tab, the Messaging Extension requires outbound internet access from the Component Pack. The teams-share-service pod must reach Azure Bot Service endpoints.
+
+|Rule type|Source|Destination|Port|Purpose|
+|---------|------|-----------|----|-------|
+|Inbound|\* Microsoft Bot Framework / Graph|teams-share-service \(via Ingress\)|443|Azure Bot Service delivers activities|
+|Outbound|teams-share-service pod|`login.microsoftonline.com`|443|Token validation and exchange|
+|Outbound|teams-share-service pod|`login.botframework.com`|443|Bot authentication|
+|Outbound|teams-share-service pod|`*.botframework.com`|443|Bot Framework API|
+|Outbound|teams-share-service pod|`smba.trafficmanager.net`|443|Sending Adaptive Cards to Teams|
+|Internal|teams-share-service pod|Connections WebSphere|443|Proxy content API and SSO|
+
+\* Inbound sources include: `*.botframework.com`, `*.login.microsoftonline.com`, and `*.graph.microsoft.com`.
+
+For the latest endpoint and IP range requirements, refer to the following Microsoft documentation:
+
+- [Configure firewalls](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-resources-faq-security?view=azure-bot-service-4.0#configure-firewalls) in the Bot Framework security FAQ
+- [Microsoft 365 URLs and IP address ranges](https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges) for Teams and Microsoft Graph endpoints
 
 ## Set up Tailored Experience features for communities {#comm_tailored .section}
 
