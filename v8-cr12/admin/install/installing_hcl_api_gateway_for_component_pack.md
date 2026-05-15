@@ -66,8 +66,8 @@ The API Gateway deployment consists of two main components:
 
           ```sh
             kubectl create secret generic apisix-admin-secret \
-              --from-literal=admin-password="<apisix-admin-password>" \
-              --from-literal=viewer-password="<apisix-viewer-password>" \
+              --from-literal=admin-password='<apisix-admin-password>' \
+              --from-literal=viewer-password='<apisix-viewer-password>' \
               -n <<namespace>> \
               --dry-run=client -o yaml | kubectl apply -f -
           ```
@@ -317,7 +317,7 @@ Complete the following steps to install the HCL API Gateway Helm chart:
         - name: hcl-backend
           scheme: https
           externalNodes:
-            - name: "*.example.com"
+            - name: "connections.example.com"
               type: Domain
               port: 443
       swaggerUi:
@@ -325,7 +325,7 @@ Complete the following steps to install the HCL API Gateway Helm chart:
         image: hclcr.io/cnx/hcl-api-gateway-config:20251028-124319
         imagePullSecrets:
           - myregkey
-        serverUrl: https://*.example.com/connections/api/v2
+        serverUrl: https://connections.example.com/connections/api/v2
         ingress:
           enabled: true
           ingressClass: nginx

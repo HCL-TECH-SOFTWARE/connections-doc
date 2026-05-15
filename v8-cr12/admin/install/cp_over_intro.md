@@ -16,12 +16,12 @@ With containers, everything required to make a piece of software run is packaged
 The installation package relies on container technology and includes HCL proprietary components as well as the following open-source components:
 
 -   MongoDB is an open-source database that uses a document-oriented model rather than a relational data model.
--   Redis is an open-source \(BSD licensed\), in-memory data structure store, used as a database, cache, and message broker. Redis Sentinel is used for high availability. Redis is used by Orient Me.
+-   Valkey is an open-source \(BSD licensed\), in-memory data structure store, used as a database, cache, and message broker. Valkey Sentinel is used for high availability. Valkey is used by Orient Me.
 -   OpenSearch is a community-driven, Apache 2.0-licensed open source search and analytics suite that makes it easy to ingest, search, visualize, and analyze data. It provides a distributed, multitenant-capable, full-text search engine with an HTTP web interface and schema-free JSON documents. It can be used for search, as an underlying storage mechanism for Orient Me.
 -   HAProxy is an open-source load-balancing and proxying solution for TCP-based and HTTP-based applications.
--   NGINX Ingress Controller is built around the Kubernetes Ingress resource, using a ConfigMap to store the NGINX configuration. Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. You can use as fully supported the official community NGINX ingress controller with all the extras that it gives you.
+-   The Traefik Ingress Controller manages incoming HTTP and HTTPS traffic for the cluster. It acts as the unified gateway for traffic routing and service discovery.  While it fully supports the standard Kubernetes Ingress resource, it also offers advanced features such as path stripping through Custom Resource Definitions (CRDs) like Middleware.
 
-All the helm charts provided with Component Pack are built with Helm v2. For the supported Helm version, see [HCL Connections 8.0 CR3 System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0105966).
+All the helm charts provided with Component Pack are built with Helm v3. For the supported Helm version, see [Kubernetes Runtime and Component Pack Middleware](cp_kubernetes_runtime.md).
 
 **Parent topic:**[Installing or upgrading Component Pack for Connections](../install/cp_install_config_intro.md)
 

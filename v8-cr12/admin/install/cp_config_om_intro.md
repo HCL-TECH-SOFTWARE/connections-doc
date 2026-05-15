@@ -18,7 +18,7 @@ To enable Component Pack to access user accounts in HCL Connections, you must en
 Configure the Notification Center so it works in concert with the data that users prioritize on the Top Updates tab on the user's home page.
 -   **[Creating WebSEAL junctions for Orient Me](../install/cp_config_om_create_webseal_junctions.md)**  
 For environments that use IBM Security Verify Access (formerly Security Access Manager), configure WebSEAL junctions for Orient Me.
--   **[Enabling and securing Redis traffic to Homepage](../install/cp_config_om_redis_traffic.md)**  
+-   **[Enabling and securing Cache Service traffic to Homepage](../install/cp_config_om_cache_service_traffic.md)**  
 HCL Connections requires some additional configuration to know how to securely communicate with the Homepage.
 -   **[Populating the Top Updates home page](../install/cp_config_om_populate_home_page.md)**  
 Use the data migration tool to transfer data from Connections Profiles and Communities to populate the Top Updates tab on the user's home page.

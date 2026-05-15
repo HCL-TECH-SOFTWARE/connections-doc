@@ -24,34 +24,36 @@ oc create namespace $ns;
 oc project $ns;
 ```
 ```
-oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx-admission
-oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx-backend;
-oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-ingress-nginx;
+oc adm policy add-scc-to-user privileged system:serviceaccount:$ns:cnx-ingress-traefik;
 oc adm policy add-scc-to-user anyuid -n $ns -z default;
 oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:connections-outlook-desktop;
 oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:mongodb7;
 oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:onprems-bootstrap;
 
 # For HCL API Gateway
-oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:core-apisix
-oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:core-apisix-etcd
+oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:apisix
+oc adm policy add-scc-to-user anyuid system:serviceaccount:$ns:apisix-etcd
 ```
 
 ## Pod Security restrictions
 
-Component Pack recommends the `baseline` profile for namespace [Pod Security](cp_install_services_tasks.md#psa_namespace). Depending on your environment needs, the OpenShift `privileged` default can be used.
+Component Pack recommends the `baseline` profile for namespace [Pod Security](cp_install_services_tasks.md#apply-pod-security-restrictions-at-the-namespace-level-psa_namespace-section). Depending on your environment needs, the OpenShift `privileged` default for the enforce label can be used.
 
 ## Build and deploy MongoDB
 
-OpenShift supports several build strategies. One way to build MongoDB is to use the [dockerStrategy](https://docs.openshift.com/container-platform/4.11/cicd/builds/build-strategies.html#builds-strategy-dockerfile-path_build-strategies) with the Dockerfile provided in the [HCL MongoDB repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo7). The image can then output to an image stream along with the MongoDB sidecar, so they can be deployed as part of the infrastructure chart.
+The  OpenShift installation process follows the same general workflow as the standard [MongoDB 7](installing_mongodb_7_for_component_pack_8.md) installation.  Use the OpenShift-specific build and Helm installation instructions provided in this topic instead.
+
+OpenShift supports several build strategies. One way to build MongoDB is to use the [dockerStrategy](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/builds_using_buildconfig/build-strategies) with the Dockerfile from the [HCL MongoDB repository](https://github.com/HCL-TECH-SOFTWARE/connections-mongo7). The image is then pushed to an image stream, along with the MongoDB sidecar, for deployment as part of the infrastructure chart.
 
 Create a MongoDB image stream for the project:
 
-1.  Using the OpenShift web console, make sure the project is set to the one for Component Pack: Go to **Build** then **ImageStreams**,  and create an image stream called `middleware-mongodb7`.
+1.  In the OpenShift web console, ensure that the project is set to the Component Pack project:
 
-2.  Create a BuildConfig with dockerStrategy to build the MongoDB image and output it to the `middleware-mongodb7` image stream.
+     Go to **Build** then **ImageStreams**,  and create an image stream called `middleware-mongodb7`.
 
-    The following is a sample yaml; substitute `<namespace>` with your namespace:
+2.  Go to **Build** then **BuildConfig**, create a BuildConfig with dockerStrategy to build the MongoDB image and output it to the `middleware-mongodb7` image stream.
+
+    The following is a sample yaml; substitute `<namespace>` with your namespace and `<mongo_image_tag>` with your desired version tag.
 
     ```
     apiVersion: build.openshift.io/v1
@@ -72,75 +74,150 @@ Create a MongoDB image stream for the project:
         output:
            to:
               kind: ImageStreamTag
-              name: middleware-mongodb7:01072025
+              name: middleware-mongodb7:<mongo_image_tag>
     ```
 
 3.  Click **Actions** and **Start build**. Wait for the build to complete and, in the build log, verify that there are no errors (for example, E: xxx).
 
     Next, we will create another image stream that points to the MongoDB sidecar image in the HCL Harbor Repository:
 
-4.  Using the OpenShift web console, go to **Workloads** then **Secrets**, and look for "pull-secret" under **All Projects**. Edit it to add your HCL Harbor repository credentials for registry server `hclcr.io/cnx`.
+4.  Create a docker-registry secret with your HCL Harbor credentials if not already created.
 
-5.  Create an image stream for MongoDB sidecar by running the following command using the oc CLI:
+    ```
+    oc create secret docker-registry myregkey -n <namespace> --docker-server=hclcr.io/cnx --docker-username=<helm_repo_username> --docker-password <helm_repo_password>
+    ```
+
+    Where:
+
+    `<helm_repo_username>` is the Harbor username
+
+    `<helm_repo_password>` is the CLI secret (to access, log in to Harbor, then click on your name > User Profile > CLI Secret)
+
+    `<namespace>` is your namespace (the default is "connections").
+
+5.  Link the Secret to Service Accounts for image pulls and the `import-image` command to import the MongoDB sidecar.
+    
+    ```
+    oc secrets link builder myregkey --for=pull -n <namespace>
+    oc secrets link default myregkey --for=pull -n <namespace>
+    ``` 
+
+6.  Create an image stream for MongoDB sidecar by running the following command using the oc CLI:
 
     ```
     oc import-image middleware-mongodb7-sidecar --from=hclcr.io/cnx/middleware-mongodb7-sidecar:latest --confirm
     ```
 
-    You should now have two image streams for the project in the web console: middleware-mongodb7 and middleware-mongodb7-sidecar. Go to each of them to confirm that there is a tag with identifier. You can also find the URI of the image in the "Image repository" field.
+    You should now have two image streams in the project: `middleware-mongodb7` and `middleware-mongodb7-sidecar`. In the web console, open each image stream and confirm that it has a tag with identifier. You can also find the image URI in the `Image repository` field.
 
-    Now, download the infrastructure chart from the HCL Harbor repository and modify the mongo7 chart to use the image streams:
+7.  Prepare persistent volume:
 
-6.  Pull the latest [infrastructure chart](https://hclcr.io/harbor/projects/15/repositories/infrastructure/artifacts-tab) to the node where Helm is installed, then extract it.
+    A persistent volume is needed for each MongoDB 7 pod. Refer to [Set up persistent volumes](installing_mongodb_7_for_component_pack_8.md#section_setup_pv) for instructions to setup the NFS volumes and mount points.
 
-7.  Edit *infrastructure/charts/mongo7/templates/statefulset.yaml* to set the images to use their corresponding image stream. For example:
+8.  Install MongoDB using the Infrastructure Helm chart:
 
-    ```
-    - name: mongo7
-      image: image-registry.openshift-image-registry.svc:5000/myproject/middleware-mongodb7:02072023
-    ```
+    1. The default service account in the same namespace should already have pull access automatically via the `default-dockercfg-*` secret. Get the secret name by describing the service account.
 
     ```
-    - name: mongo7-sidecar
-      image: image-registry.openshift-image-registry.svc:5000/myproject/middleware-mongodb7-sidecar:latest
+    oc get sa default -n connections -o yaml
     ```
 
-8.  Remove the imagePullSecrets:
+    2.  Download [infrastructure.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars). Rename the file to `infrastructure.yml` before opening it.
+
+    3.  Replace the variables in curly braces with the appropriate values.  Refer to [Install MongoDB 7 using Helm charts](installing_mongodb_7_for_component_pack_8.html#install-mongodb-7-using-helm-charts) for example.
+
+    4.  Add the following variables to the `mongo7` section to set the images to use their corresponding image stream.  For example:
 
     ```
-    imagePullSecrets:
-        - name: {{ .Values.imagePullSecrets.name }}
+    mongodb_custom_repo: image-registry.openshift-image-registry.svc:5000/<namespace>
+    mongosidecar_custom_repo: image-registry.openshift-image-registry.svc:5000/<namespace>
+    imagePullSecrets: 
+        - name: <default-dockercfg-xxx>
     ```
 
-9.  Install MongoDB using Helm charts:
+    Where:
+    
+    `<namespace>` is your namespace (the default is "connections").
 
-    1.  Download [infrastructure.yml.j2](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/helmvars). Then, rename the file to `infrastructure.yml` and open it.
+    `default-dockercfg-xxx` is the image pull secret obtained in the previous step.
 
-    2.  Replace the variables in curly braces with the appropriate values.
+8.  Retrieve the latest infrastructure chart version:
 
-    3.  From the location where the extracted chart resides, install or upgrade the infrastructure chart using the modified copy as follows:
+    ```
+    helm show all oci://hclcr.io/cnx/infrastructure --devel | grep "^version:"
+    ```
 
-        ```
-        helm upgrade infrastructure infrastructure -i -f  infrastructure.yml  --namespace <namespace>
-        ```
+9.  Install or upgrade the infrastructure chart using the custom values file as follows:
 
-        Where `<namespace>` is your namespace (the default is "connections").
+    ```
+    helm upgrade infrastructure oci://hclcr.io/cnx/infrastructure --version <chart version> -i -f  infrastructure.yml  --namespace <namespace> --set mongo7.image.tag=<mongo_image_tag>
+    ```
+
+    Where:
+    
+    `<chart version>` is the infrastructure chart version retrieved in the step above.
+
+    `<mongo_image_tag>` is the image tag used in the previous step to build the image.
+
+    `<namespace>` is your namespace (the default is "connections").
 
 ## Set up community ingress
 
-1. If not already added, add the community Helm repository:
+!!! note
+    Starting with v8 CR14, Traefik Proxy replaces the ingress-nginx controller. For the migration process, follow the  [Set up community ingress](cp_install_services_tasks.html#comm_ingress) workflow, except for the Traefik installation steps. Use the Traefik installation procedure for OpenShift is documented in this topic.
+
+
+1. Add and Update the Traefik Helm Repository:
 
     ```
-    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    helm repo add traefik https://traefik.github.io/charts
+    helm repo update
     ```
 
-2. Install ingress-nginx using the following command:
+2. Download and Prepare the Helm Chart
+
+    Download the Traefik Proxy Helm chart and remove the standard Gateway API configuration to avoid conflicts with OpenShift’s native API management:
 
     ```
-    helm upgrade cnx-ingress -i ingress-nginx/ingress-nginx  --namespace <namespace> --set controller.image.allowPrivilegeEscalation=false --set controller.extraArgs.default-ssl-certificate=connections/ingress-nginx-tls-secret --set controller.service.type=NodePort,controller.service.nodePorts.http=32080,controller.service.nodePorts.https=32443,defaultBackend.enabled=true,controller.healthStatus=true,controller.healthCheckPath="/healthz",controller.livenessProbe.timeoutSeconds=60,controller.readinessProbe.timeoutSeconds=60,controller.opentelemetry.containerSecurityContext.runAsUser=null,controller.admissionWebhooks.createSecretJob.securityContext.runAsUser=null,controller.admissionWebhooks.patchWebhookJob.securityContext.runAsUser=null --wait
+    helm pull traefik/traefik --version 39.0.8 --untar
+    rm traefik/crds/gateway-standard-install.yaml
+    ```
+
+3. Install Traefik Custom Resource Definitions (CRDs)
+        Apply the Traefik CRDs to the cluster. The `--server-side` flag is required to accommodate large definitions; this prevents metadata overflow during the process.
+
+    ```
+    oc apply -f traefik/crds/ --server-side
+    ```
+
+4. Configure Custom Values
+
+    Download `cnx-ingress-traefik-values.j2` from the [HCL Connections deployment automation Git repository](https://github.com/HCL-TECH-SOFTWARE/connections-automation/tree/main/roles/hcl/component-pack-harbor/templates/) as `cnx-ingress-traefik-values.yml`.  
+
+    Update the variables to match your environment and ensure `ingressClass.isDefaultClass` is set to false:
+
+    ```
+    ingressClass:
+      enabled: true
+      isDefaultClass: false
+    ```
+
+    Note: For OpenShift, `isDefaultClass` must be set to false to avoid conflicts with the default OpenShift Ingress Controller.
+
+5. Install Traefik Proxy
+
+    Using the prepared values file and the local chart directory, run the following command to install Traefik.
+
+    ```
+    helm upgrade cnx-ingress ./traefik -i -n <namespace> --skip-crds -f cnx-ingress-traefik-values.yml
     ```
 
     Where `<namespace>` is your namespace (the default is "connections").
+
+6. Verify the Ingress Controller installation
+
+    Follow the verification steps in [Set up community ingress](cp_install_services_tasks.html#comm_ingress) to verify the installation.
+
 
 ## Set up Activities Plus
 
@@ -163,28 +240,28 @@ When deploying APISIX as part of HCL API Gateway on OpenShift, follow the main i
 - **If APISIX CRDs are not installed**
 
     Manually download only the APISIX-specific CRDs from the [APISIX Ingress Controller CRD folder](https://github.com/apache/apisix-helm-chart/blob/master/charts/apisix-ingress-controller/crds/apisixic-crds.yaml) and apply them by executing:
-    
+
     ```sh
     oc apply -f apisixic-crds.yaml
     ```
 
 - **Do not install Gateway API CRDs**
-    
+
     OpenShift manages Gateway API CRDs (such as `gatewayclasses.gateway.networking.k8s.io`, `httproutes.gateway.networking.k8s.io`, and others) using the OpenShift Ingress Operator. Do not attempt to install or overwrite these CRDs during APISIX deployment.
 
 - **Use `--skip-crds`**
-    
+
     Add `--skip-crds` to the Helm install command to prevent Helm from installing CRDs that OpenShift already manages.
 
 - **Set token type to `simple`:**
-    
+
     When installing APISIX using Helm, add `--set etcd.auth.token.type=simple` to the install command. This ensures compatibility with OpenShift, where the default JWT authentication for etcd may not be supported.
 
 
     **Example command**
 
     ```sh
-    helm upgrade -i core-apisix apisix/apisix --version 2.12.0 --namespace <namespace> -f core-apisix-custom-values.yaml --set etcd.auth.token.type=simple --skip-crds
+    helm upgrade -i apisix apisix/apisix --version 2.12.0 --namespace <namespace> -f core-apisix-custom-values.yaml --set etcd.auth.token.type=simple --skip-crds
     ```
 
 For the full procedure, see the main guide. For more details and OpenShift-specific instructions, refer to:
