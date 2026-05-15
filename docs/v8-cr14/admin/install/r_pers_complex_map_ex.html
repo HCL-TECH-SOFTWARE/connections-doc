@@ -71480,7 +71480,7 @@
 <span class="w">     </span><span class="nv">surnames</span><span class="o">={</span>func_surnames_Acme<span class="o">}</span>
 </code></pre></div>
 <p>In this example, the LDAP sn field contains a list of surnames.</p>
-<p>The surname=sn line causes the first entry in the resulting list to be stored in the surname field in the Profiles user table.</p>
+<p>The <code>surname=sn</code> line causes the first entry in the resulting list to be stored in the surname field in the Profiles user table.</p>
 <p>The <code>surnames={func_surnames_Acme}</code> line causes the returned list from the following <code>func_surnames_Acme</code> line to be placed in the Profiles SURNAME table, and available for name search.</p>
 <div class="highlight"><pre><span></span><code><span class="k">function</span><span class="w"> </span>func_surNames_Acme<span class="o">(</span><span class="w"> </span>propertyName<span class="o">)</span><span class="w"> </span><span class="o">{</span>
 <span class="w">        </span>var<span class="w"> </span><span class="nv">propertyNameStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>propertyName.toString<span class="o">()</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span><span class="o">=</span>’surnames’<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>used<span class="w"> </span><span class="k">in</span><span class="w"> </span>l
@@ -71513,7 +71513,7 @@
 <p>Given that the list is available, we clone it with the <code>result = result.clone();</code> line to avoid changing the entry list that belongs to TDI.</p>
 <p>We next iterate through the list testing to verify that each value is a string. This is a best practice even though in this actual example it is unnecessary.</p>
 <p>The <code>result.getValue(i);</code> line gets the next item in the list; this represents the R element of CRUD.</p>
-<p>The result.setValue(i, val); line shows how to modify a value; this represents the U element of CRUD.</p>
+<p>The <code>result.setValue(i, val);</code> line shows how to modify a value; this represents the U element of CRUD.</p>
 <p>In the previous example 2, the setValue method was used to perform both these functions.</p>
 <p>To demonstrates how the delete (D) and remove (R) CRUD functions would work, let’s limit the surnames list to five names by adding the following Javascript after the for (var i = 0; i &lt;len; i++) line:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span>&gt;<span class="w"> </span><span class="m">4</span><span class="o">)</span>

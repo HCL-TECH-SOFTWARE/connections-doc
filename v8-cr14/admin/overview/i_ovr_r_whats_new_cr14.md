@@ -31,7 +31,7 @@ HCL Connections 8.0 CR14 includes new Wikis and Forums APIs, built on the API Ga
 
 Future releases will expand API coverage to additional Connections components as part of this ongoing effort. The APIs and API Gateway can be deployed through the Component Pack on both Kubernetes and OpenShift environments.
 
-For details, see [API Modernization](../admin/api_modernization.md) and [Installing HCL API Gateway for Component Pack](../../admin/install/installing_hcl_api_gateway_for_component_pack.md).
+For details, see [API Modernization](../../admin/develop/dev_api_modern.md) and [Installing HCL API Gateway for Component Pack](../../admin/install/installing_hcl_api_gateway_for_component_pack.md).
 
 ## Enhanced Wiki experience
 

@@ -33,7 +33,8 @@ To configure IBM HTTP Server to download files, complete the following steps:
 ## Procedure
 
 !!! note 
-Configuration steps for IHS 8 slightly differ from steps for IHS 9.
+    
+    Configuration steps for IHS 8 slightly differ from steps for IHS 9.
 
 1.  Install the HCL Connections applications you plan to configure for file downloads if you have not already done so: Activities, Files, Mobile, or Wikis.
 

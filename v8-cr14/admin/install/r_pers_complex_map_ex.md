@@ -107,7 +107,7 @@ The needed properties in `map_dbrepos_from_source.properties` are as follows.
 
 In this example, the LDAP sn field contains a list of surnames.
 
-The surname=sn line causes the first entry in the resulting list to be stored in the surname field in the Profiles user table.
+The `surname=sn` line causes the first entry in the resulting list to be stored in the surname field in the Profiles user table.
 
 The `surnames={func_surnames_Acme}` line causes the returned list from the following `func_surnames_Acme` line to be placed in the Profiles SURNAME table, and available for name search.
 
@@ -150,7 +150,7 @@ We next iterate through the list testing to verify that each value is a string. 
 
 The `result.getValue(i);` line gets the next item in the list; this represents the R element of CRUD.
 
-The result.setValue\(i, val\); line shows how to modify a value; this represents the U element of CRUD.
+The `result.setValue(i, val);` line shows how to modify a value; this represents the U element of CRUD.
 
 In the previous example 2, the setValue method was used to perform both these functions.
 
