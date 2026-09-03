@@ -1,0 +1,9 @@
+nav:
+  - index.md
+  - Set up ingress for CEC WebEngine: setup-dx-compose-ingress.md
+  - Configuring IBM HTTP server for CEC WebEngine: configure-http-server-for-dx-compose.md
+  - Managing CEC portal administrators: managing-portal-administrators.md
+  - Managing post-login default page: managing-post-login-default-page.md
+  - Managing access to intranet page for non-admin users: page-access-for-non-admin.md
+  - Hiding page Component categories from the palette: hiding-page-component-categories.md
+  - Hiding unnecessary elements in Component edit and read forms for CEC v2 components: hiding-component-edit-form-elements.md

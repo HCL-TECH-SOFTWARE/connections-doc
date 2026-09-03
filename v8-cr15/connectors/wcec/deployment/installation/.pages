@@ -1,0 +1,14 @@
+nav:
+
+  - index.md
+
+  - Configuring DB2 database for CEC WebEngine: database-configuration.md
+
+  - Configuring networking for CEC WebEngine: networking-configuration.md
+
+  - Configuring single sign-on for CEC WebEngine: sso-configuration.md
+
+  - Enabling and disabling CEC WebEngine applications: enabling-disabling-applications.md
+
+  - Install using Helm: installation-helm.md
+
