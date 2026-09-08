@@ -6,7 +6,7 @@ The image can easily be uploaded to the Connections Engagement Center customizat
 
 ![image](images/image042.png)
 
-The path of the image is always the same if you uploaded it to the Connections Engagement Center. You only need to change the name of the file, e.g. **/http/rest/public/custom/filename.extension**
+The path of the image is always the same if you uploaded it to the Connections Engagement Center. You only need to change the name of the file, e.g. **/xcc/rest/public/custom/filename.extension**
 
 The image will by default be displayed in full-width without any padding.
 
