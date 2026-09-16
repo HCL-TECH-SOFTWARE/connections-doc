@@ -49,12 +49,7 @@ Before you begin, ensure the following:
 
         4. **(If TLS is enabled) TLS secret** — The `cnx-tls-secret` referenced in the Helm values must also exist in the dedicated namespace. Run the [bootstrap installation](../install/cp_install_services_tasks.md#bootstrap) to generate it automatically. For more information on manual certificate management, see [Enabling secure traffic to the ingress controller](../install/enable_ingress_tls.md).
 
-2. Apply Pod Security Standards (Kubernetes 1.25.0 or higher).
-
-    !!! important
-        This step applies only when you are installing on Kubernetes 1.25.0 or higher.
-        
-    As PodSecurityPolicy was deprecated in Kubernetes v1.21 and removed in v1.25, apply Pod Security Admission standards to enforce security restrictions at the namespace level.
+2. Apply Pod security restrictions at the namespace level
 
     - If you use the `connections` namespace for Collabora Online, the Pod Security Standards are already applied as part of the main Component Pack installation. You can skip this step.
 

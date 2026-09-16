@@ -39,7 +39,7 @@ Returns all the installed services that are defined in LotusConnections-config.x
 
 Resume tokens are related to incremental indexing of content, which keeps changing as users interact with a live system. The search engine tracks the information about the last successful crawling time of updated content. This crawl information is referred to as "resume tokens".
 
-Checking the resume tokens queries the database and returns resume tokens in a readable format. The next indexing task indexes all the content for the component from the date and time that is specified in resume tokens. If crawling and indexing uses the default configuration as configured, resume tokens is no more than 15 minutes old. If the crawling interval is modified, check that the value of resume tokens is no more than the newly configured crawling interval. For example, if the crawling and indexing interval is one hour then the resume token value should not be older than one hour.
+Checking the resume tokens queries the database and returns resume tokens in a readable format. The next indexing task indexes all the content for the component from the date and time that is specified in resume tokens. If crawling and indexing uses the default configuration as configured, resume tokens are no more than 15 minutes old. If the crawling interval is modified, check that the value of resume tokens is no more than the newly configured crawling interval. For example, if the crawling and indexing interval is one hour then the resume token value should not be older than one hour.
 
 ## Checking that the schedule calendars are configured correctly { .section}
 
@@ -77,7 +77,7 @@ When the indexes on each node have the same data, they are in sync and the messa
 
 ## Checking the database records { .section}
 
-The value that is returned for the message: The number of documents in the database is shows how many crawled documents are in the database and are due to be indexed by one or more nodes. A value of 0 indicates that all the documents are processed since the last crawl.
+The value that is returned for the message: The number of documents in the database shows how many crawled documents are in the database and are due to be indexed by one or more nodes. A value of 0 indicates that all the documents are processed since the last crawl.
 
 The value that is returned for the message:The number of files converted is shows how many files that are marked as converted is the database.
 

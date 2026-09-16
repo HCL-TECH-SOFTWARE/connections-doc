@@ -217,7 +217,7 @@ No mapping for that id processed.
 |CLFRN1125I: ProfileLMCache disabled.|The profile last modified cache is disabled.|Informational message; no solution is needed.|
 |CLFRN1127E: Error retrieving ProfileLMCache.|The server encountered an error with the profile last modified cache.|Shut down the server and restart.|
 |CLFRN1126I: ProfileLMCache refresh scheduled for \{0\}|The profile last modified cache refresh is scheduled for the specified time.|Informational message; no solution is needed.|
-|CLFRN1129E: Virus detected - \{0\}|A viirus was detected for a file.|Try to scan the files before making the upload to the Profiles application.|
+|CLFRN1129E: Virus detected - \{0\}|A virus was detected for a file.|Try to scan the files before making the upload to the Profiles application.|
 |CLFRN1130I: Communication error during virus scanning - \{0\}|There is a problem connecting to the virus scanning service.|Check that the virus scanning service configured is operating and functional.|
 |CLFRN1131I: Virus scanning enabled, using server\(s\) \{0\}|Informational only.|Informational message; no solution is needed.|
 |CLFRN1132E: Virus scan error: \{0\}|This is a general virus scan error.|Make sure that the virus scanning server is accessible from the Profiles application server.|

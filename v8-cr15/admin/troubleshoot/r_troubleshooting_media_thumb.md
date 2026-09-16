@@ -12,16 +12,16 @@ The Files MBean command scans all existing HCL Connections™ files and sends a 
 
 1.  When you run FilesThumbnailService.generateForAllFiles\(\), a thread is dedicated to this task until finished.
 2.  You can configure the rate of event generation. The default is one event every two seconds.
-3.  FilesThumbnailService.generateForAllFiles\(\) loops to scan the Database from the beginning or restarts from where you left off from any previous run by persist the last timestamp on disk. The scan descends by file create time.
+3.  FilesThumbnailService.generateForAllFiles\(\) loops to scan the database from the beginning or restarts from where you left off from any previous run by persisting the last timestamp on disk. The scan descends by file creation time.
 4.  For each file, FilesThumbnailService.generateForAllFiles\(\) checks if a thumbnail is available. If a thumbnail is not available, a `createThumbnail` event is sent.
-5.  The log file is updated after every 150 events. Check the log intermittently, to monitor progress. .
+5.  The log file is updated after every 150 events. Check the log intermittently to monitor progress.
 6.  FilesThumbnailService.generateForAllFiles\(\) terminates after scanning all file records in the system.
 
 If either Files.ear or the server restarts, you must runFilesThumbnailService.generateForAllFiles\(\) again.
 
 ## Changing event generation rate { .section}
 
-The default rate for generation is one event very two seconds. This rate is based on a 24-cores conversion configuration. For example, if there are six conversion servers, with four 4 cores each \(as recommended by HCL Docs\), so there are 6\*4=24 cores for conversion.
+The default rate for generation is one event every two seconds. This rate is based on a 24-core conversion configuration. For example, if there are six conversion servers, with four cores each \(as recommended by HCL Docs\), there are 6\*4=24 cores for conversion.
 
 To change the conversion rate, take the following steps:
 
@@ -34,7 +34,7 @@ To change the conversion rate, take the following steps:
     external.thumbnailGeneration.intervalInSeconds=2
     ```
 
-4.  Using the following SQL statement, to get the total number of files need to generate thumbnails from the connect Files database:
+4.  Use the following SQL statement to get the total number of files that need thumbnails generated from the connected Files database:
 
     ```
     "select count(*) from FILES.MEDIA where FILE_EXTENSION IN ('.doc','.docx','.ppt','.pptx','.xls','.xlsx','.odt','.ods','.odp')"

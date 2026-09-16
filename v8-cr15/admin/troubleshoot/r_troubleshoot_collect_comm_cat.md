@@ -6,7 +6,7 @@ Collect communities catalog data to help HCL Support diagnose catalog problems.
 
 Gather and provide the following information related to any communities catalog issues:
 
--   The values of the CATALOG\_INDEX\_DIR and CATLAOG\_REPICATION\_DIR WebSphere variables.
+-   The values of the CATALOG\_INDEX\_DIR and CATALOG\_REPLICATION\_DIR WebSphere variables.
 -   A detailed description of the issue that includes the scenario that caused the issue, user names, and time stamps to match the issue.
 -   Trace files from all existing nodes.
 -   Fiddler traces of UI HTTP calls.
@@ -30,7 +30,7 @@ Collect the content of the following a database tables:
 Collect the content found in the folders that are defined by the following WebSphere Application Server variables \(for all nodes\):
 
 -   CATALOG\_INDEX\_DIR
--   CATLAOG\_REPICATION\_DIR
+-   CATALOG\_REPLICATION\_DIR
 
 ## Trace Files { .section}
 

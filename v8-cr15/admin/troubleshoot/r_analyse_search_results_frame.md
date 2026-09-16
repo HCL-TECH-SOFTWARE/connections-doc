@@ -47,7 +47,7 @@ Any exceptions in the current SystemOut.log on this node are highlighted in a re
 -   **[Reviewing the Seedlists Validation tab](../troubleshoot/r_review_seedlist_validation_tab.md)**
 The Seedlists Validation tab validates that the application seedlists can be accessed for search engine crawling.
 -   **[Reviewing the SAND Validation tab](../troubleshoot/r_review_SAND_validation_tab.md)**
-The SAND validation tabs checks the files needed for the SAND index are in place..
+The SAND validation tab checks that the files needed for the SAND index are in place.
 
 **Parent topic:**[Troubleshooting Search](../troubleshoot/c_ts_search.md)
 

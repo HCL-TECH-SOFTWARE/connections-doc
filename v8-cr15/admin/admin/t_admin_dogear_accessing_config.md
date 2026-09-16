@@ -76,7 +76,7 @@ Configuration files are XML-formatted files that store configuration information
 5.  To change a Dogear configuration setting, use the following command:
 
     ```sh
-    DogearCellConfig.updateConfig("[property]", "[value]"),
+    DogearCellConfig.updateConfig("[property]", "[value]")
     ``` 
     
     where `[property]` is one of the editable Dogear properties and `[value]` is the new value to apply to the property. 

@@ -12,7 +12,7 @@ Use SSH to connect to the master server and execute this command to get informat
 
 ## Pods are in "Unknown" state after worker node goes down
 
-This is the expected behavior if a worker nodes has gone down. To verify that one of your worker nodes has gone down, run the command `kubectl get nodes`. In this scenario, the expected behavior of the pods depend on whether the pod is part of stateful set or stateless set:
+This is the expected behavior if a worker node has gone down. To verify that one of your worker nodes has gone down, run the command `kubectl get nodes`. In this scenario, the expected behavior of the pods depends on whether the pod is part of a stateful set or a stateless set:
 
 For stateful set pods (Mongo, Valkey, and OpenSearch), the pod that was running on the node that is down will remain in an ***"Unknown"*** state. This is because the master does not know whether it was a deliberate shutdown or a network partition. Since the pod might still be running somewhere on the cluster, the master will not recreate the pod on an available worker (to avoid violating the guarantee of stateful sets only having one pod). You can bring back the node that is down and let the pod recover, or you can force-delete the pod and let it recreate on an available worker by running the following command:
 

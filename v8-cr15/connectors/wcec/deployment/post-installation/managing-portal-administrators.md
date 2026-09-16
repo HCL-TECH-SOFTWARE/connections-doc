@@ -28,8 +28,10 @@ Specify a separate portal administration group in your LDAP user repository (for
 2. Locate the **PORTAL** resource, and then click the **Assign Access** icon.
 3. Click the **Edit Role** icon for the **Administrator** role.
 4. Click **Add**.
-5. Select the checkbox for the new portal administration group you specified in your user repository, and then click **OK**. This grants the group administrative access to the Release domain.
-6. Navigate to **Resources** and click **Apply** > **OK** to save the changes.
+5. For group administrative access, select the checkbox for the new portal administration group you specified in your user repository, and then click **OK**. This grants the group administrative access to the Release domain.
+6. For user administrative access, select "User" option from search dropdown. Search for the user you want to give admin access, check the box and click **Ok**.<br>
+    *Example* - If you want administrative access for jjones1 user then search for the jjones1, select the checkbox from the result and click **ok**.
+7. The added user will be seen in the administrator list.
 
 ## Granting web content library access
 
@@ -37,8 +39,10 @@ Specify a separate portal administration group in your LDAP user repository (for
 2. Click **Set Access on Root**.
 3. Click the **Edit Role** icon for the **Administrator** role.
 4. Click **Add**.
-5. Search and add the new portal administration group, then click **OK**. This grants administrative access to the Java Content Repository (JCR) domain.
-6. Navigate to **Resources** and click **Apply** > **OK** to save the changes.
+5. For group administrative access, search and add the new portal administration group, then click **OK**. This grants administrative access to the Java Content Repository (JCR) domain.
+6. For user administrative access, select "User" option from search dropdown. Search for the user you want to give admin access, check the box and click **Ok**.<br>
+    *Example* - If you want administrative access for jjones1 user then search for the jjones1, select the checkbox from the result and click **ok**.
+7. The added user will be seen in the administrator list.
 
 ## Verifying the configuration
 
