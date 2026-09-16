@@ -9,7 +9,7 @@ The OAuth support feature consists of four parts:
 -   The WebSphere® Application Server OAuth Application that exposes authorization and token endpoints, and a feed of authorizations.
 -   The WebSphere Application Server OAuth TAI that intercepts requests to OAuth-protected API endpoints and sets the user principal in the request, handling error response codes.
 -   The Connections OAuth Provider support module that exposes an Application Access page, Access Request screens, and a ProviderInitializer context listener that is used by all Connections applications.
--   The Connections OAuth Consumer Proxy that resides in the WidgetContainer application, which is responsible of the OpenSocial gadget container.
+-   The Connections OAuth Consumer Proxy that resides in the WidgetContainer application, which is responsible for the OpenSocial gadget container.
 
 ## Troubleshooting guidelines { .section}
 

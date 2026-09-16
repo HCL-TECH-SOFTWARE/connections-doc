@@ -27,31 +27,31 @@ where:
 
 -   **Application prefix**: Identifies the application that wrote the message. The following prefixes are used to identify Connections applications and components:
 
-    |Connections application or component|Prefix|
-    |------------------------------------|------|
-    |Activities**Note:** The Quartz Scheduler, a component of Activities does not use the Activities prefix, but its messages do include the string org.quartz.
+    | Connections application or component | Prefix |
+    | ------------------------------------ | ------ |
+    | Activities | CLFRA |
+    | Blogs | CLFRS |
+    | Bookmarks | CLFRL |
+    | Common directory services integration service | CLFRK |
+    | Communities | CLFRM |
+    | Files | EJPVJ |
+    | Forums | CLFRV |
+    | Home page | CLFRQ |
+    | Installer | CLFRP |
+    | Connections Configuration | CLFRO |
+    | Notifications | CLFRR |
+    | Connections Multi-Service Portlet | CLFNF |
+    | Federated Search | CLFRT |
+    | News Service | CLFWX |
+    | Event Service | CLFWY |
+    | Widget Services | CLFWZ |
+    | Profiles | CLFRN |
+    | Search | CLFRW |
+    | User life cycle | CLFWY |
+    | WebSphere® Portal infrastructure | EJPIC |
+    | Wikis | EJPVJ |
 
-|CLFRA|
-    |Blogs|CLFRS|
-    |Bookmarks|CLFRL|
-    |Common directory services integration service|CLFRK|
-    |Communities|CLFRM|
-    |Files|EJPVJ|
-    |Forums|CLFRV|
-    |Home page|CLFRQ|
-    |Installer|CLFRP|
-    |Connections Configuration|CLFRO|
-    |Notifications|CLFRR|
-    |Connections Multi-Service Portlet|CLFNF|
-    |Federated Search|CLFRT|
-    |News Service|CLFWX|
-    |Event Service|CLFWY|
-    |Widget Services|CLFWZ|
-    |Profiles|CLFRN|
-    |Search|CLFRW|
-    |User life cycle|CLFWY|
-    |WebSphere® Portal infrastructure|EJPIC|
-    |Wikis|EJPVJ|
+    **Note:** The Quartz Scheduler, a component of Activities, does not use the Activities prefix, but its messages do include the string `org.quartz`.
 
 -   **Error code**: A 4-digit code assigned to the error message to identify it. Code numbers make it easier to search for information about the message. See [Error messages](c_error_codes.md) to see a list of the error codes and what they mean.
 -   **Message level code**: Identifies the level of the message written to the log. The following levels are supported:

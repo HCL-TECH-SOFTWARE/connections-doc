@@ -317,32 +317,6 @@ Register the snapshot repository in Elasticsearch 7:
       /pv-connections/apisix-etcd-2 192.0.2.1/255.255.0.0(rw,root_squash)
       ```
 
-## Uninstall charts before upgrading to Kubernetes v1.25 {#uninstall_charts_k8s125 .section}
-
-As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, the following charts should be uninstalled before upgrading to Kubernetes v1.25:
-
-```bash
-k8s-psp
-infrastructure
-opensearch-master
-opensearch-data
-opensearch-client
-kudos-boards-cp
-```
-
-First, check if the chart is already deployed:
-
-```bash
-helm ls --namespace connections | grep <chart name> | grep -i DEPLOYED
-```
-
-If found, delete the chart using below command:
-
-```bash
-helm uninstall <chart name> --namespace connections
-```
-
-For more details, see [PodSecurityPolicy is removed](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#podsecuritypolicy-is-removed-pod-security-admission-graduates-to-stable) in the Kubernetes changelog.
 
 ## Log in to a Harbor OCI registry {#harbor_repo .section}
 
@@ -394,11 +368,7 @@ For more details, see [PodSecurityPolicy is removed](https://github.com/kubernet
 
 ## Apply Pod security restrictions at the namespace level {#psa_namespace .section}
 
-!!! important
-      
-      This step applies when installing on Kubernetes version 1.25.0 or higher.
-
-As PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25, we are enforcing similar restrictions on Pods using Pod Security Admission. Kubernetes offers a built-in Pod Security admission controller to enforce the Pod Security Standards. We apply Pod security restrictions at the namespace level when pods are created using labels as below.
+Kubernetes uses Pod Security Admission to enforce Pod Security Standards. Pod security restrictions are applied at the namespace level by labeling the namespace when Pods are created. Apply the following Pod Security Standards to prevent known privilege escalations while allowing the default, minimally specified Pod configuration.
 
 ```bash
 kubectl label --overwrite ns connections \
@@ -407,33 +377,8 @@ pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version
 pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
 ```
 
-We are applying baseline Pod Security Standards, which prevents known privilege escalations. It allows the default (minimally specified) Pod configuration.
-
 For more details, see [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) and [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) in the Kubernetes documentation.
 
-!!! important
-
-      If installing on Kubernetes version 1.25 or above is not feasible, then install/upgrade the k8s-psp Helm chart. 
-
-Perform the following steps to install or upgrade the k8s-psp Helm chart:
-
-1. Start by finding out the k8s-psp chart version available on Harbor OCI:
-
-      ```bash
-      helm show all <<oci_registry_url>>/k8s-psp --devel | grep "^version:"
-      ```
-
-    Where `<<oci_registry_url>>` is the Harbor OCI container registry uri, that is `oci://hclcr.io/cnx`. This applies to other instances of `<<oci_registry_url>>` in the following steps.
-
-      ```bash
-      o/p version: 0.1.0-20210909-112534
-      ```
-
-2. Then install or upgrade:
-
-      ```bash
-      helm upgrade k8s-psp <<oci_registry_url>>/k8s-psp -i --version 0.1.0-20210909-112534 --set namespace=connections --namespace connections --wait
-      ```
 
 ## Set up Helm charts {#setup_helm .section}
 

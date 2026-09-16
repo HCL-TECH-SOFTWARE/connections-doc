@@ -42,7 +42,7 @@ CLFRN1273I: Finish hash records in source repository.
 
 ## Phase 3 - compare values { .section}
 
-The third phase performs a comparison between the LDAP data and the database data for each user. This is done by partition, one user at a time, starting with partition files `0.dbids` and `0.ldiff`. This assumes that one of the multi-processing performance options is not being used. That is, iterate thru the source \(LDAP\) partitions, and then iterate thru the users in that partition, looking up the Profiles database data corresponding to the hash value.
+The third phase performs a comparison between the LDAP data and the database data for each user. This is done by partition, one user at a time, starting with partition files `0.dbids` and `0.ldiff`. This assumes that one of the multi-processing performance options is not being used. That is, iterate through the source \(LDAP\) partitions, and then iterate through the users in that partition, looking up the Profiles database data corresponding to the hash value.
 
 The time required to complete Phase 3 depends on the number of users and on the number of extension attributes that each user has.
 
@@ -63,7 +63,7 @@ The comparison process is as follows, assuming that the partition files are `0.d
 1.  The contents of `0.dbids` are read into memory into a single hashmap where the key is the uid. The objects in the hashmap are a secondary level of hashmap that contains the user data.
 2.  If the hash is in both `0.dbids` and `0.ldiff`, all attributes are compared, and if not equal, the Profiles database is updated. In addition, the users data in the in-memory copy of `0.dbids` is deleted.
 3.  If the user appears in only `0.ldiff`, that is, only the LDAP, then the user is added to a file named `sync_updates/creates.ldiff` and added to the Profiles database in phase 5.
-4.  At the end of iterating thru the users in a partition, any users that remain in the in-memory copy of `0.dbids` are added to a file named `synch_updates/deletes.dbids` and deleted from the Profiles database in phase 4.
+4.  At the end of iterating through the users in a partition, any users that remain in the in-memory copy of `0.dbids` are added to a file named `synch_updates/deletes.dbids` and deleted from the Profiles database in phase 4.
 5.  The next partition file is read into memory, and the process continues until all partitions have been analyzed.
 
 ## Phase 4 - delete { .section}

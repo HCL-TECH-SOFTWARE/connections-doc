@@ -16,7 +16,7 @@ Queue counter
 
 **Note:** These counters only work when the Search application is installed on a different server from the Connections applications.
 
-The active transactions counter allows a specified number of active transactions to wait for a response from the Search server. For example, if the limit is set to 20, when 20 active transactions are waiting for a response from the Search server, any subsequent attempts to connect to the server are placed in a queue. If the queue counter is not equal to the value defined in the LotusConnections-config.xml configuration file, the connection to the Search server is rejected. If the queue counter is equal to the value set in the configuration file, a connection to the server is allowed. If the Search server returns data without an timeout exception being returned to the application, the queue counter is reset to 0.
+The active transactions counter allows a specified number of active transactions to wait for a response from the Search server. For example, if the limit is set to 20, when 20 active transactions are waiting for a response from the Search server, any subsequent attempts to connect to the server are placed in a queue. If the queue counter is not equal to the value defined in the LotusConnections-config.xml configuration file, the connection to the Search server is rejected. If the queue counter is equal to the value set in the configuration file, a connection to the server is allowed. If the Search server returns data without a timeout exception being returned to the application, the queue counter is reset to 0.
 
 You can set the limits allowed by the active transactions counter and the queue counter by configuring settings in the LotusConnections-config.xml file.
 

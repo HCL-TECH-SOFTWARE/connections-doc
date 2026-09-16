@@ -9,7 +9,7 @@ If you experience problems when indexing, you can validate Search seedlists to h
 -   **[Troubleshooting Search-related memory issues](../troubleshoot/t_troubleshooting_search_memory_issues.md)**  
 You can configure settings in the LotusConnections-config.xml file to avoid out-of-memory issues or other problems caused by long response times from the Search application.
 -   **[Analyzing results from the search serverStatus page](../troubleshoot/r_analyse_search_results_frame.md)**  
-TheHCL Connections™ Search Engine provides the search serverStatus web page that you can use to troubleshoot search issues.
+The HCL Connections™ Search Engine provides the search serverStatus web page that you can use to troubleshoot search issues.
 -   **[Troubleshooting when files content is not found after searching](../troubleshoot/t_ts_missing_files_content_after_search.md)**  
 Connections uses the Apache Tika file conversion libraries for converting business documents from various types to plain text. The plain text is required before the content can be indexed. If search cannot find the content from a file, it could be due to an issue with this conversion from the business document format to plain text. This article describes some steps that can be used to troubleshoot this process.
 -   **[Troubleshooting the "too many open files" error when updating the Search index](../troubleshoot/r_update_search_index_linux.md)**  

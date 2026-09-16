@@ -65,35 +65,34 @@ Perform the following steps chronologically, in the order that they appear in th
 |---------------------------------| -----------------------------------------------|
 | 1. Install or upgrade HCL Connections | 1. Install or upgrade HCL Connections |
 | 2. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb) to ensure that you have NFS setup with proper folders and specific permissions. | 2. Refer to [Set up NFS](cp_install_services_tasks.md#section_e4p_jrp_tnb) to ensure that you have NFS setup with proper folders and specific permissions. |
-| 3.~~Back up MongoDB data~~ MongoDB 3 is no longer supported.  If your deployment is using MongoDB 3, please contact HCL Connections Customer Support before proceeding. | 3. (For Kubernetes version lower than v1.25)  [Uninstall k8s-psp, Infrastructure and if applicable, opensearch-master, opensearch-data, opensearch-client and kudos-boards-cp](cp_install_services_tasks.md#uninstall_charts_k8s125) |
-| 4. [Back up Elasticsearch 7 data](cp_install_services_tasks.md#backup_es7) | 4.  Upgrade system to latest supported Kubernetes |
-| 5. [Set up OpenSearch and MongoDB volumes on NFS](cp_install_services_tasks.md#setup_nfs) | 5. [Log in to a Harbor OCI registry](cp_install_services_tasks.md#harbor_repo) |
-| 6. [Uninstall k8s-psp, Infrastructure and if applicable, opensearch-master, opensearch-data, opensearch-client and kudos-boards-cp](cp_install_services_tasks.md#uninstall_charts_k8s125) | 6. [Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) |
-| 7. [Delete ingress-nginx controller](cp_install_services_tasks.md#del_ingress) | 7. [Set up Helm charts](cp_install_services_tasks.md#setup_helm) |
-| 8. Upgrade system to latest supported Kubernetes | 8. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc) |
-| 9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 9. [Run bootstrap](cp_install_services_tasks.md#bootstrap) |
-| 10. [Log in to a Harbor OCI registry](cp_install_services_tasks.md#harbor_repo) | 10. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) |
-| 11. [Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) | 11. [Delete legacy Mongo security check job and Redis resources](cp_install_services_tasks.md#del_legacy_redis) |
-| 12. [Set up Helm charts](cp_install_services_tasks.md#setup_helm) | 12. [Build MongoDB 7 image](cp_install_services_tasks.md#inst_mongo7) |
-| 13. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc) | 13. [Delete ingress-nginx controller](cp_install_services_tasks.md#del_ingress) |
-| 14. [Run bootstrap](cp_install_services_tasks.md#bootstrap) | 14. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) |
-| 15. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 15. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) |
-| 16. [Delete legacy Mongo security check job and Redis resources](cp_install_services_tasks.md#del_legacy_redis) | 16. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo5) | 
-| 17. [Build MongoDB 7 image](cp_install_services_tasks.md#inst_mongo7) | 17. [Install OpenSearch](cp_install_services_tasks.md#os_chart) |
-| 18. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) | 18. [Set up Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) |
-| 19. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) | 19. [Set up Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os)     
-| 20. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo5) | 20. (Optional) [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) |
-| 21. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) | 21. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored)|
-| 22. [Install OpenSearch](cp_install_services_tasks.md#os_chart) | 22. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) |
-| 23. [Migrate ElasticSearch 7 data](cp_install_services_tasks.md#migrate_es) | 23. (Optional) [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) |
-| 24. [Reconfigure Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) | 24. (Optional) [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) |
-| 25. [Reconfigure Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os) | 25. (Optional) [Install HCL API Gateway](cp_install_services_tasks.md#hcl_api_gateway) |
-| 26. (Optional) [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) | |
-| 27. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored) | |
-| 28. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) | |
-| 29. (Optional) [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) | |
-| 30. (Optional) [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) | |
-| 31. (Optional) [Install HCL API Gateway](cp_install_services_tasks.md#hcl_api_gateway) | |
+| 3.~~Back up MongoDB data~~ MongoDB 3 is no longer supported.  If your deployment is using MongoDB 3, please contact HCL Connections Customer Support before proceeding. | 3. Upgrade system to latest supported Kubernetes |
+| 4. [Back up Elasticsearch 7 data](cp_install_services_tasks.md#backup_es7) | 4. [Log in to a Harbor OCI registry](cp_install_services_tasks.md#harbor_repo) |
+| 5. [Set up OpenSearch and MongoDB volumes on NFS](cp_install_services_tasks.md#setup_nfs) | 5. [Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) |
+| 6. [Delete ingress-nginx controller](cp_install_services_tasks.md#del_ingress) | 6. [Set up Helm charts](cp_install_services_tasks.md#setup_helm) |
+| 7. Upgrade system to latest supported Kubernetes | 7. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc) |
+| 8. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 8. [Run bootstrap](cp_install_services_tasks.md#bootstrap) |
+| 9. [Log in to a Harbor OCI registry](cp_install_services_tasks.md#harbor_repo) | 9. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) |
+| 10. [Apply Pod security restrictions at the namespace level](cp_install_services_tasks.md#psa_namespace) | 10. [Delete legacy Mongo security check job and Redis resources](cp_install_services_tasks.md#del_legacy_redis) |
+| 11. [Set up Helm charts](cp_install_services_tasks.md#setup_helm) | 11. [Build MongoDB 7 image](cp_install_services_tasks.md#inst_mongo7) |
+| 12. [Set up persistent volumes and persistent volume claims on NFS](cp_install_services_tasks.md#pv_pvc) | 12. [Delete ingress-nginx controller](cp_install_services_tasks.md#del_ingress) |
+| 13. [Run bootstrap](cp_install_services_tasks.md#bootstrap) | 13. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) |
+| 14. [Set up connections-env chart](cp_install_services_tasks.md#cnx_env) | 14. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) |
+| 15. [Delete legacy Mongo security check job and Redis resources](cp_install_services_tasks.md#del_legacy_redis) | 15. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo5) |
+| 16. [Build MongoDB 7 image](cp_install_services_tasks.md#inst_mongo7) | 16. [Install OpenSearch](cp_install_services_tasks.md#os_chart) |
+| 17. [Set up community ingress](cp_install_services_tasks.md#comm_ingress) | 17. [Set up Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) |
+| 18. [Install infrastructure charts](cp_install_services_tasks.md#infra_chart) | 18. [Set up Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os)     
+| 19. [Migrate MongoDB data](cp_install_services_tasks.md#migrate_mongo5) | 19. (Optional) [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) |
+| 20. [Set up Customizer](cp_install_services_tasks.md#section_n3c_xhj_dvb) | 20. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored)|
+| 21. [Install OpenSearch](cp_install_services_tasks.md#os_chart) | 21. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) |
+| 22. [Migrate ElasticSearch 7 data](cp_install_services_tasks.md#migrate_es) | 22. (Optional) [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) |
+| 23. [Reconfigure Orient Me for OpenSearch](cp_install_services_tasks.md#orientme_os) | 23. (Optional) [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) |
+| 24. [Reconfigure Metrics for OpenSearch](cp_install_services_tasks.md#metrics_os) | 24. (Optional) [Install HCL API Gateway](cp_install_services_tasks.md#hcl_api_gateway) |
+| 25. (Optional) [Set up Microsoft Teams integration](cp_install_services_tasks.md#teams_integ) | |
+| 26. [Install community creation wizard and templates \(Tailored Experience\) chart](cp_install_services_tasks.md#comm_tailored) | |
+| 27. [Configure the LotusConnections-config.xml](cp_install_services_tasks.md#lotusxml) | |
+| 28. (Optional) [Set up Activities Plus](cp_install_services_tasks.md#activities_plus) | |
+| 29. (Optional) [Set up Connections add-in for Microsoft Outlook](cp_install_services_tasks.md#ms_outlook_addin) | |
+| 30. (Optional) [Install HCL API Gateway](cp_install_services_tasks.md#hcl_api_gateway) | |
 
 
 For more information, see [Steps to install or upgrade to Component Pack 8](cp_install_services_tasks.md).

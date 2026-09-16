@@ -58,27 +58,16 @@ The API Gateway deployment consists of two main components:
     !!! note
         If you choose to use a dedicated namespace (e.g., `apisix`), ensure you update the `<<namespace>>` parameter with your chosen namespace name in all subsequent APISIX related configuration files, Helm commands, and storage configurations throughout the installation process.
 
-2. Apply Pod Security Standards (Kubernetes 1.25.0 or higher)
+2. Apply Pod security restrictions at the namespace level
 
-    !!! important
-        This step applies when installing on Kubernetes version 1.25.0 or higher.
+    Kubernetes uses Pod Security Admission to enforce Pod Security Standards. Pod security restrictions are applied at the namespace level by labeling the namespace when Pods are created. Apply the following Pod Security Standards to prevent known privilege escalations while allowing the default, minimally specified Pod configuration.
 
-    As PodSecurityPolicy was deprecated in Kubernetes v1.21 and removed in v1.25, apply Pod Security Admission standards to enforce security restrictions at the namespace level.
-
-    - If using the `connections` namespace for APISIX, the Pod Security Standards should already be applied as part of the main Component Pack installation. You can skip this step.
-
-    - If using a dedicated namespace for APISIX (e.g., `apisix`), apply the baseline Pod Security Standards:
-
-        ```bash
-        kubectl label --overwrite ns <<namespace>> \
-        pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
-        pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
-        pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
-        ```
-
-        Replace `<<namespace>>` with your APISIX namespace name (e.g., `apisix`).
-
-    The baseline Pod Security Standards prevent known privilege escalations while allowing the default (minimally specified) Pod configuration.
+    ```bash
+    kubectl label --overwrite ns connections \
+    pod-security.kubernetes.io/enforce=baseline pod-security.kubernetes.io/enforce-version=latest \
+    pod-security.kubernetes.io/warn=baseline pod-security.kubernetes.io/warn-version=latest \
+    pod-security.kubernetes.io/audit=baseline pod-security.kubernetes.io/audit-version=latest
+    ```
 
     For more details, see [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/) and [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) in the Kubernetes documentation.
 

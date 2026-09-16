@@ -1,8 +1,8 @@
 # Troubleshooting file download and page display issues {#r_troubleshoot_file_download_and_page_display_issues .reference}
 
-Enabling ESI cache in IHS will have an adverse affect on HCL Connections™ 6.0 causing some features to fail. Therefore, Edge Side Include \(ESI\) cache in IHS should be disabled for Connections 6.0.
+Enabling ESI cache in IHS will have an adverse effect on HCL Connections™ 6.0 causing some features to fail. Therefore, Edge Side Include \(ESI\) cache in IHS should be disabled for Connections 6.0.
 
-Activities Files failing to download through HIS is a known issue in Connections when ESI cache in IHS is enabled.
+Activities Files failing to download through IHS is a known issue in Connections when ESI cache in IHS is enabled.
 
 Disable the ESI cache by completing the following steps:
 

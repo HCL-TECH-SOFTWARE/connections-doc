@@ -4,7 +4,7 @@ Run a command to replace URLs in bookmarks to correct broken links.
 
 To edit configuration files, you must use the wsadmin client. See [Starting the wsadmin client](t_admin_wsadmin_starting.md) for details.
 
-There may be times when you want to update the URLs for a collection of bookmarks. For example, when a website changes its host name permanently, you will want to update all associated bookmarks with the new host name. For example, if `http://site1.mycompany.com` is changed to `http://site2.mycompany.com`, run this replace URL command to update all bookmarks on `http://site1.mycompany.com`.
+There may be times when you want to update the URLs for a collection of bookmarks. For example, when a website changes its host name permanently, you will want to update all associated bookmarks with the new host name. For example, if `http://site1.example.com` is changed to `http://site2.example.com`, run this replace URL command to update all bookmarks on `http://site1.example.com`.
 
 The new URL may already be bookmarked by some users who also bookmarked the original URL. In those cases, you cannot simply update the bookmark to the new URL, as the Bookmarks application does not allow a user to have two or more valid bookmarks to the same URL. The IDs of those duplicate bookmarks are saved to a file that you specify. You can either leave those duplicate bookmarks in the application or run `LinkService.deleteLinkByURLBatch('<file>')` to delete them from the application.
 
@@ -47,10 +47,10 @@ Perform the following steps to replace URLs in bookmarks:
     Example:
 
     ```sh
-    wsadmin>UrlService.replaceURLWithURL('http://www.mysite.com', 'http://www.mycompany.com', 'c:\\log.txt') 
+    wsadmin>UrlService.replaceURLWithURL('http://www.example.com', 'http://www.example.org', 'c:\\log.txt')
     ```
 
-    This command searches for the URL ’http://www.mysite.com’ and replaces each instance with ’http://www.mycompany.com’. Log messages are printed to `c:\\log.txt`.
+    This command searches for the URL ’http://www.example.com’ and replaces each instance with ’http://www.example.org’. Log messages are printed to `c:\\log.txt`.
 
 4.  To find URLs to replace and write them to a file, enter this command:
 
@@ -80,10 +80,10 @@ Perform the following steps to replace URLs in bookmarks:
     Example:
 
     ```sh
-    wsadmin>UrlService.findURLsToReplace('mycompany', 'w3\\.mycompany\\.com', 'www.mycompany.com', 'c:\\output.txt', 'c:\\log.txt') 
+    wsadmin>UrlService.findURLsToReplace('example', 'w3\\.example\\.com', 'www.example.org', 'c:\\output.txt', 'c:\\log.txt')
     ```
 
-    This command scans all URLs containing the string 'mycompany' and matches them against the regular expression pattern "w3\\\\.mycompany\\\\.com". The "w3.mycompany.com" in the matching URLs will be replaced by "www.mycompany.com". The matched URLs and the replacement URLs are printed into c:\\output.txt file. Log messages are printed to c:\\log.txt.
+    This command scans all URLs containing the string 'example' and matches them against the regular expression pattern "w3\\\\.example\\\\.com". The "w3.example.com" in the matching URLs will be replaced by "www.example.org". The matched URLs and the replacement URLs are printed into c:\\output.txt file. Log messages are printed to c:\\log.txt.
 
 5.  To replace the URLs based on the contents of a file, enter this command:
 

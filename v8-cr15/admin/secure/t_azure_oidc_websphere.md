@@ -20,12 +20,16 @@ Complete the steps in [Adding an application in Azure AD for SSO with Connection
 
     ![](azure_websphere_modules.jpg)
 
-4.  Configure Global Security Custom Properties by clicking **Security** > **Global security** > **Custom Properties** and setting these properties to the following values:
+4.  Configure Global Security Custom Properties by clicking **Security** > **Global security** > **Custom Properties** and modifying the properties based on the following guidance:
 
-    |Property|Value|
-    |--------|-----|
-    |com.ibm.websphere.security.disableGetTokenFromMBean<br>**Note:** If this property doesn't exist, add it.|false|
-    |com.ibm.ws.security.oauth20.tai.OAuthTAI Updates|com.ibm.ws.security.oidc.client.RelyingParty|
+    |Property|Action/Value|
+    |-----------|-----|
+    |`com.ibm.websphere.security.disableGetTokenFromMBean`|Set to **False** (If this property doesn't exist, add it).|
+    |`com.ibm.websphere.security.DeferTAItoSSO`|**Delete this property if it exists.** <br> <br> **Note:** This property was previously used in the default configuration of all installed servers, but it is now strictly utilized as part of SAML configurations. Unless your environment specifically uses SAML single sign-on, this property must be removed. If you are using SAML, ensure its value is explicitly set to `com.ibm.ws.security.web.saml.ACSTrustAssociationInterceptor` (multiple comma-separated values are not supported).|
+
+
+    <!--|com.ibm.websphere.security.disableGetTokenFromMBean<br>**Note:** If this property doesn't exist, add it.|false|
+    |com.ibm.ws.security.oauth20.tai.OAuthTAI Updates|com.ibm.ws.security.oidc.client.RelyingParty|-->
 
 5.  Since we are using Azure AD clients for authentication, disable the `com.ibm.ws.security.oauth20.tai.OAuthTAI` filter.
 
